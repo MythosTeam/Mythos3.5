@@ -2,16 +2,25 @@
 ##########################2.1.6###########################
 ##########################################################
 
+#############
+# Description
+#############
+-Main plans for this update was a expansion of flavor events, but progress was cut short by a change in the team.
+-Had to be rushed out for a new steam page, as such most changes are focused on dragons, as we had not yet began work on others.
+-Future updates will be more expansive, and include more flavor for the other groups.
+-We are now recruiting new team members. If interested, join the discord https://discord.gg/GxZwZHScqE
+
+
 ##########
 # Vampires
 ##########
--
+- 
 
 #########
 # Dragons
 #########
 - Various tweaks to the dragons in Malta. 
-- Custom localization for dragonlaw rulers.
+- New subtype, used to experiment with a "Subtype" concept, if it goes well, they will be added for each supernatural race.
 
 ############
 # Werewolves
@@ -26,13 +35,17 @@
 #######
 # Other
 #######
+- Rebranded to Mythos 3.5 after a major shift in the dev team. 
 - Mystic character added in Bulgaria.
 - Design document written. Progress should go faster.
+- Added comments to some traits.
 
 ##########
 # Database
 ##########
-- New trait, "Heldragon", used for the dragons in malta.
+- New trait, "Heldragon", used for the dragons in malta for now. May be expanded to include demon/dragon matches.
+- Custom localization for dragonlaw rulers.
+- 
 
 ##########
 # Bugfixes

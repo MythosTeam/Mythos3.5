@@ -27,7 +27,7 @@ vampire = {
 	ai_ambition = 30
 }
 
-secret_vampire = {
+secret_vampire = { #Subtrait for secret vampires
 	opposites = {
 		known_vampire
 	}
@@ -48,7 +48,7 @@ secret_vampire = {
 	intrigue = 1
 }
 
-known_vampire = {
+known_vampire = { #Subtrait for revealled vampires
 	opposites = {
 		secret_vampire
 	}
@@ -64,7 +64,7 @@ known_vampire = {
 }
 	
 
-werewolf = {
+werewolf = { #General "Werewolf" trait
 	birth = 5
 	ruler_designer_cost = 10
 
@@ -91,7 +91,7 @@ werewolf = {
 
 }
 
-known_werewolf = {
+known_werewolf = { #Subtrait for Revealed werewolfs
 	potential = {
 		trait = werewolf
 	}
@@ -106,7 +106,7 @@ known_werewolf = {
 	werewolf_culture_opinion = 40
 }
 
-secret_werewolf = {
+secret_werewolf = { #Subtrait for Seeeecret werewolfs
 	potential = {
 		trait = werewolf
 	}
@@ -142,14 +142,14 @@ mythos_giant = {
 
 }
 
-pup = {
+pup = { #Young werewolf
 	opposites = { fledgling }
 	health = 1
 	customizer = no
 	hidden_from_others = yes
 }
 
-fledgling = {
+fledgling = { #Young vampire
 	opposites = { pup }
 	health = 1
 	customizer = no
@@ -323,14 +323,14 @@ djinn = {
 	ai_honor = -20
 }
 
-dragon = {
+dragon = { #represents all dragons, obviously
 	opposites = { dragonborn }
-	christian_opinion = -10
+	christian_opinion = -10 #St. George and the dragon
 	
-	learning = 2
-	stewardship = 2
+	learning = 2 #Skill with magic as well. 
+	stewardship = 2 #Greed is good.
 	martial = 2
-	health = 10
+	health = 10 #Very long-living.
 	fertility = -0.2 # To make up for longevity
 	
 	combat_rating = 30
@@ -346,13 +346,13 @@ dragon = {
 		race = draconic
 	}
 }
-dragonborn = {
+dragonborn = { #represents a "Half-Dragon". Dragonblooded represents anything less.
 	opposites = { dragon }
 	inherit_chance = 50
 	
-	christian_opinion = -5
+	christian_opinion = -5 
 	
-	learning = 1
+	learning = 1 #Skill with magic as well. 
 	stewardship = 1
 	martial = 1
 	health = 2
@@ -364,16 +364,22 @@ dragonborn = {
 	ai_greed = 10
 	ai_ambition = 10
 }
-heldragon = {
-	christian_opinion = -25
+heldragon = { #Subtype, Represents the more evil, wicked types of dragon. Relies more on dark magic.
+	christian_opinion = -25 #Fits the idea of dragons as monsters even more closely
 
-	learning = 4
-	stewardship = -2
+	learning = 4 #Represents magic, especially necromancy. Replace with magic once that system is done.
+	stewardship = -2 #Greed is good.. but why wait?
 	martial = 4
 	health = 10
 
-	ai_ambition = 10
-	ai_honor = -40	
+	ai_ambition = 10 
+	ai_honor = -40 #Ruthless
+
+	ruler_designer_cost = 20
+
+	potential = {
+		race = draconic
+	}
 }
 #EDUCATIONAL TRAITS
 
