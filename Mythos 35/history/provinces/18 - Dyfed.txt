@@ -1,0 +1,27 @@
+# 18 - Dyfed
+
+# County Title
+title = c_dyfed
+
+max_settlements = 3
+b_pembroke = castle
+b_st_davids = temple
+
+#b_haverford = city
+#b_narberth = castle
+#b_llanstadwell = temple
+#b_tenby = castle
+#b_penycwm = city
+
+# Misc
+culture = welsh
+religion = catholic
+terrain = hills
+
+# History
+
+867.1.1 = { religion = druidic }
+867.1.5 = { religion = druidic }
+1100.1.1 = { b_pembroke = castle }
+1100.1.1 = { capital = b_pembroke } 
+1100.1.1 = { remove_settlement = b_dinefwr } 

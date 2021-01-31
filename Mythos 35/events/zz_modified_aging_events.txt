@@ -1,0 +1,4857 @@
+# Modified event to adjust for different aging of different races
+
+#Old and ugly wife: take a mistress?
+character_event = {
+	id = 64015
+	desc = EVTDESC64015
+	picture = GFX_evt_lovers
+	
+	capable_only = yes
+	only_men = yes
+	only_rulers = yes
+	prisoner = no
+	lacks_dlc = "Way of Life"
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		fertility = 0.5
+		has_epidemic = no
+		is_ill = no
+		has_lover = no
+		NOT = {
+			trait = homosexual
+		}
+		NOT = {
+			has_character_flag = never_lover
+		}
+		any_courtier = {
+			is_female = yes
+			prisoner = no
+			NOT = { is_close_relative = ROOT }
+			NOT = {
+				trait = homosexual
+				trait = incapable
+			}
+			NOT = {
+				trait = celibate
+			}
+			age = 16
+			#NOT = {
+			#	age = 50
+			#}
+			is_50 = no
+			has_epidemic = no
+			is_ill = no
+			has_lover = no
+		}
+		spouse = {
+			is_alive = yes
+			is_abroad = no
+			prisoner = no
+			OR = {
+				has_epidemic = yes
+				is_ill = yes
+				#age = 45
+				is_old = yes
+				NOT = {
+					fertility = 0.2
+				}
+			}
+		}
+	}
+	
+	weight_multiplier = {
+		days = 1
+	}
+	
+	immediate = {
+		any_courtier = {
+			limit = {
+				is_female = yes
+				prisoner = no
+				NOT = { is_close_relative = ROOT }
+				NOT = {
+					trait = homosexual
+					trait = incapable
+				}
+				NOT = {
+					trait = celibate
+				}
+				age = 16
+				#NOT = {
+				#	age = 50
+				#}
+				is_old = no
+				has_epidemic = no
+				is_ill = no
+				has_lover = no
+			}
+			score_value = { #Prioritizes selecting an interesting courtier...
+	            value = 10
+	            interesting_courtier_selection_score = yes
+	        }
+			save_event_target_as = target_lover
+		}
+	}
+	
+	option = {
+		name = "EVTOPTA64015" #I'm sure my wife will allow me to indulge myself
+		piety = -10
+		if = {
+			limit = {
+				NOT = {
+					trait = lustful
+				}
+			}
+			add_trait = lustful
+		}
+		spouse = {
+			random = {
+				chance = 50
+				
+				opinion = {
+					modifier = opinion_angry
+					who = ROOT
+					years = 5
+				}
+				hidden_tooltip = {
+					character_event = {
+						id = 64016
+					}
+				}
+			}
+		}
+		event_target:target_lover = {
+			character_event = {
+				id = 64017
+				tooltip = "EVTTOOLTIP64017"
+			}
+		}
+	}
+	option = {
+		name = "EVTOPTB64015"
+		add_trait = deceitful
+		spouse = {
+			random = {
+				chance = 25
+				
+				opinion = {
+					modifier = opinion_angry
+					who = ROOT
+					years = 5
+				}
+				hidden_tooltip = {
+					character_event = {
+						id = 64016
+					}
+				}
+			}
+		}
+		event_target:target_lover = {
+			character_event = {
+				id = 64017
+				tooltip = "EVTTOOLTIP64017"
+			}
+		}
+	}
+	option = {
+		name = "EVTOPTC64015" #No, it's a sin
+		piety = 10
+		random_list = {
+			50 = {
+			}
+			20 = {
+				modifier = {
+					factor = 1.25
+					NOT = { religion_group = christian }
+				}
+				if = {
+					limit = {
+						religion_group = christian
+					}
+					add_trait = chaste
+					hidden_tooltip = {
+						character_event = {
+							id = 38274 #Notify Chaste
+						}
+					}
+				}
+				if = {
+					limit = {
+						NOT = { religion_group = christian }
+					}
+					piety = 5
+				}
+			}
+			25 = {
+				add_trait = zealous
+				hidden_tooltip = {
+					character_event = {
+						id = 38269 #Notify Zealous
+					}
+				}
+			}
+			5 = {
+				modifier = {
+					factor = 0
+					NOT = { religion_group = christian }
+				}
+				add_trait = celibate
+				hidden_tooltip = {
+					character_event = {
+						id = 38285 #Notify Celibate
+					}
+				}
+			}
+		}
+	}
+}
+
+# The married lover
+character_event = {
+	id = WoL.1161
+	desc = EVTDESC_WOL_1161
+	
+	picture = GFX_evt_lovers
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_WOL_1161 # Agree, country retreat
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 2
+				trait = slothful
+			}
+			modifier = {
+				factor = 2
+				trait = honest
+			}
+			modifier = {
+				factor = 5
+				trait = kind
+			}
+			modifier = {
+				factor = 2
+				trait = humble
+			}
+		}
+		if = {
+			limit = { trait = stressed }
+			random = {
+				chance = 50
+				remove_trait = stressed
+				hidden_tooltip = {
+					character_event = { id = 38313 days = 1 } # Notify lost Stressed
+				}
+			}
+		}
+		if = {
+			limit = { trait = depressed }
+			random = {
+				chance = 25
+				remove_trait = depressed
+				hidden_tooltip = {
+					character_event = { id = 38314 days = 1 } # Notify lost Depressed
+				}
+			}
+		}
+		
+		add_character_modifier = {
+			modifier = comfort_of_lover
+			days = 365
+		}
+		
+		FROM = { character_event = { id = WoL.1163 days = 3 tooltip = EVTTOOLTIP_WoL_1163 } }
+		
+		hidden_tooltip = {
+			if = {
+				limit = {
+					fertility = 0.33
+					FROM = { fertility = 0.33 }
+					OR = {
+						AND = {
+							is_female = yes
+							#NOT = { age = 45 }
+							is_old = no
+							is_pregnant = no
+							FROM = { is_female = no }
+						}
+						AND = {
+							is_female = no
+							FROM = {
+								is_female = yes
+								#NOT = { age = 45 }
+								is_old = no
+								is_pregnant = no
+							}
+						}
+					}
+				}
+				random = {
+					chance = 25
+					if = {
+						limit = {
+							FROM = {
+								OR = {
+									is_married = yes
+									is_consort = yes
+								}
+							}
+						}
+						impregnate_cuckoo = FROM
+						break = yes
+					}
+					impregnate = FROM
+				}
+			}
+			random = {
+				chance = 50
+				venereal_disease_effect = yes
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTB_WOL_1161 # Do it right here
+		
+		trigger = {
+			OR = {
+				trait = depressed
+				trait = stressed
+			}
+		}
+		
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 0.25
+				is_female = yes
+			}
+			modifier = {
+				factor = 5
+				trait = cruel
+			}
+			modifier = {
+				factor = 5
+				trait = arbitrary
+			}
+			modifier = {
+				factor = 2
+				trait = brave
+			}
+			modifier = {
+				factor = 2
+				trait = deceitful
+			}
+		}
+		if = {
+			limit = { trait = stressed }
+			remove_trait = stressed
+		}
+		if = {
+			limit = { trait = depressed }
+			random = {
+				chance = 50
+				remove_trait = depressed
+				hidden_tooltip = {
+					character_event = { id = 38314 days = 1 } # Notify lost Depressed
+				}
+			}
+		}
+		
+		add_character_modifier = {
+			modifier = thrill_of_lover
+			days = 365
+		}
+		
+		FROM = { character_event = { id = WoL.1162 days = 3 tooltip = EVTTOOLTIP_WoL_1162 } }
+		
+		hidden_tooltip = {
+			if = {
+				limit = {
+					fertility = 0.33
+					FROM = { fertility = 0.33 }
+					OR = {
+						AND = {
+							is_female = yes
+							#NOT = { age = 45 }
+							is_old = no
+							is_pregnant = no
+							FROM = { is_female = no }
+						}
+						AND = {
+							is_female = no
+							FROM = {
+								is_female = yes
+								#NOT = { age = 45 }
+								is_old = no
+								is_pregnant = no
+							}
+						}
+					}
+				}
+				random = {
+					chance = 25
+					if = {
+						limit = {
+							FROM = {
+								OR = {
+									is_married = yes
+									is_consort = yes
+								}
+							}
+						}
+						impregnate_cuckoo = FROM
+						break = yes
+					}
+					impregnate = FROM
+				}
+			}
+			random = {
+				chance = 50
+				venereal_disease_effect = yes
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTC_WOL_1161 # I don't need comfort
+		trigger = { NOT = { trait = lunatic } }
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 5
+				trait = craven
+			}
+			modifier = {
+				factor = 2
+				trait = proud
+			}
+		}
+		
+		opinion = {
+			who = FROM
+			modifier = opinion_declined_romance
+			months = 24
+		}
+		
+		hidden_tooltip = {
+			FROM = { character_event = { id = WoL.1164 days = 3 } }
+		}
+	}
+	
+	option = {
+		name = EVTOPTD_WOL_1161 # Lunatic text
+		trigger = { trait = lunatic }
+		tooltip_info = lunatic
+		ai_chance = {
+			factor = 1000
+		}
+		
+		opinion = {
+			who = FROM
+			modifier = opinion_declined_romance
+			months = 24
+		}
+		
+		hidden_tooltip = {
+			FROM = { character_event = { id = WoL.1164 days = 3 } }
+		}
+	}
+}
+
+# Tumble impregnation chance event
+character_event = {
+	id = WoL.98
+	
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+	
+		# STD transmission
+		hidden_tooltip = {
+			random = {
+				chance = 50
+				venereal_disease_effect = yes
+			}
+		}
+		
+		# AI affair pregnancy limiter
+		if = {
+			limit = {
+				ai = yes
+				FROM = { ai = yes }
+				has_character_modifier = lustful_affair_timer
+			}
+			break = yes
+		}
+		add_character_modifier = {
+			name = lustful_affair_timer
+			duration = 2190
+			hidden = yes
+		}
+		
+		if = {
+			limit = {
+				OR = {
+					is_female = no
+					#age = 45
+					is_old = no
+					is_pregnant = yes
+					FROM = { is_female = yes }
+					NOT = { fertility = 0.2 }
+					NOT = { FROM = { fertility = 0.2 } }
+				}
+			}
+			break  = yes
+		}
+		
+		if = {
+			limit = {
+				OR = {
+					is_pregnant = yes
+					FROM = { is_pregnant = yes }
+				}
+			}
+			break = yes
+		}
+	
+		# Chance of impregnation
+		if = {
+			limit = {
+				fertility = 0.6
+				OR = {
+					ai = no
+					NOT = { num_of_children = 4 }
+				}
+				FROM = {
+					fertility = 0.6
+					OR = {
+						ai = no
+						NOT = { num_of_children = 4 }
+					}
+				}
+			}
+			random = {
+				chance = 50
+				if = {
+					limit = {
+						is_married = no
+						is_consort = no
+					}
+					impregnate = FROM
+					break = yes
+				}
+				impregnate_cuckoo = FROM
+			}
+			break = yes
+		}
+		
+		if = {
+			limit = {
+				fertility = 0.5
+				OR = {
+					ai = no
+					NOT = { num_of_children = 6 }
+				}
+				FROM = {
+					fertility = 0.5
+					OR = {
+						ai = no
+						NOT = { num_of_children = 6 }
+					}
+				}
+			}
+			random = {
+				chance = 33
+				if = {
+					limit = {
+						is_married = no
+						is_consort = no
+					}
+					impregnate = FROM
+					break = yes
+				}
+				impregnate_cuckoo = FROM
+			}
+			break = yes
+		}
+		if = {
+			limit = {
+				fertility = 0.34
+				FROM = { fertility = 0.34 }
+			}
+			random = {
+				chance = 15
+				if = {
+					limit = {
+						is_married = no
+						is_consort = no
+					}
+					impregnate = FROM
+					break = yes
+				}
+				impregnate_cuckoo = FROM
+			}
+			break = yes
+		}
+		
+		random = {
+			chance = 5
+			if = {
+				limit = {
+					is_married = no
+					is_consort = no
+				}
+				impregnate = FROM
+				break = yes
+			}
+			impregnate_cuckoo = FROM
+		}
+	}
+}
+
+# Target: Seduction - Dance - Advance Encouraged - Tumble Attempt
+character_event = {
+	id = WoL.303
+	title = EVTTITLE_WOL_300
+	
+	desc = {
+		text = EVTDESC_WOL_303
+		trigger = { is_female = no }
+	}
+	desc = {
+		text = EVTDESC_WOL_303_F
+		trigger = { is_female = yes }
+	}
+	
+	picture = GFX_evt_dancing
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	option = { # The flesh is weak
+		name = EVTOPTA_WOL_303
+		
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 2.0
+				OR = {
+					is_female = no
+					#age = 45
+					is_old = no
+				}
+			}
+			modifier = {
+				factor = 0.25
+				NOT = {
+					personal_opinion = {
+						who = FROM
+						value = 20
+					}
+				}
+			}
+			modifier = {
+				factor = 0.5
+				is_close_relative = FROM
+				NOT = { religion = messalian }
+				NOT = { religion = zoroastrian }
+				NOT = {
+					OR = {
+						trait = arbitrary
+						trait = lustful
+						trait = hedonist
+					}
+				}
+			}
+			modifier = {
+				factor = 1.5
+				personal_opinion = {
+					who = FROM
+					value = 40
+				}
+			}
+			modifier = {
+				factor = 2.0
+				personal_opinion = {
+					who = FROM
+					value = 60
+				}
+			}
+			modifier = {
+				factor = 1.5
+				FROM = { has_character_modifier = wol_seducer_1 }
+			}
+			modifier = {
+				factor = 2.25
+				FROM = { has_character_modifier = wol_seducer_2 }
+			}
+			modifier = {
+				factor = 5.0
+				FROM = {
+					OR = {
+						trait = seducer
+						trait = seductress
+					}
+				}
+			}
+		}
+		
+		FROM = { character_event = { id = WoL.306 days = 1 tooltip = EVTTOOLTIP_WoL_306 } }
+	}
+	option = { # Rebuff
+		name = EVTOPTB_WOL_303
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 0
+				trait = lustful
+			}
+			modifier = {
+				factor = 0.01
+				trait = cruel
+			}
+		}
+		hidden_tooltip = {
+			FROM = { character_event = { id = WoL.307 days = 1 } }
+		}
+	}
+	option = { # Cruel rebuff
+		name = EVTOPTC_WOL_303
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 0
+				trait = lustful
+			}
+			modifier = {
+				factor = 0
+				NOT = { trait = cruel }
+			}
+		}
+		trigger = {
+			is_female = no
+		}
+		hidden_tooltip = {
+			FROM = { character_event = { id = WoL.308 days = 1 } }
+		}
+	}
+	option = { # Cruel rebuff
+		name = EVTOPTC_WOL_303_F
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 0
+				trait = lustful
+			}
+			modifier = {
+				factor = 0
+				NOT = { trait = cruel }
+			}
+		}
+		trigger = {
+			is_female = yes
+		}
+		hidden_tooltip = {
+			FROM = { character_event = { id = WoL.308 days = 1 } }
+		}
+	}
+}
+
+# Flirting at confession - attraction vs priest
+character_event = {
+	id = WoL.500
+	
+	desc = EVTDESC_WOL_500
+	picture = GFX_evt_monk
+	border = GFX_event_normal_frame_intrigue
+	
+	min_age = 16
+	#max_age = 65
+	only_playable = yes
+	religion_group = christian
+	only_capable = yes
+	prisoner = no
+	
+	trigger = {
+		has_focus = focus_seduction
+		is_ill = no
+		has_regent = no
+		any_realm_character = {
+			is_priest = yes
+			religion = ROOT
+			ai = yes
+			prisoner = no
+			has_regent = no
+			is_ill = no
+			#NOT = { age = 65 }
+			is_very_old = no
+			NOT = {
+				OR = {
+					trait = incapable
+					trait = infirm
+					trait = eunuch
+					trait = celibate
+					trait = inbred
+					trait = imbecile
+				}
+			}
+			NOT = { is_lover = ROOT }
+			NOT = { character = ROOT }
+			OR = {
+				AND = {
+					trait = homosexual
+					ROOT = { trait = homosexual }
+					same_sex = ROOT
+				}
+				AND = {
+					NOT = { trait = homosexual }
+					NOT = { ROOT = { trait = homosexual } }
+					NOT = { same_sex = ROOT }
+				}
+			}
+			NOT = {
+				has_opinion_modifier = {
+					who = ROOT
+					modifier = opinion_seduced_lustful_worship
+				}
+			}
+			NOT = { is_close_relative = ROOT }
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 60
+		modifier = {
+			factor = 0.25
+			OR = {
+				trait = arbitrary
+				trait = lustful
+				trait = cynical
+				trait = hedonist
+				trait = seducer
+				trait = seductress
+			}
+		}
+		modifier = {
+			factor = 4.0
+			trait = chaste
+		}
+		modifier = {
+			factor = 4.0
+			trait = zealous
+		}
+		modifier = {
+			factor = 4.0
+			OR = {
+				has_ugly_trait_trigger = yes
+				trait = dwarf
+				trait = inbred
+				trait = imbecile
+				trait = clubfooted
+				trait = quailfooted
+				trait = harelip
+				trait = cleft_lip
+				trait = hunchback
+				trait = twisted
+				trait = gluttonous
+				trait = eunuch
+			}
+		}
+		modifier = {
+			factor = 0.5
+			trait = just
+		}
+	}
+	
+	immediate = {
+		random_realm_character = {
+			limit = {
+				is_priest = yes
+				religion = ROOT
+				ai = yes
+				prisoner = no
+				has_regent = no
+				is_ill = no
+				#NOT = { age = 65 }
+				is_very_old = no
+				NOT = {
+					OR = {
+						trait = incapable
+						trait = infirm
+						trait = eunuch
+						trait = celibate
+						trait = inbred
+						trait = imbecile
+					}
+				}
+				NOT = { is_lover = ROOT }
+				NOT = { character = ROOT }
+				OR = {
+					AND = {
+						trait = homosexual
+						ROOT = { trait = homosexual }
+						same_sex = ROOT
+					}
+					AND = {
+						NOT = { trait = homosexual }
+						NOT = { ROOT = { trait = homosexual } }
+						NOT = { same_sex = ROOT }
+					}
+				}
+				NOT = {
+					has_opinion_modifier = {
+						who = ROOT
+						modifier = opinion_seduced_lustful_worship
+					}
+				}
+				NOT = { is_close_relative = ROOT }
+			}
+			save_event_target_as = target_priest
+		}
+	}
+	
+	option = {
+		name = EVTOPTA_WOL_500 # Go for it
+		ai_chance = {
+			factor = 100
+		}
+		
+		event_target:target_priest = {
+			opinion = {
+				who = ROOT
+				modifier = opinion_seduced_lustful_worship
+			}
+		}
+		
+		hidden_tooltip = {
+			# Chance of impregnation
+			if = {
+				limit = { is_female = yes }
+				event_target:target_priest = { character_event = { id = WoL.97 } }
+				break = yes
+			}
+			event_target:target_priest = { character_event = { id = WoL.98 } }
+		}
+		
+#		log = "WoL.500: [Root.GetTitledName] tumbles priest - [target_priest.GetTitledName]"
+	}
+	
+	option = {
+		name = EVTOPTB_WOL_500 # No
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 30 # More dangerous for fertile married women
+				is_female = yes
+				#NOT = { age = 45 }
+				is_old = no
+				OR = {
+					is_consort = yes
+					is_married = yes
+				}
+				NOT = {
+					OR = {
+						trait = homosexual
+						trait = arbitrary
+						trait = lustful
+						trait = hedonist
+					}
+				}
+			}
+		}
+		
+		piety = 10
+	}
+}
+
+# Female: Seduce handsome guard. Can appear at court (chance of Syphilitic, Cruel, Pregnancy).
+character_event = {
+	id = WoL.520
+	
+	desc = EVTDESC_WOL_520
+	picture = GFX_evt_lovers
+	border = GFX_event_normal_frame_intrigue
+	
+	only_playable = yes
+	only_capable = yes
+	prisoner = no
+	
+	trigger = {
+		has_focus = focus_seduction
+		is_pregnant = no
+		is_ill = no
+		has_regent = no
+		OR = {
+			is_female = no
+			#NOT = { age = 65 }
+			is_very_old = no
+		}
+		OR = {
+			AND = {
+				is_female = yes
+				NOT = { trait = homosexual }
+			}
+			AND = {
+				is_female = no
+				trait = homosexual
+			}
+		}
+		NOT = { has_character_modifier = hidden_seduced_bodyguard }
+	}
+	
+	mean_time_to_happen = {
+		months = 60
+		modifier = {
+			factor = 5.0 # More dangerous for fertile married women
+			is_female = yes
+			#NOT = { age = 45 }
+			is_old = no
+			OR = {
+				is_consort = yes
+				is_married = yes
+			}
+			NOT = {
+				OR = {
+					trait = homosexual
+					trait = arbitrary
+					trait = lustful
+					trait = hedonist
+				}
+			}
+		}
+		
+		modifier = {
+			factor = 4.0
+			trait = chaste
+		}
+		modifier = {
+			factor = 4.0
+			OR = {
+				has_ugly_trait_trigger = yes
+				trait = dwarf
+				trait = inbred
+				trait = imbecile
+				trait = clubfooted
+				trait = quailfooted
+				trait = harelip
+				trait = cleft_lip
+				trait = hunchback
+				trait = twisted
+				trait = gluttonous
+				trait = eunuch
+			}
+		}
+		modifier = {
+			factor = 2.0
+			trait = just
+		}
+		modifier = {
+			factor = 2.0
+			trait = zealous
+		}
+	}
+	
+	option = {
+		name = EVTOPTA_WOL_520 # Tumble and make lover (appears at court)
+		
+		ai_chance = {
+			factor = 5
+		}
+		
+		add_character_modifier = {
+			modifier = hidden_seduced_bodyguard
+			years = 30
+			hidden = yes
+		}
+		
+		create_character = {
+			dynasty = none
+			religion = ROOT
+			culture = ROOT
+			female = no
+			age = 17
+			trait = tough_soldier
+			trait = strong
+			trait = fair
+			trait = diligent
+			trait = trusting
+			trait = brave
+		}
+		
+		hidden_tooltip = {
+			new_character = {
+				add_lover = ROOT
+				if = {
+					limit = { same_sex = ROOT }
+					add_trait = homosexual
+				}
+				opinion = {
+					who = ROOT
+					modifier = opinion_seduced_lustful_worship
+					years = 30
+				}
+				random = {
+					chance = 25
+					character_event = { id = 6359 days = 15 random = 5 } #Gives lover's pox
+				}
+				hidden_tooltip = {
+					character_event = { id = MYTH.56 }
+				}
+			}
+			
+			# Chance of impregnation
+			if = {
+				limit = { is_female = yes }
+				new_character = { character_event = { id = WoL.97 } }
+			}
+		}
+		
+#		log = "WoL.520: [Root.GetTitledName] creates lover courtier [New.GetBestName]"
+	}
+	
+	option = {
+		name = EVTOPTB_WOL_520 # Tumble and make bodyguard (grants a nice character modifier)
+		
+		ai_chance = {
+			factor = 100
+		}
+		
+		add_character_modifier = {
+			modifier = seduced_loyal_bodyguard
+			years = 30
+		}
+		
+		add_character_modifier = {
+			modifier = hidden_seduced_bodyguard
+			years = 30
+			hidden = yes
+		}
+		
+		hidden_tooltip = {
+			if = {
+				limit = {
+					is_female = yes
+					#NOT = { age = 45 }
+					is_old = no
+				}
+				random = {
+					chance = 33
+					if = {
+						limit = {
+							is_married = no
+							is_consort = no
+						}
+						impregnate = yes
+						break = yes
+					}
+					impregnate_cuckoo = yes
+				}
+			}
+			random = {
+				chance = 25
+				character_event = { id = WoL.40 days = 7 } # Chance of VD
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTC_WOL_520 # No
+		
+		ai_chance = {
+			factor = 1
+		}
+		
+		piety = 5
+	}
+}
+
+# Male: Seduce maid. Can appear at court (chance of Syphilitic, Cruel, Pregnancy).
+character_event = {
+	id = WoL.530
+	
+	desc = EVTDESC_WOL_530
+	picture = GFX_evt_lovers
+	border = GFX_event_normal_frame_intrigue
+	
+	only_playable = yes
+	only_capable = yes
+	prisoner = no
+	
+	trigger = {
+		has_focus = focus_seduction
+		is_ill = no
+		has_regent = no
+		OR = {
+			is_female = no
+			#NOT = { age = 65 }
+			is_very_old = no
+		}
+		OR = {
+			AND = {
+				is_female = no
+				NOT = { trait = homosexual }
+			}
+			AND = {
+				is_female = yes
+				trait = homosexual
+			}
+		}
+		NOT = { has_character_modifier = hidden_seduced_maid }
+	}
+	
+	mean_time_to_happen = {
+		months = 60
+		modifier = {
+			factor = 4.0
+			trait = chaste
+		}
+		modifier = {
+			factor = 4.0
+			OR = {
+				has_ugly_trait_trigger = yes
+				trait = dwarf
+				trait = inbred
+				trait = imbecile
+				trait = clubfooted
+				trait = quailfooted
+				trait = harelip
+				trait = cleft_lip
+				trait = hunchback
+				trait = twisted
+				trait = gluttonous
+				trait = eunuch
+			}
+		}
+		modifier = {
+			factor = 2.0
+			trait = just
+		}
+	}
+	
+	option = {
+		name = EVTOPTA_WOL_530 # Tumble and make lover (appears at court)
+		ai_chance = {
+			factor = 5
+		}
+		add_character_modifier = {
+			modifier = hidden_seduced_maid
+			years = 30
+			hidden = yes
+		}
+		
+		create_character = {
+			dynasty = none
+			religion = ROOT
+			culture = ROOT
+			female = yes
+			age = 16
+			trait = intricate_webweaver
+			trait = fair
+			trait = quick
+			trait = diligent
+			trait = gregarious
+			trait = cynical
+		}
+		
+		hidden_tooltip = {
+			new_character = {
+				add_lover = ROOT
+				if = {
+					limit = { same_sex = ROOT }
+					add_trait = homosexual
+				}
+				else = {
+					character_event = { id = WoL.98 } # Chance of impregnation
+				}
+				opinion = {
+					who = ROOT
+					modifier = opinion_seduced_lustful_worship
+					years = 30
+				}
+				hidden_tooltip = {
+					character_event = { id = MYTH.56 }
+				}
+				
+				random = {
+					chance = 25
+					character_event = { id = 6359 days = 15 random = 5 } # Give's lover's pox
+				}
+			}
+		}
+		
+#		log = "WoL.530: [Root.GetTitledName] creates lover courtier [New.GetBestName]"
+	}
+	
+	option = {
+		name = EVTOPTB_WOL_530 # Tumble and make spy (grants a nice character modifier)
+		ai_chance = {
+			factor = 100
+		}
+		add_character_modifier = {
+			modifier = seduced_loyal_spy_maid
+			years = 30
+		}
+		
+		add_character_modifier = {
+			modifier = hidden_seduced_maid
+			years = 30
+			hidden = yes
+		}
+		
+		hidden_tooltip = {
+			random = {
+				chance = 25
+				character_event = { id = WoL.40 days = 7 } # Chance of VD
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTC_WOL_530 # No
+		ai_chance = {
+			factor = 1
+		}
+		piety = 5
+	}
+}
+
+character_event = {
+	id = WoL.571
+	desc = EVTDESC_WOL_571
+	picture = GFX_evt_lovers
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		if = {
+			limit = {
+				is_female = yes
+				is_pregnant = no
+				#NOT = { age = 45 }
+				is_old = no
+			}
+			random = {
+				chance = 50
+				if = {
+					limit = {
+						is_married = no
+						is_consort = no
+					}
+					impregnate = yes
+					break = yes
+				}
+				impregnate_cuckoo = yes
+#				log = "WoL.571: [Root.GetTitledName] is impregnated by a centaur (lunatic)"
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTA_WOL_571
+		
+		if = {
+			limit = { trait = zealous }
+			random = {
+				chance = 50
+				remove_trait = zealous
+				hidden_tooltip = {
+					character_event = { id = 38310 days = 1 } # Notify zealous lost
+				}
+			}
+		}
+	}
+}
+
+# Prisoner seduces guard -> sprung from jail
+character_event = {
+	id = WoL.580
+	desc = EVTDESC_WOL_580
+	picture = GFX_evt_into_the_dungeon
+	border = GFX_event_normal_frame_intrigue
+	
+	only_playable = yes
+	#max_age = 45
+	only_women = yes
+	prisoner = yes
+	only_capable = yes
+	
+	trigger = {
+		has_focus = focus_seduction
+		is_ill = no
+		is_old = no
+		NOT = {
+			OR = {
+				trait = incapable
+				trait = infirm
+				trait = eunuch
+				trait = celibate
+				trait = inbred
+				trait = imbecile
+			}
+		}
+		NOT = { has_character_modifier = the_oubliette }
+		NOT = { has_character_modifier = hidden_seduced_gaoler }
+	}
+	
+	mean_time_to_happen = {
+		months = 60
+		modifier = {
+			factor = 4.0
+			trait = chaste
+		}
+		modifier = {
+			factor = 0.5
+			trait = lustful
+		}
+		modifier = {
+			factor = 0.5
+			has_fair_trait_trigger = yes
+		}
+		modifier = {
+			factor = 10.0
+			has_ugly_trait_trigger = yes
+		}
+		modifier = {
+			factor = 10.0
+			trait = dwarf
+		}
+	}
+	
+	option = {
+		name = EVTOPTA_WOL_580 # Try
+		ai_chance = {
+			factor = 100
+		}
+		hidden_tooltip = {
+			add_character_modifier = {
+				modifier = hidden_seduced_gaoler
+				years = 10
+				hidden = yes
+			}
+			
+			if = {
+				limit = {
+					OR = {
+						trait = seductress
+						has_character_modifier = wol_seducer_2
+					}
+				}
+				random_list = {
+					25 = {
+						character_event = { id = WoL.581 days = 1 } # Fail
+					}
+					75 = {
+						character_event = { id = WoL.585 days = 1 } # Succeed
+					}
+				}
+				break = yes
+			}
+			
+			random_list = {
+				60 = {
+					character_event = { id = WoL.581 days = 1 } # Fail
+				}
+				40 = {
+					character_event = { id = WoL.585 days = 1 } # Succeed
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTB_WOL_580 # No
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 30.0
+				trait = craven
+			}
+		}
+		if = {
+			limit = { NOT = { trait = depressed } }
+			random = {
+				chance = 20
+				add_trait = depressed
+				hidden_tooltip = {
+					character_event = { id = 38288 } # Notify Depressed
+				}
+			}
+		}
+	}
+}
+
+# Success!
+character_event = {
+	id = WoL.585
+	desc = EVTDESC_WOL_585
+	picture = GFX_evt_jailbreak
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		if = {
+			limit = {
+				is_female = yes
+				#NOT = { age = 45 }
+				is_old = no
+				fertility = 0.33
+			}
+			random = {
+				chance = 33
+				if = {
+					limit = {
+						is_married = no
+						is_consort = no
+					}
+					impregnate = yes
+					break = yes
+				}
+				impregnate_cuckoo = yes
+			}
+		}
+		
+		character_event = { id = WoL.96 } # Chance to level up skills
+		
+#		log = "WoL.585: [Root.GetTitledName] escapes the dungeon of [Root.Host.GetTitledName]."
+	}
+	
+	option = {
+		name = EVTOPTA_WOL_585
+		hidden_tooltip = {
+			host = { character_event = { id = WoL.586 days = 1 } }
+		}
+		
+		prisoner = no
+	}
+}
+
+# The courtier accepts or spurns the liege lord
+character_event = {
+	id = 452
+
+	is_triggered_only = yes
+	
+	trigger = {
+		is_alive = yes
+		FROM = { is_alive = yes }
+	}
+
+	desc = EVTDESC452
+	picture = GFX_evt_lovers
+
+	option = {
+		name = EVTOPTA452 # What took him/her so long?
+		ai_chance = {
+			factor = 90
+		}
+		
+		add_lover = FROM
+		
+		FROM = { character_event = { id = 453 tooltip = EVTTOOLTIP453 } }
+		
+#		log = "452: [From.GetBestName] tumbles [Root.GetBestName]"
+		
+		# Chance of impregnation
+		if = {
+			limit = {
+				fertility = 0.25
+				FROM = { fertility = 0.25 }
+				OR = {
+					AND = {
+						is_female = yes
+						FROM = { is_female = no }
+						#NOT = { age = 45 }
+						is_old = no
+					}
+					AND = {
+						is_female = no
+						FROM = {
+							is_female = yes
+							#NOT = { age = 45 }
+							is_old = no
+						}
+					}
+				}
+			}
+			if = {
+				limit = {
+					fertility = 0.5
+					FROM = { fertility = 0.5 }
+				}
+				random_list = {
+					75 = {
+						if = { 
+							limit = {
+								OR = {
+									AND = {
+										is_female = yes 
+										is_married = no
+										is_consort = no
+									}
+									FROM = {
+										is_female = yes
+										is_married = no
+										is_consort = no
+									}
+								}
+							}
+							impregnate = FROM
+#								log = "452: [From.GetBestName] impregnates [Root.GetBestName]"
+							break = yes
+						}
+						impregnate_cuckoo = FROM
+#							log = "452: [From.GetBestName] cuckoo impregnates [Root.GetBestName]"
+					}
+					25 = { }
+				}
+				break = yes
+			}
+			
+			random_list = {
+				50 = {
+					if = { 
+						limit = {
+							OR = {
+								AND = {
+									is_female = yes 
+									is_married = no
+									is_consort = no
+								}
+								FROM = {
+									is_female = yes
+									is_married = no
+									is_consort = no
+								}
+							}
+						}
+						impregnate = FROM
+#							log = "452: [From.GetBestName] impregnates [Root.GetBestName]"
+						break = yes
+					}
+					impregnate_cuckoo = FROM
+#						log = "452: [From.GetBestName] cuckoo impregnates [Root.GetBestName]"
+				}
+				50 = { }
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTB452 # Dissuade
+		trigger = {
+			NOT = { trait = lustful }
+			NOT = { trait = hedonist }
+		}
+		ai_chance = {
+			factor = 5
+			modifier = {
+				factor = 10
+				trait = chaste
+			}
+			modifier = {
+				factor = 2
+				FROM = { is_female = no }
+				is_female = yes
+			}
+			modifier = {
+				factor = 2
+				trait = shy
+			}
+			modifier = {
+				factor = 0.5
+				trait = trusting
+			}
+			modifier = {
+				factor = 0.1
+				liege = {
+					OR = {
+						trait = seducer
+						trait = seductress
+					}
+				}
+			}
+		}
+		
+		FROM = { character_event = { id = 454 tooltip = EVTTOOLTIP454 } }
+		
+#		log = "452: [Root.GetBestName] rebuffs [From.GetBestName]"
+	}
+
+	option = {
+		name = EVTOPTC452 # Scream for help!
+		trigger = {
+			FROM = { is_female = no }
+			is_female = yes
+			NOT = { trait = lustful }
+			NOT = { trait = hedonist }
+		}
+		ai_chance = {
+			factor = 5
+			modifier = {
+				factor = 10
+				trait = chaste
+			}
+			modifier = {
+				factor = 2
+				trait = shy
+			}
+			modifier = {
+				factor = 0.5
+				trait = trusting
+			}
+			modifier = {
+				factor = 0.01
+				liege = {
+					OR = {
+						trait = seducer
+						trait = seductress
+					}
+				}
+			}
+		}
+		FROM = { character_event = { id = 455 tooltip = EVTTOOLTIP455 } }
+		
+#		log = "452: [Root.GetBestName] embarrasses [From.GetBestName]"
+	}
+}
+
+# A courtier initiates romance with another courtier
+character_event = {
+	id = 456
+	
+	hide_window = yes
+
+	capable_only = yes
+	prisoner = no
+	min_age = 16
+	#max_age = 65
+
+	trigger = {
+		is_ruler = no
+		is_marriage_adult = yes
+		is_very_old = no
+		OR = {
+			is_female = no
+			#NOT = { age = 40 }
+			is_old = no
+		}
+		
+		has_lover = no
+		is_pregnant = no
+		is_ill = no
+		
+		liege = {
+			OR = {
+				ai = no
+				higher_tier_than = DUKE
+			}
+		}
+		
+		NOT = { trait = chaste }
+		NOT = { trait = infirm }
+		NOT = { trait = celibate }
+		NOT = { trait = eunuch }
+		NOT = { is_inaccessible_trigger = yes }
+		
+		# Faithful spouses don't cheat
+		OR = {
+			is_married = no
+			trait = lustful
+			trait = deceitful
+			trait = arbitrary
+			spouse = {
+				NOT = { reverse_opinion = { who = ROOT value = 0 } }
+			}
+		}
+		OR = {
+			is_consort = no
+			trait = lustful
+			trait = deceitful
+			trait = arbitrary
+			consort = {
+				NOT = { reverse_opinion = { who = ROOT value = 0 } }
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 4000
+		
+		modifier = {
+			factor = 0.5
+			spouse = { is_ruler = yes }
+		}
+		modifier = {
+			factor = 0.5
+			spouse = { has_lover = yes }
+		}
+		modifier = {
+			factor = 0.5
+			NOT = { age = 30 }
+			spouse = { #age = 50
+				is_50 = yes
+			}
+		}
+		modifier = {
+			factor = 0.33
+			trait = homosexual #to balance for fewer potential lovers
+		}
+		modifier = {
+			factor = 0.33
+			trait = lustful
+		}
+		modifier = {
+			factor = 0.5
+			trait = hedonist
+		}
+		modifier = {
+			factor = 0.75
+			NOT = { age = 20 }
+		}
+		modifier = {
+			factor = 2.0
+			is_female = yes
+			age = 30
+		}
+		
+		# Harems are well guarded...
+		modifier = {
+			factor = 3.0
+			is_female = yes
+			is_married = yes
+			has_polygamy = yes
+		}
+		
+		# Wives and Concubines of rulers have a harder time initiating this (unless it's their Focus)
+		modifier = {
+			factor = 3.0
+			is_female = yes
+			NOT = { has_focus = focus_seduction }
+			liege = {
+				OR = {
+					is_consort = ROOT
+					any_spouse = {
+						character = ROOT
+					}
+				}
+			}
+		}
+	}
+	
+	immediate = {
+		liege = {
+			any_courtier = {
+				limit = {
+					is_ruler = no
+					has_lover = no
+					is_pregnant = no
+					prisoner = no
+					is_marriage_adult = yes
+					is_ill = no
+					
+					NOT = { is_close_relative = ROOT }
+					OR = {
+						AND = {
+							NOT = { trait = homosexual }
+							ROOT = { NOT = { trait = homosexual } }
+							is_opposite_sex = ROOT
+						}
+						AND = {
+							trait = homosexual
+							ROOT = { trait = homosexual }
+							same_sex = ROOT
+						}
+					}
+					
+					OR = {
+						is_female = no
+						#NOT = { age = 40 }
+						is_40 = no
+					}
+					
+					NOT = {
+						has_character_modifier = lustful_affair_timer
+					}
+					
+					NOT = { trait = infirm }
+					NOT = { trait = incapable }
+					NOT = { trait = celibate }
+					NOT = { trait = eunuch }
+					NOT = { trait = chaste }
+					
+					OR = {
+						ROOT = {
+							OR = {
+								trait = inbred
+								trait = imbecile
+								trait = dwarf
+								has_ugly_trait_trigger = yes
+							}
+						}
+						AND = {
+							NOT = { trait = inbred }
+							NOT = { trait = imbecile }
+							NOT = { trait = dwarf }
+						}
+					}
+					
+					NOT = { spouse = { character = ROOT } }
+					
+					opinion = { who = ROOT value = 0 }
+					reverse_opinion = { who = ROOT value = 0 }
+					
+					NOT = {
+						is_former_lover = ROOT
+					}
+					
+					# Faithful spouses don't cheat
+					OR = {
+						is_married = no
+						trait = lustful
+						trait = deceitful
+						trait = arbitrary
+						spouse = {
+							NOT = { reverse_opinion = { who = PREV value = 0 } }
+						}
+					}
+					
+					OR = {
+						is_consort = no
+						trait = lustful
+						trait = deceitful
+						trait = arbitrary
+						consort = {
+							NOT = { reverse_opinion = { who = PREV value = 0 } }
+						}
+					}
+				}
+				score_value = { #Prioritizes selecting an interesting courtier...
+		            value = 10
+		            interesting_courtier_selection_score = yes
+		        }
+				
+				character_event = { id = 457 }
+			}
+		}
+	}
+}
+
+# Courtier advances accepted or rebuffed by other courtier
+character_event = {
+	id = 457
+	
+	hide_window = yes
+
+	capable_only = yes
+	prisoner = no
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = OK # Let's tumble!
+		
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 3.0
+				trait = lustful
+			}
+			modifier = {
+				factor = 2.0
+				trait = hedonist
+			}
+		}
+		
+		add_lover = FROM
+		
+		add_character_modifier = {
+			name = lustful_affair_timer
+			duration = 2190
+			hidden = yes
+		}
+		
+#		log = "457: [From.GetBestName] tumbles [Root.GetBestName]"
+		
+		# Chance of impregnation
+		if = {
+			limit = {
+				is_opposite_sex = FROM
+				fertility = 0.25
+				FROM = { fertility = 0.25 }
+				OR = {
+					AND = {
+						is_female = yes
+						FROM = { is_female = no }
+						#NOT = { age = 45 }
+						is_old = no
+					}
+					AND = {
+						is_female = no
+						FROM = {
+							is_female = yes
+							#NOT = { age = 45 }
+							is_old = no
+						}
+					}
+				}
+			}
+			if = {
+				limit = {
+					fertility = 0.5
+					FROM = { fertility = 0.5 }
+				}
+				random_list = {
+					75 = {
+						if = { 
+							limit = {
+								OR = {
+									AND = {
+										is_female = yes 
+										is_married = no
+										is_consort = no
+									}
+									FROM = {
+										is_female = yes
+										is_married = no
+										is_consort = no
+									}
+								}
+							}
+							impregnate = FROM
+#							log = "457: [From.GetBestName] impregnates [Root.GetBestName]"
+							break = yes
+						}
+						impregnate_cuckoo = FROM
+#						log = "457: [From.GetBestName] cuckoo impregnates [Root.GetBestName]"
+					}
+					25 = { }
+				}
+				break = yes
+			}
+			
+			random_list = {
+				50 = {
+					if = { 
+						limit = {
+							OR = {
+								AND = {
+									is_female = yes 
+									is_married = no
+									is_consort = no
+								}
+								FROM = {
+									is_female = yes
+									is_married = no
+									is_consort = no
+								}
+							}
+						}
+						impregnate = FROM
+#						log = "457: [From.GetBestName] impregnates [Root.GetBestName]"
+						break = yes
+					}
+					impregnate_cuckoo = FROM
+#					log = "457: [From.GetBestName] cuckoo impregnates [Root.GetBestName]"
+				}
+				50 = { }
+			}
+		}
+	}
+	
+	option = {
+		name = NO # No way!
+		ai_chance = {
+			factor = 10
+			
+			modifier = {
+				factor = 50.0
+				OR = {
+					trait = monk
+					trait = nun
+					trait = chaste
+				}
+			}
+			
+			modifier = {
+				factor = 30.0
+				NOT = {
+					OR = {
+						has_ugly_trait_trigger = yes
+						trait = dwarf
+						trait = imbecile
+						trait = inbred
+					}
+				}
+				FROM = {
+					has_ugly_trait_trigger = yes
+					NOT = { trait = seducer }
+					NOT = { trait = seductress }
+				}
+			}
+			
+			modifier = {
+				factor = 30.0
+				NOT = {
+					OR = {
+						has_ugly_trait_trigger = yes
+						trait = dwarf
+						trait = imbecile
+						trait = inbred
+					}
+				}
+				FROM = {
+					trait = dwarf
+					NOT = { trait = seducer }
+					NOT = { trait = seductress }
+				}
+			}
+			modifier = {
+				factor = 30.0
+				NOT = {
+					OR = {
+						has_ugly_trait_trigger = yes
+						trait = dwarf
+						trait = imbecile
+						trait = inbred
+					}
+				}
+				FROM = {
+					trait = imbecile
+					NOT = { trait = seducer }
+					NOT = { trait = seductress }
+				}
+			}
+			modifier = {
+				factor = 100.0
+				NOT = {
+					OR = {
+						has_ugly_trait_trigger = yes
+						trait = dwarf
+						trait = imbecile
+						trait = inbred
+					}
+				}
+				FROM = {
+					trait = inbred
+					NOT = { trait = seducer }
+					NOT = { trait = seductress }
+				}
+			}
+			
+			# Wives and Concubines of rulers are watched...
+			modifier = {
+				factor = 60.0
+				is_female = yes
+				has_polygamy = no
+				NOT = { has_focus = focus_seduction }
+				liege = {
+					OR = {
+						is_consort = ROOT
+						any_spouse = {
+							character = ROOT
+						}
+					}
+				}
+			}
+			
+			# Harems are especially well guarded...
+			modifier = {
+				factor = 200.0
+				is_female = yes
+				is_married = yes
+				has_polygamy = yes
+			}
+		}
+		
+		reverse_opinion = {
+			who = FROM
+			modifier = opinion_spurned
+			years = 5
+		}
+		
+#		log = "457: [Root.GetBestName] rebuffs [From.GetBestName]"
+	}
+}
+
+# The father reacts to the bastard birth
+character_event = {
+	id = 301
+	desc = EVTDESC301
+	picture = GFX_evt_birth
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA301 # Legitimize the child
+		trigger = {
+			has_polygamy = no
+			OR = {
+				FROM = { 
+					mother = { 
+						tier = ROOT 	# In case mother is same tier as real_father, real_father gets to claim the child provided that agnatic succession is in place.
+						NOR = { 
+							has_law = enatic_succession
+							has_law = enatic_cognatic_succession
+							has_law = true_cognatic_succession
+						} 
+					} 
+				}
+				FROM = { mother = { lower_tier_than = ROOT } } #In case the mother is a higher tier ruler, she gets to decide what happens to the child.
+			}
+		}
+		
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 0
+				FROM = { is_female = yes }
+			}
+			modifier = {
+				factor = 0.1
+				OR = {
+					#NOT = { age = 50 }
+					is_50 = no
+					any_child = {
+						is_alive = yes
+						is_female = no
+					}
+				}
+			}
+			modifier = {
+				factor = 0.2
+				trait = zealous
+				religion_group = christian
+				NOT = {
+					OR = {
+						religion = bogomilist
+						religion = cathar
+						religion = paulician
+						religion = messalian
+					}
+				}
+			}
+			modifier = {
+				factor = 2.0
+				trait = just
+			}
+			modifier = {
+				factor = 2.0
+				trait = kind
+			}
+		}
+		
+		custom_tooltip = { text = EVTOPTA301_DESC }
+		spouse = {
+			show_scope_change = no
+			tooltip = { opinion = { who = ROOT modifier = legitimized_bastard years = 10 } } # Spouse reaction.
+		}
+		
+		FROM = {
+			show_scope_change = no
+			hidden_tooltip = {
+				character_event = { id = 302 } # The child gets the father's dynasty
+			}
+			mother = {
+				show_scope_change = no
+				tooltip = { opinion = { who = ROOT modifier = legitimized_child years = 10 } }
+				hidden_tooltip = { character_event = { id = 303 tooltip = EVTTOOLTIP303 } } # The child's mother is very pleased
+				character_event = { id = 303 tooltip = EVTTOOLTIP303 } # The child's mother is very pleased
+				spouse = {
+					show_scope_change = no
+					tooltip = { opinion = { who = ROOT modifier = opinion_cuckolded years = 10 } }
+					hidden_tooltip = { character_event = { id = 304 tooltip = EVTTOOLTIP304 } } # The child's mother's husband is pissed off
+				}		
+				consort = {
+					show_scope_change = no
+					tooltip = { opinion = { who = ROOT modifier = opinion_cuckolded years = 10 } }
+					hidden_tooltip = { character_event = { id = 304 tooltip = EVTTOOLTIP304 } } # The child's mother's lord is pissed off
+				}			
+			}
+		}
+		if = { 
+			limit = {
+				any_child = {
+					is_alive = yes
+					NOT = { character = FROM }
+					dynasty = ROOT
+					NOT = { trait = bastard }
+				}  
+			}
+			custom_tooltip = { text = EVTOPTA301_legchildren_TOOLTIP }
+		}
+		hidden_tooltip = {
+		any_child = {
+				limit = {
+					NOT = { character = FROM }
+					dynasty = ROOT
+					NOT = { trait = bastard }
+				}
+				opinion = {
+					who = ROOT
+					modifier = legitimized_bastard
+					months = 12
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTB301 # Acknowledge the child
+		
+		trigger = {
+			OR = {
+				FROM = { 
+					mother = { 
+						tier = ROOT 	# In case mother is same tier as real_father, real_father gets to claim the child provided that agnatic succession is in place.
+						NOR = { 
+							has_law = enatic_succession
+							has_law = enatic_cognatic_succession
+							has_law = true_cognatic_succession
+						} 
+					} 
+				}
+				FROM = { mother = { lower_tier_than = ROOT } } #In case the mother is a higher tier ruler, she gets to decide what happens to the child.
+			}
+		}
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 0.5
+				FROM = { is_female = yes }
+			}
+			modifier = {
+				factor = 0.5
+				trait = zealous
+				religion_group = christian
+				NOT = {
+					OR = {
+						religion = bogomilist
+						religion = cathar
+						religion = paulician
+						religion = messalian
+					}
+				}
+			}
+			modifier = {
+				factor = 2.0
+				trait = just
+			}
+			modifier = {
+				factor = 2.0
+				trait = kind
+			}
+		}
+		
+		custom_tooltip = { text = EVTOPTB301_DESC }
+		
+		spouse = {
+			show_scope_change = no
+			tooltip = { opinion = { who = ROOT modifier = acknowledged_bastard years = 10 } } # Spouse reaction.
+		}
+		
+		FROM = {
+			show_scope_change = no
+			hidden_tooltip = {
+				character_event = { id = 306 } # The child gets the father's dynasty, but is not legitimized.
+			}
+			if = {
+				limit = { trait = born_in_the_purple }
+				remove_trait = born_in_the_purple
+			}
+			mother = {
+				show_scope_change = no
+				tooltip = { opinion = { who = ROOT modifier = acknowledged_child years = 10 } }
+				hidden_tooltip = { character_event = { id = 307 tooltip = EVTTOOLTIP307 } } # The child's mother is pleased
+				spouse = {
+					show_scope_change = no
+					tooltip = { opinion = { who = ROOT modifier = opinion_cuckolded years = 10 } }
+					hidden_tooltip = { character_event = { id = 304 tooltip = EVTTOOLTIP304 } } # The child's mother's husband is pissed off
+				}
+				consort = {
+					show_scope_change = no
+					tooltip = { opinion = { who = ROOT modifier = opinion_cuckolded years = 10 } }
+					hidden_tooltip = { character_event = { id = 304 tooltip = EVTTOOLTIP304 } } # The child's mother's man is pissed off
+				}				
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTC301 # Denounce the child
+		
+		trigger = {
+			OR = {
+				FROM = { 
+					mother = { 
+						tier = ROOT 	# In case mother is same tier as real_father, real_father gets to claim the child provided that agnatic succession is in place.
+						NOR = { 
+							has_law = enatic_succession
+							has_law = enatic_cognatic_succession
+							has_law = true_cognatic_succession
+						} 
+					} 
+				}
+				FROM = { mother = { lower_tier_than = ROOT } } #In case the mother is a higher tier ruler, she gets to decide what happens to the child.
+			}
+		}
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 2.0
+				trait = cruel
+			}
+			modifier = {
+				factor = 2.0
+				trait = arbitrary
+			}
+		}
+		
+		custom_tooltip = { text = EVTOPTC301_DESC }
+		
+		FROM = {
+			show_scope_change = no
+			hidden_tooltip = {
+				character_event = { id = 309 } #  The child founds a new bastard dynasty
+			}
+			if = {
+				limit = { trait = born_in_the_purple }
+				remove_trait = born_in_the_purple
+			}
+			if = {
+				limit = { trait = saoshyant_descendant }
+				remove_trait = saoshyant_descendant
+			}
+			if = {
+				limit = { trait = sayyid }
+				remove_trait = sayyid
+			}
+			mother = {
+				show_scope_change = no
+				tooltip = { opinion = { who = ROOT modifier = denounced_child years = 10 } }
+				hidden_tooltip = { character_event = { id = 310 tooltip = EVTTOOLTIP310 } } # The child's mother is dishonoured
+				spouse = {
+					show_scope_change = no
+					tooltip = { opinion = { who = ROOT modifier = opinion_cuckolded years = 10 } }
+					hidden_tooltip = { character_event = { id = 304 tooltip = EVTTOOLTIP304 } } # The child's mother's husband is pissed off
+				}	
+				consort = {
+					show_scope_change = no
+					tooltip = { opinion = { who = ROOT modifier = opinion_cuckolded years = 10 } }
+					hidden_tooltip = { character_event = { id = 304 tooltip = EVTTOOLTIP304 } } # The child's mother's man is pissed off
+				}				
+			}
+		}
+	}
+	option = {
+		name = EVTOPTD301 # Do nothing
+		trigger = {
+			FROM = { mother = { higher_tier_than = ROOT } } #In case the mother is a lower tier ruler, the father gets to decide what happens to the child.
+		}
+		ai_chance = {
+			factor = 100
+		}
+	}
+}
+
+# Liege responds to the request
+character_event = {
+	id = 37001
+	desc = EVTDESC37001
+	picture = { 
+		trigger = { 
+			has_religion_feature = religion_matriarchal
+		} 
+		picture = GFX_evt_daughter_asking_mother
+	}
+	picture = { 
+		trigger = { 
+			NOT = { 
+				has_religion_feature = religion_matriarchal
+			} 
+		} 
+		picture = GFX_evt_son_asking_father
+	}
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA37001 # Promise that you'll arrange it
+		FROM = { character_event = { id = 37002 tooltip = EVTTOOLTIP37002 } }
+	}
+	
+	option = {
+		name = EVTOPTB37001 # Say he's not ready yet
+		trigger = {
+			NOT = { diplomacy = 8 }
+		}
+		
+		FROM = { character_event = { id = 37004 tooltip = EVTTOOLTIP37004 } }
+		
+		if = {
+			limit = {
+				ai = no
+				independent = yes
+				FROM = {
+					NOT = { trait = content }
+					NOT = { trait = patient }
+					NOT = { trait = craven }
+					#NOT = { age = 65 }
+					is_very_old = no
+					has_character_flag = flag_later_title
+				}
+			}
+			custom_tooltip = { text = evt_relative_might_revolt }
+		}
+	}
+	
+	option = {
+		name = EVTOPTC37001 # Mention a Church career...
+		tooltip_info = diplomacy
+		trigger = {
+			religion_group = christian
+			diplomacy = 8
+		}
+		FROM = { character_event = { id = 37003 tooltip = EVTTOOLTIP37003 } }
+	}
+	
+	option = {
+		name = EVTOPTD37001 # Diplomatically refuse
+		tooltip_info = diplomacy
+		trigger = {
+			NOT = { religion_group = christian }
+			diplomacy = 8
+		}
+		FROM = { character_event = { id = 37003 tooltip = EVTTOOLTIP37003 } }
+	}
+}
+
+# The relative is disappointed
+character_event = {
+	id = 37004
+	desc = EVTDESC37004
+	picture = GFX_evt_bad_news
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA37004 # I'll ask again later...
+		trigger = {
+			NOT = { has_character_flag = flag_later_title }
+		}
+		set_character_flag = flag_later_title
+	}
+	
+	option = {
+		name = EVTOPTB37004 # Not again!
+		trigger = {
+			has_character_flag = flag_later_title
+		}
+		ai_chance = {
+			factor = 750
+		}
+		opinion = {
+			who = FROM
+			modifier = opinion_denied_title
+			months = 120
+		}
+		clr_character_flag = flag_later_title
+		set_character_flag = flag_denied_title
+	}
+	
+	option = {
+		name = EVTOPTB37007
+		trigger = {
+			has_character_flag = flag_later_title
+			NOT = { trait = content }
+			NOT = { trait = patient }
+			NOT = { trait = craven }
+			#NOT = { age = 65 }
+			is_very_old = no
+			liege = {
+				independent = yes
+			}
+		}
+		
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 2.5
+				trait = ambitious
+			}
+			modifier = {
+				factor = 5.0
+				religion_group = muslim
+			}
+			modifier = {
+				factor = 0.25
+				trait = slothful
+			}
+		}
+		
+		opinion = {
+			who = FROM
+			modifier = opinion_broken_title_promise
+			months = 120
+		}
+		clr_character_flag = flag_promised_title
+		remove_character_modifier = promised_a_title
+		set_character_flag = flag_denied_title
+		
+		character_event = { id = 37010 days = 45 }
+	}
+	
+}
+
+# Liege responds to the reminder
+character_event = {
+	id = 37006
+	desc = EVTDESC37006
+	picture = { 
+		trigger = { 
+			has_religion_feature = religion_matriarchal
+		} 
+		picture = GFX_evt_daughter_asking_mother
+	}
+	picture = { 
+		trigger = { 
+			NOT = { 
+				has_religion_feature = religion_matriarchal
+			} 
+		} 
+		picture = GFX_evt_son_asking_father
+	}
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		FROM = {
+			is_alive = yes
+		}
+	}
+	
+	option = {
+		name = EVTOPTA37006 # Oh, very well!
+		random_demesne_title = {
+			limit = {
+				can_be_given_away = yes
+				tier = count
+				is_feudal = yes
+				location = {
+					is_capital = no
+				}
+			}
+			grant_title = FROM
+		}
+	}
+	
+	option = {
+		name = EVTOPTB37006 # I've had it with his whining!
+		FROM = { character_event = { id = 37007 days = 2 tooltip = EVTTOOLTIP37007 } }
+		
+		if = {
+			limit = {
+				ai = no
+				independent = yes
+				FROM = {
+					NOT = { trait = content }
+					NOT = { trait = patient }
+					NOT = { trait = craven }
+					#NOT = { age = 65 }
+					is_very_old = no
+				}
+			}
+			custom_tooltip = { text = evt_relative_might_revolt }
+		}
+	}
+}
+
+# Liege breaks the promise
+character_event = {
+	id = 37007
+	desc = EVTDESC37007
+	picture = GFX_evt_bad_news
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA37007 # This is an outrage!
+		ai_chance = {
+			factor = 500
+		}
+		
+		opinion = {
+			who = FROM
+			modifier = opinion_broken_title_promise
+			months = 120
+		}
+		clr_character_flag = flag_promised_title
+		remove_character_modifier = promised_a_title
+		set_character_flag = flag_denied_title
+	}
+	option = {
+		name = EVTOPTB37007 # I will not stand for this! REVOLT!
+		
+		trigger = {
+			NOT = { trait = content }
+			NOT = { trait = patient }
+			NOT = { trait = craven }
+			#NOT = { age = 65 }
+			is_very_old = no
+			liege = {
+				independent = yes
+			}
+		}
+		
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 2.5
+				trait = ambitious
+			}
+			modifier = {
+				factor = 5.0
+				religion_group = muslim
+			}
+			modifier = {
+				factor = 0.25
+				trait = slothful
+			}
+		}
+		
+		opinion = {
+			who = FROM
+			modifier = opinion_broken_title_promise
+			months = 120
+		}
+		clr_character_flag = flag_promised_title
+		remove_character_modifier = promised_a_title
+		set_character_flag = flag_denied_title
+		
+		character_event = { id = 37010 days = 45 }
+	}
+}
+
+##############################################################
+# Close relative asks to get married due to obj_get_married
+##############################################################
+
+# First event of the series
+
+character_event = {
+	id = 37049
+	
+	hide_window = yes
+	
+	ai = no
+	capable_only = yes
+	prisoner = no
+	religion_group = christian
+	war = no
+	lacks_dlc = "Zeus"
+	
+	trigger = {
+	}
+	
+	mean_time_to_happen = {
+		months = 24
+	}
+
+	immediate = {
+		random_courtier = {
+			limit = {
+				religion_group = christian
+				is_ruler = no
+				has_ambition = obj_get_married
+				is_marriage_adult = yes
+				#NOT = { age = 40 }
+				is_40 = no
+				prisoner = no
+				is_betrothed = no
+				is_consort = no
+				is_married = no
+				
+				NOT = { trait = incapable }
+				NOT = {
+					trait = bastard
+				}
+				liege = {
+					character = ROOT
+				}
+				is_close_relative = ROOT
+				
+				NOT = {
+					has_minor_title = title_regent
+				}
+				
+				NOT = { has_character_flag = flag_denied_marriage }
+				NOT = { has_character_flag = flag_promised_marriage }
+			}
+			character_event = { id = 37050 }
+		}
+	}
+}
+
+# The liege is reminded of the promise
+character_event = {
+	id = 37055
+	desc = EVTDESC37055
+	picture = GFX_evt_marriage
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA37055 # Alright, alright!
+		trigger = {
+			FROM = {
+				is_married = no
+			}
+			OR = {
+				AND = {
+					is_female = no
+					any_courtier = {
+						FROM = { is_female = no }
+						NOT = { is_40 = yes }
+						can_marry = FROM
+					}
+				}
+				AND = {
+					FROM = { is_female = yes }
+					any_courtier = {
+						is_female = no
+						NOT = { is_40 = yes }
+						can_marry = FROM
+					}
+				}
+			}
+		}
+		remove_character_modifier = promised_a_marriage
+		clr_character_flag = flag_promised_marriage
+		if = { 
+			limit = { FROM = { is_female = no } }
+			random_courtier = {
+				limit = {
+					is_female = yes
+					NOT = { is_40 = yes }
+					can_marry = FROM
+				}
+				add_spouse = FROM
+			}
+		}
+		if = { 
+			limit = { FROM = { is_female = yes } }
+			random_courtier = {
+				limit = {
+					is_female = no
+					NOT = { is_40 = yes }
+					can_marry = FROM
+				}
+				add_spouse = FROM
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTB37055 # You're off to the monastery!
+		trigger = {
+			religion_group = christian
+			FROM = { religion_group = christian }
+			FROM = {
+				is_married = no
+			}
+			any_realm_lord = {
+				is_theocracy = yes
+			}
+		}
+		random_realm_lord = {
+			limit = {
+				is_theocracy = yes
+			}
+			reverse_banish = FROM
+		}
+		FROM = { 
+			cancel_ambition = yes
+			remove_character_modifier = promised_a_marriage
+			clr_character_flag = flag_promised_marriage
+			opinion = {
+				who = ROOT
+				modifier = opinion_sent_to_church
+				months = 120
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTC37055 # I haven't found anyone for you...
+		trigger = {
+			FROM = {
+				is_married = no
+			}
+		}
+		FROM = { 
+			set_character_flag = flag_denied_marriage 
+			clr_character_flag = flag_promised_marriage 
+			remove_character_modifier = promised_a_marriage
+		}
+	}
+	option = {
+		name = EVTOPTD37055
+		trigger = {
+			FROM = {
+				is_married = yes
+				spouse = {
+					is_alive = yes
+				}
+			}
+		}
+	}
+}
+
+# Male relative who was denied decides to marry in secret
+character_event = {
+	id = 37056
+	desc = {
+		trigger = {
+			is_female = no
+		}
+		text = EVTDESC37056
+	}
+	desc = {
+		trigger = {
+			is_female = yes
+		}
+		text = EVTDESC37056_B
+	}
+	picture = GFX_evt_marriage
+	
+	min_age = 16
+	capable_only = yes
+	prisoner = no
+	has_character_flag = flag_denied_marriage
+	lacks_dlc = "Zeus"
+	
+	trigger = {
+		is_ruler = no
+		is_betrothed = no
+		has_ambition = obj_get_married
+		
+		OR = {
+			AND = {
+				is_female = no
+				any_courtier = {
+					is_female = yes
+					NOT = { is_40 = yes }
+					can_marry = ROOT
+				}
+			}
+			AND = {
+				is_female = yes
+				any_courtier = {
+					is_female = no
+					NOT = { is_40 = yes }
+					can_marry = ROOT
+				}
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 120
+		
+		modifier = {
+			factor = 0.25
+			trait = lustful
+		}
+		modifier = {
+			factor = 0.5
+			trait = ambitious
+		}
+		modifier = {
+			factor = 2.0
+			trait = slothful
+		}
+		modifier = {
+			factor = 5.0
+			trait = content
+		}
+	}
+	
+	option = {
+		name = EVTOPTA37056 # I'm getting married right now
+		if = { 
+			limit = { is_female = no }
+			random_courtier = {
+				limit = {
+					is_female = yes
+					NOT = { is_40 = yes }
+					can_marry = ROOT
+				}
+				add_spouse = ROOT
+			}
+		}
+		if = { 
+			limit = { is_female = yes }
+			random_courtier = {
+				limit = {
+					is_female = no
+					NOT = { is_40 = yes }
+					can_marry = ROOT
+				}
+				add_spouse = ROOT
+			}
+		}
+		liege = { character_event = { id = 37057 tooltip = EVTTOOLTIP37057 } }
+	}
+}
+
+#The guests have arrived
+character_event = {
+	id = 72015
+	desc = "EVTDESC72015"
+	picture = GFX_evt_feast
+
+	only_rulers = yes
+	capable_only = yes
+	prisoner = no
+	war = no
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_character_modifier = holding_large_feast
+		has_character_flag = sent_invitations
+		NOT = {
+			has_character_flag = host_feast_started
+		}
+		any_vassal = {
+			NOT = {
+				has_character_flag = guest_feast_started
+			}
+			has_character_flag = coming_to_feast
+		}
+	}
+
+	option = {
+		name = "EVTOPTA72015"
+		set_character_flag = host_feast_started
+		hidden_tooltip = { 
+			any_vassal = {
+				limit = {
+					has_character_flag =  coming_to_feast
+				}
+				character_event = {
+					id = 72016
+					tooltip = "EVTTOOLTIP72016"
+				}
+			}
+			random_list = { #First wave of events
+				10 = { #Lavish food (vassal)
+					modifier = {
+						factor = 0
+						NOR = {
+							has_character_flag = lavishly_food
+							any_vassal = {
+								has_character_flag = guest_feast_started
+								war = no
+							}
+						}
+					}
+					any_vassal = {
+						limit = { 
+							has_character_flag = guest_feast_started
+							war = no
+						}
+						score_value = { #Prioritizes selecting an interesting courtier...
+				            value = 10
+				            interesting_courtier_selection_score = yes
+				        }
+						character_event = { id = 72020 days = 3 }
+					}
+				}
+				10 = { #Medium food (vassal)
+					modifier = {
+						factor = 0
+						NOR = {
+							has_character_flag = medium_food
+							any_vassal = {
+								has_character_flag = guest_feast_started
+								war = no
+							}
+						}
+					}
+					any_vassal = {
+						limit = { 
+							has_character_flag = guest_feast_started
+							war = no
+						}
+						score_value = { #Prioritizes selecting an interesting courtier...
+				            value = 10
+				            interesting_courtier_selection_score = yes
+				        }
+						character_event = { id = 72021 days = 3 }
+					}
+				}
+				10 = { #Low food (vassal)
+					modifier = {
+						factor = 0
+						NOR = {
+							has_character_flag = low_food
+							any_vassal = {
+								has_character_flag = guest_feast_started
+								war = no
+							}
+						}
+					}
+					any_vassal = {
+						limit = { 
+							has_character_flag = guest_feast_started
+							war = no
+						}
+						score_value = { #Prioritizes selecting an interesting courtier...
+				            value = 10
+				            interesting_courtier_selection_score = yes
+				        }
+						character_event = { id = 72022 days = 3 }
+					}
+				}
+				10 = { #Jongleurs entertain guest (liege)
+					modifier = {
+						factor = 0
+						NOR = {
+							has_character_flag = feast_jongleur
+							any_vassal = {
+								war = no
+								has_character_flag = guest_feast_started
+							}
+						}
+					}
+					character_event = { id = 72063 days = 3 }
+				}
+				10 = { #Ministrel entertain the guests (liege)
+					modifier = {
+						factor = 0
+						NOR = {
+							has_character_flag = feast_minstrel
+							any_vassal = {
+								war = no
+								has_character_flag = guest_feast_started
+							}
+						}
+					}
+					character_event = { id = 72065 days = 3 }
+				}
+				10 = { #Musicians entertain the guests (liege)
+					modifier = {
+						factor = 0
+						NOR = {
+							has_character_flag = feast_musicians
+							any_vassal = {
+								war = no
+								has_character_flag = guest_feast_started
+							}
+						}
+					}
+					character_event = { id = 72067 days = 3 }
+				}
+				10 = { #Fire-eaters entertain the guests (liege)
+					modifier = {
+						factor = 0
+						NOR = {
+							has_character_flag = feast_fireeaters
+							any_vassal = {
+								war = no
+								has_character_flag = guest_feast_started
+							}
+						}
+					}
+					character_event = { id = 72069 days = 3 }
+				}
+				10 = { #Conjurer entertain the guests (liege)
+					modifier = {
+						factor = 0
+						NOR = {
+							has_character_flag = feast_conjurer
+							any_vassal = {
+								war = no
+								has_character_flag = guest_feast_started
+							}
+						}
+					}
+					character_event = { id = 72071 days = 3 }
+				}
+				10 = { #Conjurer entertain the guests (liege)
+					modifier = {
+						factor = 0
+						NOR = {
+							war = no
+							in_command = no
+							has_character_flag = feast_dancers
+							has_character_modifier = holding_large_feast
+							has_character_flag = host_feast_started
+						}
+					}
+					character_event = { id = 4165 days = 3 }
+				}
+				10 = { #Conjurer entertain the guests (liege)
+					modifier = {
+						factor = 0
+						NOR = {
+							war = no
+							in_command = no
+							has_character_flag = feast_acrobats
+							has_character_modifier = holding_large_feast
+							has_character_flag = host_feast_started
+						}
+					}
+					character_event = { id = 4160 days = 3 }
+				}
+				#10 = {} #Empty as fallback
+			}
+			random_list = { # Second wave of events
+				10 = { #Jester makes bad joke (Liege)
+					modifier = {
+						factor = 0
+						NOR = {
+							any_courtier = {
+								has_minor_title = title_court_jester
+								NOT = {
+									opinion = { who = ROOT value = 25 }
+								}
+							}
+							any_vassal = {
+								has_character_flag = guest_feast_started
+							}
+						}
+					}
+					character_event = { id = 72060 days = 10 }
+				}
+				10 = { #Highway robber band (vassal)
+					modifier = {
+						factor = 0
+						NOR = {
+							any_vassal = {
+								war = no
+								has_character_flag = guest_feast_started
+								any_liege = {
+									war = no
+									has_character_flag = host_feast_started
+									has_character_modifier = holding_large_feast
+									location = {
+										has_province_modifier = highway_robber_band
+									}
+								}
+							}
+						}
+					}
+					any_vassal = {
+						limit = {
+							war = no
+							has_character_flag = guest_feast_started
+							any_liege = {
+								war = no
+								has_character_flag = host_feast_started
+								has_character_modifier = holding_large_feast
+								location = {
+									has_province_modifier = highway_robber_band
+								}
+							}
+						}
+						score_value = { #Prioritizes selecting an interesting courtier...
+				            value = 10
+				            interesting_courtier_selection_score = yes
+				        }
+						character_event = { id = 72050 days = 10 }
+					}
+				}
+				10 = { #Claim on visitors title (Liege)
+					modifier = {
+						factor = 0
+						NOR = {
+							war = no
+							has_character_flag = host_feast_started
+							has_character_modifier = holding_large_feast
+							any_claim = {
+								holder_scope = {
+									war = no
+									has_character_flag = guest_feast_started
+									vassal_of = ROOT
+								}
+							}
+						}
+					}
+					character_event = { id = 72085 days = 10 }
+				}
+				30 = { #Duel (vassal)
+					modifier = {
+						factor = 0
+						NOR = {
+							any_vassal = {
+								is_adult = yes
+								war = no
+								has_character_flag = guest_feast_started
+								can_be_maimed_trigger = yes
+								NOT = {
+									trait = wounded
+								}
+								martial = 9
+								OR = {
+									trait = duelist
+									trait = brave
+									trait = wroth
+									trait = cruel
+								}
+								NOT = {
+									trait = craven
+								}
+								any_liege = {
+									war = no
+									has_character_modifier = holding_large_feast
+									has_character_flag = host_feast_started
+									any_vassal = {
+										is_adult = yes
+										has_character_flag = guest_feast_started
+										NOT = {
+											character = PREVPREV
+										}
+										NOT = {
+											reverse_opinion = { who = PREVPREV value = -50 }
+										}
+										NOT = {
+											opinion = { who = PREVPREV value = -50 }
+										}
+										NOT = {
+											trait = wounded
+										}
+										can_be_maimed_trigger = yes
+									}
+								}
+							}
+						}
+					}
+					any_vassal = {
+						limit = {
+							is_adult = yes
+							war = no
+							has_character_flag = guest_feast_started
+							NOT = {
+								trait = wounded
+							}
+							can_be_maimed_trigger = yes
+							martial = 9
+							OR = {
+								trait = duelist
+								trait = brave
+								trait = wroth
+								trait = cruel
+							}
+							NOT = {
+								trait = craven
+							}
+							any_liege = {
+								war = no
+								has_character_modifier = holding_large_feast
+								has_character_flag = host_feast_started
+								any_vassal = {
+									is_adult = yes
+									has_character_flag = guest_feast_started
+									NOT = {
+										character = PREVPREV
+									}
+									NOT = {
+										reverse_opinion = { who = PREVPREV value = -50 }
+									}
+									NOT = {
+										opinion = { who = PREVPREV value = -50 }
+									}
+									NOT = {
+										trait = wounded
+									}
+									can_be_maimed_trigger = yes
+								}
+							}
+						}
+						character_event = { id = 72030 days = 10 }
+					}
+					score_value = { #Prioritizes selecting an interesting courtier...
+						value = 10
+						interesting_courtier_selection_score = yes
+					}
+				}
+				10 = { #Late night talk become friends 1 (vassal)
+					modifier = {
+						factor = 0
+						NOR = {
+							any_vassal = {
+								is_adult = yes
+								war = no
+								NOT = { num_of_friends = 3 }
+								has_character_flag = guest_feast_started
+								any_realm_character = {
+									same_liege = PREV
+									liege = {
+										has_character_flag = host_feast_started
+										has_character_modifier = holding_large_feast
+									}
+									is_adult = yes
+									NOT = { num_of_friends = 3 }
+									has_character_flag = guest_feast_started
+									NOT = {
+										character = PREV
+										any_claim = {
+											holder_scope = {
+												character = PREV
+											}
+										}
+										PREV = {
+											any_claim = {
+												holder_scope = {
+													character = PREVPREV
+												}
+											}
+										}
+									}
+									NOT = {
+										is_friend = PREV
+									}
+								}
+							}
+						}
+					}
+					any_vassal = {
+						limit = {
+							is_adult = yes
+							war = no
+							NOT = { num_of_friends = 3 }
+							has_character_flag = guest_feast_started
+							any_realm_character = {
+								same_liege = PREV
+								liege = {
+									has_character_flag = host_feast_started
+									has_character_modifier = holding_large_feast
+								}
+								is_adult = yes
+								NOT = { num_of_friends = 3 }
+								has_character_flag = guest_feast_started
+								NOT = {
+									character = PREV
+									any_claim = {
+										holder_scope = {
+											character = PREV
+										}
+									}
+									PREV = {
+										any_claim = {
+											holder_scope = {
+												character = PREVPREV
+											}
+										}
+									}
+								}
+								NOT = {
+									is_friend = PREV
+								}
+							}
+						}
+						score_value = { #Prioritizes selecting an interesting courtier...
+				            value = 10
+				            interesting_courtier_selection_score = yes
+				        }
+						character_event = { id = 72025 days = 10 }
+					}
+				}
+				10 = { #Late night talk become friends 2 (vassal)
+					modifier = {
+						factor = 0
+						NOR = {
+							any_vassal = {
+								is_adult = yes
+								war = no
+								NOT = { num_of_friends = 3 }
+								has_character_flag = guest_feast_started
+								any_liege = {
+									has_character_flag = host_feast_started
+									has_character_modifier = holding_large_feast
+									NOT = {
+										reverse_opinion = { who = PREV value = 0 }
+									}
+									any_vassal = {
+										is_adult = yes
+										NOT = { num_of_friends = 3 }
+										has_character_flag = guest_feast_started
+										NOT = {
+											character = PREVPREV
+										}
+										NOT = {
+											opinion = { who = PREV value = 0 }
+										}
+										NOT = {
+											any_claim = {
+												holder_scope = {
+													character = PREVPREV
+												}
+											}
+											PREVPREV = {
+												any_claim = {
+													holder_scope = {
+														character = PREVPREV
+													}
+												}
+											}
+										}
+										NOT = {
+											is_friend = PREVPREV
+										}
+									}
+								}
+							}
+						}
+					}
+					any_vassal = {
+						limit = {
+							is_adult = yes
+							war = no
+							NOT = { num_of_friends = 3 }
+							has_character_flag = guest_feast_started
+							any_liege = {
+								has_character_flag = host_feast_started
+								has_character_modifier = holding_large_feast
+								NOT = {
+									reverse_opinion = { who = PREV value = 0 }
+								}
+								any_vassal = {
+									is_adult = yes
+									NOT = { num_of_friends = 3 }
+									has_character_flag = guest_feast_started
+									NOT = {
+										character = PREVPREV
+									}
+									NOT = {
+										opinion = { who = PREV value = 0 }
+									}
+									NOT = {
+										any_claim = {
+											holder_scope = {
+												character = PREVPREV
+											}
+										}
+										PREVPREV = {
+											any_claim = {
+												holder_scope = {
+													character = PREVPREV
+												}
+											}
+										}
+									}
+									NOT = {
+										is_friend = PREVPREV
+									}
+								}
+							}
+						}
+						score_value = { #Prioritizes selecting an interesting courtier...
+				            value = 10
+				            interesting_courtier_selection_score = yes
+				        }
+						character_event = { id = 72027 days = 10 }
+					}
+				}
+				10 = { #Late night talk (Liege)
+					modifier = {
+						factor = 0
+						NOR = {
+							is_adult = yes
+							war = no
+							NOT = { num_of_friends = 3 }
+							has_character_flag = host_feast_started
+							has_character_modifier = holding_large_feast
+							any_vassal = {
+								war = no
+								has_character_flag = guest_feast_started
+								NOT = { num_of_friends = 3 }
+								NOT = {
+									is_friend = ROOT
+								}
+							}
+						}
+					}
+					character_event = { id = 72080 days = 10 }
+				}
+				#10 = {} #Empty as fallback
+			}
+			random_list = { #Third wave of events
+				10 = { #Guest kills servant (vassal)
+					modifier = {
+						factor = 0
+						NOR = {
+							any_vassal = {
+								war = no
+								has_character_flag = guest_feast_started
+								OR = {
+									trait = wroth
+									trait = cruel
+									trait = impaler
+								}
+								OR = {
+									tier = BARON
+									tier = COUNT
+								}
+								NOT = {
+									trait = just
+								}
+								any_liege = {
+									war = no
+									NOT = { personality_traits  = 6 }
+									has_character_flag = host_feast_started
+									has_character_modifier = holding_large_feast
+									NOT = {
+										location = {
+											has_province_modifier = peasants_upset
+										}
+									}
+								}
+							}
+						}
+					}
+					any_vassal = {
+						limit = {
+							war = no
+							has_character_flag = guest_feast_started
+							OR = {
+								trait = wroth
+								trait = cruel
+								trait = impaler
+							}
+							OR = {
+								tier = BARON
+								tier = COUNT
+							}
+							NOT = {
+								trait = just
+							}
+							any_liege = {
+								war = no
+								NOT = { personality_traits  = 6 }
+								has_character_flag = host_feast_started
+								has_character_modifier = holding_large_feast
+								NOT = {
+									location = {
+										has_province_modifier = peasants_upset
+									}
+								}
+							}
+						}
+						score_value = { #Prioritizes selecting an interesting courtier...
+				            value = 10
+				            interesting_courtier_selection_score = yes
+				        }
+						character_event = { id = 72055 days = 14 }
+					}
+				}
+				10 = { #Drunkard (vassal)
+					modifier = {
+						factor = 0
+						NOR = {
+							any_vassal = {
+								is_adult = yes
+								war = no
+								has_character_flag = guest_feast_started
+								NOT = {
+									trait = drunkard
+								}
+								any_liege = {
+									war = no
+									has_character_flag = host_feast_started
+									has_character_modifier = holding_large_feast
+								}
+							}
+						}
+					}
+					any_vassal = {
+						limit = {
+							is_adult = yes
+							war = no
+							has_character_flag = guest_feast_started
+							NOT = {
+								trait = drunkard
+							}
+							any_liege = {
+								war = no
+								has_character_flag = host_feast_started
+								has_character_modifier = holding_large_feast
+							}
+						}
+						score_value = { #Prioritizes selecting an interesting courtier...
+				            value = 10
+				            interesting_courtier_selection_score = yes
+				        }
+						character_event = { id = 72045 days = 14 }
+					}
+				}
+				10 = { #Drink and embarass self (vassal)
+					modifier = {
+						factor = 0
+						NOR = {
+							any_vassal = {
+								is_adult = yes
+								war = no
+								has_character_flag = guest_feast_started
+								trait = drunkard
+								any_liege = {
+									war = no
+									has_character_flag = host_feast_started
+									has_character_modifier = holding_large_feast
+									NOT = {
+										has_character_flag = feast_drunkard_guest
+									}
+									any_courtier = {
+										has_job_title = job_treasurer
+										NOT = {
+											trait = drunkard
+										}
+									}
+								}
+							}
+						}
+					}
+					any_vassal = {
+						limit = {
+							is_adult = yes
+							war = no
+							has_character_flag = guest_feast_started
+							trait = drunkard
+							any_liege = {
+								war = no
+								has_character_flag = host_feast_started
+								has_character_modifier = holding_large_feast
+								NOT = {
+									has_character_flag = feast_drunkard_guest
+								}
+								any_courtier = {
+									has_job_title = job_treasurer
+									NOT = {
+										trait = drunkard
+									}
+								}
+							}
+						}
+						score_value = { #Prioritizes selecting an interesting courtier...
+				            value = 10
+				            interesting_courtier_selection_score = yes
+				        }
+						character_event = { id = 72046 days = 14 }
+					}
+				}
+				10 = { #Drink and embarass self (vassal)
+					modifier = {
+						factor = 0
+						NOR = {
+							any_vassal = {
+								is_adult = yes
+								war = no
+								has_character_flag = guest_feast_started
+								trait = drunkard
+								any_liege = {
+									war = no
+									has_character_flag = host_feast_started
+									has_character_modifier = holding_large_feast
+									NOT = {
+										has_character_flag = feast_drunkard_guest
+									}
+								}
+							}
+						}
+					}
+					any_vassal = {
+						limit = {
+							is_adult = yes
+							war = no
+							has_character_flag = guest_feast_started
+							trait = drunkard
+							any_liege = {
+								war = no
+								has_character_flag = host_feast_started
+								has_character_modifier = holding_large_feast
+								NOT = {
+									has_character_flag = feast_drunkard_guest
+								}
+							}
+						}
+						score_value = { #Prioritizes selecting an interesting courtier...
+				            value = 10
+				            interesting_courtier_selection_score = yes
+				        }
+						character_event = { id = 72048 days = 14 }
+					}
+				}
+				10 = { #Friendly with another spouse (liege)
+					modifier = {
+						factor = 0
+						NOR = {
+							is_adult = yes
+							war = no
+							has_character_flag = host_feast_started
+							has_character_modifier = holding_large_feast
+							NOR = {
+								trait = celibate
+								trait = chaste
+								trait = eunuch
+								trait = homosexual
+							}
+							fertility = 0.4
+							any_vassal = {
+								war = no
+								has_character_flag = guest_feast_started
+								OR = {
+									AND = {
+										is_female = no
+										is_married = yes
+										spouse = {
+											is_adult = yes
+											NOR = {
+												is_close_relative = ROOT
+												#age = 40
+												is_40 = yes
+												trait = celibate
+												trait = chaste
+												trait = homosexual
+											}
+											is_female = yes
+											is_pregnant = no
+											is_alive = yes
+											is_abroad = no
+											prisoner = no
+											opinion = { who = ROOT value = 20 }
+										}
+									}
+									AND = {
+										is_adult = yes
+										NOR = {
+											is_close_relative = ROOT
+											#age = 40
+											is_40 = yes
+											trait = celibate
+											trait = chaste
+											trait = homosexual
+										}
+										is_female = yes
+										is_pregnant = no
+										is_alive = yes
+										is_abroad = no
+										prisoner = no
+										opinion = { who = ROOT value = 20 }
+									}
+								}
+							}
+						}
+					}
+					character_event = { id = 72075 days = 14 }
+				}
+				10 = { #Friedly with spouse (vassal)
+					modifier = {
+						factor = 0
+						NOR = {
+							any_vassal = {
+								is_adult = yes
+								war = no
+								has_character_flag = guest_feast_started
+								is_married = yes
+								fertility = 0.4
+								any_realm_character = {
+									same_liege = PREV
+									liege = {
+										war = no
+										has_character_flag = host_feast_started
+										has_character_modifier = holding_large_feast
+									}
+									NOT = { character = PREV }
+									has_character_flag = guest_feast_started
+									spouse = {
+										prisoner = no
+										is_adult = yes
+										is_pregnant = no
+										is_alive = yes
+										is_abroad = no
+										NOT = {
+											trait = celibate
+										}
+										NOT = { trait = eunuch }
+										NOT = {
+											age = 30
+										}
+										opinion = { who = PREVPREV value = 20 }
+										NOT = { is_close_relative = PREVPREV }
+
+										OR = {
+											AND = {
+												is_female = yes
+												is_pregnant = no
+												PREVPREV = {
+													is_female = no
+												}
+											}
+											AND = {
+												is_female = no
+												PREVPREV = {
+													is_female = yes
+													is_pregnant = no
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+					any_vassal = {
+						limit = {
+							is_adult = yes
+							war = no
+							has_character_flag = guest_feast_started
+							is_married = yes
+							fertility = 0.4
+							any_realm_character = {
+								same_liege = PREV
+								liege = {
+									war = no
+									has_character_flag = host_feast_started
+									has_character_modifier = holding_large_feast
+								}
+								NOT = { character = PREV }
+								has_character_flag = guest_feast_started
+								spouse = {
+									prisoner = no
+									is_adult = yes
+									is_pregnant = no
+									is_alive = yes
+									is_abroad = no
+									NOT = {
+										trait = celibate
+									}
+									NOT = { trait = eunuch }
+									NOT = {
+										age = 30
+									}
+									opinion = { who = PREVPREV value = 20 }
+									NOT = { is_close_relative = PREVPREV }
+
+									OR = {
+										AND = {
+											is_female = yes
+											is_pregnant = no
+											PREVPREV = {
+												is_female = no
+											}
+										}
+										AND = {
+											is_female = no
+											PREVPREV = {
+												is_female = yes
+												is_pregnant = no
+											}
+										}
+									}
+								}
+							}
+						}
+						score_value = { #Prioritizes selecting an interesting courtier...
+				            value = 10
+				            interesting_courtier_selection_score = yes
+				        }
+						character_event = { id = 72040 days = 14 }
+					}
+				}
+				10 = { #Falling in love (Liege or child)
+					modifier = {
+						factor = 0
+						NOR = {
+							any_realm_character = {
+								OR = {
+									character = ROOT
+									liege = { character = ROOT }
+								}
+								OR = {
+									AND = {
+										is_betrothed = no
+										is_married = no
+									}
+									NOT = { trait = chaste }
+								}
+								OR = {
+									religion_group = christian
+									religion_group = jewish_group
+								}
+								has_lover = no
+								NOT = { trait = shy }
+								fertility = 0.4
+								OR = {
+									AND = {
+										NOT = {
+											num_of_children = 1
+										}
+										war = no
+										has_character_flag = host_feast_started
+										has_character_modifier = holding_large_feast
+									}
+									AND = {
+										is_adult = yes
+										NOT = {
+											age = 26
+										}
+										father = {
+											war = no
+											has_character_flag = host_feast_started
+											has_character_modifier = holding_large_feast
+										}
+									}
+								}
+								OR = {
+									father = {
+										any_vassal = {
+											has_character_flag = guest_feast_started
+											any_child = {
+												is_female = yes
+												is_married = no
+												is_betrothed = no
+												has_lover = no
+												NOT = { is_close_relative = PREVPREV }
+												is_adult = yes
+												NOT = {
+													age = 26
+												}
+												is_abroad = no
+												opinion = { who = PREVPREV value = 20 }
+											}
+										}
+									}
+									any_vassal = {
+										has_character_flag = guest_feast_started
+										any_child = {
+											is_female = yes
+											is_married = no
+											is_betrothed = no
+											has_lover = no
+											fertility = 0.4
+											NOT = { is_close_relative = PREVPREV }
+											is_adult = yes
+											NOT = {
+												age = 26
+											}
+											is_abroad = no
+											opinion = { who = PREVPREV value = 20 }
+										}
+									}
+								}
+							}
+						}
+					}
+					any_realm_character = {
+						limit = {
+							OR = {
+								character = ROOT
+								liege = { character = ROOT }
+							}
+							OR = {
+								AND = {
+									is_betrothed = no
+									is_married = no
+								}
+								NOT = { trait = chaste }
+							}
+							OR = {
+								religion_group = christian
+								religion_group = jewish_group
+							}
+							has_lover = no
+							NOT = { trait = shy }
+							fertility = 0.4
+							OR = {
+								AND = {
+									NOT = {
+										num_of_children = 1
+									}
+									war = no
+									has_character_flag = host_feast_started
+									has_character_modifier = holding_large_feast
+								}
+								AND = {
+									is_adult = yes
+									NOT = {
+										age = 26
+									}
+									father = {
+										war = no
+										has_character_flag = host_feast_started
+										has_character_modifier = holding_large_feast
+									}
+								}
+							}
+							OR = {
+								father = {
+									any_vassal = {
+										has_character_flag = guest_feast_started
+										any_child = {
+											is_female = yes
+											is_married = no
+											is_betrothed = no
+											has_lover = no
+											NOT = { is_close_relative = PREVPREV }
+											is_adult = yes
+											NOT = {
+												age = 26
+											}
+											is_abroad = no
+											opinion = { who = PREVPREV value = 20 }
+										}
+									}
+								}
+								any_vassal = {
+									has_character_flag = guest_feast_started
+									any_child = {
+										is_female = yes
+										is_married = no
+										is_betrothed = no
+										has_lover = no
+										fertility = 0.4
+										NOT = { is_close_relative = PREVPREV }
+										is_adult = yes
+										NOT = {
+											age = 26
+										}
+										is_abroad = no
+										opinion = { who = PREVPREV value = 20 }
+									}
+								}
+							}
+						}
+						score_value = { #Prioritizes selecting an interesting courtier...
+				            value = 10
+				            interesting_courtier_selection_score = yes
+				        }
+						character_event = { id = 72090 days = 14 }
+					}
+				}
+				#10 = {} #Empty as fallback
+			}
+			character_event = { id = 72110 days = 20 }
+		}
+	}
+}
+
+#Friendly with another guest's spouse
+character_event = {
+	id = 72040
+	desc = "EVTDESC72040"
+	picture = GFX_evt_feast
+
+	min_age = 16
+	#max_age = 60
+	prisoner = no
+	only_rulers = yes
+	capable_only = yes
+	war = no
+	has_character_flag = guest_feast_started
+	is_married = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		fertility = 0.4
+		is_60 = no
+		any_realm_character = {
+			same_liege = ROOT
+			liege = {
+				war = no
+				has_character_flag = host_feast_started
+				has_character_modifier = holding_large_feast
+			}
+			NOT = { character = ROOT }
+			has_character_flag = guest_feast_started
+			spouse = {
+				prisoner = no
+				is_adult = yes
+				is_pregnant = no
+				is_alive = yes
+				is_abroad = no
+				NOT = {
+					trait = celibate
+				}
+				NOT = { trait = eunuch }
+				NOT = {
+					age = 30
+				}
+				opinion = { who = ROOT value = 20 }
+				NOT = { is_close_relative = root }
+
+				OR = {
+					AND = {
+						is_female = yes
+						is_pregnant = no
+						ROOT = {
+							is_female = no
+						}
+					}
+					AND = {
+						is_female = no
+						ROOT = {
+							is_female = yes
+							is_pregnant = no
+						}
+					}
+				}
+			}
+		}
+	}
+
+	option = {
+		name = "EVTOPTA72040"
+		prestige = -5
+	}
+
+	option = {
+		name = "EVTOPTB72040"
+		random_realm_character = {
+			limit = {
+				same_liege = ROOT
+				liege = {
+					has_character_flag = host_feast_started
+					has_character_modifier = holding_large_feast
+				}
+				NOT = { character = ROOT }
+				has_character_flag = guest_feast_started
+				spouse = {
+					prisoner = no
+					is_adult = yes
+					is_pregnant = no
+					is_alive = yes
+					is_abroad = no
+					NOT = {
+						trait = celibate
+					}
+					NOT = { trait = eunuch }
+					NOT = {
+						age = 30
+					}
+					opinion = { who = ROOT value = 20 }
+					NOT = { is_close_relative = root }
+					OR = {
+						AND = {
+							fertility = 0.4
+							is_female = yes
+							is_pregnant = no
+							ROOT = {
+								is_female = no
+							}
+						}
+						AND = {
+							is_female = no
+							ROOT = {
+								fertility = 0.4
+								is_female = yes
+								is_pregnant = no
+							}
+						}
+					}
+				}
+			}
+			spouse = {
+				character_event = {
+					id = 72041
+					tooltip = "EVTTOOLTIP72041"
+				}
+			}
+		}
+	}
+}
+
+#Friendly with another guest's spouse
+character_event = {
+	id = 72075
+	desc = "EVTDESC72075"
+	picture = GFX_evt_feast
+
+	only_men = yes
+	min_age = 16
+	max_age = 60
+	prisoner = no
+	only_rulers = yes
+	capable_only = yes
+	war = no
+	has_character_flag = host_feast_started
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_character_modifier = holding_large_feast
+		NOR = {
+			trait = celibate
+			trait = chaste
+			trait = eunuch
+			trait = homosexual
+		}
+		fertility = 0.4
+		any_vassal = {
+			war = no
+			has_character_flag = guest_feast_started
+			OR = {
+				AND = {
+					is_female = no
+					is_married = yes
+					spouse = {
+						is_adult = yes
+						NOR = {
+							is_close_relative = ROOT
+							#age = 40
+							is_40 = yes
+							fertility = 0.4
+							trait = celibate
+							trait = chaste
+							trait = homosexual
+							trait = zombie
+						}
+						is_female = yes
+						is_pregnant = no
+						is_alive = yes
+						is_abroad = no
+						prisoner = no
+						opinion = { who = ROOT value = 20 }
+					}
+				}
+				AND = {
+					is_adult = yes
+					NOR = {
+						is_close_relative = ROOT
+						#age = 40
+						fertility = 0.4
+						is_40 = yes
+						trait = celibate
+						trait = chaste
+						trait = homosexual
+					}
+					is_female = yes
+					is_pregnant = no
+					is_alive = yes
+					is_abroad = no
+					prisoner = no
+					opinion = { who = ROOT value = 20 }
+				}
+			}
+		}
+	}
+
+	immediate = {
+		random_vassal = {
+			limit = {
+				war = no
+				has_character_flag = guest_feast_started
+				OR = {
+					AND = {
+						is_female = no
+						is_married = yes
+						spouse = {
+							is_adult = yes
+							NOR = {
+								is_close_relative = ROOT
+								#age = 40
+								is_40 = no
+								trait = celibate
+								trait = chaste
+								trait = homosexual
+							}
+							is_female = yes
+							is_pregnant = no
+							is_alive = yes
+							is_abroad = no
+							prisoner = no
+							opinion = { who = ROOT value = 20 }
+						}
+					}
+					AND = {
+						is_adult = yes
+						NOR = {
+							is_close_relative = ROOT
+							#age = 40
+							is_40 = no
+							trait = celibate
+							trait = chaste
+							trait = homosexual
+						}
+						is_female = yes
+						is_pregnant = no
+						is_alive = yes
+						is_abroad = no
+						prisoner = no
+						opinion = { who = ROOT value = 20 }
+					}
+				}
+			}
+			if = {
+				limit = {
+					is_female = yes
+				}
+				save_event_target_as = passionated_guest
+				break = yes
+			}
+			spouse = {
+				save_event_target_as = passionated_guest
+			}
+		}
+	}
+
+	option = {
+		name = "EVTOPTA72075"
+		prestige = -5
+	}
+
+	option = {
+		name = "EVTOPTB72075"
+		event_target:passionated_guest = {
+			character_event = {
+				id = 72076
+				tooltip = "EVTTOOLTIP72076"
+			}
+		}
+	}
+}
+
+# Vassal wants to be guardian for liege's child
+character_event = {
+	id = 2480
+	desc = EVTDESC2480
+	picture = GFX_evt_council
+	
+	min_age = 20
+	#max_age = 70
+	only_playable = yes
+	prisoner = no
+	capable_only = yes
+	
+	trigger = {
+		independent = no
+		is_70 = no
+		NOT = { trait = stressed }
+		NOT = { trait = depressed }
+		NOT = { trait = leper }
+		health = 4
+		
+		# Not if already having a ward
+		NOT = {
+			any_ward = {
+				age = 6
+			}
+		}
+		liege = {
+			NOT = {
+				character = ROOT
+			}
+			any_child = {
+				age = 6
+				is_ruler = no
+				is_alive = yes
+				NOT = { age = 16 }
+				prisoner = no
+				NOT = {
+					AND = {
+						is_female = yes
+						religion_group = muslim
+					}
+				}
+				has_guardian = no
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 240
+		modifier = {
+			factor = 5.0
+			trait = slothful
+		}
+		modifier = {
+			factor = 5.0
+			trait = shy
+		}
+		modifier = {
+			factor = 0.6
+			trait = diligent
+		}
+		modifier = {
+			factor = 0.6
+			trait = gregarious
+		}
+		modifier = {
+			factor = 0.5
+			trait = ambitious
+		}
+		modifier = {
+			factor = 0.5
+			martial =  12
+		}
+		modifier = {
+			factor = 0.5
+			stewardship = 12
+		}
+	}
+	
+	option = {
+		name = EVTOPTA2480
+		ai_chance = { factor = 100}
+		liege = {
+			letter_event = {
+				id = 2481
+				tooltip = EVTTOOLTIP2481
+			}
+		}
+	}
+	option = {
+		name = EVTOPTB2480
+		ai_chance = { factor = 0}
+	}
+}
+
+# A courtier initiates romance with the liege
+# Hidden start
+character_event = {
+	id = 449
+	
+	hide_window = yes
+	
+	only_playable = yes
+	only_capable = yes
+	prisoner = no
+	min_age = 16
+	max_age = 65
+	
+	trigger = {
+		is_landed = yes
+		is_pregnant = no
+		has_regent = no
+		
+		OR = {
+			is_female = no
+			NOT = { is_old = yes }
+		}
+		
+		NOR = {
+			trait = infirm
+			trait = celibate
+			trait = eunuch
+			trait = in_hiding
+			trait = disfigured
+			trait = infertile
+		}
+		
+		OR = {
+			is_married = no
+			NOT = { trait = chaste }
+		}
+		
+		NOT = { num_of_lovers = 5 }
+	}
+
+	mean_time_to_happen = {
+		months = 120
+		
+		modifier = {
+			factor = 0.5
+			has_focus = focus_seduction
+		}
+		modifier = {
+			factor = 1.5
+			num_of_lovers = 1
+		}		
+		modifier = {
+			factor = 2.0
+			num_of_lovers = 2
+		}
+		modifier = {
+			factor = 4.0
+			num_of_lovers = 3
+		}
+		modifier = {
+			factor = 5.0
+			num_of_lovers = 4
+		}
+		modifier = {
+			factor = 4.0
+			religion_group = muslim
+		}
+		modifier = {
+			factor = 0.33
+			trait = homosexual # To balance for fewer potential lovers
+		}
+		modifier = {
+			factor = 2.0
+			spouse = {
+				NOT = { age = 30 }
+			}
+		}
+		modifier = {
+			factor = 0.5
+			spouse = {
+				#age = 45
+				trait = infertile
+			}
+		}
+		modifier = {
+			factor = 0.5
+			trait = hedonist
+		}
+		modifier = {
+			factor = 0.5
+			trait = lustful
+		}
+		modifier = {
+			factor = 0.5
+			has_fair_trait_trigger = yes
+		}
+		modifier = {
+			factor = 2.0
+			trait = shy
+		}
+		modifier = {
+			factor = 2.0
+			has_ugly_trait_trigger = yes
+		}
+		modifier = {
+			factor = 10.0
+			trait = chaste
+		}
+	}
+
+	immediate = {
+		if = {
+			limit = {
+				OR = {
+					spouse = { is_lover = ROOT }
+					has_character_modifier = lustful_affair_timer
+				}
+			}
+			break = yes
+		}
+		
+		any_courtier = {
+			limit = {
+				is_pregnant = no
+				prisoner = no
+				NOR = {
+					trait = incapable
+					trait = infirm
+					trait = celibate
+					trait = eunuch
+					trait = chaste
+					trait = in_hiding
+					trait = disfigured
+					trait = infertile
+				}
+				OR = {
+					is_female = no
+					NOT = { is_old = yes }
+				}
+				has_lover = no
+				is_consort = no
+				
+				NOT = { spouse = { character = ROOT } }
+				NOT = { is_rival = ROOT }
+				
+				OR = {
+					is_married = no
+					trait = lustful
+					trait = deceitful
+					trait = hedonist
+					spouse = {
+						NOT = { is_lover = PREV }
+						NOT = { reverse_opinion = { who = PREV value = 50 } }
+					}
+				}
+				
+				is_valid_romance_target = ROOT
+			}
+			score_value = { #Prioritizes selecting an interesting courtier...
+				value = 10
+				interesting_courtier_selection_score = yes
+			}
+			character_event = { id = 450 }
+		}
+	}
+	
+}
+
+# Health complications: late life health issues.
+
+#Character has become obese.
+character_event = {
+	id = HFP.20661
+	desc = EVTDESCAHFP20661
+	picture = GFX_evt_fancy_feast
+	min_age = 40	#Unlikely to happen earlier.
+	capable_only = yes
+	prisoner = no
+
+	is_triggered_only = yes
+	
+	trigger = { 
+		is_40 = yes
+		trait = is_fat 
+		NOT = { has_character_modifier = obese_modifier }
+		check_variable = { which = physique_variable value = 30 }
+		has_character_flag = flag_becoming_obese		#Gained in HFP.20647
+	} 
+	weight_multiplier = {
+		factor = 1
+		modifier = {
+			factor = 2
+			has_character_modifier = well_fed
+		}
+		modifier = {
+			factor = 1.5
+		check_variable = { which = physique_variable value = 35 }
+		}
+		modifier = {
+			factor = 3
+		check_variable = { which = physique_variable value = 40 }
+		}
+		modifier = {
+			factor = 5
+		check_variable = { which = physique_variable value = 50 }
+		}
+		modifier = {
+			factor = 7
+		check_variable = { which = physique_variable value = 60 }
+		}
+		modifier = {
+			factor = 10
+		check_variable = { which = physique_variable value = 70 }
+		}
+	}
+
+	option = { #Too late to do anything anymore.
+		name = EVTOPTCHFP20661	
+		add_character_modifier = {
+			name = obese_modifier
+			duration = -1
+		}
+		clr_character_flag = flag_becoming_obese
+		hidden_tooltip = { 
+			if = { 
+				limit = { check_variable = { which = physique_variable value = 35 } } 
+				health = -0.5
+			}
+			if = { 
+				limit = { check_variable = { which = physique_variable value = 40 } } 
+				health = -0.7
+			}
+			if = { 
+				limit = { check_variable = { which = physique_variable value = 45 } } 
+				health = -0.7
+			}
+			if = { 
+				limit = { check_variable = { which = physique_variable value = 50 } } 
+				health = -1.0
+			}
+			if = { 
+				limit = { check_variable = { which = physique_variable value = 55 } } 
+				health = -2.0
+			}
+		} 
+		gain_weight_small_effect = yes
+		ai_chance = { factor = 30 }
+	}
+}
+
+#Character has become severely underweight.
+character_event = {
+	id = HFP.20662
+	desc = EVTDESCAHFP20662
+	picture = GFX_evt_bad_news
+	min_age = 40	#Unlikely to happen earlier.
+	capable_only = yes
+	prisoner = no 	#Starvation in prison still handled by vanilla events.
+
+	is_triggered_only = yes
+	
+	trigger = {
+		is_40 = yes
+		trait = is_malnourished
+		NOT = { has_character_modifier = severely_underweight_modifier }
+		NOT = { check_variable = { which = physique_variable value = -30 } }
+		has_character_flag = flag_becoming_underweight 	#Gained in HFP.20648
+	} 
+	weight_multiplier = {
+		factor = 1
+		modifier = {
+			factor = 2
+			has_character_modifier = one_year_fasting
+		}
+		modifier = {
+			factor = 2
+			prisoner = yes
+		}
+		modifier = {
+			factor = 3
+		NOT = { check_variable = { which = physique_variable value = -35 } }
+		}
+		modifier = {
+			factor = 5
+		NOT = { check_variable = { which = physique_variable value = -40 } }
+		}
+		modifier = {
+			factor = 10
+		NOT = { check_variable = { which = physique_variable value = -45 } }
+		}
+		modifier = {
+			factor = 10
+		NOT = { check_variable = { which = physique_variable value = -50 } }
+		}
+		modifier = {
+			factor = 10
+		NOT = { check_variable = { which = physique_variable value = -55 } }
+		}
+	}
+
+	option = { #Too late now.
+		name = EVTOPTAHFP20662
+		add_character_modifier = {
+			name = severely_underweight_modifier
+			duration = -1
+		}
+		clr_character_flag = flag_becoming_underweight
+		hidden_tooltip = { 
+			if = { 
+				limit = { NOT = { check_variable = { which = physique_variable value = -30 } } } 
+				health = -0.75
+			}
+			if = { 
+				limit = { NOT = { check_variable = { which = physique_variable value = -35 } } } 
+				health = -0.75
+			}
+			if = { 
+				limit = { NOT = { check_variable = { which = physique_variable value = -40 } } } 
+				health = -1.0
+			}
+			if = { 
+				limit = { NOT = { check_variable = { which = physique_variable value = -45 } } } 
+				health = -1.5
+			}
+			if = { 
+				limit = { NOT = { check_variable = { which = physique_variable value = -50 } } } 
+				health = -2.0
+			}
+			if = { 
+				limit = { NOT = { check_variable = { which = physique_variable value = -55 } } }
+				health = -3.0
+			}
+		} 
+		lose_weight_small_effect = yes
+		ai_chance = { factor = 30 }
+	}
+}

@@ -1,0 +1,733 @@
+BL_blood_of_the_gods_generic = { # Generic for when a more specific BotG trait is not used
+	bloodline_inheritance_genetic = 1
+	same_religion_opinion = 5
+	health = 2
+	combat_rating = 4
+	monthly_character_prestige = 0.25
+	inheritance = no_inheritance # Passed manually in SPECIES.2. Might not always pass on and passes genetically
+	picture = GFX_bloodlines_placeholder_symbol_2
+	flags = { BOTG divine generic_botg genetic_inheritance }
+	active = {
+		custom_tooltip = {
+			text = saintly_bloodline_same_religion_TT
+			FROM = {
+				founder = {
+					OR = {
+						religion = ROOT
+						is_heresy_of = ROOT
+					}
+				}
+			}
+		}
+	}
+}
+
+BL_blood_of_asgard = {
+	bloodline_inheritance_genetic = 1
+	norse_pagan_opinion = 5
+	norse_pagan_reformed_opinion = 5
+	health = 2
+	combat_rating = 8
+	monthly_character_prestige = 0.1
+	inheritance = no_inheritance # Passed manually in SPECIES.2. Might not always pass on and passes genetically
+	picture = GFX_bloodlines_symbol_norse
+	flags = { BOTG divine norse_god pantheon botg_asgard genetic_inheritance }
+}
+
+BL_blood_of_olympus = {
+	bloodline_inheritance_genetic = 1
+	norse_pagan_opinion = 5
+	norse_pagan_reformed_opinion = 5
+	health = 2
+	fertility = 0.1
+	combat_rating = 4
+	inheritance = no_inheritance # Passed manually in SPECIES.2. Might not always pass on and passes genetically
+	picture = GFX_bloodlines_symbol_stoics
+	flags = { BOTG divine greek_god pantheon botg_olympus genetic_inheritance }
+}
+
+BL_blood_of_odin = {
+	bloodline_inheritance_genetic = 1
+	norse_pagan_opinion = 5
+	norse_pagan_reformed_opinion = 5
+	health = 2
+	monthly_character_piety = 0.5
+	learning = 1
+	inheritance = no_inheritance # Passed manually in SPECIES.2. Might not always pass on and passes genetically
+	picture = GFX_bloodlines_symbol_norse
+	flags = { BOTG divine norse_god specific_god no_eye_healing war_god knowledge_god king_god botg_odin genetic_inheritance }
+}
+
+BL_blood_of_thor = {
+	bloodline_inheritance_genetic = 1
+	norse_pagan_opinion = 5
+	norse_pagan_reformed_opinion = 5
+	health = 2
+	combat_rating = 18
+	monthly_character_prestige = 0.1
+	inheritance = no_inheritance # Passed manually in SPECIES.2. Might not always pass on and passes genetically
+	picture = GFX_bloodlines_symbol_norse
+	flags = { BOTG divine norse_god specific_god war_god botg_thor genetic_inheritance }
+}
+
+BL_blood_of_loki = {
+	bloodline_inheritance_genetic = 1
+	norse_pagan_opinion = 5
+	norse_pagan_reformed_opinion = 5
+	health = 5
+	intrigue = 2
+	monthly_character_prestige = 0.1
+	inheritance = no_inheritance # Passed manually in SPECIES.2. Might not always pass on and passes genetically
+	picture = GFX_bloodlines_symbol_midgard
+	flags = { BOTG divine norse_god specific_god trickster_god botg_loki genetic_inheritance }
+}
+
+BL_blood_of_heimdal = {
+	bloodline_inheritance_genetic = 1
+	norse_pagan_opinion = 5
+	norse_pagan_reformed_opinion = 5
+	health = 2
+	monthly_character_piety = 0.5
+	command_modifier = {
+		speed = 0.1
+	}
+	inheritance = no_inheritance # Passed manually in SPECIES.2. Might not always pass on and passes genetically
+	picture = GFX_bloodlines_symbol_norse
+	flags = { BOTG divine norse_god specific_god knowledge_god botg_heimdal genetic_inheritance }
+}
+
+BL_blood_of_tyr = {
+	bloodline_inheritance_genetic = 1
+	norse_pagan_opinion = 5
+	norse_pagan_reformed_opinion = 5
+	health = 3
+	known_werewolf_opinion = -15
+	vassal_opinion = 5
+	inheritance = no_inheritance # Passed manually in SPECIES.2. Might not always pass on and passes genetically
+	picture = GFX_bloodlines_symbol_norse
+	flags = { BOTG divine norse_god specific_god no_hand_healing war_god botg_tyr genetic_inheritance }
+}
+
+BL_blood_of_njorthr = {
+	bloodline_inheritance_genetic = 1
+	norse_pagan_opinion = 5
+	norse_pagan_reformed_opinion = 5
+	health = 2
+	fertility = 0.1
+	sex_appeal_opinion = 5
+	inheritance = no_inheritance # Passed manually in SPECIES.2. Might not always pass on and passes genetically
+	picture = GFX_bloodlines_symbol_norse
+	flags = { BOTG divine norse_god specific_god botg_njorthr genetic_inheritance }
+}
+
+BL_blood_of_sif = {
+	bloodline_inheritance_genetic = 1
+	norse_pagan_opinion = 5
+	norse_pagan_reformed_opinion = 5
+	health = 2
+	fertility = 0.1
+	#spouse_opinion = 5 #Doesn't seem to work in bloodlines
+	sex_appeal_opinion = 5 #So I'll use this instead
+	child_opinion = 5
+	inheritance = no_inheritance # Passed manually in SPECIES.2. Might not always pass on and passes genetically
+	picture = GFX_bloodlines_symbol_norse
+	flags = { BOTG divine norse_god specific_god god_faithful botg_sif genetic_inheritance }
+}
+
+BL_blood_of_aphrodite = {
+	bloodline_inheritance_genetic = 1
+	hellenic_pagan_opinion = 5
+	hellenic_pagan_reformed_opinion = 5
+	health = 2
+	fertility = 0.15
+	bloodline_effect_no_menopause = 1
+	inheritance = no_inheritance # Passed manually in SPECIES.2. Might not always pass on and passes genetically
+	picture = GFX_bloodlines_symbol_norse
+	flags = { BOTG divine greek_god specific_god god_seducer botg_aphrodite genetic_inheritance }
+}
+
+BL_blood_of_zeus = {
+	bloodline_inheritance_genetic = 1
+	hellenic_pagan_opinion = 5
+	hellenic_pagan_reformed_opinion = 5
+	health = 2
+	fertility = 0.1
+	inheritance = no_inheritance # Passed manually in SPECIES.2. Might not always pass on and passes genetically
+	picture = GFX_bloodlines_symbol_stoics
+	flags = { BOTG divine greek_god specific_god god_seducer king_god botg_zeus genetic_inheritance }
+}
+
+BL_blood_of_poseidon = {
+	bloodline_inheritance_genetic = 1
+	hellenic_pagan_opinion = 5
+	hellenic_pagan_reformed_opinion = 5
+	health = 2
+	#galleys = 2 # Doesn't work. Give light cav instead, since he was associated with horses too
+	light_cavalry_morale = 0.1
+	inheritance = no_inheritance # Passed manually in SPECIES.2. Might not always pass on and passes genetically
+	picture = GFX_bloodlines_symbol_stoics
+	flags = { BOTG divine greek_god specific_god botg_poseidon genetic_inheritance }
+}
+
+BL_blood_of_hestia = {
+	bloodline_inheritance_genetic = 1
+	hellenic_pagan_opinion = 5
+	hellenic_pagan_reformed_opinion = 5
+	dynasty_opinion = 5
+	health = 2
+	global_revolt_risk = -0.01
+	inheritance = no_inheritance # Passed manually in SPECIES.2. Might not always pass on and passes genetically
+	picture = GFX_bloodlines_symbol_stoics
+	flags = { BOTG divine greek_god specific_god god_chaste botg_hestia genetic_inheritance }
+}
+	
+BL_blood_of_hades = {
+	bloodline_inheritance_genetic = 1
+	hellenic_pagan_opinion = 5
+	hellenic_pagan_reformed_opinion = 5
+	health = 3
+	global_tax_modifier = 0.01
+	monthly_character_prestige = 0.1
+	inheritance = no_inheritance # Passed manually in SPECIES.2. Might not always pass on and passes genetically
+	picture = GFX_bloodlines_symbol_stoics
+	flags = { BOTG divine greek_god specific_god botg_hades genetic_inheritance }
+}
+
+BL_blood_of_demeter = {
+	bloodline_inheritance_genetic = 1
+	hellenic_pagan_opinion = 5
+	hellenic_pagan_reformed_opinion = 5
+	health = 2
+	days_of_supply = 2
+	stewardship = 1
+	inheritance = no_inheritance # Passed manually in SPECIES.2. Might not always pass on and passes genetically
+	picture = GFX_bloodlines_symbol_stoics
+	flags = { BOTG divine greek_god specific_god botg_demeter genetic_inheritance }
+}
+BL_blood_of_athena = {
+	bloodline_inheritance_genetic = 1
+	hellenic_pagan_opinion = 5
+	hellenic_pagan_reformed_opinion = 5
+	health = 2
+	strategist_opinion = 5
+	bloodline_effect_strategist = 1
+	inheritance = no_inheritance # Passed manually in SPECIES.2. Might not always pass on and passes genetically
+	picture = GFX_bloodlines_symbol_generic_hero
+	flags = { BOTG divine greek_god specific_god war_god knowledge_god botg_athena genetic_inheritance }
+}
+BL_blood_of_ares = {
+	bloodline_inheritance_genetic = 1
+	hellenic_pagan_opinion = 5
+	hellenic_pagan_reformed_opinion = 5
+	health = 2
+	combat_rating = 12
+	martial = 1
+	bloodline_effect_great_heroes_appear = 1
+	inheritance = no_inheritance # Passed manually in SPECIES.2. Might not always pass on and passes genetically
+	picture = GFX_bloodlines_symbol_generic_hero
+	flags = { BOTG divine greek_god specific_god war_god botg_ares genetic_inheritance }
+}
+BL_blood_of_hermes = {
+	bloodline_inheritance_genetic = 1
+	hellenic_pagan_opinion = 5
+	hellenic_pagan_reformed_opinion = 5
+	health = 2
+	global_tax_modifier = 0.02
+	intrigue = 1
+	inheritance = no_inheritance # Passed manually in SPECIES.2. Might not always pass on and passes genetically
+	picture = GFX_bloodlines_symbol_stoics
+	flags = { BOTG divine greek_god specific_god trickster_god knowledge_god god_seducer botg_hermes genetic_inheritance }
+}
+BL_blood_of_apollo = {
+	bloodline_inheritance_genetic = 1
+	hellenic_pagan_opinion = 5
+	hellenic_pagan_reformed_opinion = 5
+	health = 3
+	diplomacy = 1
+	bloodline_effect_better_physicians = 1
+	inheritance = no_inheritance # Passed manually in SPECIES.2. Might not always pass on and passes genetically
+	picture = GFX_bloodlines_symbol_asclepius
+	flags = { BOTG divine greek_god specific_god knowledge_god botg_apollo genetic_inheritance }
+}
+
+BL_blood_of_random_1 = {
+	bloodline_inheritance_genetic = 1
+	same_religion_opinion = 5
+	health = 2
+	combat_rating = 18
+	monthly_character_prestige = 0.1
+	inheritance = no_inheritance # Passed manually in SPECIES.2. Might not always pass on and passes genetically
+	picture = GFX_bloodlines_symbol_norse
+	flags = { BOTG divine war_god botg_random1 genetic_inheritance }
+	active = {
+		custom_tooltip = {
+			text = saintly_bloodline_same_religion_TT
+			FROM = {
+				founder = {
+					OR = {
+						religion = ROOT
+						is_heresy_of = ROOT
+					}
+				}
+			}
+		}
+	}
+}
+
+BL_blood_of_random_2 = {
+	bloodline_inheritance_genetic = 1
+	same_religion_opinion = 5
+	health = 2
+	intrigue = 2
+	monthly_character_prestige = 0.1
+	inheritance = no_inheritance # Passed manually in SPECIES.2. Might not always pass on and passes genetically
+	picture = GFX_bloodlines_symbol_midgard
+	flags = { BOTG divine trickster_god botg_random2 genetic_inheritance }
+	active = {
+		custom_tooltip = {
+			text = saintly_bloodline_same_religion_TT
+			FROM = {
+				founder = {
+					OR = {
+						religion = ROOT
+						is_heresy_of = ROOT
+					}
+				}
+			}
+		}
+	}
+}
+
+BL_blood_of_random_3 = {
+	bloodline_inheritance_genetic = 1
+	same_religion_opinion = 5
+	health = 2
+	fertility = 0.1
+	sex_appeal_opinion = 5
+	inheritance = no_inheritance # Passed manually in SPECIES.2. Might not always pass on and passes genetically
+	picture = GFX_bloodlines_symbol_norse
+	flags = { BOTG divine god_seducer botg_random3 genetic_inheritance }
+	active = {
+		custom_tooltip = {
+			text = saintly_bloodline_same_religion_TT
+			FROM = {
+				founder = {
+					OR = {
+						religion = ROOT
+						is_heresy_of = ROOT
+					}
+				}
+			}
+		}
+	}
+}
+
+BL_blood_of_random_4 = {
+	bloodline_inheritance_genetic = 1
+	same_religion_opinion = 5
+	dynasty_opinion = 5
+	health = 2
+	global_revolt_risk = -0.01
+	inheritance = no_inheritance # Passed manually in SPECIES.2. Might not always pass on and passes genetically
+	picture = GFX_bloodlines_symbol_stoics
+	flags = { BOTG divine botg_random4 genetic_inheritance }
+	active = {
+		custom_tooltip = {
+			text = saintly_bloodline_same_religion_TT
+			FROM = {
+				founder = {
+					OR = {
+						religion = ROOT
+						is_heresy_of = ROOT
+					}
+				}
+			}
+		}
+	}
+}
+	
+BL_blood_of_random_5 = {
+	bloodline_inheritance_genetic = 1
+	same_religion_opinion = 5
+	health = 3
+	global_tax_modifier = 0.01
+	monthly_character_prestige = 0.1
+	inheritance = no_inheritance # Passed manually in SPECIES.2. Might not always pass on and passes genetically
+	picture = GFX_bloodlines_symbol_stoics
+	flags = { BOTG divine botg_random5 genetic_inheritance }
+	active = {
+		custom_tooltip = {
+			text = saintly_bloodline_same_religion_TT
+			FROM = {
+				founder = {
+					OR = {
+						religion = ROOT
+						is_heresy_of = ROOT
+					}
+				}
+			}
+		}
+	}
+}
+
+BL_blood_of_random_6 = {
+	bloodline_inheritance_genetic = 1
+	same_religion_opinion = 5
+	dynasty_opinion = 5
+	health = 2
+	plot_power_modifier = 0.1
+	inheritance = no_inheritance # Passed manually in SPECIES.2. Might not always pass on and passes genetically
+	picture = GFX_bloodlines_symbol_stoics
+	flags = { BOTG divine trickster_god botg_random6 genetic_inheritance }
+	active = {
+		custom_tooltip = {
+			text = saintly_bloodline_same_religion_TT
+			FROM = {
+				founder = {
+					OR = {
+						religion = ROOT
+						is_heresy_of = ROOT
+					}
+				}
+			}
+		}
+	}
+}
+
+BL_blood_of_random_7 = {
+	bloodline_inheritance_genetic = 1
+	same_religion_opinion = 5
+	dynasty_opinion = 5
+	health = 2
+	land_organisation = 0.1
+	inheritance = no_inheritance # Passed manually in SPECIES.2. Might not always pass on and passes genetically
+	picture = GFX_bloodlines_symbol_stoics
+	flags = { BOTG divine war_god botg_random7 genetic_inheritance }
+	active = {
+		custom_tooltip = {
+			text = saintly_bloodline_same_religion_TT
+			FROM = {
+				founder = {
+					OR = {
+						religion = ROOT
+						is_heresy_of = ROOT
+					}
+				}
+			}
+		}
+	}
+}
+
+BL_blood_of_random_8 = {
+	bloodline_inheritance_genetic = 1
+	same_religion_opinion = 5
+	dynasty_opinion = 5
+	health = 2
+	culture_flex = 0.5
+	inheritance = no_inheritance # Passed manually in SPECIES.2. Might not always pass on and passes genetically
+	picture = GFX_bloodlines_symbol_stoics
+	flags = { BOTG divine botg_random8 genetic_inheritance }
+	active = {
+		custom_tooltip = {
+			text = saintly_bloodline_same_religion_TT
+			FROM = {
+				founder = {
+					OR = {
+						religion = ROOT
+						is_heresy_of = ROOT
+					}
+				}
+			}
+		}
+	}
+}
+
+BL_blood_of_random_9 = {
+	bloodline_inheritance_genetic = 1
+	same_religion_opinion = 5
+	dynasty_opinion = 5
+	health = 2
+	local_build_time_modifier = -0.05
+	inheritance = no_inheritance # Passed manually in SPECIES.2. Might not always pass on and passes genetically
+	picture = GFX_bloodlines_symbol_stoics
+	flags = { BOTG divine botg_random9 genetic_inheritance }
+	active = {
+		custom_tooltip = {
+			text = saintly_bloodline_same_religion_TT
+			FROM = {
+				founder = {
+					OR = {
+						religion = ROOT
+						is_heresy_of = ROOT
+					}
+				}
+			}
+		}
+	}
+}
+
+BL_of_utgardr_loki = {
+	learning = 1
+	siege_defence = 0.1
+	defensive_plot_power_modifier = 0.1
+	inheritance = patrilineal
+	allow_bastards = yes
+	picture = GFX_bloodlines_symbol_norse
+	flags = { historical_bloodline }
+}
+
+BL_alchemist = {
+	alchemist_opinion = 10
+	immortal_opinion = 10
+	global_tax_modifier = 0.02
+	inheritance = patrilineal
+	allow_bastards = yes
+	picture = GFX_bloodlines_symbol_murder
+	flags = { magic_bloodline }
+}
+
+BL_herbalist = {
+	herbalist_opinion = 10
+	health = 0.5
+	vassal_opinion = 3
+	bloodline_effect_better_herbs = 1
+	inheritance = patrilineal
+	allow_bastards = yes
+	picture = GFX_bloodlines_symbol_murder_rose
+	flags = { magic_bloodline better_herbs }
+}
+
+BL_enchanter = {
+	enchanter_opinion = 10
+	siege_defence = 0.1
+	threat_decay_speed = 0.1
+	inheritance = patrilineal
+	allow_bastards = yes
+	picture = GFX_bloodlines_symbol_builder
+	flags = { magic_bloodline }
+}
+
+BL_summoner = {
+	summoner_opinion = 10
+	global_levy_size = 0.5
+	bloodline_effect_better_summons = 1
+	inheritance = patrilineal
+	allow_bastards = yes
+	picture = GFX_bloodlines_symbol_bucephalus
+	flags = { magic_bloodline better_summons }
+}
+
+BL_necromancer = {
+	bloodline_effect_necromancer_study = 1
+	the_damned_opinion = 30
+	murder_plot_power_modifier = 0.05
+	inheritance = patrilineal
+	allow_bastards = yes
+	picture = GFX_bloodlines_symbol_muder_jester
+	flags = { magic_bloodline necromancer_retinue allow_necromancy_study }
+}
+
+BL_magic_heritage = {
+	bloodline_effect_magic_heritage = 1
+	bloodline_effect_magic_education = 1
+	bloodline_effect_magic_tower = 1
+	magic_heritage_opinion = 5
+	inheritance = patrilineal
+	allow_bastards = yes
+	picture = GFX_bloodlines_symbol_family
+	flags = { magic_bloodline all_towers always_heritage better_magic_education }
+}
+
+BL_monster_hunter = {
+	monster_hunter_opinion = 5
+	combat_rating = 5
+	bloodline_effect_duel_advantage_monster = 1
+	# bloodline_effect_gain_monster_hunter = 1 # Not yet implemented
+	inheritance = patrilineal
+	allow_bastards = yes
+	picture = GFX_bloodlines_symbol_war
+	flags = { duel_advantage_monster gain_monster_hunter bloodline_monster_hunter }
+}
+
+BL_helsing = {
+	intrigue = 1
+	plot_power_modifier = 0.1
+	monthly_character_prestige = 0.1
+	bloodline_effect_duel_advantage_werewolf_vampire = 1
+	# bloodline_effect_gain_monster_hunter = 1 # Not yet implemented
+	inheritance = patrilineal
+	allow_bastards = yes
+	picture = GFX_bloodlines_symbol_cross_1
+	flags = { duel_advantage_werewolf duel_advantage_vampire gain_monster_hunter bloodline_monster_hunter }
+}
+
+BL_blood_of_sigurd = {
+	dragon_opinion = -10
+	martial = 1
+	combat_rating = 5
+	bloodline_effect_duel_advantage_dragon = 1
+	inheritance = patrilineal
+	allow_bastards = yes
+	picture = GFX_bloodlines_symbol_war_knight
+	flags = { duel_advantage_dragon bloodline_monster_hunter }
+}
+
+BL_banking = {
+	stewardship = 1
+	global_tax_modifier = 0.02
+	bloodline_effect_bank_interest = 1
+	inheritance = patrilineal
+	allow_bastards = yes
+	picture = GFX_bloodlines_symbol_munificent
+	flags = { bank_interest bloodline_banking }
+}
+
+BL_ramesis = {
+	kemetic_pagan_opinion = 10
+	kemetic_pagan_reformed_opinion = 10
+	monthly_character_prestige = 0.2
+	local_build_cost_modifier = -0.05
+	local_build_time_modifier = -0.05
+	inheritance = patrilineal
+	allow_bastards = yes
+	picture = GFX_bloodlines_symbol_architect
+	flags = { }
+}
+
+BL_vampiric_highborn = {
+	bloodline_inheritance_high_vampiric = 1
+	diplomacy = 1
+	intrigue = 1
+	monthly_character_prestige = 0.5
+	vampire_culture_opinion = 10
+	# bloodline_effect_vampiric_support = 1 # Better support in vampiric elections, not yet implemented
+	bloodline_effect_known_sired_vampires = 1
+	bloodline_effect_restricted_feeding = 1
+	inheritance = no_inheritance
+	picture = GFX_bloodlines_symbol_bloodthirsty
+	flags = { high_vampiric_inheritance vampire_election_support vampire_auto_known vampire_restricted_feeding }
+}
+
+BL_blood_of_nosferatu = {
+	bloodline_inheritance_vampiric = 1
+	sex_appeal_opinion = -20
+	combat_rating = 10
+	intrigue = 2
+	bloodline_effect_weaken_vampire_victim = 1
+	bloodline_effect_known_sired_ugly_vampires = 1
+	bloodline_effect_vampire_feed_genetic_bonus = 1
+	inheritance = no_inheritance
+	picture = GFX_bloodlines_symbol_ruthless
+	flags = { vampiric_inheritance vampire_auto_known vampire_auto_ugly vampire_genetic_feed }
+}
+	
+BL_vile_blood = {
+	general_opinion = -5
+	vampire_culture_opinion = -5
+	vampire_opinion = -20
+	bloodline_inheritance_vampiric = 1
+	bloodline_effect_slow_disease_recovery = 1
+	bloodline_effect_disease_hunger = 1
+	bloodline_effect_no_tainted_blood = 1
+	bloodline_effect_feed_on_anyone = 1
+	bloodline_effect_attribute_treatment = 1
+	health_penalty = 5
+	diplomacy_penalty = 5
+	martial_penalty = 5
+	stewardship_penalty = 5
+	intrigue_penalty = 5
+	inheritance = no_inheritance
+	picture = GFX_bloodlines_symbol_murder_builder
+	flags = { vampiric_inheritance slow_recovery vampire_disease_hunger no_tainted_blood vampire_feed_any vile_blood }
+}
+
+BL_werewolf_nobility = {
+	combat_rating = 5
+	werewolf_culture_opinion = 10
+	# bloodline_effect_werewolf_support = 1 # Not yet implemented
+	bloodline_effect_werewolf_challenge_morale = 1
+	bloodline_effect_child_werewolves = 1
+	inheritance = patrilineal
+	picture = GFX_bloodlines_symbol_norse_wolf
+	flags = { werewolf_election_support werewolf_challenge_morale child_werewolf werewolf_noble }
+}
+
+BL_blood_embers = {
+	monthly_character_piety = 0.5
+	monthly_character_prestige = 0.25
+	draconic_pagan_opinion = 5
+	draconic_pagan_reformed_opinion = 5
+	vassal_opinion = 5
+	inheritance = patrilineal
+	allow_bastards = no
+	flags = { ancestor_worship_bloodline dragon_saint }
+	picture = GFX_bloodlines_symbol_eternal_flame
+}
+
+BL_blood_flame = {
+	draconic_pagan_opinion = 10
+	draconic_pagan_reformed_opinion = 10
+	saintly_inquisitional_bloodline = 1
+	inheritance = patrilineal
+	allow_bastards = no
+	flags = { ancestor_worship_bloodline inquisitional_saintly_bloodline dragon_saint }
+	picture = GFX_bloodlines_symbol_eternal_flame
+}
+
+BL_blood_eternal_flame = {
+	draconic_pagan_reformed_opinion = 10
+	monthly_character_piety = 0.25
+	monthly_character_prestige = 0.25
+	saintly_monastic_bloodline = 1
+	inheritance = patrilineal
+	allow_bastards = no
+	flags = { ancestor_worship_bloodline monastic_saintly_bloodline dragon_saint }
+	picture = GFX_bloodlines_symbol_eternal_flame_blue
+}
+
+BL_blood_sacrifice = {
+	monthly_character_piety = 0.5
+	draconic_pagan_opinion = 5
+	draconic_pagan_reformed_opinion = 5
+	health = 0.5
+	inheritance = patrilineal
+	allow_bastards = no
+	flags = { ancestor_worship_bloodline dragon_saint }
+	picture = GFX_bloodlines_symbol_eternal_flame_bluecenter
+}
+
+BL_golden_blood = {
+	draconic_pagan_opinion = 5
+	draconic_pagan_reformed_opinion = 5
+	greedy_opinion = 5
+	global_tax_modifier = 0.01
+	inheritance = patrilineal
+	allow_bastards = no
+	flags = { ancestor_worship_bloodline dragon_saint }
+	picture = GFX_bloodlines_symbol_eternal_flame
+}
+
+BL_blood_reclaimer = {
+	command_modifier = {
+		religious_enemy = 0.3
+	}
+	monthly_character_prestige = 0.25
+	monthly_character_piety = 0.25
+	draconic_pagan_opinion = 5
+	draconic_pagan_reformed_opinion = 5
+	inheritance = patrilineal
+	allow_bastards = no
+	flags = { ancestor_worship_bloodline defender_of_the_faith dragon_saint }
+	picture = GFX_bloodlines_symbol_eternal_flame
+}
+
+BL_everburning_blood = {
+	short_reign_length = -5
+	monthly_character_prestige = 0.25
+	monthly_character_piety = 0.25
+	wonder_build_time_modifier = -0.05
+	inheritance = patrilineal
+	allow_bastards = no
+	flags = { ancestor_worship_bloodline dragon_saint }
+	picture = GFX_bloodlines_symbol_eternal_flame
+}

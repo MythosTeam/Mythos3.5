@@ -1,0 +1,85 @@
+# Icon 1/26 for Christian,43/44 for Eastern, 48/49 for Pagan, 63/64 for Jewish, 75/76 for Satanist, 18/36 for others
+
+virtuous_1 = {
+	icon = 18
+	monthly_character_piety = 0.1
+	church_opinion = 1
+}
+
+virtuous_2 = {
+	icon = 18
+	monthly_character_piety = 0.2
+	church_opinion = 2
+}
+
+virtuous_3 = {
+	icon = 18
+	monthly_character_piety = 0.3
+	church_opinion = 3
+}
+
+virtuous_4 = {
+	icon = 18
+	monthly_character_piety = 0.4
+	church_opinion = 4
+}
+
+virtuous_5 = {
+	icon = 18
+	monthly_character_piety = 0.5
+	church_opinion = 5
+}
+
+virtuous_6 = {
+	icon = 18
+	monthly_character_piety = 0.6
+	church_opinion = 6
+}
+
+virtuous_7 = {
+	icon = 18
+	monthly_character_piety = 0.7
+	church_opinion = 7
+}
+
+wicked_1 = {
+	icon = 36
+	monthly_character_piety = -0.1
+	church_opinion = -1
+}
+
+wicked_2 = {
+	icon = 36
+	monthly_character_piety = -0.2
+	church_opinion = -2
+}
+
+wicked_3 = {
+	icon = 36
+	monthly_character_piety = -0.3
+	church_opinion = -3
+}
+
+wicked_4 = {
+	icon = 36
+	monthly_character_piety = -0.4
+	church_opinion = -4
+}
+
+wicked_5 = {
+	icon = 36
+	monthly_character_piety = -0.5
+	church_opinion = -5
+}
+
+wicked_6 = {
+	icon = 36
+	monthly_character_piety = -0.6
+	church_opinion = -6
+}
+
+wicked_7 = {
+	icon = 36
+	monthly_character_piety = -0.7
+	church_opinion = -7
+}

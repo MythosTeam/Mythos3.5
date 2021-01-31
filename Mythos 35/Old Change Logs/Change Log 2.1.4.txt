@@ -1,0 +1,74 @@
+##########################################################
+##########################2.1.4###########################
+##########################################################
+
+############
+# Bloodlines
+############
+- Added a new historical bloodline
+- Added six new magic-related bloodlines
+- Added three bloodlines for vampires
+- Added a bloodline for werewolves
+
+##########
+# Vampires
+##########
+- Restored the decision to found the vampire empire
+- Vampires converting to satanism now factor in the moral authority of both satanism and their current religion
+- Vampire Hunger has been reworked to build up in a more consistent manner
+- Vampires who reach maximum hunger but can't automatically feed (such as being incapable or in prison) will recieve a stacking health penalty until they feed
+
+############
+# Werewolves
+############
+- Rejection of werewolf offers to turn is now by-region instead of religion
+
+#########
+# Dragons
+#########
+- Increased prestige gain from draconic tributes to make up for increase prestige costs with the new tribal retinues
+
+##########
+# Religion
+##########
+- Zunists reforming with their unique feature now retain their heavy infantry bonuses
+- Draconic Pagans relighting the eternal flame will now become saint-like
+- Reforming religions with multiple features that alter unit stats will now combine their changes
+- Draconic Purity has been reworked to build up over time
+- Removed Draconic Consultation decision
+- Purity will have a larger impact on the Sapphire Flame accepting or rejecting requests
+- Random worlds should now start with Eternal Flames
+
+############
+# Government
+############
+- Undead hordes are now Fuedal instead of Nomadic and gain event troops in their provinces instead of using manpower. This should fix a lot of bugs
+
+#######
+# Other
+#######
+- To avoid high health species having ovely extended regencies, incapable characters slowly lose health
+- Incapable characters will no longer receive dragon or werewolf aging events
+- Updated with changes from 3.1.1
+- Extended the effects of council attributes to 40
+
+##########
+# Database
+##########
+- Added new tribal giant rulers of Romsdal and Sunnmore in the Viking Age
+- Fixed Wikilinks on incorrect characters
+- Added a second Shipyard to Faereyar, as they could easily have their army become too large to fit on their ships
+
+##########
+# Bugfixes
+##########
+- Fixed an issue where granting Plock to the Sapphire Flame checked for Sjaelland instead
+- Fixed an issue where granting land to the Sapphire Flame left them with a Feudal capital
+- Fixed an issue where zombie and monster revolts would immediately reinforce when they trigger
+- Fixed monter and peasent revolts firing at the same time
+- Granting land to the Sapphire Flame now only works if they are unlanded
+- Fix the "the Judge of" title diplaying incorrectly
+- Fixed relighting the eternal flame not actually relighting the flame
+- Characters should no longer be alerted about changing bankers for loans they don't have
+- Fixed an issue where gods healed slower than demi-gods or blood of the gods
+- Cleaned up event options icons when gaining or losing hunger

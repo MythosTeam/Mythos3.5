@@ -1,0 +1,5265 @@
+# Events whose only change is making sure ethereal characters can't get wounded
+
+# Dog Flies
+character_event = {
+	id = 94085
+	desc = EVTDESC94085
+	picture = GFX_evt_bloody_man
+	border = GFX_event_normal_frame_religion
+	
+	hide_from = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA94085
+		character_event = { id = 94088 days = 5 tooltip = EVTTOOLTIP94088 }
+		add_wounded_effect = yes
+	}
+}
+
+# The Fight
+character_event = {
+	id = 94177
+	desc = EVTDESC94177
+	picture = GFX_evt_melee
+	border = GFX_event_normal_frame_religion
+	
+	hide_from = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA94177
+		tooltip_info = craven
+		trigger = { trait = craven }
+		character_event = { id = 94178 tooltip = EVTTOOLTIP94178 }
+		random = {
+			chance = 20
+			add_wounded_effect = yes
+			hidden_tooltip = {
+				character_event = {
+					id = 38280 #Notify Wounded
+				}
+			}
+		}
+	}
+	option = {
+		name = EVTOPTB94177
+		tooltip_info = impaler
+		trigger = { trait = impaler }
+		character_event = { id = 94178 tooltip = EVTTOOLTIP94178 }
+		random = {
+			chance = 5
+			add_wounded_effect = yes
+			hidden_tooltip = {
+				character_event = {
+					id = 38280 #Notify Wounded
+				}
+			}
+		}
+	}
+	option = {
+		name = EVTOPTC94177
+		character_event = { id = 94178 tooltip = EVTTOOLTIP94178 }
+		trigger = { 
+			NOT = {
+				trait = impaler
+				trait = craven
+			}
+		}
+		random = {
+			chance = 10
+			add_wounded_effect = yes
+			hidden_tooltip = {
+				character_event = {
+					id = 38280 #Notify Wounded
+				}
+			}
+		}
+	}
+}
+
+#Save someone's life at the battlefield...  become very good friend.
+character_event = {
+	id = 6910
+	desc = EVTDESC6910
+	picture = GFX_evt_battle
+
+	min_age = 16	
+	only_men = yes
+	capable_only = yes
+	only_rulers = yes
+	prisoner = no
+	
+	trigger = {
+		in_command = yes
+		in_battle = yes
+		independent = no
+		NOT = { trait = craven }
+		NOT = { health_traits = 1 }
+		liege = {
+			any_vassal = {
+				NOT = { character = ROOT }
+				in_command = yes
+				in_battle = yes
+				at_location = ROOT
+				NOT = { war_with = ROOT }
+				NOT = { health_traits = 1 }
+				opinion = { who = ROOT value = -30 }
+				NOT = {	opinion = { who = ROOT value = 30 } }
+				NOT = { trait = ethereal_trait }
+			}
+		}
+
+	}
+	
+	mean_time_to_happen = {
+		months = 1200
+		modifier = {
+			factor = 0.5
+			trait = brave
+		}
+		
+	}
+	immediate = {
+		liege = {
+			random_vassal = {
+				limit = {
+					NOT = { character = ROOT }
+					in_command = yes
+					at_location = ROOT
+					in_battle = yes
+					NOT = { health_traits = 1 }
+					NOT = { war_with = ROOT }
+					opinion = { who = ROOT value = -30 }
+					NOT = {	opinion = { who = ROOT value = 30 } }
+					NOT = { trait = ethereal_trait }
+				}
+				save_event_target_as = campaign_friend_6910
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTA6910
+		event_target:campaign_friend_6910 = {				
+			prestige = 5
+			
+			add_friend = ROOT
+			if = {
+				limit = {
+					has_dlc = "Zeus"
+				}
+				reverse_add_favor = ROOT
+			}
+			hidden_tooltip = {
+				character_event = { id = 6911 days = 1 }
+			}
+		}
+	}
+}
+
+#Hunt for boars for winter feast
+character_event = {
+	id = 72008
+	desc = "EVTDESC72008"
+	picture = GFX_evt_hunt
+
+	prisoner = no
+	capable_only = yes
+	war = no
+
+	is_triggered_only = yes
+
+	trigger = {
+		NOT = { religion_group = jewish_group }
+		has_character_modifier = holding_large_feast
+		NOT = {
+			has_character_flag = sent_invitations
+		}
+		NOT = {
+			has_character_flag = feast_boar_hunt
+		}
+		NOT = {
+			has_character_flag = host_feast_started
+		}
+		any_courtier = {
+			has_job_title = job_marshal
+		}
+	}
+
+	immediate = {
+		set_character_flag = feast_boar_hunt
+	}
+
+	option = {
+		name = "EVTOPTA72008"
+		job_marshal = {
+			prestige = 10
+			opinion = {
+				modifier = opinion_flattered
+				who = ROOT
+				years = 10
+			}
+			random_list = {
+				80 = { }
+				10 = { change_martial = 1 }
+				7 = {
+					modifier = {
+						factor = 0
+						trait = ethereal_trait
+					}
+					hidden_tooltip = { character_event = { id = 38280 } }
+				}
+				2 = {
+					modifier = {
+						factor = 0
+						trait = ethereal_trait
+					}
+					add_maimed_trait_effect = yes
+				}
+				1 = {
+					modifier = {
+						factor = 0
+						trait = ethereal_trait
+					}
+					death = { death_reason = death_accident_boar }
+				}
+			}
+		}
+	}
+	option = {
+		name = "EVTOPTB72008"
+		trigger = {
+			any_child = {
+				age = 14
+				is_female = no
+				is_abroad = no
+				prisoner = no
+				liege = { character = ROOT }
+				NOT = { health_traits = 1 }
+				is_alive = yes
+			}
+		}
+		any_child = {
+			limit = {
+				age = 14
+				is_female = no
+				is_abroad = no
+				prisoner = no
+				liege = { character = ROOT }
+				NOT = { health_traits = 1 }
+				is_alive = yes
+			}
+			score_value = { #Prioritizes selecting an interesting courtier...
+	            value = 10
+	            interesting_courtier_selection_score = yes
+	        }
+			prestige = 10
+			opinion = {
+				modifier = opinion_flattered
+				who = ROOT
+				years = 10
+			}
+			random_list = {
+				80 = { }
+				10 = { change_martial = 1 }
+				7 = {
+					modifier = {
+						factor = 0
+						trait = ethereal_trait
+					}
+					hidden_tooltip = { character_event = { id = 38280 } }
+				}
+				2 = {
+					modifier = {
+						factor = 0
+						trait = ethereal_trait
+					}
+					add_maimed_trait_effect = yes
+				}
+				1 = {
+					modifier = {
+						factor = 0
+						trait = ethereal_trait
+					}
+					death = { death_reason = death_accident_boar }
+				}
+			}
+		}
+	}
+	option = {
+		name = "EVTOPTC72008"
+		trigger = {
+			age = 14
+			is_female = no
+			NOT = { health_traits = 1 }
+			NOT = { trait = craven }
+		}
+		prestige = 10
+		random_list = {
+			80 = { }
+			10 = { change_martial = 1 }
+			7 = {
+				modifier = {
+					factor = 0
+					trait = ethereal_trait
+				}
+				add_trait = wounded
+				hidden_tooltip = { character_event = { id = 38280 } }
+			}
+			2 = {
+				modifier = {
+					factor = 0
+					trait = ethereal_trait
+				}
+				add_maimed_trait_effect = yes
+			}
+			1 = {
+				modifier = {
+					factor = 0
+					trait = ethereal_trait
+				}
+				death = { death_reason = death_accident_boar }
+			}
+		}
+	}
+	option = {
+		name = "EVTOPTD72008"
+	}
+}
+
+#Duel: Accept or Decline
+character_event = {
+	id = 72031
+	desc = "EVTDESC72031"
+	picture = GFX_evt_melee
+
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTA72031" #Accept
+		random_list = {
+			35 = {
+				add_wounded_effect = yes
+				hidden_tooltip = {
+					FROM = {
+						set_character_flag = wounded_opponent
+						character_event = {
+							id = 72032
+						}
+					}
+				}
+			}
+			35 = {
+				add_maimed_trait_effect = yes
+				hidden_tooltip = {
+					FROM = {
+						set_character_flag = maimed_opponent
+						character_event = {
+							id = 72032
+						}
+					}
+				}
+			}
+			10 = {
+				death = { death_reason = death_duel }
+				hidden_tooltip = {
+					FROM = {
+						set_character_flag = killed_opponent
+						character_event = {
+							id = 72033
+						}
+					}
+				}
+			}
+			20 = {
+				any_liege = {
+					limit = {
+						has_character_flag = host_feast_started
+						has_character_modifier = holding_large_feast
+					}
+					character_event = {
+						id = 72034
+						tooltip = "EVTTOOLTIP72034"
+					}
+				}
+			}
+		}
+	}
+	option = {
+		name = "EVTOPTB72031" #Decline
+		prestige = -10
+	}
+}
+
+#Duel: Opponent is killed/maimed/wounded/nothing
+character_event = {
+	id = 72032
+	desc = "EVTDESC72032"
+	picture = GFX_evt_melee
+
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTA72032"
+		trigger = {
+			has_character_flag = wounded_opponent
+		}
+		random_list = {
+			10 = {
+				death = { death_reason = death_duel }
+				hidden_tooltip = {
+					FROM = {
+						set_character_flag = killed_opponent
+						character_event = {
+							id = 72033
+							tooltip = "EVTTOOLTIP72033"
+						}
+					}
+				}
+			}
+			20 = {
+				modifier = {
+					factor = 0
+					trait = ethereal_trait
+				}
+				add_maimed_trait_effect = yes
+				hidden_tooltip = {
+					FROM = {
+						set_character_flag = maimed_opponent
+						character_event = {
+							id = 72033
+							tooltip = "EVTTOOLTIP72033"
+						}
+					}
+				}
+			}
+			30 = {
+				modifier = {
+					factor = 0
+					trait = ethereal_trait
+				}
+				add_trait = wounded
+				hidden_tooltip = {
+					FROM = {
+						set_character_flag = wounded_opponent
+						character_event = {
+							id = 72033
+							tooltip = "EVTTOOLTIP72033"
+						}
+					}
+				}
+			}
+			40 = {
+				modifier = { # Make sure being Ethereal doesn't just up your odds of death
+					factor = 2
+					trait = ethereal_trait
+				}
+				any_liege = {
+					limit = {
+						has_character_flag = host_feast_started
+						has_character_modifier = holding_large_feast
+					}
+					character_event = {
+						id = 72034
+						tooltip = "EVTTOOLTIP72034"
+					}
+				}
+			}
+		}
+	}
+
+	option = {
+		name = "EVTOPTB72032"
+		trigger = {
+			has_character_flag = maimed_opponent
+		}
+		random_list = {
+			1 = {
+				death = { death_reason = death_duel }
+				FROM = {
+					set_character_flag = killed_opponent
+					character_event = {
+						id = 72033
+						tooltip = "EVTTOOLTIP72033"
+					}
+				}
+			}
+			10 = {
+				modifier = {
+					factor = 0
+					trait = ethereal_trait
+				}
+				add_maimed_trait_effect = yes
+				FROM = {
+					set_character_flag = maimed_opponent
+					character_event = {
+						id = 72033
+						tooltip = "EVTTOOLTIP72033"
+					}
+				}
+			}
+			19 = {
+				modifier = {
+					factor = 0
+					trait = ethereal_trait
+				}
+				add_trait = wounded
+				FROM = {
+					set_character_flag = wounded_opponent
+					character_event = {
+						id = 72033
+						tooltip = "EVTTOOLTIP72033"
+					}
+				}
+			}
+			70 = {
+				modifier = {
+					factor = 1.1
+					trait = ethereal_trait
+				}
+				any_liege = {
+					limit = {
+						has_character_flag = host_feast_started
+						has_character_modifier = holding_large_feast
+					}
+					character_event = {
+						id = 72034
+						tooltip = "EVTTOOLTIP72034"
+					}
+				}
+			}
+		}
+	}
+}
+
+#Bal des Ardents
+character_event = {
+	id = 4175
+	desc = EVTDESC4175
+	picture = GFX_evt_feast
+	
+	is_triggered_only = yes
+	
+	min_age = 20
+	only_playable = yes
+	only_men = yes
+	capable_only = yes
+	prisoner = no
+	war = no
+	
+	trigger = {
+		in_command = no
+		OR = {
+			trait = lunatic
+			trait = possessed
+			trait = infirm
+			trait = drunkard
+		}
+		any_vassal = {
+			trait = diligent
+		}
+		any_vassal = {
+			trait = ambitious
+			trait = wroth
+		}
+		NOT = { is_inaccessible_trigger = yes }
+	}
+	
+	weight_multiplier = {
+		days = 3
+		
+		modifier = {
+			factor = 2
+			trait = infirm
+		}
+		modifier = {
+			factor = 5
+			trait = incapable
+		}
+	}
+	
+	option = {
+		name = EVTOPTA4175
+		add_maimed_trait_effect = yes
+	}
+	
+	option = {
+		name = EVTOPTB4175
+		random = {
+			chance = 60
+			modifier = {
+				factor = 0
+				trait = ethereal_trait
+			}
+			
+			add_trait = wounded
+			hidden_tooltip = { character_event = { id = 38280 } }
+		}
+		any_vassal = {
+			limit = {
+				trait = diligent
+			}
+			score_value = { #Prioritizes selecting an interesting courtier...
+	            value = 10
+        		interesting_courtier_selection_score = yes
+	        }
+			reverse_opinion = {
+				modifier = opinion_my_saviour
+				who = ROOT
+				years = 2
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTC4175
+		random = {
+			chance = 70
+			modifier = {
+				factor = 0
+				trait = ethereal_trait
+			}
+			
+			add_trait = wounded
+			hidden_tooltip = { character_event = { id = 38280 } }
+		}
+		any_courtier = {
+			limit = {
+				trait = ambitious
+				trait = wroth
+			}
+			score_value = { #Prioritizes selecting an interesting courtier...
+	            value = 10
+        		interesting_courtier_selection_score = yes
+	        }
+			reverse_opinion = {
+				modifier = opinion_fool_courtier
+				who = ROOT
+				years = 2
+			}
+		}
+	}
+}
+
+# Character is wounded
+character_event = {
+	id = 88261
+	title = "FURUSIYYATITLE"
+	desc = "EVTDESC88261"
+	picture = "GFX_evt_council"
+	border = GFX_event_normal_frame_war
+
+	min_age = 16
+	only_men = yes
+	capable_only = yes
+	prisoner = no
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_character_flag = attending_tournament_furusiyya
+		NOT = { has_character_flag = attending_tournament_event_furusiyya }
+		NOT = {
+			has_character_flag = tournament_has_ended_furusiyya
+		}
+		NOT = {
+			trait = wounded
+		}
+		NOT = {
+			is_maimed_trigger = yes
+		}
+		NOT = {
+			trait = ethereal_trait
+		}
+		top_liege = {
+			has_character_flag = tournament_begins_furusiyya
+			NOT = {
+				has_character_flag = tournament_has_ended_furusiyya
+			}
+		}
+	}
+
+	immediate = {
+		set_character_flag = attending_tournament_event_furusiyya
+	}
+
+	option = {
+		name = "EVTOPTA88261"
+		add_trait = wounded
+		hidden_tooltip = {
+			if = {
+				limit = {
+					top_liege = {
+						NOT = {
+							character = ROOT
+						}
+					}
+				}
+				top_liege = { character_event = { id = 88290 } }
+			}
+		}
+	}
+}
+
+character_event = {
+	id = HLF.9001 # Wrestling Event
+	desc =  EVTDESC_HL_9001
+	picture = GFX_evt_steppe_mercenaries
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		random_realm_character = {
+			limit = {
+				is_female = no
+				is_adult = yes
+				ai = yes
+				prisoner = no
+				martial = 10
+				NOT = {
+					OR = {
+						character = ROOT 
+						trait = incapable
+						trait = infirm
+						health_traits = 1
+						trait = craven
+					}
+				}
+			}
+			save_event_target_as = wrestling_opponent
+		}
+	}
+	
+	option = {
+		name = EVTOPTA_HL_9001
+		
+		event_target:wrestling_opponent = {
+			character_event = {	id = HLF.9002 tooltip = EVTTOOLTIP_HL_9001A }
+		}
+	}
+	
+	option = {
+		name = EVTOPTD_HL_9001
+		tooltip_info = lunatic
+		
+		trigger = {
+			trait = lunatic
+			NOT = { trait = ethereal_trait } #Kind of pointless if you can't get injured
+		}
+		
+		prestige = -50
+		random_list = {
+				29 = {
+					add_trait = wounded
+					hidden_tooltip = { character_event = { id = 38280 } }
+				}
+				45 = {
+					add_maimed_trait_effect = yes
+				}
+				25 = {
+					death = { death_reason = death_accident }
+				}
+				1 = {
+					custom_tooltip = { text = wrestling_win_vs_horse }
+					hidden_tooltip = { 
+						add_character_modifier = {
+						modifier = manly_skill_wrestling
+						years = 5
+						}
+					}
+				}
+			}
+	}
+	
+	option = {
+		name = EVTOPTB_HL_9001
+		
+		trigger = {
+			NOT = { trait = arbitrary }
+		}
+		
+		prestige = 50
+		add_trait = arbitrary
+		hidden_tooltip = { character_event = { id = 38266 } } # notify arbitrary
+	}
+	
+	option = {
+		name = EVTOPTB_HL_9001
+		tooltip_info = arbitrary
+		
+		trigger = {
+			trait = arbitrary
+			NOT = { trait = proud }
+		}
+		
+		prestige = 50
+		add_trait = proud
+		hidden_tooltip = { character_event = { id = 38261 } } # notify proud
+	}
+	
+	option = {
+		name = EVTOPTB_HL_9001
+		
+		trigger = {
+			trait = arbitrary
+			trait = proud
+		}
+		
+		prestige = 75
+	}
+	
+	option = {
+		name = EVTOPTC_HL_9001
+		
+		prestige = -10
+		if = {
+			limit = {
+				NOT = { trait = craven }
+			}
+			add_trait = craven
+			hidden_tooltip = { character_event = { id = 38257 } } # notify craven
+		}
+	}
+
+}
+
+long_character_event = {
+	id = HLF.9004 # Lose Wrestling
+	desc =  EVTDESC_HL_9004
+	picture = GFX_evt_mongols
+	border = GFX_event_long_frame_war
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTB_HL_9004
+		tooltip_info = gregarious
+		
+		trigger = {
+			trait = gregarious
+		}
+		
+		FROM = { prestige = 25 }
+		prestige = -25
+		if = {
+			limit = {
+				NOT = { is_friend = FROM }
+			}
+			add_friend = FROM
+		}
+	}
+	
+	option = {
+		name = EVTOPTA_HL_9004
+		
+		FROM = { prestige = 50 }
+		prestige = -50
+	}
+	
+	option = {
+		name = EVTOPTC_HL_9004
+		tooltip_info = wroth
+		
+		trigger = {
+			trait = wroth
+			FROM = { NOT = { health_traits = 1 } }
+		}
+		
+		FROM = { prestige = 75 }
+		prestige = -75
+		FROM = { 
+			if = {
+				limit = { NOT = { trait = ethereal_trait } }
+				random_list = {
+					90 = {
+						add_trait = wounded
+					}
+					10 = {
+						add_maimed_trait_effect = yes
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				NOT = { is_rival = FROM }
+			}
+			add_rival = FROM
+		}
+		if = {
+			limit = {
+				NOT = { trait = cruel }
+			}
+			add_trait = cruel
+			hidden_tooltip = { character_event = { id = 38259 } } # notify cruel
+		}
+	}
+	
+	option = {
+		name = EVTOPTD_HL_9004
+		tooltip_info = homosexual
+		
+		trigger = {
+			trait = homosexual
+			FROM = { trait = homosexual }
+			FROM = { NOT = { is_close_relative = ROOT } }
+			NOT = { is_lover = FROM }
+			NOT = { is_former_lover = FROM }
+		}
+		
+		FROM = { prestige = 50 }
+		prestige = -50
+		add_lover = FROM
+	}
+}
+
+character_event = {
+	id = HL.5017
+	desc = EVTDESC_HL_5017
+	picture = GFX_evt_chinese_emissary
+	border = GFX_event_normal_frame_diplomacy
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		set_character_flag = chinese_envoy_event_3
+	}
+	
+	option = {
+		name = EVTOPTA_HL_5017
+		random = {
+			chance = 5
+			add_wounded_effect = yes
+			if = {
+				limit = {
+					NOT = {
+						has_dlc = "Reapers"
+					}
+				}
+				add_trait = ill
+			}
+			if = {
+				limit = {
+					has_dlc = "Reapers"
+				}
+				add_symptom_effect = yes
+			}
+			hidden_tooltip = {
+				character_event = { id = 38290 }
+			}
+		}
+		event_target:chinese_envoy = {
+			opinion = {
+				who = ROOT
+				modifier = opinion_pleased
+				months = 24
+			}
+		}
+		if = {
+			limit = { has_dlc = "Jade Dragon" }
+			add_grace_trivial_effect = yes
+		}
+	}
+	
+	option = {
+		name = EVTOPTB_HL_5017
+	}
+	
+	option = {
+		name = EVTOPTC_HL_5017
+		event_target:chinese_envoy = {
+			opinion = {
+				who = ROOT
+				modifier = opinion_shocked
+				months = 120
+			}
+		}
+		set_character_flag = chinese_envoy_snake_ban
+		if = {
+			limit = { has_dlc = "Jade Dragon" }
+			detract_grace_trivial_effect = yes
+		}
+	}
+}
+
+# Torture a prisoner!
+character_event = {
+	id = 50010
+	desc = "EVTDESC50010"
+	picture = "GFX_evt_torture"
+	border = GFX_event_normal_frame_intrigue
+	
+	min_age = 14
+	only_playable = yes
+	prisoner = no
+	capable_only = yes
+	
+	trigger = {
+		NOT = { trait = kind }
+		NOT = { trait = just }
+		OR = {
+			trait = envious
+			trait = wroth
+			trait = arbitrary
+			trait = lunatic
+			trait = possessed
+			trait = paranoid
+			trait = impaler
+			trait = cruel
+		}
+		any_courtier = {
+			age = 14
+			prisoner = yes
+			host = { character = ROOT }
+			NOT = { has_character_modifier = house_arrest }
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 240
+		modifier = {
+			factor = 0.25
+			trait = impaler
+		}
+		modifier = {
+			factor = 0.5
+			trait = possessed
+		}
+		modifier = {
+			factor = 0.5
+			trait = cruel
+		}
+		modifier = {
+			factor = 0.75
+			trait = paranoid
+		}
+		modifier = {
+			factor = 3.0
+			trait = slothful
+		}
+	}
+	
+	option = {
+		name = EVTOPTA50010 # Resist my foul impulse
+		piety = 10
+		trigger = {
+			NOT = { has_character_flag = demon_child_non_pagan }
+		}
+	}
+	
+	option = {
+		name = EVTOPTB50010 # Oil up the rack!
+		if = {
+			limit = { NOT = { religion = jain } }
+			piety = -10
+		}
+		if = {
+			limit = { religion = jain }
+			piety = -30
+			custom_tooltip = { text = jain_ahimsa_tooltip }
+		}
+		random_courtier = {
+			limit = {
+				age = 14
+				prisoner = yes
+				host = { character = ROOT }
+				NOT = { has_character_modifier = house_arrest }
+			}
+			random_list = {
+				30 = {
+					modifier = {
+						factor = 3
+						trait = ethereal_trait
+					}
+					character_event = { # Tortured
+						id = 50011
+						tooltip = "EVTTOOLTIP50011"
+					}
+				}
+				30 = {
+					modifier = {
+						factor = 0
+						trait = ethereal_trait
+					}
+					character_event = { # Wounded
+						id = 50012
+						tooltip = "EVTTOOLTIP50012"
+					}
+				}
+				30 = {
+					modifier = {
+						factor = 0
+						trait = ethereal_trait
+					}
+					character_event = { # Maimed
+						id = 50013
+						tooltip = "EVTTOOLTIP50013"
+					}
+				}
+				10 = {
+					character_event = { # Killed
+						id = 50014
+						tooltip = "EVTTOOLTIP50014"
+					}
+				}
+			}
+		}
+	}
+}
+
+# Robber Barons of India
+character_event = {
+	id = MNM.8023
+	desc = EVTDESC_MNM_8023
+	picture = GFX_evt_bandits
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTA_MNM_8023
+		ai_chance = {
+			factor = 90
+		}
+		wealth = -10
+	}
+	option = {
+		name = EVTOPTB_MNM_8023
+		tooltip_info = martial
+		trigger = {
+			martial = 10
+		}
+		ai_chance = {
+			factor = 10
+		}
+		if = {
+			limit = { NOT = { trait = brave } }
+			add_trait = brave
+		}
+		random = {
+			chance = 10
+			modifier = {
+				factor = 0
+				trait = ethereal_trait
+			}
+			add_trait = wounded
+			hidden_tooltip = {
+				character_event = {
+					id = 38280 #Notify Wounded
+				}
+			}
+		}
+	}
+}
+
+# Dandakaranya
+character_event = {
+	id = MNM.8024
+	desc = EVTDESC_MNM_8024
+	picture = GFX_evt_tiger
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTA_MNM_8024
+		ai_chance = {
+			factor = 90
+		}
+		add_trait_craven_effect = yes
+	}
+	option = {
+		name = EVTOPTB_MNM_8024
+		tooltip_info = martial
+		trigger = {
+			martial = 10
+		}
+		ai_chance = {
+			factor = 10
+		}
+		if = {
+			limit = { NOT = { trait = brave } }
+			add_trait = brave
+		}
+		random = {
+			chance = 10
+			modifier = {
+				factor = 0
+				trait = ethereal_trait
+			}
+			add_trait = wounded
+			hidden_tooltip = {
+				character_event = {
+					id = 38280 #Notify Wounded
+				}
+			}
+		}
+	}
+}
+
+#Marshal deals with highway robber: Liege decides
+character_event = {
+	id = 75106
+	desc = "EVTDESC75106"
+	picture = GFX_evt_bandits
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "EVTOPTA75106"
+		random_list = {
+			95 = {
+				random_demesne_province = {
+					limit = {
+						has_province_modifier = highway_robber_band
+					}
+					remove_province_modifier = highway_robber_band
+				}
+				add_character_modifier = {
+					name = marshal_highway_robbers
+					duration = 1825
+				}
+			}
+			5 = {
+				modifier = {
+					factor = 0
+					FROM = { trait = ethereal_trait }
+				}
+				FROM = {
+					add_trait = wounded
+					hidden_tooltip = {
+						character_event = {
+							id = 38280 #Notify wounded
+						}
+					}
+				}
+			}
+		}
+	}
+	option = {
+		name = "EVTOPTB75106"
+		random_list = {
+			50 = {
+				random_demesne_province = {
+					limit = {
+						has_province_modifier = highway_robber_band
+					}
+					remove_province_modifier = highway_robber_band
+				}
+				add_character_modifier = {
+					name = marshal_highway_robbers
+					duration = 1825
+				}
+			}
+			20 = {
+				modifier = {
+					factor = 0
+					FROM = { trait = ethereal_trait }
+				}
+				FROM = {
+					add_maimed_trait_effect = yes
+				}
+			}
+			20 = {
+				modifier = {
+					factor = 0
+					FROM = { trait = ethereal_trait }
+				}
+				FROM = {
+					add_trait = wounded
+					hidden_tooltip = {
+						character_event = {
+							id = 38280 #Notify wounded
+						}
+					}
+				}
+			}
+			10 = {
+				modifier = {
+					factor = 0
+					FROM = { trait = ethereal_trait }
+				}
+				FROM = {
+					add_trait = infirm
+					hidden_tooltip = {
+						character_event = {
+							id = 38284 #Notify maimed
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+# 902: The Lord Spiritual is attacked by heathens (Gets away, Is wounded, Is killed)
+character_event = {
+	id = 902
+	title = "EVTNAME902"
+	desc = "EVTDESC902"
+	picture = GFX_evt_peasants
+	border = GFX_event_normal_frame_religion
+
+	min_age = 16
+	capable_only = yes
+	prisoner = no
+	has_job_title = yes
+	
+	trigger = {
+		has_job_action = action_inquisition
+		NOT = { has_character_modifier = in_seclusion }
+		location = {
+			NOT = { religion = ROOT }
+			owner = { same_realm = ROOT }
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 120
+		
+		modifier = {
+			factor = 2.0
+			liege = {
+				tier = count
+				ai = yes
+			}
+		}
+		modifier = {
+			factor = 1.5
+			liege = {
+				any_owned_bloodline = {
+					has_bloodline_flag = bloodline_better_inquisition
+					bloodline_is_active_for = PREV
+				}
+			}
+		}
+		modifier = {
+			factor = 1.5
+			any_owned_bloodline = {
+				has_bloodline_flag = bloodline_better_inquisition
+				bloodline_is_active_for = PREV
+			}
+		}
+		modifier = {
+			factor = 0.75
+			has_religion_feature = religion_dogmatic
+		}
+		modifier = {
+			factor = 1.25
+			has_religion_feature = religion_proselytizing
+		}
+		modifier = {
+			factor = 2.75
+			has_religion_feature = religion_cosmopolitan
+		}
+	
+		job_event_mtth_modifier_inverted_learning_score = yes
+		
+		modifier = {
+			factor = 0.75
+			NOT = { religion_authority = 0.4 }
+		}
+		modifier = {
+			factor = 0.75
+			NOT = { religion_authority = 0.2 }
+		}
+		modifier = {
+			factor = 2.0
+			religion_authority = 0.6
+		}
+		modifier = {
+			factor = 2.0
+			religion_authority = 0.8
+		}
+	}
+	
+	option = {
+		name = "EVTOPTA902"
+		random_list = {
+			50 = { 
+				modifier = {
+					factor = 1.8
+					trait = ethereal_trait
+				}
+				character_event = { id = 20020 tooltip = "EVTTOOLTIP20020" }
+			}
+			40 = { 
+				modifier = {
+					factor = 0
+					trait = ethereal_trait
+				}
+				character_event = { id = 20021 tooltip = "EVTTOOLTIP20021" }
+			}
+			10 = {
+				hidden_tooltip = {
+					liege = { character_event = { id = 20023 } }
+				}
+				death = {
+					death_reason = death_rabble
+				}
+			}
+		}
+	}
+}
+
+# 20043: The Mufti is trampled by a peasant mob (Gets away, Is wounded, Is killed)
+character_event = {
+	id = 20043
+	desc = "EVTDESC20043"
+	title = "EVTNAME20043"
+	picture = GFX_evt_peasants
+	border = GFX_event_normal_frame_religion
+
+	min_age = 16
+	capable_only = yes
+	prisoner = no
+	has_job_title = yes
+	
+	trigger = {
+		has_job_action = action_charity
+		NOT = { has_character_modifier = in_seclusion }
+		location = {
+			religion = ROOT
+			owner = { same_realm = ROOT }
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 120
+	
+		job_event_mtth_modifier_inverted_learning_score = yes
+		
+		modifier = {
+			factor = 0.75
+			NOT = { religion_authority = 0.4 }
+		}
+		modifier = {
+			factor =0.75
+			NOT = { religion_authority = 0.2 }
+		}
+		modifier = {
+			factor = 2.0
+			religion_authority = 0.6
+		}
+		modifier = {
+			factor = 2.0
+			religion_authority = 0.8
+		}
+	}
+	
+	option = {
+		name = "EVTOPTA20043"
+		random_list = {
+			50 = { 
+				modifier = {
+					factor = 1.8
+					trait = ethereal_trait
+				}
+				character_event = { id = 20044 tooltip = "EVTTOOLTIP20020" }
+			}
+			40 = { 
+				modifier = {
+					factor = 0
+					trait = ethereal_trait
+				}
+				character_event = { id = 20045 tooltip = "EVTTOOLTIP20021" }
+			}
+			10 = {
+				hidden_tooltip = {
+					liege = { character_event = { id = 20047 } }
+				}
+				death = {
+					death_reason = death_rabble
+				}
+			}
+		}
+	}
+}
+
+# 931: The Spymaster is attacked by a Noble's thugs (Gets away, Is wounded, Is maimed, Is killed)
+character_event = {
+	id = 931
+	title = "EVTNAME931"
+	desc = "EVTDESC931"
+	picture = GFX_evt_peasants
+	border = GFX_event_normal_frame_intrigue
+
+	min_age = 16
+	capable_only = yes
+	prisoner = no
+	has_job_title = yes
+	
+	trigger = {
+		OR = {
+			has_job_action = action_uncover_plots
+			has_job_action = action_organize_spies_mystics
+		}
+		NOT = { has_character_modifier = in_seclusion }
+		NOT = { has_character_modifier = bedridden_illness }
+		NOT = { trait = incapable }
+		location = {
+			any_province_lord = {
+				NOT = { is_liege_of = ROOT }
+				NOT = { character = ROOT }
+				OR = {
+					has_plot = plot_gain_title
+					has_plot = plot_kill_character
+					has_plot = plot_kill_spouse
+					has_plot = plot_weaken_fellow_vassal
+					has_plot = plot_gain_liege_title
+					has_plot = plot_gain_fellow_vassal_title
+				}
+			}
+		}
+	}
+	
+	immediate = {
+		location = {
+			random_province_lord = {
+				limit = {
+					NOT = { is_liege_of = ROOT }
+					NOT = { character = ROOT }
+					OR = {
+						has_plot = plot_gain_title
+						has_plot = plot_kill_character
+						has_plot = plot_kill_spouse
+						has_plot = plot_weaken_fellow_vassal
+						has_plot = plot_gain_liege_title
+						has_plot = plot_gain_fellow_vassal_title
+					}
+				}
+				save_event_target_as = killer_target
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 120
+		
+		job_event_mtth_modifier_inverted_intrigue_score = yes
+	}
+	
+	option = {
+		name = "EVTOPTA902"
+		trigger = {
+			NOT = { martial = 5 }
+		}
+		random_list = {
+			25 = { 
+				modifier = {
+					factor = 3
+					trait = ethereal_trait
+				}
+				character_event = { id = 20310 tooltip = "EVTTOOLTIP20310" }
+			}
+			50 = { 
+				modifier = {
+					factor = 0
+					trait = ethereal_trait
+				}
+				character_event = { id = 20311 tooltip = "EVTTOOLTIP20311" }
+			}
+			25 = {
+				hidden_tooltip = {
+					liege = { character_event = { id = 20313 } }
+				}
+				death = {
+					death_reason = death_murder_unknown
+					killer = event_target:killer_target
+				}
+			}
+		}
+	}
+	option = {
+		name = "EVTOPTA902"
+		tooltip_info = martial
+		trigger = {
+			martial = 5
+			NOT = { martial = 10 }
+		}
+		random_list = {
+			35 = { 
+				modifier = {
+					factor = 1.43
+					trait = ethereal_trait
+				}
+				character_event = { id = 20310 tooltip = "EVTTOOLTIP20310" }
+			}
+			50 = { 
+				modifier = {
+					factor = 0
+					trait = ethereal_trait
+				}
+				character_event = { id = 20311 tooltip = "EVTTOOLTIP20311" }
+			}
+			15 = {
+				hidden_tooltip = {
+					liege = { character_event = { id = 20313 } }
+				}
+				death = {
+					death_reason = death_murder_unknown
+					killer = event_target:killer_target
+				}
+			}
+		}
+	}
+	option = {
+		name = "EVTOPTA902"
+		tooltip_info = martial
+		trigger = {
+			martial = 10
+		}
+		random_list = {
+			50 = { 
+				modifier = {
+					factor = 1.8
+					trait = ethereal_trait
+				}
+				character_event = { id = 20310 tooltip = "EVTTOOLTIP20310" }
+			}
+			40 = { 
+				modifier = {
+					factor = 0
+					trait = ethereal_trait
+				}
+				character_event = { id = 20311 tooltip = "EVTTOOLTIP20311" }
+			}
+			10 = {
+				hidden_tooltip = {
+					liege = { character_event = { id = 20313 } }
+				}
+				death = {
+					death_reason = death_murder_unknown
+					killer = event_target:killer_target
+				}
+			}
+		}
+	}
+}
+
+# 921: The peasants attempt to kill the Steward (Gets away, is wounded, is killed)
+character_event = {
+	id = 921
+	title = "EVTNAME921"
+	desc = "EVTDESC921"
+	picture = GFX_evt_peasants
+
+	min_age = 16
+	capable_only = yes
+	prisoner = no
+	has_job_title = yes
+	
+	trigger = {
+		has_job_action = action_squeeze_peasants
+		NOT = { has_character_modifier = in_seclusion }
+		NOT = { has_character_modifier = bedridden_illness }
+		NOT = { trait = incapable }
+		location = {
+			owner = {
+				job_treasurer = {
+					character = ROOT
+				}
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 240
+	
+		job_event_mtth_modifier_inverted_stewardship_score = yes
+		modifier = {
+			factor = 0.5
+			location = {
+				revolt_risk = 0.01
+			}
+		}
+		modifier = {
+			factor = 0.5
+			location = {
+				revolt_risk = 0.02
+			}
+		}
+		modifier = {
+			factor = 0.75
+			location = {
+				NOT = { culture = ROOT }
+			}
+		}
+	}
+	
+	option = {
+		name = "EVTOPTA921"
+		trigger = {
+			NOT = { stewardship = 5 }
+		}
+		random_list = {
+			25 = { 
+				modifier = {
+					factor = 3
+					trait = ethereal_trait
+				}
+				character_event = { id = 20210 tooltip = "EVTTOOLTIP20210" }
+			}
+			50 = {
+				modifier = {
+					factor = 0
+					trait = ethereal_trait
+				}
+				character_event = { id = 20211 tooltip = "EVTTOOLTIP20211" }
+				hidden_tooltip = {
+					liege = { letter_event = { id = 20212 } }
+				}
+			}
+			25 = {
+				death = {
+					death_reason = death_rabble
+				}
+				hidden_tooltip = {
+					liege = { character_event = { id = 20213 } }
+				}
+			}
+		}
+	}
+	option = {
+		name = "EVTOPTA921"
+		tooltip_info = stewardship
+		trigger = {
+			stewardship = 5
+			NOT = { stewardship = 10 }
+		}
+		random_list = {
+			35 = { character_event = { id = 20210 tooltip = "EVTTOOLTIP20210" } }
+			50 = {
+				character_event = { id = 20211 tooltip = "EVTTOOLTIP20211" }
+				hidden_tooltip = {
+					liege = { letter_event = { id = 20212 } }
+				}
+			}
+			15 = {
+				death = {
+					death_reason = death_rabble
+				}
+				hidden_tooltip = {
+					liege = { character_event = { id = 20213 } }
+				}
+			}
+		}
+	}
+	option = {
+		name = "EVTOPTA921"
+		tooltip_info = stewardship
+		trigger = {
+			stewardship = 10
+		}
+		random_list = {
+			50 = { character_event = { id = 20210 tooltip = "EVTTOOLTIP20210" } }
+			40 = {
+				character_event = { id = 20211 tooltip = "EVTTOOLTIP20211" }
+				hidden_tooltip = {
+					liege = { letter_event = { id = 20212 } }
+				}
+			}
+			10 = {
+				death = {
+					death_reason = death_rabble
+				}
+				hidden_tooltip = {
+					liege = { character_event = { id = 20213 } }
+				}
+			}
+		}
+	}
+}
+
+# 20206: The Steward is attacked and wounded
+character_event = {
+	id = 20206
+	title = EVTNAME20206
+	desc = EVTDESC20206
+	picture = GFX_evt_peasants
+	border = GFX_event_normal_frame_economy
+
+	min_age = 16
+	capable_only = yes
+	prisoner = no
+	has_job_title = yes
+	
+	trigger = {
+		has_job_action = action_settle_tribe
+		NOT = { trait = ethereal_trait }
+		NOT = { has_character_modifier = in_seclusion }
+		NOT = { has_character_modifier = bedridden_illness }
+		NOT = { trait = incapable }
+		location = {
+			owner = {
+				job_treasurer = {
+					character = ROOT
+				}
+				NOT = { culture = PREV }
+			}
+			OR = { #Otherwise if the Settle Tribe is picked and the province cannot be converted, the Steward will always be attacked no matter what.
+				NOT = { 
+					has_game_rule = {
+						name = culture_conversion
+						value = restricted
+					}
+				}
+				any_neighbor_province = { ROOT = { liege = { culture = PREVPREV } } }
+				any_neighbor_province = { port = yes } 
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 500
+		
+		job_event_mtth_modifier_inverted_stewardship_score = yes
+		modifier = {
+			factor = 0.75
+			location = { has_province_modifier = depopulated_1 }
+		}
+		modifier = {
+			factor = 0.50
+			location = { has_province_modifier = depopulated_2 }
+		}
+		modifier = {
+			factor = 0.25
+			location = { has_province_modifier = depopulated_3 }
+		}
+	}
+	
+	option = {
+		name = EVTOPTA20206
+		add_trait = wounded
+		hidden_tooltip  = {
+			liege = { character_event = { id = 20207 } }
+		}
+	}
+}
+
+### Chief Qadi and the drunkard ###
+character_event = {
+	id = 105030
+	desc = "EVTDESC105030"
+	picture = GFX_evt_drunk
+	border = GFX_event_normal_frame_religion
+	
+	only_men = yes
+	min_age = 16
+	prisoner = no
+	religion_group = muslim
+	war = no
+	
+	trigger = {
+		in_command = no
+		has_minor_title = title_chief_qadi
+		liege = {
+			any_realm_character = {
+				NOR = {
+					character = PREV
+					character = ROOT
+					trait = incapable
+					is_inaccessible_trigger = yes
+				}
+				war = no
+				in_command = no
+				religion_group = muslim
+				age = 16
+				trait = drunkard
+				prisoner = no
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 200
+		
+		modifier = {
+			factor = 5
+			trait = drunkard
+		}
+		
+		modifier = {
+			factor = 0.5
+			trait = zealous
+		}
+	}
+
+	immediate = {
+		liege = {
+			random_realm_character = {
+				limit = {
+					NOR = {
+						character = PREV
+						character = ROOT
+						trait = incapable
+						is_inaccessible_trigger = yes
+					}
+					war = no
+					in_command = no
+					religion_group = muslim
+					age = 16
+					trait = drunkard
+					prisoner = no
+				}
+				save_event_target_as = target_drunkard
+			}
+		}
+	}
+	
+	option = {
+		name = "EVTOPTA105030"
+		ai_chance = {
+			factor = 25
+			
+			modifier = {
+				factor = 0.5
+				trait = kind
+			}
+			modifier = {
+				factor = 0.5
+				trait = arbitrary
+			}
+			modifier = {
+				factor = 2
+				trait = wroth
+			}
+			modifier = {
+				factor = 2
+				trait = cruel
+			}
+			modifier = {
+				factor = 2
+				trait = impaler
+			}
+			modifier = {
+				factor = 1.2
+				trait = just
+			}
+		}
+		liege = {
+			event_target:target_drunkard = {
+				random = {
+					chance = 5
+					remove_trait = drunkard
+				}
+				random = {
+					chance = 30
+					modifier = {
+						factor = 0
+						trait = ethereal_trait
+					}
+					add_trait = wounded
+					hidden_tooltip = {
+						character_event = {
+							id = 38280 #Notify Wounded
+						}
+					}
+				}
+				character_event = {
+					id = 105031
+					days = 2
+					random = 2
+					tooltip = "EVTTOOLTIP105031"
+				}
+			}
+		}
+	}
+	option = {
+		name = "EVTOPTB105030"
+		ai_chance = {
+			factor = 25
+			
+			modifier = {
+				factor = 2
+				trait = kind
+			}
+			modifier = {
+				factor = 2
+				trait = arbitrary
+			}
+			modifier = {
+				factor = 0.5
+				trait = wroth
+			}
+			modifier = {
+				factor = 0.5
+				trait = cruel
+			}
+			modifier = {
+				factor = 0.5
+				trait = impaler
+			}
+		}
+		liege = {
+			event_target:target_drunkard = {
+				opinion = {
+					modifier = opinion_merciful_qadi
+					who = ROOT
+					years = 5
+				}
+				random = {
+					chance = 25
+					remove_trait = drunkard
+				}
+				character_event = {
+					id = 105032
+					days = 2
+					random = 2
+					tooltip = "EVTTOOLTIP105032"
+				}
+			}
+			any_realm_character = {
+				limit = {
+					piety = 100
+					trait = zealous
+					religion_group = muslim
+					NOT = {
+						trait = drunkard
+					}
+				}
+				opinion = {
+					modifier = opinion_arbitrary_qadi
+					who = ROOT
+					years = 2
+				}
+			}
+		}
+	}
+	option = {
+		name = "EVTOPTC105030"
+		ai_chance = {
+			factor = 50
+		}
+		piety = -10
+	}	
+}
+
+#Chief Qadi: suspect declared innocence
+character_event = {
+	id = 105041
+	desc = "EVTDESC105041"
+	picture = GFX_evt_courtiers_talking
+	border = GFX_event_normal_frame_religion
+	
+	show_from_from = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "EVTOPTA105041"
+		trigger = {
+			has_character_flag = convinced_innocence
+		}
+		clr_character_flag = convinced_innocence
+		FROM = {
+			opinion = {
+				modifier = opinion_merciful_qadi
+				who = ROOT
+				years = 5
+			}
+			set_character_flag = qadi_merciful
+			character_event = {
+				id = 105044
+				days = 1
+				tooltip = "EVTTOOLTIPA105044"
+			}
+		}
+	}
+	option = {
+		name = "EVTOPTB105041"
+		trigger = {
+			has_character_flag = not_convinced_innocence
+		}
+		ai_chance = {
+			factor = 50
+			
+			modifier = {
+				factor = 0.05
+				trait = wroth
+			}
+			modifier = {
+				factor = 0.05
+				trait = cruel
+			}
+			modifier = {
+				factor = 0.05
+				trait = arbitrary
+			}
+			modifier = {
+				factor = 2
+				trait = just
+			}
+			modifier = {
+				factor = 2
+				trait = kind
+			}
+			modifier = {
+				factor = 2
+				trait = trusting
+			}
+		}
+		clr_character_flag = not_convinced_innocence
+		FROM = {
+			opinion = {
+				modifier = opinion_merciful_qadi
+				who = ROOT
+				years = 5
+			}
+			set_character_flag = qadi_merciful
+			character_event = {
+				id = 105044
+				days = 1
+				tooltip = "EVTTOOLTIPB105044"
+			}
+		}
+	}
+	option = {
+		name = "EVTOPTC105041"
+		trigger = {
+			has_character_flag = not_convinced_innocence
+		}
+		ai_chance = {
+			factor = 50
+			
+			modifier = {
+				factor = 2
+				trait = wroth
+			}
+			modifier = {
+				factor = 2
+				trait = cruel
+			}
+			modifier = {
+				factor = 2
+				trait = arbitrary
+			}
+			modifier = {
+				factor = 0.05
+				trait = just
+			}
+			modifier = {
+				factor = 0.05
+				trait = kind
+			}
+			modifier = {
+				factor = 0.05
+				trait = trusting
+			}
+		}
+		clr_character_flag = not_convinced_innocence
+		FROM = {
+			random = {
+				chance = 30
+				modifier = {
+					factor = 0
+					trait = ethereal_trait
+				}
+				add_trait = wounded
+				hidden_tooltip = {
+					character_event = {
+						id = 38280 #Notify Wounded
+					}
+				}
+			}
+			character_event = {
+				id = 105044
+				days = 1
+				tooltip = "EVTTOOLTIPC105044"
+			}
+		}
+	}
+}
+
+#Chief Qadi: accused promised to break it up with lover
+character_event = {
+	id = 105042
+	desc = "EVTDESC105042"
+	picture = GFX_evt_courtiers_talking
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "EVTOPTA105042"
+		trigger = {
+			FROM = {
+				NOT = {
+					has_character_flag = no_lover_no_cry
+				}
+			}
+		}
+		ai_chance = {
+			factor = 50
+			
+			modifier = {
+				factor = 0.05
+				trait = wroth
+			}
+			modifier = {
+				factor = 0.05
+				trait = cruel
+			}
+			modifier = {
+				factor = 0.05
+				trait = arbitrary
+			}
+			modifier = {
+				factor = 2
+				trait = just
+			}
+			modifier = {
+				factor = 2
+				trait = kind
+			}
+			modifier = {
+				factor = 2
+				trait = trusting
+			}
+		}
+		FROM = {
+			opinion = {
+				modifier = opinion_merciful_qadi
+				who = ROOT
+				years = 5
+			}
+			set_character_flag = qadi_merciful
+			character_event = {
+				id = 105044
+				days = 1
+				tooltip = "EVTTOOLTIPB105044"
+			}
+		}
+	}
+	option = {
+		name = "EVTOPTB105042"
+		trigger = {
+			FROM = {
+				NOT = {
+					has_character_flag = no_lover_no_cry
+				}
+			}
+		}
+		ai_chance = {
+			factor = 50
+			
+			modifier = {
+				factor = 0.05
+				trait = wroth
+			}
+			modifier = {
+				factor = 0.05
+				trait = cruel
+			}
+			modifier = {
+				factor = 0.05
+				trait = arbitrary
+			}
+			modifier = {
+				factor = 2
+				trait = just
+			}
+			modifier = {
+				factor = 2
+				trait = kind
+			}
+			modifier = {
+				factor = 2
+				trait = trusting
+			}
+		}
+		FROM = {
+			random = {
+				chance = 30
+				modifier = {
+					factor = 0
+					trait = ethereal_trait
+				}
+				add_trait = wounded
+				hidden_tooltip = {
+					character_event = {
+						id = 38280 #Notify Wounded
+					}
+				}
+			}
+			character_event = {
+				id = 105044
+				days = 1
+				tooltip = "EVTTOOLTIPC105044"
+			}
+			random_lover = {
+				random = {
+					chance = 30
+					add_trait = wounded
+					hidden_tooltip = {
+						character_event = {
+							id = 38280 #Notify Wounded
+						}
+					}
+				}
+				character_event = {
+					id = 64045
+					days = 1
+					tooltip = "EVTTOOLTIP64045"
+				}
+			}
+		}
+	}
+	option = {
+		name = "EVTOPTC105042"
+		trigger = {
+			FROM = {
+				has_character_flag = no_lover_no_cry
+			}
+		}
+		FROM = {
+			opinion = {
+				modifier = opinion_merciful_qadi
+				who = ROOT
+				years = 5
+			}
+			set_character_flag = qadi_believe_merciful
+			character_event = {
+				id = 105044
+				days = 1
+				tooltip = "EVTTOOLTIPA105044"
+			}
+		}
+	}
+}
+
+#Chief Qadi: accused did not deny it
+character_event = {
+	id = 105043
+	desc = "EVTDESC105043"
+	picture = GFX_evt_courtiers_talking
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "EVTOPTA105043"
+		ai_chance = {
+			factor = 50
+			
+			modifier = {
+				factor = 0.05
+				trait = wroth
+			}
+			modifier = {
+				factor = 0.05
+				trait = cruel
+			}
+			modifier = {
+				factor = 0.05
+				trait = arbitrary
+			}
+			modifier = {
+				factor = 2
+				trait = just
+			}
+			modifier = {
+				factor = 2
+				trait = kind
+			}
+			modifier = {
+				factor = 2
+				trait = trusting
+			}
+		}
+		FROM = {
+			opinion = {
+				modifier = opinion_merciful_qadi
+				who = ROOT
+				years = 5
+			}
+			set_character_flag = qadi_merciful
+			character_event = {
+				id = 105044
+				days = 1
+				tooltip = "EVTTOOLTIPE105044"
+			}
+		}
+	}
+	option = {
+		name = "EVTOPTB105043"
+		ai_chance = {
+			factor = 50
+			
+			modifier = {
+				factor = 2
+				trait = wroth
+			}
+			modifier = {
+				factor = 2
+				trait = cruel
+			}
+			modifier = {
+				factor = 2
+				trait = arbitrary
+			}
+			modifier = {
+				factor = 0.05
+				trait = just
+			}
+			modifier = {
+				factor = 0.05
+				trait = kind
+			}
+			modifier = {
+				factor = 0.05
+				trait = trusting
+			}
+		}
+		FROM = {
+			random = {
+				chance = 30
+				modifier = {
+					factor = 0
+					trait = ethereal_trait
+				}
+				add_trait = wounded
+				hidden_tooltip = {
+					character_event = {
+						id = 38280 #Notify Wounded
+					}
+				}
+			}
+			character_event = {
+				id = 105044
+				days = 1
+				tooltip = "EVTTOOLTIPC105044"
+			}
+		}
+	}
+}
+
+# Draw (Both Wounded)
+character_event = {
+	id = TOG.5010
+	desc = EVTDESC_TOG_5010
+	picture = GFX_evt_melee
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	hide_from = yes
+	
+	option = {
+		name = EVTOPTA_TOG_5010
+		hidden_tooltip = {
+			FROMFROM = {
+				character_event = { id = TOG.5025 }
+			}
+		}
+		clr_character_flag = holmgang_challenger
+		clr_character_flag = do_not_disturb
+		FROMFROM = {
+			clr_character_flag = holmgang_target
+			clr_character_flag = do_not_disturb
+		}
+		prestige = 50
+		add_wounded_effect = yes
+		tooltip = {
+			FROMFROM = { 
+				prestige = 50 
+				add_wounded_effect = yes
+				opinion = {
+					modifier = opinion_mutual_respect
+					who = ROOT
+				}
+			}
+		}
+		opinion = {
+			modifier = opinion_mutual_respect
+			who = FROMFROM
+		}
+	}
+}
+
+# Loses (Wounded)
+character_event = {
+	id = TOG.5012
+	desc = EVTDESC_TOG_5012
+	picture = GFX_evt_bloody_man
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	hide_from = yes
+	
+	option = {
+		name = EVTOPTA_TOG_5012
+		hidden_tooltip = {
+			FROMFROM = {
+				random_list = {
+					50 = { character_event = { id = TOG.5020 } }
+					50 = { character_event = { id = TOG.5022 } }
+				}
+			}
+		}
+		clr_character_flag = holmgang_challenger
+		clr_character_flag = do_not_disturb
+		FROMFROM = {
+			clr_character_flag = holmgang_target
+			clr_character_flag = do_not_disturb
+		}
+		tooltip = {
+			FROMFROM = { prestige = 200 }
+		}
+		prestige = -200
+		add_wounded_effect = yes
+	}
+}
+
+# Loses (Wounded) Opponent
+character_event = {
+	id = TOG.5027
+	desc = EVTDESC_TOG_5027
+	picture = GFX_evt_bloody_man
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_TOG_5012
+		tooltip = {
+			FROM = { prestige = 200 }
+		}
+		prestige = -200
+		add_wounded_effect = yes
+	}
+}
+
+# Vassal is injured
+character_event = {
+	id = TOG.110
+	desc = EVTDESC_TOG_110
+	picture = GFX_evt_tengri_throneroom_oldgods
+	border = GFX_event_normal_frame_diplomacy
+	
+	only_playable = yes
+	only_men = yes
+	min_age = 16
+	prisoner = no
+	only_capable = yes
+	has_character_flag = vassal_holding_nerge
+	
+	trigger = {
+		has_dlc = "The Old Gods"
+	}
+	
+	mean_time_to_happen = {
+		days = 380
+		
+		modifier = {
+			factor = 0.8
+			NOT = { martial = 8 }
+		}
+		modifier = {
+			factor = 0.8
+			NOT = { martial = 4 }
+		}
+		modifier = {
+			factor = 0.8
+			trait = imbecile
+		}
+		modifier = {
+			factor = 1.2
+			martial = 10
+		}
+		modifier = {
+			factor = 1.5
+			martial = 14
+		}
+		modifier = {
+			factor = 1.3
+			liege = { num_of_vassals = 5 }
+		}
+		modifier = {
+			factor = 1.3
+			liege = { num_of_vassals = 10 }
+		}
+		modifier = {
+			factor = 1.3
+			liege = { num_of_vassals = 15 }
+		}
+		modifier = {
+			factor = 1.3
+			liege = { num_of_vassals = 20 }
+		}
+		modifier = {
+			factor = 1.3
+			liege = { num_of_vassals = 25 }
+		}
+		modifier = {
+			factor = 1.6
+			liege = { num_of_vassals = 30 }
+		}
+	}
+	
+	option = {
+		name = EVTOPTA_TOG_110
+		hidden_tooltip = {
+			liege = {
+				character_event = { id = TOG.111 }
+			}
+		}
+		add_wounded_effect = yes
+	}
+}
+
+# Vassal is punished
+character_event = {
+	id = TOG.116
+	desc = EVTDESC_TOG_116
+	picture = GFX_evt_tengri_throneroom_oldgods
+	border = GFX_event_normal_frame_diplomacy
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_TOG_116
+		add_wounded_effect = yes
+	}
+}
+
+# Bear wounds courtier
+character_event = {
+	id = TOG.160
+	desc = EVTDESC_TOG_160
+	picture = GFX_evt_tengri_throneroom_oldgods
+	border = GFX_event_normal_frame_diplomacy
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_TOG_160
+		FROM = { add_wounded_effect = yes }
+	}
+}
+
+# Courtier beaten
+character_event = {
+	id = TOG.3007
+	desc = EVTDESC_TOG_3007
+	picture = GFX_evt_viking_throneroom_oldgods
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	hide_from = yes
+	
+	option = {
+		name = EVTOPTA_TOG_3007
+		FROMFROM = {
+			add_wounded_effect = yes
+			opinion = {
+				modifier = opinion_went_berserk
+				who = ROOT
+			}
+		}
+	}
+}
+
+# on_failed_assassination_disc - wounded
+character_event = {
+	id = 160
+	desc = "EVTDESC160"
+	picture = "GFX_evt_shadow"
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		NOT = { trait = wounded }
+		NOT = { is_maimed_trigger = yes }
+	}
+	
+	immediate = {
+		save_event_target_as = target_victim
+		FROM = {
+			character_event = { id = 11 }
+			character_event = { id = 40007 }
+		}
+		clear_event_target = target_victim
+	}
+
+	option = {
+		name = "EVTOPTA160"
+		add_wounded_effect = yes
+		if = {
+			limit = {
+				host = { NOT = { character = FROM } }
+				job_spymaster = {
+					NOT = { character = FROM }
+				}
+			}
+			hidden_tooltip = { host = { character_event = { id = 40020 days = 5 }  } }
+		}
+	}
+}
+
+# Trouble on road - inn on fire
+narrative_event = {
+	id = SoA.5028
+	title = EVTNAME_SoA_5028
+	desc = EVTDESC_SoA_5028
+	picture = GFX_evt_burning_house
+	
+	trigger = { 
+		trait = on_pilgrimage
+	}
+	fail_trigger_effect = { 
+		clr_character_flag = pilgrimage_to_canterbury
+		clr_character_flag = pilgrimage_to_jerusalem
+		clr_character_flag = pilgrimage_to_koln
+		clr_character_flag = pilgrimage_to_rome
+		clr_character_flag = pilgrimage_to_santiago
+		clr_character_flag = pilgrimage_to_constantinople
+		clr_character_flag = pilgrimage_to_axum
+		clr_character_flag = pilgrimage_to_antioch
+		clr_character_flag = abominable_pilgrimage
+		clr_character_flag = do_not_disturb
+		clr_character_flag = preparing_pilgrimage
+		clr_character_flag = activated_pilgrimage
+		hidden_tooltip = { remove_trait = on_pilgrimage }
+	}
+	
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTA_SoA_5028
+		ai_chance = {
+			factor = 80
+		}
+		random = {
+			chance = 10
+			modifier = {
+				factor = 0
+				trait = ethereal_trait
+			}
+			add_trait = wounded
+			hidden_tooltip = {
+				character_event = {
+					id = 38280 #Notify Wounded
+				}
+			}
+		}
+		if = {
+			limit = { NOT = { trait = brave } }
+			random = {
+				chance = 30
+				add_trait = brave
+				hidden_tooltip = {
+					character_event = {
+						id = 38270 #Notify brave
+					}
+				}
+			}
+		}
+	}
+	option = {
+		name = EVTOPTB_SoA_5028
+		ai_chance = {
+			factor = 20
+		}
+		if = {
+			limit = { NOR = { trait = craven trait = berserker } }
+			add_trait = craven
+		}
+	}
+}
+
+# Danger on road - robbers
+character_event = {
+	id = SoA.5029
+	desc = EVTDESC_SoA_5029
+	picture = GFX_evt_bandits
+	
+	trigger = { 
+		trait = on_pilgrimage
+	}
+	fail_trigger_effect = { 
+		clr_character_flag = pilgrimage_to_canterbury
+		clr_character_flag = pilgrimage_to_jerusalem
+		clr_character_flag = pilgrimage_to_koln
+		clr_character_flag = pilgrimage_to_rome
+		clr_character_flag = pilgrimage_to_santiago
+		clr_character_flag = pilgrimage_to_constantinople
+		clr_character_flag = pilgrimage_to_axum
+		clr_character_flag = pilgrimage_to_antioch
+		clr_character_flag = abominable_pilgrimage
+		clr_character_flag = do_not_disturb
+		clr_character_flag = preparing_pilgrimage
+		clr_character_flag = activated_pilgrimage
+		hidden_tooltip = { remove_trait = on_pilgrimage }
+	}
+	
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTA_SoA_5029
+		ai_chance = {
+			factor = 90
+		}
+		wealth = -10
+	}
+	option = {
+		name = EVTOPTB_SoA_5029
+		tooltip_info = martial
+		trigger = {
+			martial = 10
+		}
+		ai_chance = {
+			factor = 10
+		}
+		if = {
+			limit = { NOT = { trait = brave } }
+			add_trait = brave
+		}
+		random = {
+			chance = 10
+			modifier = {
+				factor = 0
+				trait = ethereal_trait
+			}
+			add_trait = wounded
+			hidden_tooltip = {
+				character_event = {
+					id = 38280 #Notify Wounded
+				}
+			}
+		}
+	}
+}
+
+# Danger on road  - broken bridge
+character_event = {
+	id = SoA.5030
+	desc = EVTDESC_SoA_5030
+	picture = GFX_evt_pilgrims_epic_journey
+	
+	trigger = { 
+		trait = on_pilgrimage
+	}
+	fail_trigger_effect = { 
+		clr_character_flag = pilgrimage_to_canterbury
+		clr_character_flag = pilgrimage_to_jerusalem
+		clr_character_flag = pilgrimage_to_koln
+		clr_character_flag = pilgrimage_to_rome
+		clr_character_flag = pilgrimage_to_santiago
+		clr_character_flag = pilgrimage_to_constantinople
+		clr_character_flag = pilgrimage_to_axum
+		clr_character_flag = pilgrimage_to_antioch
+		clr_character_flag = abominable_pilgrimage
+		clr_character_flag = do_not_disturb
+		clr_character_flag = preparing_pilgrimage
+		clr_character_flag = activated_pilgrimage
+		hidden_tooltip = { remove_trait = on_pilgrimage }
+	}
+	
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTA_SoA_5030
+		ai_chance = {
+			factor = 10
+		}
+		random = {
+			chance = 20
+			modifier = {
+				factor = 0
+				trait = ethereal_trait
+			}
+			add_trait = wounded
+			hidden_tooltip = {
+				character_event = {
+					id = 38280 #Notify Wounded
+				}
+			}
+		}
+	}
+	option = {
+		name = EVTOPTB_SoA_5030
+		ai_chance = {
+			factor = 45
+		}
+		wealth = -10
+	}
+	option = {
+		name = EVTOPTC_SoA_5030
+		ai_chance = {
+			factor = 45
+		}
+		wealth = -30
+		if = {
+			limit = { NOT = { trait = charitable } }
+			add_trait = charitable
+		}
+	}
+}
+
+#Bandits!
+character_event = {
+	id = 86101
+	desc = "EVTDESC86101"
+	picture = GFX_evt_bandits
+	border = GFX_event_normal_frame_religion
+	
+	prisoner = no
+	only_rulers = yes
+	
+	is_triggered_only = yes
+
+	trigger = {
+		trait = on_hajj
+	}
+	
+	option = {
+		name = "EVTOPTA86101" #attempt avoid
+		trigger = {
+			has_character_flag = hajj_travel_lightly
+		}
+		random = {
+			chance = 20
+			character_event = { id = 86102 tooltip = EVTTOOLTIP86102 }
+			
+		}
+	}
+	option = {
+		name = "EVTOPTA86101"
+		trigger = {
+			NOT = { has_character_flag = hajj_travel_lightly }
+		}
+		random = {
+			chance = 50
+			character_event = { id = 86102 tooltip = EVTTOOLTIP86102 }
+		}
+	}	
+	option = {
+		name = "EVTOPTB86101"
+		trigger = {
+			NOT = { has_character_flag = hajj_bring_guards }
+		}
+		character_event = { id = 86102  tooltip = EVTTOOLTIP86102}
+		prestige = 10
+
+	}
+	option = {
+		name = "EVTOPTB86101"
+		trigger = {
+			has_character_flag = hajj_bring_guards
+		}
+		prestige = 10
+		random = {
+			chance = 2
+			modifier = {
+				factor = 0
+				trait = ethereal_trait
+			}
+			add_trait = wounded
+			hidden_tooltip = { character_event = { id = 38280 } }
+		}		
+	}
+}
+
+#Bandits catch us
+character_event = {
+	id = 86102
+	desc = "EVTDESC86102"
+	picture = GFX_evt_bandits
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "EVTOPTA86102"
+		tooltip_info = martial
+		trigger = {
+			martial = 14
+		}
+		prestige = 30
+		random = {
+			chance = 20
+			modifier = {
+				factor = 0
+				trait = ethereal_trait
+			}
+			add_trait = wounded
+			hidden_tooltip = { character_event = { id = 38280 } }
+		}		
+	}
+	option = {
+		name = "EVTOPTB86102"
+		trigger = {
+			NOT = { martial = 14 }
+			has_character_flag = hajj_bring_guards
+		}
+		prestige = 10
+		random = {
+			chance = 15
+			modifier = {
+				factor = 0
+				trait = ethereal_trait
+			}
+			add_trait = wounded
+			hidden_tooltip = { character_event = { id = 38280 } }
+		}		
+	}
+	
+	option = {
+		name = "EVTOPTB86102" #fight	
+		trigger = {
+			NOT = { martial = 14 }
+			NOT = { has_character_flag = hajj_bring_guards }
+		}
+		random = {
+			chance = 20
+			modifier = {
+				factor = 0
+				trait = ethereal_trait
+			}
+			add_trait = wounded
+			hidden_tooltip = { character_event = { id = 38280 } }
+		}		
+	}	
+	option = {
+		name = "EVTOPTC86102"
+		scaled_wealth = { value = -0.05 max = -100 }
+		prestige = -10
+	}
+}
+
+#Christian pirates
+character_event = {
+	id = 86110
+	desc = "EVTDESC86110"
+	picture = GFX_evt_kraken
+	border = GFX_event_normal_frame_religion
+	
+	prisoner = no
+	only_rulers = yes
+	
+	is_triggered_only = yes
+
+	trigger = {
+		trait = on_hajj
+	}
+	
+	option = {
+		name = "EVTOPTA86110"
+		prestige = -25
+	}
+	option = {
+		name = "EVTOPTB86110"
+		piety = 25
+		random = {
+			chance = 15
+			modifier = {
+				factor = 0
+				trait = ethereal_trait
+			}
+			add_trait = wounded
+			hidden_tooltip = { character_event = { id = 38280 } }
+		}
+	}
+}
+
+#Bandits have attacked a fellow on hajj
+character_event = {
+	id = 86150
+	desc = "EVTDESC86150"
+	picture = GFX_evt_peasants
+	border = GFX_event_normal_frame_religion
+	
+	prisoner = no
+	only_rulers = yes
+	
+	is_triggered_only = yes
+
+	trigger = {
+		trait = on_hajj
+	}
+	
+	option = {
+		name = "EVTOPTA86150"
+		piety = -20
+	}
+	option = {
+		name = "EVTOPTB86150"
+		piety = 5
+		random = {
+			chance = 15
+			modifier = {
+				factor = 0
+				trait = ethereal_trait
+			}
+			add_trait = wounded
+			hidden_tooltip = { character_event = { id = 38280 } }
+		}		
+		on_hajj = {
+			limit = {
+				prisoner = no
+				NOT = { has_character_flag = hajj_bring_guards }
+			}
+			opinion = { 
+				modifier = opinion_hajj_saved_from_bandit
+				who = ROOT
+			}
+			hidden_tooltip = { character_event = { id = 86151 } }
+		}
+	}	
+}
+
+#We have had an ambush
+character_event = {
+	id = 86161
+	desc = "EVTDESC86161"
+	picture = GFX_evt_melee
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "EVTOPTA86161"
+		tooltip_info = martial
+		trigger = {
+			martial = FROM 
+		}
+		random_list = {
+			80 = {
+				FROM = { character_event = { id = 86162 tooltip = EVTTOOLTIP86162 } }
+			}
+			20 = {
+				modifier = {
+					factor = 0
+					trait = ethereal_trait
+				}
+				add_trait = wounded
+				hidden_tooltip = { character_event = { id = 38280 } }
+				hidden_tooltip = { FROM = { character_event = { id = 86163 } } }
+			}
+		}
+	}
+	option = {
+		name = "EVTOPTB86161"
+		trigger = {
+			NOT = { martial = FROM }
+		}
+		random_list = {
+			30 = {
+				FROM = { character_event = { id = 86162 tooltip = EVTTOOLTIP86162 } }
+			}
+			60 = {
+				modifier = {
+					factor = 0
+					trait = ethereal_trait
+				}
+				add_trait = wounded
+				hidden_tooltip = { character_event = { id = 38280 } }
+				hidden_tooltip = { FROM = { character_event = { id = 86163 } } }
+			}
+			10 = {
+				modifier = {
+					factor = 0
+					trait = ethereal_trait
+				}
+				add_maimed_trait_effect = yes
+				hidden_tooltip = { FROM = { character_event = { id = 86163 } } }
+			}
+		}		
+	}
+	
+	option = {
+		name = "EVTOPTC86161"
+		trigger = {
+			OR = {
+				trait = paranoid
+				trait = ambitious
+				has_character_flag = hajj_bring_guards
+			}
+		}
+		prestige = -5
+		hidden_tooltip = {
+			FROM = { character_event = { id = 86164 }  }
+		}
+	}
+
+}
+
+#We hurt
+character_event = {
+	id = 86162
+	desc = "EVTDESC86162"
+	picture = GFX_evt_melee
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "EVTOPTA86162"
+		add_wounded_effect = yes
+	}
+}
+
+#Dangerous bandits have cornered us..
+character_event = {
+	id = 86700
+	desc = "EVTDESC86700"
+	picture = GFX_evt_mongols
+	border = GFX_event_normal_frame_religion
+	
+	min_age = 16
+	only_capable = yes
+	prisoner = no
+	religion_group = muslim
+	has_character_flag = on_home_from_hajj
+	
+	trigger = {
+		trait = on_hajj
+		NOT = { has_character_flag = hajj_bring_guards }
+		NOT = { has_character_flag = hajj_home_event }
+	}
+	
+	mean_time_to_happen = {
+		days = 60
+	}	
+	
+	immediate = {
+		set_character_flag = hajj_home_event
+	}
+
+	option = {
+		name = "EVTOPTA86700"
+		prestige = 10
+		random = {
+			chance = 15
+			modifier = {
+				factor = 0
+				trait = ethereal_trait
+			}
+			add_trait = wounded
+			hidden_tooltip = { character_event = { id = 38280 } }
+		}		
+		
+	}
+	option = {
+		name = "EVTOPTB86700"
+		ai_chance = {
+			factor = 0
+		}
+		add_trait = craven
+	}
+}
+
+# Mutiny
+character_event = {
+	id = 86815
+	desc = "EVTDESC86815"
+	picture = GFX_evt_kraken
+	border = GFX_event_normal_frame_religion
+	
+	prisoner = no
+	
+	is_triggered_only = yes
+
+	trigger = {
+		trait = on_hajj
+	}
+	
+	option = {
+		name = "EVTOPTA86815"
+		character_event = { id = 86816 tooltip = EVTTOOLTIP86816 }
+		random = {
+			chance = 15
+			modifier = {
+				factor = 0
+				trait = ethereal_trait
+			}
+			add_trait = wounded
+			hidden_tooltip = { character_event = { id = 38280 } }
+		}
+	}
+	option = {
+		name = "EVTOPTB86815"
+		character_event = { id = 86817 tooltip = EVTTOOLTIP86817 }
+	}
+}
+
+# Hashshashin
+character_event = {
+	id = 86845
+	desc = "EVTDESC86845"
+	picture = GFX_evt_desert
+	border = GFX_event_normal_frame_religion
+	
+	prisoner = no
+	has_global_flag = assassins_founded
+	
+	is_triggered_only = yes
+
+	trigger = {
+		trait = on_hajj
+		NOT = { has_global_flag = assassins_scatter }
+		NOT = { has_global_flag = assassins_destroyed }
+	}
+	
+	option = {
+		name = "EVTOPTA86845"
+		character_event = { id = 86846 tooltip = EVTTOOLTIP86846 }
+		random = {
+			chance = 15
+			modifier = {
+				factor = 0
+				trait = ethereal_trait
+			}
+			add_trait = wounded
+			hidden_tooltip = { character_event = { id = 38280 } }
+		}
+		set_character_flag = saved_assassin
+	}
+	option = {
+		name = "EVTOPTB86845"
+		piety = -10
+	}
+}
+
+# Rebels Kill Random Province Lord - Duke or above
+character_event = {
+	id = 80005
+	desc = "EVTDESC80005"
+	picture = "GFX_evt_peasants"
+
+	lacks_dlc = "The Old Gods"
+	only_rulers = yes
+	min_age = 16
+	prisoner = no
+	
+	trigger = {
+		NOT = { has_global_flag = possible_province_defection }
+		primary_title = { higher_tier_than = COUNT }
+		in_command = no
+		# Rebel occupied
+		location = {
+			NOT = {
+				any_province_lord = {
+					any_demesne_title = {
+						location = {
+							province_id = PREVPREVPREV
+						}
+						tier = baron
+						NOT = { controlled_by = e_rebels }
+					}
+				}
+			}
+		}
+		NOT = { is_inaccessible_trigger = yes }
+	}
+	
+	mean_time_to_happen = {
+		months = 48
+	}
+	
+	immediate = {
+		hidden_tooltip = {
+			random_list = {
+				50 = { set_character_flag = character_killed_by_rebels }
+				25 = { set_character_flag = character_maimed_by_rebels }
+				25 = { set_character_flag = character_wounded_by_rebels }
+			}
+		}
+	}
+	
+	option = {
+		name = "EVTOPTA80005"
+		trigger = { has_character_flag = character_killed_by_rebels }
+		hidden_tooltip = {
+			if = {
+				limit = { independent = no }
+				liege = { character_event = { id = 80050 days = 3 } }
+			}
+		}
+		death = {
+			death_reason = death_rabble
+		}
+		# Clear flags
+		clr_character_flag = character_killed_by_rebels
+		clr_character_flag = character_maimed_by_rebels
+		clr_character_flag = character_wounded_by_rebels
+	}
+	option = {
+		name = "EVTOPTB80005"
+		trigger = { has_character_flag = character_maimed_by_rebels }
+		hidden_tooltip = {
+			if = {
+				limit = { independent = no }
+				liege = { letter_event = { id = 80051 days = 3 } }
+			}
+		}
+		add_maimed_trait_effect = yes
+		# Clear flags
+		clr_character_flag = character_killed_by_rebels
+		clr_character_flag = character_maimed_by_rebels
+		clr_character_flag = character_wounded_by_rebels
+	}
+	option = {
+		name = "EVTOPTC80005"
+		trigger = { has_character_flag = character_wounded_by_rebels }
+		hidden_tooltip = {
+			if = {
+				limit = { independent = no }
+				liege = { letter_event = { id = 80052 days = 3 } }
+			}
+		}
+		add_wounded_effect = yes
+		# Clear flags
+		clr_character_flag = character_killed_by_rebels
+		clr_character_flag = character_maimed_by_rebels
+		clr_character_flag = character_wounded_by_rebels
+	}
+}
+
+# Rebels Kill Random Province Lord - Count
+character_event = {
+	id = 80010
+	desc = "EVTDESC80005"
+	picture = "GFX_evt_peasants"
+
+	lacks_dlc = "The Old Gods"
+	only_rulers = yes
+	min_age = 16
+	prisoner = no
+	
+	trigger = {
+		NOT = { has_global_flag = possible_province_defection }
+		primary_title = { tier = COUNT }
+		in_command = no
+		# Rebel occupied
+		location = {
+			NOT = {
+				any_province_lord = {
+					any_demesne_title = {
+						location = {
+							province_id = PREVPREVPREV
+						}
+						tier = baron
+						NOT = { controlled_by = e_rebels }
+					}
+				}
+			}
+		}
+		NOT = { is_inaccessible_trigger = yes }
+	}
+	
+	mean_time_to_happen = {
+		months = 36
+	}
+	
+	immediate = {
+		hidden_tooltip = {
+			random_list = {
+				50 = { set_character_flag = character_killed_by_rebels	}
+				25 = { set_character_flag = character_maimed_by_rebels }
+				25 = { set_character_flag = character_wounded_by_rebels }
+			}
+		}
+	}
+	
+	option = {
+		name = "EVTOPTA80005"
+		trigger = { has_character_flag = character_killed_by_rebels }
+		hidden_tooltip = {
+			if = {
+				limit = { independent = no }
+				liege = { character_event = { id = 80050 days = 3 } }
+			}
+		}
+		death = {
+			death_reason = death_rabble
+		}
+		# Clear flags
+		clr_character_flag = character_killed_by_rebels
+		clr_character_flag = character_maimed_by_rebels
+		clr_character_flag = character_wounded_by_rebels
+	}
+	option = {
+		name = "EVTOPTB80005"
+		trigger = { has_character_flag = character_maimed_by_rebels }
+		hidden_tooltip = {
+			if = {
+				limit = { independent = no }
+				liege = { letter_event = { id = 80051 days = 3 } }
+			}
+		}
+		add_maimed_trait_effect = yes
+		# Clear flags
+		clr_character_flag = character_killed_by_rebels
+		clr_character_flag = character_maimed_by_rebels
+		clr_character_flag = character_wounded_by_rebels
+	}
+	option = {
+		name = "EVTOPTC80005"
+		trigger = { has_character_flag = character_wounded_by_rebels }
+		hidden_tooltip = {
+			if = {
+				limit = { independent = no }
+				liege = { letter_event = { id = 80052 days = 3 } }
+			}
+		}
+		add_wounded_effect = yes
+		# Clear flags
+		clr_character_flag = character_killed_by_rebels
+		clr_character_flag = character_maimed_by_rebels
+		clr_character_flag = character_wounded_by_rebels
+	}
+}
+
+# Rebels Kill Random Province Lord - Baron
+character_event = {
+	id = 80015
+	desc = "EVTDESC80005"
+	picture = "GFX_evt_peasants"
+
+	lacks_dlc = "The Old Gods"
+	only_rulers = yes
+	min_age = 16
+	prisoner = no
+	
+	trigger = {
+		# Rebel occupied
+		location = {
+			# Early out
+			controlled_by = e_rebels
+			NOT = {
+				any_province_lord = {
+					any_demesne_title = {
+						location = {
+							province_id = PREVPREVPREV
+						}
+						tier = baron
+						NOT = { controlled_by = e_rebels }
+					}
+				}
+			}
+		}
+		primary_title = { tier = BARON }
+		in_command = no
+		NOT = { is_inaccessible_trigger = yes }
+	}
+	
+	mean_time_to_happen = {
+		months = 24
+	}
+	
+	immediate = {
+		hidden_tooltip = {
+			random_list = {
+				50 = { set_character_flag = character_killed_by_rebels }
+				25 = { set_character_flag = character_maimed_by_rebels }
+				25 = { set_character_flag = character_wounded_by_rebels }
+			}
+		}
+	}
+	
+	option = {
+		name = "EVTOPTA80005"
+		trigger = { has_character_flag = character_killed_by_rebels }
+		hidden_tooltip = {
+			if = {
+				limit = { independent = no }
+				liege = { character_event = { id = 80050 days = 3 } }
+			}
+		}
+		death = {
+			death_reason = death_rabble
+		}
+		# Clear flags
+		clr_character_flag = character_killed_by_rebels
+		clr_character_flag = character_maimed_by_rebels
+		clr_character_flag = character_wounded_by_rebels
+	}
+	option = {
+		name = "EVTOPTB80005"
+		trigger = { has_character_flag = character_maimed_by_rebels }
+		hidden_tooltip = {
+			if = {
+				limit = { independent = no }
+				liege = { letter_event = { id = 80051 days = 3 } }
+			}
+		}
+		add_maimed_trait_effect = yes
+		# Clear flags
+		clr_character_flag = character_killed_by_rebels
+		clr_character_flag = character_maimed_by_rebels
+		clr_character_flag = character_wounded_by_rebels
+	}
+	option = {
+		name = "EVTOPTC80005"
+		trigger = { has_character_flag = character_wounded_by_rebels }
+		hidden_tooltip = {
+			if = {
+				limit = { independent = no }
+				liege = { letter_event = { id = 80052 days = 3 } }
+			}
+		}
+		add_wounded_effect = yes
+		# Clear flags
+		clr_character_flag = character_killed_by_rebels
+		clr_character_flag = character_maimed_by_rebels
+		clr_character_flag = character_wounded_by_rebels
+	}
+}
+
+# Rebels Kill Random Province Character
+character_event = {
+	id = 80020
+	desc = "EVTDESC80005"
+	picture = "GFX_evt_peasants"
+
+	lacks_dlc = "The Old Gods"
+	prisoner = no
+	
+	trigger = {
+		is_ruler = no
+		in_command = no
+		# Rebel occupied
+		location = {
+			# Early out
+			controlled_by = e_rebels
+			is_land = yes
+			NOT = {
+				any_province_lord = {
+					any_demesne_title = {
+						location = {
+							province_id = PREVPREVPREV
+						}
+						tier = BARON
+						NOT = { controlled_by = e_rebels }
+					}
+				}
+			}
+		}
+		NOT = { is_inaccessible_trigger = yes }
+	}
+	
+	mean_time_to_happen = {
+		months = 120
+	}
+	
+	immediate = {
+		hidden_tooltip = {
+			random_list = {
+				50 = { set_character_flag = character_killed_by_rebels }
+				25 = { set_character_flag = character_maimed_by_rebels }
+				25 = { set_character_flag = character_wounded_by_rebels }
+			}
+		}
+	}
+	
+	option = {
+		name = "EVTOPTA80005"
+		trigger = { has_character_flag = character_killed_by_rebels }
+		liege = { character_event = { id = 80050 days = 3 } }
+		death = {
+			death_reason = death_rabble
+		}
+		# Clear flags
+		clr_character_flag = character_killed_by_rebels
+		clr_character_flag = character_maimed_by_rebels
+		clr_character_flag = character_wounded_by_rebels
+	}
+	option = {
+		name = "EVTOPTB80005"
+		trigger = { has_character_flag = character_maimed_by_rebels }
+		liege = { letter_event = { id = 80051 days = 3 } }
+		add_maimed_trait_effect = yes
+		# Clear flags
+		clr_character_flag = character_killed_by_rebels
+		clr_character_flag = character_maimed_by_rebels
+		clr_character_flag = character_wounded_by_rebels
+	}
+	option = {
+		name = "EVTOPTC80005"
+		trigger = { has_character_flag = character_wounded_by_rebels }
+		liege = { letter_event = { id = 80052 days = 3 } }
+		add_wounded_effect = yes
+		# Clear flags
+		clr_character_flag = character_killed_by_rebels
+		clr_character_flag = character_maimed_by_rebels
+		clr_character_flag = character_wounded_by_rebels
+	}
+}
+
+#Regency: Ruler, if child, kills Regent.
+character_event = {
+	id = 61135
+	desc = EVTDESC61135
+	picture = GFX_evt_child_sword
+
+	min_age = 4
+	max_age = 15
+	only_rulers = yes
+	capable_only = yes
+	prisoner = no
+	is_triggered_only = yes
+	
+	trigger = {
+		has_regent = yes
+		NOT = { has_character_flag = pushed_regent }
+		is_nomadic = no
+	}
+	
+	weight_multiplier = {
+		days = 1
+		modifier = {
+			factor = 4
+			trait = cruel
+		}
+		modifier = {
+			factor = 2
+			trait = wroth
+		}
+		modifier = {
+			factor = 1.33
+			trait = arbitrary
+		}
+		modifier = {
+			factor =0.5
+			trait = kind
+		}
+		modifier = {
+			factor = 0.5
+			trait = just
+		}
+	}
+	
+	option = {
+		name = EVTOPTA61135
+		ai_chance = { factor = 0 }
+		set_character_flag = pushed_regent
+		random_list = {
+			50 = {
+				random_courtier_or_vassal = {
+					limit = { 
+						OR = { 
+							has_minor_title = title_regent 
+							has_minor_title = title_appointed_regent 
+						} 
+					}
+					death = {
+						death_reason = death_murder_unknown_fall
+						killer = ROOT
+					}
+				}
+			}
+			50 = { 
+				random_courtier_or_vassal = {
+					limit = { 
+						OR = { 
+							has_minor_title = title_regent 
+							has_minor_title = title_appointed_regent 
+						} 
+					}
+					add_wounded_effect = yes
+					opinion = {
+						modifier = opinion_mad_as_hell
+						who = ROOT
+						years = 5
+					}
+				}
+			}
+		}
+	}
+	option = {
+		name = EVTOPTB61135
+		ai_chance = { factor = 100 }
+		set_character_flag = pushed_regent
+		piety = 30
+	}
+}
+
+#Ambidextrous injury
+character_event = {
+	id = RIP.29304
+	desc = EVTDSC_RIP_29304
+	border = GFX_event_normal_frame_war
+	picture = GFX_evt_doctor_tending_to_sick
+
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTA_RIP_29304
+
+		random_list = {
+			#One-legged
+			20 = {
+				modifier = {
+					factor = 0
+					trait = one_legged
+				} 
+				add_trait = one_legged
+				hidden_tooltip = { add_trait = severely_injured resolve_severely_injured_effect = yes }
+				hidden_tooltip = { character_event = { id = RIP.11503 } } #Notify one-legged
+			}
+			#One-eyed
+			10 = { 
+				modifier = {
+					factor = 0
+					trait = one_eyed
+				} 
+				add_trait = one_eyed 
+				hidden_tooltip = { add_trait = severely_injured resolve_severely_injured_effect = yes }
+				hidden_tooltip = { character_event = { id = RIP.11501 } } #Notify one-eyed
+			}
+			#Disfigured
+			10 = { 
+				modifier = {
+					factor = 0
+					trait = disfigured
+				} 
+				add_trait = disfigured 
+				hidden_tooltip = { add_trait = severely_injured resolve_severely_injured_effect = yes }
+				hidden_tooltip = { character_event = { id = RIP.11504 } } #Notify disfigured
+			}
+			#Mangled
+			10 = {
+				modifier = {
+					factor = 0
+					trait = mangled
+				} 
+				add_trait = mangled 
+				hidden_tooltip = { add_trait = severely_injured resolve_severely_injured_effect = yes }
+				hidden_tooltip = { character_event = { id = RIP.11505 } } #Notify mangled
+			}
+			10 = {
+				modifier = {
+					factor = 0
+					NAND = {
+						trait = one_legged
+						trait = one_eyed
+						trait = disfigured
+						trait = mangled
+					}
+				} 
+				add_wounded_effect = yes
+				hidden_tooltip = { character_event = { id = 38280 } } #Notify wounded
+			}
+		}
+		tooltip = { add_trait = severely_injured }
+	}
+}
+
+# Party finds tiger
+character_event = {
+	id = RoI.2120
+	desc = EVTDESC_RoI_2120
+	picture = GFX_evt_tiger
+	
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTA_RoI_2120 # Kill it myself
+		trigger = {
+			NOT = { trait = wounded }
+			NOT = { is_maimed_trigger = yes }
+			NOT = { trait = craven }
+		}
+		hidden_tooltip = {
+			if = {
+				limit = {
+					OR = {
+						trait = hunter
+						trait = duelist
+						is_strong_trigger = yes
+						trait = varangian
+						trait = berserker
+						has_character_modifier = killed_an_old_one
+					}
+				}
+				random_list = {
+					80 = { character_event = { id = RoI.2121 } } # Kills tiger
+					15 = { character_event = { id = RoI.2122 } } # Fails to kill tiger
+					5 = { 
+						modifier = {
+							factor = 0
+							trait = ethereal_trait
+						}
+						character_event = { id = RoI.2123 } 
+					} # Wounded trying to kill tiger
+				}
+			}
+			if = {
+				limit = {
+					NOT = { trait = hunter }
+					NOT = { trait = duelist }
+					is_strong_trigger = no
+					NOT = { trait = varangian }
+					NOT = { trait = berserker }
+					NOT = { has_character_modifier = killed_an_old_one }
+				}
+				random_list = {
+					40 = { character_event = { id = RoI.2121 } } # Kills tiger
+					50 = { character_event = { id = RoI.2122 } } # Fails to kill tiger
+					10 = { 
+						modifier = {
+							factor = 0
+							trait = ethereal_trait
+						}
+						character_event = { id = RoI.2123 } 
+					} # Wounded trying to kill tiger
+				}
+			}
+		}
+	}
+	option = {
+		name = EVTOPTB_RoI_2120 # Let the soldiers do it
+		hidden_tooltip = {
+			random_list = {
+				80 = { character_event = { id = RoI.2124 } } # Soldiers kill tiger
+				20 = { character_event = { id = RoI.2125 } } # Soldiers fail to kill tiger
+			}
+		}
+	}
+}
+
+# Diamond sparkles in crown
+character_event = {
+	id = RoI.216
+	desc = EVTDESC_RoI_216
+	picture = GFX_evt_throne_room
+
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_RoI_216
+		prestige = 10
+		hidden_tooltip = {
+			random_list = {
+				10 = { character_event = { id = RoI.217 days = 60 } }
+				10 = { 
+					modifier = {
+						factor = 0
+						trait = ethereal_trait
+					}
+					character_event = { id = RoI.218 days = 60 } 
+				}
+				10 = {
+					random_courtier = {
+						limit = {
+							ai = yes
+							is_adult = yes
+							prisoner = no
+							NOT = {
+								trait = incapable
+							}
+							is_inaccessible_trigger = no
+							NOT = { father = { character = ROOT } }
+							NOT = { mother = { character = ROOT } }
+							NOT = { spouse = { character = ROOT } }
+						}
+						character_event = { id = RoI.219 days = 60 }
+					}
+				}
+			}
+		}
+	}
+}
+
+# Owner subjected to murder attempt
+character_event = {
+	id = RoI.220
+	desc = EVTDESC_RoI_220
+	picture = GFX_evt_bad_news
+
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_RoI_220
+		random = {
+			chance = 20
+			modifier = {
+				factor = 0
+				trait = ethereal_trait
+			}
+			add_trait = wounded
+			hidden_tooltip = {
+				character_event = {
+					id = 38280 #Notify Wounded
+				}
+			}
+		}
+		FROM = {
+			death = {
+				death_reason = death_execution
+				killer = ROOT
+			}
+		}
+		hidden_tooltip = { character_event = { id = RoI.240 } }
+	}
+}
+
+#You seem to be taking uneccesary risks when practising with the sword
+character_event = {
+	id = 69074
+	desc = EVTDESC69074
+	picture = GFX_evt_melee
+	
+	capable_only = yes
+	prisoner = no
+	
+	trigger = {
+		has_character_modifier = proving_bravery
+		trait = craven
+	}
+	
+	mean_time_to_happen = {
+		months = 60
+	}
+	
+	option = {
+		name = EVTOPTA69074 #I need to
+		random_list = {
+			60 = {
+				modifier = {
+					factor = 1.2
+					trait = ethereal_trait
+				}
+			}
+			30 = {
+				remove_trait = craven
+			}
+			10 = {
+				modifier = {
+					factor = 0
+					trait = ethereal_trait
+				}
+				add_trait = wounded
+			}
+		}
+	}
+	option = {
+		name = EVTOPTB69074
+		prestige = -5
+		remove_character_modifier = proving_bravery
+	}
+}
+
+#Assault
+character_event = {
+	id = 62014
+	desc = EVTDESC62014
+	title = EVTNAME62014
+	picture = GFX_evt_crusaders
+	border = GFX_event_normal_frame_religion
+
+	religion_group = christian 
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		siege = {
+			is_attacker = yes
+		}
+		NOT = {	trait = craven }
+		NOT = {	trait = cynical	}
+		can_be_maimed_trigger = yes
+		NOT = {	trait = wounded	}
+		enemy = {
+			NOT = { religion_group = christian }
+		}		
+	}
+
+	weight_multiplier = {
+		months = 1
+		modifier = {
+			factor = 2.0
+			trait = zealous
+		}
+		modifier = {
+			factor = 2.0
+			trait = brave
+		}
+	}
+	
+	immediate = {
+		siege = {
+			enemy = {
+				morale = -0.1
+				leader = {
+					any_liege = {
+						limit = {
+							war_with = ROOT
+						}
+						character_event = { id = 62044 }
+					}
+					if = {
+						limit = {
+							war_with = ROOT
+						}
+						character_event = { id = 62044 }
+					}
+				}
+			}
+		}
+		random_list = {
+			80 = { add_trait = crusader }
+			10 = { add_maimed_trait_effect = yes }
+			10 = { 
+				modifier = {
+					factor = 0
+					trait = ethereal_trait
+				}
+				add_trait = wounded hidden_tooltip = { character_event = { id = 38280 } } 
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTA62014
+		
+		tooltip = {
+			siege = {
+				enemy = {
+					morale = -0.1			
+				}
+			}
+			random_list = {
+				80 = { add_trait = crusader }
+				10 = { add_maimed_trait_effect = yes }
+				10 = {  
+					modifier = {
+						factor = 0
+						trait = ethereal_trait
+					}
+					add_trait = wounded hidden_tooltip = { character_event = { id = 38280 } }
+				}
+			}
+		}
+	}
+}
+
+### Lustful positive ###
+character_event = {
+	id = 3005
+	desc = EVTDESC3005
+	picture = GFX_evt_brothel
+	border = GFX_event_normal_frame_intrigue
+	
+	only_playable = yes
+	min_age = 16
+	capable_only = yes
+	prisoner = no	
+	only_men = yes
+	religion_group = christian
+	war = no
+	
+	is_triggered_only = yes 
+	
+	trigger = {
+		trait = lustful
+		in_command = no
+		NOR = {
+			is_inaccessible_trigger = yes
+			trait = wounded
+			trait = craven
+		}
+		any_courtier = {
+			is_female = yes
+			age = 16
+			prisoner = no
+			NOR = {
+				age = 35
+				has_ugly_trait_trigger = yes
+				is_close_relative = ROOT
+				trait = incapable
+				is_inaccessible_trigger = yes
+			}
+		}
+	}
+	
+	weight_multiplier = {
+		factor = 1
+
+		modifier = {
+			factor = 0.5
+			trait = wroth
+		}
+		modifier = {
+			factor = 0.75
+			trait = proud
+		}
+
+		modifier = {
+			factor = 3.0
+			trait = patient
+		}
+		modifier = {
+			factor = 4.0
+			trait = humble
+		}
+	}
+	
+	option = {
+		name = EVTOPTA3005
+		trigger = {
+			is_married = no
+		}
+		prestige = 15
+		random_courtier = {
+			limit = {
+				age = 16
+				is_female = yes
+				prisoner = no
+				NOR = {
+					is_close_relative = ROOT
+					age = 35
+					has_ugly_trait_trigger = yes
+					trait = incapable
+					is_inaccessible_trigger = yes
+				}
+			}
+			opinion = {
+				modifier = opinion_tourney_boost
+				who = ROOT
+				years = 5
+			}			
+		}
+
+		random = {
+			chance = 10
+			add_trait = wounded
+			hidden_tooltip = { character_event = { id = 38280 } }
+		}		
+	}
+	option = {
+		name = EVTOPTB3005
+		trigger = {
+			is_married = yes
+		}
+		prestige = 15
+		spouse = {
+			opinion = {
+				modifier = opinion_tourney_boost
+				who = ROOT
+				years = 5
+			}
+		}
+		random = {
+			chance = 10
+			modifier = {
+				factor = 0
+				trait = ethereal_trait
+			}
+			add_trait = wounded
+			hidden_tooltip = { character_event = { id = 38280 } }
+		}		
+	}	
+	option = {
+		name = EVTOPTC3005
+		prestige = -5
+		if = {
+			limit = { NOT = { trait = berserker } }
+			random = {
+				chance = 10
+				add_trait = craven
+				hidden_tooltip = { character_event = { id = 38257 } }
+			}		
+		}
+	}	
+}
+
+#Brave Positive: Courtier
+character_event = {
+	id = 3322
+	desc = EVTDESC3322
+	picture = GFX_evt_hunt
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA3322
+		prestige = 10
+		FROM = {
+			random = {
+				chance = 30
+				modifier = {
+					factor = 0
+					trait = ethereal_trait
+				}
+				add_trait = wounded
+				hidden_tooltip = { character_event = { id = 38280 } }
+			}
+			opinion = {
+				modifier = opinion_disappointed
+				who = ROOT
+				years = 2
+			}
+		}
+	}
+	option = {
+		name = EVTOPTB3322
+		FROM = {
+			opinion = {
+				modifier = brave_pos
+				who = ROOT
+				years = 2
+			}
+		}
+	}
+}
+
+### Gardener: The Bees! ###
+character_event = {
+	id = 3568
+	desc = EVTDESC3568
+	picture = GFX_evt_garden
+	
+	only_playable = yes
+	min_age = 20
+	capable_only = yes
+	prisoner = no
+	war = no
+	
+	is_triggered_only = yes 
+	
+	trigger = {
+		trait = gardener
+		in_command = no
+		NOR = {
+			is_inaccessible_trigger = yes
+			is_ill = yes
+			health = 6
+		}
+		any_courtier = {
+			age = 16
+			is_councillor = yes
+			NOT = { is_inaccessible_trigger = yes }
+			OR = {
+				trait = brave
+				trait = diligent
+				trait = ambitious
+			}
+		}
+	}
+	
+	weight_multiplier = {
+		factor = 1
+		
+		modifier = {
+			factor = 2
+			trait = brave
+		}
+		
+		modifier = {
+			factor = 0.5
+			trait = slothful
+		}
+	}
+	
+	option = {
+		name = EVTOPTA3568
+		random_courtier = {
+			limit = {
+				age = 16
+				is_councillor = yes
+				NOT = { is_inaccessible_trigger = yes }
+				OR = {
+					trait = brave
+					trait = diligent
+					trait = ambitious
+				}
+			}
+			character_event = {
+				id = 3569
+				tooltip = EVTTOOLTIP3569
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTB3568
+		trigger = {
+			any_child = {
+				is_alive = yes
+				is_abroad = no
+				prisoner = no
+				age = 14
+				OR = {
+					trait = brave
+					trait = diligent
+					trait = ambitious
+				}
+			}
+		}
+		random_child = {
+			limit = {
+				is_alive = yes
+				is_abroad = no
+				prisoner = no
+				age = 14
+				OR = {
+					trait = brave
+					trait = diligent
+					trait = ambitious
+				}
+			}
+			character_event = {
+				id = 3569
+				tooltip = EVTTOOLTIP3569
+			}
+		}			
+	}
+	option = {
+		name = EVTOPTC3568
+		trigger = {
+			spouse = {
+				is_alive = yes
+				is_abroad = no
+				prisoner = no
+				is_councillor = no
+				OR = {
+					trait = brave
+					trait = diligent
+					trait = ambitious
+				}
+			}
+		}
+		spouse = {
+			character_event = {
+				id = 3569
+				tooltip = EVTTOOLTIP3569
+			}
+		}			
+	}
+	option = {
+		name = EVTOPTD3568
+		random_list = {
+			40 = {
+			}
+			30 = {
+				modifier = {
+					factor = 0
+					trait = ethereal_trait
+				}
+				add_trait = wounded
+				hidden_tooltip = {
+					character_event = {
+						days = 3
+						id = 38280 #Notify Wounded
+					}
+				}
+			}
+			30 = {
+				give_ill_effect = yes
+				
+			}
+			20 = {
+				change_stewardship = 1
+			}
+		}
+	}
+}
+
+# He's coming at me - avoid or fight back?
+character_event = {
+	id = WoL.4132
+	picture = GFX_evt_feast
+	desc = EVTDESC_WoL_4132
+	border = GFX_event_normal_frame_diplomacy
+
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTA_WoL_4132 # Fight!
+		FROM = {
+			set_character_flag = party_fight_fight
+			hidden_tooltip = { character_event = { id = WoL.4133 } }
+		}
+		random_list = {
+			89 = {
+				add_character_modifier = {
+					name = beaten_up
+					days = 180
+				}
+			}
+			10 = {
+				modifier = {
+					factor = 0
+					trait = ethereal_trait
+				}
+				add_trait = wounded
+			}
+			1 = {
+				add_maimed_trait_effect = yes
+			}
+		}
+		random = {
+			chance = 30
+			add_rival = FROM
+			set_character_flag = party_fight_became_rivals
+		}
+	}
+	option = {
+		name = EVTOPTB_WoL_4132 # Talk - best option
+		trigger = {
+			diplomacy = 15
+		}
+		tooltip_info = diplomacy
+		FROM = {
+			set_character_flag = party_fight_talk
+			hidden_tooltip = { character_event = { id = WoL.4133 } }
+		}
+		random = {
+			chance = 20
+			change_diplomacy = 1
+		}
+		if = {
+			limit = {
+				NOT = { is_friend = FROM }
+			}
+			random = {
+				chance = 20
+				add_friend = FROM
+				set_character_flag = party_fight_made_friend
+			}
+		}
+	}
+	option = {
+		name = EVTOPTC_WoL_4132 # Hide!
+		if = {
+			limit = {
+				NOR = {
+					trait = craven
+					trait = brave
+					trait = berserker
+				}
+			}
+			random = {
+				chance = 30
+				add_trait = craven
+				hidden_tooltip = {
+					character_event = {
+						id = 38257 #Notify Craven
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				trait = brave
+			}
+			remove_trait = brave
+		}
+		FROM = {
+			set_character_flag = party_fight_hide
+			hidden_tooltip = { character_event = { id = WoL.4133 } }
+		}
+	}
+}
+
+# Aggressor gets results
+character_event = {
+	id = WoL.4133
+	picture = GFX_evt_scandal
+	border = GFX_event_normal_frame_diplomacy
+
+	is_triggered_only = yes
+
+	desc = {
+		trigger = {
+			has_character_flag = party_fight_fight
+		}
+		text = EVTDESC_WoL_4133_fight
+	}
+	desc = {
+		trigger = {
+			has_character_flag = party_fight_talk
+		}
+		text = EVTDESC_WoL_4133_talk
+	}
+	desc = {
+		trigger = {
+			has_character_flag = party_fight_hide
+		}
+		text = EVTDESC_WoL_4133_hide
+	}
+	
+	option = {
+		name = EVTOPTA_WoL_4133 # Fought  (both are at risk of injury)
+		trigger = {
+			has_character_flag = party_fight_fight
+		}
+		random_list = {
+			89 = {
+				add_character_modifier = {
+					name = beaten_up
+					days = 180
+				}
+			}
+			10 = {
+				modifier = {
+					factor = 0
+					trait = ethereal_trait
+				}
+				add_trait = wounded
+			}
+			1 = {
+				add_maimed_trait_effect = yes
+			}
+		}
+		if = {
+			limit = {
+				has_character_flag = party_fight_became_rivals
+			}
+			tooltip = { add_rival = FROM }
+			clr_character_flag = party_fight_became_rivals
+		}
+		if = {
+			limit = { has_nickname = no }
+			random = {
+				chance = 20
+				give_nickname = nick_the_quarreller
+			}
+		}
+		clr_character_flag = party_fight_fight
+	}
+	option = {
+		name = EVTOPTB_WoL_4133 # Talked
+		trigger = {
+			has_character_flag = party_fight_talk
+		}
+		if = {
+			limit = {
+				has_character_flag = party_fight_made_friend
+			}
+			tooltip = { add_friend = FROM }
+			clr_character_flag = party_fight_made_friend
+		}
+		clr_character_flag = party_fight_talk
+	}
+	option = {
+		name = EVTOPTC_WoL_4133 # Hid
+		trigger = {
+			has_character_flag = party_fight_hide
+		}
+		reverse_opinion = {
+			modifier = opinion_cautious
+			who = FROM
+			years = 3
+		}
+		clr_character_flag = party_fight_hide
+	}
+}
+
+# Bad dog kills or wounds courtier
+character_event = {
+	id = WoL.5231
+	desc = EVTDESC_WoL_5231
+	picture = GFX_evt_hunting_scene
+	border = GFX_event_normal_frame_war
+
+	is_triggered_only = yes
+
+	only_playable = yes
+	only_capable = yes
+	prisoner = no
+
+	trigger = {
+		has_character_modifier = pet_hunting_dog
+		has_character_flag = bad_dog
+		any_courtier = {
+			NOT = { trait = ethereal_trait }
+		}
+	}
+
+	option = {
+		name = EVTOPTA_WoL_5231
+		random_courtier = {
+			limit = { NOT = { trait = ethereal_trait } }
+			random_list = {
+				50 = {
+				}
+				30 = {
+					add_trait = wounded
+					opinion = {
+						modifier = opinion_unhappy
+						who = ROOT
+						years = 8
+					}
+				}
+				20 = {
+					death = {
+						death_reason = death_accident
+					}
+					custom_tooltip = { text = crazymurderdog_tooltip }
+					hidden_tooltip = {
+						any_dynasty_member = {
+							opinion = {
+								modifier = accused_of_murder
+								who = ROOT
+								years = 5
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	option = {
+		name = EVTOPTB_WoL_5231
+		trigger = {
+			OR = {
+				trait = impaler
+				trait = possessed
+				trait = lunatic
+				trait = cruel
+			}
+		}
+		random_courtier = {
+			limit = { NOT = { trait = ethereal_trait } }
+			random_list = {
+				50 = {
+				}
+				30 = {
+					add_trait = wounded
+					opinion = {
+						modifier = opinion_unhappy
+						who = ROOT
+						years = 8
+					}
+				}
+				20 = {
+					death = {
+						death_reason = death_accident
+					}
+					custom_tooltip = { text = crazymurderdog_tooltip }
+					hidden_tooltip = {
+						any_dynasty_member = {
+							opinion = {
+								modifier = accused_of_murder
+								who = ROOT
+								years = 5
+							}
+						}
+					}
+				}
+			}
+		}
+		
+		prestige = 100
+		
+		custom_tooltip = { text = crazymurderdog_court_tooltip }
+		hidden_tooltip = {	
+			any_courtier = {
+				opinion = {
+					modifier = opinion_shocked
+					who = ROOT
+					years = 1
+				}
+			}
+		}
+	}
+}
+
+character_event = {
+	id = WoL.2111
+	picture = GFX_evt_shadow
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	hide_from = yes
+	
+	immediate = {
+		random_list = {
+			1000 = { # Dies, murderer unknown
+				modifier = {
+					factor = 0.01
+					OR = {
+						trait = paranoid
+						trait = schemer
+						has_character_modifier = seduced_loyal_bodyguard
+						has_character_modifier = seduced_loyal_spy_maid
+					}
+				}
+				set_character_flag = spy_death
+			}
+			1000 = { # Dies, murderer known
+				modifier = {
+					factor = 0.01
+					OR = {
+						trait = paranoid
+						trait = schemer
+						has_character_modifier = seduced_loyal_bodyguard
+						has_character_modifier = seduced_loyal_spy_maid
+					}
+				}
+				set_character_flag = spy_death_known
+			}
+			500 = { # Wounded, assailant unknown
+				set_character_flag = spy_wounded
+			}
+			500 = { # Wounded, assailant known
+				set_character_flag = spy_wounded_known
+			}
+			500 = { # Lives, assailant unknown
+				set_character_flag = spy_lives
+			}
+			500 = { # Lives, assailant known
+				set_character_flag = spy_lives_known
+			}
+		}
+	}
+	
+	desc = {
+		text = EVTDESC_WOL_2111_DEATH
+		trigger = {
+			OR = {
+				has_character_flag = spy_death
+				has_character_flag = spy_death_known
+			}
+		}
+	}
+	desc = {
+		text = EVTDESC_WOL_2111_WOUNDED
+		trigger = {
+			OR = {
+				has_character_flag = spy_wounded
+				has_character_flag = spy_wounded_known
+			}
+		}
+	}
+	desc = {
+		text = EVTDESC_WOL_2111_LIVES
+		trigger = {
+			OR = {
+				has_character_flag = spy_lives
+				has_character_flag = spy_lives_known
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPT_WOL_2111_DEATH
+		trigger = { has_character_flag = spy_death }
+		
+		hidden_tooltip = {
+			FROM = {
+				character_event = { id = WoL.2069 } # Clear out flags and end spying
+				character_event = { id = WoL.2112 } # Notify killer
+			}
+		}
+		death = {
+			death_reason = death_murder_unknown
+			killer = FROM
+		}
+	}
+	
+	option = {
+		name = EVTOPT_WOL_2111_DEATH_KNOWN
+		trigger = { has_character_flag = spy_death_known }
+		
+		hidden_tooltip = {
+			save_event_target_as = target_victim
+			FROM = {
+				character_event = { id = WoL.2069 } # Clear out flags and end spying
+				character_event = { id = 10 } # Discovered murder -> consequences
+				character_event = { id = WoL.2113 } # Notify killer
+			}
+		}
+		death = {
+			death_reason = death_murder
+			killer = FROM
+		}
+	}
+		
+	option = {
+		name = EVTOPT_WOL_2111_UNKNOWN
+		trigger = { has_character_flag = spy_wounded }
+		
+		add_wounded_effect = yes
+		
+		hidden_tooltip = {
+			FROM = {
+				character_event = { id = WoL.2114 } # Notify attacker
+			}
+			clr_character_flag = spy_wounded
+		}
+	}
+	
+	option = {
+		name = EVTOPT_WOL_2111_KNOWN
+		trigger = { has_character_flag = spy_wounded_known }
+		
+		add_wounded_effect = yes
+		
+		hidden_tooltip = {
+			save_event_target_as = target_victim
+			FROM = {
+				character_event = { id = 11 } # Consequences of discovery
+				character_event = { id = WoL.2115 } # Notify attacker
+			}
+			clear_event_target = target_victim
+			clr_character_flag = spy_wounded_known
+		}
+	}
+	
+	option = {
+		name = EVTOPT_WOL_2111_UNKNOWN
+		trigger = { has_character_flag = spy_lives }
+		
+		hidden_tooltip = {
+			FROM = {
+				character_event = { id = WoL.2116 } # Notify attacker
+			}
+			clr_character_flag = spy_lives
+		}
+	}
+	
+	option = {
+		name = EVTOPT_WOL_2111_KNOWN
+		trigger = { has_character_flag = spy_lives_known }
+		
+		hidden_tooltip = {
+			save_event_target_as = target_victim
+			FROM = {
+				character_event = { id = 11 } # Consequences of discovery
+				character_event = { id = WoL.2117 } # Notify attacker
+			}
+			clear_event_target = target_victim
+			clr_character_flag = spy_lives_known
+		}
+	}
+}
+
+# Winner event
+long_character_event = {
+	id = WoL.11006
+	is_triggered_only = yes
+	picture = GFX_evt_melee
+	border = GFX_event_long_frame_war
+	title = duel_title
+	
+	desc = {
+		text = EVTDESCA_WOL_11006 # Maiming opponent
+		trigger = {
+			event_target:challenger = { character = ROOT }
+			has_character_flag = duel_maim
+		}
+	}
+	desc = {
+		text = EVTDESCB_WOL_11006 # Winning over opponent
+		trigger = {
+			event_target:challenger = { character = ROOT }
+			NOT = {
+				has_character_flag = duel_maim
+			}
+		}
+	}
+	desc = {
+		text = EVTDESCC_WOL_11006 # Maiming challenger
+		trigger = {
+			NOT = { event_target:challenger = { character = ROOT } }
+			has_character_flag = duel_maim
+		}
+	}
+	desc = {
+		text = EVTDESCD_WOL_11006 # Winning over challenger
+		trigger = {
+			NOT = { event_target:challenger = { character = ROOT } }
+			NOT = {
+				has_character_flag = duel_maim
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTA_WOL_11006
+		trigger = {
+			has_character_flag = duel_maim
+		}
+		ai_chance = {
+			factor = 60
+		}
+		prestige = 50
+		if = {
+			limit = { event_target:challenger = { character = ROOT } }
+			tooltip = {
+				event_target:opponent = {
+					maim_hand_effect = yes
+					if = {
+						limit = { NOT = { is_rival = ROOT } }
+						add_rival = ROOT
+					}
+				}	
+			}
+			hidden_tooltip = {
+				event_target:opponent = {
+					long_character_event = { id = WoL.11007 }
+				}
+				if = {
+					limit = { has_focus = focus_war }
+					random = {
+						chance = 50
+						character_event = { id = WoL.11200 }
+					}
+				}
+			}
+		}		
+		if = {
+			limit = { NOT = { event_target:challenger = { character = ROOT } } }
+			tooltip = {
+				event_target:challenger = {
+					maim_hand_effect = yes
+					if = {
+						limit = { NOT = { is_rival = ROOT } }
+						add_rival = ROOT
+					}
+				}
+			}
+			hidden_tooltip = {
+				event_target:challenger = {
+					long_character_event = { id = WoL.11007 }
+				}
+				if = {
+					limit = { has_focus = focus_war }
+					random = {
+						chance = 50
+						character_event = { id = WoL.11200 }
+					}
+				}
+			}
+		}
+		hidden_tooltip = { character_event = { id = 720 } } # Bring it On achievement check event
+	}
+	
+	option = {
+		name = EVTOPTB_WOL_11006
+		trigger = {
+			NOT = {
+				has_character_flag = duel_maim
+			}
+		}
+		ai_chance = {
+			factor = 60
+		}
+		prestige = 50
+		if = {
+			limit = { event_target:challenger = { character = ROOT } }
+			if = {
+				limit = { event_target:opponent = { NOT = { is_maimed_trigger = yes } } }
+				tooltip = {
+					event_target:opponent = {
+						add_wounded_effect = yes
+					}
+				}
+			}
+			hidden_tooltip = {
+				event_target:opponent = {
+					long_character_event = { id = WoL.11007 }
+				}
+				random = {
+					chance = 25
+					character_event = { id = WoL.11200 }
+				}
+			}
+		}
+		if = {
+			limit = { NOT = { event_target:challenger = { character = ROOT } } }
+			if = {
+				limit = { event_target:challenger = { NOT = { is_maimed_trigger = yes } } }
+				tooltip = {
+					event_target:challenger = {
+						add_wounded_effect = yes
+					}
+				}
+			}
+			hidden_tooltip = {
+				event_target:challenger = {
+					long_character_event = { id = WoL.11007 }
+				}
+				random = {
+					chance = 25
+					character_event = { id = WoL.11200 }
+				}
+			}
+		}
+		hidden_tooltip = { character_event = { id = 720 } } # Bring it On achievement check event
+	}
+	
+	option = {
+		name = EVTOPTC_WOL_11006
+		ai_chance = {
+			factor = 1
+			modifier = {
+				trait = kind
+				factor = 0.1
+			}
+			modifier = {
+				trait = impaler
+				factor = 15
+			}
+			modifier = {
+				trait = cruel
+				factor = 5
+			}
+			modifier = {
+				OR = {
+					AND = {
+						event_target:opponent = { character = ROOT }
+						is_rival = event_target:challenger
+					}
+					AND = {
+						event_target:challenger = { character = ROOT }
+						is_rival = event_target:opponent
+					}
+				}
+				factor = 10
+			}
+		}
+		prestige = 50
+		custom_tooltip = {
+			text = EVTTOOLTIPWOL11006
+			hidden_tooltip = {
+				generate_tooltip = no
+				any_realm_character = {
+					opinion = {
+						modifier = opinion_ruthless
+						who = ROOT
+						months = 60
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_character_modifier = merciless
+			}
+			if = {
+				limit = {
+					has_nickname = no
+				}
+				give_nickname = nick_the_ruthless
+				add_blood_splatter_effect = yes
+			}
+		}
+		if = {
+			limit = {
+				NOT = { has_character_modifier = merciless }
+			}
+			add_character_modifier = {
+				modifier = merciless
+				duration = -1
+			}
+		}
+		if = {
+			limit = { event_target:challenger = { character = ROOT } }
+			event_target:opponent = { save_event_target_as = kinslayer_target }
+			add_kinslayer_trait_effect = yes
+			tooltip = {
+				event_target:opponent = {
+					death = {
+						death_reason = death_duel
+						killer = event_target:challenger
+					}
+				}
+			}
+			hidden_tooltip = {
+				event_target:opponent = {
+					long_character_event = { id = WoL.11008 }
+				}
+				random = {
+					chance = 25
+					character_event = { id = WoL.11200 }
+				}
+			}
+		}
+		if = {
+			limit = { NOT = { event_target:challenger = { character = ROOT } } }
+			event_target:challenger = { save_event_target_as = kinslayer_target }
+			add_kinslayer_trait_effect = yes
+			tooltip = {
+				event_target:challenger = {
+					death = {
+						death_reason = death_duel
+						killer = event_target:opponent
+					}
+				}
+			}
+			hidden_tooltip = {
+				event_target:challenger = {
+					long_character_event = { id = WoL.11008 }
+				}
+				random = {
+					chance = 25
+					character_event = { id = WoL.11200 }
+				}
+			}
+		}
+		hidden_tooltip = { character_event = { id = 720 } } # Bring it On achievement check event
+	}
+}
+
+# Loser event
+long_character_event = {
+	id = WoL.11007
+	is_triggered_only = yes
+	picture = GFX_evt_melee
+	border = GFX_event_long_frame_war
+	title = duel_title
+	
+	desc = {
+		text = EVTDESCA_WOL_11007
+		trigger = {
+			FROM = {
+				has_character_flag = duel_maim
+			}
+		}
+	}
+	desc = {
+		text = EVTDESCB_WOL_11007
+		trigger = {
+			FROM = {
+				NOT = { 
+					has_character_flag = duel_maim
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTA_WOL_11007
+
+		prestige = -50
+		if = {
+			limit = {
+				FROM = { has_character_flag  = duel_maim }
+			}
+			maim_hand_effect = yes
+			if = {
+				limit = { NOT = { is_rival = FROM } }
+				add_rival = FROM
+			}
+		}
+		if = {
+			limit = {
+				NOT = { FROM = { has_character_flag = duel_maim } }
+				NOT = { is_maimed_trigger = yes }
+			}
+			add_wounded_effect = yes
+		}
+		FROM = { clr_character_flag = duel_maim }
+		hidden_tooltip = {
+			random = {
+				chance = 35
+				character_event = { id = WoL.11013 days = 3 }
+			}
+		}
+	}
+}

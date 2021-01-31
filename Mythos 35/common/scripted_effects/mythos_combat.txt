@@ -1,0 +1,2402 @@
+# Set a character's fitness to rule werewolves. Done in ROOT character scope, and event_target:challenged_party must be set
+set_werewolf_fitness = {
+	# Clear variable, just in case
+	set_variable = { which = fitness value = 0 }
+	
+	# Add half combat rating and health
+	export_to_variable = { which = temp value = combat_rating }
+	divide_variable = { which = temp value = 20 }
+	change_variable = { which = fitness which = temp }
+	export_to_variable = { which = temp value = health }
+	#get_health = yes
+	#set_variable = { which = temp which = var_health }
+	#set_variable = { which = var_health value = 0 }
+	divide_variable = { which = temp value = 2 }
+	change_variable = { which = fitness which = temp }
+	set_variable = { which = temp value = 0 }
+	
+	# Easily challenged
+	if = {
+		limit = { is_female = yes }
+		subtract_variable = { which = fitness value = 1 }
+	}
+	if = {
+		limit = { NOT = { prestige = 0 } }
+		subtract_variable = { which = fitness value = 1 }
+	}
+	if = {
+		limit = { trait = clubfooted }
+		subtract_variable = { which = fitness value = 1 }
+	}
+	if = {
+		limit = { trait = quailfooted }
+		subtract_variable = { which = fitness value = 1 }
+	}
+	if = {
+		limit = { trait = harelip }
+		subtract_variable = { which = fitness value = 1 }
+	}
+	if = {
+		limit = { trait = cleft_lip }
+		subtract_variable = { which = fitness value = 1 }
+	}
+	if = {
+		limit = { trait = hunchback }
+		subtract_variable = { which = fitness value = 1 }
+	}
+	if = {
+		limit = { trait = twisted }
+		subtract_variable = { which = fitness value = 1 }
+	}
+	if = {
+		limit = { trait = dwarf }
+		subtract_variable = { which = fitness value = 1 }
+	}
+	if = {
+		limit = { trait = inbred }
+		subtract_variable = { which = fitness value = 1 }
+	}
+	if = {
+		limit = { trait = weak }
+		subtract_variable = { which = fitness value = 1 }
+	}
+	if = {
+		limit = { trait = feeble }
+		subtract_variable = { which = fitness value = 1 }
+	}
+	
+	# Unlikely to live long
+	if = {
+		limit = { is_old = yes }
+		subtract_variable = { which = fitness value = 1 }
+	}
+	if = {
+		limit = { trait = stressed }
+		subtract_variable = { which = fitness value = 1 }
+	}
+	if = {
+		limit = { trait = drunkard }
+		subtract_variable = { which = fitness value = 1 }
+	}
+	if = {
+		limit = { trait = depressed }
+		subtract_variable = { which = fitness value = 3 }
+	}
+	
+	# Likely to live very long
+	if = {
+		limit = { NOT = { age = 20 } }
+		change_variable = { which = fitness value = 1 }
+	}
+	if = {
+		limit = { immortal = yes }
+		change_variable = { which = fitness value = 3 }
+	}
+	
+	# Is powerful in the realm
+	if = {
+		limit = { tier = count }
+		change_variable = { which = fitness value = 1 }
+	}
+	if = {
+		limit = { tier = duke }
+		change_variable = { which = fitness value = 2 }
+	}
+	if = {
+		limit = { tier = king }
+		change_variable = { which = fitness value = 3 }
+	}
+	if = {
+		limit = { is_voter = yes }
+		change_variable = { which = fitness value = 1 }
+	}
+	
+	# Likely to expand the realm
+	if = {
+		limit = { is_heir = yes } # Is heir to anything, may inherit more land
+		change_variable = { which = fitness value = 2 }
+	}
+	if = {
+		limit = { num_of_claims = 3 }
+		change_variable = { which = fitness value = 1 }
+	}
+	
+	# Has a rightful claim to the throne
+	if = {
+		limit = {
+			event_target:challenged_party = {
+				current_heir = {
+					character = ROOT
+				}
+			}
+		}
+		change_variable = { which = fitness value = 4 }
+	}
+	if = {
+		limit = {
+			event_target:challenged_party = {
+				primary_title = {
+					is_pretender = yes
+				}
+			}
+		}
+		change_variable = { which = fitness value = 3 }
+	}
+	if = {
+		limit = {
+			event_target:challenged_party = {
+				primary_title = {
+					ROOT = {
+						has_strong_claim = PREV
+					}
+				}
+			}
+		}
+		change_variable = { which = fitness value = 4 }
+	}
+	if = {
+		limit = {
+			event_target:challenged_party = {
+				primary_title = {
+					ROOT = {
+						has_weak_claim = PREV
+					}
+				}
+			}
+		}
+		change_variable = { which = fitness value = 2 }
+	}
+	
+	# Realm Stability
+	if = {
+		limit = { religion = event_target:challenged_party }
+		change_variable = { which = fitness value = 2 }
+	}
+	if = {
+		limit = { num_of_spouses = 3 }
+		change_variable = { which = fitness value = 1 }
+	}
+	if = {
+		limit = { num_of_consorts = 3 }
+		change_variable = { which = fitness value = 1 }
+	}
+	
+	# Realm instability
+	if = {
+		limit = { NOT = { wealth = 0 } }
+		subtract_variable = { which = fitness value = 3 }
+	}
+	if = {
+		limit = { is_tributary = yes }
+		subtract_variable = { which = fitness value = 3 }
+	}
+	
+	# Honor the realm
+	if = {
+		limit = { prestige = 1000 }
+		change_variable = { which = fitness value = 1 }
+	}
+	if = {
+		limit = { prestige = 5000 }
+		change_variable = { which = fitness value = 1 }
+	}
+	if = {
+		limit = { prestige = 10000 }
+		change_variable = { which = fitness value = 2 }
+	}
+	if = {
+		limit = { NOT = { decadence = 10 } }
+		change_variable = { which = fitness value = 1 }
+	}
+	
+	# Dishonor the realm
+	if = {
+		limit = { trait = excommunicated }
+		subtract_variable = { which = fitness value = 3 }
+	}
+	if = {
+		limit = { trait = decadent }
+		subtract_variable = { which = fitness value = 2 }
+	}
+	if = {
+		limit = { trait = horse }
+		subtract_variable = { which = fitness value = 4 }
+	}
+	
+	# Favor the player
+	if = {
+		limit = { ai = no }
+		change_variable = { which = fitness value = 4 }
+	}
+	
+	# Reduce risk of becoming a theocracy
+	if = {
+		limit = { is_priest = yes }
+		subtract_variable = { which = fitness value = 4 }
+	}
+	
+	# Favored traits
+	if = {
+		limit = {
+			trait = god
+			religion_group = pagan_group # Monotheists are less keen on you claiming to be a god
+		}
+		change_variable = { which = fitness value = 3 } # Also triggers is_immortal
+	}
+	if = {
+		limit = {
+			trait = demi_god
+			religion_group = pagan_group # Monotheists are less keen on you claiming to be a god
+		}
+		change_variable = { which = fitness value = 2 }
+	}
+	if = {
+		limit = {
+			OR = {
+				trait = strong
+				trait = robust
+			}
+		}
+		change_variable = { which = fitness value = 2 }
+	}
+	if = {
+		limit = { trait = genius }
+		change_variable = { which = fitness value = 2 }
+	}
+	if = {
+		limit = { trait = berserker }
+		change_variable = { which = fitness value = 2 }
+	}
+	if = {
+		limit = {
+			trait = blood_of_the_gods
+			any_owned_bloodline = { has_bloodline_flag = BOTG }
+		}
+		change_variable = { which = fitness value = 1 }
+	}
+	if = {
+		limit = { trait = fair }
+		change_variable = { which = fitness value = 1 }
+	}
+	if = {
+		limit = { trait = hunter }
+		change_variable = { which = fitness value = 1 }
+	}
+	if = {
+		limit = {
+			OR = {
+				trait = quick
+				trait = shrewd
+			}
+		}
+		change_variable = { which = fitness value = 1 }
+	}
+}
+
+combat_cleanup = { # Run in character scope, out of combat
+	clear_combat_flags = yes
+	clr_character_flag = status_addled_senses
+	clr_character_flag = not_shapeshifted
+	clr_character_flag = facing_challenge
+	clr_character_flag = defending_party
+	set_variable = { which = supporters value = 0 }
+	set_variable = { which = support_multiplier value = 0 }
+	set_variable = { which = combat_hp value = 0 }
+	set_variable = { which = combat_damage value = 0 }
+	set_variable = { which = combat_defense value = 0 }
+	set_variable = { which = combat_accuracy value = 0 }
+	set_variable = { which = combat_speed value = 0 }
+	set_variable = { which = combat_morale value = 0 }
+	remove_character_modifier = facing_challenge
+}
+
+combat_set_support_multiplier = { # In a character scope
+	set_variable = { which = support_multiplier which = supporters }
+	change_variable = { which = support_multiplier value = 10 }
+}
+
+combat_set_hp = { # Run in a character scope.  Support_multiplier MUST be set, or the character will have 0 hp
+	export_to_variable = { which = combat_hp value = health }
+	#get_health = yes
+	#set_variable = { which = combat_hp which = var_health }
+	#set_variable = { which = var_health value = 0 }
+	# Need minimum 1 hp at start, even with terrible health
+	if = {
+		limit = { NOT = { check_variable = { which = combat_hp value = 1 } } }
+		set_variable = { which = combat_hp value = 1 }
+	}
+	multiply_variable = { which = combat_hp which = support_multiplier }
+	divide_variable = { which = combat_hp value = 10 }
+	if = {
+		limit = {
+			OR = {
+				trait = strong
+				trait = robust
+			}
+		}
+		multiply_variable = { which = combat_hp value = 12 }
+		divide_variable = { which = combat_hp value = 10 }
+	}
+	if = {
+		limit = {
+			OR = {
+				trait = weak
+				trait = feeble
+			}
+		}
+		multiply_variable = { which = combat_hp value = 8 }
+		divide_variable = { which = combat_hp value = 10 }
+	}
+	if = {
+		limit = { trait = duelist }
+		multiply_variable = { which = combat_hp value = 11 }
+		divide_variable = { which = combat_hp value = 10 }
+	}
+	if = {
+		limit = { immortal = yes }
+		multiply_variable = { which = combat_hp value = 12 }
+		divide_variable = { which = combat_hp value = 10 }
+	}
+	if = {
+		limit = { is_maimed_trigger = yes }
+		multiply_variable = { which = combat_hp value = 9 }
+		divide_variable = { which = combat_hp value = 10 }
+	}
+	if = {
+		limit = { NOT = { trait = werewolf } }
+		multiply_variable = { which = combat_hp value = 9 }
+		divide_variable = { which = combat_hp value = 10 }
+	}
+	
+	# Reduce HP a bit to get challenges to go faster
+	multiply_variable = { which = combat_hp value = 8 }
+	divide_variable = { which = combat_hp value = 10 }
+}
+
+combat_set_damage = { # Run in a character scope.  Support_multiplier MUST be set, or the character will have 0 damage. Run after setting combat_morale
+	export_to_variable = { which = combat_damage value = combat_rating }
+	change_variable = { which = combat_damage value = 10 }
+	if = {
+		limit = { has_character_flag = not_shapeshifted }
+		change_variable = { which = combat_damage value = -30 }
+	}
+	# Minimum 1
+	if = {
+		limit = { NOT = { check_variable = { which = combat_damage value = 1 } } }
+		set_variable = { which = combat_damage value = 1 }
+	}
+	multiply_variable = { which = combat_damage which = support_multiplier }
+	divide_variable = { which = combat_damage value = 10 }
+	if = {
+		limit = { trait = one_handed }
+		multiply_variable = { which = combat_damage value = 8 }
+		divide_variable = { which = combat_damage value = 10 }
+	}
+	if = {
+		limit = {
+			OR = {
+				trait = strong
+				trait = robust
+			}
+		}
+		multiply_variable = { which = combat_damage value = 12 }
+		divide_variable = { which = combat_damage value = 10 }
+	}
+	if = {
+		limit = {
+			OR = {
+				trait = weak
+				trait = feeble
+			}
+		}
+		multiply_variable = { which = combat_damage value = 8 }
+		divide_variable = { which = combat_damage value = 10 }
+	}
+	if = {
+		limit = { trait = dwarf }
+		multiply_variable = { which = combat_damage value = 8 }
+		divide_variable = { which = combat_damage value = 10 }
+	}
+	if = {
+		limit = { trait = duelist }
+		multiply_variable = { which = combat_damage value = 13 }
+		divide_variable = { which = combat_damage value = 10 }
+	}
+	if = {
+		limit = { trait = wroth }
+		multiply_variable = { which = combat_damage value = 11 }
+		divide_variable = { which = combat_damage value = 10 }
+	}
+	if = {
+		limit = { trait = kind }
+		multiply_variable = { which = combat_damage value = 9 }
+		divide_variable = { which = combat_damage value = 10 }
+	}
+	if = {
+		limit = { trait = defensive_leader }
+		multiply_variable = { which = combat_damage value = 9 }
+		divide_variable = { which = combat_damage value = 10 }
+	}
+	if = {
+		limit = { trait = berserker }
+		multiply_variable = { which = combat_damage value = 12 }
+		divide_variable = { which = combat_damage value = 10 }
+	}
+	if = {
+		limit = { trait = aggressive_leader }
+		multiply_variable = { which = combat_damage value = 1.2 }
+	}if = {
+		limit = { NOT = { trait = werewolf } }
+		multiply_variable = { which = combat_damage value = 8 }
+		divide_variable = { which = combat_damage value = 10 }
+	}
+	if = {
+		limit = { NOT = { check_variable = { which = combat_morale value = 0 } } }
+		multiply_variable = { which = combat_damage value = 13 }
+		divide_variable = { which = combat_damage value = 10 }
+	}
+	if = {
+		limit = { has_character_flag = status_addled_senses }
+		multiply_variable = { which = combat_damage value = 7 }
+		divide_variable = { which = combat_damage value = 10 }
+	}
+	random_list = {
+		1 = {
+			multiply_variable = { which = combat_damage value = 9 }
+			divide_variable = { which = combat_damage value = 10 }
+		}
+		1 = {}
+		1 = {
+			multiply_variable = { which = combat_damage value = 11 }
+		divide_variable = { which = combat_damage value = 10 }
+		}
+	}
+	divide_variable = { which = combat_damage value = 10 }
+}
+
+combat_set_defense = { # Run in character scope
+	set_variable = { which = combat_defense value = 1 }
+	if = {
+		limit = { has_character_flag = not_shapeshifted }
+		change_variable = { which = combat_damage value = -1 }
+	}
+	if = {
+		limit = { trait = defensive_leader }
+		change_variable = { which = combat_defense value = 1 }
+	}
+	if = {
+		limit = { trait = unyielding_leader }
+		change_variable = { which = combat_defense value = 1 }
+	}
+	if = {
+		limit = { trait = aggressive_leader }
+		subtract_variable = { which = combat_defense value = 1 }
+	}
+	if = {
+		limit = { trait = patient }
+		multiply_variable = { which = combat_defense value = 12 }
+		divide_variable = { which = combat_defense value = 10 }
+	}
+	if = {
+		limit = { trait = strategist }
+		multiply_variable = { which = combat_defense value = 11 }
+		divide_variable = { which = combat_defense value = 10 }
+	}
+	if = {
+		limit = { has_character_flag = status_addled_senses }
+		multiply_variable = { which = combat_defense value = 7 }
+		divide_variable = { which = combat_defense value = 10 }
+	}
+	random_list = {
+		1 = {
+			subtract_variable = { which = combat_defense value = 1 }
+		}
+		1 = {}
+		1 = {
+			change_variable = { which = combat_defense value = 1 }
+		}
+	}
+	if = {
+		limit = { NOT = { check_variable = { which = combat_defense value = 0 } } }
+		set_variable = { which = combat_defense value = 0 }
+	}
+}
+
+combat_set_accuracy = { # Run in character scope. Ranges 0-7
+	set_variable = { which = combat_accuracy value = 4 }
+	if = {
+		limit = { trait = stressed }
+		multiply_variable = { which = combat_accuracy value = 9 }
+		divide_variable = { which = combat_accuracy value = 10 }
+	}
+	if = {
+		limit = { trait = drunkard }
+		multiply_variable = { which = combat_accuracy value = 8 }
+		divide_variable = { which = combat_accuracy value = 10 }
+	}
+	if = {
+		limit = { trait = one_eyed }
+		multiply_variable = { which = combat_accuracy value = 8 }
+		divide_variable = { which = combat_accuracy value = 10 }
+	}
+	if = {
+		limit = { trait = blinded }
+		divide_variable = { which = combat_accuracy value = 10 }
+	}
+	if = {
+		limit = { trait = one_legged }
+		multiply_variable = { which = combat_accuracy value = 9 }
+		divide_variable = { which = combat_accuracy value = 10 }
+	}
+	if = {
+		limit = { OR = { trait = hunchback trait = twisted } }
+		multiply_variable = { which = combat_accuracy value = 8 }
+		divide_variable = { which = combat_accuracy value = 10 }
+	}
+	if = {
+		limit = { OR = { trait = clubfooted trait = quailfooted } }
+		multiply_variable = { which = combat_accuracy value = 8 }
+		divide_variable = { which = combat_accuracy value = 10 }
+	}
+	if = {
+		limit = { trait = duelist }
+		multiply_variable = { which = combat_accuracy value = 13 }
+		divide_variable = { which = combat_accuracy value = 10 }
+	}
+	if = {
+		limit = { trait = wroth }
+		multiply_variable = { which = combat_accuracy value = 9 }
+		divide_variable = { which = combat_accuracy value = 10 }
+	}
+	if = {
+		limit = { trait = aggressive_leader }
+		multiply_variable = { which = combat_accuracy value = 9 }
+		divide_variable = { which = combat_accuracy value = 10 }
+	}
+	if = {
+		limit = { trait = patient }
+		multiply_variable = { which = combat_accuracy value = 12 }
+		divide_variable = { which = combat_accuracy value = 10 }
+	}
+	if = {
+		limit = { trait = deceitful }
+		multiply_variable = { which = combat_accuracy value = 12 }
+		divide_variable = { which = combat_accuracy value = 10 }
+	}
+	if = {
+		limit = { trait = berserker }
+		multiply_variable = { which = combat_accuracy value = 9 }
+		divide_variable = { which = combat_accuracy value = 10 }
+	}
+	if = {
+		limit = { has_character_flag = status_addled_senses }
+		multiply_variable = { which = combat_accuracy value = 7 }
+		divide_variable = { which = combat_accuracy value = 10 }
+	}
+}
+
+combat_set_speed = { # Set in character scope after setting combat_morale. Ranges 0-20, before considering supporters
+	set_variable = { which = combat_speed value = 3 }
+	if = {
+		limit = { has_character_flag = not_shapeshifted }
+		change_variable = { which = combat_damage value = -1 }
+	}
+	multiply_variable = { which = combat_speed which = support_multiplier }
+	divide_variable = { which = combat_speed value = 10 }
+	if = {
+		limit = { trait = skilled_tactician }
+		multiply_variable = { which = combat_speed value = 11 }
+		divide_variable = { which = combat_speed value = 10 }
+	}
+	if = {
+		limit = { trait = brilliant_strategist }
+		multiply_variable = { which = combat_speed value = 12 }
+		divide_variable = { which = combat_speed value = 10 }
+	}
+	if = {
+		limit = { trait = depressed }
+		multiply_variable = { which = combat_speed value = 8 }
+		divide_variable = { which = combat_speed value = 10 }
+	}
+	if = {
+		limit = { trait = one_legged }
+		divide_variable = { which = combat_speed value = 2 }
+	}
+	if = {
+		limit = { trait = pregnant }
+		multiply_variable = { which = combat_speed value = 8 }
+		divide_variable = { which = combat_speed value = 10 }
+	}
+	if = {
+		limit = {
+			OR = {
+				trait = quick
+				trait = shrewd
+			}
+		}
+		multiply_variable = { which = combat_speed value = 12 }
+		divide_variable = { which = combat_speed value = 10 }
+	}
+	if = {
+		limit = { trait = genius }
+		multiply_variable = { which = combat_speed value = 14 }
+		divide_variable = { which = combat_speed value = 10 }
+	}
+	if = {
+		limit = {
+			OR = {
+				trait = strong
+				trait = robust
+			}
+		}
+		multiply_variable = { which = combat_speed value = 12 }
+		divide_variable = { which = combat_speed value = 10 }
+	}
+	if = {
+		limit = { trait = duelist }
+		multiply_variable = { which = combat_speed value = 14 }
+		divide_variable = { which = combat_speed value = 10 }
+	}
+	if = {
+		limit = { trait = strategist }
+		multiply_variable = { which = combat_speed value = 11 }
+		divide_variable = { which = combat_speed value = 10 }
+	}
+	if = {
+		limit = { trait = gluttonous }
+		multiply_variable = { which = combat_speed value = 8 }
+		divide_variable = { which = combat_speed value = 10 }
+	}
+	if = {
+		limit = { trait = slothful }
+		multiply_variable = { which = combat_speed value = 9 }
+		divide_variable = { which = combat_speed value = 10 }
+	}
+	if = {
+		limit = { trait = wroth }
+		multiply_variable = { which = combat_speed value = 11 }
+		divide_variable = { which = combat_speed value = 10 }
+	}
+	if = {
+		limit = { trait = patient }
+		multiply_variable = { which = combat_speed value = 8 }
+		divide_variable = { which = combat_speed value = 10 }
+	}
+	if = {
+		limit = { trait = aggressive_leader }
+		multiply_variable = { which = combat_speed value = 12 }
+		divide_variable = { which = combat_speed value = 10 }
+	}
+	if = {
+		limit = { trait = dwarf }
+		multiply_variable = { which = combat_speed value = 9 }
+		divide_variable = { which = combat_speed value = 10 }
+	}
+	if = {
+		limit = { trait = clubfooted }
+		multiply_variable = { which = combat_speed value = 7 }
+		divide_variable = { which = combat_speed value = 10 }
+	}
+	if = {
+		limit = { NOT = { trait = werewolf } }
+		multiply_variable = { which = combat_speed value = 8 }
+		divide_variable = { which = combat_speed value = 10 }
+	}
+	if = {
+		limit = { NOT = { check_variable = { which = combat_morale value = 0 } } }
+		multiply_variable = { which = combat_speed value = 8 }
+		divide_variable = { which = combat_speed value = 10 }
+	}
+	if = {
+		limit = { has_character_flag = status_addled_senses }
+		multiply_variable = { which = combat_speed value = 7 }
+		divide_variable = { which = combat_speed value = 10 }
+	}
+	random_list = {
+		1 = {
+			multiply_variable = { which = combat_speed value = 8 }
+			divide_variable = { which = combat_speed value = 10 }
+		}
+		1 = {
+			multiply_variable = { which = combat_speed value = 9 }
+			divide_variable = { which = combat_speed value = 10 }
+		}
+		1 = {}
+		1 = {
+			multiply_variable = { which = combat_speed value = 11 }
+			divide_variable = { which = combat_speed value = 10 }
+		}
+		1 = {
+			multiply_variable = { which = combat_speed value = 12 }
+			divide_variable = { which = combat_speed value = 10 }
+		}
+	}
+}
+
+combat_set_morale = { # In character scope
+	set_variable = { which = combat_morale which = support_multiplier }
+	divide_variable = { which = combat_morale value = 10 }
+	subtract_variable = { which = combat_morale value = 1 }
+	if = {
+		limit = { has_character_flag = not_shapeshifted }
+		change_variable = { which = combat_damage value = -1 }
+	}
+	if = {
+		limit = { trait = brilliant_strategist }
+		change_variable = { which = combat_morale value = 1 }
+	}
+	if = {
+		limit = { trait = possessed }
+		change_variable = { which = combat_morale value = 1 }
+	}
+	if = {
+		limit = { trait = brave }
+		change_variable = { which = combat_morale value = 2 }
+	}
+	if = {
+		limit = { trait = duelist }
+		change_variable = { which = combat_morale value = 1 }
+	}
+	if = {
+		limit = { trait = wroth }
+		change_variable = { which = combat_morale value = 1 }
+	}
+	if = {
+		limit = { trait = patient }
+		change_variable = { which = combat_morale value = 1 }
+	}
+	if = {
+		limit = { trait = inspiring_leader }
+		change_variable = { which = combat_morale value = 1 }
+	}
+	if = {
+		limit = { trait = unyielding_leader }
+		change_variable = { which = combat_morale value = 2 }
+	}
+	if = {
+		limit = { trait = stressed }
+		subtract_variable = { which = combat_morale value = 1 }
+	}
+	if = {
+		limit = { trait = depressed }
+		subtract_variable = { which = combat_morale value = 2 }
+	}
+	if = {
+		limit = { trait = craven }
+		subtract_variable = { which = combat_morale value = 2 }
+	}
+	if = {
+		limit = { trait = arbitrary }
+		random_list = {
+			1 = { change_variable = { which = combat_morale value = 1 } }
+			1 = { subtract_variable = { which = combat_morale value = 1 } }
+		}
+	}
+}
+
+clear_combat_flags = { # From character scope, remove all combat related flags at the end of each round
+	clr_character_flag = event_secret_werewolf
+	clr_character_flag = event_berserk
+	clr_character_flag = event_normal
+	clr_character_flag = event_poor_footing
+	clr_character_flag = event_opponent_wounded
+	clr_character_flag = event_wounded
+	clr_character_flag = event_magic
+	clr_character_flag = event_tired
+	clr_character_flag = event_sabotage
+	clr_character_flag = event_intimidated
+	clr_character_flag = event_advantage_miss
+	clr_character_flag = event_overcome_defense
+	clr_character_flag = event_advantage_wide
+	clr_character_flag = choice_shift_attack
+	clr_character_flag = choice_normal_attack
+	clr_character_flag = choice_defend
+	clr_character_flag = choice_keep_distance
+	clr_character_flag = choice_aggressive_attack
+	clr_character_flag = choice_ferocious_charge
+	clr_character_flag = choice_press_in
+	clr_character_flag = choice_cautious_attack
+	clr_character_flag = choice_smite_infidel
+	clr_character_flag = choice_mighty_swing
+	clr_character_flag = choice_hack_limbs
+	clr_character_flag = choice_charge
+	clr_character_flag = choice_tackle
+	clr_character_flag = choice_all_effort_swing
+	clr_character_flag = choice_opportunistic_blow
+	clr_character_flag = choice_worsen_injury
+	clr_character_flag = choice_press_injury
+	clr_character_flag = choice_fear_illusion
+	clr_character_flag = choice_illusion_copy
+	clr_character_flag = choice_spectral_warrior
+	clr_character_flag = choice_addle_senses
+	clr_character_flag = choice_catch_breath
+	clr_character_flag = choice_strike_opening
+	clr_character_flag = choice_fight_honorably
+	clr_character_flag = choice_flee
+	clr_character_flag = choice_undefended_strike
+	clr_character_flag = choice_overpower
+	clr_character_flag = choice_strike_around
+	clr_character_flag = choice_strike_arm
+	clr_character_flag = choice_strike_body
+	clr_character_flag = choice_all_out_attack
+	clr_character_flag = choice_heavy_blows
+	clr_character_flag = choice_push_through_pain
+	clr_character_flag = choice_berzerk
+	clr_character_flag = choice_shapeshift
+	clr_character_flag = status_no_attack
+	clr_character_flag = status_pain
+	clr_character_flag = status_wild_chance
+	clr_character_flag = status_high_maim
+	clr_character_flag = status_high_wound
+	clr_character_flag = status_missed
+	clr_character_flag = status_swung_wide
+	clr_character_flag = status_evade
+	clr_character_flag = status_weak
+	clr_character_flag = status_gain_wound
+	clr_character_flag = status_gain_maim
+	clr_character_flag = status_gain_one_eyed
+	clr_character_flag = status_gain_one_handed
+	clr_character_flag = status_gain_one_legged
+	clr_character_flag = status_gain_disfigured
+	clr_character_flag = status_gain_mangled
+	clr_character_flag = attack_morale_1
+	clr_character_flag = attack_morale_2
+	clr_character_flag = attack_morale_3
+	clr_character_flag = attack_pain
+	clr_character_flag = attack_wound
+	clr_character_flag = attack_maim
+	clr_character_flag = attack_ignore_defense
+	clr_character_flag = gain_black_eye
+	clr_character_flag = gain_badly_bruised
+	clr_character_flag = gain_swollen_wrist
+	clr_character_flag = gain_swollen_ankle
+	clr_character_flag = gain_sore_muscles
+	clr_character_flag = gain_cracked_ribs
+	clr_character_flag = gain_concussion
+}
+
+# Health isn't supported in export_to_variable until next patch
+get_health = {
+	export_to_variable = { which = var_health value = base_health }
+	if = {
+		limit = {
+			OR = {
+				trait = misguided_warrior
+				trait = tough_soldier
+				trait = skilled_tactician
+				trait = brilliant_strategist
+			}
+		}
+		change_variable = { which = var_health value = 0.5 }
+	}
+	if = {
+		limit = { trait = stressed }
+		change_variable = { which = var_health value = -1 }
+	}
+	if = {
+		limit = { trait = depressed }
+		change_variable = { which = var_health value = -1 }
+	}
+	if = {
+		limit = { trait = wounded }
+		change_variable = { which = var_health value = -1 }
+	}
+	if = {
+		limit = { trait = maimed }
+		change_variable = { which = var_health value = -2 }
+	}
+	if = {
+		limit = { trait = infirm }
+		change_variable = { which = var_health value = -1 }
+	}
+	if = {
+		limit = { trait = incapable }
+		change_variable = { which = var_health value = -3 }
+	}
+	if = {
+		limit = { trait = immortal }
+		change_variable = { which = var_health value = 10 }
+	}
+	if = {
+		limit = { trait = physician }
+		change_variable = { which = var_health value = 0.5 }
+	}
+	if = {
+		limit = { trait = ill }
+		change_variable = { which = var_health value = -1 }
+	}
+	if = {
+		limit = { trait = pneumonic }
+		change_variable = { which = var_health value = -4 }
+	}
+	if = {
+		limit = { trait = syphilitic }
+		change_variable = { which = var_health value = -2 }
+	}
+	if = {
+		limit = { trait = leper }
+		change_variable = { which = var_health value = -1.5 }
+	}
+	if = {
+		limit = { trait = has_tuberculosis }
+		change_variable = { which = var_health value = -2 }
+	}
+	if = {
+		limit = { trait = has_typhoid_fever }
+		change_variable = { which = var_health value = -3 }
+	}
+	if = {
+		limit = { trait = has_typhus }
+		change_variable = { which = var_health value = -4 }
+	}
+	if = {
+		limit = { trait = has_bubonic_plague }
+		change_variable = { which = var_health value = -7 }
+	}
+	if = {
+		limit = { trait = has_measles }
+		change_variable = { which = var_health value = -2 }
+	}
+	if = {
+		limit = { trait = has_small_pox }
+		change_variable = { which = var_health value = -3 }
+	}
+	if = {
+		limit = { trait = has_aztec_disease }
+		change_variable = { which = var_health value = -4 }
+	}
+	if = {
+		limit = { trait = sickly }
+		change_variable = { which = var_health value = -2.5 }
+	}
+	if = {
+		limit = { trait = flu }
+		change_variable = { which = var_health value = -2 }
+	}
+	if = {
+		limit = { trait = dysentery }
+		change_variable = { which = var_health value = -4 }
+	}
+	if = {
+		limit = { trait = gout }
+		change_variable = { which = var_health value = -2 }
+	}
+	if = {
+		limit = { trait = food_poisoning }
+		change_variable = { which = var_health value = -3 }
+	}
+	if = {
+		limit = { trait = rabies }
+		change_variable = { which = var_health value = -7 }
+	}
+	if = {
+		limit = { trait = cancer }
+		change_variable = { which = var_health value = -3 }
+	}
+	if = {
+		limit = { trait = dancing_plague }
+		change_variable = { which = var_health value = -2 }
+	}
+	if = {
+		limit = { trait = scurvy }
+		change_variable = { which = var_health value = -3 }
+	}
+	if = {
+		limit = { trait = cough }
+		change_variable = { which = var_health value = -0.25 }
+	}
+	if = {
+		limit = { trait = diarrhea }
+		change_variable = { which = var_health value = -1 }
+	}
+	if = {
+		limit = { trait = vomiting }
+		change_variable = { which = var_health value = -1 }
+	}
+	if = {
+		limit = { trait = chest_pain }
+		change_variable = { which = var_health value = -2 }
+	}
+	if = {
+		limit = { trait = cramps }
+		change_variable = { which = var_health value = -0.5 }
+	}
+	if = {
+		limit = { trait = rash }
+		change_variable = { which = var_health value = -0.5 }
+	}
+	if = {
+		limit = { trait = headache }
+		change_variable = { which = var_health value = -0.5 }
+	}
+	if = {
+		limit = { trait = abdominal_pain }
+		change_variable = { which = var_health value = -1 }
+	}
+	if = {
+		limit = { trait = fatigue }
+		change_variable = { which = var_health value = -0.25 }
+	}
+	if = {
+		limit = { trait = malaise }
+		change_variable = { which = var_health value = -0.75 }
+	}
+	if = {
+		limit = { trait = infection }
+		change_variable = { which = var_health value = -2 }
+	}
+	if = {
+		limit = { trait = mangled }
+		change_variable = { which = var_health value = -3 }
+	}
+	if = {
+		limit = { trait = severely_injured }
+		change_variable = { which = var_health value = -2 }
+	}
+	if = {
+		limit = { trait = strong }
+		change_variable = { which = var_health value = 1 }
+	}
+	if = {
+		limit = { trait = inbred }
+		change_variable = { which = var_health value = -1.5 }
+	}
+	if = {
+		limit = { trait = weak }
+		change_variable = { which = var_health value = -1 }
+	}
+	if = {
+		limit = { trait = robust }
+		change_variable = { which = var_health value = 1 }
+	}
+	if = {
+		limit = { trait = feeble }
+		change_variable = { which = var_health value = -0.5 }
+	}
+	if = {
+		limit = { trait = blinded }
+		change_variable = { which = var_health value = -1 }
+	}
+	if = {
+		limit = { trait = horse }
+		change_variable = { which = var_health value = -2 }
+	}
+	if = {
+		limit = { trait = cat }
+		change_variable = { which = var_health value = -2 }
+	}
+	if = {
+		limit = { trait = kow_tow_travels }
+		change_variable = { which = var_health value = -0.5 }
+	}
+	if = {
+		limit = { trait = werewolf }
+		change_variable = { which = var_health value = 2 }
+	}
+	if = {
+		limit = { trait = mythos_giant }
+		change_variable = { which = var_health value = 5 }
+	}
+	if = {
+		limit = { trait = pup }
+		change_variable = { which = var_health value = 1 }
+	}
+	if = {
+		limit = { trait = fledgling }
+		change_variable = { which = var_health value = 1 }
+	}
+	if = {
+		limit = { trait = half_giant }
+		change_variable = { which = var_health value = 2 }
+	}
+	if = {
+		limit = { trait = god }
+		change_variable = { which = var_health value = 20 }
+	}
+	if = {
+		limit = { trait = demi_god }
+		change_variable = { which = var_health value = 10 }
+	}
+	if = {
+		limit = {
+			trait = blood_of_the_gods
+			any_owned_bloodline = { has_bloodline_flag = BOTG }
+		}
+		change_variable = { which = var_health value = 2 }
+	}
+	if = {
+		limit = { trait = zombie }
+		change_variable = { which = var_health value = -1 }
+	}
+	if = {
+		limit = { trait = djinn }
+		change_variable = { which = var_health value = 5 }
+	}
+	if = {
+		limit = { trait = dragon }
+		change_variable = { which = var_health value = 10 }
+	}
+	if = {
+		limit = { trait = dragonborn }
+		change_variable = { which = var_health value = 2 }
+	}
+	if = {
+		limit = { trait = eldritch_scholar }
+		change_variable = { which = var_health value = -0.5 }
+	}
+	if = {
+		limit = { trait = veteran_wizard }
+		change_variable = { which = var_health value = -1 }
+	}
+	if = {
+		limit = { trait = arcane_master }
+		change_variable = { which = var_health value = -1 }
+	}
+	if = {
+		limit = { trait = herbalist }
+		change_variable = { which = var_health value = 2 }
+	}
+	if = {
+		limit = { trait = demon_trait }
+		change_variable = { which = var_health value = 10 }
+	}
+	if = {
+		limit = { trait = ethereal_trait }
+		change_variable = { which = var_health value = 10 }
+	}
+	if = {
+		limit = { trait = zombie_infection }
+		change_variable = { which = var_health value = -4 }
+	}
+	if = {
+		limit = { has_character_modifier = healing_potion_great }
+		change_variable = { which = var_health value = 2 }
+	}
+	if = {
+		limit = { has_character_modifier = healing_potion_good }
+		change_variable = { which = var_health value = 1 }
+	}
+	if = {
+		limit = { has_character_modifier = healing_potion_bad }
+		change_variable = { which = var_health value = -1 }
+	}
+	if = {
+		limit = { has_character_modifier = healing_potion_terrible }
+		change_variable = { which = var_health value = -2 }
+	}
+	if = {
+		limit = { has_character_modifier = bloodloss }
+		change_variable = { which = var_health value = -1 }
+	}
+	if = {
+		limit = { has_character_modifier = sacrified_health }
+		change_variable = { which = var_health value = -4 }
+	}
+	if = {
+		limit = { has_character_modifier = plague_bearer_health_bonus }
+		change_variable = { which = var_health value = 6 }
+	}
+	if = {
+		limit = { has_character_modifier = wolf_pet }
+		change_variable = { which = var_health value = 1 }
+	}
+	if = {
+		limit = { has_character_modifier = the_dungeon }
+		change_variable = { which = var_health value = -1 }
+	}
+	if = {
+		limit = { has_character_modifier = the_oubliette }
+		change_variable = { which = var_health value = -2 }
+	}
+	if = {
+		limit = { has_character_modifier = kings_stipend }
+		change_variable = { which = var_health value = 3 }
+	}
+	if = {
+		limit = { has_character_modifier = emperors_stipend }
+		change_variable = { which = var_health value = 3 }
+	}
+	if = {
+		limit = { has_character_modifier = wine_meat }
+		change_variable = { which = var_health value = 1 }
+	}
+	if = {
+		limit = { has_character_modifier = mod_interrogated }
+		change_variable = { which = var_health value = -2 }
+	}
+	
+	if = {
+		limit = { has_character_modifier = iron_shackles }
+		change_variable = { which = var_health value = -2 }
+	}
+	if = {
+		limit = { has_character_modifier = lighter_shackles }
+		change_variable = { which = var_health value = -1 }
+	}
+	if = {
+		limit = { has_character_modifier = no_shackles }
+		change_variable = { which = var_health value = 1 }
+	}
+	if = {
+		limit = { has_character_modifier = the_idle }
+		change_variable = { which = var_health value = -1 }
+	}
+	if = {
+		limit = { has_character_modifier = the_alchemist }
+		change_variable = { which = var_health value = 2 }
+	}
+	if = {
+		limit = { has_character_modifier = tortured_prisoner }
+		change_variable = { which = var_health value = -3 }
+	}
+	if = {
+		limit = { has_character_modifier = tortured }
+		change_variable = { which = var_health value = -2 }
+	}
+	if = {
+		limit = { has_character_modifier = the_eager }
+		change_variable = { which = var_health value = -1 }
+	}
+	if = {
+		limit = { has_character_modifier = the_amiable }
+		change_variable = { which = var_health value = 2 }
+	}
+	if = {
+		limit = { has_character_modifier = rats_in_cell }
+		change_variable = { which = var_health value = -3 }
+	}
+	if = {
+		limit = { has_character_modifier = broken_spirit }
+		change_variable = { which = var_health value = -2 }
+	}
+	if = {
+		limit = { has_character_modifier = demon_child_non_pagan }
+		change_variable = { which = var_health value = 3 }
+	}
+	if = {
+		limit = { has_character_modifier = zun_judgement }
+		change_variable = { which = var_health value = -2 }
+	}
+	if = {
+		limit = { has_character_modifier = minor_disease_herpes }
+		change_variable = { which = var_health value = -0.05 }
+	}
+	if = {
+		limit = { has_character_modifier = pet_hunting_dog }
+		change_variable = { which = var_health value = 1 }
+	}
+	if = {
+		limit = { has_character_modifier = comfort_of_lover }
+		change_variable = { which = var_health value = 1 }
+	}
+	if = {
+		limit = { has_character_modifier = thrill_of_lover }
+		change_variable = { which = var_health value = 1 }
+	}
+	if = {
+		limit = { has_character_modifier = wolf_child }
+		change_variable = { which = var_health value = 2 }
+	}
+	if = {
+		limit = { has_character_modifier = wolf_blood }
+		change_variable = { which = var_health value = 2 }
+	}
+	if = {
+		limit = { has_character_modifier = pet_rat_dungeon }
+		change_variable = { which = var_health value = 1 }
+	}
+	if = {
+		limit = { has_character_modifier = found_dark_stones }
+		change_variable = { which = var_health value = 1 }
+	}
+	if = {
+		limit = { has_character_modifier = defeated_dread_king }
+		change_variable = { which = var_health value = 1 }
+	}
+	if = {
+		limit = { has_character_modifier = mystic_treatment_decent }
+		change_variable = { which = var_health value = 1 }
+	}
+	if = {
+		limit = { has_character_modifier = mystic_treatment_poor }
+		change_variable = { which = var_health value = -1 }
+	}
+	if = {
+		limit = { has_character_modifier = mystic_treatment_terrible }
+		change_variable = { which = var_health value = -2 }
+	}
+	if = {
+		limit = { has_character_modifier = symptom_treatment_1 }
+		change_variable = { which = var_health value = 0.25 }
+	}
+	if = {
+		limit = { has_character_modifier = symptom_treatment_2 }
+		change_variable = { which = var_health value = 0.5 }
+	}
+	if = {
+		limit = { has_character_modifier = symptom_treatment_3 }
+		change_variable = { which = var_health value = 1 }
+	}
+	if = {
+		limit = { has_character_modifier = symptom_treatment_4 }
+		change_variable = { which = var_health value = 2 }
+	}
+	if = {
+		limit = { has_character_modifier = successful_treatment_1 }
+		change_variable = { which = var_health value = 1 }
+	}
+	if = {
+		limit = { has_character_modifier = successful_treatment_2 }
+		change_variable = { which = var_health value = 2 }
+	}
+	if = {
+		limit = { has_character_modifier = successful_treatment_3 }
+		change_variable = { which = var_health value = 3 }
+	}
+	if = {
+		limit = { has_character_modifier = failed_treatment_1 }
+		change_variable = { which = var_health value = -1 }
+	}
+	if = {
+		limit = { has_character_modifier = failed_treatment_2 }
+		change_variable = { which = var_health value = -3 }
+	}
+	if = {
+		limit = { has_character_modifier = good_care }
+		change_variable = { which = var_health value = 1 }
+	}
+	if = {
+		limit = { has_character_modifier = bad_care }
+		change_variable = { which = var_health value = -0.5 }
+	}
+	if = {
+		limit = { has_character_modifier = tiny_food_shortage }
+		change_variable = { which = var_health value = -0.5 }
+	}
+	if = {
+		limit = { has_character_modifier = minor_food_shortage }
+		change_variable = { which = var_health value = -1 }
+	}
+	if = {
+		limit = { has_character_modifier = normal_food_shortage }
+		change_variable = { which = var_health value = -2 }
+	}
+	if = {
+		limit = { has_character_modifier = starving_food_shortage }
+		change_variable = { which = var_health value = -3 }
+	}
+	if = {
+		limit = { has_character_modifier = pet_cat }
+		change_variable = { which = var_health value = 1 }
+	}
+	if = {
+		limit = { has_character_modifier = cant_stop_dancing }
+		change_variable = { which = var_health value = -2 }
+	}
+	if = {
+		limit = { has_character_modifier = invigorated }
+		change_variable = { which = var_health value = 0.5 }
+	}
+	if = {
+		limit = { has_character_modifier = blessing_of_health }
+		change_variable = { which = var_health value = 2 }
+	}
+	if = {
+		limit = { has_character_modifier = deaths_gift }
+		change_variable = { which = var_health value = 2 }
+	}
+	if = {
+		limit = { has_character_modifier = pet_owl }
+		change_variable = { which = var_health value = 1 }
+	}
+	if = {
+		limit = { has_character_modifier = taking_it_easy }
+		change_variable = { which = var_health value = 1 }
+	}
+	if = {
+		limit = { has_character_modifier = guide_dog }
+		change_variable = { which = var_health value = 0.5 }
+	}
+	if = {
+		limit = { has_character_modifier = lovers_memento }
+		change_variable = { which = var_health value = 0.5 }
+	}
+	if = {
+		limit = { has_character_modifier = lucky_to_be_alive }
+		change_variable = { which = var_health value = 1 }
+	}
+	if = {
+		limit = { has_character_modifier = lost_dog }
+		change_variable = { which = var_health value = -1 }
+	}
+	if = {
+		limit = { has_character_modifier = successful_treatment }
+		change_variable = { which = var_health value = 1 }
+	}
+	if = {
+		limit = { has_character_modifier = mild_illness }
+		change_variable = { which = var_health value = 1 }
+	}
+	if = {
+		limit = { has_character_modifier = severe_illness }
+		change_variable = { which = var_health value = -1 }
+	}
+	if = {
+		limit = { has_character_modifier = bedridden_illness }
+		change_variable = { which = var_health value = -2 }
+	}
+	if = {
+		limit = { has_character_modifier = secluded_revelry }
+		change_variable = { which = var_health value = 1 }
+	}
+	if = {
+		limit = { has_character_modifier = struck_by_lightning }
+		change_variable = { which = var_health value = -3 }
+	}
+	if = {
+		limit = { has_character_modifier = hunters_physique }
+		change_variable = { which = var_health value = 1 }
+	}
+	if = {
+		limit = { has_character_modifier = hashish_addict }
+		change_variable = { which = var_health value = -0.5 }
+	}
+	if = {
+		limit = { has_character_modifier = withdrawal_symptoms }
+		change_variable = { which = var_health value = -0.5 }
+	}
+	if = {
+		limit = { has_character_modifier = corrupting_magic_minor }
+		change_variable = { which = var_health value = -1 }
+	}
+	if = {
+		limit = { has_character_modifier = corrupting_magic_major }
+		change_variable = { which = var_health value = -2 }
+	}
+	if = {
+		limit = { has_character_modifier = dark_healing_recent }
+		change_variable = { which = var_health value = -0.5 }
+	}
+	if = {
+		limit = { has_character_modifier = recent_induction_attempt }
+		change_variable = { which = var_health value = -0.5 }
+	}
+	if = {
+		limit = { has_character_modifier = stolen_life_minor }
+		change_variable = { which = var_health value = 1 }
+	}
+	if = {
+		limit = { has_character_modifier = stolen_life_medium }
+		change_variable = { which = var_health value = 2 }
+	}
+	if = {
+		limit = { has_character_modifier = stolen_life_major }
+		change_variable = { which = var_health value = 3 }
+	}
+	if = {
+		limit = { has_character_modifier = hallucinating }
+		change_variable = { which = var_health value = -1 }
+	}
+	if = {
+		limit = { has_character_modifier = well_fed }
+		change_variable = { which = var_health value = 0.5 }
+	}
+	if = {
+		limit = { has_character_modifier = apathetic }
+		change_variable = { which = var_health value = -0.5 }
+	}
+	if = {
+		limit = { has_character_modifier = horoscope_outcome_artist }
+		change_variable = { which = var_health value = -0.5 }
+	}
+	if = {
+		limit = { has_character_modifier = horoscope_outcome_jittery }
+		change_variable = { which = var_health value = -0.5 }
+	}
+	if = {
+		limit = { has_character_modifier = bad_nights_sleep }
+		change_variable = { which = var_health value = -0.5 }
+	}
+	if = {
+		limit = { has_character_modifier = nocturnal_studies }
+		change_variable = { which = var_health value = -0.5 }
+	}
+	if = {
+		limit = { has_character_modifier = nauseous_from_potion }
+		change_variable = { which = var_health value = -0.5 }
+	}
+	if = {
+		limit = { has_character_modifier = poisoned }
+		change_variable = { which = var_health value = -1 }
+	}
+	if = {
+		limit = { has_character_modifier = good_nights_sleep }
+		change_variable = { which = var_health value = 0.5 }
+	}
+	if = {
+		limit = { has_character_modifier = carrying_on }
+		change_variable = { which = var_health value = 0.5 }
+	}
+	if = {
+		limit = { has_character_modifier = panda_pet }
+		change_variable = { which = var_health value = 1 }
+	}
+	if = {
+		limit = { has_character_modifier = school_quanzhen }
+		change_variable = { which = var_health value = 1 }
+	}
+	if = {
+		limit = { has_character_modifier = patron_sangpo_bumtri }
+		change_variable = { which = var_health value = 1 }
+	}
+	if = {
+		limit = { has_character_modifier = patron_weshparkar }
+		change_variable = { which = var_health value = 1 }
+	}
+	if = {
+		limit = { NOT = { check_variable = { which = var_health value = 1 } } }
+		set_variable = { which = var_health value = 1 }
+	}
+}
+
+set_draconic_raid_hp = {
+	export_to_variable = { which = draconic_raid_hp value = health }
+	#get_health = yes
+	change_variable = { which = draconic_raid_hp value = 1 }
+	multiply_variable = { which = draconic_raid_hp value = 3 }
+	if = {
+		limit = { check_variable = { which = draconic_raid_hp value < 1 } }
+		set_variable = { which = draconic_raid_hp value = 1 }
+	}
+	if = {
+		limit = { trait = misguided_warrior }
+		multiply_variable = { which = draconic_raid_hp value = 11 }
+		divide_variable = { which = draconic_raid_hp value = 10 }
+	}
+	else_if = {
+		limit = { trait = tough_soldier }
+		multiply_variable = { which = draconic_raid_hp value = 12 }
+		divide_variable = { which = draconic_raid_hp value = 10 }
+	}
+	else_if = {
+		limit = { trait = skilled_tactician }
+		multiply_variable = { which = draconic_raid_hp value = 13 }
+		divide_variable = { which = draconic_raid_hp value = 10 }
+	}
+	else_if = {
+		limit = { trait = brilliant_strategist }
+		multiply_variable = { which = draconic_raid_hp value = 14 }
+		divide_variable = { which = draconic_raid_hp value = 10 }
+	}
+	if = {
+		limit = { is_strong_trigger = yes }
+		multiply_variable = { which = draconic_raid_hp value = 13 }
+		divide_variable = { which = draconic_raid_hp value = 10 }
+	}
+	if = {
+		limit = { is_weak_trigger = yes }
+		multiply_variable = { which = draconic_raid_hp value = 7 }
+		divide_variable = { which = draconic_raid_hp value = 10 }
+	}
+	if = {
+		limit = { trait = hunter }
+		multiply_variable = { which = draconic_raid_hp value = 11 }
+		divide_variable = { which = draconic_raid_hp value = 10 }
+	}
+	if = {
+		limit = { trait = duelist }
+		multiply_variable = { which = draconic_raid_hp value = 11 }
+		divide_variable = { which = draconic_raid_hp value = 10 }
+	}
+	if = {
+		limit = { trait = slothful }
+		multiply_variable = { which = draconic_raid_hp value = 9 }
+		divide_variable = { which = draconic_raid_hp value = 10 }
+	}
+	if = {
+		limit = { trait = defensive_leader }
+		multiply_variable = { which = draconic_raid_hp value = 11 }
+		divide_variable = { which = draconic_raid_hp value = 10 }
+	}
+	if = {
+		limit = { trait = unyielding_leader }
+		multiply_variable = { which = draconic_raid_hp value = 11 }
+		divide_variable = { which = draconic_raid_hp value = 10 }
+	}
+	if = {
+		limit = { trait = master_of_flame }
+		multiply_variable = { which = draconic_raid_hp value = 11 }
+		divide_variable = { which = draconic_raid_hp value = 10 }
+	}
+	if = {
+		limit = { trait = peasant_leader }
+		multiply_variable = { which = draconic_raid_hp value = 11 }
+		divide_variable = { which = draconic_raid_hp value = 10 }
+	}
+	if = {
+		limit = { trait = god }
+		multiply_variable = { which = draconic_raid_hp value = 14 }
+		divide_variable = { which = draconic_raid_hp value = 10 }
+	}
+	if = {
+		limit = { trait = demi_god }
+		multiply_variable = { which = draconic_raid_hp value = 12 }
+		divide_variable = { which = draconic_raid_hp value = 10 }
+	}
+}
+set_draconic_raid_def = {
+	if = {
+		limit = { trait = misguided_warrior }
+		set_variable = { which = draconic_raid_def value = 1 }
+	}
+	else_if = {
+		limit = { trait = tough_soldier }
+		set_variable = { which = draconic_raid_def value = 2 }
+	}
+	else_if = {
+		limit = { trait = skilled_tactician }
+		set_variable = { which = draconic_raid_def value = 3 }
+	}
+	else_if = {
+		limit = { trait = brilliant_strategist }
+		set_variable = { which = draconic_raid_def value = 4 }
+	}
+	else = {
+		set_variable = { which = draconic_raid_def value = 0 }
+	}
+	if = {
+		limit = { is_smart_trigger = yes }
+		change_variable = { which = draconic_raid_def value = 1 }
+	}
+	else_if = {
+		limit = { is_dumb_trigger = yes }
+		change_variable = { which = draconic_raid_def value = -1 }
+	}
+	if = {
+		limit = { trait = duelist }
+		change_variable = { which = draconic_raid_def value = 2 }
+	}
+	if = {
+		limit = { trait = patient }
+		change_variable = { which = draconic_raid_def value = 1 }
+	}
+	if = {
+		limit = { trait = wroth }
+		change_variable = { which = draconic_raid_def value = -1 }
+	}
+	if = {
+		limit = { trait = deceitful }
+		change_variable = { which = draconic_raid_def value = 1 }
+	}
+	if = {
+		limit = { trait = defensive_leader }
+		change_variable = { which = draconic_raid_def value = 1 }
+	}
+	if = {
+		limit = { trait = unyielding_leader }
+		change_variable = { which = draconic_raid_def value = 1 }
+	}
+	if = {
+		limit = { trait = god }
+		change_variable = { which = draconic_raid_hp value = 1 }
+	}
+	if = {
+		limit = { combat_rating = 15 }
+		change_variable = { which = draconic_raid_hp value = 1 }
+	}
+	divide_variable = { which = draconic_raid_def value = 4 }
+}
+set_draconic_raid_initiative = {
+	if = {
+		limit = { trait = misguided_warrior }
+		set_variable = { which = draconic_raid_initiative value = 1 }
+	}
+	else_if = {
+		limit = { trait = tough_soldier }
+		set_variable = { which = draconic_raid_initiative value = 2 }
+	}
+	else_if = {
+		limit = { trait = skilled_tactician }
+		set_variable = { which = draconic_raid_initiative value = 3 }
+	}
+	else_if = {
+		limit = { trait = brilliant_strategist }
+		set_variable = { which = draconic_raid_initiative value = 4 }
+	}
+	else = {
+		set_variable = { which = draconic_raid_initiative value = 0 }
+	}
+	if = {
+		limit = { trait = depressed }
+		change_variable = { which = draconic_raid_initiative value = -1 }
+	}
+	if = {
+		limit = { trait = drunkard }
+		change_variable = { which = draconic_raid_initiative value = -1 }
+	}
+	if = {
+		limit = { trait = incapable }
+		change_variable = { which = draconic_raid_initiative value = -5 }
+	}
+	if = {
+		limit = { is_maimed_trigger = yes }
+		change_variable = { which = draconic_raid_initiative value = -1 }
+	}
+	if = {
+		limit = { trait = wounded }
+		change_variable = { which = draconic_raid_initiative value = -1 }
+	}
+	if = {
+		limit = { trait = severely_injured }
+		change_variable = { which = draconic_raid_initiative value = -3 }
+	}
+	if = {
+		limit = { is_smart_trigger = yes }
+		change_variable = { which = draconic_raid_initiative value = 1 }
+	}
+	if = {
+		limit = { is_dumb_trigger = yes }
+		change_variable = { which = draconic_raid_initiative value = -1 }
+	}
+	if = {
+		limit = { trait = clubfooted }
+		change_variable = { which = draconic_raid_initiative value = -1 }
+	}
+	if = {
+		limit = { trait = duelist }
+		change_variable = { which = draconic_raid_initiative value = 2 }
+	}
+	if = {
+		limit = { trait = wroth }
+		change_variable = { which = draconic_raid_initiative value = 1 }
+	}
+	if = {
+		limit = { trait = craven }
+		change_variable = { which = draconic_raid_initiative value = -1 }
+	}
+	if = {
+		limit = { trait = deceitful }
+		change_variable = { which = draconic_raid_initiative value = 1 }
+	}
+	if = {
+		limit = { trait = shy }
+		change_variable = { which = draconic_raid_initiative value = -1 }
+	}
+	if = {
+		limit = { trait = aggressive_leader }
+		change_variable = { which = draconic_raid_initiative value = 1 }
+	}
+	random = {
+		chance = 50
+		multiply_variable = { which = draconic_raid_initiative value = 13 }
+		divide_variable = { which = draconic_raid_initiative value = 10 }
+	}
+	random = {
+		chance = 30
+		multiply_variable = { which = draconic_raid_initiative value = 13 }
+		divide_variable = { which = draconic_raid_initiative value = 10 }
+	}
+	random = {
+		chance = 10
+		multiply_variable = { which = draconic_raid_initiative value = 13 }
+		divide_variable = { which = draconic_raid_initiative value = 10 }
+	}
+	export_to_variable = { which = temp value = combat_rating }
+	if = {
+		limit = { check_variable = { which = temp value = 10 } }
+		divide_variable = { which = temp value = 10 }
+		change_variable = { which = draconic_raid_initiative which = temp }
+	}
+	set_variable = { which = temp value = 0 }
+}
+set_draconic_raid_morale = {
+	set_variable = { which = draconic_raid_morale value = 30 }
+	if = {
+		limit = { trait = misguided_warrior }
+		multiply_variable = { which = draconic_raid_morale value = 11 }
+		divide_variable = { which = draconic_raid_initiative value = 10 }
+	}
+	else_if = {
+		limit = { trait = tough_soldier }
+		multiply_variable = { which = draconic_raid_morale value = 12 }
+		divide_variable = { which = draconic_raid_morale value = 10 }
+	}
+	else_if = {
+		limit = { trait = skilled_tactician }
+		multiply_variable = { which = draconic_raid_morale value = 13 }
+		divide_variable = { which = draconic_raid_morale value = 10 }
+	}
+	else_if = {
+		limit = { trait = brilliant_strategist }
+		multiply_variable = { which = draconic_raid_morale value = 14 }
+		divide_variable = { which = draconic_raid_morale value = 10 }
+	}
+	if = {
+		limit = { trait = depressed }
+		multiply_variable = { which = draconic_raid_morale value = 6 }
+		divide_variable = { which = draconic_raid_morale value = 10 }
+	}
+	if = {
+		limit = { trait = lunatic }
+		multiply_variable = { which = draconic_raid_morale value = 2 }
+	}
+	if = {
+		limit = { trait = possessed }
+		multiply_variable = { which = draconic_raid_morale value = 13 }
+		divide_variable = { which = draconic_raid_morale value = 10 }
+	}
+	if = {
+		limit = { is_maimed_trigger = yes }
+		divide_variable = { which = draconic_raid_morale value = 2 }
+	}
+	if = {
+		limit = { trait = stressed }
+		multiply_variable = { which = draconic_raid_morale value = 8 }
+		divide_variable = { which = draconic_raid_morale value = 10 }
+	}
+	if = {
+		limit = { trait = wounded }
+		multiply_variable = { which = draconic_raid_morale value = 8 }
+		divide_variable = { which = draconic_raid_morale value = 10 }
+	}
+	if = {
+		limit = { is_strong_trigger = yes }
+		multiply_variable = { which = draconic_raid_morale value = 11 }
+		divide_variable = { which = draconic_raid_morale value = 10 }
+	}
+	if = {
+		limit = { is_weak_trigger = yes }
+		multiply_variable = { which = draconic_raid_morale value = 9 }
+		divide_variable = { which = draconic_raid_morale value = 10 }
+	}
+	if = {
+		limit = { trait = duelist }
+		multiply_variable = { which = draconic_raid_morale value = 12 }
+		divide_variable = { which = draconic_raid_morale value = 10 }
+	}
+	if = {
+		limit = { trait = strategist }
+		multiply_variable = { which = draconic_raid_morale value = 11 }
+		divide_variable = { which = draconic_raid_morale value = 10 }
+	}
+	if = {
+		limit = { trait = brave }
+		multiply_variable = { which = draconic_raid_morale value = 15 }
+		divide_variable = { which = draconic_raid_morale value = 10 }
+	}
+	if = {
+		limit = { trait = craven }
+		multiply_variable = { which = draconic_raid_morale value = 6 }
+		divide_variable = { which = draconic_raid_morale value = 10 }
+	}
+	if = {
+		limit = { trait = inspiring_leader }
+		multiply_variable = { which = draconic_raid_morale value = 13 }
+		divide_variable = { which = draconic_raid_morale value = 10 }
+	}
+	if = {
+		limit = { trait = master_of_flame }
+		multiply_variable = { which = draconic_raid_morale value = 11 }
+		divide_variable = { which = draconic_raid_morale value = 10 }
+	}
+	if = {
+		limit = { trait = god }
+		multiply_variable = { which = draconic_raid_morale value = 14 }
+		divide_variable = { which = draconic_raid_morale value = 10 }
+	}
+	if = {
+		limit = { trait = demi_god }
+		multiply_variable = { which = draconic_raid_morale value = 12 }
+		divide_variable = { which = draconic_raid_morale value = 10 }
+	}
+}
+draconic_raid_get_damage = {
+	export_to_variable = { which = local_damage value = combat_rating }
+	multiply_variable = { which = local_damage value = 6 }
+	divide_variable = { which = local_damage value = 5 }
+	if = {
+		limit = { check_variable = { which = local_damage value < 1 } }
+		set_variable = { which = local_damage value = 1 }
+	}
+	if = {
+		limit = { trait = master_of_flame }
+		multiply_variable = { which = physical_damage value = 11 }
+		divide_variable = { which = physical_damage value = 10 }
+	}
+	divide_variable = { which = combat_damage value = 10 }
+	set_variable = { which = physical_damage which = local_damage }
+	if = {
+		limit = { is_strong_trigger = yes }
+		multiply_variable = { which = physical_damage value = 12 }
+		divide_variable = { which = physical_damage value = 10 }
+	}
+	if = {
+		limit = { is_weak_trigger = yes }
+		multiply_variable = { which = physical_damage value = 8 }
+		divide_variable = { which = physical_damage value = 10 }
+	}
+	if = {
+		limit = { trait = craven }
+		multiply_variable = { which = physical_damage value = 9 }
+		divide_variable = { which = physical_damage value = 10 }
+	}
+	if = {
+		limit = { trait = duelist }
+		multiply_variable = { which = physical_damage value = 11 }
+		divide_variable = { which = physical_damage value = 10 }
+	}
+	if = {
+		limit = { trait = berserker }
+		multiply_variable = { which = physical_damage value = 11 }
+		divide_variable = { which = physical_damage value = 10 }
+	}
+	if = {
+		limit = { check_variable = { which = physical_damage value < 1 } }
+		set_variable = { which = physical_damage value = 1 }
+	}
+	if = {
+		limit = { trait = god }
+		multiply_variable = { which = physical_damage value = 14 }
+		divide_variable = { which = physical_damage value = 10 }
+	}
+	if = {
+		limit = { trait = demi_god }
+		multiply_variable = { which = physical_damage value = 12 }
+		divide_variable = { which = physical_damage value = 10 }
+	}
+	set_variable = { which = morale_damage which = local_damage }
+	if = {
+		limit = { trait = cruel }
+		multiply_variable = { which = morale_damage value = 11 }
+		divide_variable = { which = physical_damage value = 10 }
+	}
+	if = {
+		limit = { trait = impaler }
+		multiply_variable = { which = morale_damage value = 11 }
+		divide_variable = { which = physical_damage value = 10 }
+	}
+}
+
+clear_dragon_raid_variables_flags = {
+	set_variable = { which = morale_damage value = 0 }
+	set_variable = { which = physical_damage value = 0 }
+	set_variable = { which = draconic_raid_morale value = 0 }
+	set_variable = { which = draconic_raid_initiative value = 0 }
+	set_variable = { which = draconic_raid_def value = 0 }
+	set_variable = { which = draconic_raid_hp value = 0 }
+	set_variable = { which = var_health value = 0 }
+	clr_character_flag = died_in_raid
+	clr_character_flag = completely_beaten
+	clr_character_flag = fled_from_raid
+	clr_character_flag = dragon_raid_wounded
+	clr_character_flag = dragon_raid_maimed
+	clr_character_flag = dragon_raid_eye
+	clr_character_flag = dragon_raid_leg
+	clr_character_flag = dragon_raid_hand
+	clr_character_flag = dragon_raid_disfigured
+	clr_character_flag = dragon_raid_mangled
+	clr_character_flag = gain_black_eye
+	clr_character_flag = gain_swollen_wrist
+	clr_character_flag = gain_swollen_ankle
+	clr_character_flag = gain_concussion
+	clr_character_flag = gain_cracked_ribs
+	clr_character_flag = gain_badly_bruised
+}
+
+dragon_raid_injury = {
+	if = {
+		limit = {
+			check_variable = { which = local_wounded value = 1 }
+		}
+		random_list = {
+			7 = {	# No injury
+				modifier = {
+					factor = 1.2
+					is_strong_trigger = yes
+				}
+				modifier = {
+					factor = 1.2
+					health = 15
+				}
+			}
+			2 = {	# Wounded
+				trigger = {
+					NOT = { trait = wounded }
+				}
+				modifier = {
+					factor = 1.2
+					check_variable = { which = local_wounded value = 2 }
+				}
+				modifier = {
+					factor = 1.2
+					check_variable = { which = local_wounded value = 3 }
+				}
+				modifier = {
+					factor = 1.2
+					check_variable = { which = local_wounded value = 4 }
+				}
+				modifier = {
+					factor = 1.2
+					check_variable = { which = local_wounded value = 5 }
+				}
+				modifier = {
+					factor = 1.2
+					check_variable = { which = local_wounded value = 6 }
+				}
+				modifier = {
+					factor = 1.2
+					check_variable = { which = local_wounded value = 7 }
+				}
+				modifier = {
+					factor = 1.2
+					check_variable = { which = local_wounded value = 8 }
+				}
+				modifier = {
+					factor = 1.2
+					check_variable = { which = local_wounded value = 9 }
+				}
+				modifier = {
+					factor = 1.2
+					check_variable = { which = local_wounded value = 10 }
+				}
+				modifier = {
+					factor = 1.44
+					has_character_flag = completely_beaten
+				}
+				set_character_flag = dragon_raid_wounded
+			}
+			1 = {
+				trigger = {
+					NOT = { has_dlc = "Reapers" }
+					NOT = { trait = maimed }
+				}
+				modifier = {
+					factor = 1.2
+					check_variable = { which = local_wounded value = 3 }
+				}
+				modifier = {
+					factor = 1.2
+					check_variable = { which = local_wounded value = 4 }
+				}
+				modifier = {
+					factor = 1.2
+					check_variable = { which = local_wounded value = 5 }
+				}
+				modifier = {
+					factor = 1.2
+					check_variable = { which = local_wounded value = 6 }
+				}
+				modifier = {
+					factor = 1.2
+					check_variable = { which = local_wounded value = 7 }
+				}
+				modifier = {
+					factor = 1.2
+					check_variable = { which = local_wounded value = 8 }
+				}
+				modifier = {
+					factor = 1.2
+					check_variable = { which = local_wounded value = 9 }
+				}
+				modifier = {
+					factor = 1.2
+					check_variable = { which = local_wounded value = 10 }
+				}
+				modifier = {
+					factor = 1.44
+					has_character_flag = completely_beaten
+				}
+				set_character_flag = dragon_raid_maimed
+			}
+			1 = {	# One-eyed
+				trigger = {
+					has_dlc = "Reapers"
+					NOT = { trait = one_eyed }
+				}
+				modifier = {
+					factor = 1.2
+					check_variable = { which = local_wounded value = 3 }
+				}
+				modifier = {
+					factor = 1.2
+					check_variable = { which = local_wounded value = 4 }
+				}
+				modifier = {
+					factor = 1.2
+					check_variable = { which = local_wounded value = 5 }
+				}
+				modifier = {
+					factor = 1.2
+					check_variable = { which = local_wounded value = 6 }
+				}
+				modifier = {
+					factor = 1.2
+					check_variable = { which = local_wounded value = 7 }
+				}
+				modifier = {
+					factor = 1.2
+					check_variable = { which = local_wounded value = 8 }
+				}
+				modifier = {
+					factor = 1.2
+					check_variable = { which = local_wounded value = 9 }
+				}
+				modifier = {
+					factor = 1.2
+					check_variable = { which = local_wounded value = 10 }
+				}
+				modifier = {
+					factor = 1.44
+					has_character_flag = completely_beaten
+				}
+				set_character_flag = dragon_raid_eye
+			}
+			1 = {	# One-legged
+				trigger = {
+					has_dlc = "Reapers"
+					NOT = { trait = one_legged }
+				}
+				modifier = {
+					factor = 1.2
+					check_variable = { which = local_wounded value = 4 }
+				}
+				modifier = {
+					factor = 1.2
+					check_variable = { which = local_wounded value = 5 }
+				}
+				modifier = {
+					factor = 1.2
+					check_variable = { which = local_wounded value = 6 }
+				}
+				modifier = {
+					factor = 1.2
+					check_variable = { which = local_wounded value = 7 }
+				}
+				modifier = {
+					factor = 1.2
+					check_variable = { which = local_wounded value = 8 }
+				}
+				modifier = {
+					factor = 1.2
+					check_variable = { which = local_wounded value = 9 }
+				}
+				modifier = {
+					factor = 1.2
+					check_variable = { which = local_wounded value = 10 }
+				}
+				modifier = {
+					factor = 1.44
+					has_character_flag = completely_beaten
+				}
+				set_character_flag = dragon_raid_leg
+			}
+			1 = {	# One-handed
+				trigger = {
+					has_dlc = "Reapers"
+					NOT = { trait = one_handed }
+				}
+				modifier = {
+					factor = 1.2
+					check_variable = { which = local_wounded value = 5 }
+				}
+				modifier = {
+					factor = 1.2
+					check_variable = { which = local_wounded value = 6 }
+				}
+				modifier = {
+					factor = 1.2
+					check_variable = { which = local_wounded value = 7 }
+				}
+				modifier = {
+					factor = 1.2
+					check_variable = { which = local_wounded value = 8 }
+				}
+				modifier = {
+					factor = 1.2
+					check_variable = { which = local_wounded value = 9 }
+				}
+				modifier = {
+					factor = 1.2
+					check_variable = { which = local_wounded value = 10 }
+				}
+				modifier = {
+					factor = 1.44
+					has_character_flag = completely_beaten
+				}
+				set_character_flag = dragon_raid_hand
+			}
+			1 = { # Disfigured
+				trigger = {
+					has_dlc = "Reapers"
+					NOT = { trait = disfigured }
+					check_variable = { which = local_wounded value = 4 }
+				}
+				modifier = {
+					factor = 1.2
+					check_variable = { which = local_wounded value = 6 }
+				}
+				modifier = {
+					factor = 1.2
+					check_variable = { which = local_wounded value = 7 }
+				}
+				modifier = {
+					factor = 1.2
+					check_variable = { which = local_wounded value = 8 }
+				}
+				modifier = {
+					factor = 1.2
+					check_variable = { which = local_wounded value = 9 }
+				}
+				modifier = {
+					factor = 1.2
+					check_variable = { which = local_wounded value = 10 }
+				}
+				modifier = {
+					factor = 1.44
+					has_character_flag = completely_beaten
+				}
+				set_character_flag = dragon_raid_disfigured
+			}
+			1 = { # Mangled
+				trigger = {
+					has_dlc = "Reapers"
+					NOT = { trait = disfigured }
+					check_variable = { which = local_wounded value = 5 }
+				}
+				modifier = {
+					factor = 1.2
+					check_variable = { which = local_wounded value = 7 }
+				}
+				modifier = {
+					factor = 1.2
+					check_variable = { which = local_wounded value = 8 }
+				}
+				modifier = {
+					factor = 1.2
+					check_variable = { which = local_wounded value = 9 }
+				}
+				modifier = {
+					factor = 1.2
+					check_variable = { which = local_wounded value = 10 }
+				}
+				modifier = {
+					factor = 1.44
+					has_character_flag = completely_beaten
+				}
+				set_character_flag = dragon_raid_mangled
+			}
+			1 = { # Dead
+				trigger = {
+					check_variable = { which = local_wounded value = 7 }
+				}
+				modifier = {
+					factor = 1.2
+					check_variable = { which = local_wounded value = 9 }
+				}
+				modifier = {
+					factor = 1.2
+					check_variable = { which = local_wounded value = 10 }
+				}
+				modifier = {
+					factor = 1.2
+					has_character_flag = completely_beaten
+				}
+				set_character_flag = died_in_raid
+				clr_character_flag = completely_beaten
+				clr_character_flag = fled_from_raid
+			}
+			5 = {
+				modifier = {
+					factor = 0.8
+					check_variable = { which = local_wounded value = 2 }
+				}
+				modifier = {
+					factor = 0.8
+					check_variable = { which = local_wounded value = 3 }
+				}
+				modifier = {
+					factor = 0.8
+					check_variable = { which = local_wounded value = 4 }
+				}
+				modifier = {
+					factor = 0.8
+					check_variable = { which = local_wounded value = 5 }
+				}
+				modifier = {
+					factor = 0.8
+					check_variable = { which = local_wounded value = 6 }
+				}
+				modifier = {
+					factor = 0.8
+					check_variable = { which = local_wounded value = 7 }
+				}
+				modifier = {
+					factor = 0.8
+					check_variable = { which = local_wounded value = 8 }
+				}
+				modifier = {
+					factor = 0.8
+					check_variable = { which = local_wounded value = 9 }
+				}
+				modifier = {
+					factor = 0.8
+					check_variable = { which = local_wounded value = 10 }
+				}
+				random_list = {
+					1 = {
+						trigger = { NOT = { has_character_modifier = cracked_ribs } }
+						additive_modifier = {
+							value = 1
+							check_variable = { which = local_wounded value = 10 }
+						}
+						additive_modifier = {
+							value = 1
+							check_variable = { which = local_wounded value = 9 }
+						}
+						set_character_flag = gain_cracked_ribs
+					}
+					1 = {
+						trigger = { NOT = { has_character_modifier = concussion } }
+						additive_modifier = {
+							value = 1
+							check_variable = { which = local_wounded value = 9 }
+						}
+						additive_modifier = {
+							value = 1
+							check_variable = { which = local_wounded value = 8 }
+						}
+						set_character_flag = gain_concussion
+					}
+					2 = {
+						trigger = { NOT = { has_character_modifier = badly_bruised } }
+						set_character_flag = gain_badly_bruised
+					}
+					2 = {
+						trigger = { NOT = { has_character_modifier = black_eye } }
+						set_character_flag = gain_black_eye
+					}
+					3 = {
+						trigger = { NOT = { has_character_modifier = swollen_wrist } }
+						set_character_flag = gain_swollen_wrist
+					}
+					3 = {
+						trigger = { NOT = { has_character_modifier = swollen_ankle } }
+						set_character_flag = gain_swollen_ankle
+					}
+				}
+			}
+		}
+	}
+}
+
+decide_minor_injury = {
+	random_list = {
+		1 = { set_character_flag = gain_black_eye }
+		1 = { set_character_flag = gain_badly_bruised }
+		1 = { set_character_flag = gain_swollen_wrist }
+		1 = { set_character_flag = gain_swollen_ankle }
+		1 = { set_character_flag = gain_sore_muscles }
+		1 = { set_character_flag = gain_cracked_ribs }
+		1 = { set_character_flag = gain_concussion }
+	}
+}

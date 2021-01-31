@@ -1,0 +1,25 @@
+# 1755 - Dendi
+
+# County Title
+title = c_dendi
+
+# Settlements
+max_settlements = 3
+
+b_niamey = tribal
+
+#b_bura
+#b_say
+
+# Misc
+culture = undead_zombie
+religion = the_damned
+
+# History
+860.1.1 = {
+	culture = songhay
+	religion = west_african_pagan
+}
+1300.1.1 = {
+	b_niamey = castle
+}

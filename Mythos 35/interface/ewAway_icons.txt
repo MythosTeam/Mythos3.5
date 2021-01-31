@@ -1,0 +1,13 @@
+﻿spriteTypes = {
+	spriteType = {
+		name = "GFX_faction_succ_byzantine_elective_ultimatum"
+		texturefile = "gfx\\interface\\decision_icon_faction_succ_feudal_elective_ultimatum.dds"
+	}
+	spriteType = {
+		name = "GFX_faction_succ_byzantine_elective"
+		texturefile = "gfx/ambitions/plot_succ_feudal_elective.tga"
+		noOfFrames = 1
+		norefcount = yes
+		effectFile = "gfx/FX/buttonstate_linear.lua"
+	}
+}

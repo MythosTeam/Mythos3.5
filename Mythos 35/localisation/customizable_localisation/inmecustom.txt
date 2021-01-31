@@ -1,0 +1,77 @@
+defined_text = {
+	name = GetEmperorEmpress
+	
+	use_first_valid = yes
+	
+	text = {
+		trigger = {
+			ROOT = {
+				is_female = no
+				culture_group = byzantine
+			}
+		}
+		localisation_key = BASILEUS
+	}
+	text = {
+		trigger = {
+			ROOT = {
+				is_female = yes
+				culture_group = byzantine
+			}
+		}
+		localisation_key = BASILEIA
+	}
+	text = {
+		trigger = {
+			ROOT = {
+				is_female = no
+			}
+		}
+		localisation_key = EMPEROR
+	}
+	text = {
+		trigger = {
+			ROOT = {
+				is_female = yes
+			}
+		}
+		localisation_key = EMPRESS
+	}
+}
+defined_text = {
+	name = GetRomanByzantine
+	
+	text = {
+		trigger = {
+			is_title_active = e_roman_empire
+		}
+		localisation_key = ROMAN
+	}
+	text = {
+		trigger = {
+			e_roman_empire = {
+				holder_scope = {
+					always = no
+				}
+			}
+		}
+		localisation_key = BYZANTINE
+	}
+}
+
+defined_text = {
+	name = GetImperialRoyal
+	
+	text = {
+		trigger = {
+			tier = king
+		}
+		localisation_key = ROYAL
+	}
+	text = {
+		trigger = {
+			tier = emperor
+		}
+		localisation_key = IMPERIAL
+	}
+}

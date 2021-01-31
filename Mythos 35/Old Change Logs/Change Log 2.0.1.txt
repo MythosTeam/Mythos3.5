@@ -1,0 +1,33 @@
+##########################################################
+##########################2.0.1###########################
+##########################################################
+
+#######
+# Magic
+#######
+- A new inheritable trait, given to anyone with a magic education will now allow children to be trained in magic even if they could not learn otherwise
+
+#########
+# Balance
+#########
+- AI Vampires should feed less often, especially if there are few human courtiers left
+- Automatic Vampire feeding catching a vampire, werewolf, zombie, demon, or ethereal no longer gives healing or stat boosts
+- The TOG Faeroyar start now starts with a 15 year non-aggression pact with Haraldr of Norway to stop them from immediately getting conquered
+- AI should educate their children a bit less randomly
+- Creating the Sapphire Flame will now remove claims from Reformed Draconic Pagans on the land.
+- Success in Perform Alchemy should no longer leave you behind on gold. Results now scale with learning, magic education, the artifact "Lesser Key of Solomon", and, with Monks and Mystics, Hermetic rank and influence.  The last part can reduce the outcome.
+
+##########
+# Bugfixes
+##########
+- Anti-monster revolts no longer consider a single wrong-culture/religion province to be equally disasterous as an entire wrong-culture/religion empire
+- Satanists no longer try to simultaniously use their own virtues and Christian virtues
+- Dragons can now be mages
+- Custom characters with magic education should no longer spontaniously lose their education
+- Characters should no longer end up with multiple blood court titles
+- Fixed Brew potion requiring the target to know magic
+- Fixed summoning servants only working for Counts
+- Fixed one of the Greater Key of Solomon events giving a favor in the wrong direction
+- Fixed old religions displaying wrong on the map
+- Immortal characters should no longer get the Reaper's Due immortality event chain
+- The title "The Old" should not longer be given to characters that are young for their race

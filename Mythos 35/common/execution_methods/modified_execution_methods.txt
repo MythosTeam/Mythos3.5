@@ -1,0 +1,62 @@
+execution_method = {
+	death = death_execution_hunt
+	weight_multiplier = {
+		factor = 400
+	}
+	trigger = {
+		FROM = {
+			OR = {
+				trait = gamer
+				trait = hunter
+				trait = werewolf
+			}
+		}
+	}
+}
+
+execution_method = {
+	death = death_execution_burning
+	weight_multiplier = {
+		factor = 150
+		modifier = {
+			factor = 2
+			is_female = yes
+		}
+		modifier = {
+			factor = 2
+			is_any_kinslayer_trigger = yes
+		}
+		modifier = {
+			factor = 4
+			is_heresy_of = FROM
+		}
+		modifier = {
+			factor = 2
+			FROM = {
+				OR = {
+					has_opinion_modifier = { who = ROOT modifier = opinion_traitor } 
+					has_opinion_modifier = { who = ROOT modifier = opinion_rebel_traitor } 
+					has_opinion_modifier = { who = ROOT modifier = opinion_regicide_traitor } 
+					has_opinion_modifier = { who = ROOT modifier = opinion_killed_close_kin } 
+					has_opinion_modifier = { who = ROOT modifier = opinion_witch } 
+					has_opinion_modifier = { who = ROOT modifier = opinion_takfir } 
+					has_opinion_modifier = { who = ROOT modifier = opinion_unfaithful_wife } 
+					has_opinion_modifier = { who = ROOT modifier = opinion_cuckolded } 
+					has_opinion_modifier = { who = ROOT modifier = opinion_charge_heresiarch } 
+					has_opinion_modifier = { who = ROOT modifier = opinion_charge_infidel } 
+					has_opinion_modifier = { who = ROOT modifier = opinion_charge_deviant } 
+					has_opinion_modifier = { who = ROOT modifier = opinion_charge_traitor } 
+				}
+			}
+		}
+		modifier = {
+			factor = 0
+			trait = dragon
+		}
+	}
+	trigger = {
+		FROM = {
+			NOT = { is_nomadic = yes }
+		}
+	}
+}

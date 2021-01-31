@@ -1,0 +1,3360 @@
+###################################
+#
+# Events for Religion
+#
+########################################
+# HERESIES
+########################################
+
+# Heresy appears out of "nowhere"
+province_event = {
+	id = 39000
+	desc = "EVTDESC39000"
+	picture = "GFX_evt_stone_church"
+	border = "GFX_event_normal_frame_religion"
+	
+	lacks_dlc = "Sons of Abraham"
+	
+	trigger = {
+		is_heretic = no
+		has_heresies = yes
+		NOT = { province_id = 333 } # Rome
+		NOT = { province_id = 497 } # Thrace
+		NOT = { province_id = 719 } # Mecca
+		
+		# Atenism - needs specific provinces or a flag set. Happening on those provinces sets the flag
+		OR = {
+			NOR = {
+				religion = kemetic_pagan
+				religion = kemetic_pagan_reformed
+			}
+			has_global_flag = atenist_revived
+			has_global_flag = kemetic_pagan_reformation
+			AND = {
+				c_asyut = {
+					location = {
+						OR = {
+							religion = kemetic_pagan
+							religion = kemetic_pagan_reformed
+							religion = atenist
+						}
+					}
+				}
+				OR = {
+					kemetic_pagan = { num_of_holy_sites = 3 }
+					AND = {
+						kemetic_pagan = { num_of_holy_sites = 2 }
+						atenist = { num_of_holy_sites = 1 }
+					}
+					AND = {
+						kemetic_pagan = { num_of_holy_sites = 2 }
+						kemetic_pagan_reformed = { num_of_holy_sites = 1 }
+					}
+					AND = {
+						kemetic_pagan = { num_of_holy_sites = 1 }
+						atenist = { num_of_holy_sites = 2 }
+					}
+					AND = {
+						kemetic_pagan = { num_of_holy_sites = 1 }
+						kemetic_pagan_reformed = { num_of_holy_sites = 1 }
+						atenist = { num_of_holy_sites = 1 }
+					}
+					AND = {
+						kemetic_pagan = { num_of_holy_sites = 1 }
+						kemetic_pagan_reformed = { num_of_holy_sites = 2 }
+					}
+					kemetic_pagan_reformed = { num_of_holy_sites = 3 }
+					AND = {
+						kemetic_pagan_reformed = { num_of_holy_sites = 2 }
+						atenist = { num_of_holy_sites = 1 }
+					}
+					AND = {
+						kemetic_pagan_reformed = { num_of_holy_sites = 1 }
+						atenist = { num_of_holy_sites = 2 }
+					}
+					atenist = { num_of_holy_sites = 3 }
+				}
+			}
+		}
+		# Norse only has heresies if it's reformed or you meet conditions for Jotnar to spread
+		OR = {
+			NOT = { religion = norse_pagan }
+			has_global_flag = norse_reformation
+			culture = jotunn
+			holder_scope = {
+				OR = { 
+					trait = giant 
+					religion = jotnar
+					religion = jotnar_reformed
+				}
+			}
+			any_neighbor_province = {
+				OR = {
+					religion = jotnar
+					religion = jotnar_reformed
+				}
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 9600
+		modifier = {
+			factor = 2.0
+			religion_authority = 0.6
+		}
+		modifier = {
+			factor = 2.0
+			religion_authority = 0.8
+		}
+		modifier = {
+			factor = 2
+			has_game_rule = {
+				name = religious_conversion
+				value = slower
+			}
+		}
+		modifier = {
+			factor = 0.75
+			NOT = { religion_authority = 0.2 }
+		}
+		modifier = {
+			factor = 0.75
+			NOT = { religion_authority = 0.4 }
+		}
+	}
+	
+	immediate = {
+		if = {
+			limit = { religion = norse_pagan_reformed }
+			random_list = {
+				1 = {
+					religion = norse_pagan
+				}
+				1 = {
+					trigger = {
+						OR = {
+							culture = jotunn
+							holder_scope = {
+								OR = { 
+									trait = giant 
+									religion = jotnar
+									religion = jotnar_reformed
+								}
+							}
+							any_neighbor_province = {
+								OR = {
+									religion = jotnar
+									religion = jotnar_reformed
+								}
+							}
+						}
+					}
+					religion = jotnar
+				}
+				1 = {
+					trigger = {
+						has_global_flag = jotnar_reformation
+						OR = {
+							culture = jotunn
+							holder_scope = {
+								OR = { 
+									trait = giant 
+									religion = jotnar
+									religion = jotnar_reformed
+								}
+							}
+							any_neighbor_province = {
+								OR = {
+									religion = jotnar
+									religion = jotnar_reformed
+								}
+							}
+						}
+					}
+					religion = jotnar_reformed
+				}
+			}
+		}
+		else_if = {
+			limit = { religion = norse_pagan }
+			random_list = {
+				1 = {
+					trigger = {
+						has_global_flag = norse_pagan_reformation
+					}
+					religion = norse_pagan_reformed
+				}
+				1 = {
+					religion = jotnar
+				}
+				1 = {
+					trigger = {
+						has_global_flag = jotnar_reformation
+					}
+					religion = jotnar_reformed
+				}
+			}
+		}
+		else_if = {
+			limit = { religion = jotnar_reformed }
+			random_list = {
+				1 = {
+					religion = norse_pagan
+				}
+				1 = {
+					trigger = {
+						has_global_flag = norse_pagan_reformation
+					}
+					religion = norse_pagan_reformed
+				}
+				1 = {
+					religion = jotnar
+				}
+			}
+		}
+		else_if = {
+			limit = { religion = jotnar }
+			random_list = {
+				1 = {
+					religion = norse_pagan
+				}
+				1 = {
+					trigger = {
+						has_global_flag = norse_pagan_reformation
+					}
+					religion = norse_pagan_reformed
+				}
+				1 = {
+					trigger = {
+						has_global_flag = jotnar_reformation
+					}
+					religion = jotnar_reformed
+				}
+			}
+		}
+		else_if = {
+			limit = { religion = kemetic_pagan }
+			random_list = {
+				1 = {
+					trigger = {
+						has_global_flag = kemetic_pagan_reformation
+					}
+					religion = kemetic_pagan_reformed
+				}
+				1 = {
+					trigger = {
+						OR = {
+							has_global_flag = atenist_revived
+							AND = {
+								c_asyut = {
+									location = {
+										OR = {
+											religion = kemetic_pagan
+											religion = kemetic_pagan_reformed
+											religion = atenist
+										}
+									}
+								}
+								OR = {
+									kemetic_pagan = { num_of_holy_sites = 3 }
+									AND = {
+										kemetic_pagan = { num_of_holy_sites = 2 }
+										atenist = { num_of_holy_sites = 1 }
+									}
+									AND = {
+										kemetic_pagan = { num_of_holy_sites = 2 }
+										kemetic_pagan_reformed = { num_of_holy_sites = 1 }
+									}
+									AND = {
+										kemetic_pagan = { num_of_holy_sites = 1 }
+										atenist = { num_of_holy_sites = 2 }
+									}
+									AND = {
+										kemetic_pagan = { num_of_holy_sites = 1 }
+										kemetic_pagan_reformed = { num_of_holy_sites = 1 }
+										atenist = { num_of_holy_sites = 1 }
+									}
+									AND = {
+										kemetic_pagan = { num_of_holy_sites = 1 }
+										kemetic_pagan_reformed = { num_of_holy_sites = 2 }
+									}
+									kemetic_pagan_reformed = { num_of_holy_sites = 3 }
+									AND = {
+										kemetic_pagan_reformed = { num_of_holy_sites = 2 }
+										atenist = { num_of_holy_sites = 1 }
+									}
+									AND = {
+										kemetic_pagan_reformed = { num_of_holy_sites = 1 }
+										atenist = { num_of_holy_sites = 2 }
+									}
+									atenist = { num_of_holy_sites = 3 }
+								}
+							}
+						}
+					}
+					religion = atenist
+				}
+			}
+		}
+		else = {
+			become_heretic = yes
+		}
+		set_province_flag = heresy_in_province
+		add_province_modifier = {
+			name = religious_unrest
+			duration = 730
+		}
+		owner = {
+			if = {
+				limit = { ai = no }
+				chronicle = {
+					entry = CHRONICLE_HERESY_SPREAD
+					picture = GFX_evt_heretic
+				}
+			}
+		}
+		owner = {
+			any_liege = {
+				if = {
+					limit = { ai = no }
+					chronicle = {
+						entry = CHRONICLE_HERESY_SPREAD
+						picture = GFX_evt_heretic
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				religion = atenist
+				NOT = { has_global_flag = atenist_revived }
+			}
+			set_global_flag = atenist_revived
+		}
+	}
+	
+	option = {
+		name = {
+			text = "EVTOPTA39000"
+			trigger = { owner = { NOT = { religion = ROOT } } }
+		}
+		name = {
+			text = "EVTOPTB39000"
+			trigger = { owner = { religion = ROOT } }
+		}
+		if = {
+			limit = { 
+				ruler = { is_parent_religion = ROOT }
+			}
+			ruler = { piety = -10 }
+		}
+		if = {
+			limit = {
+				owner = {
+					top_liege = {
+						NOT = {
+							any_realm_province = {
+								religion = ROOT
+								has_province_modifier = heretic_stronghold
+							}
+						}
+					}
+				}
+			}
+			add_province_modifier = {
+				name = heretic_stronghold
+				duration = 3650
+			}
+		}
+		# News spread
+		hidden_tooltip = {
+			owner = {
+				top_liege = {
+					if = {
+						limit = {
+							NOT = { character = PREV }
+						}
+						character_event = { id = 39400 days = 2 }
+					}
+					any_vassal = {
+						limit = {
+							OR = {
+								is_parent_religion = ROOT
+								religion = ROOT
+							}
+						}
+						character_event = { id = 39400 days = 2 }
+					}
+				}
+			}
+		}
+	}
+}
+
+
+##########################
+### Proselytize Events ###
+##########################
+
+# Preacher Arrives
+character_event = {
+	id = 39600
+	desc = EVTDESC39600
+	picture = GFX_evt_heretic
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		NOT = { has_character_flag = flag_converting_baptism }
+		NOT = { has_character_modifier = baptism_request_cooldown }
+		OR = {
+			ai = yes
+			FROMs_religion_is_playable_trigger = yes
+		}
+	}
+	
+	fail_trigger_effect = {
+		FROM = {
+			clr_character_flag = preacher_arrives
+		}
+	}
+	
+	option = {
+		name = EVTOPTA39600 # Throw the preacher in jail
+		ai_chance = {
+			factor = 2
+			# Always allow them if you already like that religion
+			modifier = {
+				factor = 0
+				FROM = { religion_group = christian }
+				trait = sympathy_christendom
+			}
+			modifier = {
+				factor = 0
+				FROM = { religion_group = muslim }
+				trait = sympathy_islam
+			}
+			modifier = {
+				factor = 0
+				FROM = { religion_group = jewish_group }
+				trait = sympathy_judaism
+			}
+			modifier = {
+				factor = 0
+				FROM = { religion_group = zoroastrian_group }
+				trait = sympathy_zoroastrianism
+			}
+			modifier = {
+				factor = 0
+				FROM = { religion_group = indian_group }
+				trait = sympathy_indian
+			}
+		}
+		
+		FROM = {
+			imprison = ROOT
+			liege = {
+				set_character_flag = ai_failed_mission # AI flag - used in the code
+				opinion = {
+					modifier = opinion_imprisoned_missionary
+					who = ROOT
+				}
+				hidden_tooltip = {
+					reverse_opinion = {
+						modifier = opinion_sent_preacher
+						who = ROOT
+					}
+					character_event = { id = 39605 days = 1 }
+				}
+			}
+		}
+		custom_tooltip = { text = preacher_imprisoned }
+	}
+	option = {
+		name = EVTOPTB39600 # Allow them to preach
+		ai_chance = {
+			factor = 1
+			
+			# Traits
+			modifier = {
+				factor = 0.3
+				trait = zealous
+			}
+			modifier = {
+				factor = 3
+				trait = cynical
+			}
+			modifier = {
+				factor = 2
+				trait = arbitrary
+			}
+			modifier = {
+				factor = 0.1
+				trait = god
+			}
+			
+			# Personal
+			modifier = {
+				factor = 0.3
+				FROM = {
+					is_rival = ROOT
+				}
+			}
+			modifier = {
+				factor = 1.5
+				OR = {
+					any_spouse = {
+						religion = FROM
+						reverse_opinion = { who = ROOT value = 50 }
+					}
+					any_consort = {
+						religion = FROM
+						reverse_opinion = { who = ROOT value = 50 }
+					}
+					any_lover = {
+						religion = FROM
+						reverse_opinion = { who = ROOT value = 50 }
+					}
+					any_child = {
+						religion = FROM
+						reverse_opinion = { who = ROOT value = 50 }
+					}
+				}
+			}
+			
+			# Political
+			modifier = {
+				factor = 0.2
+				any_vassal = {
+					religion = ROOT
+					controls_religion = yes
+				}
+			}
+			modifier = {
+				factor = 0.1
+				any_war = {
+					using_cb = religious
+					attacker = {
+						character = ROOT
+					}
+				}
+			}
+			modifier = {
+				factor = 0.1
+				any_war = {
+					using_cb = pagan_holy_war
+					attacker = {
+						character = ROOT
+					}
+				}
+			}
+			modifier = {
+				factor = 0.1
+				any_war = {
+					using_cb = viking_invasion
+					attacker = {
+						character = ROOT
+					}
+				}
+			}
+			modifier = {
+				factor = 4
+				any_war = {
+					using_cb = religious
+					defender = {
+						character = ROOT
+					}
+				}
+			}
+			modifier = {
+				factor = 4
+				any_war = {
+					OR = {
+						using_cb = crusade
+						using_cb = new_crusade
+					}
+					defender = {
+						character = ROOT
+					}
+				}
+			}
+			modifier = {
+				factor = 2
+				any_realm_province = {
+					religion = FROM
+				}
+			}
+			
+			# Historical			
+			modifier = {
+				factor = 2
+				NOT = { government = nomadic_government }  # We're already adopting civilized ways...
+				NOT = { government = tribal_government }
+			}
+			modifier = {
+				factor = 0.2
+				OR = {
+					culture = old_saxon
+					culture_group = baltic
+					culture_group = finno_ugric  # The most stubborn pagans
+				}
+				
+			}
+			modifier = {
+				factor = 0.2
+				culture_group = east_slavic # Like alcohol
+				FROM = {
+					religion_group = muslim
+				}
+			}
+			modifier = {
+				factor = 0.2
+				culture_group = north_germanic # Vikings do like their alcohol
+				FROM = {
+					religion_group = muslim
+				}
+			}
+			
+			# Pragmatism
+			modifier = {
+				factor = 3  # Powerful rulers want a modern religion
+				tier = KING
+				realm_size = 12
+			}
+			modifier = {
+				factor = 5
+				is_reformed_religion = no
+				primary_title = { has_law = tribal_organization_4 }  # Need it to reform government
+				capital_holding = {
+					OR = {
+						AND = {
+							location = {
+								port = yes
+							}
+							OR = {
+								AND = {
+									holding_type = tribal
+									has_building = tb_market_town_4
+								}
+								holding_type = city
+							}
+						}
+						AND = {
+							holding_type = tribal
+							has_building = tb_hillfort_4
+						}
+						holding_type = castle
+					}
+				}
+			}
+			modifier = {
+				factor = 0.2
+				is_reformed_religion = no
+				OR = {
+					AND = {
+						any_realm_title = {
+							count = 3 
+							is_holy_site = ROOT  # Close to reforming own religion instead
+						}
+						religion_authority = 0.4
+					}
+					religion_authority = 0.65 # Just very high authority, doing well
+				}
+			}
+			modifier = {
+				factor = 2
+				any_realm_province = {
+					any_neighbor_province = {
+						owner = {
+							top_liege = {
+								religion = FROM
+								relative_power = { who = ROOT power = 2.0 } # Powerful neighbor of that religion
+							}
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 0.2
+				NOR = {
+					religion = tengri_pagan
+					religion = aztec
+					any_realm_province = {
+						any_neighbor_province = {
+							owner = {
+								top_liege = {
+									NAND = {
+										religion_group = pagan_group
+										is_reformed_religion = no
+									}
+									any_realm_province = { TECH_RECRUITMENT = 4 } # More cocky when pagan homeland attrition effect is active against neighbors
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		
+		FROM = {
+			liege = {
+				opinion = {
+					modifier = opinion_allowed_missionary
+					who = ROOT
+				}
+			}
+			hidden_tooltip = {
+				character_event = { id = 39612 days = 1 }
+			}
+		}
+		custom_tooltip = { text = preacher_allowed }
+	}
+}
+
+# Convert?
+character_event = {
+	id = 39601
+	desc = EVTDESC39601
+	picture = GFX_evt_heretic
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA39601
+		trigger = { NOT = { trait = god } }
+		ai_chance = {
+			factor = 1
+			# Traits
+			modifier = {
+				factor = 0.3
+				trait = zealous
+			}
+			modifier = {
+				factor = 3
+				trait = cynical
+			}
+			modifier = {
+				factor = 2
+				trait = arbitrary
+			}
+			modifier = {
+				factor = 3
+				FROM = { religion_group = christian }
+				trait = sympathy_christendom
+			}
+			modifier = {
+				factor = 3
+				FROM = { religion_group = muslim }
+				trait = sympathy_islam
+			}
+			modifier = {
+				factor = 3
+				FROM = { religion_group = jewish_group }
+				trait = sympathy_judaism
+			}
+			modifier = {
+				factor = 3
+				FROM = { religion_group = zoroastrian_group }
+				trait = sympathy_zoroastrianism
+			}
+			modifier = {
+				factor = 3
+				FROM = { religion_group = indian_group }
+				trait = sympathy_indian
+			}
+			
+			# Personal
+			modifier = {
+				factor = 0.3
+				FROM = {
+					is_rival = ROOT
+				}
+			}
+			modifier = {
+				factor = 1.5
+				OR = {
+					any_spouse = {
+						religion = FROM
+						reverse_opinion = { who = ROOT value = 50 }
+					}
+					any_consort = {
+						religion = FROM
+						reverse_opinion = { who = ROOT value = 50 }
+					}
+					any_lover = {
+						religion = FROM
+						reverse_opinion = { who = ROOT value = 50 }
+					}
+					any_child = {
+						religion = FROM
+						reverse_opinion = { who = ROOT value = 50 }
+					}
+				}
+			}
+			
+			# Political
+			modifier = {
+				factor = 0.2
+				any_vassal = {
+					religion = ROOT
+					controls_religion = yes
+				}
+			}
+			modifier = {
+				factor = 0.1
+				any_war = {
+					using_cb = religious
+					attacker = {
+						character = ROOT
+					}
+				}
+			}
+			modifier = {
+				factor = 0.1
+				any_war = {
+					using_cb = pagan_holy_war
+					attacker = {
+						character = ROOT
+					}
+				}
+			}
+			modifier = {
+				factor = 0.1
+				any_war = {
+					using_cb = viking_invasion
+					attacker = {
+						character = ROOT
+					}
+				}
+			}
+			modifier = {
+				factor = 4
+				any_war = {
+					using_cb = religious
+					defender = {
+						character = ROOT
+					}
+					NOT = { war_score = 50 }
+				}
+			}
+			modifier = {
+				factor = 4
+				any_war = {
+					OR = {
+						using_cb = crusade
+						using_cb = new_crusade
+					}
+					defender = {
+						character = ROOT
+					}
+					NOT = { war_score = 50 }
+				}
+			}
+			
+			# Historical			
+			modifier = {
+				factor = 2
+				NOT = { government = nomadic_government }  # We're already adopting civilized ways...
+				NOT = { government = tribal_government }
+			}
+			modifier = {
+				factor = 0.2
+				OR = {
+					culture_group = baltic
+					culture_group = finno_ugric  # The most stubborn pagans
+				}
+				
+			}
+			modifier = {
+				factor = 0.2
+				culture_group = east_slavic # Like alcohol
+				FROM = {
+					religion_group = muslim
+				}
+			}
+			modifier = {
+				factor = 0.2
+				culture_group = north_germanic # Vikings do like their alcohol
+				FROM = {
+					religion_group = muslim
+				}
+			}
+			modifier = {
+				factor = 0.2
+				religion = bon
+			}
+			modifier = {
+				factor = 0.2
+				religion = bon_reformed
+			}
+			
+			# Pragmatism
+			modifier = {
+				factor = 3  # Powerful rulers want a modern religion
+				tier = KING
+				realm_size = 12
+			}
+			modifier = {
+				factor = 5
+				is_reformed_religion = no
+				primary_title = { has_law = tribal_organization_4 }  # Need it to reform government
+				capital_holding = {
+					OR = {
+						AND = {
+							location = {
+								port = yes
+							}
+							OR = {
+								AND = {
+									holding_type = tribal
+									has_building = tb_market_town_4
+								}
+								holding_type = city
+							}
+						}
+						AND = {
+							holding_type = tribal
+							has_building = tb_hillfort_4
+						}
+						holding_type = castle
+					}
+				}
+			}
+			modifier = {
+				factor = 0
+				is_reformed_religion = yes
+			}
+			modifier = {
+				factor = 0.3
+				is_reformed_religion = no
+				OR = {
+					AND = {
+						any_realm_title = {
+							count = 3 
+							is_holy_site = ROOT  # Close to reforming own religion instead
+						}
+						religion_authority = 0.4
+					}
+					religion_authority = 0.65 # Just very high authority, doing well
+				}
+			}
+			modifier = {
+				factor = 2
+				any_realm_province = {
+					any_neighbor_province = {
+						owner = {
+							top_liege = {
+								religion = FROM
+								relative_power = { who = ROOT power = 2.0 } # Powerful neighbor of that religion
+							}
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 0.2
+				NOR = {
+					religion = tengri_pagan
+					religion = aztec
+					any_realm_province = {
+						any_neighbor_province = {
+							owner = {
+								top_liege = {
+									NAND = {
+										religion_group = pagan_group
+										is_reformed_religion = no
+									}
+									any_realm_province = { TECH_RECRUITMENT = 4 } # More cocky when pagan homeland attrition effect is active against neighbors
+								}
+							}
+						}
+					}
+				}
+			}
+
+			# Realm stability
+			modifier = {
+				factor = 10
+				num_of_vassals = 3
+				NOT = {
+					any_vassal = {
+						NOT = { religion = FROM }
+					}
+				}
+			}
+			modifier = {
+				factor = 10
+				NOT = {
+					any_realm_province = {
+						NOT = { religion = FROM }
+					}
+				}
+			}
+			modifier = {
+				factor = 0.3
+				NOT = {
+					any_realm_province = {
+						religion = FROM
+					}
+				}
+			}
+			modifier = {
+				factor = 0.3
+				any_vassal = {
+					NOT = { opinion = { who = ROOT value = 25 } }
+					NOT = { religion = FROM }
+				}
+			}
+			modifier = {
+				factor = 0.3
+				any_war = {
+					NOT  = {
+						using_cb = religious
+						defender = {
+							character = ROOT
+						}
+					}
+					NOT  = {
+						using_cb = crusade
+						defender = {
+							character = ROOT
+						}
+					}
+					NOT = { war_score = 50 }
+				}
+			}
+			modifier = {
+				factor = 0.3
+				any_war = {
+					NOT  = {
+						using_cb = religious
+						defender = {
+							character = ROOT
+						}
+					}
+					NOT  = {
+						using_cb = crusade
+						defender = {
+							character = ROOT
+						}
+					}
+					NOT = { war_score = 10 }
+				}
+			}
+		}
+		
+		if = {
+			limit = {
+				trait = cynical
+				NOT = { trait = zealous }
+				age = 12
+			}
+			random = {
+				chance = 60
+				add_trait = sympathy_pagans
+			}
+		}
+		if = {
+			limit = {
+				NOR = {
+					trait = cynical
+					trait = zealous
+				}
+				age = 12
+			}
+			random = {
+				chance = 50
+				add_trait = sympathy_pagans
+			}
+		}		
+		
+		religion = FROM
+		prestige = -500
+		piety = 250
+		
+		if = {
+			limit = { ai = yes }
+			capital_scope = { religion = FROM }
+		}
+		
+		any_courtier = {
+			limit = { is_close_relative = ROOT }
+			religion = FROM
+		}
+		any_spouse = {
+			limit = { is_consort = no }
+			religion = FROM
+		}
+		create_random_priest = {
+			random_traits = yes
+			dynasty = none
+			culture = ROOT
+			religion = FROM
+			female = no
+			age = 32
+			attributes = {
+				learning = 20
+				diplomacy = 10
+			}
+		}
+		new_character = {
+			give_job_title = job_spiritual
+			save_event_target_as = convert_lord_spiritual
+		}
+		hidden_tooltip = {
+			any_vassal = {
+				limit = {
+					NOT = { religion = ROOT }
+					ROOT = { ai = yes } # Only for AI!
+				}
+				letter_event = { id = 39617 } # Send out letter to vassals
+			}
+			FROM = {
+				character_event = { id = 39614 days = 1 } # Notify liege of the the proselytizer who converted you
+			}
+		}
+		custom_tooltip = { text = preacher_convert }
+	}
+	option = {
+		name = EVTOPTB39601
+		ai_chance = {
+			factor = 1
+		}
+		
+		FROM = {
+			liege = {
+				opinion = {
+					modifier = opinion_banished_missionary
+					who = ROOT
+				}
+				hidden_tooltip = {
+					reverse_opinion = {
+						modifier = opinion_sent_preacher
+						who = ROOT
+					}
+				}
+			}
+			hidden_tooltip = {
+				character_event = { id = 39613 days = 1 }
+			}
+		}
+		custom_tooltip = { text = preacher_banished }
+	}
+}
+
+# Vassals receive letter
+letter_event = {
+	id = 39617
+	desc = EVTDESC_39617
+	border = GFX_event_letter_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_39617 # Convert
+		trigger = { NOT = { trait = god } }
+		ai_chance = {
+			factor = 1
+			
+			# Traits
+			modifier = {
+				factor = 0.3
+				trait = zealous
+			}
+			modifier = {
+				factor = 3
+				trait = cynical
+			}
+			modifier = {
+				factor = 2
+				trait = arbitrary
+			}
+			modifier = {
+				factor = 0
+				relative_power = { who = FROM power = 1.0 } # Very powerful vassal who is also zealous NEVER accepts
+				trait = zealous
+			}
+			
+			# Personal
+			modifier = {
+				factor = 0.3
+				FROM = {
+					is_rival = ROOT
+				}
+			}
+			modifier = {
+				factor = 1.5
+				OR = {
+					any_spouse = {
+						religion = FROM
+						reverse_opinion = { who = ROOT value = 50 }
+					}
+					any_consort = {
+						religion = FROM
+						reverse_opinion = { who = ROOT value = 50 }
+					}
+					any_lover = {
+						religion = FROM
+						reverse_opinion = { who = ROOT value = 50 }
+					}
+					any_child = {
+						religion = FROM
+						reverse_opinion = { who = ROOT value = 50 }
+					}
+				}
+			}
+			
+			# Historical			
+			modifier = {
+				factor = 2
+				NOT = { government = nomadic_government }  # We're already adopting civilized ways...
+				NOT = { government = tribal_government }
+			}
+			modifier = {
+				factor = 0.2
+				OR = {
+					culture = old_saxon
+					culture_group = baltic
+					culture_group = finno_ugric  # The most stubborn pagans
+				}
+			}
+			modifier = {
+				factor = 0.2
+				culture_group = east_slavic # Like alcohol
+				FROM = {
+					religion_group = muslim
+				}
+			}
+			modifier = {
+				factor = 0.2
+				culture_group = north_germanic # Vikings do like their alcohol
+				FROM = {
+					religion_group = muslim
+				}
+			}
+		}
+		
+		prestige = -250
+		religion = FROM
+		any_courtier = {
+			limit = { is_close_relative = ROOT }
+			religion = FROM
+		}
+		any_spouse = {
+			limit = { is_consort = no }
+			religion = FROM
+		}
+		create_random_priest = {
+			random_traits = yes
+			dynasty = none
+			culture = ROOT
+			religion = FROM
+			female = no
+			attributes = {
+				learning = 20
+				diplomacy = 10
+			}
+		}
+		new_character = {
+			give_job_title = job_spiritual
+		}
+	}
+	option = {
+		name = EVTOPTB_39617 # Don't convert
+		ai_chance = {
+			factor = 1
+		}
+		piety = 100
+	}
+	option = {
+		name = EVTOPTC_39617 # Respond with anger
+		ai_chance = {
+			factor = 0
+		}
+		prestige = 100
+		piety = 100
+		reverse_opinion = {
+			modifier = opinion_angry
+			who = ROOT
+			years = 5
+		}
+	}
+}
+
+# Courtier converts (hidden)
+character_event = {
+	id = 39610
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	trigger = { NOT = { trait = god } }
+	
+	immediate = {
+		if = {
+			limit = {
+				trait = cynical
+				NOT = { trait = zealous }
+				age = 12
+			}
+			random = {
+				chance = 60
+				add_trait = sympathy_pagans
+			}
+		}
+		if = {
+			limit = {
+				NOT = { 
+					trait = cynical 
+					trait = zealous 
+				}
+				age = 12
+			}
+			random = {
+				chance = 50
+				add_trait = sympathy_pagans
+			}
+		}
+		religion = FROM
+		liege = {
+			character_event = { id = 39602 }
+		}
+	}
+}
+
+character_event = {
+	id = MNM.3912
+	desc = EVTDESC_MNM_3912
+	picture = GFX_evt_ritual_scroll
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		society = {
+			random_society_member = {
+				limit = {
+					NOT = { character = ROOT }
+					same_realm = ROOT
+					OR = {
+						AND = {
+							society_rank > 1
+							ROOT = { society_rank == 1 }
+						}
+						AND = {
+							society_rank > 2
+							ROOT = { society_rank == 2 }
+						}
+						AND = {
+							society_rank > 3
+							ROOT = { society_rank == 3 }
+						}
+					}
+				}
+				save_event_target_as = society_art_observer
+			}
+			if = {
+				limit = {
+					NOT = { event_target:society_art_observer = { always = yes } }
+				}
+				random_society_member = {
+					limit = {
+						NOT = { character = ROOT }
+						same_realm = ROOT
+					}
+					save_event_target_as = society_art_observer
+				}
+			}
+		}
+		# Determine, painting or icon
+		if = {
+			limit = { 
+				secret_religion_group = christian
+				NOT = { secret_religion = iconoclast }
+			}
+			random = {
+				chance = 5
+				modifier = {
+					factor = 2
+					trait = zealous
+				}
+				modifier = {
+					factor = 2
+					trait = honest
+				}
+				set_character_flag = paint_icon
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTA_3912
+		if = {
+			limit = { has_character_flag = paint_icon }
+			add_artifact = religious_icon
+			hidden_tooltip = { clr_character_flag = paint_icon }
+		}
+		else = {
+			add_artifact = magnificent_painting
+		}
+		add_society_currency_minor_effect = yes
+		
+		event_target:society_art_observer = {
+			opinion = {
+				who = ROOT
+				modifier = opinion_budding_friendship
+				years = 10
+			}
+			reverse_opinion = {
+				who = ROOT
+				modifier = opinion_budding_friendship
+				years = 10
+			}
+		}
+	}
+}
+
+character_event = {
+	id = 39240
+	desc = "EVTDESC39240"	#Pope asks a ruler that they should not have heathens employed.
+	picture = GFX_evt_heretic
+	border = GFX_event_normal_frame_religion
+	
+	min_age = 16
+	only_capable = yes
+	prisoner = no
+	only_men = yes
+	only_playable = yes
+	religion_group = christian
+	war = no
+	
+	trigger = {
+		controls_religion = yes
+		OR = {
+			religion = catholic
+			religion = fraticelli
+		}
+		
+		religion_authority = 0.20
+
+		any_playable_ruler = {
+			religion = ROOT
+			rightful_religious_head = ROOT
+			NOT = { has_character_flag = pope_dislikes_heathen_employed }
+			any_courtier = {
+				prisoner = no
+				OR = {
+					religion_group = muslim
+					religion_group = pagan_group
+					religion_group = other_group
+				}
+				OR = {
+					has_job_title = job_chancellor
+					has_job_title = job_marshal
+					has_job_title = job_treasurer
+					has_job_title = job_spymaster
+					has_job_title = job_spiritual
+				} 
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 50
+		modifier = {
+			factor = 0.25
+			trait = zealous
+		}
+	}
+
+	option = {
+		name = "EVTOPTA39240"	#ask them
+		ai_chance = { factor = 100 }
+		random_playable_ruler = {
+			limit = {
+				religion = ROOT
+				rightful_religious_head = ROOT
+				NOT = { has_character_flag = pope_dislikes_heathen_employed }
+
+				any_courtier = {
+					prisoner = no
+					OR = {
+						religion_group = muslim
+						religion_group = pagan_group
+						religion_group = other_group
+					}
+					OR = {
+						has_job_title = job_chancellor
+						has_job_title = job_marshal
+						has_job_title = job_treasurer
+						has_job_title = job_spymaster
+						has_job_title = job_spiritual
+					} 
+				}
+			}
+			character_event = { id = 39241 days = 14 tooltip = EVTTOOLTIP392401 }
+			set_character_flag = pope_dislikes_heathen_employed
+		}
+	}
+
+	option = {
+		name = "EVTOPTB39240"	#ignore it.
+		ai_chance = { factor = 0 }
+		religion_authority = {
+			modifier = head_of_religion_neglect
+			years = 10
+		}
+	}
+}
+
+# Arriving for the great holy war - non-norse Pagans and Jews
+character_event = {
+	id = 8469
+	desc = "EVTDESC8300"
+	picture = "GFX_evt_battle"
+	border = GFX_event_normal_frame_war
+	
+	min_age = 16
+	capable_only = yes
+	prisoner = no
+	in_command = yes
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		OR = {
+			religion_group = pagan_group
+			religion_group = jewish_group
+			religion_group = zoroastrian_group
+			religion_group = other_group
+		}
+		NOR = {
+			religion = norse_pagan
+			religion = norse_pagan_reformed
+		}
+		has_crusade_trait_trigger = no
+		OR = {
+			AND = {
+				any_war = {
+					OR = {
+						using_cb = crusade
+						using_cb = new_crusade
+					}
+				}
+				crusade_target = {
+					is_located_in = ROOT
+				}
+			}
+			any_liege = {
+				religion = ROOT
+				any_war = {
+					OR = {
+						using_cb = crusade
+						using_cb = new_crusade
+					}
+				}
+				crusade_target = {
+					is_located_in = ROOT
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = "8469.a"
+		add_crusade_trait_effect = yes
+	}
+}
+
+# Way of Life Theology secluded in prayer event
+character_event = {
+	id = WoL.7091
+	picture = GFX_evt_religious_exultation
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	capable_only = yes
+	prisoner = no
+	
+	desc = {
+		text = EVTDESC_WoL_7091
+		trigger = {
+			NOR = {
+				trait = lunatic
+				religion_group = pagan_group
+				has_dharmic_religion_trigger = yes
+			}
+		}
+	}
+	desc = {
+		text = EVTDESC_WoL_7091_PAGAN
+		trigger = {
+			NOT = {
+				trait = lunatic				
+			}
+			religion_group = pagan_group
+		}
+	}
+	desc = {
+		text = EVTDESC_WoL_7091_INDIAN
+		trigger = {
+			NOT = {
+				trait = lunatic				
+			}
+			has_dharmic_religion_trigger = yes
+		}
+	}
+	desc = {
+		text = EVTDESC_WoL_7091_LUNATIC
+		trigger = {
+			trait = lunatic
+		}
+	}
+
+	trigger = {
+		NOT = { trait = on_pilgrimage }
+		NOT = { trait = on_hajj }
+	}
+	
+	immediate = {		
+		# Select 3 options to use
+		while = {
+			count = 3
+			random_list = {
+				# Lose Drunkard
+				6 = {
+					trigger = {
+						trait = drunkard
+						NOT = { has_character_flag = theology_option_drunkard }
+					}
+					modifier = {
+						factor = 2
+						trait = temperate
+					}
+					set_character_flag = theology_option_drunkard
+				}
+				# Lose Gluttony
+				4 = {
+					trigger = {
+						trait = gluttonous
+						# Views gluttony as a vice
+						OR = {
+							use_christian_vice_virtue = yes
+							use_aztec_vice_virtue = yes
+						}
+						NOT = { has_character_flag = theology_option_gluttonous }
+					}
+					modifier = {
+						factor = 0.25
+						trait = hedonist
+					}
+					set_character_flag = theology_option_gluttonous
+				}
+				# Lose Slothful
+				4 = {
+					trigger = {
+						trait = slothful
+						# Views sloth as a vice
+						OR = {
+							use_christian_vice_virtue = yes
+							use_draconic_vice_virtue = yes
+							use_aztec_vice_virtue = yes
+							use_zoroastrian_vice_virtue = yes
+							use_tengri_vice_virtue = yes
+							use_norse_vice_virtue = yes
+						}
+						NOT = { has_character_flag = theology_option_slothful }
+					}
+					modifier = {
+						factor = 0.5
+						trait = content
+					}
+					set_character_flag = theology_option_slothful
+				}
+				# Lose Lustful
+				4 = {
+					trigger = {
+						trait = lustful
+						# Views lust as a vice
+						OR = {
+							use_christian_vice_virtue = yes
+							use_aztec_vice_virtue = yes
+						}
+						NOT = { has_character_flag = theology_option_lustful }
+					}
+					modifier = {
+						factor = 0.25
+						trait = hedonist
+					}
+					modifier = {
+						factor = 0.25
+						OR = {
+							trait = seducer
+							trait = seductress
+						}
+					}
+					set_character_flag = theology_option_lustful
+				}
+				# Lose Greedy
+				4 = {
+					trigger = {
+						trait = greedy
+						# Views greed as a vice
+						OR = {
+							use_christian_vice_virtue = yes
+							use_zoroastrian_vice_virtue = yes
+							use_tengri_vice_virtue = yes
+							use_norse_vice_virtue = yes
+						}
+						NOT = { has_character_flag = theology_option_greedy }
+					}
+					modifier = {
+						factor = 0.75
+						OR = {
+							government = merchant_republic_government
+							government = draconic_merchant_republic_government
+						}
+					}
+					set_character_flag = theology_option_greedy
+				}
+				# Lose Wroth
+				4 = {
+					trigger = {
+						trait = wroth
+						# Views wrath as a vice
+						OR = {
+							use_christian_vice_virtue = yes
+							use_zoroastrian_vice_virtue = yes
+							use_tengri_vice_virtue = yes
+							use_norse_vice_virtue = yes
+						}
+						NOT = { has_character_flag = theology_option_wroth }
+					}
+					modifier = {
+						factor = 0.5
+						trait = impaler
+					}
+					set_character_flag = theology_option_wroth
+				}
+				# Lose Envious
+				4 = {
+					trigger  = {
+						trait = envious
+						# Views envy as a vice
+						OR = {
+							use_christian_vice_virtue = yes
+							use_zoroastrian_vice_virtue = yes
+							use_tengri_vice_virtue = yes
+							use_norse_vice_virtue = yes
+						}
+						NOT = { has_character_flag = theology_option_envious }
+					}
+					modifier = {
+						factor = 0.5
+						trait = paranoid
+					}
+					set_character_flag = theology_option_envious
+				}
+				# Lose Proud
+				4 = {
+					trigger = {
+						trait = proud
+						# Views pride as a vice
+						OR = {
+							use_christian_vice_virtue = yes
+							use_zoroastrian_vice_virtue = yes
+						}
+						NOT = { has_character_flag = theology_option_proud }
+					}
+					modifier = {
+						factor = 0.5
+						trait = ambitious
+					}
+					set_character_flag = theology_option_proud
+				}
+				# Lose Craven
+				4 = {
+					trigger = {
+						trait = craven
+						# Views cowardace as a vice
+						OR = {
+							use_draconic_vice_virtue = yes
+							use_aztec_vice_virtue = yes
+							use_norse_vice_virtue = yes
+						}
+						NOT = { has_character_flag = theology_option_craven }
+					}
+					modifier = {
+						factor = 0.75
+						trait = shy
+					}
+					set_character_flag = theology_option_craven
+				}
+				# Lose Charitable
+				4 = {
+					trigger = {
+						trait = charitable
+						# Views charity as a vice
+						OR = {
+							use_draconic_vice_virtue = yes
+							use_satanist_vice_virtue = yes
+						}
+						NOT = { has_character_flag = theology_option_charitable }
+					}
+					modifier = {
+						factor = 0.75
+						trait = kind
+					}
+					modifier = {
+						factor = 0.75
+						trait = trusting
+					}
+					set_character_flag = theology_option_charitable
+				}
+				# Lose Humble
+				4 = {
+					trigger = {
+						trait = humble
+						# Views humility as a vice
+						OR = {
+							use_draconic_vice_virtue = yes
+							use_satanist_vice_virtue = yes
+						}
+						NOT = { has_character_flag = theology_option_humble }
+					}
+					modifier = {
+						factor = 0.75
+						trait = content
+					}
+					modifier = {
+						factor = 0.75
+						trait = shy
+					}
+					set_character_flag = theology_option_humble
+				}
+				# Lose Arbitrary
+				4 = {
+					trigger = {
+						trait = arbitrary
+						# Views arbitrariness as a vice
+						OR = {
+							use_draconic_vice_virtue = yes
+							use_zoroastrian_vice_virtue = yes
+							use_tengri_vice_virtue = yes
+							use_norse_vice_virtue = yes
+						}
+						NOT = { has_character_flag = theology_option_arbitrary }
+					}
+					modifier = {
+						factor = 0.5
+						trait = lunatic
+					}
+					set_character_flag = theology_option_arbitrary
+				}
+				# Lose Paranoid
+				4 = {
+					trigger = {
+						trait = paranoid
+						# Views paranoia as a vice
+						OR = {
+							use_draconic_vice_virtue = yes
+							use_tengri_vice_virtue = yes
+						}
+						NOT = { has_character_flag = theology_option_paranoid }
+					}
+					modifier = {
+						factor = 0.5
+						trait = lunatic
+					}
+					modifier = {
+						factor = 0.5
+						trait = craven
+					}
+					set_character_flag = theology_option_paranoid
+				}
+				# Lose Kind
+				4 = {
+					trigger = {
+						trait = kind
+						# Views kindness as a vice
+						OR = {
+							use_aztec_vice_virtue = yes
+							use_satanist_vice_virtue = yes
+						}
+						NOT = { has_character_flag = theology_option_kind }
+					}
+					modifier = {
+						factor = 0.5
+						trait = charitable
+					}
+					modifier = {
+						factor = 0.5
+						trait = gregarious
+					}
+					set_character_flag = theology_option_kind
+				}
+				# Lose Cruel
+				4 = {
+					trigger = {
+						trait = cruel
+						# Views cruelty as a vice
+						OR = {
+							use_zoroastrian_vice_virtue = yes
+							use_tengri_vice_virtue = yes
+						}
+						NOT = { has_character_flag = theology_option_cruel }
+					}
+					modifier = {
+						factor = 0.25
+						trait = impaler
+					}
+					set_character_flag = theology_option_cruel
+				}
+				# Lose Chaste
+				4 = {
+					trigger = {
+						trait = chaste
+						# Views chastity as a vice
+						use_satanist_vice_virtue = yes
+						NOT = { has_character_flag = theology_option_chaste }
+					}
+					modifier = {
+						factor = 0.25
+						trait = celibate
+					}
+					set_character_flag = theology_option_chaste
+				}
+				# Lose Temperate
+				4 = {
+					trigger = {
+						trait = temperate
+						# Views temperance as a vice
+						use_satanist_vice_virtue = yes
+						NOT = { has_character_flag = theology_option_temperate }
+					}
+					set_character_flag = theology_option_temperate
+				}
+				# Lose Diligent
+				4 = {
+					trigger = {
+						trait = diligent
+						# Views diligence as a vice
+						use_satanist_vice_virtue = yes
+						NOT = { has_character_flag = theology_option_diligent }
+					}
+					modifier = {
+						factor = 0.25
+						trait = administrator
+					}
+					modifier = {
+						factor = 0.5
+						trait = gardener
+					}
+					modifier = {
+						factor = 0.5
+						trait = architect
+					}
+					set_character_flag = theology_option_diligent
+				}
+				# Lose Patient
+				4 = {
+					trigger = {
+						trait = patient
+						# Views patience as a vice
+						use_satanist_vice_virtue = yes
+						NOT = { has_character_flag = theology_option_patient }
+					}
+					modifier = {
+						factor = 0.5
+						OR = {
+							trait = gamer
+							trait = hunter
+							trait = strategist
+						}
+					}
+					set_character_flag = theology_option_patient
+				}
+				# Gain Zealous
+				3 = {
+					trigger = {
+						NOR = {
+							trait = zealous
+							trait = cynical
+							has_character_flag = theology_option_zealous
+						}
+					}
+					modifier = {
+						factor = 1.3
+						OR = {
+							trait = theologian
+							trait = mystic
+						}
+					}
+					modifier = {
+						factor = 1.3
+						trait = celibate
+					}
+					modifier = {
+						factor = 1.3
+						is_ascetic_trigger = yes
+					}
+					set_character_flag = theology_option_zealous
+				}
+				# Lose Cynical
+				3 = {
+					trigger = {
+						trait = cynical
+						NOT = { has_character_flag = theology_option_cynical }
+					}
+					modifier = {
+						factor = 1.3
+						OR = {
+							trait = theologian
+							trait = mystic
+						}
+					}
+					modifier = {
+						factor = 1.3
+						trait = celibate
+					}
+					modifier = {
+						factor = 1.3
+						is_ascetic_trigger = yes
+					}
+					set_character_flag = theology_option_cynical
+				}
+				# Lose Blinded
+				1 = {
+					trigger = {
+						trait = blinded
+						NOT = {
+							has_game_rule = {
+								name = supernatural_events
+								value = off
+							}
+						}
+						NOT = { has_character_flag = theology_option_blinded }
+					}
+					set_character_flag = theology_option_blinded
+				}
+				# Lose Pox
+				2 = {
+					trigger = {
+						trait = syphilitic
+						NOT = { has_character_flag = theology_option_syphilitic }
+					}
+					set_character_flag = theology_option_syphilitic
+				}
+				# Lose Lunatic
+				2 = {
+					trigger = {
+						trait = lunatic
+						NOT = { trait = possessed }
+						NOT = { has_character_flag = theology_option_lunatic }
+					}
+					set_character_flag = theology_option_lunatic
+				}
+				# Lose Leper
+				1 = {
+					trigger = {
+						trait = leper
+						NOT = {
+							has_game_rule = {
+								name = supernatural_events
+								value = off
+							}
+						}
+						NOT = { has_character_flag = theology_option_leper }
+					}
+					set_character_flag = theology_option_leper
+				}
+				# Gain Piety and virtue
+				2 = {
+					trigger = {
+						has_vice_trigger = no
+						NOT = { has_character_flag = theology_option_piety }
+					}
+					set_character_flag = theology_option_piety
+				}
+			}
+		}
+	}
+	
+	# Lose Drunkard
+	option = {
+		name = EVTOPT_WoL_7091_DRUNKARD
+		ai_chance = {
+			factor = 100
+		}
+		trigger = { has_character_flag = theology_option_drunkard }
+		remove_trait = drunkard
+		
+		if = {
+			limit = {
+				NOT = { trait = temperate }
+				NOT = { trait = gluttonous }
+				# Views temperance as a virtue
+				OR = {
+					use_christian_vice_virtue = yes
+					use_aztec_vice_virtue = yes
+				}
+			}
+			random = {
+				chance = 20
+				add_trait = temperate
+				lose_weight_small_effect = yes
+				weight_trait_check_effect = yes
+				character_event = { id = 38276 } # Notify Temperate
+			}
+		}
+		else_if = {
+			limit = {
+				trait = gluttonous
+				# Views gluttony as a vice
+				OR = {
+					use_christian_vice_virtue = yes
+					use_aztec_vice_virtue = yes
+				}
+			}
+			random = {
+				chance = 10
+				remove_trait = gluttonous
+				lose_weight_small_effect = yes
+				weight_trait_check_effect = yes
+			}
+		}
+		if = {
+			limit = {
+				NOT = { trait = diligent }
+				NOT = { trait = slothful }
+				# Views diligence as a virtue
+				OR = {
+					use_christian_vice_virtue = yes
+					use_draconic_vice_virtue = yes
+					use_aztec_vice_virtue = yes
+					use_zoroastrian_vice_virtue = yes
+					use_tengri_vice_virtue = yes
+					use_norse_vice_virtue = yes
+				}
+			}
+			random = {
+				chance = 10
+				add_trait = diligent
+				character_event = { id = 38256 } # Notify Diligent
+			}
+		}
+		else_if = {
+			limit = {
+				trait = slothful
+				# Views sloth as a vice
+				OR = {
+					use_christian_vice_virtue = yes
+					use_draconic_vice_virtue = yes
+					use_aztec_vice_virtue = yes
+					use_zoroastrian_vice_virtue = yes
+					use_tengri_vice_virtue = yes
+					use_norse_vice_virtue = yes
+				}
+			}
+			random = {
+				chance = 10
+				remove_trait = slothful
+				character_event = { id = 38298 } # Notify Slothful
+			}
+		}
+	}
+	
+	# Lose Gluttony
+	option = {
+		name = EVTOPT_WoL_7091_GLUTTON
+		ai_chance = {
+			factor = 100
+		}
+		trigger = { has_character_flag = theology_option_gluttonous }
+		remove_trait = gluttonous
+		
+		if = {
+			limit = {
+				# Views temperance as a virtue
+				OR = {
+					use_christian_vice_virtue = yes
+					use_aztec_vice_virtue = yes
+				}
+			}
+			random = {
+				chance = 20
+				add_trait = temperate
+				lose_weight_small_effect = yes
+				weight_trait_check_effect = yes
+				character_event = { id = 38276 } # Notify Temperate
+			}
+		}
+	}
+	
+	# Lose Slothful
+	option = {
+		name = EVTOPT_WoL_7091_SLOTHFUL
+		ai_chance = {
+			factor = 100
+		}
+		trigger = { has_character_flag = theology_option_slothful }
+		remove_trait = slothful
+		
+		if = {
+			limit = {
+				# Views diligence as a virtue
+				use_satanist_vice_virtue = no
+			}
+			random = {
+				chance = 20
+				add_trait = diligent
+				character_event = { id = 38256 } # Notify Diligent
+			}
+		}
+	}
+	
+	# Lose Lustful
+	option = {
+		name = EVTOPT_WoL_7091_LUSTFUL
+		ai_chance = {
+			factor = 100
+		}
+		trigger = { has_character_flag = theology_option_lustful }
+		remove_trait = lustful
+		
+		if = {
+			limit = {
+				# Views chastity as a virtue
+				OR = {
+					use_christian_vice_virtue = yes
+					use_aztec_vice_virtue = yes
+				}
+			}
+			random = {
+				chance = 20
+				add_trait = chaste
+				character_event = { id = 38274 } # Notify Chaste
+			}
+		}
+	}
+	
+	# Lose Greedy
+	option = {
+		name = EVTOPT_WoL_7091_GREEDY
+		ai_chance = {
+			factor = 100
+		}
+		trigger = { has_character_flag = theology_option_greedy }
+		remove_trait = greedy
+		
+		if = {
+			limit = {
+				# Views charity as a virtue
+				OR = {
+					use_christian_vice_virtue = yes
+					use_zoroastrian_vice_virtue = yes
+					use_tengri_vice_virtue = yes
+					use_norse_vice_virtue = yes
+				}
+			}
+			random = {
+				chance = 20
+				add_trait = charitable
+				character_event = { id = 38273 } # Notify Charitable
+			}
+		}
+	}
+	
+	# Lose Wroth
+	option = {
+		name = EVTOPT_WoL_7091_WROTH
+		ai_chance = {
+			factor = 100
+		}
+		trigger = { has_character_flag = theology_option_wroth }
+		remove_trait = wroth
+		
+		if = {
+			limit = {
+				trait = cruel
+				# Does not view cruelty as a virtue
+				# That's everyone
+			}
+			random = {
+				chance = 20
+				remove_trait = cruel
+			}
+		}
+		if = {
+			limit = {
+				# Views patience as a virtue
+				OR = {
+					use_christian_vice_virtue = yes
+					use_draconic_vice_virtue = yes
+					use_zoroastrian_vice_virtue = yes
+					use_tengri_vice_virtue = yes
+				}
+			}
+			random = {
+				chance = 20
+				add_trait = patient
+				character_event = { id = 38264 } # Notify Patient
+			}
+		}
+	}
+	
+	# Lose Envious
+	option = {
+		name = EVTOPT_WoL_7091_ENVIOUS
+		ai_chance = {
+			factor = 100
+		}
+		trigger = { has_character_flag = theology_option_envious }
+		remove_trait = envious
+		
+		if = {
+			limit = {
+				trait = paranoid
+			}
+			random = {
+				chance = 20
+				remove_trait = paranoid
+				character_event = { id = 38305 } # Notify Paranoid
+			}
+		}
+		else_if = {
+			limit = {
+				NOR = {
+					trait = trusting
+					trait = paranoid
+				}
+			}
+			random = {
+				chance = 20
+				add_trait = trusting
+				character_event = { id = 38250 } # Notify Trusting
+			}
+		}
+		if = {
+			limit = {
+				# Views kindness as a virtue
+				OR = {
+					use_christian_vice_virtue = yes
+					use_zoroastrian_vice_virtue = yes
+					use_tengri_vice_virtue = yes
+					use_norse_vice_virtue = yes
+				}
+			}
+			random = {
+				chance = 20
+				add_trait = kind
+				character_event = { id = 38268 } # Notify kind
+			}
+		}
+	}
+	
+	# Lose Proud
+	option = {
+		name = EVTOPT_WoL_7091_PROUD
+		ai_chance = {
+			factor = 100
+		}
+		trigger = { has_character_flag = theology_option_proud }
+		remove_trait = proud
+		
+		if = {
+			limit = {
+				trait = ambitious
+				# Does not view ambitions as a virtue
+				use_draconic_vice_virtue = no
+			}
+			random = {
+				chance = 5
+				remove_trait = ambitious
+			}
+		}
+		else_if = {
+			limit = {
+				NOR = {
+					trait = ambitious
+					trait = content
+				}
+			}
+			random = {
+				chance = 20
+				add_trait = content
+				character_event = { id = 38279 } # Notify Content
+			}
+		}
+		if = {
+			limit = {
+				# Views humility as a virtue
+				OR = {
+					use_christian_vice_virtue = yes
+					use_zoroastrian_vice_virtue = yes
+				}
+			}
+			random = {
+				chance = 20
+				add_trait = humble
+				character_event = { id = 38260 } # Notify Humble
+			}
+		}
+	}
+	
+	# Lose Craven
+	option = {
+		name = EVTOPT_WoL_7091_CRAVEN
+		ai_chance = {
+			factor = 100
+		}
+		trigger = { has_character_flag = theology_option_craven }
+		remove_trait = craven
+		
+		if = {
+			limit = {
+				trait = shy
+				# Does not view shyness as a virtue
+				# That's everyone
+			}
+			random = {
+				chance = 20
+				remove_trait = shy
+			}
+		}
+		if = {
+			limit = {
+				# Views bravery as a virtue
+				OR = {
+					use_draconic_vice_virtue = yes
+					use_aztec_vice_virtue = yes
+					use_norse_vice_virtue = yes
+				}
+			}
+			random = {
+				chance = 20
+				add_trait = brave
+				character_event = { id = 38270 } # Notify Brave
+			}
+		}
+	}
+	
+	# Lose Charitable
+	option = {
+		name = EVTOPT_WoL_7091_CHARITABLE
+		ai_chance = {
+			factor = 100
+		}
+		trigger = { has_character_flag = theology_option_charitable }
+		remove_trait = charitable
+		
+		if = {
+			limit = {
+				# Views greed as a virtue
+				OR = {
+					use_draconic_vice_virtue = yes
+					use_satanist_vice_virtue = yes
+				}
+			}
+			random = {
+				chance = 20
+				add_trait = greedy
+				character_event = { id = 38252 } # Notify Greedy
+			}
+		}
+	}
+	
+	# Lose Humble
+	option = {
+		name = EVTOPT_WoL_7091_HUMBLE
+		ai_chance = {
+			factor = 100
+		}
+		trigger = { has_character_flag = theology_option_humble }
+		remove_trait = humble
+		
+		if = {
+			limit = {
+				# Views pride as a virtue
+				OR = {
+					use_draconic_vice_virtue = yes
+					use_satanist_vice_virtue = yes
+				}
+			}
+			random = {
+				chance = 20
+				add_trait = proud
+				character_event = { id = 38260 } # Notify Proud
+			}
+		}
+	}
+	
+	# Lose Arbitrary
+	option = {
+		name = EVTOPT_WoL_7091_ARBITRARY
+		ai_chance = {
+			factor = 100
+		}
+		trigger = { has_character_flag = theology_option_arbitrary }
+		remove_trait = arbitrary
+		
+		if = {
+			limit = {
+				# Views justice as a virtue
+				OR = {
+					use_draconic_vice_virtue = yes
+					use_aztec_vice_virtue = yes
+					use_zoroastrian_vice_virtue = yes
+				}
+			}
+			random = {
+				chance = 20
+				add_trait = just
+				character_event = { id = 38267 } # Notify Proud
+			}
+		}
+	}
+	
+	# Lose Paranoid
+	option = {
+		name = EVTOPT_WoL_7091_PARANOID
+		ai_chance = {
+			factor = 100
+		}
+		trigger = { has_character_flag = theology_option_paranoid }
+		remove_trait = paranoid
+		
+		if = {
+			limit = {
+				trait = craven
+			}
+			random = {
+				chance = 20
+				remove_trait = craven
+				character_event = { id = 38296 } # Notify Craven
+			}
+		}
+		if = {
+			limit = {
+				# Views trust as a virtue
+				use_tengri_vice_virtue = yes
+			}
+			random = {
+				chance = 20
+				add_trait = trusting
+				character_event = { id = 38250 } # Notify Trusting
+			}
+		}
+	}
+	
+	# Lose Kind
+	option = {
+		name = EVTOPT_WoL_7091_KIND
+		ai_chance = {
+			factor = 100
+		}
+		trigger = { has_character_flag = theology_option_kind }
+		remove_trait = kind
+		
+		if = {
+			limit = {
+				# Does not view cruelty as a vice
+				OR = {
+					use_christian_vice_virtue = yes
+					use_draconic_vice_virtue = yes
+					use_aztec_vice_virtue = yes
+					use_norse_vice_virtue = yes
+					use_satanist_vice_virtue = yes
+				}
+			}
+			random = {
+				chance = 20
+				add_trait = cruel
+				character_event = { id = 38259 } # Notify Cruel
+			}
+		}
+		if = {
+			limit = {
+				# Views ency as a virtue
+				use_satanist_vice_virtue = yes
+			}
+			random = {
+				chance = 20
+				add_trait = envious
+				character_event = { id = 38271 } # Notify Envious
+			}
+		}
+	}
+	
+	# Lose Cruel
+	option = {
+		name = EVTOPT_WoL_7091_CRUEL
+		ai_chance = {
+			factor = 100
+		}
+		trigger = { has_character_flag = theology_option_cruel }
+		remove_trait = cruel
+		
+		if = {
+			limit = {
+				# Views kindness as a virtue
+				OR = {
+					use_christian_vice_virtue = yes
+					use_zoroastrian_vice_virtue = yes
+					use_tengri_vice_virtue = yes
+					use_norse_vice_virtue = yes
+				}
+			}
+			random = {
+				chance = 20
+				add_trait = kind
+				character_event = { id = 38268 } # Notify Kind
+			}
+		}
+	}
+	
+	# Lose Chaste
+	option = {
+		name = EVTOPT_WoL_7091_CHASTE
+		ai_chance = {
+			factor = 100
+		}
+		trigger = { has_character_flag = theology_option_chaste }
+		remove_trait = chaste
+		
+		if = {
+			limit = {
+				trait = celibate
+			}
+			remove_trait = celibate
+		}
+		if = {
+			limit = {
+				# Views lust as a virtue
+				use_satanist_vice_virtue = yes
+			}
+			random = {
+				chance = 20
+				add_trait = trusting
+				character_event = { id = 38250 } # Notify Trusting
+			}
+		}
+	}
+	
+	# Lose Temperate
+	option = {
+		name = EVTOPT_WoL_7091_TEMPERATE
+		ai_chance = {
+			factor = 100
+		}
+		trigger = { has_character_flag = theology_option_temperate }
+		remove_trait = temperate
+		gain_weight_small_effect = yes
+		weight_trait_check_effect = yes
+		
+		if = {
+			limit = {
+				# Views gluttony as a virtue
+				use_satanist_vice_virtue = yes
+			}
+			random = {
+				chance = 20
+				add_trait = gluttonous
+				gain_weight_small_effect = yes
+				weight_trait_check_effect = yes
+				character_event = { id = 38277 } # Notify Gluttonous
+			}
+		}
+	}
+	
+	# Lose Diligent
+	option = {
+		name = EVTOPT_WoL_7091_DILIGENT
+		ai_chance = {
+			factor = 100
+		}
+		trigger = { has_character_flag = theology_option_diligent }
+		remove_trait = diligent
+		
+		if = {
+			limit = {
+				# Views sloth as a virtue
+				use_satanist_vice_virtue = yes
+			}
+			random = {
+				chance = 20
+				add_trait = slothful
+				character_event = { id = 38251 } # Notify Sloth
+			}
+		}
+		if = {
+			limit = {
+				trait = stressed
+			}
+			random = {
+				chance = 20
+				remove_trait = stressed
+				character_event = { id = 38313 } # Notify Stressed
+			}
+		}
+		if = {
+			limit = {
+				trait = depressed
+			}
+			random = {
+				chance = 20
+				remove_trait = depressed
+				character_event = { id = 38314 } # Notify Depressed
+			}
+		}
+		if = {
+			limit = {
+				trait = ambitious
+			}
+			random = {
+				chance = 10
+				remove_trait = ambitious
+			}
+		}
+		else_if = {
+			limit = {
+				NOT = { trait = content }
+			}
+			random = {
+				chance = 20
+				add_trait = content
+				character_event = { id = 38279 } # Notify Content
+			}
+		}
+	}
+	
+	# Lose Patient
+	option = {
+		name = EVTOPT_WoL_7091_PATIENT
+		ai_chance = {
+			factor = 100
+		}
+		trigger = { has_character_flag = theology_option_patient }
+		remove_trait = patient
+		
+		if = {
+			limit = {
+				# Views wrath as a virtue
+				use_satanist_vice_virtue = yes
+			}
+			random = {
+				chance = 20
+				add_trait = wroth
+				character_event = { id = 38254 } # Notify Wroth
+			}
+		}
+	}
+	
+	# Gain Zealous
+	option = {
+		name = EVTOPT_WoL_7091_ZEALOUS
+		ai_chance = {
+			factor = 100
+		}
+		trigger = { has_character_flag = theology_option_zealous }
+		add_trait = zealous
+	}
+	
+	# Lose Cynical
+	option = {
+		name = EVTOPT_WoL_7091_ZEALOUS
+		ai_chance = {
+			factor = 100
+		}
+		trigger = { has_character_flag = theology_option_cynical }
+		remove_trait = cynical
+	}
+	
+	# Lose Blinded
+	option = {
+		name = EVTOPT_WoL_7091_BLIND
+		trigger = { has_character_flag = theology_option_blinded }
+		ai_chance = {
+			factor = 1000
+		}
+		remove_trait = blinded
+	}
+	
+	# Lose Pox
+	option = {
+		name = EVTOPT_WoL_7091_POX
+		trigger = { has_character_flag = theology_option_syphilitic }
+		ai_chance = {
+			factor = 1000
+		}
+		remove_trait = syphilitic
+	}
+	
+	# Lose Lunatic
+	option = {
+		name = EVTOPT_WoL_7091_LUNATIC
+		trigger = { has_character_flag = theology_option_lunatic }
+		ai_chance = {
+			factor = 100
+		}
+		
+		random = {
+			chance = 50
+			remove_trait = lunatic
+			character_event = { id = 38309 } # Notify Lunatic lost
+		}
+		
+		random = {
+			chance = 50
+			add_trait = possessed
+			character_event = { id = 38315 } # Notify Possessed
+		}
+	}
+	
+	# Lose Leper
+	option = {
+		name = EVTOPT_WoL_7091_LEPER
+		trigger = { has_character_flag = theology_option_leper }
+		ai_chance = {
+			factor = 1000
+		}
+		remove_trait = leper
+	}
+	
+	# Gain Piety and Virtue
+	option = {
+		name = EVTOPT_WoL_7091
+		ai_chance = {
+			factor = 1
+		}
+		piety = 100
+		if = {
+			limit = { use_christian_vice_virtue = yes }
+			random_list = {
+				1 = {
+					add_trait = chaste
+					character_event = { id = 38274 } # Notify Chaste
+				}
+				1 = {
+					add_trait = temperate
+					lose_weight_small_effect = yes
+					weight_trait_check_effect = yes
+					character_event = { id = 38276 } # Notify Temperate
+				}
+				1 = {
+					add_trait = charitable
+					character_event = { id = 38273 } # Notify Charitable
+				}
+				1 = {
+					add_trait = diligent
+					character_event = { id = 38256 } # Notify Diligent
+				}
+				1 = {
+					add_trait = patient
+					character_event = { id = 38264 } # Notify Patient
+				}
+				1 = {
+					add_trait = kind
+					character_event = { id = 38268 } # Notify Kind
+				}
+				1 = {
+					add_trait = humble
+					character_event = { id = 38260 } # Notify Humble
+				}
+			}
+		}
+		else_if = {
+			limit = { use_draconic_vice_virtue = yes }
+			random_list = {
+				1 = {
+					add_trait = diligent
+					character_event = { id = 38256 } # Notify Diligent
+				}
+				1 = {
+					add_trait = brave
+					character_event = { id = 38270 } # Notify Brave
+				}
+				1 = {
+					add_trait = greedy
+					character_event = { id = 38252 } # Notify Greedy
+				}
+				1 = {
+					add_trait = proud
+					character_event = { id = 38261 } # Notify Proud
+				}
+				1 = {
+					add_trait = just
+					character_event = { id = 38267 } # Notify Just
+				}
+				1 = {
+					add_trait = patient
+					character_event = { id = 38264 } # Notify Patient
+				}
+				1 = {
+					add_trait = ambitious
+					character_event = { id = 38278 } # Notify Ambitious
+				}
+			}
+		}
+		else_if = {
+			limit = { use_aztec_vice_virtue = yes }
+			random_list = {
+				1 = {
+					add_trait = brave
+					character_event = { id = 38270 } # Notify Brave
+				}
+				1 = {
+					add_trait = diligent
+					character_event = { id = 38256 } # Notify Diligent
+				}
+				1 = {
+					add_trait = temperate
+					lose_weight_small_effect = yes
+					weight_trait_check_effect = yes
+					character_event = { id = 38276 } # Notify Temperate
+				}
+				1 = {
+					add_trait = chaste
+					character_event = { id = 38274 } # Notify Chaste
+				}
+				1 = {
+					add_trait = just
+					character_event = { id = 38267 } # Notify Just
+				}
+			}
+		}
+		else_if = {
+			limit = { use_zoroastrian_vice_virtue = yes }
+			random_list = {
+				1 = {
+					add_trait = just
+					character_event = { id = 38267 } # Notify Just
+				}
+				1 = {
+					add_trait = charitable
+					character_event = { id = 38273 } # Notify Charitable
+				}
+				1 = {
+					add_trait = diligent
+					character_event = { id = 38256 } # Notify Diligent
+				}
+				1 = {
+					add_trait = patient
+					character_event = { id = 38264 } # Notify Patient
+				}
+				1 = {
+					add_trait = kind
+					character_event = { id = 38268 } # Notify Kind
+				}
+				1 = {
+					add_trait = humble
+					character_event = { id = 38260 } # Notify Humble
+				}
+			}
+		}
+		else_if = {
+			limit = { use_tengri_vice_virtue = yes }
+			random_list = {
+				1 = {
+					add_trait = just
+					character_event = { id = 38267 } # Notify Just
+				}
+				1 = {
+					add_trait = trusting
+					character_event = { id = 38250 } # Notify Trusting
+				}
+				1 = {
+					add_trait = charitable
+					character_event = { id = 38273 } # Notify Charitable
+				}
+				1 = {
+					add_trait = diligent
+					character_event = { id = 38256 } # Notify Diligent
+				}
+				1 = {
+					add_trait = patient
+					character_event = { id = 38264 } # Notify Patient
+				}
+				1 = {
+					add_trait = kind
+					character_event = { id = 38268 } # Notify Kind
+				}
+			}
+		}
+		else_if = {
+			limit = { use_norse_vice_virtue = yes }
+			random_list = {
+				1 = {
+					add_trait = brave
+					character_event = { id = 38270 } # Notify Brave
+				}
+				1 = {
+					add_trait = honest
+					character_event = { id = 38262 } # Notify Honest
+				}
+				1 = {
+					add_trait = diligent
+					character_event = { id = 38256 } # Notify Diligent
+				}
+				1 = {
+					add_trait = just
+					character_event = { id = 38267 } # Notify Just
+				}
+				1 = {
+					add_trait = charitable
+					character_event = { id = 38273 } # Notify Charitable
+				}
+				1 = {
+					add_trait = kind
+					character_event = { id = 38268 } # Notify Kind
+				}
+			}
+		}
+		else_if = {
+			limit = { use_satanist_vice_virtue = yes }
+			random_list = {
+				1 = {
+					add_trait = lustful
+					character_event = { id = 38272 } # Notify Lustful
+				}
+				1 = {
+					add_trait = gluttonous
+					gain_weight_small_effect = yes
+					weight_trait_check_effect = yes
+					character_event = { id = 38277 } # Notify Gluttonous
+				}
+				1 = {
+					add_trait = greedy
+					character_event = { id = 38252 } # Notify Greedy
+				}
+				1 = {
+					add_trait = slothful
+					character_event = { id = 38251 } # Notify Slothful
+				}
+				1 = {
+					add_trait = wroth
+					character_event = { id = 38254 } # Notify Wroth
+				}
+				1 = {
+					add_trait = envious
+					character_event = { id = 38271 } # Notify Envious
+				}
+				1 = {
+					add_trait = proud
+					character_event = { id = 38261 } # Notify Proud
+				}
+			}
+		}
+	}
+	
+	after = {
+		hidden_tooltip = {
+			clr_character_flag = theology_option_drunkard
+			clr_character_flag = theology_option_gluttonous
+			clr_character_flag = theology_option_slothful
+			clr_character_flag = theology_option_lustful
+			clr_character_flag = theology_option_greedy
+			clr_character_flag = theology_option_wroth
+			clr_character_flag = theology_option_envious
+			clr_character_flag = theology_option_proud
+			clr_character_flag = theology_option_craven
+			clr_character_flag = theology_option_charitable
+			clr_character_flag = theology_option_humble
+			clr_character_flag = theology_option_arbitrary
+			clr_character_flag = theology_option_paranoid
+			clr_character_flag = theology_option_kind
+			clr_character_flag = theology_option_cruel
+			clr_character_flag = theology_option_chaste
+			clr_character_flag = theology_option_temperate
+			clr_character_flag = theology_option_diligent
+			clr_character_flag = theology_option_patient
+			clr_character_flag = theology_option_zealous
+			clr_character_flag = theology_option_cynical
+			clr_character_flag = theology_option_blinded
+			clr_character_flag = theology_option_syphilitic
+			clr_character_flag = theology_option_lunatic
+			clr_character_flag = theology_option_leper
+			clr_character_flag = theology_option_piety
+		}
+	}
+}
+
+#Bad Beatification
+character_event = {
+    id = HF.40050
+    is_triggered_only = yes
+    hide_window = yes
+    has_dlc = "Holy Fury"
+    min_age = 16
+    religion = catholic
+
+    trigger = {
+    	OR = {
+   	    	trait = drunkard
+   	    	trait = hedonist
+			death_reason = death_dragged_to_hell
+			trait = bad_priest_christian
+    	}
+    	year = 900
+    	NOT = {
+    		has_global_flag = only_papal_saints
+    	}
+        rightful_religious_head_scope = {
+            has_landed_title = k_papal_state
+        }
+    }
+
+	weight_multiplier = {
+		days = 1
+		#After the year 950
+		modifier = {
+			factor = 2
+			year = 950
+			NOT = {
+				year = 1000
+			}
+		}
+		#After the year 1000
+		modifier = {
+			factor = 3
+			year = 1000
+			NOT = {
+				year = 1050
+			}
+		}
+		#After the year 1050
+		modifier = {
+			factor = 4
+			year = 1050
+			NOT = {
+				year = 1110
+			}
+		}
+		#After the year 1110
+		modifier = {
+			factor = 5
+			year = 1100
+			NOT = {
+				year = 1150
+			}
+		}
+		#After the year 1150
+		modifier = {
+			factor = 6
+			year = 1150
+			NOT = {
+				year = 1200
+			}
+		}
+		#After the year 1200
+		modifier = {
+			factor = 7
+			year = 1200
+			NOT = {
+				year = 1250
+			}
+		}
+		#After the year 1250
+		modifier = {
+			factor = 8
+			year = 1250
+		}
+	}
+
+    immediate = {
+		save_event_target_as = saint_person
+		random_realm_character = {
+			limit = {
+				is_theocracy = yes
+				religion = ROOT
+			}
+			save_event_target_as = bishopric_holder 
+			primary_title = {
+				save_event_target_as = bishopric_title
+			}
+            random_realm_province = {
+                province_event = { id = HF.40051 }
+            }
+		}
+    }
+}
+#A character is eligible for Beatification
+character_event = {
+	id = HF.40000
+	hide_window = yes
+	is_triggered_only = yes
+	min_age = 16
+    only_playable = yes
+	religion_group = christian
+	has_dlc = "Holy Fury"
+
+	trigger = {
+		death_in_china_trigger = no
+		death_no_trace_trigger = no
+		NOR = {
+			death_reason = death_banished
+			death_reason = death_dragged_to_hell
+			trait = excommunicated
+			trait = drunkard
+			trait = hedonist
+			trait = cannibal_trait
+			#controls_religion = yes
+            religion = waldensian
+            is_any_kinslayer_trigger = yes
+            has_character_modifier = voice_of_satan
+            has_character_modifier = known_satanist
+            has_character_modifier = suspected_demon_spawn
+            has_character_modifier = suspected_witch
+            has_character_modifier = known_witch
+            has_character_modifier = crazy_cannibal
+            has_character_modifier = demon_child_non_pagan
+            has_character_modifier = corrupting_magic_minor
+            has_character_modifier = corrupting_magic_major
+            
+            any_claim = { title = k_papal_state } # Antipopes
+            any_claim = { title = d_fraticelli } # Antipopes
+		}
+		OR = {
+			AND = {
+				tier = Emperor
+				piety >= 1250
+			}
+
+			AND = {
+				tier = King
+				piety >= 1000
+			}
+			AND = {
+				tier = Duke
+				piety >= 750
+			}
+			AND = {
+				tier = Count
+				piety >= 500
+			}
+			has_character_modifier = true_christian_knight
+            has_any_opinion_modifier = opinion_baptism_sponsor_target
+		}
+		has_vice_trigger = no
+		is_benevolent_trigger = yes
+		is_pious_trigger = yes
+		has_virtue_trigger = yes
+		is_adult = yes
+	}
+
+	immediate = {
+        #Beatification
+        save_event_target_as = saint_person
+        event_target:saint_person = {
+        	capital_scope = {
+        		save_event_target_as = saint_capital
+        	}
+        }
+        random_demesne_province = {
+        	limit = {
+        		NOR = {
+        			has_province_modifier = tomb_of_a_saint
+        			has_province_modifier = pillaged_tomb_of_a_saint
+        		}
+        	}
+        	save_event_target_as = random_saint_demesne_province
+        }
+        random_realm_province = {
+        	limit = {
+        		NOR = {
+        			has_province_modifier = tomb_of_a_saint
+        			has_province_modifier = pillaged_tomb_of_a_saint
+        		}
+        	}
+        	save_event_target_as = random_saint_realm_province
+        }
+        if = {
+            limit = {
+                religion_group = christian
+            }
+            random_realm_character = {
+                limit = {
+                    is_theocracy = yes
+                    religion = event_target:saint_person
+                    NOT = {
+                        trait = bad_priest_christian
+                    }
+                    is_landed = yes
+                }
+                random = {
+                    chance = 100
+                    modifier = {
+                        factor = 0.25
+                        event_target:saint_person = {
+                            any_owned_bloodline = {
+                                has_bloodline_flag = saintly_bloodline
+                            }
+                        }
+                    }
+                    modifier = {
+                        factor = 0.8
+                        event_target:saint_person = {
+                            trait = cynical
+                        }
+                    }
+                    random_realm_province = {
+                        province_event = { id = HF.40001 }
+                    }
+                    event_target:saint_person = {
+                        set_character_flag = beatified
+                    }
+                }
+            }
+        }
+
+        if = {
+            limit = {
+                event_target:saint_person = {
+                    ai = no
+                }
+            }
+            event_target:saint_person = {
+                add_trait = i_used_to_be_a_player
+            }
+        }
+        #Potential for sainthood
+        deciding_upon_saint_effect = yes
+	}
+}
+
+# Check if a character is eligible for Worshipping 
+character_event = {
+	id = HF.40100
+	hide_window = yes
+	is_triggered_only = yes
+	has_dlc = "Holy Fury"
+	only_playable = yes
+	min_age = 16
+
+	trigger = {
+		death_in_china_trigger = no
+		death_no_trace_trigger = no
+		NOR = {
+			death_reason = death_banished
+			death_reason = death_dragged_to_hell
+		}
+		prestige = 1000 
+		is_adult = yes
+		has_religion_feature = religion_beatification
+        OR = {
+            has_religion_feature = religion_temporal_head
+            has_religion_feature = religion_theocratic_head
+            has_religion_feature = religion_autocephaly
+        }
+	}
+
+	immediate = {
+		save_event_target_as = saint_person
+
+		check_if_ancestor_worship_worthy_effect = yes
+	}
+}

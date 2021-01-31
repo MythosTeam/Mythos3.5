@@ -1,0 +1,53 @@
+spriteTypes =
+{
+	spriteType = {
+		name = "GFX_evt_squaring_the_circle"
+		texturefile= "gfx\\event_pictures\\squareing_the_circle.png"
+		allwaystransparent = yes
+	}
+	spriteType = {
+		name = "GFX_evt_dragon_castle"
+		texturefile = "gfx\\event_pictures\\dragon_castle.dds"
+		allwaystransparent = yes
+	}
+	spriteType = {
+		name = "GFX_evt_dragon_horde"
+		texturefile = "gfx\\event_pictures\\dragon_horde.dds"
+		allwaystransparent = yes
+	}
+	spriteType = {
+		name = "GFX_evt_dragon_face"
+		texturefile = "gfx\\event_pictures\\dragon_face.dds"
+		allwaystransparent = yes
+	}
+	spriteType = {
+		name = "GFX_evt_dragon_spire"
+		texturefile = "gfx\\event_pictures\\dragon_spire.dds"
+		allwaystransparent = yes
+	}
+	spriteType = {
+		name = "GFX_evt_dragon_immolation"
+		texturefile = "gfx\\event_pictures\\dragon_immolation.dds"
+		allwaystransparent = yes
+	}
+	spriteType = {
+		name = "GFX_evt_werewolf_fight"
+		texturefile = "gfx\\event_pictures\\werewolf_fight.dds"
+		allwaystransparent = yes
+	}
+	spriteType = {
+		name = "GFX_evt_werewolf_shadowed"
+		texturefile = "gfx\\event_pictures\\werewolf_shadowed.dds"
+		allwaystransparent = yes
+	}
+	spriteType = {
+		name = "GFX_evt_werewolf_moon"
+		texturefile = "gfx\\event_pictures\\werewolf_moon.dds"
+		allwaystransparent = yes
+	}
+	spriteType = {
+		name = "GFX_evt_dragon_meeting"
+		texturefile = "gfx\\event_pictures\\dragon_meeting.dds"
+		allwaystransparent = yes
+	}
+}

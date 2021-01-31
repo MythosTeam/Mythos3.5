@@ -1,0 +1,263 @@
+spriteTypes = {
+
+	spriteType = {
+		name = "GFX_brew_love_potion"
+		texturefile = "gfx\\interface\\decision_icon_brew_potion.dds"
+	}
+	spriteType = {
+		name = "GFX_attempt_alchemy"
+		texturefile = "gfx\\interface\\decision_icon_alchemy.dds"
+	}
+	spriteType = {
+		name = "GFX_summon_ethereal_army"
+		texturefile = "gfx\\interface\\decision_icon_summon_etherial_army.tga"
+	}
+	spriteType = {
+		name = "GFX_cast_aura"
+		texturefile = "gfx\\interface\\decision_icon_cast_aura.tga"
+	}
+	spriteType = {
+		name = "GFX_convert_populace"
+		texturefile = "gfx\\interface\\decision_icon_commission_runestone.dds"
+	}
+	spriteType = {
+		name = "GFX_change_magic_focus"
+		texturefile = "gfx\\interface\\decision_icon_issue_declaration_of_repentance.dds"
+	}
+	spriteType = {
+		name = "GFX_take_panacea"
+		textureFile = "gfx\\interface\\decision_icon_employ_court_physician.dds"
+	}
+	spriteType = {
+		name = "GFX_destroy_tower"
+		textureFile = "gfx\\interface\\decision_icon_destroy_tower.dds"
+	}
+	spriteType = {
+ 		name = "GFX_feast_mythos"
+		texturefile = "gfx\\interface\\decision_icon_feast.dds"
+	}
+	spriteType = {
+		name = "GFX_convert_draconic_feudalism"
+		texturefile = "gfx\\interface\\decision_icon_adopt_draconic_feudalism.dds"
+	}
+	spriteType = {
+		name = "GFX_convert_draconic_feudalism_vassal"
+		texturefile = "gfx\\interface\\decision_icon_adopt_draconic_feudalism.dds"
+	}
+	spriteType = {
+		name = "GFX_convert_draconic_merchant_republic"
+		texturefile = "gfx\\interface\\decision_icon_dragon_horde.dds"
+	}
+	spriteType = {
+		name = "GFX_reignite_flame_sjaelland"
+		texturefile = "gfx\\interface\\decision_icon_relight_flame.dds"
+	}
+	spriteType = {
+		name = "GFX_reignite_flame_sjaelland_no_holding"
+		texturefile = "gfx\\interface\\decision_icon_relight_flame.dds"
+	}
+	spriteType = {
+		name = "GFX_reignite_flame_kent"
+		texturefile = "gfx\\interface\\decision_icon_relight_flame.dds"
+	}
+	spriteType = {
+		name = "GFX_reignite_flame_kent_no_holding"
+		texturefile = "gfx\\interface\\decision_icon_relight_flame.dds"
+	}
+	spriteType = {
+		name = "GFX_reignite_flame_plock"
+		texturefile = "gfx\\interface\\decision_icon_relight_flame.dds"
+	}
+	spriteType = {
+		name = "GFX_reignite_flame_plock_no_holding"
+		texturefile = "gfx\\interface\\decision_icon_relight_flame.dds"
+	}
+	spriteType = {
+		name = "GFX_reignite_flame_galloway"
+		texturefile = "gfx\\interface\\decision_icon_relight_flame.dds"
+	}
+	spriteType = {
+		name = "GFX_reignite_flame_galloway_no_holding"
+		texturefile = "gfx\\interface\\decision_icon_relight_flame.dds"
+	}
+	spriteType = {
+		name = "GFX_reignite_flame_uppland"
+		texturefile = "gfx\\interface\\decision_icon_relight_flame.dds"
+	}
+	spriteType = {
+		name = "GFX_reignite_flame_uppland_no_holding"
+		texturefile = "gfx\\interface\\decision_icon_relight_flame.dds"
+	}
+	spriteType = {
+		name = "GFX_dragon_pilgrimage"
+		texturefile = "gfx\\interface\\decision_icon_dragon_pilgrimage.dds"
+	}
+	spriteType = {
+		name = "GFX_werewolf_convert_culture"
+		texturefile = "gfx\\interface\\decision_icon_werewolf.dds"
+	}
+	spriteType = {
+		name = "GFX_werewolf_reveal_self"
+		texturefile = "gfx\\interface\\decision_icon_werewolf_moon.dds"
+	}
+	spriteType = {
+		name = "GFX_werewolf_challenge"
+		texturefile = "gfx\\interface\\decision_icon_werewolf_2.dds"
+	}
+	spriteType = {
+		name = "GFX_consult_on_purity"
+		texturefile = "gfx\\interface\\decision_icon_consult_purity.dds"
+	}
+	spriteType = {
+		name = "GFX_faction_draconic_heir"
+		texturefile = "gfx\\interface\\decision_icon_faction_draconic_heir.dds"
+	}
+	spriteType = {
+		name = "GFX_abdicate_sapphire_flame"
+		texturefile = "gfx\\interface\\decision_icon_sapphire_flame.dds"
+	}
+	spriteType = {
+		name = "GFX_make_sapphire_flame_sjaelland"
+		texturefile = "gfx\\interface\\decision_icon_sapphire_flame.dds"
+	}
+	spriteType = {
+		name = "GFX_make_sapphire_flame_plock"
+		texturefile = "gfx\\interface\\decision_icon_sapphire_flame.dds"
+	}
+	spriteType = {
+		name = "GFX_make_sapphire_flame_galloway"
+		texturefile = "gfx\\interface\\decision_icon_sapphire_flame.dds"
+	}
+	spriteType = {
+		name = "GFX_make_sapphire_flame_uppland"
+		texturefile = "gfx\\interface\\decision_icon_sapphire_flame.dds"
+	}
+	spriteType = {
+		name = "GFX_make_sapphire_flame_kent"
+		texturefile = "gfx\\interface\\decision_icon_sapphire_flame.dds"
+	}
+	spriteType = {
+		name = "GFX_destroy_flame_sjaelland"
+		texturefile = "gfx\\interface\\decision_icon_destroy_flame.dds"
+	}
+	spriteType = {
+		name = "GFX_destroy_flame_plock"
+		texturefile = "gfx\\interface\\decision_icon_destroy_flame.dds"
+	}
+	spriteType = {
+		name = "GFX_destroy_flame_galloway"
+		texturefile = "gfx\\interface\\decision_icon_destroy_flame.dds"
+	}
+	spriteType = {
+		name = "GFX_destroy_flame_uppland"
+		texturefile = "gfx\\interface\\decision_icon_destroy_flame.dds"
+	}
+	spriteType = {
+		name = "GFX_destroy_flame_kent"
+		texturefile = "gfx\\interface\\decision_icon_destroy_flame.dds"
+	}
+	spriteType = {
+		name = "GFX_summon_servent"
+		texturefile = "gfx\\interface\\decision_icon_banish.dds"
+	}
+	spriteType = {
+		name = "GFX_banishment"
+		texturefile = "gfx\\interface\\decision_icon_banish.dds"
+	}
+	spriteType = {
+		name = "GFX_revive_roman_paganism"
+		texturefile = "gfx\\interface\\decision_icon_pick_main_deity.dds"
+	}
+	spriteType = {
+		name = "GFX_reject_materialism"
+		texturefile = "gfx\\interface\\decision_icon_tributary_break_free_normal.dds"
+	}
+	spriteType = {
+		name = "GFX_reject_asceticism"
+		texturefile = "gfx\\interface\\decision_icon_become_vaishya.dds"
+	}
+	spriteType = {
+		name = "GFX_vampire_call_blood_vassals"
+		texturefile = "gfx\\interface\\decision_icon_call_council_war.tga"
+	}
+	spriteType = {
+		name = "GFX_vampire_seize_throne"
+		texturefile = "gfx\\interface\\decision_icon_sieze_throne.tga"
+	}
+	spriteType = {
+		name = "GFX_vampire_claim_throne"
+		texturefile = "gfx\\interface\\decision_icon_sieze_throne.tga"
+	}
+	spriteType = {
+		name = "GFX_vampire_convert_to_satanist"
+		texturefile = "gfx\\interface\\decision_icon_convert_to_satanist.tga"
+	}
+	spriteType = {
+		name = "GFX_vampire_convert_culture"
+		texturefile = "gfx\\interface\\decision_icon_convert_to_vampire_culture.tga"
+	}
+	spriteType = {
+		name = "GFX_establish_bank"
+		texturefile = "gfx\\interface\\decision_icon_establish_bank.tga"
+	}
+	spriteType = {
+		name = "GFX_interact_with_bank"
+		texturefile = "gfx\\interface\\decision_icon_establish_bank.tga"
+	}
+	spriteType = {
+		name = "GFX_borrow_from_bank"
+		texturefile = "gfx\\interface\\decision_icon_borrow_from_bank.tga"
+	}
+	spriteType = {
+		name = "GFX_replay_loan"
+		texturefile = "gfx\\interface\\decision_icon_borrow_from_bank.tga"
+	}
+	spriteType = {
+		name = "GFX_herbalist_acquire_ingredients_decision"
+		texturefile = "gfx\\interface\\decision_icon_aquire_ingredients.dds"
+	}
+	spriteType = {
+		name = "GFX_faction_zombie_independence_ultimatum"
+		texturefile = "gfx\\interface\\decision_icon_raise_dead.tga"
+	}
+	spriteType = {
+		name = "GFX_raise_dead"
+		texturefile = "gfx\\interface\\decision_icon_raise_dead.tga"
+	}
+	spriteType = {
+		name = "GFX_cull_population"
+		texturefile = "gfx\\interface\\decision_icon_cull_population.tga"
+	}
+	spriteType = {
+		name = "GFX_raise_workers"
+		texturefile = "gfx\\interface\\decision_icon_raise_workers.tga"
+	}
+	spriteType = {
+		name = "GFX_loot_dead"
+		texturefile = "gfx\\interface\\decision_icon_loot_the_dead.tga"
+	}
+	spriteType = {
+		name = "GFX_raise_undead"
+		texturefile = "gfx\\interface\\decision_icon_raise_undead.tga"
+	}
+	spriteType = {
+		name = "GFX_raise_soldier"
+		texturefile = "gfx\\interface\\decision_icon_employ_soldier.dds"
+	}
+	spriteType = {
+		name = "GFX_raise_priest"
+		texturefile = "gfx\\interface\\decision_icon_employ_priest.dds"
+	}
+	spriteType = {
+		name = "GFX_raise_steward"
+		texturefile = "gfx\\interface\\decision_icon_employ_steward.dds"
+	}
+	spriteType = {
+		name = "GFX_raise_spy"
+		texturefile = "gfx\\interface\\decision_icon_convert_to_liege_religion.dds"
+	}
+	spriteType = {
+		name = "GFX_blood_feast"
+		texturefile = "gfx\\interface\\decision_icon_blood_feast.tga"
+	}
+}

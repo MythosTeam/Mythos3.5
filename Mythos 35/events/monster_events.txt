@@ -1,0 +1,2436 @@
+namespace = MONSTER
+### Events for Multiple monster species or false monsters
+# MONSTER.1 - Monster hunting rebels rise up
+province_event = {
+	id = MONSTER.1
+	title = EVTNAME_MONSTER.1
+	desc ="EVTDESC_MONSTER.1"
+	picture = GFX_evt_peasants
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+
+	trigger = {
+		OR = {
+			has_dlc = "The Old Gods"
+			has_province_flag = force_monster_revolt
+		}
+		
+		# Will get clan rebels instead
+		NAND = {
+			has_empty_holding = yes
+			owner = {
+				is_nomadic = yes
+			}
+		}
+		
+		any_province_holding = {
+			NOT = { holding_type = nomad }
+		}
+		
+		OR = {
+			#AND = {
+			#	OR = {
+			#		owner = { top_liege = { trait = known_vampire } }
+			#		owner = { trait = known_vampire }
+			#	}
+			#	NOR = {
+			#		culture = vampire_culture
+			#		religion = satanist
+			#	}
+			#}
+			#AND = {
+			#	OR = {
+			#		owner = { top_liege = { trait = known_werewolf } }
+			#		owner = { trait = known_werewolf }
+			#	}
+			#	NOT = { culture = werewolf_culture }
+			#}
+			owner = { is_monster_to_root = yes }
+			owner = { top_liege = { is_monster_to_root = yes } }
+			AND = {
+				OR = {
+					owner = { top_liege = { has_instances_of_character_modifier = { modifier = known_monster amount = 3 } } }
+					owner = { has_instances_of_character_modifier = { modifier = known_monster amount = 3 } }
+				}
+				NOR = {
+					culture = werewolf_culture
+					culture = vampire_culture
+					culture_group = undead_culture_group
+					religion = satanist
+				}
+			}
+		}
+		
+		NOT = { # Not if there is already an ongoing peasant revolt for this province
+			owner = {
+				top_liege = {
+					war = yes
+					
+					any_war = {
+						defender = { character = PREV }
+						OR = {
+							AND = {
+								using_cb = monster_revolt
+								war_title = ROOT # The county
+							}
+							AND = {
+								using_cb = monster_revolt
+								attacker = { religion = ROOT }
+							}
+							AND = {
+								using_cb = liberation_revolt
+								thirdparty_title_scope = {
+									ROOT = {
+										kingdom = {
+											title = PREVPREV
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	immediate = {
+		create_character = {
+			random_traits = yes
+			dynasty = none
+			religion = ROOT
+			culture = ROOT
+			female = no
+			age = 28
+			attributes = {
+				martial = 7
+			}
+			trait = monster_hunter
+			trait = tough_soldier
+		}
+		
+		new_character = {
+			set_character_flag = monster_revolter
+			set_graphical_culture = ROOT
+			
+			# Figure out revolt target
+			ROOT = {
+				owner = {
+					#if = {
+					#	limit = { is_monster_to_root = yes }
+					#	save_event_target_as = revolt_target
+					#}
+					#else = {
+						top_liege = {
+							save_event_target_as = revolt_target
+						}
+					#}
+				}
+			}
+			
+			if = {
+				limit = { event_target:revolt_target = { trait = known_vampire } }
+				remove_trait = known_vampire
+				remove_trait = vampire
+			}
+			if = {
+				limit = { event_target:revolt_target = { trait = known_werewolf } }
+				remove_trait = known_werewolf
+				remove_trait = werewolf
+			}
+			if = {
+				limit = { event_target:revolt_target = { trait = dragon } }
+				remove_trait = dragon
+				set_graphical_culture = ROOT
+			}
+			if = {
+				limit = { event_target:revolt_target = { trait = mythos_giant } }
+				remove_trait = mythos_giant
+				remove_trait = half_giant
+				remove_trait = giant_bergrisar
+				remove_trait = giant_hrimthursar
+				remove_trait = giant_eldjotnar
+				remove_trait = size_10
+				remove_trait = size_9
+				remove_trait = size_8
+				remove_trait = size_7
+				remove_trait = size_6
+				remove_trait = size_5
+				remove_trait = size_4
+				remove_trait = size_3
+				remove_trait = size_2
+				remove_trait = size_1
+			}
+			if = {
+				limit = { event_target:revolt_target = { trait = mummy } }
+				remove_trait = mummy
+			}
+			
+			if = {
+				limit = {
+					trait = monster_hunter
+					has_character_modifier = monster_hunter_training
+				}
+				change_martial = 2
+			}
+			
+			create_title = {
+				tier = DUKE
+				landless = yes
+				temporary = yes
+				rebel = yes
+				culture = ROOT
+				name = "MONSTER_REVOLT"
+				holder = THIS
+			}
+			hidden_tooltip = {
+				character_event = { id = MYTH.56 }
+			}
+			
+			wealth = 100
+			
+			spawn_monster_hunter_army_effect = yes
+			
+			
+			if = {
+				limit = {
+					has_game_rule = {
+						name = provincial_revolt_strength
+						value = powerful
+					}
+				}
+				spawn_monster_hunter_army_effect = yes
+				wealth = 150
+			}
+			
+			if = {
+				limit = {
+					has_game_rule = {
+						name = provincial_revolt_strength
+						value = very_powerful
+					}
+				}
+				spawn_monster_hunter_army_effect = yes
+				spawn_monster_hunter_army_effect = yes
+				spawn_monster_hunter_army_effect = yes
+				wealth = 250
+			}
+			
+			if = {
+				limit = {
+					has_game_rule = {
+						name = provincial_revolt_strength
+						value = extremely_powerful
+					}
+				}
+				spawn_monster_hunter_army_effect = yes
+				spawn_monster_hunter_army_effect = yes
+				spawn_monster_hunter_army_effect = yes
+				spawn_monster_hunter_army_effect = yes
+				spawn_monster_hunter_army_effect = yes
+				wealth = 350
+			}
+			
+			# DoW on the province top liege
+			event_target:revolt_target = {
+				reverse_war = {
+					target = PREVPREVPREV
+					casus_belli = monster_revolt
+					thirdparty_title = ROOT # The county...
+					tier = DUKE # ... but really the de jure duchy
+				}
+				reverse_opinion = {
+					who = PREVPREVPREV
+					modifier = opinion_evil_tyrant
+				}
+			}
+		}
+		
+		owner = {
+			character_event = {
+				id = MONSTER.2
+			}
+			if = {
+				limit = { NOT = { character = event_target:revolt_target } }
+				event_target:revolt_target = { character_event = { id = MONSTER.2 } }
+			}
+		}
+	}
+	
+	option = {
+		name = "EVTOPTA_MONSTER.1"
+	}
+}
+
+# MONSTER.2 - was MYTH.19 - Monster Revolt
+character_event = {
+	id = MONSTER.2
+	title = EVTNAME_MONSTER.2
+	desc ="EVTDESC_MONSTER.2"
+	picture = GFX_evt_peasants
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	option = {
+		name ="EVTOPTA_MONSTER.2"
+	}
+}
+
+# MONSTER.3 - Monster revolt seizes a holding. Fired from 'on_siege_over_winner'
+character_event = {
+	id = MONSTER.3
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		OR = {
+			trait = monster_hunter
+			liege = { has_character_flag = monster_revolter }
+		}
+		rebel = yes
+		FROM = { 
+			is_capital = yes # The capital holding
+		}
+	}
+	
+	immediate = {
+		FROM = {
+			location = {
+				if = {
+					limit = {
+						OR = {
+							AND = {
+								culture = werewolf_culture
+								ROOT = { 
+									NOR = {
+										culture = werewolf_culture
+										trait = werewolf
+										trait = pup
+									}
+								}
+							}
+							AND = {
+								culture = vampire_culture
+								ROOT = { 
+									NOR = {
+										culture = vampire_culture
+										trait = vampire
+										religion = satanist
+									}
+								}
+							}
+							AND = {
+								culture = draconic
+								ROOT = { 
+									NOR = {
+										culture = draconic
+										trait = dragon
+										trait = dragonborn
+										religion = draconic_pagan
+										religion = draconic_pagan_reformed
+									}
+								}
+							}
+							AND = {
+								culture = jotunn
+								ROOT = { 
+									NOR = {
+										culture = jotunn
+										trait = mythos_giant
+										trait = half_giant
+										religion = jotnar
+										religion = jotnar_reformed
+									}
+								}
+							}
+						}
+					}
+					random = {
+						chance = 50
+						culture = ROOT
+					}
+				}
+				if = {
+					limit = {
+						NOT = { has_province_modifier = rally_against_monster }
+					}
+					add_province_modifier = {
+						name = rally_against_monster
+						duration = 730
+					}
+				}
+			}
+		}
+	}
+}
+
+# MONSTER.4 - Monster hunter rebels rise up to reinforce an ongoing anti-monster rebellion
+# Triggered from "on_rebel_revolt
+province_event = {
+	id = MONSTER.4
+	desc = EVTDESC_MONSTER.4
+	picture = GFX_evt_heretic
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		has_dlc = "The Old Gods"
+		
+		any_province_holding = {
+			NOT = { holding_type = nomad }
+		}
+		
+		OR = {
+			owner = { is_monster_to_root = yes }
+			owner = { top_liege = { is_monster_to_root = yes } }
+			AND = {
+				OR = {
+					owner = { top_liege = { has_instances_of_character_modifier = { modifier = known_monster amount = 3 } } }
+					owner = { has_instances_of_character_modifier = { modifier = known_monster amount = 3 } }
+				}
+				NOR = {
+					culture = werewolf_culture
+					culture = vampire_culture
+					culture_group = undead_culture_group
+					religion = satanist
+				}
+			}
+		}
+		
+		owner = {
+			top_liege = {
+				war = yes
+				any_war = {
+					defender = { character = PREV }
+					using_cb = monster_revolt
+					war_title = ROOT # The county
+				}
+			}
+		}
+	}
+	
+	immediate = {
+		
+		add_province_modifier = {
+			name = recent_county_uprising
+			duration = 1825 # Five years of -100% revolt risk in this county
+		}
+		
+		owner = {
+			top_liege = {
+				any_war = {
+					limit = {
+						defender = { character = PREV }
+						using_cb = monster_revolt
+					}
+					attacker = {
+						spawn_monster_hunter_reinforcements_effect = yes
+						
+						if = {
+							limit = {
+								has_game_rule = {
+									name = provincial_revolt_strength
+									value = powerful
+								}
+							}
+							spawn_monster_hunter_reinforcements_effect = yes
+						}
+						
+						if = {
+							limit = {
+								has_game_rule = {
+									name = provincial_revolt_strength
+									value = very_powerful
+								}
+							}
+							spawn_monster_hunter_reinforcements_effect = yes
+							spawn_monster_hunter_reinforcements_effect = yes
+							spawn_monster_hunter_reinforcements_effect = yes
+						}
+						
+						if = {
+							limit = {
+								has_game_rule = {
+									name = provincial_revolt_strength
+									value = extremely_powerful
+								}
+							}
+							spawn_monster_hunter_reinforcements_effect = yes
+							spawn_monster_hunter_reinforcements_effect = yes
+							spawn_monster_hunter_reinforcements_effect = yes
+							spawn_monster_hunter_reinforcements_effect = yes
+							spawn_monster_hunter_reinforcements_effect = yes
+						}
+					}
+				}
+			}
+		}
+		
+		owner = {
+			any_liege = { # Inform the lieges
+				character_event = {
+					id = MONSTER.5
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = "EVTOPTA_MONSTER.4"
+	}
+}
+	
+
+# MONSTER.5
+character_event = {
+	id = MONSTER.5
+	desc = EVTDESC_MONSTER.5
+	picture = GFX_evt_heretic
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "EVTOPTA_MONSTER.5"
+	}
+}
+
+# MONSTER.6 - removed as duplicate of MYTH.42
+
+# MONSTER.7 - was MYTH.152 - Suspected monster after bloody battle
+character_event = {
+	id = MONSTER.7
+	title = EVTNAME_MONSTER.7
+	desc = EVTDESC_MONSTER.7
+	picture = GFX_evt_battle
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		NOR = { 
+			culture = werewolf_culture
+			trait = known_werewolf
+			trait = known_vampire
+		}
+		in_command = yes
+	}
+	
+	weight_multiplier = {
+		days = 2
+		modifier = {
+			factor = 2
+			trait = wroth
+		}
+		modifier = {
+			factor = 2
+			trait = cruel
+		}
+		modifier = {
+			factor = 2
+			trait = impaler
+		}
+		modifier = {
+			factor = 1.5
+			trait = aggressive_leader
+		}
+		modifier = {
+			factor = 1.2
+			trait = werewolf
+			check_variable = { which = control value <= 4 }
+		}
+		modifier = {
+			factor = 1.2
+			trait = werewolf
+			check_variable = { which = control value <= 3 }
+		}
+		modifier = {
+			factor = 1.2
+			trait = werewolf
+			check_variable = { which = control value <= 2 }
+		}
+		modifier = {
+			factor = 1.2
+			trait = werewolf
+			check_variable = { which = control value == 1 }
+		}
+		modifier = {
+			factor = 1.2
+			has_game_rule = { name = secrecy value = more }
+		}
+		modifier = {
+			factor = 0.8
+			has_game_rule = { name = secrecy value = fewer }
+		}
+	}
+	
+	option = {
+		name = EVTOPT_MONSTER.7
+		add_character_modifier = {
+			name = known_monster
+			years = 10
+			stacking = yes
+		}
+	}
+}
+
+# MONSTER.8 - was MYTH.153 - Monsterous execution - pass to executioner
+character_event = {
+	id = MONSTER.8
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	weight_multiplier = {
+		days = 1
+		modifier = {
+			factor = 0.1
+			location = { culture = werewolf_culture }
+			FROM = { trait = known_werewolf }
+		}
+		modifier = {
+			factor = 0.1
+			location = { 
+				OR = {
+					culture = vampire_culture
+					religion = satanist
+				}
+			}
+			FROM = { trait = known_vampire }
+		}
+		modifier = {
+			factor = 2
+			FROM = { trait = cruel }
+		}
+		modifier = {
+			factor = 2
+			FROM = { trait = cannibal_trait }
+		}
+		modifier = {
+			factor = 1.5
+			FROM = { is_any_kinslayer_trigger = yes }
+		}
+		modifier = {
+			factor = 1.2
+			trait = werewolf
+			check_variable = { which = control value <= 2 }
+		}
+		modifier = {
+			factor = 1.2
+			trait = werewolf
+			check_variable = { which = control value == 1 }
+		}
+		modifier = {
+			factor = 1.2
+			has_game_rule = { name = secrecy value = more }
+		}
+		modifier = {
+			factor = 0.8
+			has_game_rule = { name = secrecy value = fewer }
+		}
+	}
+	
+	immediate = {
+		FROM = {
+			character_event = { id = MONSTER.9 days = 1 }
+		}
+	}
+}
+
+# MONSTER.9 - was MYTH.154 - Monsterous execution
+character_event = {
+	id = MONSTER.9
+	title = EVTNAME_MONSTER.9
+	desc = EVTDESC_MONSTER.9
+	picture = GFX_evt_whispers
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPT_MONSTER.9
+		add_character_modifier = {
+			name = known_monster
+			years = 10
+			stacking = yes
+		}
+	}
+}
+
+# MONSTER.10 - Demons stay Satanic
+character_event = {
+	id = MONSTER.10
+	desc = EVTDESC_MONSTER.10
+	picture = GFX_evt_torture
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		trait = demon_trait
+		NOT = { religion = satanist }
+		NOT = { has_character_flag = demon_title_exception } # May be used to give demons titles in specific events that aren't yet implemented.
+	}
+	
+	option = {
+		name = EVTOPTA_MONSTER.10
+		if = {
+			limit = { is_landed = yes }
+			abdicate = yes
+			# Mostly to prevent demonic Popes, but Demons shouldn't get any landed titles anyway
+		}
+		religion = satanist
+		clear_secret_religion = yes
+	}
+}
+
+# MONSTER.11 - People suspect you are a monster due to unnatural healing
+character_event = {
+	id = MONSTER.11
+	desc = EVTDESC_MONSTER.11
+	picture = GFX_evt_scandal
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		OR = {
+			trait = werewolf
+			trait = vampire
+		}
+		NOR = {
+			trait = known_werewolf
+			trait = known_vampire
+		}
+	}
+	
+	option = {
+		name = EVTOPTA_MONSTER.11
+		add_character_modifier = {
+			name = known_monster
+			years = 5
+			stacking = yes
+		}
+	}
+}
+
+# MONSTER.12 Discovered by councilmember
+character_event = {
+	id = MONSTER.12
+	title = EVTNAME_MONSTER.12
+	picture = GFX_evt_catching_heretic
+	border = GFX_event_normal_frame_intrigue
+	
+	desc = {
+		trigger = {
+			event_target:accused_apostate = { trait = vampire }
+		}
+		text = EVTDESCA_MONSTER.12
+	}
+	desc = {
+		trigger = {
+			event_target:accused_apostate = { trait = werewolf }
+		}
+		text = EVTDESCB_MONSTER.12
+	}
+	
+	is_triggered_only = yes
+	
+	min_age = 16
+	capable_only = yes
+	prisoner = no
+	
+	immediate = {
+		event_target:my_liege = {
+			any_realm_character = {
+				limit = {
+					age = 16
+					ai = yes
+					is_rival = ROOT
+					NOT = {
+						character = event_target:my_liege
+					}
+					NOT = {
+						character = event_target:accused_apostate
+					}
+				}
+				score_value = {
+					value = 10
+					interesting_courtier_selection_score = yes
+				}
+				save_event_target_as = rival_target
+			}
+		}
+
+	}
+	
+	option = {
+		name = EVTOPTA_MONSTER.12
+		
+		ai_chance = {
+			factor = 90
+			
+			modifier = {
+				factor = 2
+				trait = monster_hunter
+			}
+			modifier = {
+				factor = 2
+				trait = vampire
+				event_target:accused_apostate = { trait = werewolf }
+			}
+			modifier = {
+				factor = 2
+				trait = werewolf
+				event_target:accused_apostate = { trait = vampire }
+			}
+		}
+		
+		event_target:accused_apostate = {
+			opinion = {
+				modifier = opinion_hate
+				who = ROOT
+				years = 100
+			}
+		}
+		
+		custom_tooltip = {
+			text = monster_found_tooltip
+		}
+		
+		hidden_tooltip = {
+			if = {
+				limit = {
+					has_nickname = no
+				}
+				random_list = {
+					500 = {
+						# No Nickname
+					}
+					50 = {
+						give_nickname = nick_the_cleansing_flame
+					}
+					50 = {
+						give_nickname = nick_the_witch_hunter
+					}
+					50 = {
+						give_nickname = nick_the_inquisitor
+					}
+					50 = {
+						give_nickname = nick_the_purifier
+					}
+				}
+			}
+		
+			if = {
+				limit = { lifestyle_traits < 1 }
+				random = {
+					chance = 30
+					character_event = { id = MONSTER.15 }
+				}
+			}
+		}
+		
+		liege = {
+			character_event = { id = MONSTER.13 }
+		}
+	}
+	
+	option = {
+		name = EVTOPTB_MONSTER.12
+		
+		trigger = {
+			trait = deceitful
+			event_target:rival_target = {
+				is_alive = yes
+			}
+		}
+		
+		ai_chance = {
+			factor = 1000
+			
+			modifier = {
+				factor = 2
+				trait = lunatic
+			}
+			modifier = {
+				factor = 2
+				trait = possessed
+			}
+			modifier = {
+				factor = 2
+				trait = cruel
+			}
+			modifier = {
+				factor = 2
+				trait = paranoid
+			}
+			modifier = {
+				factor = 2
+				trait = arbitrary
+			}
+		}
+		
+		custom_tooltip = {
+			text = accuse_rival_tooltip
+		}
+		
+		event_target:rival_target = {
+			save_event_target_as = accused_apostate
+			set_character_flag = apostate_rival_accused
+		}
+		liege = {
+			character_event = { id = MONSTER.13 }
+		}
+	}
+}
+
+# MONSTER.13 - What does your liege want to do about the monster
+character_event = {
+	id = MONSTER.13
+	title = EVTNAME_MONSTER.13
+	picture = GFX_evt_catching_heretic
+	border = GFX_event_normal_frame_intrigue
+	
+	trigger = {
+		event_target:accused_apostate = {
+			is_alive = yes
+		}
+	}
+	
+	desc = {
+		trigger = {
+			event_target:accused_apostate = {
+				trait = vampire
+				NOT = { has_character_flag = apostate_rival_accused }
+			}
+		}
+		text = EVTDESCA_MONSTER.13
+	}
+	desc = {
+		trigger = {
+			event_target:accused_apostate = {
+				trait = werewolf
+				NOT = { has_character_flag = apostate_rival_accused }
+			}
+		}
+		text = EVTDESCB_MONSTER.13
+	}
+	desc = {
+		trigger = {
+			event_target:accused_apostate = {
+				has_character_flag = apostate_rival_accused
+				random = 50
+			}
+		}
+		text = EVTDESCA_MONSTER.13
+	}
+	desc = {
+		trigger = {
+			event_target:accused_apostate = {
+				has_character_flag = apostate_rival_accused
+				random = 50
+			}
+		}
+		text = EVTDESCB_MONSTER.13
+	}
+	
+	is_triggered_only = yes
+	
+	option = { # Execute them!
+		name = EVTOPTA_MONSTER.13
+		
+		ai_chance = {
+			factor = 50
+			
+			modifier = {
+				factor = 2
+				trait = lunatic
+			}
+			modifier = {
+				factor = 2
+				trait = possessed
+			}
+			modifier = {
+				factor = 2
+				trait = cruel
+			}
+			modifier = {
+				factor = 2
+				trait = paranoid
+			}
+			modifier = {
+				factor = 2
+				trait = arbitrary
+			}
+			modifier = {
+				factor = 100
+				trait = zealous
+			}
+		}
+		
+		piety = 10
+		
+		tooltip = {
+			event_target:accused_apostate = {
+				death = {
+					death_reason = death_execution_burning
+					killer = ROOT
+				}
+			}
+		}
+		
+		event_target:accused_apostate = { save_event_target_as = kinslayer_target }
+		add_kinslayer_trait_effect = yes
+		hidden_tooltip = {
+			opinion = {
+				modifier = opinion_accused_apostate 
+				who = event_target:accused_apostate 
+				years = 100
+			}
+			hidden_tooltip = {
+				event_target:accused_apostate  = {
+					if = {
+						limit = { trait = secret_vampire }
+						add_trait = known_vampire
+						remove_trait = secret_vampire
+						hidden_tooltip = { remove_character_modifier = known_monster }
+						any_realm_character = {
+							limit = {
+								NOR = {
+									character = PREV
+									character = FROM
+									character = ROOT
+								}
+							}
+							character_event = { id = VAMPIRE.23 }
+						}
+					}
+					if = {
+						limit = { trait = secret_werewolf }
+						add_trait = known_werewolf
+						remove_trait = secret_werewolf
+						hidden_tooltip = { remove_character_modifier = known_monster }
+						any_realm_character = {
+							limit = {
+								NOR = {
+									character = PREV
+									character = FROM
+									character = ROOT
+								}
+							}
+							character_event = { id = WEREWOLF.33 }
+						}
+					}
+				}
+				if = { 
+					limit = { lifestyle_traits < 1 }
+					random = {
+						chance = 5
+						character_event = { id = MONSTER.15 }
+					}
+				}
+				
+			}
+			event_target:accused_apostate = {
+				character_event = { id = MONSTER.14 }
+			}
+			if = {
+				limit = {
+					has_nickname = no
+					event_target:accused_apostate  = {
+						OR = {
+							trait = vampire
+							trait = werewolf
+						}
+					}
+				}
+				random_list = {
+					500 = {
+						# No Nickname
+					}
+					5 = {
+						give_nickname = nick_the_cleansing_flame
+					}
+					5 = {
+						give_nickname = nick_the_witch_hunter
+					}
+					5 = {
+						give_nickname = nick_the_inquisitor
+					}
+					5 = {
+						give_nickname = nick_the_purifier
+					}
+				}
+			}
+		}
+	}
+	
+	option = { # Imprison them
+		name = EVTOPTB_MONSTER.13
+		
+		ai_chance = {
+			factor = 40
+			
+			modifier = {
+				factor = 2
+				trait = kind
+			}
+			modifier = {
+				factor = 3
+				event_target:accused_apostate = {
+					ai = no
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:accused_apostate = {
+					dynasty = ROOT
+				}
+			}
+		}
+		
+		event_target:accused_apostate = {
+			imprison = ROOT
+		}
+		opinion = {
+			modifier = opinion_accused_apostate 
+			who = event_target:accused_apostate 
+			years = 100
+		}
+		hidden_tooltip = {
+			event_target:accused_apostate  = {
+				if = {
+					limit = { trait = secret_vampire }
+					add_trait = known_vampire
+					remove_trait = secret_vampire
+					hidden_tooltip = { remove_character_modifier = known_monster }
+					any_realm_character = {
+						limit = {
+							NOR = {
+								character = PREV
+								character = FROM
+								character = ROOT
+							}
+						}
+						character_event = { id = VAMPIRE.23 }
+					}
+				}
+				if = {
+					limit = { trait = secret_werewolf }
+					add_trait = known_werewolf
+					remove_trait = secret_werewolf
+					hidden_tooltip = { remove_character_modifier = known_monster }
+					any_realm_character = {
+						limit = {
+							NOR = {
+								character = PREV
+								character = FROM
+								character = ROOT
+							}
+						}
+						character_event = { id = WEREWOLF.33 }
+					}
+				}
+			}
+			if = { 
+				limit = { lifestyle_traits < 1 }
+				random = {
+					chance = 1
+					character_event = { id = MONSTER.15 }
+				}
+			}
+		}
+		hidden_tooltip = {
+			event_target:accused_apostate = {
+				character_event = { id = MONSTER.16 }
+			}
+		}
+	}
+	
+	option = { # Brand them
+		name = EVTOPTC_MONSTER.13
+		
+		ai_chance = {
+			factor = 100
+			
+			modifier = {
+				factor = 0
+				NOT = {
+					trait = trusting
+				}
+			}
+		}
+		
+		hidden_tooltip = {
+			event_target:accused_apostate = {
+				character_event = { id = MONSTER.17 }
+			}
+		}
+		
+		opinion = {
+			modifier = opinion_accused_apostate 
+			who = event_target:accused_apostate 
+			years = 100
+		}
+		event_target:accused_apostate = {
+			if = {
+				limit = { trait = secret_vampire }
+				add_trait = known_vampire
+				remove_trait = secret_vampire
+				hidden_tooltip = { remove_character_modifier = known_monster }
+				any_realm_character = {
+					limit = {
+						NOR = {
+							character = PREV
+							character = FROM
+							character = ROOT
+						}
+					}
+					character_event = { id = VAMPIRE.23 }
+				}
+			}
+			if = {
+				limit = { trait = secret_werewolf }
+				add_trait = known_werewolf
+				remove_trait = secret_werewolf
+				hidden_tooltip = { remove_character_modifier = known_monster }
+				any_realm_character = {
+					limit = {
+						NOR = {
+							character = PREV
+							character = FROM
+							character = ROOT
+						}
+					}
+					character_event = { id = WEREWOLF.33 }
+				}
+			}
+		}
+	}
+	
+	option = { # Let them go
+		name = EVTOPTD_MONSTER.13
+		
+		ai_chance = {
+			factor = 10
+			
+			modifier = {
+				factor = 0
+				NOT = {
+					trait = trusting
+				}
+			}
+		}
+		
+		piety = -10
+		
+		hidden_tooltip = {
+			event_target:accused_apostate = {
+				character_event = { id = MONSTER.18 }
+			}
+		}
+		opinion = {
+			modifier = opinion_accused_apostate 
+			who = event_target:accused_apostate 
+			years = 10
+		}
+		reverse_opinion = {
+			modifier = opinion_outraged 
+			who = FROM
+			years = 10
+		}
+	}
+}
+
+# MONSTER.14 - Accused monster reacts to execution
+character_event = {
+	id = MONSTER.14
+	desc = EVTDESC_MONSTER.14
+	picture = GFX_evt_witch_burning
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_MONSTER.14
+		death = {
+			death_reason = death_execution_burning
+			killer = FROM
+		}
+		hidden_tooltip = { # Inform players that fellow society member has been executed
+			any_player = {
+				limit = {
+					OR = {
+						same_realm = ROOT
+						is_close_relative = ROOT
+						is_friend = ROOT
+					}
+					same_society_as = ROOT
+					NOT = {
+						character = ROOT
+					}
+				}
+				character_event = { id = MONSTER.19 }
+			}
+		}
+	}
+}
+
+# MONSTER.15 - Get Monster Hunter from accusing/executing/arresting a monster
+character_event = {
+	id = MONSTER.15
+	desc = EVTDESC_MONSTER.15
+	picture = GFX_evt_powerful_ruler
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	trigger = {
+		NOR = {
+			trait = vampire
+			trait = werewolf
+		}
+	}
+	
+	option = {
+		name = EVTOPTA_MONSTER.15
+		add_trait = monster_hunter
+	}
+}
+		
+# MONSTER.16 - Accused monster reacts to imprisonment
+character_event = {
+	id = MONSTER.16
+	desc = EVTDESC_MONSTER.16
+	picture = GFX_evt_catching_heretic
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_MONSTER.16
+		tooltip = {
+			imprison = FROM
+			event_target:my_liege = {
+				opinion = {
+					modifier = opinion_monster
+					who = event_target:accused_apostate 
+					years = 100
+				}
+			}
+			if = {
+				limit = { trait = vampire }
+				add_trait = known_vampire
+				hidden_tooltip = { remove_character_modifier = known_monster }
+				hidden_tooltip = { remove_trait = secret_vampire }
+			}
+			if = {
+				limit = { trait = werewolf }
+				add_trait = known_werewolf
+				hidden_tooltip = { remove_character_modifier = known_monster }
+				hidden_tooltip = { remove_trait = secret_werewolf }
+			}
+		}
+		hidden_tooltip = {
+			any_player = {
+				limit = {
+					primary_title = { always = yes }
+					OR = {
+						same_realm = ROOT
+						is_close_relative = ROOT
+						is_friend = ROOT
+					}
+					same_society_as = ROOT
+					NOT = {
+						character = ROOT
+					}
+				}
+				character_event = { id = MONSTER.19 }
+			}
+		}
+	}
+}
+# MONSTER.17 - Monster reacts to branding
+character_event = {
+	id = MONSTER.17
+	desc = EVTDESC_MONSTER.17
+	picture = GFX_evt_catching_heretic
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_MONSTER.17
+		
+		tooltip = {
+			event_target:my_liege = {
+				opinion = {
+					modifier = opinion_monster
+					who = event_target:accused_apostate 
+					years = 100
+				}
+			}
+			if = {
+				limit = { trait = vampire }
+				add_trait = known_vampire
+				hidden_tooltip = { remove_character_modifier = known_monster }
+				hidden_tooltip = { remove_trait = secret_vampire }
+			}
+			if = {
+				limit = { trait = werewolf }
+				add_trait = known_werewolf
+				hidden_tooltip = { remove_character_modifier = known_monster }
+				hidden_tooltip = { remove_trait = secret_werewolf }
+			}
+		}
+		hidden_tooltip = {
+			any_player = {
+				limit = {
+					primary_title = { always = yes }
+					OR = {
+						same_realm = ROOT
+						is_close_relative = ROOT
+						is_friend = ROOT
+					}
+					same_society_as = ROOT
+					NOT = {
+						character = ROOT
+					}
+				}
+				character_event = { id = MONSTER.19 }
+			}
+		}
+	}
+}
+
+# MONSTER.18 - Accused reacts to being let go
+character_event = {
+	id = MONSTER.18
+	desc = EVTDESC_MONSTER.18
+	picture = GFX_evt_catching_heretic
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_MONSTER.18
+		
+		tooltip = {
+			event_target:my_liege = {
+				opinion = {
+					modifier = opinion_monster 
+					who = event_target:accused_apostate 
+					years = 10
+				}
+			}
+		}
+	}
+}
+
+# MONSTER.19 - Society member exposed as a monster
+character_event = {
+	id = MONSTER.19
+	picture = GFX_evt_catching_heretic
+	border = GFX_event_normal_frame_religion
+	
+	desc = {
+		trigger = {
+			FROM = {
+				is_alive = no
+				trait = werewolf
+			}
+		}
+		text = EVTDESCA_MONSTER.19.werewolf
+		picture = GFX_evt_witch_burning
+	}
+	desc = {
+		trigger = {
+			FROM = {
+				is_alive = no
+				trait = vampire
+			}
+		}
+		text = EVTDESCA_MONSTER.19.vampire
+		picture = GFX_evt_witch_burning
+	}
+	desc = {
+		trigger = {
+			FROM = {
+				is_alive = no
+				NOR = {
+					trait = werewolf
+					trait = vampire
+				}
+			}
+		}
+		text = EVTDESCA_MONSTER.19.false
+		picture = GFX_evt_witch_burning
+	}
+	desc = {
+		trigger = { 
+			FROM = {
+				is_alive = yes
+				prisoner = yes
+				trait = werewolf
+			}
+		}
+		text = EVTDESCB_MONSTER.19.werewolf
+	}
+	desc = {
+		trigger = { 
+			FROM = {
+				is_alive = yes
+				prisoner = yes
+				trait = vampire
+			}
+		}
+		text = EVTDESCB_MONSTER.19.vampire
+	}
+	desc = {
+		trigger = { 
+			FROM = {
+				is_alive = yes
+				prisoner = yes
+				NOR = {
+					trait = werewolf
+					trait = vampire
+				}
+			}
+		}
+		text = EVTDESCB_MONSTER.19.false
+	}
+	desc = {
+		trigger = { 
+			FROM = {
+				is_alive = yes
+				prisoner = no
+				trait = werewolf
+			}
+		}
+		text = EVTDESCC_MONSTER.19.werewolf
+	}
+	desc = {
+		trigger = { 
+			FROM = {
+				is_alive = yes
+				prisoner = no
+				trait = vampire
+			}
+		}
+		text = EVTDESCC_MONSTER.19.vampire
+	}
+	desc = {
+		trigger = { 
+			FROM = {
+				is_alive = yes
+				prisoner = no
+				NOR = {
+					trait = werewolf
+					trait = vampire
+				}
+			}
+		}
+		text = EVTDESCC_MONSTER.19.false
+	}
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = CURSES
+		
+		event_target:my_liege = {
+			set_character_flag = portrait_flag
+			clr_character_flag = portrait_flag
+		}
+		
+		event_target:my_liege = {
+			job_spiritual = {
+				set_character_flag = portrait_flag
+				clr_character_flag = portrait_flag
+			}
+		}
+	}
+}
+
+# MONSTER.20 - Yearly chance of anti-monster sentiment
+character_event = {
+	id = MONSTER.20
+	hide_window = yes
+	is_triggered_only = yes
+		
+	trigger = {
+		OR = {
+			trait = known_vampire
+			trait = known_werewolf
+			trait = dragon
+			trait = demon_trait
+			trait = djinn
+			trait = mythos_giant
+			trait = half_giant
+			trait = zombie
+			trait = mummy
+			trait = ethereal_trait
+			has_instances_of_character_modifier = { modifier = known_monster amount = 3 }
+		}
+	}
+	
+	immediate = {
+		random = {
+			chance = 10
+			# Werewolves scale with low control
+			modifier = {
+				factor = 1.4
+				trait = known_werewolf
+				check_variable = { which = control value <= 4 }
+			}
+			modifier = {
+				factor = 1.4
+				trait = known_werewolf
+				check_variable = { which = control value <= 3 }
+			}
+			modifier = {
+				factor = 1.4
+				trait = known_werewolf
+				check_variable = { which = control value <= 2 }
+			}
+			modifier = {
+				factor = 1.4
+				trait = known_werewolf
+				check_variable = { which = control value <= 1 }
+			}
+			modifier = {
+				factor = 0.9
+				trait = known_werewolf
+				check_variable = { which = control value >= 6 }
+			}
+			modifier = {
+				factor = 0.9
+				trait = known_werewolf
+				check_variable = { which = control value >= 7 }
+			}
+			modifier = {
+				factor = 0.9
+				trait = known_werewolf
+				check_variable = { which = control value >= 8 }
+			}
+			modifier = {
+				factor = 0.9
+				trait = known_werewolf
+				check_variable = { which = control value >= 9 }
+			}
+			# Vampires scale with hunger. Max hunger matches old values
+			modifier = {
+				factor = 1.2
+				trait = known_vampire
+				trait = hunger_1
+			}
+			modifier = {
+				factor = 1.44
+				trait = known_vampire
+				trait = hunger_2
+			}
+			modifier = {
+				factor = 1.73
+				trait = known_vampire
+				trait = hunger_3
+			}
+			modifier = {
+				factor = 2.07
+				trait = known_vampire
+				trait = hunger_4
+			}
+			modifier = {
+				factor = 2.5
+				trait = known_vampire
+				trait = hunger_5
+			}
+			# Scales with known_monster
+			modifier = {
+				factor = 1.2
+				has_instances_of_character_modifier = { modifier = known_monster amount = 1 }
+			}
+			modifier = {
+				factor = 1.2
+				has_instances_of_character_modifier = { modifier = known_monster amount = 2 }
+			}
+			modifier = {
+				factor = 1.2
+				has_instances_of_character_modifier = { modifier = known_monster amount = 3 }
+			}
+			modifier = {
+				factor = 1.2
+				has_instances_of_character_modifier = { modifier = known_monster amount = 4 }
+			}
+			modifier = {
+				factor = 0.58 # Offset the scaling for non-monsters with known_monster
+				NOR = {
+					trait = known_vampire
+					trait = known_werewolf
+					trait = dragon
+					trait = demon_trait
+					trait = djinn
+					trait = mythos_giant
+					trait = half_giant
+					trait = zombie
+					trait = mummy
+					trait = ethereal_trait
+				}
+			}
+			modifier = {
+				factor = 0.2 # Some monsters get less frequent events since they are common in other cultures
+				rare_revolt_monster = yes
+			}
+			random_demesne_province = {
+				if = {
+					limit = {
+						ROOT = {
+							is_monster_to_prev = yes
+						}
+					}
+					random_list = {
+						3 = {
+							province_event = { id = MONSTER.21 days = 2 random = 10 }
+						}
+						3 = {
+							province_event = { id = MONSTER.22 days = 2 random = 10 }
+						}
+						3 = {
+							province_event = { id = MONSTER.23 days = 2 random = 10 }
+						}
+						1 = {
+							province_event = { id = MONSTER.24 days = 2 random = 10 }
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+# Province gains monster hunter training
+province_event = {
+	id = MONSTER.21
+	desc = EVTDESC_MONSTER.21
+	picture = GFX_evt_peasants
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		NOT = { has_province_modifier = monster_hunter_training }
+	}
+	
+	option = {
+		name = EVTOPTA_MONSTER_provmod
+		add_province_modifier = { modifier = monster_hunter_training years = 20 }
+		ai_chance = {
+			factor = 4
+			modifier = {
+				factor = 2
+				holder_scope = { ai_greed = 50 }
+			}
+			modifier = {
+				factor = 2
+				holder_scope = { trait = patient }
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTB_MONSTER_provmod
+		holder_scope = { scaled_wealth = { value = -0.25 min = -5 max = -50 } }
+		add_province_modifier = { modifier = monster_hunter_training years = 10 }
+		ai_chance = {
+			factor = 2
+		}
+	}
+	
+	option = {
+		name = EVTOPTC_MONSTER_provmod
+		holder_scope = { scaled_wealth = { value = -1 min = -20 max = -200 } }
+		add_province_modifier = { modifier = monster_hunter_training years = 5 }
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 2
+				holder_scope = {
+					OR = {
+						trait = impaler
+						trait = cruel
+					}
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTD_MONSTER_provmod
+		trigger = { holder_scope = {  ai = no } }
+		holder_scope = { scaled_wealth = { value = -3 min = -50 max = -600 } }
+	}
+}
+
+# Province gains monster hunting weapons
+province_event = {
+	id = MONSTER.22
+	desc = EVTDESC_MONSTER.22
+	picture = GFX_evt_peasants
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		NOT = { has_province_modifier = monster_hunting_weapons }
+	}
+	
+	option = {
+		name = EVTOPTA_MONSTER_provmod
+		add_province_modifier = { modifier = monster_hunting_weapons years = 20 }
+		ai_chance = {
+			factor = 4
+			modifier = {
+				factor = 2
+				holder_scope = { ai_greed = 50 }
+			}
+			modifier = {
+				factor = 2
+				holder_scope = { trait = patient }
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTB_MONSTER_provmod
+		holder_scope = { scaled_wealth = { value = -0.25 min = -5 max = -50 } }
+		add_province_modifier = { modifier = monster_hunting_weapons years = 10 }
+		ai_chance = {
+			factor = 2
+		}
+	}
+	
+	option = {
+		name = EVTOPTC_MONSTER_provmod
+		holder_scope = { scaled_wealth = { value = -1 min = -20 max = -200 } }
+		add_province_modifier = { modifier = monster_hunting_weapons years = 5 }
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 2
+				holder_scope = {
+					OR = {
+						trait = impaler
+						trait = cruel
+					}
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTD_MONSTER_provmod
+		trigger = { holder_scope = {  ai = no } }
+		holder_scope = { scaled_wealth = { value = -3 min = -50 max = -600 } }
+	}
+}
+
+# Province gains growing discontent
+province_event = {
+	id = MONSTER.23
+	desc = EVTDESC_MONSTER.23
+	picture = GFX_evt_peasants
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		NOT = { has_province_modifier = growing_discontent }
+	}
+	
+	option = {
+		name = EVTOPTA_MONSTER_provmod
+		add_province_modifier = { modifier = growing_discontent years = 20 }
+		ai_chance = {
+			factor = 4
+			modifier = {
+				factor = 2
+				holder_scope = { ai_greed = 50 }
+			}
+			modifier = {
+				factor = 2
+				holder_scope = { trait = patient }
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTB_MONSTER_provmod
+		holder_scope = { scaled_wealth = { value = -0.25 min = -5 max = -50 } }
+		add_province_modifier = { modifier = growing_discontent years = 10 }
+		ai_chance = {
+			factor = 2
+		}
+	}
+	
+	option = {
+		name = EVTOPTC_MONSTER_provmod
+		holder_scope = { scaled_wealth = { value = -1 min = -20 max = -200 } }
+		add_province_modifier = { modifier = growing_discontent years = 5 }
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 2
+				holder_scope = {
+					OR = {
+						trait = impaler
+						trait = cruel
+					}
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTD_MONSTER_provmod
+		trigger = { holder_scope = {  ai = no } }
+		holder_scope = { scaled_wealth = { value = -3 min = -50 max = -600 } }
+	}
+}
+
+# Province gains human riots
+province_event = {
+	id = MONSTER.24
+	desc = EVTDESC_MONSTER.24
+	picture = GFX_evt_peasants
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		NOT = { has_province_modifier = human_riots }
+	}
+	
+	option = {
+		name = EVTOPTA_MONSTER_provmod
+		add_province_modifier = { modifier = human_riots years = 20 }
+		ai_chance = {
+			factor = 4
+			modifier = {
+				factor = 2
+				holder_scope = { ai_greed = 50 }
+			}
+			modifier = {
+				factor = 2
+				holder_scope = { trait = patient }
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTB_MONSTER_provmod
+		holder_scope = { scaled_wealth = { value = -0.25 min = -5 max = -50 } }
+		add_province_modifier = { modifier = human_riots years = 10 }
+		ai_chance = {
+			factor = 2
+		}
+	}
+	
+	option = {
+		name = EVTOPTC_MONSTER_provmod
+		holder_scope = { scaled_wealth = { value = -1 min = -20 max = -200 } }
+		add_province_modifier = { modifier = human_riots years = 5 }
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 2
+				holder_scope = {
+					OR = {
+						trait = impaler
+						trait = cruel
+					}
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTD_MONSTER_provmod
+		trigger = { holder_scope = {  ai = no } }
+		holder_scope = { scaled_wealth = { value = -3 min = -50 max = -600 } }
+	}
+}
+
+# MONSTER.25 remove inappropriate province modifiers - character change
+character_event = {
+	id = MONSTER.25
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		NOR = {
+			trait = known_werewolf
+			trait = known_vampire
+			has_instances_of_character_modifier = { modifier = known_monster amount = 3 }
+		}
+	}
+	
+	immediate = {
+		any_demesne_province = {
+			remove_province_modifier = monster_hunter_training
+			remove_province_modifier = monster_hunting_weapons
+			remove_province_modifier = growing_discontent
+			remove_province_modifier = human_riots
+		}
+	}
+}
+
+# MONSTER.26 - remove inappropriate province modifiers - province change
+province_event = {
+	id = MONSTER.26
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		#OR = {
+		#	culture = werewolf_culture
+		#	culture = vampire_culture
+		#	religion = satanist
+		#}
+		OR = {
+			AND = {
+				culture = werewolf_culture
+				NOR = {
+					owner = { trait = known_vampire }
+					owner = { top_liege = { trait = known_vampire } }
+				}
+			}
+			AND = {
+				OR = {
+					culture = vampire_culture
+					religion = satanist
+				}
+				NOR = {
+					owner = { trait = known_werewolf }
+					owner = { top_liege = { trait = known_werewolf } }
+				}
+			}
+		}
+	}
+	
+	immediate = {
+		#if = {
+		#	limit = {
+		#		OR = {
+		#			AND = {
+		#				culture = werewolf_culture
+		#				NOR = {
+		#					owner = { trait = known_vampire }
+		#					owner = { top_liege = { trait = known_vampire } }
+		#				}
+		#			}
+		#			AND = {
+		#				OR = {
+		#					culture = vampire_culture
+		#					religion = satanist
+		#				}
+		#				NOR = {
+		#					owner = { trait = known_werewolf }
+		#					owner = { top_liege = { trait = known_werewolf } }
+		#				}
+		#			}
+		#		}
+		#	}
+			remove_province_modifier = monster_hunter_training
+			remove_province_modifier = monster_hunting_weapons
+			remove_province_modifier = growing_discontent
+			remove_province_modifier = human_riots
+		#}
+	}
+}
+
+# MONSTER.27 - Lose monster_hunter_training due to deaths in revolt (White peace)
+province_event = {
+	id = MONSTER.27
+	desc = EVTDESC_MONSTER.27
+	picture = GFX_evt_battle
+	
+	is_triggered_only = yes
+	
+	notification = yes
+	
+	immediate = {
+		remove_province_modifier = monster_hunter_training
+		if = {
+			limit = {
+				NOT = { owner = { character = FROMFROM } }
+			}
+			FROMFROM = { character_event = { id = MONSTER.28 } }
+		}
+	}
+	
+	option = {
+		name = OK
+	}
+}
+# MONSTER.28 - MONSTER.27 notification if not province owner
+character_event = {
+	id = MONSTER.28
+	desc = EVTDESC_MONSTER.28
+	picture = GFX_evt_battle
+	
+	is_triggered_only = yes
+	
+	notification = yes
+	
+	option = {
+		name = OK
+	}
+}
+# MONSTER.29 - Lose monster_hunter_training due to executed soldiers (Loss)
+province_event = {
+	id = MONSTER.29
+	desc = EVTDESC_MONSTER.29
+	picture = GFX_evt_death_execution_beheading
+	
+	is_triggered_only = yes
+	
+	notification = yes
+	
+	immediate = {
+		remove_province_modifier = monster_hunter_training
+		if = {
+			limit = {
+				NOT = { owner = { character = FROMFROM } }
+			}
+			FROMFROM = { character_event = { id = MONSTER.30 } }
+		}
+	}
+	
+	option = {
+		name = OK
+	}
+}
+# MONSTER.30 - MONSTER.29 notification if not province owner
+character_event = {
+	id = MONSTER.30
+	desc = EVTDESC_MONSTER.30
+	picture = GFX_evt_death_execution_beheading
+	
+	is_triggered_only = yes
+	
+	notification = yes
+	
+	option = {
+		name = OK
+	}
+}
+# MONSTER.31 - Lose monster_hunting_weapons due to locating caches afterwards (White peace)
+province_event = {
+	id = MONSTER.31
+	desc = EVTDESC_MONSTER.31
+	picture = GFX_evt_armory
+	
+	is_triggered_only = yes
+	
+	notification = yes
+	
+	immediate = {
+		remove_province_modifier = monster_hunting_weapons
+		if = {
+			limit = {
+				NOT = { owner = { character = FROMFROM } }
+			}
+			FROMFROM = { character_event = { id = MONSTER.32 } }
+		}
+	}
+	
+	option = {
+		name = OK
+	}
+}
+# MONSTER.32 - MONSTER.31 notification if not province owner
+character_event = {
+	id = MONSTER.32
+	desc = EVTDESC_MONSTER.32
+	picture = GFX_evt_armory
+	
+	is_triggered_only = yes
+	
+	notification = yes
+	
+	option = {
+		name = OK
+	}
+}
+# MONSTER.33 - Lose monster_hunting_weapons due to seizing weapons (Loss)
+province_event = {
+	id = MONSTER.33
+	desc = EVTDESC_MONSTER.33
+	picture = GFX_evt_armory
+	
+	is_triggered_only = yes
+	
+	notification = yes
+	
+	immediate = {
+		remove_province_modifier = monster_hunting_weapons
+		if = {
+			limit = {
+				NOT = { owner = { character = FROMFROM } }
+			}
+			FROMFROM = { character_event = { id = MONSTER.34 } }
+		}
+	}
+	
+	option = {
+		name = OK
+	}
+}
+# MONSTER.34 - MONSTER.33 notification if not province owner
+character_event = {
+	id = MONSTER.34
+	desc = EVTDESC_MONSTER.34
+	picture = GFX_evt_armory
+	
+	is_triggered_only = yes
+	
+	notification = yes
+	
+	option = {
+		name = OK
+	}
+}
+# MONSTER.35 - Lose growing_discontent due to losing steam (White peace)
+province_event = {
+	id = MONSTER.35
+	desc = EVTDESC_MONSTER.35
+	picture = GFX_evt_market
+	
+	is_triggered_only = yes
+	
+	notification = yes
+	
+	immediate = {
+		remove_province_modifier = growing_discontent
+		if = {
+			limit = {
+				NOT = { owner = { character = FROMFROM } }
+			}
+			FROMFROM = { character_event = { id = MONSTER.36 } }
+		}
+	}
+	
+	option = {
+		name = OK
+	}
+}
+# MONSTER.36 - MONSTER.35 notification if not province owner
+character_event = {
+	id = MONSTER.36
+	desc = EVTDESC_MONSTER.36
+	picture = GFX_evt_market
+	
+	is_triggered_only = yes
+	
+	notification = yes
+	
+	option = {
+		name = OK
+	}
+}
+# MONSTER.37 - Lose growing_discontent due to being cowed by loss (Loss)
+province_event = {
+	id = MONSTER.37
+	desc = EVTDESC_MONSTER.37
+	picture = GFX_evt_noble_haughty_talking_to_peasants
+	
+	is_triggered_only = yes
+	
+	notification = yes
+	
+	immediate = {
+		remove_province_modifier = growing_discontent
+		if = {
+			limit = {
+				NOT = { owner = { character = FROMFROM } }
+			}
+			FROMFROM = { character_event = { id = MONSTER.38 } }
+		}
+	}
+	
+	option = {
+		name = OK
+	}
+}
+# MONSTER.38 - MONSTER.37 notification if not province owner
+character_event = {
+	id = MONSTER.38
+	desc = EVTDESC_MONSTER.38
+	picture = GFX_evt_noble_haughty_talking_to_peasants
+	
+	is_triggered_only = yes
+	
+	notification = yes
+	
+	option = {
+		name = OK
+	}
+}
+# MONSTER.39 - Lose human_riots due to instigators dying in battle (White peace)
+province_event = {
+	id = MONSTER.39
+	desc = EVTDESC_MONSTER.39
+	picture = GFX_evt_died_battle
+	
+	is_triggered_only = yes
+	
+	notification = yes
+	
+	immediate = {
+		remove_province_modifier = human_riots
+		if = {
+			limit = {
+				NOT = { owner = { character = FROMFROM } }
+			}
+			FROMFROM = { character_event = { id = MONSTER.40 } }
+		}
+	}
+	
+	option = {
+		name = OK
+	}
+}
+# MONSTER.40 - MONSTER.39 notification if not province owner
+character_event = {
+	id = MONSTER.40
+	desc = EVTDESC_MONSTER.40
+	picture = GFX_evt_died_battle
+	
+	is_triggered_only = yes
+	
+	notification = yes
+	
+	option = {
+		name = OK
+	}
+}
+# MONSTER.41 - Lose human_riots due to rounding up and executing instigators (White Peace)
+province_event = {
+	id = MONSTER.41
+	desc = EVTDESC_MONSTER.41
+	picture = GFX_evt_hung_from_trees_hf
+	
+	is_triggered_only = yes
+	
+	notification = yes
+	
+	immediate = {
+		remove_province_modifier = human_riots
+		if = {
+			limit = {
+				NOT = { owner = { character = FROMFROM } }
+			}
+			FROMFROM = { character_event = { id = MONSTER.42 } }
+		}
+	}
+	
+	option = {
+		name = OK
+	}
+}
+# MONSTER.42 - MONSTER.41 notification if not province owner
+character_event = {
+	id = MONSTER.42
+	desc = EVTDESC_MONSTER.42
+	picture = GFX_evt_hung_from_trees_hf
+	
+	is_triggered_only = yes
+	
+	notification = yes
+	
+	option = {
+		name = OK
+	}
+}
+# MONSTER.43 - Culture conversion after rebellion
+province_event = {
+	id = MONSTER.43
+	desc = EVTDESC_MONSTER.43
+	picture = GFX_evt_culture_change
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		random_list = {
+			1 = {
+				trigger = { 
+					FROMFROM = { trait = known_werewolf }
+					has_global_flag = founded_werewolf_culture
+				}
+				culture = werewolf_culture
+			}
+			1 = {
+				trigger = { 
+					FROMFROM = { trait = known_vampire }
+					has_global_flag = founded_vampire_culture
+				}
+				culture = vampire_culture
+			}
+			1 = {
+				trigger = {
+					FROMFROM = { trait = dragon }
+				}
+				culture = draconic
+			}
+			1 = {
+				trigger = {
+					FROMFROM = { trait = djinn }
+				}
+				culture = djinni
+			}
+			1 = {
+				trigger = { 
+					FROMFROM = {
+						OR = {
+							trait = mythos_giant
+							trait = half_giant
+						}
+					}
+				}
+				culture = jotunn
+			}
+			1 = {
+				trigger = {
+					FROMFROM = { trait = zombie }
+				}
+				culture = FROMFROM
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTA55000
+		tooltip = { culture = ROOT }
+		hidden_tooltip ={
+			if = {
+				limit = { NOT = { owner = { character = FROMFROM } } }
+				FROMFROM = { character_event = { id = MONSTER.44 } }
+			}
+		}
+	}
+}
+# MONSTER.44 - MONSTER.43 notification if not province owner
+character_event = {
+	id = MONSTER.44
+	desc = EVTDESC_MONSTER.44
+	picture = GFX_evt_culture_change
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA55000
+		tooltip = { FROM = { culture = FROM } }
+	}
+}

@@ -1,0 +1,51 @@
+##########################################################
+##########################2.0.2###########################
+##########################################################
+
+########
+# Giants
+########
+- Giants and half-giants have a size trait that increases as they age.  Half-gaints grow at half the rate and dwarves will not grow at all
+- Northern German, Germanic Pagan, and Jotnar giants receive an additional racial trait.
+- Gaints and half-giants have new art for their racial trait
+
+################
+# Minor Features
+################
+- Characters no longer have perfect "gaydar"
+- Dragons can now attack draconic rivals to steal gold
+- Merchant Republics can act as moneylenders, providing and alternative to borrowing from the Jews
+- Added additional events from the Sapphire Flame
+- Certain holy orders will sometimes generate characters with special traits
+
+#########
+# Balance
+#########
+- Adjusted Ruler Designer costs
+- Reworks how the pup trait is inherited. It should be more common for children of werewolves and less common for children of non-werewolves
+- Gods and demi-gods now get an opinion bonus with co-religionists instead of characters with the same trait.
+- Adjusted values for Perform Alchemy - success should no longer gain less than the initial cost.
+- Alchemists with the magic focus and now get the panacea event after gaining the lifestyle
+- Werewolf challenges should be a bit faster
+- Werewolves should get Horse Lords full moon events less often, making high control a bit easier
+
+##########
+# Bugfixes
+##########
+- Sympom healing now scales for long-lived races with Reaper's Due
+- Vampires no longer claim to drink their own blood
+- Vampires without the Conclave expansion should now have the correct government
+- Zeus is no longer named "Conclave"
+- Adopting werewolf culture now properly requires King rank or higher
+- The mother of the Faroyar dragon at the The Old Gods start should no longer appear to be a human
+- Werewolf pits now have the correct effect on garrison size
+- Vampires need to be down to adopt vampiric culture
+- Norse, Swedish, Norwegian, and Danish characters should once again use Norse portraits
+- The Infertile trait should now be visible in Mac OS
+- Fixed inland republics being listed as merchant republics
+- Fixed cases where automatically generated characters at game start would never get their race trait
+- Fixed some incorrect math behind werewolf challenges
+- The Pope is no longer fine with your having demons in your employ
+- Fixed a bug where a fuedal ruler could become the Sapphire Flame
+- Fixed a bug if the germanic Fylkir had a draconic government
+- Fixed circumstances where werewolves could end up in multiple simultanious challenges

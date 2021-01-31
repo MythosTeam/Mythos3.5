@@ -1,0 +1,412 @@
+upgrade_dragon_flame = {
+	picture = GFX_upgrade_icon_brazier_blue
+	potential = { always = no }
+	allow = { always = no }
+	active = {
+		OR = {
+			religion = draconic_pagan
+			religion = draconic_pagan_reformed
+		}
+	}
+	
+	flags = {
+		is_singular
+		holy
+	}
+	local_modifier = {
+		local_revolt_risk = -0.02
+	}
+	owner_modifier = {
+		monthly_character_piety = 0.25
+		draconic_pagan_opinion = 3
+		draconic_pagan_reformed_opinion = 3
+	}
+}
+upgrade_divine_shrines = {
+	picture = GFX_upgrade_icon_brazier
+	potential = { }
+	allow = {
+		follows_polytheistic_religion = yes
+		trigger_if = {
+			limit = {
+				OR = {
+					religion = draconic_pagan
+					religion = draconic_pagan_reformed
+				}
+				FROM = { has_wonder_upgrade = upgrade_dead_flame }
+			}
+			FROM = { NOT = { has_wonder_upgrade = upgrade_dead_flame } }
+		}
+	}
+	active = {
+		follows_polytheistic_religion = yes
+		trigger_if = {
+			limit = {
+				OR = {
+					religion = draconic_pagan
+					religion = draconic_pagan_reformed
+				}
+				FROM = { has_wonder_upgrade = upgrade_dead_flame }
+			}
+			FROM = { NOT = { has_wonder_upgrade = upgrade_dead_flame } }
+		}
+	}
+	
+	flags = {
+		is_plural
+	}
+	build_time = 24
+	gold_cost_flat = 450
+	gold_cost_ticking = 1
+	owner_modifier = {
+		pagan_group_church_opinion = 2
+	}
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 0
+			NOT = { religion_group = pagan_group }
+		}
+	}
+}
+upgrade_holy_mausoleum = {
+	picture = GFX_upgrade_icon_skulls
+	potential = {
+		FROMFROM = { has_province_flag = relit_eternal_flame }
+	}
+	allow = {
+		FROMFROM = { has_province_flag = relit_eternal_flame }
+		trigger_if = {
+			limit = {
+				NOR = {
+					religion = draconic_pagan
+					religion = draconic_pagan_reformed
+				}
+			}
+			OR = {
+				religion = draconic_pagan
+				religion = draconic_pagan_reformed
+			}
+		}
+		trigger_if = {
+			limit = {
+				FROM = { has_wonder_upgrade = upgrade_dead_flame }
+			}
+			FROM = { NOT = { has_wonder_upgrade = upgrade_dead_flame } }
+		}
+	}
+	active = {
+		OR = {
+			religion = draconic_pagan
+			religion = draconic_pagan_reformed
+		}
+		trigger_if = {
+			limit = {
+				FROM = { has_wonder_upgrade = upgrade_dead_flame }
+			}
+			FROM = { NOT = { has_wonder_upgrade = upgrade_dead_flame } }
+		}
+	}
+	
+	flags = {
+		is_plural
+	}
+	build_time = 24
+	gold_cost_flat = 450
+	gold_cost_ticking = 1
+	owner_modifier = {
+		monthly_character_piety = 0.25
+		monthly_character_prestige = 0.1
+		# Can I give a small opinion bonus to characters with saintly bloodlines too/instead?
+	}
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 0
+			NOR = {
+				religion = draconic_pagan
+				religion = draconic_pagan_reformed
+			}
+		}
+		# Add modifier making more likely if builder has a draconic saintly bloodline
+	}
+}
+upgrade_flame_custodian = {
+	picture = GFX_upgrade_icon_key
+	potential = { }
+	allow = {
+		trigger_if = {
+			limit = {
+				NOR = {
+					religion = draconic_pagan
+					religion = draconic_pagan_reformed
+				}
+			}
+			OR = {
+				religion = draconic_pagan
+				religion = draconic_pagan_reformed
+			}
+		}
+		trigger_if = {
+			limit = {
+				FROM = { has_wonder_upgrade = upgrade_dead_flame }
+			}
+			FROM = { NOT = { has_wonder_upgrade = upgrade_dead_flame } }
+		}
+	}
+	active = {
+		OR = {
+			religion = draconic_pagan
+			religion = draconic_pagan_reformed
+		}
+		trigger_if = {
+			limit = {
+				FROM = { has_wonder_upgrade = upgrade_dead_flame }
+			}
+			FROM = { NOT = { has_wonder_upgrade = upgrade_dead_flame } }
+		}
+	}
+
+	flags = {
+		is_singular
+		unlocks_minor_title
+	}
+	build_time = 24
+	gold_cost_flat = 450
+	gold_cost_ticking = 1
+	local_modifier = {
+		
+	}
+	owner_modifier = {
+		custom_modifier_text = custodian_of_flame_custom_modifier_tt
+	}
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 0
+			NOR = {
+				religion = draconic_pagan
+				religion = draconic_pagan_reformed
+			}
+		}
+	}
+}
+upgrade_eternal_palace = {
+	picture = GFX_upgrade_icon_key
+	potential = {
+		religion = draconic_pagan_reformed
+		controls_religion = yes
+		OR = {
+			has_religion_feature = religion_theocratic_head
+			has_religion_feature = religion_autocephaly
+		}
+	}
+	allow = {
+		religion = draconic_pagan_reformed
+		controls_religion = yes
+		OR = {
+			has_religion_feature = religion_theocratic_head
+			has_religion_feature = religion_autocephaly
+		}
+		trigger_if = {
+			limit = {
+				FROM = { has_wonder_upgrade = upgrade_dead_flame }
+			}
+			FROM = { NOT = { has_wonder_upgrade = upgrade_dead_flame } }
+		}
+	}
+	active = {
+		religion = draconic_pagan_reformed
+		controls_religion = yes
+		OR = {
+			has_religion_feature = religion_theocratic_head
+			has_religion_feature = religion_autocephaly
+		}
+		trigger_if = {
+			limit = {
+				FROM = { has_wonder_upgrade = upgrade_dead_flame }
+			}
+			FROM = { NOT = { has_wonder_upgrade = upgrade_dead_flame } }
+		}
+	}
+	
+	flags = {
+		is_singular
+		holy
+		room
+	}
+	build_time = 36
+	gold_cost_flat = 550
+	gold_cost_ticking = 2
+	local_modifier = {
+		local_revolt_risk = -0.01
+	}
+	owner_modifier = {
+		monthly_character_piety = 0.25
+		monthly_character_prestige = 0.25
+		levy_size = 0.02
+		land_morale = 0.02
+	}
+	ai_will_do = {
+		factor = 3
+	}
+}
+upgrade_purification_chambers = {
+	picture = GFX_upgrade_icon_key
+	potential = {
+		has_global_flag = draconic_pagan_reformation
+	}
+	allow = {
+		trigger_if = {
+			limit = {
+				NOT = { religion = draconic_pagan_reformed }
+			}
+			religion = draconic_pagan_reformed
+		}
+		trigger_if = {
+			limit = {
+				FROM = { has_wonder_upgrade = upgrade_dead_flame }
+			}
+			FROM = { NOT = { has_wonder_upgrade = upgrade_dead_flame } }
+		}
+	}
+	active = {
+		OR = {
+			religion = draconic_pagan
+			religion = draconic_pagan_reformed
+		}
+		trigger_if = {
+			limit = {
+				FROM = { has_wonder_upgrade = upgrade_dead_flame }
+			}
+			FROM = { NOT = { has_wonder_upgrade = upgrade_dead_flame } }
+		}
+	}
+
+	flags = {
+		is_singular
+		holy
+		room
+	}
+	build_time = 24
+	gold_cost_flat = 450
+	gold_cost_ticking = 1
+	owner_modifier = {
+		custom_modifier_text = purity_custom_modifier_tt
+	}
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 0
+			NOR = {
+				religion = draconic_pagan
+				religion = draconic_pagan_reformed
+			}
+		}
+	}
+}
+upgrade_inquisition_chambers = {
+	picture = GFX_upgrade_icon_key
+	potential = {
+		OR = {
+			religion_group = christian
+			religion_group = muslim
+			has_religion_feature = religion_dogmatic
+			has_religion_feature = religion_proselytizing
+		}
+		NOR = {
+			has_religion_feature = religion_peaceful
+			has_religion_feature = religion_cosmopolitan
+		}
+	}
+	allow = {
+		trigger_if = {
+			limit = {
+				OR = {
+					religion = draconic_pagan
+					religion = draconic_pagan_reformed
+				}
+				FROM = { has_wonder_upgrade = upgrade_dead_flame }
+			}
+			FROM = { NOT = { has_wonder_upgrade = upgrade_dead_flame } }
+		}
+	}
+	active = {
+		OR = {
+			religion_group = christian
+			religion_group = muslim
+			has_religion_feature = religion_dogmatic
+			has_religion_feature = religion_proselytizing
+		}
+		NOR = {
+			has_religion_feature = religion_peaceful
+			has_religion_feature = religion_cosmopolitan
+		}
+	}
+	
+	flags = {
+		room
+		is_plural
+		unlocks_minor_title
+	}
+	build_time = 24
+	gold_cost_flat = 550
+	gold_cost_ticking = 1
+	local_modifier = {
+		
+	}
+	owner_modifier = {
+		zealous_opinion = 10
+		custom_modifier_text = improve_hunt_apostates_modifier_tt
+	}
+}
+upgrade_ritual_chamber = {
+	picture = GFX_upgrade_icon_key
+	potential = { trait = necromancer }
+	allow = { trait = necromancer }
+	active = { trait = necromancer }
+	
+	flags = {
+		room
+		is_singular
+		secret
+	}
+	build_time = 24
+	gold_cost_flat = 600
+	gold_cost_ticking = 1
+	owner_modifier = {
+		monthly_character_piety = 0.25
+		zombie_troops_offensive = 0.05
+		necromancer_opinion = 5
+	}
+}
+
+# Eternal Flame blockers
+upgrade_dead_flame = {
+	picture = GFX_upgrade_dead_flame
+	potential = { always = no }
+	allow = { always = no }
+	active = {
+		OR = {
+			religion = draconic_pagan
+			religion = draconic_pagan_reformed
+		}
+	}
+	
+	flags = {
+		is_singular
+		negative
+	}
+	build_time = 24
+	gold_cost_flat = 450
+	gold_cost_ticking = 1
+	local_modifier = {
+		local_revolt_risk = 0.005
+	}
+	owner_modifier = {
+		draconic_pagan_opinion = -2
+		draconic_pagan_reformed_opinion = -2
+		monthly_character_piety = -0.25
+		monthly_character_prestige = -0.25
+	}
+}

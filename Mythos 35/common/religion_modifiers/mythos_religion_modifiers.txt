@@ -1,0 +1,35 @@
+# Gain MA for destroying Eternal Flame
+destroyed_eternal_flame = {
+	authority = 2
+	years = 10
+}
+
+# Lose MA for Eternal Flame being destroyed
+lost_eternal_flame = {
+	authority = -5
+	years = 30
+}
+
+# Relit Eternal Flame
+relit_eternal_flame = {
+	authority = 10
+	years = 30
+}
+
+# Replaced impure Sapphire Flame
+deposed_impure_flame = {
+	authority = 5
+	years = 10
+}
+
+# Destroyed a major icon
+destroyed_major_icon_MA = {
+	authority = 5
+	years = 5
+}
+
+# Built Eternal Flame
+built_eternal_flame = {
+	authority = 10
+	years = 30
+}

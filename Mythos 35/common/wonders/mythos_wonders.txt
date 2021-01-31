@@ -1,0 +1,244 @@
+# Eternal Flame
+wonder_eternal_flame = {
+	picture = wonder_strip_eternal_flame
+	model = wonder_temple
+	potential = {
+		FROMFROMFROM = {
+			OR = {
+				county = { is_holy_site = draconic_pagan }
+				any_province_holding = { is_holy_site = draconic_pagan }
+			}
+		}
+		OR = {
+			religion = draconic_pagan_reformed
+			religion = draconic_pagan
+		}
+	}
+	active = {
+		ROOT = {
+			OR = {
+				religion = draconic_pagan
+				religion = draconic_pagan_reformed
+			}
+		}
+	}
+	flags = {
+		holy_building
+		inspires_piety
+		cost_high
+		is_historical
+	}
+	available_upgrades = {
+		# UNIQUE
+		upgrade_dragon_flame
+		upgrade_divine_shrines
+		upgrade_holy_mausoleum
+		upgrade_flame_custodian
+		upgrade_eternal_palace
+		upgrade_purification_chambers
+		upgrade_runestones
+		
+		#
+		upgrade_historical_mural
+		
+		upgrade_roads
+		upgrade_spikes
+		upgrade_road_tolls
+		upgrade_tower
+		upgrade_retinue
+		upgrade_hypocausts
+		upgrade_heating_pipes
+		upgrade_overseer_of_rites
+		upgrade_watchtower_network
+	}
+	stage = {
+		build_time = 60
+		gold_cost_flat = 1000
+		gold_cost_ticking = 0
+		upgrade_slots = 1
+		local_modifier = {
+		}
+		owner_modifier = {
+			monthly_character_piety = 0.1
+		}
+	}
+	stage = {
+		allow = {
+			has_wonder_upgrade = upgrade_dragon_flame
+		}
+		build_time = 300
+		gold_cost_flat = 3000
+		gold_cost_ticking = 3
+		restore_time = 200
+		loot_time = 9
+		restore_cost_flat = 500
+		restore_cost_ticking = 2
+		upgrade_slots = 2
+		local_modifier = {
+		}
+		owner_modifier = {
+			monthly_character_piety = 0.1
+			draconic_pagan_opinion = 1
+			draconic_pagan_reformed_opinion = 1
+		}
+	}
+	stage = {
+		allow = {
+			has_wonder_upgrade = upgrade_dragon_flame
+		}
+		build_time = 300
+		gold_cost_flat = 3000
+		gold_cost_ticking = 3
+		restore_time = 200
+		loot_time = 9
+		restore_cost_flat = 500
+		restore_cost_ticking = 2
+		upgrade_slots = 2
+		local_modifier = {
+		}
+		owner_modifier = {
+			monthly_character_piety = 0.1
+		}
+	}
+	stage = {
+		allow = {
+			has_wonder_upgrade = upgrade_dragon_flame
+		}
+		build_time = 300
+		gold_cost_flat = 3000
+		gold_cost_ticking = 3
+		restore_time = 200
+		loot_time = 9
+		restore_cost_flat = 500
+		restore_cost_ticking = 2
+		upgrade_slots = 3
+		local_modifier = {
+		}
+		owner_modifier = {
+			monthly_character_piety = 0.1
+			draconic_pagan_opinion = 1
+			draconic_pagan_reformed_opinion = 1
+		}
+	}
+}
+
+wonder_cathedral_satanic = {
+	picture = GFX_wonder_strip_cathedral
+	model = wonder_cathedral
+	potential = {
+		religion = satanist
+	}
+	active = {
+		ROOT = {
+			religion = satanist
+		}
+	}
+	flags = {
+		holy_building
+		inspires_piety
+		is_destructible
+		cost_medium
+	}
+	available_upgrades = {
+		# UNIQUE:
+		upgrade_gargoyles
+		upgrade_bells
+		upgrade_relic_tomb
+		upgrade_catacombs
+		upgrade_sacrificial_altar
+		upgrade_unmarked_tombs
+		upgrade_pet_graveyard
+		upgrade_moat_spike
+		upgrade_moat_bones
+		upgrade_hidden_passageways
+		upgrade_dungeon
+
+		#
+		upgrade_torture_chamber
+		upgrade_historical_mural
+		upgrade_ritual_chamber
+
+		# OTHER:
+	 	upgrade_roads
+		upgrade_watchtower_network
+		upgrade_spikes
+		upgrade_tower
+		upgrade_hypocausts
+		upgrade_heating_pipes
+		upgrade_retinue
+		upgrade_road_tolls
+		upgrade_tavern
+	}
+	stage = {
+		allow = {
+		}
+		build_time = 325
+		gold_cost_flat = 2000
+		gold_cost_ticking = 3
+		restore_time = 100
+		loot_time = 6
+		restore_cost_flat = 400
+		restore_cost_ticking = 2
+		upgrade_slots = 2
+		local_modifier = {
+		}
+		owner_modifier = {
+			monthly_character_prestige = 0.05
+			monthly_character_piety = 0.1
+		}
+	}
+	stage = {
+		allow = {
+		}
+		build_time = 375
+		gold_cost_flat = 2200
+		gold_cost_ticking = 5
+		restore_time = 200
+		loot_time = 6
+		restore_cost_flat = 500
+		restore_cost_ticking = 2
+		upgrade_slots = 2
+		local_modifier = {
+		}
+		owner_modifier = {
+			monthly_character_prestige = 0.1
+			monthly_character_piety = 0.1
+		}
+	}
+	stage = {
+		allow = {
+		}
+		build_time = 375
+		gold_cost_flat = 2400
+		gold_cost_ticking = 5
+		restore_time = 200
+		loot_time = 6
+		restore_cost_flat = 500
+		restore_cost_ticking = 2
+		upgrade_slots = 2
+		local_modifier = {
+		}
+		owner_modifier = {
+			monthly_character_prestige = 0.1
+			monthly_character_piety = 0.2
+		}
+	}
+	stage = {
+		allow = {
+		}
+		build_time = 325
+		gold_cost_flat = 2600
+		gold_cost_ticking = 5
+		restore_time = 200
+		loot_time = 1
+		restore_cost_flat = 500
+		restore_cost_ticking = 2
+		upgrade_slots = 2
+		local_modifier = {
+		}
+		owner_modifier = {
+			monthly_character_prestige = 0.2
+			monthly_character_piety = 0.2
+		}
+	}
+}

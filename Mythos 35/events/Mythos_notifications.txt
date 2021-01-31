@@ -1,0 +1,70 @@
+namespace = MN #Mythos Notification
+
+# poet				MN.1
+# syphilitic		MN.2
+# Remove brave		MN.3
+# Remove Wounded	MN.4
+
+# Gain Poet
+character_event = {
+	id = MN.1
+	desc = MN_DESC.1
+	picture = GFX_evt_feast
+	
+	notification = yes
+	
+	is_triggered_only = yes
+	hide_from = yes
+	
+	option = {
+		name = OK 
+	}
+}
+
+# Gain Syphilitic
+character_event = {
+	id = MN.2
+	desc = MN_DESC.2
+	picture = GFX_evt_feast
+	
+	notification = yes
+	
+	is_triggered_only = yes
+	hide_from = yes
+	
+	option = {
+		name = OK 
+	}
+}
+
+# Remove Brave
+character_event = {
+	id = MN.3
+	desc = MN_DESC.3
+	picture = GFX_evt_feast
+	
+	notification = yes
+	
+	is_triggered_only = yes
+	hide_from = yes
+	
+	option = {
+		name = OK 
+	}
+}
+
+# Remove Wounded
+character_event = {
+	id = MN.4
+	desc = MN_DESC.4
+	picture = GFX_evt_feast
+	
+	notification = yes
+	
+	is_triggered_only = yes
+	hide_from = yes
+	
+	option = {
+		name = OK 
+	}
+}

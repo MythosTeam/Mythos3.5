@@ -1,0 +1,2399 @@
+namespace = BANK
+
+# BANK.1 - Bank owner interacts with bank
+character_event = {
+	id = BANK.1
+	desc = EVTDESC_BANK.1
+	picture = GFX_evt_relaxed_ruler
+	border = GFX_event_normal_frame_economy
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_BANK.1
+		trigger = { wealth = 100 }
+		wealth = -100
+		custom_tooltip = { 
+			text = tt_bank_add_100
+			hidden_tooltip = {
+				change_variable = { which = bank_total value = 100 }
+			}
+		}
+		ai_chance = {
+			factor = 2
+			modifier = {
+				factor = 1.5
+				wealth = 200
+			}
+			modifier = {
+				factor = 2
+				wealth = 400
+			}
+			modifier = {
+				factor = 2.5
+				wealth = 800
+			}
+			modifier = {
+				factor = 0.5
+				check_variable = { which = bank_total value = 300 }
+			}
+			modifier = {
+				factor = 0.5
+				check_variable = { which = bank_total value = 400 }
+			}
+			modifier = {
+				factor = 0.5
+				check_variable = { which = bank_total value = 500 }
+			}
+			modifier = {
+				factor = 0.5
+				check_variable = { which = bank_total value = 600 }
+			}
+		}
+	}
+	option = {
+		name = EVTOPTB_BANK.1
+		trigger = { check_variable = { which = bank_total value = 100 } }
+		wealth = 100
+		custom_tooltip = { 
+			text = tt_bank_subtract_100
+			hidden_tooltip = {
+				change_variable = { which = bank_total value = -100 }
+			}
+		}
+		ai_chance = {
+			factor = 2
+			modifier = {
+				factor = 1.5
+				wealth < 100
+			}
+			modifier = {
+				factor = 2
+				wealth < 50
+			}
+			modifier = {
+				factor = 3
+				wealth < 0
+			}
+			modifier = {
+				factor = 1.5
+				check_variable = { which = bank_total value = 500 }
+			}
+			modifier = {
+				factor = 1.5
+				check_variable = { which = bank_total value = 600 }
+			}
+			modifier = {
+				factor = 2
+				check_variable = { which = bank_total value = 700 }
+			}
+			modifier = {
+				factor = 2
+				check_variable = { which = bank_total value = 800 }
+			}
+		}
+	}
+	option = {
+		name = EVTOPTC_BANK.1
+		wealth = bank_total
+		custom_tooltip = {
+			text = tt_empty_bank
+			hidden_tooltip = {
+				set_variable = { which = bank_total value = 0 }
+			}
+		}
+		remove_trait = banker
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 2
+				wealth < 100
+				NOT = { check_variable = { which = bank_total value = 100 } }
+			}
+			modifier = {
+				factor = 2
+				NOT = { has_any_opinion_modifier = opinion_gave_loan }
+			}
+		}
+	}
+	option = {
+		name = EVTOPTD_BANK.1
+		ai_chance = {
+			factor = 3
+		}
+	}
+}
+
+# BANK.2 - Find a banker to borrow from
+character_event = {
+	id = BANK.2
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		NOT = { trait = banker } # Sanity, since this will overwrite the amount left for loans
+	}
+	
+	immediate = {
+		# Check for banker who can offer full loan
+		export_to_variable = { which = bank_total value = yearly_income }
+		multiply_variable = { which = bank_total value = 3 }
+		banker = {
+			limit = {
+				check_variable = { which = bank_total which = ROOT }
+			}
+			save_event_target_as = selected_banker
+		}
+		if = {
+			limit = {
+				event_target:selected_banker = {
+					always = yes
+				}
+			}
+			event_target:selected_banker = {
+				character_event = { id = BANK.5 }
+			}
+			set_variable = { which = bank_total value = 0 }
+			break = yes
+		}
+		# Failing that, find a banker who can offer a medium loan
+		export_to_variable = { which = bank_total value = yearly_income }
+		banker = {
+			limit = {
+				check_variable = { which = bank_total which = ROOT }
+			}
+			save_event_target_as = selected_banker
+		}
+		if = {
+			limit = {
+				event_target:selected_banker = {
+					always = yes
+				}
+			}
+			event_target:selected_banker = {
+				character_event = { id = BANK.5 }
+			}
+			set_variable = { which = bank_total value = 0 }
+			break = yes
+		}
+		# Failing that, settle for a banker who can give a small loan
+		export_to_variable = { which = bank_total value = yearly_income }
+		divide_variable = { which = small_loan value = 3 }
+		banker = {
+			limit = {
+				check_variable = { which = bank_total which = ROOT }
+			}
+			save_event_target_as = selected_banker
+		}
+		if = {
+			limit = {
+				event_target:selected_banker = {
+					always = yes
+				}
+			}
+			event_target:selected_banker = {
+				character_event = { id = BANK.5 }
+			}
+			set_variable = { which = bank_total value = 0 }
+			break = yes
+		}
+		# If you reached here, none of the bankers can give any loans. Give a failure event
+		set_variable = { which = bank_total value = 0 }
+		character_event = { id = BANK.6 }
+	}
+}
+
+# BANK.3 - Borrow money. Root is the borrower and From is the lender
+character_event = {
+	id = BANK.3
+	desc = {
+		trigger = {
+			FROM = { check_variable = { which = bank_total which = local_small_loan } }
+		}
+		text = EVTDESCA_BANK.3
+	}
+	desc = {
+		trigger = {
+			FROM = { NOT = {  check_variable = { which = bank_total which = local_small_loan } } }
+		}
+		text = EVTDESCB_BANK.3
+		picture = GFX_evt_bribe_declined
+	}
+	picture = GFX_evt_bribe_accepted
+	border = GFX_event_normal_frame_economy
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		# Only need to change loan values here - everything else should work off these
+		export_to_variable = { which = small_loan value = yearly_income }
+		divide_variable = { which = small_loan value = 3 }
+		export_to_variable = { which = medium_loan value = yearly_income }
+		export_to_variable = { which = large_loan value = yearly_income }
+		multiply_variable = { which = large_loan value = 3 }
+		event_target:selected_banker = {
+			set_variable = { which = small_loan which = ROOT }
+			set_variable = { which = medium_loan which = ROOT }
+			set_variable = { which = large_loan which = ROOT }
+		}
+		
+	}
+	
+	# Option 1 - Large loan
+	option = {
+		name = EVTOPTA_BANK.3
+		trigger = {
+			event_target:selected_banker = { check_variable = { which = bank_total which = large_loan } }
+		}
+		wealth = large_loan
+		opinion = { who = event_target:selected_banker modifier = opinion_my_banker years = 800 }
+		reverse_opinion = { who = event_target:selected_banker modifier = opinion_gave_loan years = 800 }
+		add_character_modifier = { modifier = borrowed_from_bank years = 800 }
+		custom_tooltip = {
+			text = tt_take_loan
+		}
+		hidden_tooltip = {
+			set_variable = { which = loan_amount which = large_loan }
+			multiply_variable = { which = loan_amount value = 11 }
+			divide_variable = { which = loan_amount value = 10 }
+			event_target:selected_banker = {
+				subtract_variable = { which = bank_total which = large_loan }
+				subtract_variable = { which = loan_profit which = large_loan }
+			}
+			character_event = { id = BANK.7 days = 365 }
+		}
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 3
+				is_allowed_to_loot = yes # Easier to pay off loans
+			}
+			modifier = {
+				factor = 3
+				scaled_wealth > -3
+				scaled_wealth < -1
+			}
+			modifier = {
+				factor = 1.1
+				ai_greed = 25
+			}
+			modifier = {
+				factor = 1.2
+				ai_greed = 50
+			}
+			modifier = {
+				factor = 1.3
+				ai_greed = 75
+			}
+			modifier = {
+				factor = 1.4
+				ai_greed = 100
+			}
+		}
+	}
+	
+	# Option 2 - medium loan
+	option = {
+		name = EVTOPTB_BANK.3
+		trigger = {
+			event_target:selected_banker = { check_variable = { which = bank_total which = medium_loan } }
+		}
+		wealth = medium_loan
+		opinion = { who = event_target:selected_banker modifier = opinion_my_banker years = 800 }
+		reverse_opinion = { who = event_target:selected_banker modifier = opinion_gave_loan years = 800 }
+		add_character_modifier = { modifier = borrowed_from_bank years = 800 }
+		custom_tooltip = {
+			text = tt_take_loan
+		}
+		hidden_tooltip = {
+			set_variable = { which = loan_amount which = medium_loan }
+			multiply_variable = { which = loan_amount value = 11 }
+			divide_variable = { which = loan_amount value = 10 }
+			event_target:selected_banker = {
+				subtract_variable = { which = bank_total which = medium_loan }
+				subtract_variable = { which = loan_profit which = medium_loan }
+			}
+			character_event = { id = BANK.7 days = 365 }
+		}
+		ai_chance = {
+			factor = 2
+			modifier = {
+				factor = 2.5
+				is_allowed_to_loot = yes # Easier to pay off loans
+			}
+			modifier = {
+				factor = 3
+				scaled_wealth > -1
+				scaled_wealth < -0.3
+			}
+			modifier = {
+				factor = 1.1
+				ai_greed = 50
+			}
+			modifier = {
+				factor = 1.2
+				ai_greed = 75
+			}
+			modifier = {
+				factor = 1.3
+				ai_greed = 100
+			}
+		}
+	}
+	
+	# Option 3 - small loan
+	option = {
+		name = EVTOPTC_BANK.3
+		trigger = {
+			event_target:selected_banker = { check_variable = { which = bank_total which = small_loan } }
+		}
+		wealth = small_loan
+		opinion = { who = event_target:selected_banker modifier = opinion_my_banker years = 800 }
+		reverse_opinion = { who = event_target:selected_banker modifier = opinion_gave_loan years = 800 }
+		add_character_modifier = { modifier = borrowed_from_bank years = 800 }
+		custom_tooltip = {
+			text = tt_take_loan
+		}
+		hidden_tooltip = {
+			set_variable = { which = loan_amount which = small_loan }
+			multiply_variable = { which = loan_amount value = 11 }
+			divide_variable = { which = loan_amount value = 10 }
+			event_target:selected_banker = {
+				subtract_variable = { which = bank_total which = small_loan }
+				subtract_variable = { which = loan_profit which = small_loan }
+			}
+			character_event = { id = BANK.7 days = 365 }
+		}
+		ai_chance = {
+			factor = 2
+			modifier = {
+				factor = 2
+				is_allowed_to_loot = yes # Easier to pay off loans
+			}
+			modifier = {
+				factor = 3
+				scaled_wealth > -0.3
+				scaled_wealth < 0
+			}
+			modifier = {
+				factor = 1.1
+				ai_greed = 75
+			}
+			modifier = {
+				factor = 1.2
+				ai_greed = 100
+			}
+		}
+	}
+	
+	# Option 4 - no loan
+	option = {
+		name = EVTOPTD_BANK.3
+		trigger = {
+			event_target:selected_banker = { check_variable = { which = bank_total which = small_loan } }
+		}
+	}
+	
+	# Option 5 - Bank can't give you a loan
+	option = {
+		name = EVTOPTE_BANK.3
+		trigger = {
+			event_target:selected_banker = { NOT = { check_variable = { which = bank_total which = small_loan } } }
+		}
+	}
+	
+	after = {
+		hidden_tooltip = {
+			set_variable = { which = small_loan value = 0 }
+			set_variable = { which = medium_loan value = 0 }
+			set_variable = { which = large_loan value = 0 }
+			event_target:selected_banker = {
+				set_variable = { which = small_loan value = 0 }
+				set_variable = { which = medium_loan value = 0 }
+				set_variable = { which = large_loan value = 0 }
+			}
+		}
+	}
+}
+
+# BANK.4 - Make an early payment. From is banker
+character_event = {
+	id = BANK.4
+	desc = EVTDESC_BANK.4
+	picture = GFX_evt_bribe_accepted
+	border = GFX_event_normal_frame_economy
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		export_to_variable = { which = local_wealth value = wealth }
+		set_variable = { which = local_payment_full which = loan_amount }
+		set_variable = { which = local_requirement_full which = local_payment_full }
+		multiply_variable = { which = local_payment_full value = -1 }
+		set_variable = { which = local_payment_large which = loan_amount }
+		divide_variable = { which = local_payment_large value = 2 }
+		set_variable = { which = local_requirement_large which = local_payment_large }
+		multiply_variable = { which = local_payment_large value = -1 }
+		set_variable = { which = local_payment_medium which = loan_amount }
+		divide_variable = { which = local_payment_medium value = 4 }
+		set_variable = { which = local_requirement_medium which = local_payment_medium }
+		multiply_variable = { which = local_payment_medium value = -1 }
+		set_variable = { which = local_payment_small which = loan_amount }
+		divide_variable = { which = local_payment_small value = 7 }
+		set_variable = { which = local_requirement_small which = local_payment_small }
+		multiply_variable = { which = local_payment_small value = -1 }
+		set_variable = { which = local_double_full which = local_requirement_full }
+		multiply_variable = { which = local_double_full value = 2 } # Used for AI
+	}
+	
+	# Option 1 - Cancel
+	option = {
+		name = EVTOPTA_BANK.4
+		ai_chance = {
+			factor = 1
+		}
+	}
+	# Option 2 - Full payment
+	option = {
+		name = EVTOPTB_BANK.4
+		trigger = {
+			check_variable = { which = local_wealth which = local_requirement_full }
+		}
+		wealth = local_payment_full
+		remove_character_modifier = borrowed_from_bank
+		remove_opinion = { who = FROM modifier = opinion_my_banker }
+		reverse_remove_opinion = { who = FROM modifier = opinion_gave_loan }
+		reverse_remove_opinion = { who = FROM modifier = opinion_asked_for_loan_extension }
+		hidden_tooltip = {
+			set_variable = { which = local_payment which = local_requirement_full }
+			set_variable = { which = loan_amount value = 0 }
+			FROM = {
+				set_variable = { which = local_payment which = ROOT }
+				if = {
+					limit = { trait = banker }
+					change_variable = { which = bank_total which = local_payment }
+				}
+				else = {
+					wealth = local_payment
+				}
+				change_variable = { which = loan_profit which = local_payment }
+				if = {
+					limit = { ai = no }
+					character_event = { id = BANK.9 } # Alert that a loan was paid off
+				}
+			}
+		}
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 15
+				check_variable = { which = local_wealth which = local_double_full }
+			}
+		}
+	}
+	# Option 3 - Half payment
+	option = {
+		name = EVTOPTC_BANK.4
+		trigger = {
+			check_variable = { which = local_wealth which = local_requirement_large }
+			check_variable = { which = local_requirement_large value = 1 } # If it's less than 1, always just pay it off
+		}
+		wealth = local_payment_large
+		hidden_tooltip = {
+			set_variable = { which = local_payment which = local_requirement_large }
+			FROM = {
+				set_variable = { which = local_payment which = ROOT }
+				if = {
+					limit = { trait = banker }
+					change_variable = { which = bank_total which = local_payment }
+				}
+				else = {
+					wealth = local_payment
+				}
+				change_variable = { which = loan_profit which = local_payment }
+			}
+		}
+		ai_chance = {
+			factor = 2
+			modifier = {
+				factor = 5
+				check_variable = { which = local_wealth which = local_requirement_full }
+			}
+		}
+	}
+	# Option 4 - Quarter payment
+	option = {
+		name = EVTOPTD_BANK.4
+		trigger = {
+			check_variable = { which = local_wealth which = local_requirement_medium }
+			check_variable = { which = local_requirement_medium value = 1 } # If it's less than 1, always just pay it off
+		}
+		wealth = local_payment_medium
+		hidden_tooltip = {
+			set_variable = { which = local_payment which = local_requirement_medium }
+			FROM = {
+				set_variable = { which = local_payment which = ROOT }
+				if = {
+					limit = { trait = banker }
+					change_variable = { which = bank_total which = local_payment }
+				}
+				else = {
+					wealth = local_payment
+				}
+				change_variable = { which = loan_profit which = local_payment }
+			}
+		}
+		ai_chance = {
+			factor = 3
+			modifier = {
+				factor = 3
+				check_variable = { which = local_wealth which = local_requirement_large }
+			}
+		}
+	}
+	# Option 5 - Minimum payment
+	option = {
+		name = EVTOPTE_BANK.4
+		trigger = {
+			check_variable = { which = local_wealth which = local_requirement_small }
+			check_variable = { which = local_requirement_small value = 1 } # If it's less than 1, always just pay it off
+		}
+		wealth = local_payment_small
+		hidden_tooltip = {
+			set_variable = { which = local_payment which = local_requirement_small }
+			FROM = {
+				set_variable = { which = local_payment which = ROOT }
+				if = {
+					limit = { trait = banker }
+					change_variable = { which = bank_total which = local_payment }
+				}
+				else = {
+					wealth = local_payment
+				}
+				change_variable = { which = loan_profit which = local_payment }
+			}
+		}
+		ai_chance = {
+			factor = 4
+			modifier = {
+				factor = 2
+				check_variable = { which = local_wealth which = local_requirement_medium }
+			}
+		}
+	}
+	
+	after = {
+		if = {
+			limit = {
+				FROM = { check_variable = { which = loan_profit which = global_bloodline_banking_profit_needed } }
+			}
+			FROM = {
+				character_event = { id = BANK.34 days = 1 }
+			}
+		}
+	}
+}
+
+# BANK.5 - Ping banker for loan
+character_event = {
+	id = BANK.5
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		FROMFROM = { character_event = { id = BANK.3 } }
+	}
+}
+
+# BANK.6 - No bankers can offer loan
+character_event = {
+	id = BANK.6
+	desc = EVTDESC_BANK.6
+	picture = GFX_evt_bribe_declined
+	border = GFX_event_normal_frame_economy
+	
+	is_triggered_only = yes
+	
+	trigger = { ai = no }
+	
+	option = {
+		name = EVTOPTA_BANK.6
+	}
+}
+
+# BANK.7 - Yearly loan payment
+character_event = {
+	id = BANK.7
+	desc = EVTDESC_BANK.7
+	picture = GFX_evt_bribe_accepted
+	border = GFX_event_normal_frame_economy
+	
+	is_triggered_only = yes
+		
+	immediate = {
+		set_variable = { which = local_interest which = loan_amount }
+		divide_variable = { which = local_interest value = 10 }
+		change_variable = { which = loan_amount which = local_interest }
+		
+		export_to_variable = { which = local_wealth value = wealth }
+		
+		set_variable = { which = local_payment_full which = loan_amount }
+		set_variable = { which = local_requirement_full which = local_payment_full }
+		multiply_variable = { which = local_payment_full value = -1 }
+		
+		set_variable = { which = local_payment_large which = loan_amount }
+		divide_variable = { which = local_payment_large value = 2 }
+		set_variable = { which = local_requirement_large which = local_payment_large }
+		multiply_variable = { which = local_payment_large value = -1 }
+		
+		set_variable = { which = local_payment_small which = loan_amount }
+		divide_variable = { which = local_payment_small value = 7 }
+		set_variable = { which = local_requirement_small which = local_payment_small }
+		multiply_variable = { which = local_payment_small value = -1 }
+		
+		set_variable = { which = local_double_full which = local_requirement_full }
+		multiply_variable = { which = local_double_full value = 2 } # Used for AI
+	}
+	
+	# Option 1 - Ask for an extension
+	option = {
+		name = EVTOPTA_BANK.7
+		trigger = {
+			OR = {
+				reverse_opinion = { who = event_target:selected_banker value = 75 }
+				AND = {
+					reverse_opinion = { who = event_target:selected_banker value = 50 }
+					trait = gregarious
+				}
+			}
+			random = 50
+		}
+		reverse_opinion = { who = event_target:selected_banker modifier = opinion_asked_for_loan_extension months = 60 }
+		hidden_tooltip = {
+			repeat_event = { id = BANK.7 days = 365 }
+		}
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 0 # Don't waste time extending tiny loans you can easily pay off
+				check_variable = { which = local_requirement_full value < 10 }
+				wealth = 15
+			}
+			modifier = {
+				factor = 1.5
+				trait = gregarious
+			}
+			modifier = {
+				factor = 1.5
+				trait = deceitful
+			}
+			modifier = {
+				factor = 2
+				NOT = { check_variable = { which = local_wealth which = local_requirement_small } }
+			}
+			modifier = {
+				factor = 3
+				wealth < 0
+			}
+		}
+	}
+	
+	# Option 2 - Pay off loan completely
+	option = {
+		name = EVTOPTB_BANK.7
+		trigger = {
+			check_variable = { which = local_wealth which = local_requirement_full }
+		}
+		wealth = local_payment_full
+		remove_character_modifier = borrowed_from_bank
+		remove_opinion = { who = event_target:selected_banker modifier = opinion_my_banker }
+		reverse_remove_opinion = { who = event_target:selected_banker modifier = opinion_gave_loan }
+		reverse_remove_opinion = { who = event_target:selected_banker modifier = opinion_asked_for_loan_extension }
+		hidden_tooltip = {
+			set_variable = { which = local_payment which = local_requirement_full }
+			set_variable = { which = loan_amount value = 0 }
+			event_target:selected_banker = {
+				set_variable = { which = local_payment which = ROOT }
+				if = {
+					limit = { trait = banker }
+					change_variable = { which = bank_total which = local_payment }
+				}
+				else = {
+					wealth = local_payment
+				}
+				change_variable = { which = loan_profit which = local_payment }
+				if = {
+					limit = { ai = no }
+					character_event = { id = BANK.9 } # Alert that a loan was paid off
+				}
+				if = {
+					limit = {
+						check_variable = { which = loan_profit which = global_bloodline_banking_profit_needed }
+					}
+					character_event = { id = BANK.34 days = 1 }
+				}
+			}
+		}
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 15
+				check_variable = { which = local_wealth which = local_double_full }
+			}
+			modifier = {
+				factor = 5
+				NOT = { check_variable = { which = local_requirement_small value = 10 } }
+			}
+		}
+	}
+	
+	# Option 3 - Can't pay off in full, but make a large payment
+	option = {
+		name = EVTOPTC_BANK.7
+		trigger = {
+			NOT = { check_variable = { which = local_wealth which = local_requirement_full } }
+			check_variable = { which = local_wealth which = local_requirement_large }
+		}
+		wealth = local_payment_large
+		hidden_tooltip = {
+			set_variable = { which = local_payment which = local_requirement_large }
+			event_target:selected_banker = {
+				set_variable = { which = local_payment which = ROOT }
+				if = {
+					limit = { trait = banker }
+					change_variable = { which = bank_total which = local_payment }
+				}
+				else = {
+					wealth = local_payment
+				}
+				change_variable = { which = loan_profit which = local_payment }
+				if = {
+					limit = {
+						check_variable = { which = loan_profit which = global_bloodline_banking_profit_needed }
+					}
+					character_event = { id = BANK.34 days = 1 }
+				}
+			}
+			repeat_event = { id = BANK.7 days = 365 }
+		}
+		ai_chance = {
+			factor = 2
+		}
+	}
+	
+	# Option 4 - Make minimum payment
+	option = {
+		name = EVTOPTD_BANK.7
+		trigger = {
+			OR = {
+				check_variable = { which = local_requirement_full value = 1 } # If it's less than a gold, must pay it off
+				NOT = { wealth = 1 } # Fix to prevent not being able to do anything if broke
+			}
+		}
+		wealth = local_payment_small
+		hidden_tooltip = {
+			set_variable = { which = local_payment which = local_requirement_small }
+			event_target:selected_banker = {
+				set_variable = { which = local_payment which = ROOT }
+				if = {
+					limit = { trait = banker }
+					change_variable = { which = bank_total which = local_payment }
+				}
+				else = {
+					wealth = local_payment
+				}
+				change_variable = { which = loan_profit which = local_payment }
+				if = {
+					limit = {
+						check_variable = { which = loan_profit which = global_bloodline_banking_profit_needed }
+					}
+					character_event = { id = BANK.34 days = 1 }
+				}
+			}
+			repeat_event = { id = BANK.7 days = 365 }
+		}
+		ai_chance = {
+			factor = 4
+		}
+	}
+	
+	# Option 5 - Refuse to pay
+	option = {
+		name = EVTOPTE_BANK.7
+		trigger = {
+			NOT = { trait = honest }
+		}
+		reverse_opinion = { who = event_target:selected_banker modifier = opinion_stole_my_money years = 50 }
+		custom_tooltip = { text = tt_blocks_loans }
+		add_character_modifier = { modifier = refused_to_repay_loan years = 800 }
+		custom_tooltip = { text = tt_bank_gets_cb }
+		hidden_tooltip = {
+			set_variable = { which = forced_payment which = loan_amount }
+			multiply_variable = { which = forced_payment value = -1 }
+			remove_opinion = { who = event_target:selected_banker modifier = opinion_my_banker }
+			reverse_remove_opinion = { who = event_target:selected_banker modifier = opinion_gave_loan }
+			reverse_remove_opinion = { who = event_target:selected_banker modifier = opinion_asked_for_loan_extension }
+			random = {
+				chance = 20
+				add_rival = event_target:selected_banker
+			}
+			event_target:selected_banker = { character_event = { id = BANK.31 } }
+		}
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 2
+				NOT = { check_variable = { which = local_wealth which = local_requirement_small } }
+			}
+			modifier = {
+				factor = 2
+				ai_greed = 70
+			}
+			modifier = {
+				factor = 2
+				relative_power = { who = event_target:selected_banker power = 2.0 }
+			}
+		}
+	}
+}
+
+# BANK.8 - Ping banker for BANK.4
+character_event = {
+	id = BANK.8
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		FROM = { character_event = { id = BANK.4 } }
+	}
+}
+
+# BANK.9 - Inform banker of paid off loan
+character_event = {
+	id = BANK.9
+	desc = EVTDESC_BANK.9
+	picture = GFX_evt_relaxed_ruler
+	border = GFX_event_normal_frame_economy
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		ai = no
+		NOT = { has_character_flag = no_loan_notification }
+	}
+	
+	option = {
+		name = EVTOPTA_BANK.9
+	}
+	
+	option = {
+		name = EVTOPTB_BANK.9
+		hidden_tooltip = { set_character_flag = no_loan_notification }
+	}
+}
+
+# BANK.10 - Lost an artifact after war
+character_event = {
+	id = BANK.10
+	desc = EVTDESC_BANK.10
+	picture = GFX_evt_relic_box
+	border = GFX_event_normal_frame_economy
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		# Select artifact
+		random_artifact = {
+			limit = {
+				is_artifact_equipped = no
+				is_indestructible = no
+				FROM = { NOT = { has_artifact = PREV } }
+			}
+			save_event_target_as = lost_artifact
+		}
+	}
+	
+	option = {
+		name = EVTOPTA_BANK.10
+		event_target:lost_artifact = {
+			transfer_artifact = { from = ROOT to = FROM }
+		}
+		hidden_tooltip = {
+			if = {
+				limit = {
+					event_target:lost_artifact = {
+						artifact_type = philosopher_stone
+					}
+				}
+				remove_trait = philosopher_stone_trait
+				FROM = { add_trait = philosopher_stone_trait }
+			}
+			FROM = {
+				character_event = { id = BANK.11 }
+			}
+		}
+	}
+}
+
+# BANK.11 - Took an artifact as loot
+character_event = {
+	id = BANK.11
+	desc = EVTDESC_BANK.11
+	picture = GFX_evt_relic_box
+	border = GFX_event_normal_frame_economy
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_BANK.11
+	}
+}
+
+# BANK.12 - If a borrower died, transfer their loan to their heir
+character_event = {
+	id = BANK.12
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		has_character_modifier = borrowed_from_bank
+	}
+	
+	immediate = {
+		# Determine who the loan is with
+		any_opinion_modifier_target = {
+			limit = {
+				has_opinion_modifier = { who = ROOT modifier = opinion_gave_loan }
+			}
+			save_event_target_as = banker
+		}
+		
+		# First, use any existing funds to reduce or pay off loan
+		# Try to pay off completely
+		export_to_variable = { which = local_wealth value = wealth }
+		if = {
+			limit = { check_variable = { which = local_wealth which = loan_amount } }
+			# Fully pay off loan
+			set_variable = { which = loan_payment which = loan_amount }
+			set_variable = { which = local_payment which = loan_amount }
+			multiply_variable = { which = loan_payment value = -1 }
+			wealth = loan_payment
+			set_variable = { which = loan_amount value = 0 }
+			remove_character_modifier = borrowed_from_bank
+			remove_opinion = { who = event_target:banker modifier = opinion_my_banker }
+			reverse_remove_opinion = { who = event_target:banker modifier = opinion_gave_loan }
+			event_target:banker = {
+				set_variable = { which = local_payment which = ROOT }
+				if = {
+					limit = { trait = banker }
+					change_variable = { which = bank_total which = local_payment }
+				}
+				else = {
+					wealth = local_payment
+				}
+				character_event = { id = BANK.9 }
+			}
+			clear_delayed_event = { id = BANK.7 }
+			break = yes # Everything's taken care of
+		}
+		else = {
+			# Pay off as much as you can
+			subtract_variable = { which = loan_amount which = local_wealth }
+			clear_wealth = yes
+			event_target:banker = {
+				set_variable = { which = local_wealth which = ROOT }
+				if = {
+					limit = { trait = banker }
+					change_variable = { which = bank_total which = local_wealth }
+				}
+				else = {
+					wealth = local_wealth
+				}
+			}
+		}
+		
+		event_target:banker = {
+			save_event_target_as = selected_banker
+		}
+		
+		current_heir = {
+			# If heir doesn't have a loan, but can take one, give them the loan and alert them
+			if = {
+				limit = {
+					NOR = {
+						has_character_modifier = borrowed_from_bank
+						has_character_modifier = borrowed_from_jews
+						has_character_modifier = expelled_jewish
+						has_character_modifier = refused_to_repay_loan
+						trait = banker
+					}
+					NOT = { check_variable = { which = loan_amount value = 1 } }
+				}
+				set_variable = { which = loan_amount which = ROOT }
+				add_character_modifier = { modifier = borrowed_from_bank years = 800 }
+				opinion = { who = event_target:selected_banker modifier = opinion_my_banker years = 800 }
+				reverse_opinion = { who = event_target:selected_banker modifier = opinion_gave_loan years = 800 }
+				ROOT = {
+					set_variable = { which = loan_amount value = 0 }
+					remove_character_modifier = borrowed_from_bank
+					remove_opinion = { who = event_target:banker modifier = opinion_my_banker }
+					reverse_remove_opinion = { who = event_target:banker modifier = opinion_gave_loan }
+				}
+				# Inform of loan and allow payment
+				character_event = { id = BANK.13 }
+			}
+			
+			# Heir can't take loan because they are a bad investment
+			else_if = {
+				limit = {
+					OR = {
+						has_character_modifier = expelled_jewish
+						has_character_modifier = refused_to_repay_loan
+					}
+				}
+				ROOT = {
+					set_variable = { which = local_loan which = loan_amount } # Need this separate in case heir ran with money
+				}
+				set_variable = { which = local_loan which = ROOT }
+				ROOT = {
+					set_variable = { which = loan_amount value = 0 }
+					remove_character_modifier = borrowed_from_bank
+					remove_opinion = { who = event_target:banker modifier = opinion_my_banker }
+					reverse_remove_opinion = { who = event_target:banker modifier = opinion_gave_loan }
+				}
+				# Get an event - must pay immediately
+				character_event = { id = BANK.14 }
+			}
+			
+			# Heir can't take loan because they are a banker
+			else_if = {
+				limit = {
+					trait = banker
+				}
+				ROOT = {
+					set_variable = { which = local_loan which = loan_amount } # Need this separate in case heir ran with money
+				}
+				set_variable = { which = local_loan which = ROOT }
+				ROOT = {
+					set_variable = { which = loan_amount value = 0 }
+					remove_character_modifier = borrowed_from_bank
+					remove_opinion = { who = event_target:banker modifier = opinion_my_banker }
+					reverse_remove_opinion = { who = event_target:banker modifier = opinion_gave_loan }
+				}
+				# Get an event - must pay immediately. Can pay from bank
+				character_event = { id = BANK.23 }
+			}
+			
+			# Heir has an existing loan. Must pay now or get one of the bankers to buy the other loan
+			else = {
+				ROOT = {
+					set_variable = { which = local_loan which = loan_amount } # Need this separate in case heir ran with money
+				}
+				set_variable = { which = local_loan which = ROOT }
+				ROOT = {
+					set_variable = { which = loan_amount value = 0 }
+					remove_character_modifier = borrowed_from_bank
+					remove_opinion = { who = event_target:banker modifier = opinion_my_banker }
+					reverse_remove_opinion = { who = event_target:banker modifier = opinion_gave_loan }
+				}
+				character_event = { id = BANK.15 }
+			}
+		}
+	}
+}
+
+# BANK.13 - Inform of loan and allow payment
+character_event = {
+	id = BANK.13
+	desc = EVTDESC_BANK.13
+	picture = GFX_evt_poke_king_in_chest
+	border = GFX_event_normal_frame_economy
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		export_to_variable = { which = local_wealth value = wealth }
+		set_variable = { which = local_payment_full which = loan_amount }
+		set_variable = { which = local_requirement_full which = local_payment_full }
+		multiply_variable = { which = local_payment_full value = -1 }
+		set_variable = { which = local_payment_large which = loan_amount }
+		divide_variable = { which = small_loan value = 2 }
+		set_variable = { which = local_requirement_large which = local_payment_large }
+		multiply_variable = { which = local_payment_large value = -1 }
+		set_variable = { which = local_payment_small which = loan_amount }
+		divide_variable = { which = small_loan value = 4 }
+		set_variable = { which = local_requirement_small which = local_payment_small }
+		multiply_variable = { which = local_payment_small value = -1 }
+		set_variable = { which = local_double_full which = local_requirement_full }
+		multiply_variable = { which = local_double_full value = 2 } # Used for AI
+		if = {
+			limit = { is_variable_equal = { which = local_requirement_full which = local_requirement_large } }
+			log = "In BANK.13, large payment not reduced properly. [local_payment_full.GetValue]"
+		}
+		if = {
+			limit = { is_variable_equal = { which = local_requirement_full which = local_requirement_small } }
+			log = "In BANK.13, small payment not reduced properly. [local_payment_full.GetValue]"
+		}
+	}
+	
+	# Don't pay anything up front
+	option = {
+		name = EVTOPTA_BANK.13
+		ai_chance = {
+			factor = 1
+		}
+	}
+	
+	# Pay it off now
+	option = {
+		name = EVTOPTB_BANK.13
+		trigger = {
+			check_variable = { which = local_wealth which = local_requirement_full }
+		}
+		wealth = local_payment_full
+		remove_character_modifier = borrowed_from_bank
+		remove_opinion = { who = event_target:banker modifier = opinion_my_banker }
+		reverse_remove_opinion = { who = event_target:banker modifier = opinion_gave_loan }
+		reverse_remove_opinion = { who = event_target:banker modifier = opinion_asked_for_loan_extension }
+		hidden_tooltip = {
+			set_variable = { which = local_payment which = local_requirement_full }
+			set_variable = { which = loan_amount value = 0 }
+			event_target:banker = {
+				set_variable = { which = local_payment which = ROOT }
+				if = {
+					limit = { trait = banker }
+					change_variable = { which = bank_total which = local_payment }
+				}
+				else = {
+					wealth = local_payment
+				}
+				if = {
+					limit = { ai = no }
+					character_event = { id = BANK.9 } # Alert that a loan was paid off
+				}
+				change_variable = { which = loan_profit which = local_payment }
+				if = {
+					limit = {
+						check_variable = { which = loan_profit which = global_bloodline_banking_profit_needed }
+					}
+					character_event = { id = BANK.34 days = 1 }
+				}
+			}
+		}
+		ai_chance = {
+			factor = 2
+			modifier = {
+				factor = 15
+				check_variable = { which = local_wealth which = local_double_full }
+			}
+			modifier = {
+				factor = 5
+				NOT = { check_variable = { which = local_requirement_small value = 10 } }
+			}
+		}
+	}
+	
+	# Pay half
+	option = {
+		name = EVTOPTC_BANK.13
+		trigger = {
+			check_variable = { which = local_wealth which = local_requirement_large }
+			check_variable = { which = local_requirement_large value = 10 }
+		}
+		wealth = local_payment_large
+		hidden_tooltip = {
+			set_variable = { which = local_payment which = local_requirement_large }
+			event_target:banker = {
+				set_variable = { which = local_payment which = ROOT }
+				if = {
+					limit = { trait = banker }
+					change_variable = { which = bank_total which = local_payment }
+				}
+				else = {
+					wealth = local_payment
+				}
+				change_variable = { which = loan_profit which = local_payment }
+				if = {
+					limit = {
+						check_variable = { which = loan_profit which = global_bloodline_banking_profit_needed }
+					}
+					character_event = { id = BANK.34 days = 1 }
+				}
+				character_event = { id = BANK.24 }
+			}
+		}
+		ai_chance = {
+			factor = 3
+		}
+	}
+	
+	# Pay quarter
+	option = {
+		name = EVTOPTD_BANK.13
+		trigger = {
+			check_variable = { which = local_wealth which = local_requirement_small }
+			check_variable = { which = local_requirement_small value = 10 }
+		}
+		wealth = local_payment_small
+		hidden_tooltip = {
+			set_variable = { which = local_payment which = local_requirement_small }
+			event_target:banker = {
+				set_variable = { which = local_payment which = ROOT }
+				if = {
+					limit = { trait = banker }
+					change_variable = { which = bank_total which = local_payment }
+				}
+				else = {
+					wealth = local_payment
+				}
+				change_variable = { which = loan_profit which = local_payment }
+				if = {
+					limit = {
+						check_variable = { which = loan_profit which = global_bloodline_banking_profit_needed }
+					}
+					character_event = { id = BANK.34 days = 1 }
+				}
+				character_event = { id = BANK.24 }
+			}
+		}
+		ai_chance = {
+			factor = 5
+		}
+	}
+}
+
+# BANK.14 - Inherited a loan, but are a bad investment
+character_event = {
+	id = BANK.14
+	desc = EVTDESC_BANK.14
+	picture = GFX_evt_stressed_ruler
+	border = GFX_event_normal_frame_economy
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		set_variable = { which = local_payment which = local_loan }
+		multiply_variable = { which = local_payment value = -1 }
+		event_target:banker = {
+			set_variable = { which = local_loan which = ROOT }
+		}
+	}
+	
+	option = {
+		name = EVTOPTA_BANK.14
+		wealth = local_payment
+		event_target:banker = {
+			if = {
+				limit = { trait = banker }
+				change_variable = { which = bank_total which = local_loan }
+			}
+			else = {
+				wealth = local_loan
+			}
+			change_variable = { which = loan_profit which = local_payment }
+			if = {
+				limit = {
+					check_variable = { which = loan_profit which = global_bloodline_banking_profit_needed }
+				}
+				character_event = { id = BANK.34 days = 1 }
+			}
+		}
+	}
+}
+
+# BANK.15 - Inherited a loan, but already has a loan
+character_event = {
+	id = BANK.15
+	desc = EVTDESC_BANK.15
+	picture = GFX_evt_stressed_ruler
+	border = GFX_event_normal_frame_economy
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		set_variable = { which = local_payment which = local_loan }
+		multiply_variable = { which = local_payment value = -1 }
+		event_target:banker = {
+			set_variable = { which = local_loan which = ROOT }
+		}
+		any_opinion_modifier_target = {
+			limit = {
+				reverse_has_opinion_modifier = {
+					who = ROOT
+					modifier = opinion_my_banker
+				}
+			}
+			save_event_target_as = current_banker
+		}
+	}
+	
+	# Option 1 - Pay it off now
+	option = {
+		name = EVTOPTA_BANK.15
+		wealth = local_payment
+		event_target:banker = {
+			if = {
+				limit = { trait = banker }
+				change_variable = { which = bank_total which = local_loan }
+			}
+			else = {
+				wealth = local_loan
+			}
+			change_variable = { which = loan_profit which = local_payment }
+			if = {
+				limit = {
+					check_variable = { which = loan_profit which = global_bloodline_banking_profit_needed }
+				}
+				character_event = { id = BANK.34 days = 1 }
+			}
+		}
+		hidden_tooltip = {
+			clr_character_flag = ask_existing_banker_buy_loan
+			clr_character_flag = ask_new_banker_buy_loan
+		}
+		ai_chance = {
+			factor = 5
+			modifier = {
+				factor = 0.2
+				NOT = { wealth = local_loan }
+			}
+		}
+	}
+	
+	# Option 2 - Ask exisiting banker to buy the loan
+	option = {
+		name = EVTOPTB_BANK.15
+		event_target:current_banker = {
+			set_variable = { which = local_loan which = ROOT }
+			letter_event = { id = BANK.16 }
+		}
+		ai_chance = { factor = 2 }
+	}
+	
+	# Option 3 - Ask new banker to buy the existing loan
+	option = {
+		name = EVTOPTC_BANK.15
+		event_target:banker = {
+			letter_event = { id = BANK.20 }
+		}
+		ai_chance = { factor = 2 }
+	}
+}
+
+# BANK.16 - Debtor wants you to buy their inherited loan
+letter_event = {
+	id = BANK.16
+	desc = EVTDESC_BANK.16
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		export_to_variable = { which = local_wealth value = wealth }
+		set_variable = { which = local_payment which = local_loan }
+		multiply_variable = { which = local_payment value = -1 }
+	}
+	
+	# Accept, paying from bank
+	option = {
+		name = EVTOPTA_BANK.16
+		trigger = {
+			check_variable = { which = bank_total which = local_loan }
+		}
+		subtract_variable = { which = bank_total which = local_loan }
+		subtract_variable = { which = loan_profit which = local_loan }
+		opinion = { who = FROM modifier = opinion_gave_loan years = 800 }
+		reverse_opinion = { who = FROM modifier = opinion_my_banker years = 800 }
+		FROM = {
+			change_variable = { which = loan_amount which = local_loan }
+			add_character_modifier = { modifier = borrowed_from_bank years = 800 }
+			clr_character_flag = ask_existing_banker_buy_loan
+			clr_character_flag = ask_new_banker_buy_loan
+			letter_event = { id = BANK.18 }
+		}
+		event_target:banker = {
+			letter_event = { id = BANK.17 }
+			if = {
+				limit = { trait = banker }
+				change_variable = { which = bank_total which = local_loan }
+			}
+			else = {
+				wealth = local_loan
+			}
+			change_variable = { which = loan_profit which = local_loan }
+			if = {
+				limit = {
+					check_variable = { which = loan_profit which = global_bloodline_banking_profit_needed }
+				}
+				character_event = { id = BANK.34 days = 1 }
+			}
+		}
+		ai_chance = {
+			factor = 5
+		}
+	}
+	
+	# Accept, paying from treasury
+	option = {
+		name = EVTOPTB_BANK.16
+		trigger = {
+			wealth = local_loan
+		}
+		wealth = local_payment
+		subtract_variable = { which = loan_profit which = local_loan }
+		opinion = { who = FROM modifier = opinion_gave_loan years = 800 }
+		reverse_opinion = { who = FROM modifier = opinion_my_banker years = 800 }
+		FROM = {
+			change_variable = { which = loan_amount which = local_loan }
+			add_character_modifier = { modifier = borrowed_from_bank years = 800 }
+			clr_character_flag = ask_existing_banker_buy_loan
+			clr_character_flag = ask_new_banker_buy_loan
+			letter_event = { id = BANK.18 }
+		}
+		event_target:banker = {
+			letter_event = { id = BANK.17 }
+			if = {
+				limit = { trait = banker }
+				change_variable = { which = bank_total which = local_loan }
+			}
+			else = {
+				wealth = local_loan
+			}
+			change_variable = { which = loan_profit which = local_loan }
+			if = {
+				limit = {
+					check_variable = { which = loan_profit which = global_bloodline_banking_profit_needed }
+				}
+				character_event = { id = BANK.34 days = 1 }
+			}
+		}
+		ai_chance = {
+			factor = 3
+		}
+	}
+	
+	# Decline
+	option = {
+		name = EVTOPTC_BANK.16
+		FROM = {
+			hidden_tooltip = {
+				set_character_flag = ask_existing_banker_buy_loan
+				letter_event = { id = BANK.19 }
+			}
+		}
+		ai_chance = {
+			factor = 1
+		}
+	}
+}
+
+# BANK.17 - Inform new banker that the loan was bought out 
+letter_event = {
+	id = BANK.17
+	desc = EVTDESC_BANK.17
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_BANK.17
+		if = {
+			limit = { NOT = { trait = banker } }
+			tooltip = { wealth = local_loan }
+		}
+	}
+}
+
+# BANK.18 - Character informed that their loan was bought out
+letter_event = {
+	id = BANK.18
+	desc = EVTDESC_BANK.18
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_BANK.18
+	}
+}
+
+# BANK.19 - Previous character refused to buy loan. Pay or ask the other lender
+letter_event = {
+	id = BANK.19
+	desc = EVTDESC_BANK.19
+	is_triggered_only = yes
+	
+	# Pay
+	option = {
+		name = EVTOPTA_BANK.19
+		wealth = local_payment
+		event_target:banker = {
+			if = {
+				limit = { trait = banker }
+				change_variable = { which = bank_total which = local_loan }
+			}
+			else = {
+				wealth = local_loan
+			}
+			change_variable = { which = loan_profit which = local_loan }
+			if = {
+				limit = {
+					check_variable = { which = loan_profit which = global_bloodline_banking_profit_needed }
+				}
+				character_event = { id = BANK.34 days = 1 }
+			}
+		}
+		hidden_tooltip = {
+			clr_character_flag = ask_existing_banker_buy_loan
+			clr_character_flag = ask_new_banker_buy_loan
+		}
+		ai_chance = {
+			factor = 5
+			modifier = {
+				factor = 0.2
+				NOT = { wealth = local_loan }
+			}
+		}
+	}
+	
+	# Old banker refused, can ask new banker
+	option = {
+		name = EVTOPTC_BANK.15
+		trigger = { NOT = { has_character_flag = ask_new_banker_buy_loan } }
+		event_target:banker = {
+			letter_event = { id = BANK.20 }
+		}
+		ai_chance = {
+			factor = 2
+		}
+	}
+	
+	# New banker refused, can ask old banker
+	option = {
+		name = EVTOPTB_BANK.15
+		trigger = { NOT = { has_character_flag = ask_existing_banker_buy_loan } }
+		event_target:current_banker = {
+			set_variable = { which = local_loan which = ROOT }
+			letter_event = { id = BANK.16 }
+		}
+		ai_chance = { factor = 2 }
+	}
+}
+
+# BANK.20 - Debtor wants you to buy their existing loan
+letter_event = {
+	id = BANK.20
+	desc = EVTDESC_BANK.20
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		export_to_variable = { which = local_wealth value = wealth }
+		multiply_variable = { which = local_payment value = -1 }
+		
+		FROM = {
+			set_variable = { which = local_existing_loan which = loan_amount }
+		}
+		set_variable = { which = local_existing_loan which = FROM }
+		set_variable = { which = local_payment which = local_existing_loan }
+	}
+	
+	# Accept, paying from bank
+	option = {
+		name = EVTOPTA_BANK.16
+		trigger = {
+			check_variable = { which = bank_total which = local_existing_loan }
+		}
+		subtract_variable = { which = bank_total which = local_existing_loan }
+		subtract_variable = { which = loan_profit which = local_existing_loan }
+		opinion = { who = FROM modifier = opinion_gave_loan years = 800 }
+		reverse_opinion = { who = FROM modifier = opinion_my_banker years = 800 }
+		FROM = {
+			change_variable = { which = loan_amount which = local_loan }
+			add_character_modifier = { modifier = borrowed_from_bank years = 800 }
+			clr_character_flag = ask_existing_banker_buy_loan
+			clr_character_flag = ask_new_banker_buy_loan
+			letter_event = { id = BANK.22 }
+			clear_delayed_event = { id = BANK.7 }
+		}
+		event_target:current_banker = {
+			letter_event = { id = BANK.21 }
+			set_variable = { which = local_existing_loan which = FROM }
+			if = {
+				limit = { trait = banker }
+				set_variable = { which = local_existing_loan which = FROM }
+				change_variable = { which = bank_total which = local_existing_loan }
+			}
+			else = {
+				wealth = local_existing_loan
+			}
+			change_variable = { which = loan_profit which = local_existing_loan }
+			if = {
+				limit = {
+					check_variable = { which = loan_profit which = global_bloodline_banking_profit_needed }
+				}
+				character_event = { id = BANK.34 days = 1 }
+			}
+		}
+		ai_chance = {
+			factor = 5
+		}
+	}
+	
+	# Accept, paying from treasury
+	option = {
+		name = EVTOPTB_BANK.16
+		trigger = {
+			check_variable = { which = local_wealth which = local_existing_loan }
+		}
+		wealth = local_payment
+		subtract_variable = { which = loan_profit which = local_existing_loan }
+		opinion = { who = FROM modifier = opinion_gave_loan years = 800 }
+		reverse_opinion = { who = FROM modifier = opinion_my_banker years = 800 }
+		FROM = {
+			change_variable = { which = loan_amount which = local_loan }
+			add_character_modifier = { modifier = borrowed_from_bank years = 800 }
+			clr_character_flag = ask_existing_banker_buy_loan
+			clr_character_flag = ask_new_banker_buy_loan
+			letter_event = { id = BANK.22 }
+			clear_delayed_event = { id = BANK.7 }
+		}
+		event_target:current_banker = {
+			letter_event = { id = BANK.21 }
+			set_variable = { which = local_existing_loan which = FROM }
+			if = {
+				limit = { trait = banker }
+				change_variable = { which = bank_total which = local_existing_loan }
+			}
+			else = {
+				wealth = local_existing_loan
+			}
+			change_variable = { which = loan_profit which = local_existing_loan }
+			if = {
+				limit = {
+					check_variable = { which = loan_profit which = global_bloodline_banking_profit_needed }
+				}
+				character_event = { id = BANK.34 days = 1 }
+			}
+		}
+		ai_chance = {
+			factor = 3
+		}
+	}
+	
+	# Decline
+	option = {
+		name = EVTOPTC_BANK.16
+		FROM = {
+			hidden_tooltip = {
+				set_character_flag = ask_new_banker_buy_loan
+				letter_event = { id = BANK.19 }
+			}
+		}
+		ai_chance = {
+			factor = 1
+		}
+	}
+}
+
+# BANK.21 - Inform old banker that the loan was bought out 
+letter_event = {
+	id = BANK.21
+	desc = EVTDESC_BANK.21
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_BANK.17
+		if = {
+			limit = { NOT = { trait = banker } }
+			tooltip = { wealth = local_loan }
+		}
+	}
+}
+
+# BANK.22 - Character informed that their loan was bought out
+letter_event = {
+	id = BANK.22
+	desc = EVTDESC_BANK.22
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_BANK.18
+	}
+}
+
+# BANK.23 - Inherited a loan, but are a banker
+character_event = {
+	id = BANK.23
+	desc = EVTDESC_BANK.23
+	picture = GFX_evt_stressed_ruler
+	border = GFX_event_normal_frame_economy
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		set_variable = { which = local_payment which = local_loan }
+		multiply_variable = { which = local_payment value = -1 }
+	}
+	
+	option = {
+		name = EVTOPTA_BANK.23
+		trigger = {
+			check_variable = { which = bank_total which = local_loan }
+		}
+		subtract_variable = { which = bank_total which = local_loan }
+		subtract_variable = { which = loan_profit which = local_loan }
+		ai_chance = { factor = 5 }
+	}
+	
+	option = {
+		name = EVTOPTB_BANK.23
+		trigger = {
+			OR = {
+				wealth = local_loan
+				NOT = { check_variable = { which = bank_total which = local_loan } }
+			}
+		}
+		wealth = local_payment
+		subtract_variable = { which = loan_profit which = local_loan }
+		ai_chance = { factor = 1 }
+	}
+}
+
+# BANK.24 - Ping banker.  Call payment in 365 days
+character_event = {
+	id = BANK.24
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		FROM = { character_event = { id = BANK.7 days = 365 } }
+	}
+}
+
+# BANK.25 - Lender died. Transfer loans
+character_event = {
+	id = BANK.25
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		OR = {
+			check_variable = { which = bank_total value = 1 }
+			any_opinion_modifier_target = {
+				reverse_has_opinion_modifier = { who = ROOT modifier = opinion_gave_loan }
+			}
+		}
+	}
+	
+	immediate = {
+		# Copy bank total for reference
+		set_variable = { which = local_total which = bank_total }
+		current_heir = { set_variable = { which = local_total which = ROOT } }
+		
+		# If heir is a banker, just transfer everything
+		if = {
+			limit = { current_heir = { trait = banker } }
+			current_heir = {
+				change_variable = { which = bank_total which = local_total }
+				ROOT = {
+					any_opinion_modifier_target = {
+						limit = { reverse_has_opinion_modifier = { who = ROOT modifier = opinion_gave_loan } }
+						opinion = { who = PREVPREV modifier = opinion_my_banker years = 800 }
+						remove_opinion = { who = ROOT modifier = opinion_my_banker }
+						reverse_opinion = { who = PREVPREV modifier = opinion_gave_loan years = 800 }
+						reverse_remove_opinion = { who = ROOT modifier = opinion_gave_loan }
+						reverse_opinion = { who = PREVPREV modifier = opinion_new_loan months = 1 }
+					}
+				}
+				character_event = { id = BANK.26 }
+			}
+		}
+		# Character is not a banker, but can be one
+		else_if = {
+			limit = {
+				NOR = {
+					has_character_modifier = borrowed_from_bank
+					has_character_modifier = borrowed_from_jews
+					has_character_modifier = expelled_jewish
+					has_character_modifier = refused_to_repay_loan
+				}
+			}
+			ROOT = {
+				any_opinion_modifier_target = {
+					reverse_opinion = { who = PREVPREV modifier = opinion_new_loan months = 1 }
+				}
+			}
+			character_event = { id = BANK.27 }
+		}
+		# Character can't become a banker
+		else = {
+			ROOT = {
+				any_opinion_modifier_target = {
+					reverse_opinion = { who = PREVPREV modifier = opinion_new_loan months = 1 }
+				}
+			}
+			character_event = { id = BANK.28 }
+		}
+	}
+}
+
+# BANK.26 - You are a banker and inherited loans
+character_event = {
+	id = BANK.26
+	desc = EVTDESC_BANK.26
+	picture = GFX_evt_relaxed_ruler
+	border = GFX_event_normal_frame_economy
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EXCELLENT
+		hidden_tooltip = {
+			any_opinion_modifier_target = {
+				limit = { reverse_has_opinion_modifier = { who = ROOT modifier = opinion_new_loan } }
+				letter_event = { id = BANK.29 }
+			}
+		}
+	}
+}
+
+# BANK.27 - Not a banker but inherited loans
+character_event = {
+	id = BANK.27
+	desc = EVTDESC_BANK.27
+	picture = GFX_evt_relaxed_ruler
+	border = GFX_event_normal_frame_economy
+	
+	is_triggered_only = yes
+	
+	# Become a banker
+	option = {
+		name = EVTOPTA_BANK.27
+		add_trait = banker
+		change_variable = { which = bank_total which = local_total }
+		custom_tooltip = {
+			text = tt_add_local_total_to_loan_bank
+		}
+		any_opinion_modifier_target = {
+			limit = { reverse_has_opinion_modifier = { who = ROOT modifier = opinion_new_loan } }
+			opinion = { who = ROOT modifier = opinion_my_banker years = 800 }
+			remove_opinion = { who = FROM modifier = opinion_my_banker }
+			reverse_opinion = { who = ROOT modifier = opinion_gave_loan years = 800 }
+			reverse_remove_opinion = { who = FROM modifier = opinion_gave_loan }
+			reverse_remove_opinion = { who = FROM modifier = opinion_new_loan }
+			letter_event = { id = BANK.29 }
+		}
+		ai_chance = {
+			factor = 30
+		}
+	}
+	
+	# Cash Out. Keep these loans, but don't lend more
+	option = {
+		name = EVTOPTB_BANK.27
+		wealth = local_total
+		any_opinion_modifier_target = {
+			limit = { reverse_has_opinion_modifier = { who = ROOT modifier = opinion_new_loan } }
+			opinion = { who = ROOT modifier = opinion_my_banker years = 800 }
+			remove_opinion = { who = FROM modifier = opinion_my_banker }
+			reverse_opinion = { who = ROOT modifier = opinion_gave_loan years = 800 }
+			reverse_remove_opinion = { who = FROM modifier = opinion_gave_loan }
+			reverse_remove_opinion = { who = FROM modifier = opinion_new_loan }
+			letter_event = { id = BANK.29 }
+		}
+		ai_chance = {
+			factor = 18
+		}
+	}
+	
+	# Cash out and demand immediate repayment
+	option = {
+		name = EVTOPTC_BANK.27
+		trigger = {
+			NOR = {
+				trait = charitable
+				trait = kind
+			}
+		}
+		wealth = local_total
+		any_opinion_modifier_target = {
+			limit = { reverse_has_opinion_modifier = { who = ROOT modifier = opinion_new_loan } }
+			opinion = { who = ROOT modifier = opinion_demanded_early_payment years = 20 }
+			remove_opinion = { who = FROM modifier = opinion_my_banker }
+			reverse_remove_opinion = { who = FROM modifier = opinion_gave_loan }
+			reverse_remove_opinion = { who = FROM modifier = opinion_new_loan }
+			letter_event = { id = BANK.30 }
+		}
+		random_list = {
+			1 = {}
+			1 = { add_trait = greedy }
+			1 = { add_trait = cruel }
+		}
+		ai_chance = {
+			factor = 2
+			modifier = {
+				factor = 2
+				trait = greedy
+			}
+			modifier = {
+				factor = 2
+				trait = cruel
+			}
+		}
+	}
+	
+	# Cash out and forgive debts
+	option = {
+		name = EVTOPTD_BANK.27
+		trigger = {
+			OR = {
+				trait = charitable
+				trait = kind
+				trait = ascetic
+			}
+		}
+		wealth = local_total
+		any_opinion_modifier_target = {
+			limit = { reverse_has_opinion_modifier = { who = ROOT modifier = opinion_new_loan } }
+			opinion = { who = ROOT modifier = opinion_forgave_debt years = 20 }
+			remove_opinion = { who = FROM modifier = opinion_my_banker }
+			reverse_remove_opinion = { who = FROM modifier = opinion_gave_loan }
+			letter_event = { id = BANK.32 }
+		}
+		if = {
+			limit = {
+				NOR = {
+					religion_openly_draconic_or_reformed_trigger = yes
+					trait = ascetic
+				}
+			}
+			piety = 200
+		}
+		else_if = {
+			limit = { trait = ascetic }
+			piety = 400
+		}
+		random_list = {
+			1 = {}
+			1 = {
+				trigger = { trait = cruel }
+				remove_trait = cruel
+			}
+			1 = {
+				trigger = { trait = envious }
+				remove_trait = envious
+			}
+			1 = {
+				trigger = {
+					NOR = {
+						trait = cruel
+						trait = envious
+						trait = kind
+					}
+				}
+				add_trait = kind
+			}
+			1 = {
+				trigger = { trait = greedy }
+				remove_trait = greedy
+			}
+			1 = {
+				trigger = { 
+					NOR = {
+						trait = greedy
+						trait = charitable
+					}
+				}
+				add_trait = charitable
+			}
+		}
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 2
+				trait = charitable
+			}
+			modifier = {
+				factor = 2
+				trait = kind
+			}
+			modifier = {
+				factor = 2
+				trait = ascetic
+			}
+			modifier = {
+				factor = 0.5
+				wealth < 0
+			}
+		}
+	}
+}
+
+# BANK.28 - Inherited loans but can't be a banker
+character_event = {
+	id = BANK.28
+	desc = EVTDESC_BANK.28
+	picture = GFX_evt_stressed_ruler
+	border = GFX_event_normal_frame_economy
+	
+	is_triggered_only = yes
+	
+	# Cash out and demand immediate repayment
+	option = {
+		name = EVTOPTC_BANK.27
+		wealth = local_total
+		any_opinion_modifier_target = {
+			limit = { reverse_has_opinion_modifier = { who = ROOT modifier = opinion_new_loan } }
+			opinion = { who = ROOT modifier = opinion_demanded_early_payment years = 20 }
+			remove_opinion = { who = FROM modifier = opinion_my_banker }
+			reverse_remove_opinion = { who = FROM modifier = opinion_gave_loan }
+			reverse_remove_opinion = { who = FROM modifier = opinion_new_loan }
+			letter_event = { id = BANK.30 }
+		}
+		random_list = {
+			1 = {}
+			1 = { add_trait = greedy }
+			1 = { add_trait = cruel }
+		}
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 2
+				trait = greedy
+			}
+			modifier = {
+				factor = 2
+				trait = cruel
+			}
+			modifier = {
+				factor = 2
+				trait = arbitrary
+			}
+		}
+	}
+	
+	# Cash out and forgive debts
+	option = {
+		name = EVTOPTD_BANK.27
+		wealth = local_total
+		any_opinion_modifier_target = {
+			limit = { reverse_has_opinion_modifier = { who = ROOT modifier = opinion_new_loan } }
+			opinion = { who = ROOT modifier = opinion_forgave_debt years = 20 }
+			remove_opinion = { who = FROM modifier = opinion_my_banker }
+			reverse_remove_opinion = { who = FROM modifier = opinion_gave_loan }
+			letter_event = { id = BANK.32 }
+		}
+		if = {
+			limit = {
+				NOR = {
+					religion_openly_draconic_or_reformed_trigger = yes
+					trait = ascetic
+				}
+			}
+			piety = 200
+		}
+		else_if = {
+			limit = { trait = ascetic }
+			piety = 400
+		}
+		random_list = {
+			1 = {}
+			1 = {
+				trigger = { trait = cruel }
+				remove_trait = cruel
+			}
+			1 = {
+				trigger = { trait = envious }
+				remove_trait = envious
+			}
+			1 = {
+				trigger = {
+					NOR = {
+						trait = cruel
+						trait = envious
+						trait = kind
+					}
+				}
+				add_trait = kind
+			}
+			1 = {
+				trigger = { trait = greedy }
+				remove_trait = greedy
+			}
+			1 = {
+				trigger = { 
+					NOR = {
+						trait = greedy
+						trait = charitable
+					}
+				}
+				add_trait = charitable
+			}
+		}
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 2
+				trait = charitable
+			}
+			modifier = {
+				factor = 2
+				trait = kind
+			}
+			modifier = {
+				factor = 2
+				trait = ascetic
+			}
+			modifier = {
+				factor = 0.5
+				wealth < 0
+			}
+		}
+	}
+}
+
+# BANK.29 - Informed of banker change
+letter_event = {
+	id = BANK.29
+	desc = EVTDESC_BANK.29
+	border = GFX_event_letter_frame_economy
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		check_variable = { which = loan_amount value > 0 }
+	}
+	
+	option = {
+		name = OK
+	}
+}
+
+# BANK.30 - Informed of mandatory payment
+letter_event = {
+	id = BANK.30
+	desc = EVTDESC_BANK.30
+	border = GFX_event_letter_frame_economy
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		set_variable = { which = local_payment which = loan_amount }
+		multiply_variable = { which = local_payment value = -1 }
+	}
+	
+	option = {
+		name = EVTOPTA_BANK.30
+		if = {
+			limit = { NOT = { wealth = loan_amount } }
+			opinion = { who = FROM modifier = opinion_forced_into_debt years = 20 }
+			hidden_tooltip = {
+				remove_opinion = { who = FROM modifier = opinion_demanded_early_payment }
+			}
+		}
+		else = {
+			tooltip = {
+				opinion = { who = FROM modifier = opinion_demanded_early_payment years = 20 }
+			}
+		}
+		wealth = local_payment
+		remove_character_modifier = borrowed_from_bank
+		remove_opinion = { who = FROM modifier = opinion_my_banker }
+		reverse_remove_opinion = { who = FROM modifier = opinion_gave_loan }
+		reverse_remove_opinion = { who = FROM modifier = opinion_asked_for_loan_extension }
+		hidden_tooltip = {
+			set_variable = { which = local_payment which = loan_amount }
+			set_variable = { which = loan_amount value = 0 }
+			FROM = {
+				set_variable = { which = local_payment which = ROOT }
+				if = {
+					limit = { trait = banker }
+					change_variable = { which = bank_total which = local_payment }
+				}
+				else = {
+					wealth = local_payment
+				}
+				if = {
+					limit = { ai = no }
+					character_event = { id = BANK.9 } # Alert that a loan was paid off
+				}
+				change_variable = { which = loan_profit which = local_existing_loan }
+				if = {
+					limit = {
+						check_variable = { which = loan_profit which = global_bloodline_banking_profit_needed }
+					}
+					character_event = { id = BANK.34 days = 1 }
+				}
+			}
+		}
+		ai_chance = {
+			factor = 5
+			modifier = {
+				factor = 0.2
+				NOT = { wealth = local_loan }
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTB_BANK.30
+		tooltip = {
+			opinion = { who = FROM modifier = opinion_demanded_early_payment years = 20 }
+		}
+		reverse_opinion = { who = FROM modifier = opinion_stole_my_money years = 50 }
+		custom_tooltip = { text = tt_blocks_loans }
+		add_character_modifier = { modifier = refused_to_repay_loan years = 800 }
+		custom_tooltip = { text = tt_bank_gets_cb }
+		hidden_tooltip = {
+			set_variable = { which = forced_payment which = loan_amount }
+			multiply_variable = { which = forced_payment value = -1 }
+			remove_opinion = { who = FROM modifier = opinion_my_banker }
+			reverse_remove_opinion = { who = FROM modifier = opinion_gave_loan }
+			reverse_remove_opinion = { who = FROM modifier = opinion_asked_for_loan_extension }
+			random = {
+				chance = 20
+				add_rival = FROM
+			}
+			FROM = { character_event = { id = BANK.31 } }
+		}
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 2
+				NOT = { wealth = loan_amount }
+			}
+			modifier = {
+				factor = 2
+				NOT = { wealth = 0 }
+			}
+			modifier = {
+				factor = 2
+				ai_greed = 70
+			}
+			modifier = {
+				factor = 2
+				relative_power = { who = FROM power = 2.0 }
+			}
+		}
+	}
+}
+
+# BANK.31 - Inform of refused payment
+character_event = {
+	id = BANK.31
+	desc = EVTDESC_BANK.31
+	picture = GFX_evt_rival_rulers
+	border = GFX_event_normal_frame_economy
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_BANK.31
+	}
+}
+
+# BANK.32 - Inform of forgiven loan
+letter_event = {
+	id = BANK.32
+	desc = EVTDESC_BANK.32
+	border = GFX_event_letter_frame_economy
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_BANK.32
+		remove_character_modifier = borrowed_from_bank
+		remove_opinion = { who = FROM modifier = opinion_my_banker }
+		reverse_remove_opinion = { who = FROM modifier = opinion_gave_loan }
+		reverse_remove_opinion = { who = FROM modifier = opinion_asked_for_loan_extension }
+		hidden_tooltip = {
+			set_variable = { which = loan_amount value = 0 }
+		}
+		tooltip = {
+			opinion = { who = FROM modifier = opinion_forgave_debt years = 20 }
+		}
+	}
+}
+
+# BANK.33 - Bank interest
+character_event = {
+	id = BANK.33
+	hide_window = yes
+	is_triggered_only = yes
+	
+	only_rulers = yes
+	trigger = {
+		check_variable = { which = bank_total value = 1 }
+		any_owned_bloodline = {
+			has_bloodline_flag = bank_interest
+		}
+	}
+	
+	immediate = {
+		multiply_variable = { which = bank_total value = 1.01 }
+	}
+}
+
+# BANK.34 - Gain banking bloodline
+character_event = {
+	id = BANK.34
+	desc = EVTDESC_BANK.34
+	picture = GFX_evt_powerful_ruler
+	border = GFX_event_normal_frame_economy
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		NOT = {
+			any_owned_bloodline = {
+				has_bloodline_flag = bloodline_banking
+			}
+		}
+	}
+	
+	immediate = {
+		multiply_variable = { which = global_bloodline_banking_profit_needed value = 2 }
+	}
+	
+	option = {
+		name = EVTOPTA_BANK.34
+		prestige = 300
+		if = {
+			limit = {
+				has_religion_feature = religion_matriarchal
+			}
+			create_bloodline = {
+				type = BL_blood_of_sigurd
+				inheritance = matrilineal
+			}
+		}
+		else_if = {
+			limit = {
+				OR = {
+					has_religion_feature = religion_equal
+					has_religion_feature = religion_feature_bon
+					culture = basque
+					culture = zhangzhung
+					culture = sumpa
+					religion = cathar
+					religion = messalian
+					religion = mazdaki
+				}
+			}
+			create_bloodline = {
+				type = BL_blood_of_sigurd
+				inheritance = all_descendants
+			}
+		}
+		else = {
+			create_bloodline = {
+				type = BL_blood_of_sigurd
+			}
+		}
+		if = {
+			limit = { can_apply_average_nickname_trigger = yes }
+			random_list = {
+				1 = {
+					give_nickname = nick_the_wealthy
+				}
+				1 = {
+					give_nickname = nick_the_rich
+				}
+			}
+		}
+	}
+}

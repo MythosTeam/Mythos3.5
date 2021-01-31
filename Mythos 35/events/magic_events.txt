@@ -1,0 +1,4679 @@
+# Magic events that don't require a focus
+namespace = MAGIC
+
+### Enchantment magic apple assassination
+# MAGIC.1 - Plotter sees opportunity
+character_event = {
+	id = MAGIC.1
+	desc = EVTDESC_MAGIC.1
+	picture = GFX_evt_whispers
+	border = GFX_event_normal_frame_intrigue
+	
+	capable_only = yes
+	prisoner = no
+	is_part_of_plot = yes
+	min_age = 16
+	
+	trigger = {
+		OR = {
+			has_plot = plot_kill_character
+			has_plot = plot_kill_spouse
+		}
+		plot_target_char = {
+			age = 16
+			prisoner = no
+			at_location = ROOT # The Plot Head needs to be at the target's location to get a chance
+			NOT = { trait = incapable }
+			NOT = { is_inaccessible_trigger = yes }
+			NOT = { trait = werewolf }
+			OR = {
+				NOT = { religion_group = muslim }
+				trait = decadent
+				trait = hedonist
+				trait = drunkard
+			}
+		}
+		NOT = { has_character_flag = murder_in_motion }
+		plot_power_contribution = 
+		{
+			plotter = ROOT
+			power = 0.025
+		}
+		OR = {
+			trait = enchanter
+			AND = {
+				has_character_modifier = studying_sorcery
+				has_focus = focus_magic
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 8400
+		
+		modifier = {
+			factor = 0.7
+			plot_power_contribution = 
+			{
+				plotter = ROOT
+				power = 0.10
+			}
+		}
+		modifier = {
+			factor = 0.7
+			plot_power_contribution = 
+			{
+				plotter = ROOT
+				power = 0.20
+			}
+		}
+		modifier = {
+			factor = 0.7
+			plot_power_contribution = 
+			{
+				plotter = ROOT
+				power = 0.30
+			}
+		}
+		modifier = {
+			factor = 0.7
+			plot_power_contribution = 
+			{
+				plotter = ROOT
+				power = 0.40
+			}
+		}
+		modifier = {
+			factor = 0.7
+			plot_power_contribution = 
+			{
+				plotter = ROOT
+				power = 0.50
+			}
+		}
+		modifier = {
+			factor = 0.7
+			plot_power_contribution = 
+			{
+				plotter = ROOT
+				power = 0.60
+			}
+		}
+		modifier = {
+			factor = 0.7
+			plot_power_contribution = 
+			{
+				plotter = ROOT
+				power = 0.70
+			}
+		}
+		modifier = {
+			factor = 0.7
+			plot_power_contribution = 
+			{
+				plotter = ROOT
+				power = 0.80
+			}
+		}
+		modifier = {
+			factor = 0.7
+			plot_power_contribution = 
+			{
+				plotter = ROOT
+				power = 0.90
+			}
+		}
+		modifier = {
+			factor = 0.7
+			plot_power_contribution = 
+			{
+				plotter = ROOT
+				power = 1.5
+			}
+		}
+		
+		modifier = {
+			factor = 0.33
+			any_backed_character = {
+				OR = {
+					has_plot = plot_kill_character
+					has_plot = plot_kill_spouse
+				}
+				plot_power = 1.0
+			}
+		}
+		modifier = {
+			factor = 0.33
+			any_backed_character = {
+				OR = {
+					has_plot = plot_kill_character
+					has_plot = plot_kill_spouse
+				}
+				plot_power = 1.5
+			}
+		}
+		modifier = {
+			factor = 0.33
+			any_backed_character = {
+				OR = {
+					has_plot = plot_kill_character
+					has_plot = plot_kill_spouse
+				}
+				plot_power = 2.0
+			}
+		}
+		modifier = {
+			factor = 0.9
+			trait = eldritch_scholar
+		}
+		modifier = {
+			factor = 0.81
+			trait = veteran_wizard
+		}
+		modifier = {
+			factor = 0.729
+			trait = arcane_master
+		}
+	}
+	
+	immediate = {
+		plot_target_char = { save_event_target_as = plot_target }
+	}
+	
+	option = {
+		name = "EVTOPTA_MAGIC.1" # Poison the target, but it may disable instead of killing
+		set_character_flag = murder_in_motion
+		ROOT = {
+			save_event_target_as = enchanter_attacker
+		}
+		event_target:plot_target = { character_event = { id = MAGIC.2 days = 30 tooltip = "EVTTOOLTIP_MAGIC.1" } }
+	}
+	option = {
+		name = EVTOPTB_MAGIC.1 # Wait for a better opportunity
+		trigger = {
+			ai = no
+		}
+	}
+}
+# MAGIC.2 - The murder attempt
+character_event = {
+	id = MAGIC.2
+	title = EVTNAME_MAGIC.2
+	desc = EVTDESC_MAGIC.2
+	picture = GFX_evt_feast
+	border = GFX_event_normal_frame_intrigue
+	
+	hide_from = yes
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		prisoner = no
+		
+		# Is the plot still in motion?
+		OR = {
+			FROM = {
+				OR = {
+					has_plot = plot_kill_character
+					has_plot = plot_kill_spouse
+				}
+				plot_target_char = {
+					character = ROOT
+				}
+			}
+			FROMFROM = {
+				OR = {
+					has_plot = plot_kill_character
+					has_plot = plot_kill_spouse
+				}
+				plot_target_char = {
+					character = ROOT
+				}
+			}
+		}
+	}
+	
+	immediate = {
+		save_event_target_as = target_victim
+	}
+	
+	option = {
+		name = EVTOPTA_MAGIC.2 # Eats the Apple
+		trigger = {
+			NOT = {
+				OR = { # more likely to succeed than other plots, but might cause eternal slumber instead of death.
+					AND = {
+						trait = paranoid
+						random = 33
+					}
+					AND = {
+						trait = monster_hunter
+						random = 70
+					}
+					AND = {
+						trait = gluttonous
+						random = 95
+					}
+					AND = {
+						NOT = { trait = monster_hunter }
+						NOT = { trait = gluttonous }
+						NOT = { trait = paranoid }
+						random = 80
+					}
+				}
+			}
+		}
+		hidden_tooltip = {
+			random_list = {
+				10 = {
+					hidden_tooltip = {
+						FROM = { character_event = { id = MAGIC.3 days = 1 } }
+						FROMFROM = { character_event = { id = MAGIC.3 days = 1 } }
+					}
+					character_event = { id = MAGIC.4 days = 1 } # Dies, murdered discovered
+				}
+				5 = {
+					hidden_tooltip = {
+						FROM = { character_event = { id = MAGIC.5 days = 1 } }
+						FROMFROM = { character_event = { id = MAGIC.5 days = 1 } }
+					}
+					character_event = { id = MAGIC.6 days = 1 } # Sleep, attacker discovered
+				}
+				45 = {
+					hidden_tooltip = { 
+						FROM = { character_event = { id = MAGIC.7 days = 1 } }
+						FROMFROM = { character_event = { id = MAGIC.7 days = 1 } }
+					}
+					character_event = { id = MAGIC.8 days = 1 } # Dies suspiciously
+				}
+				40 = {
+					hidden_tooltip = { 
+						FROM = { character_event = { id = MAGIC.9 days = 1 } }
+						FROMFROM = { character_event = { id = MAGIC.9 days = 1 } }
+					}
+					character_event = { id = MAGIC.10 days = 1 } # Sleeping, undiscovered
+				}
+			}
+		}
+	}
+	option = {
+		name = EVTOPTB_MAGIC.2 # Suspects the apple
+		trigger = {
+			OR = {
+				AND = {
+					trait = paranoid
+					random = 33
+				}
+				AND = {
+					trait = monster_hunter
+					random = 70
+				}
+				AND = {
+					trait = gluttonous
+					random = 95
+				}
+				AND = {
+					NOT = { trait = monster_hunter }
+					NOT = { trait = gluttonous }
+					NOT = { trait = paranoid }
+					random = 80
+				}
+			}
+		}
+		hidden_tooltip = {
+			random_list = {
+				50 = {
+					hidden_tooltip = {
+						FROM = { character_event = { id = MAGIC.11 days = 1 } }
+						FROMFROM = { character_event = { id = MAGIC.11 days = 1 } }
+					}
+					character_event = { id = MAGIC.12 days = 1 } # Lives, attacker unknown
+				}
+				50 = {
+					hidden_tooltip = {
+						FROM = { character_event = { id = MAGIC.13 days = 1 } }
+						FROMFROM = { character_event = { id = MAGIC.13 days = 1 } }
+					}
+					character_event = { id = MAGIC.14 days = 1 } # Lives, attacker discovered
+				}
+			}
+		}
+	}
+}
+# MAGIC.3 - Success, but discovered
+character_event = {
+	id = MAGIC.3
+	desc = EVTDESC_MAGIC.3
+	picture = GFX_evt_shadowy_cabal
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		character_event = { id = 10 } # Consequences of discovery
+		clear_event_target = target_victim
+		if = {
+			limit = { 
+				has_focus = focus_magic
+				has_character_modifier = studying_sorcery
+			}
+			character_event = { id = MYTH_WoL.40 days = 1 }
+		}
+	}
+	
+	option = {
+		name = "EVTOPTA_MAGIC.3"
+	}
+}
+# MAGIC.4 - Dies, murderer discovered
+character_event = {
+	id = MAGIC.4
+	title = EVTNAME_MAGIC.4
+	picture = GFX_evt_shadow
+	border = GFX_event_normal_frame_intrigue
+	desc = EVTDESC_MAGIC.4
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPT_MAGIC.4
+		if = {
+			limit = {
+				FROMFROMFROM = {
+					OR = {
+						has_plot = plot_kill_character
+						has_plot = plot_kill_spouse
+					}
+					plot_target_char = {
+						character = ROOT
+					}
+				}
+			}
+			death = {
+				death_reason = death_murder_poison
+				killer = FROMFROMFROM
+			}
+			break = yes
+		}
+		if = {
+			limit = {
+				is_alive = yes
+			}
+			death = {
+				death_reason = death_murder_poison
+				killer = FROMFROM
+			}
+		}
+	}
+}
+# MAGIC.5 - Sleep, but discovered
+character_event = {
+	id = MAGIC.5
+	desc = EVTDESC_MAGIC.5
+	picture = GFX_evt_illness
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		character_event = { id = 10 } # Consequences of discovery
+		clear_event_target = target_victim
+		if = {
+			limit = { 
+				has_focus = focus_magic
+				has_character_modifier = studying_sorcery
+			}
+			character_event = { id = MYTH_WoL.40 days = 1 }
+		}
+	}
+	
+	option = {
+		name = "EVTOPTA_MAGIC.5"
+	}
+}
+# MAGIC.6 - Sleeps, murderer discovered
+character_event = {
+	id = MAGIC.6
+	title = EVTNAME_MAGIC.6
+	picture = GFX_evt_illness
+	border = GFX_event_normal_frame_intrigue
+	desc = EVTDESC_MAGIC.6
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPT_MAGIC.6
+		if = {
+			limit = {
+				FROMFROMFROM = {
+					OR = {
+						has_plot = plot_kill_character
+						has_plot = plot_kill_spouse
+					}
+					plot_target_char = {
+						character = ROOT
+					}
+				}
+			}
+			add_trait = incapable
+			if = {
+				limit = { has_dlc = "Reapers" }
+				set_character_flag = got_food_poisoning
+				set_character_flag = developing_illness
+				character_event = { id = RIP.5001 days = 1 }
+			}
+			if = {
+				limit = { NOT = { has_dlc = "Reapers" } }
+				add_trait = ill
+			}
+			hidden_tooltip = {
+				if = {
+					limit = { has_nickname = no }
+					random = {
+						chance = 30
+						give_nickname = nick_the_sleeper
+					}
+				}
+			}
+			break = yes
+		}
+		if = {
+			limit = {
+				is_alive = yes
+			}
+			add_trait = incapable
+			if = {
+				limit = { has_dlc = "Reapers" }
+				set_character_flag = got_food_poisoning
+				set_character_flag = developing_illness
+				character_event = { id = RIP.5001 days = 1 }
+			}
+			if = {
+				limit = { NOT = { has_dlc = "Reapers" } }
+				add_trait = ill
+			}
+			hidden_tooltip = {
+				if = {
+					limit = { has_nickname = no }
+					random = {
+						chance = 30
+						give_nickname = nick_the_sleeper
+					}
+				}
+			}
+		}
+	}
+}
+# MAGIC.7 - Notification: Success, and NOT discovered
+character_event = {
+	id = MAGIC.7
+	desc = "EVTDESC_MAGIC.7"
+	picture = GFX_evt_shadowy_cabal
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		if = {
+			limit = { 
+				has_focus = focus_magic
+				has_character_modifier = studying_sorcery
+			}
+			character_event = { id = MYTH_WoL.40 days = 1 }
+		}
+	}
+	
+	option = {
+		name = "EVTOPT_MAGIC.7"
+	}
+}
+# MAGIC.8 - Dies, murderer NOT discovered
+character_event = {
+	id = MAGIC.8
+	desc = "EVTDESC_MAGIC.8"
+	picture = GFX_evt_death
+	border = GFX_event_normal_frame_intrigue
+	
+	hide_from = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "EVTOPT_MAGIC.8"
+		
+		if = {
+			limit = {
+				FROMFROMFROM = {
+					OR = {
+						has_plot = plot_kill_character
+						has_plot = plot_kill_spouse
+					}
+					plot_target_char = {
+						character = ROOT
+					}
+				}
+			}
+			death = {
+				death_reason = death_murder_unknown_poison
+				killer = FROMFROMFROM
+			}
+			break = yes
+		}
+		if = {
+			limit = {
+				is_alive = yes
+			}
+			death = {
+				death_reason = death_murder_unknown_poison
+				killer = FROMFROM
+			}
+		}
+	}
+}
+# MAGIC.9 - Notification: Sleep, and NOT discovered
+character_event = {
+	id = MAGIC.9
+	desc = "EVTDESC_MAGIC.9"
+	picture = GFX_evt_shadowy_cabal
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		if = {
+			limit = { 
+				has_focus = focus_magic
+				has_character_modifier = studying_sorcery
+			}
+			character_event = { id = MYTH_WoL.40 days = 1 }
+		}
+	}
+	
+	option = {
+		name = "EVTOPT_MAGIC.9"
+	}
+}
+# MAGIC.10 - Dies, murderer NOT discovered
+character_event = {
+	id = MAGIC.10
+	desc = "EVTDESC_MAGIC.10"
+	picture = GFX_evt_death
+	border = GFX_event_normal_frame_intrigue
+	
+	hide_from = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "EVTOPT_MAGIC.10"
+		
+		if = {
+			limit = {
+				FROMFROMFROM = {
+					OR = {
+						has_plot = plot_kill_character
+						has_plot = plot_kill_spouse
+					}
+					plot_target_char = {
+						character = ROOT
+					}
+				}
+			}
+			if = {
+				limit = { has_dlc = "Reapers" }
+				set_character_flag = got_food_poisoning
+				set_character_flag = developing_illness
+				character_event = { id = RIP.5001 days = 1 }
+			}
+			if = {
+				limit = { NOT = { has_dlc = "Reapers" } }
+				add_trait = ill
+			}
+			hidden_tooltip = {
+				if = {
+					limit = { has_nickname = no }
+					random = {
+						chance = 30
+						give_nickname = nick_the_sleeper
+					}
+				}
+			}
+			break = yes
+		}
+		if = {
+			limit = {
+				is_alive = yes
+			}
+			if = {
+				limit = { has_dlc = "Reapers" }
+				set_character_flag = got_food_poisoning
+				set_character_flag = developing_illness
+				character_event = { id = RIP.5001 days = 1 }
+			}
+			if = {
+				limit = { NOT = { has_dlc = "Reapers" } }
+				add_trait = ill
+			}
+			hidden_tooltip = {
+				if = {
+					limit = { has_nickname = no }
+					random = {
+						chance = 30
+						give_nickname = nick_the_sleeper
+					}
+				}
+			}
+		}
+	}
+}
+# MAGIC.11 - Notification: Failure, but NOT discovered
+character_event = {
+	id = MAGIC.11
+	desc = "EVTDESC_MAGIC.11"
+	picture = GFX_evt_shadowy_cabal
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "EVTOPT_MAGIC.11"
+		
+		if = {
+			limit = { 
+				plot_target_char = {
+					character = FROM
+				}
+				OR = {
+					has_plot = plot_kill_character
+					has_plot = plot_kill_spouse
+				}
+			}
+			clr_character_flag = murder_in_motion
+		}
+	}
+}
+# MAGIC.12 - Failed, undiscovered
+character_event = {
+	id = MAGIC.12
+	desc = "EVTDESC_MAGIC.12"
+	picture = GFX_evt_scandal
+	border = GFX_event_normal_frame_intrigue
+	
+	hide_from = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "EVTOPT_MAGIC.12"
+	}
+}
+# MAGIC.13 - Notification: Failure, and discovered
+character_event = {
+	id = MAGIC.13
+	desc = "EVTDESC_MAGIC.13"
+	picture = GFX_evt_shadowy_cabal
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		character_event = { id = 11 } # Consequences of discovery
+		clear_event_target = target_victim
+		
+		if = {
+			limit = { 
+				plot_target_char = {
+					character = FROM
+				}
+				OR = {
+					has_plot = plot_kill_character
+					has_plot = plot_kill_spouse
+				}
+			}
+			reveal_plot = yes
+		}
+	}
+	
+	option = {
+		name = "EVTOPT_MAGIC.13"
+		if = {
+			limit = { 
+				plot_target_char = {
+					character = FROM
+				}
+				OR = {
+					has_plot = plot_kill_character
+					has_plot = plot_kill_spouse
+				}
+			}
+			clr_character_flag = murder_in_motion
+			tooltip = { reveal_plot = yes }
+		}
+	}
+}
+# MAGIC.14 - Lives, discovered
+character_event = {
+	id = MAGIC.14
+	desc = "EVTDESC_MAGIC.14"
+	picture = GFX_evt_scandal
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "EVTOPT_MAGIC.14"
+	}
+}
+# MAGIC.15 - A plot backer sees an opportunity - Poisoned Apple
+character_event = {
+	id = MAGIC.15
+	desc = EVTDESC_MAGIC.15
+	picture = GFX_evt_whispers
+	border = GFX_event_normal_frame_intrigue
+	
+	capable_only = yes
+	prisoner = no
+	is_part_of_plot = yes
+	
+	trigger = {
+		OR = {
+			trait = enchanter
+			AND = {
+				has_character_modifier = studying_sorcery
+				has_focus = focus_magic
+			}
+		}
+		any_backed_character = {
+			OR = {
+				has_plot = plot_kill_character
+				has_plot = plot_kill_spouse
+			}
+			plot_power = 0.5
+			plot_target_char = {
+				age = 16
+				prisoner = no
+				NOT = { trait = incapable }
+				NOT = { is_inaccessible_trigger = yes }
+			}
+			NOT = { has_character_flag = murder_in_motion }
+			ROOT = {
+				plot_power_contribution = 
+				{
+					plotter = PREV
+					power = 0.025
+				}
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 4200
+		
+		modifier = {
+			factor = 0.6
+			any_backed_character = {
+				OR = {
+					has_plot = plot_kill_character
+					has_plot = plot_kill_spouse
+				}
+				ROOT = {
+					plot_power_contribution = 
+					{
+						plotter = PREV
+						power = 0.10
+					}
+				}
+			}
+		}
+		modifier = {
+			factor = 0.6
+			any_backed_character = {
+				OR = {
+					has_plot = plot_kill_character
+					has_plot = plot_kill_spouse
+				}
+				ROOT = {
+					plot_power_contribution = 
+					{
+						plotter = PREV
+						power = 0.20
+					}
+				}
+			}
+		}
+		modifier = {
+			factor = 0.6
+			any_backed_character = {
+				OR = {
+					has_plot = plot_kill_character
+					has_plot = plot_kill_spouse
+				}
+				ROOT = {
+					plot_power_contribution = 
+					{
+						plotter = PREV
+						power = 0.30
+					}
+				}
+			}
+		}
+		modifier = {
+			factor = 0.6
+			any_backed_character = {
+				OR = {
+					has_plot = plot_kill_character
+					has_plot = plot_kill_spouse
+				}
+				ROOT = {
+					plot_power_contribution = 
+					{
+						plotter = PREV
+						power = 0.40
+					}
+				}
+			}
+		}
+		modifier = {
+			factor = 0.6
+			any_backed_character = {
+				OR = {
+					has_plot = plot_kill_character
+					has_plot = plot_kill_spouse
+				}
+				ROOT = {
+					plot_power_contribution = 
+					{
+						plotter = PREV
+						power = 0.50
+					}
+				}
+			}
+		}
+		modifier = {
+			factor = 0.6
+			any_backed_character = {
+				OR = {
+					has_plot = plot_kill_character
+					has_plot = plot_kill_spouse
+				}
+				ROOT = {
+					plot_power_contribution = 
+					{
+						plotter = PREV
+						power = 0.60
+					}
+				}
+			}
+		}
+		modifier = {
+			factor = 0.6
+			any_backed_character = {
+				OR = {
+					has_plot = plot_kill_character
+					has_plot = plot_kill_spouse
+				}
+				ROOT = {
+					plot_power_contribution = 
+					{
+						plotter = PREV
+						power = 0.70
+					}
+				}
+			}
+		}
+		modifier = {
+			factor = 0.6
+			any_backed_character = {
+				OR = {
+					has_plot = plot_kill_character
+					has_plot = plot_kill_spouse
+				}
+				ROOT = {
+					plot_power_contribution = 
+					{
+						plotter = PREV
+						power = 0.80
+					}
+				}
+			}
+		}
+		modifier = {
+			factor = 0.6
+			any_backed_character = {
+				OR = {
+					has_plot = plot_kill_character
+					has_plot = plot_kill_spouse
+				}
+				ROOT = {
+					plot_power_contribution = 
+					{
+						plotter = PREV
+						power = 0.90
+					}
+				}
+			}
+		}
+		
+		modifier = {
+			factor = 0.33
+			any_backed_character = {
+				OR = {
+					has_plot = plot_kill_character
+					has_plot = plot_kill_spouse
+				}
+				plot_power = 1.0
+			}
+		}
+		modifier = {
+			factor = 0.33
+			any_backed_character = {
+				OR = {
+					has_plot = plot_kill_character
+					has_plot = plot_kill_spouse
+				}
+				plot_power = 1.5
+			}
+		}
+		modifier = {
+			factor = 0.33
+			any_backed_character = {
+				OR = {
+					has_plot = plot_kill_character
+					has_plot = plot_kill_spouse
+				}
+				plot_power = 2.0
+			}
+		}
+		modifier = {
+			factor = 0.9
+			trait = veteran_wizard
+		}
+		modifier = {
+			factor = 0.81
+			trait = arcane_master
+		}
+	}
+
+	immediate = {
+		random_backed_character = {
+			limit = {
+				OR = {
+					has_plot = plot_kill_character
+					has_plot = plot_kill_spouse
+				}
+				plot_power = 0.5
+				plot_target_char = {
+					age = 16
+					prisoner = no
+					NOT = { trait = incapable }
+					NOT = { is_inaccessible_trigger = yes }
+				}
+				NOT = { has_character_flag = murder_in_motion }
+				ROOT = {
+					plot_power_contribution = 
+					{
+						plotter = PREV
+						power = 0.025
+					}
+				}
+			}
+			save_event_target_as = plot_leader
+		}
+	}
+	
+	option = {
+		name = "EVTOPTA_MAGIC.15" # The conspirator casts the spell
+		trigger = {
+			event_target:plot_leader = {
+				plot_power = 1.0
+			}
+		}
+		event_target:plot_leader = {
+			character_event = { id = MAGIC.16 days = 3 tooltip = "EVTTOOLTIP_MAGIC.15" }
+			set_character_flag = murder_in_motion
+		}
+	}
+	option = {
+		name = "EVTOPTB_MAGIC.15" # Ask the Plotter for funds
+		trigger = {
+			NOT = {
+				event_target:plot_leader = {
+					plot_power = 1.0
+				}
+			}
+		}
+		event_target:plot_leader = {
+			character_event = { id = MAGIC.17 days = 3 tooltip = "EVTTOOLTIPB_MAGIC.15" }
+			set_character_flag = murder_in_motion
+		}
+	}
+	
+	
+	option = {
+		name = "EVTOPTC_MAGIC.15" # Prefer something more lethal
+		trigger = {
+			ai = no
+			NOT = {
+				event_target:plot_leader = {
+					plot_power = 1.0
+				}
+			}
+		}
+	}
+}
+# MAGIC.16 - Backer informs Plotter of plan
+character_event = {
+	id = MAGIC.16
+	desc = "EVTDESC_MAGIC.16"
+	picture = GFX_evt_whispers
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		plot_target_char = { save_event_target_as = plot_target }
+	}
+	
+	option = {
+		name = "EVTOPTA_MAGIC.16"
+		FROM = { character_event = { id = MAGIC.18 tooltip = "EVTTOOLTIP_MAGIC.16" } }
+		hidden_tooltip = {
+			any_plot_backer = {
+				limit = {
+					NOT = { character = FROM }
+				}
+				character_event = { id = MAGIC.19 days = 1 }
+			}
+		}
+	}
+}
+# MAGIC.17 - Plot backer requests funds
+character_event = {
+	id = MAGIC.17
+	desc = "EVTDESC_MAGIC.17"
+	picture = GFX_evt_spymaster
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		plot_target_char = { save_event_target_as = plot_target }
+	}
+	
+	option = {
+		name = "EVTOPTA_MAGIC.17"
+		transfer_scaled_wealth = {
+			to = FROM
+			value = 1.0
+		}
+		FROM = { character_event = { id = MAGIC.20 tooltip = "EVTTOOLTIP_MAGIC.16" } }
+	}
+	
+	option = {
+		name = "EVTOPTB_MAGIC.17"
+		FROM = { character_event = { id = MAGIC.21 tooltip = "EVTTOOLTIP_MAGIC.17" } }
+	}
+}
+# MAGIC.18 - Plotter tells backer to go ahead
+character_event = {
+	id = MAGIC.18
+	desc = "EVTDESC_MAGIC.18"
+	picture = GFX_evt_whispers
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "EVTOPTA_MAGIC.18"
+		event_target:plot_target = { character_event = { id = MAGIC.2 days = 27 tooltip = "EVTTOOLTIP_MAGIC.18" } }
+	}
+}
+# MAGIC.19 - Initiator informs other plotter
+character_event = {
+	id = MAGIC.19
+	desc = "EVTDESC_MAGIC.19"
+	picture = GFX_evt_whispers
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "EVTOPTA_MAGIC.19"
+	}
+}
+# MAGIC.20 - plot backer receives funds
+character_event = {
+	id = MAGIC.20
+	desc = "EVTDESC_MAGIC.20"
+	picture = GFX_evt_spymaster
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "EXCELLENT"
+		event_target:plot_target = { character_event = { id = MAGIC.2 days = 27 tooltip = "EVTTOOLTIP_MAGIC.18" } }
+	}
+}
+# MAGIC.21 - plot backer does NOT receive funds
+character_event = {
+	id = MAGIC.21
+	desc = "EVTDESC_MAGIC.21"
+	picture = GFX_evt_spymaster
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "EVTOPTA_MAGIC.21" # Do it anyway
+		event_target:plot_target = { character_event = { id = MAGIC.2 days = 27 tooltip = "EVTTOOLTIP8155" } }
+	}
+	option = {
+		name = "EVTOPTB_MAGIC.21" # Screw this
+		FROM = { clr_character_flag = murder_in_motion }
+	}
+}
+
+### Aura spell cast ###
+# MAGIC.22 - Spell Cast set 1
+character_event = {
+	id = MAGIC.22
+	desc = EVTDESC_MAGIC.22
+	picture = GFX_evt_comet
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_MAGIC.22
+		wealth = -100
+		custom_tooltip = { text = EVTTTA_MAGIC.22 }
+		hidden_tooltip = { character_event = { id = MAGIC.24 } }
+		add_character_modifier = {
+			name = cast_spell
+			days = 30
+		}
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 1.5
+				war = yes
+			}
+			modifier = {
+				factor = 2
+				num_of_claims = 1
+			}
+			modifier = {
+				factor = 3
+				preparing_invasion = yes
+			}
+			modifier = {
+				factor = 2
+				has_religion_feature = religion_warlike
+			}
+			modifier = {
+				factor = 1.5
+				check_variable = { which = control value = 1 }
+				check_variable = { which = control value <= 3 }
+			}
+		}
+	}
+	option = {
+		name = EVTOPTB_MAGIC.22
+		wealth = -100
+		custom_tooltip = { text = EVTTTB_MAGIC.22 }
+		hidden_tooltip = { character_event = { id = MAGIC.25 } }
+		add_character_modifier = {
+			name = cast_spell
+			days = 30
+		}
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 1.2
+				has_focus = focus_carousing
+			}
+			modifier = {
+				factor = 1.5
+				is_heretic = yes
+			}
+			modifier = {
+				factor = 2
+				num_of_vassals = 10
+			}
+			modifier = {
+				factor = 1.2
+				relative_power_to_liege = 0.9
+			}
+		}
+	}
+	option = {
+		name = EVTOPTC_MAGIC.22
+		wealth = -100
+		custom_tooltip = { text = EVTTTC_MAGIC.22 }
+		hidden_tooltip = { character_event = { id = MAGIC.26 } }
+		add_character_modifier = {
+			name = cast_spell
+			days = 30
+		}
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 2
+				has_plot = yes
+			}
+			modifier = {
+				factor = 2
+				NOT = {	plot_power = 0.5 }
+			}
+		}
+	}
+	option = {
+		name = EVTOPTD_MAGIC.22
+		custom_tooltip = { text = EVTTTD_MAGIC.22 }
+		hidden_tooltip = { character_event = { id = MAGIC.23 } }
+		ai_chance = { factor = 30 }
+	}
+}
+#  MAGIC.23 - Spell Cast set 2
+character_event = {
+	id = MAGIC.23
+	desc = EVTDESC_MAGIC.22
+	picture = GFX_evt_comet
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_MAGIC.23
+		wealth = -100
+		custom_tooltip = { text = EVTTTA_MAGIC.23 }
+		hidden_tooltip = { character_event = { id = MAGIC.27 } }
+		add_character_modifier = {
+			name = cast_spell
+			days = 30
+		}
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 2
+				NOT = { prestige = 0 }
+			}
+			modifier = {
+				factor = 1.5
+				NOT = { prestige = 500 }
+			}
+			modifier = {
+				factor = 1.5
+				piety = 500
+			}
+		}
+	}
+	option = {
+		name = EVTOPTB_MAGIC.23
+		wealth = -100
+		custom_tooltip = { text = EVTTTB_MAGIC.23 }
+		hidden_tooltip = { character_event = { id = MAGIC.28 } }
+		add_character_modifier = {
+			name = cast_spell
+			days = 30
+		}
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 2
+				has_focus = focus_war
+			}
+			modifier = {
+				factor = 2
+				num_of_rivals = 1
+			}
+		}
+	}
+	option = {
+		name = EVTOPTC_MAGIC.23
+		wealth = -100
+		custom_tooltip = { text = EVTTTC_MAGIC.23 }
+		hidden_tooltip = { character_event = { id = MAGIC.29 } }
+		add_character_modifier = {
+			name = cast_spell
+			days = 30
+		}
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 2
+				any_demesne_province = {
+					revolt_risk = 0.04
+				}
+			}
+			modifier = {
+				factor = 2
+				any_demesne_province = {
+					revolt_risk = 0.1
+				}
+			}
+		}
+	}
+	option = {
+		name = EVTOPTD_MAGIC.23
+		custom_tooltip = { text = EVTTTD_MAGIC.23 }
+		ai_chance = { factor = 10 }
+	}
+}
+# MAGIC.24 - Gain Aura of Intimidation
+character_event = {
+	id = MAGIC.24
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		count_aura_rank =  yes
+		if = {
+			limit = { check_variable = { which = aura_rank value = 5 } }
+			if = {
+				limit = { trait = enchanter }
+				add_character_modifier = {
+					modifier = aura_intimidation_perfect
+					months = 12
+				}
+				break = yes
+			}
+			random_list = {
+				1 = {
+					add_character_modifier = {
+						modifier = aura_intimidation_perfect
+						months = 2
+					}
+				}
+				1 = {
+					add_character_modifier = {
+						modifier = aura_intimidation_perfect
+						months = 8
+					}
+				}
+				1 = {
+					add_character_modifier = {
+						modifier = aura_intimidation_perfect
+						months = 12
+					}
+				}
+				1 = {
+					add_character_modifier = {
+						modifier = aura_intimidation_perfect
+						months = 16
+					}
+				}
+				1 = {
+					add_character_modifier = {
+						modifier = aura_intimidation_perfect
+						months = 20
+					}
+				}
+			}
+			break = yes
+		}
+		else_if = {
+			limit = { check_variable = { which = aura_rank value = 4 } }
+			if = {
+				limit = { trait = enchanter }
+				add_character_modifier = {
+					modifier = aura_intimidation_overwhelming
+					months = 12
+				}
+				break = yes
+			}
+			random_list = {
+				1 = {
+					add_character_modifier = {
+						modifier = aura_intimidation_overwhelming
+						months = 2
+					}
+				}
+				1 = {
+					add_character_modifier = {
+						modifier = aura_intimidation_overwhelming
+						months = 8
+					}
+				}
+				1 = {
+					add_character_modifier = {
+						modifier = aura_intimidation_overwhelming
+						months = 12
+					}
+				}
+				1 = {
+					add_character_modifier = {
+						modifier = aura_intimidation_overwhelming
+						months = 16
+					}
+				}
+				1 = {
+					add_character_modifier = {
+						modifier = aura_intimidation_overwhelming
+						months = 20
+					}
+				}
+			}
+			break = yes
+		}
+		else_if = {
+			limit = { check_variable = { which = aura_rank value = 3 } }
+			if = {
+				limit = { trait = enchanter }
+				add_character_modifier = {
+					modifier = aura_intimidation_strong
+					months = 12
+				}
+				break = yes
+			}
+			random_list = {
+				1 = {
+					add_character_modifier = {
+						modifier = aura_intimidation_strong
+						months = 2
+					}
+				}
+				1 = {
+					add_character_modifier = {
+						modifier = aura_intimidation_strong
+						months = 8
+					}
+				}
+				1 = {
+					add_character_modifier = {
+						modifier = aura_intimidation_strong
+						months = 12
+					}
+				}
+				1 = {
+					add_character_modifier = {
+						modifier = aura_intimidation_strong
+						months = 16
+					}
+				}
+				1 = {
+					add_character_modifier = {
+						modifier = aura_intimidation_strong
+						months = 20
+					}
+				}
+			}
+			break = yes
+		}
+		else_if = {
+			limit = { check_variable = { which = aura_rank value = 2 } }
+			if = {
+				limit = { trait = enchanter }
+				add_character_modifier = {
+					modifier = aura_intimidation_standard
+					months = 12
+				}
+				break = yes
+			}
+			random_list = {
+				1 = {
+					add_character_modifier = {
+						modifier = aura_intimidation_standard
+						months = 2
+					}
+				}
+				1 = {
+					add_character_modifier = {
+						modifier = aura_intimidation_standard
+						months = 8
+					}
+				}
+				1 = {
+					add_character_modifier = {
+						modifier = aura_intimidation_standard
+						months = 12
+					}
+				}
+				1 = {
+					add_character_modifier = {
+						modifier = aura_intimidation_standard
+						months = 16
+					}
+				}
+				1 = {
+					add_character_modifier = {
+						modifier = aura_intimidation_standard
+						months = 20
+					}
+				}
+			}
+			break = yes
+		}
+		else_if = {
+			limit = { check_variable = { which = aura_rank value = 1 } }
+			if = {
+				limit = { trait = enchanter }
+				add_character_modifier = {
+					modifier = aura_intimidation_weak
+					months = 12
+				}
+				break = yes
+			}
+			random_list = {
+				1 = {
+					add_character_modifier = {
+						modifier = aura_intimidation_weak
+						months = 2
+					}
+				}
+				1 = {
+					add_character_modifier = {
+						modifier = aura_intimidation_weak
+						months = 8
+					}
+				}
+				1 = {
+					add_character_modifier = {
+						modifier = aura_intimidation_weak
+						months = 12
+					}
+				}
+				1 = {
+					add_character_modifier = {
+						modifier = aura_intimidation_weak
+						months = 16
+					}
+				}
+				1 = {
+					add_character_modifier = {
+						modifier = aura_intimidation_weak
+						months = 20
+					}
+				}
+			}
+			break = yes
+		}
+		if = {
+			limit = { trait = enchanter }
+			add_character_modifier = {
+				modifier = aura_intimidation_feeble
+				months = 12
+			}
+			break = yes
+		}
+		random_list = {
+			1 = {
+				add_character_modifier = {
+					modifier = aura_intimidation_feeble
+					months = 2
+				}
+			}
+			1 = {
+				add_character_modifier = {
+					modifier = aura_intimidation_feeble
+					months = 8
+				}
+			}
+			1 = {
+				add_character_modifier = {
+					modifier = aura_intimidation_feeble
+					months = 12
+				}
+			}
+			1 = {
+				add_character_modifier = {
+					modifier = aura_intimidation_feeble
+					months = 16
+				}
+			}
+			1 = {
+				add_character_modifier = {
+					modifier = aura_intimidation_feeble
+					months = 20
+				}
+			}
+		}
+	}
+}
+# MAGIC.25 - Gain Aura of Presence
+character_event = {
+	id = MAGIC.25
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		count_aura_rank =  yes
+		if = {
+			limit = { check_variable = { which = aura_rank value = 5 } }
+			if = {
+				limit = { trait = enchanter }
+				add_character_modifier = {
+					modifier = aura_presence_perfect
+					months = 12
+				}
+				break = yes
+			}
+			random_list = {
+				1 = {
+					add_character_modifier = {
+						modifier = aura_presence_perfect
+						months = 2
+					}
+				}
+				1 = {
+					add_character_modifier = {
+						modifier = aura_presence_perfect
+						months = 8
+					}
+				}
+				1 = {
+					add_character_modifier = {
+						modifier = aura_presence_perfect
+						months = 12
+					}
+				}
+				1 = {
+					add_character_modifier = {
+						modifier = aura_presence_perfect
+						months = 16
+					}
+				}
+				1 = {
+					add_character_modifier = {
+						modifier = aura_presence_perfect
+						months = 20
+					}
+				}
+			}
+			break = yes
+		}
+		else_if = {
+			limit = { check_variable = { which = aura_rank value = 4 } }
+			if = {
+				limit = { trait = enchanter }
+				add_character_modifier = {
+					modifier = aura_presence_overwhelming
+					months = 12
+				}
+				break = yes
+			}
+			random_list = {
+				1 = {
+					add_character_modifier = {
+						modifier = aura_presence_overwhelming
+						months = 2
+					}
+				}
+				1 = {
+					add_character_modifier = {
+						modifier = aura_presence_overwhelming
+						months = 8
+					}
+				}
+				1 = {
+					add_character_modifier = {
+						modifier = aura_presence_overwhelming
+						months = 12
+					}
+				}
+				1 = {
+					add_character_modifier = {
+						modifier = aura_presence_overwhelming
+						months = 16
+					}
+				}
+				1 = {
+					add_character_modifier = {
+						modifier = aura_presence_overwhelming
+						months = 20
+					}
+				}
+			}
+			break = yes
+		}
+		else_if = {
+			limit = { check_variable = { which = aura_rank value = 3 } }
+			if = {
+				limit = { trait = enchanter }
+				add_character_modifier = {
+					modifier = aura_presence_strong
+					months = 12
+				}
+				break = yes
+			}
+			random_list = {
+				1 = {
+					add_character_modifier = {
+						modifier = aura_presence_strong
+						months = 2
+					}
+				}
+				1 = {
+					add_character_modifier = {
+						modifier = aura_presence_strong
+						months = 8
+					}
+				}
+				1 = {
+					add_character_modifier = {
+						modifier = aura_presence_strong
+						months = 12
+					}
+				}
+				1 = {
+					add_character_modifier = {
+						modifier = aura_presence_strong
+						months = 16
+					}
+				}
+				1 = {
+					add_character_modifier = {
+						modifier = aura_presence_strong
+						months = 20
+					}
+				}
+			}
+			break = yes
+		}
+		else_if = {
+			limit = { check_variable = { which = aura_rank value = 2 } }
+			if = {
+				limit = { trait = enchanter }
+				add_character_modifier = {
+					modifier = aura_presence_standard
+					months = 12
+				}
+				break = yes
+			}
+			random_list = {
+				1 = {
+					add_character_modifier = {
+						modifier = aura_presence_standard
+						months = 2
+					}
+				}
+				1 = {
+					add_character_modifier = {
+						modifier = aura_presence_standard
+						months = 8
+					}
+				}
+				1 = {
+					add_character_modifier = {
+						modifier = aura_presence_standard
+						months = 12
+					}
+				}
+				1 = {
+					add_character_modifier = {
+						modifier = aura_presence_standard
+						months = 16
+					}
+				}
+				1 = {
+					add_character_modifier = {
+						modifier = aura_presence_standard
+						months = 20
+					}
+				}
+			}
+			break = yes
+		}
+		else_if = {
+			limit = { check_variable = { which = aura_rank value = 1 } }
+			if = {
+				limit = { trait = enchanter }
+				add_character_modifier = {
+					modifier = aura_presence_weak
+					months = 12
+				}
+				break = yes
+			}
+			random_list = {
+				1 = {
+					add_character_modifier = {
+						modifier = aura_presence_weak
+						months = 2
+					}
+				}
+				1 = {
+					add_character_modifier = {
+						modifier = aura_presence_weak
+						months = 8
+					}
+				}
+				1 = {
+					add_character_modifier = {
+						modifier = aura_presence_weak
+						months = 12
+					}
+				}
+				1 = {
+					add_character_modifier = {
+						modifier = aura_presence_weak
+						months = 16
+					}
+				}
+				1 = {
+					add_character_modifier = {
+						modifier = aura_presence_weak
+						months = 20
+					}
+				}
+			}
+			break = yes
+		}
+		if = {
+			limit = { trait = enchanter }
+			add_character_modifier = {
+				modifier = aura_presence_feeble
+				months = 12
+			}
+			break = yes
+		}
+		random_list = {
+			1 = {
+				add_character_modifier = {
+					modifier = aura_presence_feeble
+					months = 2
+				}
+			}
+			1 = {
+				add_character_modifier = {
+					modifier = aura_presence_feeble
+					months = 8
+				}
+			}
+			1 = {
+				add_character_modifier = {
+					modifier = aura_presence_feeble
+					months = 12
+				}
+			}
+			1 = {
+				add_character_modifier = {
+					modifier = aura_presence_feeble
+					months = 16
+				}
+			}
+			1 = {
+				add_character_modifier = {
+					modifier = aura_presence_feeble
+					months = 20
+				}
+			}
+		}
+	}
+}
+# MAGIC.26 - Gain Aura of Shadows
+character_event = {
+	id = MAGIC.26
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		count_aura_rank =  yes
+		if = {
+			limit = { check_variable = { which = aura_rank value = 5 } }
+			if = {
+				limit = { trait = enchanter }
+				add_character_modifier = {
+					modifier = aura_shadows_perfect
+					months = 12
+				}
+				break = yes
+			}
+			random_list = {
+				1 = {
+					add_character_modifier = {
+						modifier = aura_shadows_perfect
+						months = 2
+					}
+				}
+				1 = {
+					add_character_modifier = {
+						modifier = aura_shadows_perfect
+						months = 8
+					}
+				}
+				1 = {
+					add_character_modifier = {
+						modifier = aura_shadows_perfect
+						months = 12
+					}
+				}
+				1 = {
+					add_character_modifier = {
+						modifier = aura_shadows_perfect
+						months = 16
+					}
+				}
+				1 = {
+					add_character_modifier = {
+						modifier = aura_shadows_perfect
+						months = 20
+					}
+				}
+			}
+			break = yes
+		}
+		else_if = {
+			limit = { check_variable = { which = aura_rank value = 4 } }
+			if = {
+				limit = { trait = enchanter }
+				add_character_modifier = {
+					modifier = aura_shadows_overwhelming
+					months = 12
+				}
+				break = yes
+			}
+			random_list = {
+				1 = {
+					add_character_modifier = {
+						modifier = aura_shadows_overwhelming
+						months = 2
+					}
+				}
+				1 = {
+					add_character_modifier = {
+						modifier = aura_shadows_overwhelming
+						months = 8
+					}
+				}
+				1 = {
+					add_character_modifier = {
+						modifier = aura_shadows_overwhelming
+						months = 12
+					}
+				}
+				1 = {
+					add_character_modifier = {
+						modifier = aura_shadows_overwhelming
+						months = 16
+					}
+				}
+				1 = {
+					add_character_modifier = {
+						modifier = aura_shadows_overwhelming
+						months = 20
+					}
+				}
+			}
+			break = yes
+		}
+		else_if = {
+			limit = { check_variable = { which = aura_rank value = 3 } }
+			if = {
+				limit = { trait = enchanter }
+				add_character_modifier = {
+					modifier = aura_shadows_strong
+					months = 12
+				}
+				break = yes
+			}
+			random_list = {
+				1 = {
+					add_character_modifier = {
+						modifier = aura_shadows_strong
+						months = 2
+					}
+				}
+				1 = {
+					add_character_modifier = {
+						modifier = aura_shadows_strong
+						months = 8
+					}
+				}
+				1 = {
+					add_character_modifier = {
+						modifier = aura_shadows_strong
+						months = 12
+					}
+				}
+				1 = {
+					add_character_modifier = {
+						modifier = aura_shadows_strong
+						months = 16
+					}
+				}
+				1 = {
+					add_character_modifier = {
+						modifier = aura_shadows_strong
+						months = 20
+					}
+				}
+			}
+			break = yes
+		}
+		else_if = {
+			limit = { check_variable = { which = aura_rank value = 2 } }
+			if = {
+				limit = { trait = enchanter }
+				add_character_modifier = {
+					modifier = aura_shadows_standard
+					months = 12
+				}
+				break = yes
+			}
+			random_list = {
+				1 = {
+					add_character_modifier = {
+						modifier = aura_shadows_standard
+						months = 2
+					}
+				}
+				1 = {
+					add_character_modifier = {
+						modifier = aura_shadows_standard
+						months = 8
+					}
+				}
+				1 = {
+					add_character_modifier = {
+						modifier = aura_shadows_standard
+						months = 12
+					}
+				}
+				1 = {
+					add_character_modifier = {
+						modifier = aura_shadows_standard
+						months = 16
+					}
+				}
+				1 = {
+					add_character_modifier = {
+						modifier = aura_shadows_standard
+						months = 20
+					}
+				}
+			}
+			break = yes
+		}
+		else_if = {
+			limit = { check_variable = { which = aura_rank value = 1 } }
+			if = {
+				limit = { trait = enchanter }
+				add_character_modifier = {
+					modifier = aura_shadows_weak
+					months = 12
+				}
+				break = yes
+			}
+			random_list = {
+				1 = {
+					add_character_modifier = {
+						modifier = aura_shadows_weak
+						months = 2
+					}
+				}
+				1 = {
+					add_character_modifier = {
+						modifier = aura_shadows_weak
+						months = 8
+					}
+				}
+				1 = {
+					add_character_modifier = {
+						modifier = aura_shadows_weak
+						months = 12
+					}
+				}
+				1 = {
+					add_character_modifier = {
+						modifier = aura_shadows_weak
+						months = 16
+					}
+				}
+				1 = {
+					add_character_modifier = {
+						modifier = aura_shadows_weak
+						months = 20
+					}
+				}
+			}
+			break = yes
+		}
+		if = {
+			limit = { trait = enchanter }
+			add_character_modifier = {
+				modifier = aura_shadows_feeble
+				months = 12
+			}
+			break = yes
+		}
+		random_list = {
+			1 = {
+				add_character_modifier = {
+					modifier = aura_shadows_feeble
+					months = 2
+				}
+			}
+			1 = {
+				add_character_modifier = {
+					modifier = aura_shadows_feeble
+					months = 8
+				}
+			}
+			1 = {
+				add_character_modifier = {
+					modifier = aura_shadows_feeble
+					months = 12
+				}
+			}
+			1 = {
+				add_character_modifier = {
+					modifier = aura_shadows_feeble
+					months = 16
+				}
+			}
+			1 = {
+				add_character_modifier = {
+					modifier = aura_shadows_feeble
+					months = 20
+				}
+			}
+		}
+	}
+}
+# MAGIC.27 - Gain Aura of Majesty
+character_event = {
+	id = MAGIC.27
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		count_aura_rank =  yes
+		if = {
+			limit = { check_variable = { which = aura_rank value = 5 } }
+			if = {
+				limit = { trait = enchanter }
+				add_character_modifier = {
+					modifier = aura_majesty_perfect
+					months = 12
+				}
+				break = yes
+			}
+			random_list = {
+				1 = {
+					add_character_modifier = {
+						modifier = aura_majesty_perfect
+						months = 2
+					}
+				}
+				1 = {
+					add_character_modifier = {
+						modifier = aura_majesty_perfect
+						months = 8
+					}
+				}
+				1 = {
+					add_character_modifier = {
+						modifier = aura_majesty_perfect
+						months = 12
+					}
+				}
+				1 = {
+					add_character_modifier = {
+						modifier = aura_majesty_perfect
+						months = 16
+					}
+				}
+				1 = {
+					add_character_modifier = {
+						modifier = aura_majesty_perfect
+						months = 20
+					}
+				}
+			}
+			break = yes
+		}
+		else_if = {
+			limit = { check_variable = { which = aura_rank value = 4 } }
+			if = {
+				limit = { trait = enchanter }
+				add_character_modifier = {
+					modifier = aura_majesty_overwhelming
+					months = 12
+				}
+				break = yes
+			}
+			random_list = {
+				1 = {
+					add_character_modifier = {
+						modifier = aura_majesty_overwhelming
+						months = 2
+					}
+				}
+				1 = {
+					add_character_modifier = {
+						modifier = aura_majesty_overwhelming
+						months = 8
+					}
+				}
+				1 = {
+					add_character_modifier = {
+						modifier = aura_majesty_overwhelming
+						months = 12
+					}
+				}
+				1 = {
+					add_character_modifier = {
+						modifier = aura_majesty_overwhelming
+						months = 16
+					}
+				}
+				1 = {
+					add_character_modifier = {
+						modifier = aura_majesty_overwhelming
+						months = 20
+					}
+				}
+			}
+			break = yes
+		}
+		else_if = {
+			limit = { check_variable = { which = aura_rank value = 3 } }
+			if = {
+				limit = { trait = enchanter }
+				add_character_modifier = {
+					modifier = aura_majesty_strong
+					months = 12
+				}
+				break = yes
+			}
+			random_list = {
+				1 = {
+					add_character_modifier = {
+						modifier = aura_majesty_strong
+						months = 2
+					}
+				}
+				1 = {
+					add_character_modifier = {
+						modifier = aura_majesty_strong
+						months = 8
+					}
+				}
+				1 = {
+					add_character_modifier = {
+						modifier = aura_majesty_strong
+						months = 12
+					}
+				}
+				1 = {
+					add_character_modifier = {
+						modifier = aura_majesty_strong
+						months = 16
+					}
+				}
+				1 = {
+					add_character_modifier = {
+						modifier = aura_majesty_strong
+						months = 20
+					}
+				}
+			}
+			break = yes
+		}
+		else_if = {
+			limit = { check_variable = { which = aura_rank value = 2 } }
+			if = {
+				limit = { trait = enchanter }
+				add_character_modifier = {
+					modifier = aura_majesty_standard
+					months = 12
+				}
+				break = yes
+			}
+			random_list = {
+				1 = {
+					add_character_modifier = {
+						modifier = aura_majesty_standard
+						months = 2
+					}
+				}
+				1 = {
+					add_character_modifier = {
+						modifier = aura_majesty_standard
+						months = 8
+					}
+				}
+				1 = {
+					add_character_modifier = {
+						modifier = aura_majesty_standard
+						months = 12
+					}
+				}
+				1 = {
+					add_character_modifier = {
+						modifier = aura_majesty_standard
+						months = 16
+					}
+				}
+				1 = {
+					add_character_modifier = {
+						modifier = aura_majesty_standard
+						months = 20
+					}
+				}
+			}
+			break = yes
+		}
+		else_if = {
+			limit = { check_variable = { which = aura_rank value = 1 } }
+			if = {
+				limit = { trait = enchanter }
+				add_character_modifier = {
+					modifier = aura_majesty_weak
+					months = 12
+				}
+				break = yes
+			}
+			random_list = {
+				1 = {
+					add_character_modifier = {
+						modifier = aura_majesty_weak
+						months = 2
+					}
+				}
+				1 = {
+					add_character_modifier = {
+						modifier = aura_majesty_weak
+						months = 8
+					}
+				}
+				1 = {
+					add_character_modifier = {
+						modifier = aura_majesty_weak
+						months = 12
+					}
+				}
+				1 = {
+					add_character_modifier = {
+						modifier = aura_majesty_weak
+						months = 16
+					}
+				}
+				1 = {
+					add_character_modifier = {
+						modifier = aura_majesty_weak
+						months = 20
+					}
+				}
+			}
+			break = yes
+		}
+		if = {
+			limit = { trait = enchanter }
+			add_character_modifier = {
+				modifier = aura_majesty_feeble
+				months = 12
+			}
+			break = yes
+		}
+		random_list = {
+			1 = {
+				add_character_modifier = {
+					modifier = aura_majesty_feeble
+					months = 2
+				}
+			}
+			1 = {
+				add_character_modifier = {
+					modifier = aura_majesty_feeble
+					months = 8
+				}
+			}
+			1 = {
+				add_character_modifier = {
+					modifier = aura_majesty_feeble
+					months = 12
+				}
+			}
+			1 = {
+				add_character_modifier = {
+					modifier = aura_majesty_feeble
+					months = 16
+				}
+			}
+			1 = {
+				add_character_modifier = {
+					modifier = aura_majesty_feeble
+					months = 20
+				}
+			}
+		}
+	}
+}
+# MAGIC.28 - Gain Aura of Valor
+character_event = {
+	id = MAGIC.28
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		count_aura_rank =  yes
+		if = {
+			limit = { check_variable = { which = aura_rank value = 5 } }
+			if = {
+				limit = { trait = enchanter }
+				add_character_modifier = {
+					modifier = aura_valor_perfect
+					months = 12
+				}
+				break = yes
+			}
+			random_list = {
+				1 = {
+					add_character_modifier = {
+						modifier = aura_valor_perfect
+						months = 2
+					}
+				}
+				1 = {
+					add_character_modifier = {
+						modifier = aura_valor_perfect
+						months = 8
+					}
+				}
+				1 = {
+					add_character_modifier = {
+						modifier = aura_valor_perfect
+						months = 12
+					}
+				}
+				1 = {
+					add_character_modifier = {
+						modifier = aura_valor_perfect
+						months = 16
+					}
+				}
+				1 = {
+					add_character_modifier = {
+						modifier = aura_valor_perfect
+						months = 20
+					}
+				}
+			}
+			break = yes
+		}
+		else_if = {
+			limit = { check_variable = { which = aura_rank value = 4 } }
+			if = {
+				limit = { trait = enchanter }
+				add_character_modifier = {
+					modifier = aura_valor_overwhelming
+					months = 12
+				}
+				break = yes
+			}
+			random_list = {
+				1 = {
+					add_character_modifier = {
+						modifier = aura_valor_overwhelming
+						months = 2
+					}
+				}
+				1 = {
+					add_character_modifier = {
+						modifier = aura_valor_overwhelming
+						months = 8
+					}
+				}
+				1 = {
+					add_character_modifier = {
+						modifier = aura_valor_overwhelming
+						months = 12
+					}
+				}
+				1 = {
+					add_character_modifier = {
+						modifier = aura_valor_overwhelming
+						months = 16
+					}
+				}
+				1 = {
+					add_character_modifier = {
+						modifier = aura_valor_overwhelming
+						months = 20
+					}
+				}
+			}
+			break = yes
+		}
+		else_if = {
+			limit = { check_variable = { which = aura_rank value = 3 } }
+			if = {
+				limit = { trait = enchanter }
+				add_character_modifier = {
+					modifier = aura_valor_strong
+					months = 12
+				}
+				break = yes
+			}
+			random_list = {
+				1 = {
+					add_character_modifier = {
+						modifier = aura_valor_strong
+						months = 2
+					}
+				}
+				1 = {
+					add_character_modifier = {
+						modifier = aura_valor_strong
+						months = 8
+					}
+				}
+				1 = {
+					add_character_modifier = {
+						modifier = aura_valor_strong
+						months = 12
+					}
+				}
+				1 = {
+					add_character_modifier = {
+						modifier = aura_valor_strong
+						months = 16
+					}
+				}
+				1 = {
+					add_character_modifier = {
+						modifier = aura_valor_strong
+						months = 20
+					}
+				}
+			}
+			break = yes
+		}
+		else_if = {
+			limit = { check_variable = { which = aura_rank value = 2 } }
+			if = {
+				limit = { trait = enchanter }
+				add_character_modifier = {
+					modifier = aura_valor_standard
+					months = 12
+				}
+				break = yes
+			}
+			random_list = {
+				1 = {
+					add_character_modifier = {
+						modifier = aura_valor_standard
+						months = 2
+					}
+				}
+				1 = {
+					add_character_modifier = {
+						modifier = aura_valor_standard
+						months = 8
+					}
+				}
+				1 = {
+					add_character_modifier = {
+						modifier = aura_valor_standard
+						months = 12
+					}
+				}
+				1 = {
+					add_character_modifier = {
+						modifier = aura_valor_standard
+						months = 16
+					}
+				}
+				1 = {
+					add_character_modifier = {
+						modifier = aura_valor_standard
+						months = 20
+					}
+				}
+			}
+			break = yes
+		}
+		else_if = {
+			limit = { check_variable = { which = aura_rank value = 1 } }
+			if = {
+				limit = { trait = enchanter }
+				add_character_modifier = {
+					modifier = aura_valor_weak
+					months = 12
+				}
+				break = yes
+			}
+			random_list = {
+				1 = {
+					add_character_modifier = {
+						modifier = aura_valor_weak
+						months = 2
+					}
+				}
+				1 = {
+					add_character_modifier = {
+						modifier = aura_valor_weak
+						months = 8
+					}
+				}
+				1 = {
+					add_character_modifier = {
+						modifier = aura_valor_weak
+						months = 12
+					}
+				}
+				1 = {
+					add_character_modifier = {
+						modifier = aura_valor_weak
+						months = 16
+					}
+				}
+				1 = {
+					add_character_modifier = {
+						modifier = aura_valor_weak
+						months = 20
+					}
+				}
+			}
+			break = yes
+		}
+		if = {
+			limit = { trait = enchanter }
+			add_character_modifier = {
+				modifier = aura_valor_feeble
+				months = 12
+			}
+			break = yes
+		}
+		random_list = {
+			1 = {
+				add_character_modifier = {
+					modifier = aura_valor_feeble
+					months = 2
+				}
+			}
+			1 = {
+				add_character_modifier = {
+					modifier = aura_valor_feeble
+					months = 8
+				}
+			}
+			1 = {
+				add_character_modifier = {
+					modifier = aura_valor_feeble
+					months = 12
+				}
+			}
+			1 = {
+				add_character_modifier = {
+					modifier = aura_valor_feeble
+					months = 16
+				}
+			}
+			1 = {
+				add_character_modifier = {
+					modifier = aura_valor_feeble
+					months = 20
+				}
+			}
+		}
+	}
+}
+# MAGIC.29 - Gain Aura of The People
+character_event = {
+	id = MAGIC.29
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		count_aura_rank =  yes
+		if = {
+			limit = { check_variable = { which = aura_rank value = 5 } }
+			if = {
+				limit = { trait = enchanter }
+				add_character_modifier = {
+					modifier = aura_people_perfect
+					months = 12
+				}
+				break = yes
+			}
+			random_list = {
+				1 = {
+					add_character_modifier = {
+						modifier = aura_people_perfect
+						months = 2
+					}
+				}
+				1 = {
+					add_character_modifier = {
+						modifier = aura_people_perfect
+						months = 8
+					}
+				}
+				1 = {
+					add_character_modifier = {
+						modifier = aura_people_perfect
+						months = 12
+					}
+				}
+				1 = {
+					add_character_modifier = {
+						modifier = aura_people_perfect
+						months = 16
+					}
+				}
+				1 = {
+					add_character_modifier = {
+						modifier = aura_people_perfect
+						months = 20
+					}
+				}
+			}
+			break = yes
+		}
+		else_if = {
+			limit = { check_variable = { which = aura_rank value = 4 } }
+			if = {
+				limit = { trait = enchanter }
+				add_character_modifier = {
+					modifier = aura_people_overwhelming
+					months = 12
+				}
+				break = yes
+			}
+			random_list = {
+				1 = {
+					add_character_modifier = {
+						modifier = aura_people_overwhelming
+						months = 2
+					}
+				}
+				1 = {
+					add_character_modifier = {
+						modifier = aura_people_overwhelming
+						months = 8
+					}
+				}
+				1 = {
+					add_character_modifier = {
+						modifier = aura_people_overwhelming
+						months = 12
+					}
+				}
+				1 = {
+					add_character_modifier = {
+						modifier = aura_people_overwhelming
+						months = 16
+					}
+				}
+				1 = {
+					add_character_modifier = {
+						modifier = aura_people_overwhelming
+						months = 20
+					}
+				}
+			}
+			break = yes
+		}
+		else_if = {
+			limit = { check_variable = { which = aura_rank value = 3 } }
+			if = {
+				limit = { trait = enchanter }
+				add_character_modifier = {
+					modifier = aura_people_strong
+					months = 12
+				}
+				break = yes
+			}
+			random_list = {
+				1 = {
+					add_character_modifier = {
+						modifier = aura_people_strong
+						months = 2
+					}
+				}
+				1 = {
+					add_character_modifier = {
+						modifier = aura_people_strong
+						months = 8
+					}
+				}
+				1 = {
+					add_character_modifier = {
+						modifier = aura_people_strong
+						months = 12
+					}
+				}
+				1 = {
+					add_character_modifier = {
+						modifier = aura_people_strong
+						months = 16
+					}
+				}
+				1 = {
+					add_character_modifier = {
+						modifier = aura_people_strong
+						months = 20
+					}
+				}
+			}
+			break = yes
+		}
+		else_if = {
+			limit = { check_variable = { which = aura_rank value = 2 } }
+			if = {
+				limit = { trait = enchanter }
+				add_character_modifier = {
+					modifier = aura_people_standard
+					months = 12
+				}
+				break = yes
+			}
+			random_list = {
+				1 = {
+					add_character_modifier = {
+						modifier = aura_people_standard
+						months = 2
+					}
+				}
+				1 = {
+					add_character_modifier = {
+						modifier = aura_people_standard
+						months = 8
+					}
+				}
+				1 = {
+					add_character_modifier = {
+						modifier = aura_people_standard
+						months = 12
+					}
+				}
+				1 = {
+					add_character_modifier = {
+						modifier = aura_people_standard
+						months = 16
+					}
+				}
+				1 = {
+					add_character_modifier = {
+						modifier = aura_people_standard
+						months = 20
+					}
+				}
+			}
+			break = yes
+		}
+		else_if = {
+			limit = { check_variable = { which = aura_rank value = 1 } }
+			if = {
+				limit = { trait = enchanter }
+				add_character_modifier = {
+					modifier = aura_people_weak
+					months = 12
+				}
+				break = yes
+			}
+			random_list = {
+				1 = {
+					add_character_modifier = {
+						modifier = aura_people_weak
+						months = 2
+					}
+				}
+				1 = {
+					add_character_modifier = {
+						modifier = aura_people_weak
+						months = 8
+					}
+				}
+				1 = {
+					add_character_modifier = {
+						modifier = aura_people_weak
+						months = 12
+					}
+				}
+				1 = {
+					add_character_modifier = {
+						modifier = aura_people_weak
+						months = 16
+					}
+				}
+				1 = {
+					add_character_modifier = {
+						modifier = aura_people_weak
+						months = 20
+					}
+				}
+			}
+			break = yes
+		}
+		if = {
+			limit = { trait = enchanter }
+			add_character_modifier = {
+				modifier = aura_people_feeble
+				months = 12
+			}
+			break = yes
+		}
+		random_list = {
+			1 = {
+				add_character_modifier = {
+					modifier = aura_people_feeble
+					months = 2
+				}
+			}
+			1 = {
+				add_character_modifier = {
+					modifier = aura_people_feeble
+					months = 8
+				}
+			}
+			1 = {
+				add_character_modifier = {
+					modifier = aura_people_feeble
+					months = 12
+				}
+			}
+			1 = {
+				add_character_modifier = {
+					modifier = aura_people_feeble
+					months = 16
+				}
+			}
+			1 = {
+				add_character_modifier = {
+					modifier = aura_people_feeble
+					months = 20
+				}
+			}
+		}
+	}
+}
+
+### Summon Servant ###
+# MAGIC.30 - Determine results of spell
+character_event = {
+	id = MAGIC.30
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		random_list = {
+			20 = { # Success
+				modifier = {
+					factor = 2
+					trait = eldritch_scholar
+				}
+				modifier = {
+					factor = 3
+					trait = veteran_wizard
+				}
+				modifier = {
+					factor = 4
+					trait = arcane_master
+				}
+				modifier = {
+					factor = 1.2
+					learning = 10
+				}
+				modifier = {
+					factor = 1.2
+					learning = 15
+				}
+				modifier = {
+					factor = 1.2
+					learning = 20
+				}
+				modifier = {
+					factor = 1.2
+					learning = 25
+				}
+				modifier = {
+					factor = 1.2
+					has_artifact = lesser_key_of_solomon
+				}
+				modifier = {
+					factor = 1.4
+					has_artifact = greater_key_of_solomon
+				}
+				random_list = {
+					10 = { # Draconic Steward
+						trigger = {
+							NOR = {
+								religion = draconic_pagan
+								religion = draconic_pagan_reformed
+								culture = draconic
+								trait = dragon
+							}
+						}
+						character_event = { id = MAGIC.31 }
+					}
+					10 = { # Giant Commander
+						trigger = {
+							NOR = {
+								religion = jotnar
+								religion = jotnar_reformed
+								culture = jotunn
+								trait = mythos_giant
+							}
+						}
+						character_event = { id = MAGIC.32 }
+					}
+					5 = { # Mephistophiles
+						modifier = {
+							factor = 1.5
+							religion = satanist
+						}
+						character_event = { id = MAGIC.33 }
+					}
+					10 = { # Etherial Servant
+						character_event = { id = MAGIC.34 }
+					}
+					10 = { # Djinn advisor
+						trigger = {
+							NOT = { trait = djinn }
+						}
+						modifier = {
+							factor = 1.5
+							religion_group = muslim
+						}
+						character_event = { id = MAGIC.35 }
+					}
+					8 = { # Solomon's Djinn
+						trigger = {
+							NOT = { trait = djinn }
+						}
+						modifier = {
+							factor = 1.5
+							religion_group = muslim
+						}
+						character_event = { id = MAGIC.36 }
+					}
+					10 = { # Werewolf Berserker
+						trigger = {
+							NOR = {
+								culture = werewolf_culture
+								trait = werewolf
+							}
+						}
+						character_event = { id = MAGIC.37 }
+					}
+					10 = { # Ethereal Warrior
+						character_event = { id = MAGIC.38 }
+					}
+					# Mirror Self - Currently can't be implemented to my knowledge
+					10 = { # Blood Courtier
+						trigger = {
+							NOR = {
+								culture = vampire_culture
+								trait = vampire
+							}
+						}
+						character_event = { id = MAGIC.39 }
+					}
+					10 = { # Son of God?
+						character_event = { id = MAGIC.40 }
+					}
+					10 = { # Undead Soldier
+						character_event = { id = MAGIC.41 }
+					}
+					# MAGIC.42 improves starts based off caster
+				}
+			}
+			20 = {
+				random_list = {
+					10 = { # Unpleasant Dragon
+						trigger = {
+							NOR = {
+								religion = draconic_pagan
+								religion = draconic_pagan_reformed
+								culture = draconic
+								trait = dragon
+							}
+						}
+						character_event = { id = MAGIC.45 }
+					}
+					10 = { # Ambitious Vampire
+						trigger = {
+							NOR = {
+								culture = vampire_culture
+								trait = vampire
+							}
+						}
+						character_event = { id = MAGIC.46 }
+					}
+					10 = { # Heathen Priest
+						character_event = { id = MAGIC.47 }
+					}
+					10 = { # Frenzied Werewolf
+						trigger = {
+							NOR = {
+								culture = werewolf_culture
+								trait = werewolf
+							}
+						}
+						character_event = { id = MAGIC.48 }
+					}
+					10 = { # Plague_bearer
+						character_event = { id = MAGIC.49 }
+					}
+					10 = { # Pox bearer
+						character_event = { id = MAGIC.50 }
+					}
+				}
+			}
+		}
+	}
+}
+
+# MAGIC.31 - Draconic Steward
+character_event = {
+	id = MAGIC.31
+	desc = EVTDESCMAGIC.31
+	picture = GFX_evt_relaxed_ruler
+	border = GFX_event_normal_frame_economy
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAMAGIC.31
+		create_character = {
+			random_traits = yes
+			age = 18
+			dynasty = none
+			culture = draconic
+			religion = draconic_pagan
+			female = no
+			attributes = {
+				stewardship = 18
+			}
+			health = 6
+			trait = dragon
+			trait = midas_touched
+			trait = greedy
+			flag = summoned_creature
+			flag = checked_race
+		}
+		new_character = {
+			if = {
+				limit = { is_heretic = yes }
+				religion = draconic_pagan_reformed
+			}
+			opinion = {
+				modifier = bound_by_magic
+				who = ROOT
+				years = 1000
+			}
+			if = {
+				limit = { ROOT = { has_artifact = lesser_key_of_solomon } }
+				change_stewardship = 1
+			}
+			if = {
+				limit = { ROOT = { has_artifact = greater_key_of_solomon } }
+				change_stewardship = 1
+				add_trait = administrator
+			}
+			if = {
+				limit = { ROOT = { any_owned_bloodline = { has_bloodline_flag = better_summons } } }
+				change_stewardship = 1
+				add_trait = diligent
+			}
+			character_event = { id = MAGIC.42 }
+			hidden_tooltip = {
+				character_event = { id = MYTH.56 }
+			}
+		}
+	}
+}
+
+# MAGIC.32 - Giant Commander
+character_event = {
+	id = MAGIC.32
+	desc = EVTDESCMAGIC.32
+	picture = GFX_evt_melee
+	border = GFX_event_normal_frame_war
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAMAGIC.32
+		create_character = {
+			random_traits = yes
+			age = 28
+			dynasty = none
+			culture = jotunn
+			religion = jotnar
+			female = no
+			attributes = {
+				martial = 18
+			}
+			health = 7
+			trait = mythos_giant
+			trait = brilliant_strategist
+			trait = wroth
+			trait = size_2
+			flag = summoned_creature
+			flag = checked_race
+		}
+		new_character = {
+			if = {
+				limit = { is_heretic = yes }
+				religion = jotnar_reformed
+			}
+			random_list = {
+				1 = { add_trait = heavy_infantry_leader }
+				1 = { add_trait = aggressive_leader }
+				1 = { add_trait = siege_leader }
+				1 = { add_trait = mountain_terrain_leader }
+				1 = { add_trait = unyielding_leader }
+				1 = { add_trait = winter_soldier }
+			}
+			opinion = {
+				modifier = bound_by_magic
+				who = ROOT
+				years = 1000
+			}
+			if = {
+				limit = { ROOT = { has_artifact = lesser_key_of_solomon } }
+				change_martial = 1
+			}
+			if = {
+				limit = { ROOT = { has_artifact = greater_key_of_solomon } }
+				change_martial = 1
+				add_trait = strategist
+			}
+			if = {
+				limit = { ROOT = { any_owned_bloodline = { has_bloodline_flag = better_summons } } }
+				change_martial = 1
+				add_trait = diligent
+			}
+			character_event = { id = MAGIC.42 }
+			hidden_tooltip = {
+				character_event = { id = MYTH.56 }
+			}
+		}
+	}
+}
+# MAGIC.33 - Mephistopheles
+character_event = {
+	id = MAGIC.33
+	desc = EVTDESCMAGIC.33
+	picture = GFX_evt_shadow
+	border = GFX_event_normal_frame_religion
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAMAGIC.33
+		create_character = {
+			age = 3729
+			name = Mephistopheles
+			dynasty = random
+			culture = demon_culture
+			religion = satanist
+			female = no
+			attributes = {
+				learning = 22
+				diplomacy = 16
+				martial = 12
+			}
+			health = 7
+			trait = demon_trait
+			trait = mastermind_theologian
+			trait = proud
+			trait = honest
+			trait = gregarious
+			trait = zealous
+			trait = cruel
+			flag = summoned_creature
+			flag = checked_race
+			immortal_age = 30
+		}
+		new_character = {
+			opinion = {
+				modifier = bound_by_magic
+				who = ROOT
+				years = 1000
+			}
+			if = {
+				limit = { ROOT = { has_artifact = lesser_key_of_solomon } }
+				change_learning = 1
+			}
+			if = {
+				limit = { ROOT = { has_artifact = greater_key_of_solomon } }
+				change_learning = 1
+				add_trait = scholar
+			}
+			if = {
+				limit = { ROOT = { any_owned_bloodline = { has_bloodline_flag = better_summons } } }
+				change_learning = 1
+				add_trait = diligent
+			}
+			character_event = { id = MAGIC.42 }
+			save_event_target_as = mephisto
+			hidden_tooltip = {
+				character_event = { id = MYTH.56 }
+			}
+		}
+		hidden_tooltip = { character_event = { id = MAGIC.43 years = 24 } }
+	}
+	option = {
+		name = EVTOPTBMAGIC.33
+	}
+}
+# MAGIC.34 - Ethereal Servant
+character_event = {
+	id = MAGIC.34
+	desc = EVTDESCMAGIC.34
+	picture = GFX_evt_shadow
+	border = GFX_event_normal_frame_economy
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAMAGIC.34
+		create_character = {
+			random_traits = yes
+			dynasty = none
+			culture = ROOT
+			religion = ROOT
+			attributes = {
+				stewardship = 18
+				diplomacy = 0
+				intrigue = 16
+			}
+			health = 10
+			trait = ethereal_trait
+			trait = fortune_builder
+			trait = scarred
+			trait = mangled
+			trait = administrator
+			trait = envious
+			trait = diligent
+			trait = chaste
+			trait = shy
+			flag = summoned_creature
+			flag = checked_race
+		}
+		new_character = {
+			set_graphical_culture = ethereal_culture
+			opinion = {
+				modifier = bound_by_magic
+				who = ROOT
+				years = 1000
+			}
+			if = {
+				limit = { ROOT = { has_artifact = lesser_key_of_solomon } }
+				change_stewardship = 1
+			}
+			if = {
+				limit = { ROOT = { has_artifact = greater_key_of_solomon } }
+				change_stewardship = 1
+				add_trait = gardener
+			}
+			if = {
+				limit = { ROOT = { any_owned_bloodline = { has_bloodline_flag = better_summons } } }
+				change_stewardship = 1
+				add_trait = just
+			}
+			character_event = { id = MAGIC.42 }
+			hidden_tooltip = {
+				character_event = { id = MYTH.56 }
+			}
+		}
+	}
+}
+# MAGIC.35 - Djinn advisor
+character_event = {
+	id = MAGIC.35
+	desc = EVTDESCMAGIC.35
+	picture = GFX_evt_emissary
+	border = GFX_event_normal_frame_religion
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAMAGIC.35
+		create_character = {
+			random_traits = yes
+			dynasty = none
+			culture = levantine_arabic
+			religion = sunni
+			attributes = {
+				learning = 18
+			}
+			health = 5
+			trait = djinn
+			trait = scholarly_theologian
+			trait = mystic
+			trait = wroth
+			trait = patient
+			flag = summoned_creature
+			flag = checked_race
+		}
+		new_character = {
+			set_graphical_culture = bedouin_arabic
+			random_list = {
+				50 = { religion = sunni }
+				40 = { religion = shiite }
+				30 = { religion = yazidi }
+				20 = { religion = zikri }
+				10 = { religion = ibadi }
+				5 = { religion = kharijite }
+				3 = { religion = druze }
+				2 = { religion = hurufi }
+				1 = { religion = jewish }
+				1 = { religion = catholic }
+				1 = { religion = orthodox }
+			}
+			opinion = {
+				modifier = bound_by_magic
+				who = ROOT
+				years = 1000
+			}
+			if = {
+				limit = { ROOT = { has_artifact = lesser_key_of_solomon } }
+				change_learning = 1
+			}
+			if = {
+				limit = { ROOT = { has_artifact = greater_key_of_solomon } }
+				change_learning = 1
+				add_trait = shrewd
+			}
+			if = {
+				limit = { ROOT = { any_owned_bloodline = { has_bloodline_flag = better_summons } } }
+				change_learning = 1
+				add_trait = diligent
+			}
+			character_event = { id = MAGIC.42 }
+			hidden_tooltip = {
+				character_event = { id = MYTH.56 }
+			}
+		}
+	}
+}
+# MAGIC.36 - Solomon's Djinn
+character_event = {
+	id = MAGIC.36
+	desc = EVTDESCMAGIC.36
+	picture = GFX_evt_emissary
+	border = GFX_event_normal_frame_religion
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAMAGIC.36
+		create_character = {
+			random_traits = yes
+			dynasty = none
+			culture = ashkenazi
+			religion = jewish
+			attributes = {
+				martial = 18
+			}
+			health = 5
+			trait = djinn
+			trait = brilliant_strategist
+			trait = strong
+			trait = hunter
+			trait = patient
+			flag = summoned_creature
+			flag = checked_race
+		}
+		new_character = {
+			set_graphical_culture = bedouin_arabic
+			opinion = {
+				modifier = bound_by_magic
+				who = ROOT
+				years = 1000
+			}
+			if = {
+				limit = { ROOT = { has_artifact = lesser_key_of_solomon } }
+				change_martial = 1
+			}
+			if = {
+				limit = { ROOT = { has_artifact = greater_key_of_solomon } }
+				change_martial = 1
+				add_trait = brave
+			}
+			if = {
+				limit = { ROOT = { any_owned_bloodline = { has_bloodline_flag = better_summons } } }
+				change_martial = 1
+				add_trait = diligent
+			}
+			character_event = { id = MAGIC.42 }
+			hidden_tooltip = {
+				character_event = { id = MYTH.56 }
+			}
+		}
+	}
+}
+
+# MAGIC.37 - Werewolf Berserker
+character_event = {
+	id = MAGIC.37
+	desc = EVTDESCMAGIC.37
+	picture = GFX_evt_wolf
+	border = GFX_event_normal_frame_war
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAMAGIC.37
+		create_character = {
+			random_traits = no
+			age = 22
+			dynasty = none
+			culture = werewolf_culture
+			religion = norse_pagan
+			attributes = {
+				martial = 18
+			}
+			health = 6
+			trait = werewolf
+			trait = known_werewolf
+			trait = skilled_tactician
+			trait = berserker
+			trait = robust
+			trait = wroth
+			trait = cruel
+			trait = brave
+			trait = stubborn
+			trait = aggressive_leader
+			flag = summoned_creature
+			flag = checked_race
+		}
+		new_character = {
+			if = {
+				limit = { is_heretic = yes }
+				religion = norse_pagan_reformed
+			}
+			if = {
+				limit = { is_female = yes }
+				add_trait = shieldmaiden
+			}
+			opinion = {
+				modifier = bound_by_magic
+				who = ROOT
+				years = 1000
+			}
+			if = {
+				limit = { ROOT = { has_artifact = lesser_key_of_solomon } }
+				change_martial = 1
+			}
+			if = {
+				limit = { ROOT = { has_artifact = greater_key_of_solomon } }
+				change_martial = 1
+				add_trait = impaler
+			}
+			if = {
+				limit = { ROOT = { any_owned_bloodline = { has_bloodline_flag = better_summons } } }
+				change_martial = 1
+				add_trait = sturdy
+			}
+			character_event = { id = MAGIC.42 }
+			hidden_tooltip = {
+				character_event = { id = MYTH.56 }
+			}
+		}
+	}
+}
+
+# MAGIC.38 - Ethereal Warrior
+character_event = {
+	id = MAGIC.38
+	desc = EVTDESCMAGIC.38
+	picture = GFX_evt_melee
+	border = GFX_event_normal_frame_war
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAMAGIC.38
+		create_character = {
+			random_traits = yes
+			age = 22
+			female = no
+			dynasty = none
+			culture = ethereal_culture
+			religion = ROOT
+			attributes = {
+				martial = 18
+			}
+			health = 6
+			trait = ethereal_trait
+			trait = tough_soldier
+			trait = wounded
+			trait = robust
+			trait = patient
+			flag = summoned_creature
+			flag = checked_race
+		}
+		new_character = {
+			culture = ROOT
+			opinion = {
+				modifier = bound_by_magic
+				who = ROOT
+				years = 1000
+			}
+			if = {
+				limit = { ROOT = { has_artifact = lesser_key_of_solomon } }
+				change_martial = 1
+			}
+			if = {
+				limit = { ROOT = { has_artifact = greater_key_of_solomon } }
+				change_martial = 1
+				add_trait = siege_leader
+			}
+			if = {
+				limit = { ROOT = { any_owned_bloodline = { has_bloodline_flag = better_summons } } }
+				change_martial = 1
+				add_trait = diligent
+			}
+			character_event = { id = MAGIC.42 }
+			hidden_tooltip = {
+				character_event = { id = MYTH.56 }
+			}
+		}
+	}
+}
+
+# MAGIC.39 - Blood Court
+character_event = {
+	id = MAGIC.39
+	desc = EVTDESCMAGIC.39
+	picture = GFX_evt_emissary
+	border = GFX_event_normal_frame_intrigue
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAMAGIC.39
+		create_character = {
+			random_traits = yes
+			age = 84
+			female = no
+			dynasty = none
+			culture = vampire_culture
+			religion = ROOT
+			attributes = {
+				intrigue = 18
+			}
+			health = 6
+			trait = vampire
+			trait = elusive_shadow
+			trait = seducer
+			trait = cruel
+			flag = summoned_creature
+			flag = checked_race
+			immortal_age = 37
+		}
+		new_character = {
+			opinion = {
+				modifier = bound_by_magic
+				who = ROOT
+				years = 1000
+			}
+			if = {
+				limit = { ROOT = { has_artifact = lesser_key_of_solomon } }
+				change_intrigue = 1
+			}
+			if = {
+				limit = { ROOT = { has_artifact = greater_key_of_solomon } }
+				change_intrigue = 1
+				add_trait = cynical
+			}
+			if = {
+				limit = { ROOT = { any_owned_bloodline = { has_bloodline_flag = better_summons } } }
+				change_intrigue = 1
+				add_trait = diligent
+			}
+			character_event = { id = MAGIC.42 }
+			hidden_tooltip = {
+				character_event = { id = MYTH.56 }
+			}
+		}
+	}
+}
+
+# MAGIC.40 - Son of God?
+character_event = {
+	id = MAGIC.40
+	desc = EVTDESCMAGIC.40
+	picture = GFX_evt_bishop
+	border = GFX_event_normal_frame_religion
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAMAGIC.40
+		create_character = {
+			random_traits = no
+			age = 32
+			name = "Jesus"
+			female = no
+			dynasty = none
+			culture = ROOT
+			religion = ROOT
+			health = 6
+			trait = lunatic
+			trait = mastermind_theologian
+			trait = possessed
+			trait = theologian
+			trait = celibate
+			trait = charitable
+			trait = patient
+			trait = kind
+			trait = zealous
+			flag = summoned_creature
+			flag = checked_race
+		}
+		new_character = {
+			if = {
+				limit = {
+					NOT = { religion_group = christian }
+				}
+				religion = catholic
+			}
+			add_character_modifier = { modifier = military_jesus duration = -1 }
+			opinion = {
+				modifier = bound_by_magic
+				who = ROOT
+				years = 1000
+			}
+			if = {
+				limit = { ROOT = { has_artifact = lesser_key_of_solomon } }
+				change_martial = 1
+			}
+			if = {
+				limit = { ROOT = { has_artifact = greater_key_of_solomon } }
+				change_learning = 1
+				add_trait = shrewd
+			}
+			if = {
+				limit = { ROOT = { any_owned_bloodline = { has_bloodline_flag = better_summons } } }
+				change_learning = 1
+				add_trait = diligent
+			}
+			character_event = { id = MAGIC.42 }
+			hidden_tooltip = {
+				character_event = { id = MYTH.56 }
+			}
+		}
+	}
+}
+
+# MAGIC.41 - Undead Soldier
+character_event = {
+	id = MAGIC.41
+	desc = EVTDESCMAGIC.41
+	picture = GFX_evt_death
+	border = GFX_event_normal_frame_war
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAMAGIC.41
+		create_character = {
+			random_traits = no
+			age = 53
+			female = no
+			dynasty = none
+			culture = ROOT
+			religion = ROOT
+			health = 6
+			trait = zombie
+			trait = brilliant_strategist
+			flag = summoned_creature
+			flag = checked_race
+		}
+		new_character = {
+			set_undead_culture = yes
+			religion = the_damned
+			random_list = {
+				1 = { add_trait = light_foot_leader }
+				1 = { add_trait = heavy_infantry_leader }
+				1 = { add_trait = cavalry_leader }
+				1 = { add_trait = inspiring_leader }
+				1 = { add_trait = trickster }
+				1 = { add_trait = organizer }
+				1 = { add_trait = defensive_leader }
+				1 = { add_trait = experimenter }
+				1 = { add_trait = flanker }
+				1 = { add_trait = aggressive_leader }
+				1 = { add_trait = siege_leader }
+				1 = { add_trait = flat_terrain_leader }
+				1 = { add_trait = rough_terrain_leader }
+				1 = { add_trait = mountain_terrain_leader }
+				1 = { add_trait = desert_terrain_leader }
+				1 = { add_trait = holy_warrior }
+				1 = { add_trait = unyielding_leader }
+				1 = { add_trait = narrow_flank_leader }
+				1 = { add_trait = winter_soldier }
+			}
+			random_list = {
+				1 = { add_trait = light_foot_leader }
+				1 = { add_trait = heavy_infantry_leader }
+				1 = { add_trait = cavalry_leader }
+				1 = { add_trait = inspiring_leader }
+				1 = { add_trait = trickster }
+				1 = { add_trait = organizer }
+				1 = { add_trait = defensive_leader }
+				1 = { add_trait = experimenter }
+				1 = { add_trait = flanker }
+				1 = { add_trait = aggressive_leader }
+				1 = { add_trait = siege_leader }
+				1 = { add_trait = flat_terrain_leader }
+				1 = { add_trait = rough_terrain_leader }
+				1 = { add_trait = mountain_terrain_leader }
+				1 = { add_trait = desert_terrain_leader }
+				1 = { add_trait = holy_warrior }
+				1 = { add_trait = unyielding_leader }
+				1 = { add_trait = narrow_flank_leader }
+				1 = { add_trait = winter_soldier }
+			}
+			opinion = {
+				modifier = bound_by_magic
+				who = ROOT
+				years = 1000
+			}
+			if = {
+				limit = { ROOT = { has_artifact = lesser_key_of_solomon } }
+				change_martial = 1
+			}
+			if = {
+				limit = { ROOT = { has_artifact = greater_key_of_solomon } }
+				change_martial = 1
+				add_trait = robust
+			}
+			if = {
+				limit = { ROOT = { any_owned_bloodline = { has_bloodline_flag = better_summons } } }
+				change_martial = 1
+				add_trait = diligent
+			}
+			character_event = { id = MAGIC.42 }
+			hidden_tooltip = {
+				character_event = { id = MYTH.56 }
+			}
+		}
+	}
+}
+
+# MAGIC.42 - Enhance summoned character
+character_event = {
+	id = MAGIC.42
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		if = {
+			limit = { FROM = { learning = 10 } }
+			change_diplomacy = 1
+			change_stewardship = 1
+			change_martial = 1
+			change_intrigue = 1
+			change_learning = 1
+		}
+		if = {
+			limit = { FROM = { learning = 20 } }
+			change_diplomacy = 1
+			change_stewardship = 1
+			change_martial = 1
+			change_intrigue = 1
+			change_learning = 1
+		}
+		if = {
+			limit = { FROM = { learning = 30 } }
+			change_diplomacy = 1
+			change_stewardship = 1
+			change_martial = 1
+			change_intrigue = 1
+			change_learning = 1
+		}
+		if = {
+			limit = { FROM = { learning = 40 } }
+			change_diplomacy = 1
+			change_stewardship = 1
+			change_martial = 1
+			change_intrigue = 1
+			change_learning = 1
+		}
+		if = {
+			limit = { FROM = { learning = 50 } }
+			change_diplomacy = 1
+			change_stewardship = 1
+			change_martial = 1
+			change_intrigue = 1
+			change_learning = 1
+		}
+	}
+}
+
+# MAGIC.43 - After 24 years of Mephistopheles' service, taken to hell
+character_event = {
+	id = MAGIC.43
+	desc = EVTDESCMAGIC.43
+	picture = GFX_evt_death
+	border = GFX_event_normal_frame_religion
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAMAGIC.43
+		death = { death_reason = death_dragged_to_hell killer = event_target:mephisto }
+	}
+	after = {
+		event_target:mephisto = {
+			death = { death_reason = death_missing }
+		}
+	}
+}
+
+# MAGIC.44 - Yearly check to banish any ethereal summoned_creature no in their summoner's court
+character_event = {
+	id = MAGIC.44
+	hide_window = yes
+	is_triggered_only = yes
+	
+	min_age = 16 # No summoned character is a child
+	has_character_flag = summoned_creature
+	ai = yes
+	
+	trigger = {
+		any_opinion_modifier_target = {
+			reverse_has_opinion_modifier = {
+				who = ROOT
+				modifier = bound_by_magic
+			}
+			is_alive = false
+		}
+	}
+	
+	immediate = {
+		death = { death_reason = death_banished }
+	}
+}
+
+# MAGIC.45 - Unpleasant dragon
+character_event = {
+	id = MAGIC.45
+	desc = EVTDESCMAGIC.45
+	picture = GFX_evt_stressed_ruler
+	border = GFX_event_normal_frame_economy
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAMAGIC.45
+		create_character = {
+			random_traits = yes
+			age = 25
+			dynasty = none
+			culture = draconic
+			religion = draconic_pagan
+			female = no
+			attributes = {
+				stewardship = 14
+			}
+			health = 6
+			trait = dragon
+			trait = fortune_builder
+			trait = greedy
+			trait = wroth
+			trait = gluttonous
+			trait = proud
+			flag = summoned_creature
+			flag = checked_race
+		}
+		new_character = {
+			if = {
+				limit = { is_heretic = yes }
+				religion = draconic_pagan_reformed
+			}
+			hidden_tooltip = {
+				character_event = { id = MYTH.56 }
+			}
+		}
+	}
+}
+# MAGIC.46 - Scheming Vampire
+character_event = {
+	id = MAGIC.46
+	desc = EVTDESCMAGIC.46
+	picture = GFX_evt_shadow
+	border = GFX_event_normal_frame_intrigue
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAMAGIC.46
+		create_character = {
+			random_traits = yes
+			age = 84
+			female = no
+			dynasty = none
+			culture = ROOT
+			religion = ROOT
+			attributes = {
+				intrigue = 18
+			}
+			health = 6
+			trait = vampire
+			trait = elusive_shadow
+			trait = schemer
+			trait = cruel
+			trait = ambitious
+			flag = summoned_creature
+			flag = checked_race
+			immortal_age = 37
+		}
+	}
+}
+
+# MAGIC.47 - Heathen Priest
+character_event = {
+	id = MAGIC.47
+	desc = EVTDESCMAGIC.47
+	picture = GFX_evt_imam
+	border = GFX_event_normal_frame_religion
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAMAGIC.47
+		create_character = {
+			random_traits = no
+			age = 43
+			female = no
+			dynasty = none
+			culture = ROOT
+			religion = norse_pagan
+			health = 6
+			trait = mastermind_theologian
+			trait = theologian
+			trait = diligent
+			trait = brave
+			trait = envious
+			trait = gregarious
+			trait = paranoid
+			trait = erudite
+			trait = zealous
+			flag = summoned_creature
+			flag = checked_race
+		}
+		new_character = {
+			random_list = {
+				10 = {
+					modifier = {
+						factor = 0
+						ROOT = { religion_group = christian }
+					}
+					random_list = {
+						1 = { religion = catholic }
+						1 = { religion = orthodox }
+						1 = { religion = fraticelli }
+						1 = { religion = bogomilist }
+						1 = { religion = nestorian }
+					}
+				}
+				10 = {
+					modifier = {
+						factor = 0
+						ROOT = { religion_group = muslim }
+					}
+					random_list = {
+						1 = { religion = sunni }
+						1 = { religion = shiite }
+						1 = { religion = ibadi }
+					}
+				}
+				3 = { # Less likely since you could just banish them
+					modifier = {
+						factor = 0
+						ROOT = { religion_group = jewish_group }
+					}
+					religion = jewish
+				}
+				10 = {
+					modifier = {
+						factor = 0
+						ROOT = { religion_group = zoroastrian_group }
+					}
+					religion = zoroastrian
+				}
+				10 = {
+					modifier = {
+						factor = 0
+						ROOT = { religion_group = indian_group }
+					}
+					random_list = {
+						2 = { religion = hindu }
+						1 = { religion = buddhist }
+					}
+				}
+				10 = {
+					modifier = {
+						factor = 0
+						ROOT = { religion_group = other_group }
+					}
+					religion = satanist
+				}
+				10 = {
+					modifier = { 
+						factor = 0
+						ROOT = { religion_group = pagan_group }
+					}
+					random_list = {
+						1 = { 
+							religion = norse_pagan
+							set_graphical_culture = norse
+						}
+						1 = { 
+							religion = tengri_pagan
+							set_graphical_culture = mongol
+						}
+						1 = { 
+							religion = baltic_pagan
+							set_graphical_culture = norse
+						}
+						1 = { 
+							religion = finnish_pagan
+							set_graphical_culture = norse
+						}
+						1 = { 
+							modifier = {
+								factor = 0
+								NOT = { has_global_flag = aztec_arrival }
+							}
+							religion = aztec
+							set_graphical_culture = nahuatl
+						}
+						1 = { 
+							religion = slavic_pagan
+							set_graphical_culture = norse
+						}
+						1 = { 
+							religion = west_african_pagan
+							set_graphical_culture = manden
+						}
+						1 = { 
+							religion = zun_pagan
+							set_graphical_culture = persian
+						}
+						1 = { 
+							religion = hellenic_pagan
+							set_graphical_culture = frankish
+						}
+						1 = { 
+							religion = draconic_pagan
+							set_graphical_culture = draconic
+							add_trait = dragon
+						}
+						1 = { 
+							religion = druidic
+							set_graphical_culture = norse
+						}
+						1 = {
+							religion = kemetic_pagan
+							set_graphical_culture = egyptian_arabic
+						}
+						1 = {
+							religion = jotnar
+							set_graphical_culture = norse
+						}
+					}
+				}
+			}
+			hidden_tooltip = {
+				character_event = { id = MYTH.56 }
+			}
+		}
+	}
+}
+# MAGIC.48 - Frenzied Werewolf
+character_event = {
+	id = MAGIC.48
+	desc = EVTDESCMAGIC.48
+	picture = GFX_evt_wolf
+	border = GFX_event_normal_frame_war
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAMAGIC.48
+		random_list = {
+			10 = { }
+			5 = { add_wounded_effect = yes }
+			3 = { add_maimed_trait_effect = yes }
+		}
+		hidden_tooltip = {
+			create_character = {
+				random_traits = no
+				age = 22
+				dynasty = none
+				culture = ROOT
+				religion = ROOT
+				attributes = {
+					martial = 14
+				}
+				health = 6
+				trait = werewolf
+				trait = secret_werewolf
+				trait = tough_soldier
+				trait = strong
+				trait = wroth
+				trait = cruel
+				trait = brave
+				trait = stubborn
+				flag = summoned_creature
+				flag = checked_race
+			}
+			new_character = {
+				hidden_tooltip = {
+					character_event = { id = MYTH.56 }
+				}
+			}
+		}
+	}
+}
+# MAGIC.49 - Plague bearer
+character_event = {
+	id = MAGIC.49
+	desc = EVTDESCMAGIC.49
+	picture = GFX_evt_stressed_ruler
+	border = GFX_event_normal_frame_economy
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAMAGIC.49
+		hidden_tooltip = {
+			create_character = {
+				random_traits = yes
+				age = 25
+				dynasty = none
+				culture = ROOT
+				religion = ROOT
+				trait = misguided_warrior
+				flag = summoned_creature
+				flag = plague_bearer
+				flag = checked_race
+			}
+			new_character = {
+				add_character_modifier = {
+					modifier = plague_bearer_health_bonus
+					duration = -1
+					hidden = yes
+				}
+				if = { 
+					limit = { NOT = { has_dlc = "Reapers" } }
+					add_trait = ill
+					random = {
+						chance = 30
+						ROOT = { add_trait = ill }
+						hidden_tooltip = {
+							# Notify
+							character_event = { id = 38290 }
+						}
+					}
+					location = {
+						random_province_character = { add_trait = ill }
+						random_province_character = { add_trait = ill }
+						random_province_character = { add_trait = ill }
+					}
+					break = yes
+				}
+				random_list = {
+					10 = { # Pneumonic
+						give_pneumonic_effect = yes
+						random = {
+							chance = 30
+							ROOT = {
+								give_pneumonic_effect = yes
+							}
+						}
+						location = {
+							random_province_character = {
+								give_pneumonic_effect = yes
+							}
+							random_province_character = {
+								give_pneumonic_effect = yes
+							}
+							random_province_character = {
+								give_pneumonic_effect = yes
+							}
+						}
+					}
+					1 = { # Tuberculosis - rare when not an epidemic
+						give_has_tuberculosis_effect = yes
+						random = {
+							chance = 30
+							modifier = {
+								factor = 0
+								ROOT = { has_character_flag = immune_tuberculosis }
+							}
+							ROOT = {
+								give_has_tuberculosis_effect = yes
+							}
+						}
+						location = {
+							random_province_character = {
+								limit = { NOT = { has_character_flag = immune_tuberculosis } }
+								give_has_tuberculosis_effect = yes
+							}
+							random_province_character = {
+								limit = { NOT = { has_character_flag = immune_tuberculosis } }
+								give_has_tuberculosis_effect = yes
+							}
+							random_province_character = {
+								limit = { NOT = { has_character_flag = immune_tuberculosis } }
+								give_has_tuberculosis_effect = yes
+							}
+						}
+					}
+					1 = { # Measles - rare when not an epidemic
+						give_has_measles_effect = yes
+						random = {
+							chance = 30
+							modifier = {
+								factor = 0
+								ROOT = { has_character_flag = immune_measles }
+							}
+							ROOT = {
+								give_has_measles_effect = yes
+							}
+						}
+						location = {
+							random_province_character = {
+								limit = { NOT = { has_character_flag = immune_measles } }
+								give_has_measles_effect = yes
+							}
+							random_province_character = {
+								limit = { NOT = { has_character_flag = immune_measles } }
+								give_has_measles_effect = yes
+							}
+							random_province_character = {
+								limit = { NOT = { has_character_flag = immune_measles } }
+								give_has_measles_effect = yes
+							}
+						}
+					}
+					10 = { # Flu
+						give_flu_effect = yes
+						random = {
+							chance = 30
+							ROOT = {
+								give_flu_effect = yes
+							}
+						}
+						location = {
+							random_province_character = {
+								give_flu_effect = yes
+							}
+							random_province_character = {
+								give_flu_effect = yes
+							}
+							random_province_character = {
+								give_flu_effect = yes
+							}
+						}
+					}
+					1 = { # Typhoid Fever - rare when not an epidemic
+						give_has_typhoid_fever_effect = yes
+						random = {
+							chance = 30
+							modifier = {
+								factor = 0
+								ROOT = { has_character_flag = immune_typhoid_fever }
+							}
+							ROOT = {
+								give_has_typhoid_fever_effect = yes
+							}
+						}
+						location = {
+							random_province_character = {
+								limit = { NOT = { has_character_flag = immune_typhoid_fever } }
+								give_has_typhoid_fever_effect = yes
+							}
+							random_province_character = {
+								limit = { NOT = { has_character_flag = immune_typhoid_fever } }
+								give_has_typhoid_fever_effect = yes
+							}
+							random_province_character = {
+								limit = { NOT = { has_character_flag = immune_typhoid_fever } }
+								give_has_typhoid_fever_effect = yes
+							}
+						}
+					}
+					1 = { # Typhus - rare when not an epidemic
+						set_character_flag = got_typhus
+						set_character_flag = developing_illness
+						add_typhus_symptom_effect = yes
+						random = {
+							chance = 30
+							ROOT = {
+								set_character_flag = got_typhus
+								set_character_flag = developing_illness
+								add_typhus_symptom_effect = yes
+							}
+						}
+						location = {
+							random_province_character = {
+								set_character_flag = got_typhus
+								set_character_flag = developing_illness
+								add_typhus_symptom_effect = yes
+							}
+							random_province_character = {
+								set_character_flag = got_typhus
+								set_character_flag = developing_illness
+								add_typhus_symptom_effect = yes
+							}
+							random_province_character = {
+								set_character_flag = got_typhus
+								set_character_flag = developing_illness
+								add_typhus_symptom_effect = yes
+							}
+						}
+					}
+					1 = { # Bubonic Plague - rare when not an epidemic
+						give_has_bubonic_plague_effect = yes
+						random = {
+							chance = 30
+							modifier = {
+								factor = 0
+								ROOT = { has_character_flag = immune_bubonic_plague }
+							}
+							ROOT = {
+								give_has_bubonic_plague_effect = yes
+							}
+						}
+						location = {
+							random_province_character = {
+								limit = { NOT = { has_character_flag = immune_bubonic_plague } }
+								give_has_bubonic_plague_effect = yes
+							}
+							random_province_character = {
+								limit = { NOT = { has_character_flag = immune_bubonic_plague } }
+								give_has_bubonic_plague_effect = yes
+							}
+							random_province_character = {
+								limit = { NOT = { has_character_flag = immune_bubonic_plague } }
+								give_has_bubonic_plague_effect = yes
+							}
+						}
+					}
+					1 = { # Smallpox - rare when not an epidemic
+						give_has_small_pox_effect = yes
+						random = {
+							chance = 30
+							modifier = {
+								factor = 0
+								ROOT = { has_character_flag = immune_smallpox }
+							}
+							ROOT = {
+								give_has_small_pox_effect = yes
+							}
+						}
+						location = {
+							random_province_character = {
+								limit = { NOT = { has_character_flag = immune_smallpox } }
+								give_has_small_pox_effect = yes
+							}
+							random_province_character = {
+								limit = { NOT = { has_character_flag = immune_smallpox } }
+								give_has_small_pox_effect = yes
+							}
+							random_province_character = {
+								limit = { NOT = { has_character_flag = immune_smallpox } }
+								give_has_small_pox_effect = yes
+							}
+						}
+					}
+					1 = { # Aztec Disease - rare when not an epidemic
+						modifier = {
+							factor = 0
+							NOT = { has_global_flag = aztec_arrival }
+						}
+						give_has_aztec_disease_effect = yes
+						random = {
+							chance = 30
+							modifier = {
+								factor = 0
+								ROOT = { has_character_flag = immune_aztec_disease }
+							}
+							ROOT = {
+								give_has_aztec_disease_effect = yes
+							}
+						}
+						location = {
+							random_province_character = {
+								limit = { NOT = { has_character_flag = immune_aztec_disease } }
+								give_has_aztec_disease_effect = yes
+							}
+							random_province_character = {
+								limit = { NOT = { has_character_flag = immune_aztec_disease } }
+								give_has_aztec_disease_effect = yes
+							}
+							random_province_character = {
+								limit = { NOT = { has_character_flag = immune_aztec_disease } }
+								give_has_aztec_disease_effect = yes
+							}
+						}
+					}
+					1 = { # Dysentery - rare when not an epidemic
+						give_dysentery_effect = yes
+						random = {
+							chance = 30
+							ROOT = {
+								give_dysentery_effect = yes
+							}
+						}
+						location = {
+							random_province_character = {
+								give_dysentery_effect = yes
+							}
+							random_province_character = {
+								give_dysentery_effect = yes
+							}
+							random_province_character = {
+								give_dysentery_effect = yes
+							}
+						}
+					}
+					2 = { # Rabies - uncommon
+						give_rabies_effect = yes
+						random = {
+							chance = 10
+							ROOT = {
+								give_rabies_effect = yes
+							}
+						}
+						location = {
+							random_province_character = {
+								give_rabies_effect = yes
+							}
+							random_province_character = {
+								give_rabies_effect = yes
+							}
+							random_province_character = {
+								give_rabies_effect = yes
+							}
+						}
+					}
+				}
+				hidden_tooltip = {
+					character_event = { id = MYTH.56 }
+				}
+			}
+		}
+	}
+}
+
+# MAGIC.50 - Seductive Pox Bearer
+character_event = {
+	id = MAGIC.50
+	desc = EVTDESCMAGIC.50
+	picture = GFX_evt_stressed_ruler
+	border = GFX_event_normal_frame_economy
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAMAGIC.50
+		create_character = {
+			random_traits = yes
+			age = 25
+			dynasty = none
+			culture = ROOT
+			religion = ROOT
+			trait = charismatic_negotiator
+			trait = lovers_pox
+			trait = syphilitic
+			trait = fair
+			trait = lustful
+			trait = gregarious
+			flag = summoned_creature
+			flag = plague_bearer
+			flag = checked_race
+		}
+		new_character = {
+			if = {
+				limit = { is_female = yes }
+				add_trait = seductress
+			}
+			if = {
+				limit = { is_female = no }
+				add_trait = seducer
+			}
+			add_character_modifier = {
+				modifier = plague_bearer_health_bonus
+				duration = -1
+				hidden = yes
+			}
+			hidden_tooltip = {
+				character_event = { id = MYTH.56 }
+			}
+		}
+	}
+}
+
+# MAGIC.51 - remove summoned characters on death
+character_event = {
+	id = MAGIC.51
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		any_courtier = {
+			limit = { has_opinion_modifier = { who = ROOT modifier = bound_by_magic } }
+			death = { death_reason = death_banished }
+		}
+	}
+}
+
+# MAGIC.52 - banish summoned creatures from court
+character_event = {
+	id = MAGIC.52
+	desc = EVTDESCMAGIC.52
+	picture = GFX_evt_library
+	border = GFX_event_normal_frame_religion
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAMAGIC.52
+		custom_tooltip = { text = EVTTTMAGIC.52 }
+		hidden_tooltip = {
+			any_courtier = {
+				limit = { has_character_flag = summoned_creature }
+				death = { death_reason = death_banished }
+			}
+		}
+	}
+}
+
+# MAGIC.53 - Prisoner enchantment failed
+character_event = {
+	id = MAGIC.53
+	desc = EVTDESCMAGIC.53
+	picture = GFX_evt_library
+	border = GFX_event_normal_frame_religion
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAMAGIC.53
+	}
+}

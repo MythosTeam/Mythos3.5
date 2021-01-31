@@ -1,0 +1,1266 @@
+### At the moment we have a pretty basic icon system for combat tactics showing
+### the uniticon which has the biggest bonus value in the tactic.
+### This is the sprite number for each unit:
+### 1=LI 2=HI 3=PIKE 4=LC 5=KNIGHTS 6=ARCHERS 7=HORSE ARCH.
+
+# Dragon specific tactic
+scorch_tactic = {
+	days = 18
+	sprite = 7
+	group = volley
+	
+	trigger = {
+		phase = skirmish
+		troops = {
+			who = dragon_cavalry
+			value = 0.01
+		}
+		troops = {
+			who = archers
+			value = 0.01
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 3
+		modifier = {
+			factor = 2
+			leader = { trait = dragon }
+		}
+		modifier = {
+			factor = 2
+			leader = { culture = draconic }
+		}
+		modifier = {
+			factor = 1.5
+			flank_has_leader = yes
+			leader = {
+				martial = 8
+			}
+			OR = {
+				heavy_troops = {
+					who = dragon_cavalry
+					value = 0.6
+				}
+				light_troops = {
+					who = archers
+					value = 0.6
+				}
+			}
+		}
+		modifier = {
+			factor = 1.5
+			flank_has_leader = yes
+			leader = {
+				martial = 12
+			}
+			OR = {
+				heavy_troops = {
+					who = dragon_cavalry
+					value = 0.4
+				}
+				light_troops = {
+					who = archers
+					value = 0.5
+				}
+			}
+		}
+		modifier = {
+			factor = 1.5
+			flank_has_leader = yes
+			leader = {
+				martial = 16
+			}
+			OR = {
+				heavy_troops = {
+					who = dragon_cavalry
+					value = 0.2
+				}
+				light_troops = {
+					who = archers
+					value = 0.4
+				}
+			}
+		}
+	}
+	
+	dragon_cavalry_offensive = 2
+	archers_offensive = 2
+	
+	light_infantry_defensive = 0.4
+	archers_defensive = 0.4
+	heavy_infantry_defensive = 0.4
+	pikemen_defensive = 0.4
+	lycan_berzerkers_defensive = 0.4
+	vampires_defensive = 0.4
+	einherjar_defensive = 0.4
+	angels_defensive = 0.4
+	fire_giants_defensive = 0.4
+	frost_giants_defensive = 0.4
+	golems_defensive = 0.4
+	etherial_soldiers_defensive = 0.4
+	
+	enemy = {
+		group = harass
+		factor = 3
+	}
+	enemy = {
+		group = skirmish
+		factor = 1
+	}
+}
+
+# Zombie Shamble
+shamble_tactic_skirmish = {
+	days = 7
+	sprite = 1
+	group = skirmish
+	
+	trigger = {
+		phase = skirmish
+		OR = {
+			zombie_troops = 0.4
+			leader = { trait = zombie }
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 5
+		modifier = {
+			factor = 2
+			zombie_troops = 0.5
+		}
+		modifier = {
+			factor = 2
+			zombie_troops = 0.6
+		}
+		modifier = {
+			factor = 2
+			zombie_troops = 0.7
+		}
+		modifier = {
+			factor = 2
+			zombie_troops = 0.8
+		}
+		modifier = {
+			factor = 2
+			zombie_troops = 0.9
+		}
+		modifier = {
+			factor = 5
+			zombie_troops = 1
+		}
+	}
+	
+	zombie_troops_offensive = 3
+	light_cavalry_offensive = -0.7
+	knights_offensive = -0.7
+	demons_offensive = -0.7
+	dragon_cavalry_offensive = -0.7
+	light_infantry_offensive = -0.7
+	vampires_offensive = -0.7
+	etherial_soldiers_offensive = -0.7
+	heavy_infantry_offensive = -0.7
+	lycan_berzerkers_offensive = -0.7
+	einherjar_offensive = -0.7
+	angels_offensive = -0.7
+	fire_giants_offensive = -0.7
+	frost_giants_offensive = -0.7
+	archers_offensive = -0.7
+	horse_archers_offensive = -0.7
+	pikemen_offensive = -0.7
+	zombie_troops_defensive = 0.5
+	
+	enemy = {
+		group = charge
+		factor = 1
+	}
+	enemy = {
+		group = skirmish
+		factor = 5
+	}
+}
+shamble_tactic_melee = {
+	days = 7
+	sprite = 1
+	group = advance
+	
+	trigger = {
+		phase = melee
+		OR = {
+			zombie_troops = 0.4
+			leader = { trait = zombie }
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 5
+		modifier = {
+			factor = 2
+			zombie_troops = 0.5
+		}
+		modifier = {
+			factor = 2
+			zombie_troops = 0.6
+		}
+		modifier = {
+			factor = 2
+			zombie_troops = 0.7
+		}
+		modifier = {
+			factor = 2
+			zombie_troops = 0.8
+		}
+		modifier = {
+			factor = 2
+			zombie_troops = 0.9
+		}
+		modifier = {
+			factor = 5
+			zombie_troops = 1
+		}
+	}
+	
+	zombie_troops_offensive = 2
+	zombie_troops_defensive = -0.5
+	light_cavalry_offensive = -0.3
+	knights_offensive = -0.3
+	demons_offensive = -0.3
+	dragon_cavalry_offensive = -0.3
+	light_infantry_offensive = -0.3
+	vampires_offensive = -0.3
+	etherial_soldiers_offensive = -0.3
+	heavy_infantry_offensive = -0.3
+	lycan_berzerkers_offensive = -0.3
+	einherjar_offensive = -0.3
+	angels_offensive = -0.3
+	fire_giants_offensive = -0.3
+	frost_giants_offensive = -0.3
+	archers_offensive = -0.3
+	horse_archers_offensive = -0.3
+	pikemen_offensive = -0.3
+	
+	enemy = {
+		group = stand_fast
+		factor = 3
+	}
+	enemy = {
+		group = advance
+		factor = 1
+	}
+}
+
+undead_charge = {
+	days = 7
+	sprite = 1
+	group = charge
+	
+	trigger = {
+		phase = skirmish
+		OR = {
+			zombie_troops = 0.4
+			leader = { trait = zombie }
+		}
+		location = {
+			OR = {
+				has_province_modifier = depopulated_3
+				has_province_modifier = devastation_3
+			}
+		}
+		days = 7
+	}
+	
+	change_phase_to = melee
+	
+	mean_time_to_happen = {
+		days = 2
+		modifier = {
+			factor = 2
+			zombie_troops = 0.5
+		}
+		modifier = {
+			factor = 2
+			zombie_troops = 0.6
+		}
+		modifier = {
+			factor = 2
+			zombie_troops = 0.7
+		}
+		modifier = {
+			factor = 2
+			zombie_troops = 0.8
+		}
+		modifier = {
+			factor = 2
+			zombie_troops = 0.9
+		}
+		modifier = {
+			factor = 5
+			zombie_troops = 1
+		}
+	}
+	
+	zombie_troops_offensive = 4
+	zombie_troops_defensive = -0.5
+	light_infantry_offensive = -0.3
+	heavy_infantry_offensive = -0.3
+	lycan_berzerkers_offensive = -0.3
+	angels_offensive = -0.3
+	fire_giants_offensive = -0.3
+	frost_giants_offensive = -0.3
+	archers_offensive = -0.3
+	horse_archers_offensive = -0.3
+	pikemen_offensive = -0.3
+	
+	enemy = {
+		group = defensive
+		factor = 3
+	}
+}
+
+# Werewolf charge
+werewolf_charge_tactic = {
+	days = 6
+	sprite = 5 # index of icon
+	group = charge
+	
+	trigger = {
+		phase = skirmish
+		is_flanking = no
+		days = 6 # duration of combat >= 6 days
+		lycan_berzerkers = 0.05
+	}
+
+	mean_time_to_happen = {
+		days = 5 # this has nothing to do with days, it just represents relative chance of selecting this tactic, higher is better
+		modifier = {
+			factor = 3
+			flank_has_leader = yes
+			leader = {
+				martial = 12
+			}
+			heavy_troops = {
+				who = heavy_infantry
+				value = 0.3
+			}
+		}
+		modifier = {
+			factor = 3
+			flank_has_leader = yes
+			leader = {
+				trait = werewolf
+			}
+		}
+		modifier = {
+			factor = 3
+			flank_has_leader = yes
+			leader = {
+				trait = known_werewolf
+			}
+		}
+	}
+
+	change_phase_to = melee
+
+	lycan_berzerkers_offensive = 3
+	knights_offensive = -0.1
+	demons_offensive = -0.1
+	dragon_cavalry_offensive = -0.1
+	zombie_troops_offensive = -1.5
+	horse_archers_offensive = -0.8
+	heavy_infantry_offensive = 1.2
+	einherjar_offensive = 1.2
+	angels_offensive = 1.2
+	fire_giants_offensive = 1.2
+	frost_giants_offensive = 1.2
+	golems_offensive = -1.0
+}
+
+desert_ambush_tactic = {
+	days = 18
+	sprite = 3
+	group = stand_fast
+
+	trigger = {
+		phase = melee
+		OR = {
+			troops = {
+				who = light_cavalry
+				value = 0.1
+			}
+			troops = {
+				who = camel_cavalry
+				value = 0.01
+			}
+		}
+		light_infantry = 0.1
+		NOT = { zombie_troops = 0.1 }
+		flank_has_leader = yes
+		leader = { 
+			OR = { 
+				culture_group = arabic 
+				trait = mummy
+			}
+		}
+		location = { terrain = desert }
+	}
+
+	mean_time_to_happen = {
+		days = 3
+		modifier = {
+			factor = 1.5
+			flank_has_leader = yes
+			leader = {
+				martial = 10
+			}
+			OR = {
+				troops = { 
+					who = light_cavalry
+					value = 0.2
+				}
+				troops = { 
+					who = camel_cavalry
+					value = 0.2
+				}
+			}
+			light_infantry = 0.2
+		}
+		modifier = {
+			factor = 3
+			flank_has_leader = yes
+			leader = {
+				martial = 10
+				trait = trickster
+			}
+			OR = {
+				troops = { 
+					who = light_cavalry
+					value = 0.2
+				}
+				troops = { 
+					who = camel_cavalry
+					value = 0.2
+				}
+			}
+			light_infantry = 0.2
+		}
+	}
+
+	light_cavalry_offensive = 1.8
+	camel_cavalry_offensive = 2.4
+	light_infantry_offensive = 1.2
+	etherial_soldiers_offensive = 1.2
+	horse_archers_offensive = 1.2
+	archers_offensive = 1.2
+	enemy = {
+		group = advance
+		factor = 3
+	}
+}
+
+night_volley = {
+	days = 18
+	sprite = 6
+	group = volley
+
+	trigger = {
+		phase = skirmish  
+		troops = {
+			who = archers
+			value = 0.01
+		}
+		troops = {
+			who = vampires
+			value = 0.01
+		}
+		leader = { trait = vampire }
+	}
+
+	mean_time_to_happen = {
+		days = 3
+		modifier = {
+			factor = 1.5
+			flank_has_leader = yes
+			leader = {
+				martial = 8
+			}
+			light_troops = { 
+				who = archers
+				value = 0.2
+			}
+		}
+		modifier = {
+			factor = 1.5
+			flank_has_leader = yes
+			leader = {
+				martial = 12
+			}
+			light_troops = { 
+				who = archers
+				value = 0.3
+			}
+		}
+		modifier = {
+			factor = 1.5
+			flank_has_leader = yes
+			leader = {
+				martial = 16
+			}
+			light_troops = { 
+				who = archers
+				value = 0.4
+			}
+		}
+	}
+
+	light_cavalry_offensive = -1.5
+	camel_cavalry_offensive = -1.5
+	horse_archers_offensive = -1.5
+	archers_offensive = 1.5
+	vampires_offensive = 2.0
+	enemy = {
+		group = harass
+		factor = 1
+	}
+}
+
+berserker_charge_tactic = {
+	days = 18
+	sprite = 5
+	group = charge
+
+	trigger = {
+		phase = melee 
+		OR = {
+			troops = {
+				who = heavy_infantry
+				value = 0.01
+			}
+			troops = {
+				who = lycan_berzerkers
+				value = 0.01
+			}
+			troops = {
+				who = einherjar
+				value = 0.01
+			}
+			troops = {
+				who = fire_giants
+				value = 0.01
+			}
+			troops = {
+				who = frost_giants
+				value = 0.01
+			}
+		}
+		OR = {
+			troops = {
+				who = demons
+				value = 0.01
+			}
+			troops = {
+				who = lycan_berzerkers
+				value = 0.03
+			}
+			troops = {
+				who = einherjar
+				value = 0.03
+			}
+		}
+		flank_has_leader = yes
+		leader = { 
+			OR = {
+				culture_group = north_germanic
+				trait = demon_trait
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 3
+		modifier = {
+			factor = 3
+			flank_has_leader = yes
+			leader = {
+				martial = 10
+			}
+			OR = {
+				troops = {
+					who = demons
+					value = 0.2
+				}
+				troops = {
+					who = lycan_berzerkers
+					value = 0.3
+				}
+				troops = {
+					who = einherjar
+					value = 0.3
+				}
+			}
+		}
+	}
+
+	demons_offensive = 4.0
+	heavy_infantry_offensive = 3.6
+	lycan_berzerkers_offensive = 3.6
+	einherjar_offensive = 3.6
+	fire_giants_offensive = 3.6
+	frost_giants_offensive = 3.6
+	light_infantry_offensive = 1.2
+	vampires_offensive = 1.2
+	etherial_soldiers_offensive = 1.2
+	zombie_troops_offensive = -0.7
+
+	demons_defensive = -0.2
+	heavy_infantry_defensive = -0.5
+	lycan_berzerkers_defensive = -0.5
+	einherjar_defensive = -0.5
+	fire_giants_defensive = -0.5
+	frost_giants_defensive = -0.5
+	light_infantry_defensive = -0.3
+	etherial_soldiers_defensive = -0.3
+	vampires_defensive = -0.3
+
+	enemy = {
+		group = stand_fast
+		factor = 1
+	}
+}
+
+# Giant
+giant_skirmish = {
+	days = 12
+	sprite = 2
+	group = volley
+	
+	trigger = {
+		phase = skirmish
+		leader = { trait = mythos_giant }
+		troops = {
+			who = archers
+			value = 0.01
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 3
+		modifier = {
+			factor = 2
+			fire_giants = 0.05
+		}
+		modifier = {
+			factor = 2
+			frost_giants = 0.05
+		}
+	}
+	
+	archers_offensive = 1.5
+	fire_giants_offensive = 1.0
+	frost_giants_offensive = 1.0
+	light_cavalry_offensive = -0.5
+	light_cavalry_defensive = -0.5
+	knights_offensive = -0.5
+	knights_defensive = -0.5
+	enemy = {
+		group = harass
+		factor = 1
+	}
+}
+overpower_tactic = {
+	days = 18
+	sprite = 2
+	group = advance
+	
+	trigger = {
+		phase = melee
+		leader = { trait = mythos_giant }
+		OR = {
+			troops = {
+				who = heavy_infantry
+				value = 0.1
+			}
+			troops = {
+				who = fire_giants
+				value = 0.01
+			}
+			troops = {
+				who = frost_giants
+				value = 0.01
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 3
+		modifier = {
+			factor = 1.5
+			flank_has_leader = yes
+			leader = {
+				martial = 8
+			}
+			OR = {
+				troops = {
+					who = heavy_infantry
+					value = 0.7
+				}
+				troops = {
+					who = fire_giants
+					value = 0.35
+				}
+				troops = {
+					who = frost_giants
+					value = 0.35
+				}
+			}
+		}
+		modifier = {
+			factor = 1.5
+			flank_has_leader = yes
+			leader = {
+				martial = 12
+			}
+			OR = {
+				troops = {
+					who = heavy_infantry
+					value = 0.6
+				}
+				troops = {
+					who = fire_giants
+					value = 0.3
+				}
+				troops = {
+					who = frost_giants
+					value = 0.3
+				}
+			}
+		}	
+		modifier = {
+			factor = 1.5
+			flank_has_leader = yes
+			leader = {
+				martial = 16
+			}
+			OR = {
+				troops = {
+					who = heavy_infantry
+					value = 0.5
+				}
+				troops = {
+					who = fire_giants
+					value = 0.25
+				}
+				troops = {
+					who = frost_giants
+					value = 0.25
+				}
+			}
+		}	
+	}
+
+	knights_offensive = -1.5
+	heavy_infantry_offensive = 4
+	lycan_berzerkers_offensive = 2
+	einherjar_offensive = 2
+	golems_offensive = 2
+	pikemen_offensive = -1
+	fire_giants_offensive = 3
+	frost_giants_offensive = 3
+	enemy = {
+		group = stand_fast
+		factor = 3
+	}
+}
+turn_undead_tactic = {
+	days = 18
+	sprite = 2
+	group = harass
+	
+	trigger = {
+		phase = skirmish
+		leader = {
+			OR = {
+				trait = necromancer
+				AND = {
+					is_priest = yes
+					OR = {
+						trait = miracle_worker
+						trait = monster_hunter
+					}
+				}
+				AND = {
+					trait = holy_warrior
+					OR = {
+						trait = zealous
+						trait = miracle_worker
+						trait = monster_hunter
+					}
+				}
+			}
+		}
+		NOT = { zombie_troops = 0.01 }
+		enemy = {
+			OR = {
+				zombie_troops = 0.3
+				vampires = 0.3
+				einherjar = 0.3
+				etherial_soldiers = 0.3
+				leader = { trait = zombie }
+				leader = { trait = vampire }
+				leader = { trait = ethereal_trait }
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 5
+		modifier = {
+			factor = 1.5
+			leader = { trait = zealous }
+		}
+		modifier = {
+			factor = 1.5
+			leader = { trait = miracle_worker }
+		}
+		modifier = {
+			factor = 1.5
+			leader = { trait = monster_hunter }
+		}
+	}
+	
+	light_infantry_offensive = 0.5
+	heavy_infantry_offensive = 1
+	knights_offensive = 1
+	golems_offensive = 1
+	zombie_troops_offensive = -1
+	vampires_offensive = -1
+	demons_offensive = -1
+	einherjar_offensive = -0.5
+	etherial_soldiers_offensive = -0.5
+	angels_offensive = 3
+	
+	light_infantry_defensive = 1.5
+	heavy_infantry_defensive = 3
+	knights_defensive = 3
+	golems_defensive = 3
+	
+	light_infantry_morale = 0.5
+	enemy = {
+		group = skirmish
+		factor = 2
+	}
+}
+smite_undead_tactic = {
+	days = 18
+	sprite = 2
+	group = advance
+	
+	trigger = {
+		phase = melee
+		leader = {
+			OR = {
+				trait = necromancer
+				AND = {
+					is_priest = yes
+					OR = {
+						trait = miracle_worker
+						trait = monster_hunter
+					}
+				}
+				AND = {
+					trait = holy_warrior
+					OR = {
+						trait = zealous
+						trait = miracle_worker
+						trait = monster_hunter
+					}
+				}
+			}
+		}
+		NOT = { zombie_troops = 0.1 }
+		enemy = {
+			OR = {
+				zombie_troops = 0.3
+				vampires = 0.3
+				einherjar = 0.3
+				etherial_soldiers = 0.3
+				leader = { trait = zombie }
+				leader = { trait = vampire }
+				leader = { trait = ethereal_trait }
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 5
+		modifier = {
+			factor = 1.5
+			leader = { trait = zealous }
+		}
+		modifier = {
+			factor = 1.5
+			leader = { trait = miracle_worker }
+		}
+		modifier = {
+			factor = 1.5
+			leader = { trait = monster_hunter }
+		}
+	}
+	
+	light_infantry_offensive = 0.5
+	heavy_infantry_offensive = 2
+	knights_offensive = 3
+	golems_offensive = 3
+	zombie_troops_offensive = -1
+	vampires_offensive = -1
+	demons_offensive = -1
+	einherjar_offensive = -0.5
+	etherial_soldiers_offensive = -0.5
+	angels_offensive = 3
+	
+	light_infantry_defensive = 0.5
+	heavy_infantry_defensive = 2
+	knights_defensive = 3
+	golems_defensive = 3
+	
+	heavy_infantry_morale = 0.5
+	enemy = {
+		group = advance
+		factor = 2
+	}
+}
+
+#Call to Glory - Inferno Tactic - Draconic (Draconic Cavalry)
+glorious_draconic_tactic = {
+	days = 18
+	sprite = 5
+	group = charge
+
+	trigger = {
+		phase = melee
+		troops = {
+			who = dragon_cavalry
+			value = 0.01
+		}
+		troops = {
+			who = archers
+			value = 0.01
+		}
+		leader = {
+			has_character_modifier = call_to_glory
+			society_member_of = warrior_lodge_draconic
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 15
+		modifier = {
+			factor = 1.5
+			flank_has_leader = yes
+			leader = {
+				martial = 8
+			}
+			knights = { 
+				who = dragon_cavalry
+				value = 0.7
+			}
+		}
+		modifier = {
+			factor = 1.5
+			flank_has_leader = yes
+			leader = {
+				martial = 12
+			}
+			knights = { 
+				who = dragon_cavalry
+				value = 0.6
+			}
+		}
+		modifier = {
+			factor = 1.5
+			flank_has_leader = yes
+			leader = {
+				martial = 16
+			}
+			knights = { 
+				who = dragon_cavalry
+				value = 0.5
+			}
+		}
+	}
+
+	dragon_cavalry_offensive = 3.00
+	dragon_cavalry_morale = 1.50
+
+	enemy = {
+		group = stand_fast
+		factor = 1
+	}
+}
+
+#Call to Glory - Woodlands Harrass Tactic - Druidic (light infantry + archers)
+glorious_druidic_tactic = {
+	days = 6
+	sprite = 1
+	group = harass
+	
+	trigger = {
+		phase = skirmish
+		troops = {
+			who = archers
+			value = 0.05
+		}
+		NOT = {
+			troops = {
+				who = archers
+				value = 0.5
+			}
+		}
+		light_infantry = 0.1
+		leader = {
+			has_character_modifier = call_to_glory
+			society_member_of = warrior_lodge_druidic
+			NOR = {
+				any_current_enemy = { has_opinion_modifier = { who = PREV modifier = opinion_honorable_combat } }
+				AND = { 
+					OR = { 
+						is_ruler = no 
+						is_playable = no
+					}
+					liege = { any_current_enemy = { has_opinion_modifier = { who = PREV modifier = opinion_honorable_combat } } }
+				}
+			}
+		}
+		location = {
+			OR = {
+				terrain = forest
+				terrain = woods
+				terrain = jungle
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 4
+		modifier = {
+			factor = 1.5
+			flank_has_leader = yes
+			leader = {
+				martial = 8
+			}
+			light_troops = { 
+				who = archers
+				value = 0.2
+			}
+			light_troops = {
+				who = light_infantry
+				value = 0.4
+			}
+		}
+		modifier = {
+			factor = 1.5
+			flank_has_leader = yes
+			leader = {
+				martial = 12
+			}
+			light_troops = { 
+				who = archers
+				value = 0.2
+			}
+			light_troops = {
+				who = light_infantry
+				value = 0.4
+			}
+		}
+		modifier = {
+			factor = 1.5
+			flank_has_leader = yes
+			leader = {
+				martial = 16
+			}
+			light_troops = { 
+				who = archers
+				value = 0.2
+			}
+			light_troops = {
+				who = light_infantry
+				value = 0.4
+			}
+		}
+	}
+	
+	archers_offensive =  3.5
+	archers_defensive =  0.5
+	light_infantry_offensive = 1.5
+	light_infantry_defensive = 2.5
+}
+
+#Call to Glory - Chariot Charge Tactic - Kemetic (LI + LC)
+glorious_kemetic_tactic = {
+	days = 18
+	sprite = 5
+	group = charge
+
+	trigger = {
+		phase = skirmish
+		is_flanking = no
+		troops = {
+			who = light_cavalry
+			value = 0.01
+		}
+		leader = {
+			has_character_modifier = call_to_glory
+			society_member_of = warrior_lodge_kemetic
+		}
+		days = 10 # duration of combat >= 10 days
+	}
+
+	mean_time_to_happen = {
+		days = 15
+		modifier = {
+			factor = 1.5
+			flank_has_leader = yes
+			leader = {
+				martial = 8
+			}
+			light_troops = { 
+				who = light_cavalry
+				value = 0.7
+			}
+		}
+		modifier = {
+			factor = 1.5
+			flank_has_leader = yes
+			leader = {
+				martial = 12
+			}
+			light_troops = { 
+				who = light_cavalry
+				value = 0.6
+			}
+		}
+		modifier = {
+			factor = 1.5
+			flank_has_leader = yes
+			leader = {
+				martial = 16
+			}
+			light_troops = { 
+				who = light_cavalry
+				value = 0.5
+			}
+		}
+	}
+	
+	change_phase_to = melee
+	
+	light_cavalry_offensive = 2.5
+	knights_offensive = 1.75
+	light_infantry_offensive = 1.0
+	light_infantry_defensive = 2.5
+}
+
+#Call to Glory - Overwhelm Tactic - Jotnar (heavy infantry and Giants)
+glorious_jotnar_tactic = {
+	days = 18
+	sprite = 5
+	group = charge
+
+	trigger = {
+		phase = melee
+		OR = {
+			troops = {
+				who = heavy_infantry
+				value = 0.01
+			}
+			troops = {
+				who = fire_giants
+				value = 0.01
+			}
+			troops = {
+				who = frost_giants
+				value = 0.01
+			}
+		}
+		leader = {
+			has_character_modifier = call_to_glory
+			society_member_of = warrior_lodge_jotnar
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 15
+		modifier = {
+			factor = 1.5
+			flank_has_leader = yes
+			leader = {
+				martial = 8
+			}
+			OR = {
+				heavy_troops = {
+					who = heavy_infantry
+					value = 0.7
+				}
+				heavy_troops = {
+					who = fire_giants
+					value = 0.7
+				}
+				heavy_troops = {
+					who = frost_giants
+					value = 0.7
+				}
+			}
+		}
+		modifier = {
+			factor = 1.5
+			flank_has_leader = yes
+			leader = {
+				martial = 12
+			}
+			OR = {
+				heavy_troops = {
+					who = heavy_infantry
+					value = 0.6
+				}
+				heavy_troops = {
+					who = fire_giants
+					value = 0.6
+				}
+				heavy_troops = {
+					who = frost_giants
+					value = 0.6
+				}
+			}
+		}
+		modifier = {
+			factor = 1.5
+			flank_has_leader = yes
+			leader = {
+				martial = 16
+			}
+			OR = {
+				heavy_troops = {
+					who = heavy_infantry
+					value = 0.5
+				}
+				heavy_troops = {
+					who = fire_giants
+					value = 0.5
+				}
+				heavy_troops = {
+					who = frost_giants
+					value = 0.5
+				}
+			}
+		}
+	}
+
+	heavy_infantry_offensive = 2.75
+	fire_giants_offensive = 2.75
+	frost_giants_offensive = 3.50
+
+	enemy = {
+		group = stand_fast
+		factor = 1
+	}
+}

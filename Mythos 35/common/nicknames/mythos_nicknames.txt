@@ -1,0 +1,486 @@
+nick_ozymandias = {}
+nick_the_poor = {}
+nick_the_everburning = {}
+nick_of_the_evil_eye = {}
+
+
+nick_the_slow = {
+	allow = {
+		age = 20
+		OR = {
+			trait = dull
+			trait = slow
+		}
+	}
+	chance = {
+		factor = 1
+	}
+}
+nick_hell_duke = {
+	allow = {
+		tier = duke
+		trait = demon_trait
+	}
+	chance = {
+		factor = 1
+	}
+}
+
+nick_the_flame_keeper = {
+	allow = {
+		age = 20
+		OR = {
+			religion = draconic_pagan
+			religion = draconic_pagan_reformed
+		}
+		trait = flametender
+		calc_true_if = {
+			amount = 3
+			completely_controls = c_sjaelland
+			completely_controls = c_plock
+			completely_controls = c_gwynedd
+			completely_controls = c_galloway
+			completely_controls = c_uppland
+		}
+	}
+	chance = {
+		factor = 5
+		modifier = {
+			factor = 2
+			trait = dragon
+		}
+		modifier = {
+			factor = 2
+			has_landed_title = k_draconic_pagan_reformed
+		}
+	}
+}
+
+nick_the_magnificent = {
+	allow = {
+		age = 30
+		ruled_years = 15
+		is_smart_trigger = yes
+		is_dumb_trigger = no
+		OR = {
+			trait = grey_eminence
+			trait = intricate_webweaver
+			trait = elusive_shadow
+			trait = charismatic_negotiator
+			trait = brilliant_strategist
+			trait = skilled_tactician
+			trait = arcane_master
+		}
+	}
+	chance = {
+		factor = 2
+	}
+}
+nick_the_wolf = {
+	allow = {
+		OR = {
+			has_character_modifier = wolf_blood
+			AND = {
+				culture_group = altaic
+				NOT = { culture = khitan }
+				OR = {
+					trait = brilliant_strategist
+					is_smart_trigger = yes
+				}
+			}
+			AND = {
+				trait = hunter
+				trait = impaler
+			}
+			AND = {
+				religion_group = christian
+				trait = gluttonous
+				trait = greedy
+			}
+			trait = known_werewolf
+		}
+	}
+	chance = {
+		factor = 1
+		modifier = {
+			factor = 2
+			culture_group = altaic
+		}
+	}
+}
+
+nick_the_young_wolf = {
+	allow = {
+		trait = known_werewolf
+		age < 20
+		prestige = 500
+	}
+	chance = {
+		factor = 3
+		modifier = {
+			factor = 0.75
+			culture = werewolf_culture
+		}
+	}
+}
+nick_the_monster = {
+	allow = {
+		OR = {
+			AND = {
+				trait = known_werewolf
+				NOT = { culture = werewolf_culture }
+			}
+			AND = {
+				trait = known_vampire
+				NOT = { culture = vampire_culture }
+			}
+			AND = {
+				trait = dragon
+				NOT = { culture = draconic }
+				has_character_modifier = known_monster
+			}
+			has_instances_of_character_modifier = { modifier = known_monster amount = 3 }
+		}
+	}
+	chance = {
+		factor = 1
+		modifier = {
+			factor = 2
+			liege = {
+				trait = monster_hunter
+			}
+		}
+	}
+}
+nick_wolf_blooded = {
+	allow = {
+		OR = {
+			AND = {
+				trait = known_werewolf
+				martial = 12
+				prestige = 500
+			}
+			has_character_modifier = wolf_blood
+		}
+	}
+	chance = {
+		factor = 1
+		modifier = {
+			factor = 2
+			culture_group = altaic
+		}
+	}
+}
+nick_wolf_bane = {} # By event - killed a werewolf
+nick_the_undead = {
+	allow = {
+		OR = {
+			trait = zombie
+			trait = known_vampire
+		}
+	}
+	chance = {
+		factor = 1
+	}
+}
+nick_dragonbane = {} # By event - killed a dragon
+nick_blackadder = {
+	allow = {
+		OR = {
+			AND = {
+				OR = {
+					trait = slow
+					trait = dull
+				}
+				trait = deceitful
+				trait = craven
+			}
+			AND = {
+				trait = impaler
+				intrigue = 16
+			}
+		}
+	}
+	chance = {
+		factor = 1
+		modifier = {
+			factor = 2
+			dynasty = 106
+		}
+	}
+}
+nick_the_immigrant = {
+	allow = {
+		capital_scope = {
+			NOT = { culture = PREV }
+		}
+	}
+	chance = {
+		factor = 1
+		modifier = {
+			factor = 2
+			capital_scope = {
+				NOT = { culture_group = PREV }
+			}
+		}
+	}
+}
+nick_evil_gods_tool = {
+	allow = {
+		OR = {
+			AND = {
+				OR = {
+					trait = lunatic
+					trait = possessed
+				}
+				piety < 0
+			}
+			AND = {
+				has_character_modifier = accused_apostate
+				is_devil_worshiper_trigger = yes
+			}
+		}
+	}
+	chance = {
+		factor = 1
+	}
+}
+nick_the_pot_belly = {
+	allow = {
+		age = 15
+		OR = {
+			trait = gluttonous
+			trait = hedonist
+			trait = drunkard
+		}
+	}
+	chance = {
+		factor = 1
+		modifier = {
+			factor = 2.0
+			trait = gluttonous
+		}
+	}
+}
+nick_the_fugitive = { } # Event based - escaped arrest attempt with a claim on duke+ title
+nick_the_slobberer = {
+	allow = {
+		trait = inbred
+	}
+	chance = {
+		factor = 1
+	}
+}
+nick_the_red_title = {
+	allow = {
+		any_vassal = {
+			OR = {
+				has_opinion_modifier = { who = PREV modifier = opinion_evil_tyrant }
+				has_opinion_modifier = { who = PREV modifier = opinion_tyrant }
+			}
+		}
+	}
+	chance = {
+		factor = 1
+	}
+}
+nick_the_purple_born = {
+	allow = {
+		age = 16
+		trait = born_in_the_purple
+		any_sibling = {
+			age = PREV
+			NOT = { trait = born_in_the_purple }
+		}
+		is_landed = yes
+	}
+	chance = {
+		factor = 1
+	}
+}
+nick_the_posthumous = {} # From event, gained first title with zombie or vampire
+nick_the_grim = {
+	allow = {
+		trait = depressed
+		trait = wroth
+	}
+	chance = {
+		factor = 1
+	}
+}
+nick_the_judge_of_culture = {} # Event - win invasion, holy war or crusade with just against another culture
+nick_the_unifier = {} # Event - Get same rank title from a relative in claim war
+nick_the_small = {
+	allow = {
+		age = 16
+		trait = dwarf
+	}
+	chance = {
+		factor = 1
+	}
+}
+nick_the_rich = {
+	allow = {
+		wealth = 1500
+	}
+	chance = {
+		factor = 1
+	}
+}
+nick_the_warlike = { # In 3 simultanious wars, attacker in 2 of them
+	allow = {
+		any_war = {
+			count = 3
+		}
+		any_war = {
+			count = 2
+			any_attacker = { character = ROOT }
+		}
+	}
+	chance = {
+		factor = 2
+		modifier = {
+			factor = 1.5
+			trait = wroth
+		}
+		modifier = {
+			factor = 2
+			trait = ambitious
+		}
+	}
+}
+nick_the_supicious = {
+	allow = {
+		trait = deceitful
+		trait = schemer
+	}
+	chance = {
+		factor = 1
+	}
+}
+nick_the_distrustful = {
+	allow = {
+		OR = {
+			trait = deceitful
+			trait = schemer
+		}
+	}
+	chance = {
+		factor = 1
+	}
+}
+nick_the_sacrificer = { } # By event
+nick_the_sleeper = {} # By event
+nick_the_warrior_queen = {
+	allow = {
+		is_female = yes
+		trait = brilliant_strategist
+		is_landed = yes
+	}
+	chance = {
+		factor = 1
+	}
+}
+nick_the_playboy_king = {
+	allow = {
+		is_female = no
+		trait = seducer
+		num_of_lovers = 3
+	}
+	chance = {
+		factor = 1
+	}
+}
+nick_jezebel = {
+	allow = {
+		is_female = yes
+		trait = seductress
+		OR = {
+			has_character_modifier = adulteress
+			has_character_modifier = incestuous_adulteress
+		}
+	}
+	chance = {
+		factor = 1
+	}
+}
+nick_the_barren = {
+	allow = {
+		is_female = yes
+		age = 45
+		trait = infertile
+		num_of_children < 1
+		NOR = {
+			trait = chaste
+			trait = celibate
+		}
+	}
+	chance = {
+		factor = 1
+	}
+}
+nick_monkey_face = {
+	allow = {
+		trait = ugly
+		age < 16
+	}
+	chance = {
+		factor = 1
+	}
+}
+nick_the_peasant_king = {
+	allow = {
+		trait = peasant_leader
+		is_landed = yes
+		primary_title = {
+			temporary = no
+		}
+	}
+	chance = {
+		factor = 2
+	}
+}
+nick_the_book_lover = {
+	allow = {
+		trait = scholar
+		has_education_learning_trigger = yes
+		OR = {
+			trait = chaste
+			trait = celibate
+		}
+		NOR = {
+			trait = monk
+			trait = nun
+			trait = muni
+			trait = aryika
+			trait = bhikkhu
+			trait = bhikkhuni
+			trait = sanyasi
+			trait = sanyasini
+		}
+		is_theocracy = no
+	}
+	chance = {
+		factor = 1
+	}
+}
+nick_the_child_ruler = {
+	allow = {
+		age < 14
+		higher_tier_than = COUNT
+		ruled_years = 2
+	}
+	chance = {
+		factor = 1
+	}
+}
+nick_king_of_the_dead = {}
+nick_the_lich_king = {}
+nick_the_bone_king = {}
+nick_the_gravelord = {}
+nick_the_lord_of_embers = {}
+nick_the_renewed_flame = {}
+nick_the_eternal_flame = {}
+nick_the_bloodgiver = {}
+nick_the_golden = {}
+nick_the_reclaimer = {}

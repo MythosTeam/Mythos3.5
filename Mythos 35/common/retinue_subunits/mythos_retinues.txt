@@ -1,0 +1,131 @@
+RETTYPE_CUL_VAMPIRE =  {
+	first_type = 6
+	first_amount = 200
+	
+	special_troops = vampires
+
+	hire_cost = 100
+	
+	maintenance_multiplier = 0.5
+	
+	potential = {
+		culture = vampire_culture
+		NOT = { trait = zombie }
+	}
+}
+RETTYPE_CUL_WEREWOLF =  {
+	first_type = 6
+	first_amount = 200
+	
+	special_troops = lycan_berzerkers
+
+	hire_cost = 100
+	
+	maintenance_multiplier = 0.5
+	
+	potential = {
+		culture = werewolf_culture
+		NOT = { trait = zombie }
+	}
+}
+RETTYPE_CUL_DRAGON =  {
+	first_type = 6
+	first_amount = 50
+	
+	special_troops = dragon_cavalry
+
+	hire_cost = 100
+	
+	maintenance_multiplier = 0.5
+	
+	potential = {
+		culture = draconic
+		NOT = { trait = zombie }
+	}
+}
+HORDE_RETTYPE_DRG1 = {
+	first_type = 6
+	first_amount = 10
+	
+	special_troops = dragon_cavalry
+
+	hire_cost = 30
+	costs_prestige = yes
+	
+	maintenance_multiplier = 2.5
+	
+	potential = {
+		is_nomadic = yes
+		government = marauding_dragon_government
+		NOT = { trait = zombie }
+	}
+}
+HORDE_RETTYPE_DRG2 = {
+	first_type = 3
+	first_amount = 150
+	second_type = 6
+	second_amount = 10
+	
+	special_troops = dragon_cavalry
+	
+	hire_cost = 75
+	costs_prestige = yes
+	
+	maintenance_multiplier = 1.5
+	
+	potential = {
+		is_nomadic = yes
+		government = marauding_dragon_government
+		NOT = { trait = zombie }
+	}
+}
+HORDE_RETTYPE_DRG3 = {
+	first_type = 5
+	first_amount = 200
+	second_type = 6
+	second_amount = 15
+	
+	special_troops = dragon_cavalry
+	
+	hire_cost = 100
+	costs_prestige = yes
+	
+	maintenance_multiplier = 1.5
+	
+	potential = {
+		is_nomadic = yes
+		government = marauding_dragon_government
+		NOT = { trait = zombie }
+	}
+}
+HORDE_RETTYPE_DRG4 = {
+	first_type = 6
+	first_amount = 100
+	
+	special_troops = dragon_cavalry
+	
+	hire_cost = 300
+	costs_prestige = yes
+	
+	maintenance_multiplier = 2.0
+	
+	potential = {
+		is_nomadic = yes
+		government = marauding_dragon_government
+		NOT = { trait = zombie }
+	}
+}
+RETTYPE_NECROMANCER_BLOODLINE = {
+	first_type = 6
+	first_amount = 150
+	
+	special_troops = zombie_troops
+	hire_cost = 100
+	maintenance_multiplier = 0.7
+	
+	potential = {
+		is_nomadic = no
+		trait = necromancer
+		any_owned_bloodline = { has_bloodline_flag = necromancer_retinue }
+	}
+}

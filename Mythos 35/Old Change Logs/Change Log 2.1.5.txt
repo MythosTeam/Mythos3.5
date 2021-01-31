@@ -1,0 +1,50 @@
+##########################################################
+##########################2.1.5###########################
+##########################################################
+
+##########
+# Vampires
+##########
+- Vampire feeding is less likely to kill the target and less likely to turn them into a vampire.
+- AI vampires are more likely to feed when their hunger is high and less likely when it is low than previously
+- AI vampires are more likely to use minor feeding than previously
+- Gaining a bloodline should now spread to vampires you have already sired (Requires a new game)
+
+#########
+# Dragons
+#########
+- Having a draconic saintly bloodline increases purity
+- AI dragons are more likely to marry other unlanded dragons to help avoid dragons breeding into extinction
+
+############
+# Werewolves
+############
+- Your pet wolf can now save you in battle
+- Founding a noble werewolf bloodline no longer requires you to be 100 years old, instead requiring that your rule for 30 years
+- AI werewolves are more likely to marry other unlanded werewolves to avoid breeding into extinction. Less severe than dragons or giants, since they have other ways to handle this.
+
+########
+# Giants
+########
+- AI giants are more likely to marry other unlanded giants to avoid breeding themselves into extinction
+
+#######
+# Other
+#######
+- Duels now consider a character's species when determining if they are too old to honorably duel
+- One way of gaining the Necromancer trait has had its chance to fire increased slightly
+- Change miracle worker from Church Opinion to Same Religion Opinion
+
+##########
+# Database
+##########
+- Dakarr now looks Norman instead of Draconic
+
+##########
+# Bugfixes
+##########
+- Fixed reformed Bon showing the draconic pagan icon
+- Fixed being able to found the vampiric empire multiple times
+- Fixed missing inheritance on the werewolf nobility bloodline
+- Fixed the vampire trait being visible to all characters
+- Fixed Argos at the Viking Age bookmark having no description

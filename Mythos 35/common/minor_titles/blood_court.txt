@@ -1,0 +1,383 @@
+blood_court_count = {
+	is_high_prio = yes
+	dignity = 0.050
+	grant_limit = 1
+	opinion_effect = 10
+	monthly_salary = 0.00
+	monthly_prestige = 0.75
+	is_voter = yes
+	
+	allowed_to_grant = {
+		higher_tier_than = BARON
+		has_dlc = "Zeus"
+		government = blood_court_government
+	}
+	
+	allowed_to_hold = {
+		NOT = { 
+			primary_title = { temporary = yes } 
+		}
+		can_be_councilmember_king_trigger = yes
+		has_job_title = no
+		OR = { 
+			AND = {
+				is_female = no 
+				male_can_hold_minor_title_trigger = yes
+			}
+			AND = {
+				is_female = yes
+				female_can_hold_minor_title_trigger = yes
+			}
+		}
+		NOR = {
+			has_assigned_minor_title = blood_court_duke
+			has_assigned_minor_title = blood_court_king
+			has_assigned_minor_title = blood_court_emperor
+			has_assigned_minor_title = blood_court_e_vampire_1
+			has_assigned_minor_title = blood_court_e_vampire_2
+		}
+	}
+	revoke_trigger = { always = no }
+	gain_effect = {
+	}
+	lose_effect = {
+		if = {
+			limit = {
+				FROM = {
+					NOT = {
+						has_character_flag = swapping_councillors
+					}
+				}
+			}
+			character_event = { id = VAMPIRE.153 }
+		}
+	}
+	retire_effect = {
+		character_event = { id = VAMPIRE.153 }
+	}
+	death_effect = {
+		character_event = { id = VAMPIRE.153 }
+	}
+	
+	message = yes
+}
+
+blood_court_duke = {
+	is_high_prio = yes
+	dignity = 0.050
+	grant_limit = 1
+	opinion_effect = 10
+	monthly_salary = 0.00
+	monthly_prestige = 0.75
+	is_voter = yes
+	
+	allowed_to_grant = {
+		higher_tier_than = COUNT
+		has_dlc = "Zeus"
+		government = blood_court_government
+	}
+	
+	allowed_to_hold = {
+		NOT = { 
+			primary_title = { temporary = yes } 
+		}
+		can_be_councilmember_king_trigger = yes
+		has_job_title = no
+		OR = { 
+			AND = {
+				is_female = no 
+				male_can_hold_minor_title_trigger = yes
+			}
+			AND = {
+				is_female = yes
+				female_can_hold_minor_title_trigger = yes
+			}
+		}
+		NOR = {
+			has_assigned_minor_title = blood_court_count
+			has_assigned_minor_title = blood_court_king
+			has_assigned_minor_title = blood_court_emperor
+			has_assigned_minor_title = blood_court_e_vampire_1
+			has_assigned_minor_title = blood_court_e_vampire_2
+		}
+	}
+	revoke_trigger = { always = no }
+	gain_effect = {
+	}
+	lose_effect = {
+		if = {
+			limit = {
+				FROM = {
+					NOT = {
+						has_character_flag = swapping_councillors
+					}
+				}
+			}
+			character_event = { id = VAMPIRE.153 }
+		}
+	}
+	retire_effect = {
+		character_event = { id = VAMPIRE.153 }
+	}
+	death_effect = {
+		character_event = { id = VAMPIRE.153 }
+	}
+	
+	message = yes
+}
+
+blood_court_king = {
+	is_high_prio = yes
+	dignity = 0.050
+	grant_limit = 1
+	opinion_effect = 10
+	monthly_salary = 0.00
+	monthly_prestige = 0.75
+	is_voter = yes
+	
+	allowed_to_grant = {
+		higher_tier_than = DUKE
+		has_dlc = "Zeus"
+		government = blood_court_government
+	}
+	
+	allowed_to_hold = {
+		NOT = { 
+			primary_title = { temporary = yes } 
+		}
+		can_be_councilmember_king_trigger = yes
+		has_job_title = no
+		OR = { 
+			AND = {
+				is_female = no 
+				male_can_hold_minor_title_trigger = yes
+			}
+			AND = {
+				is_female = yes
+				female_can_hold_minor_title_trigger = yes
+			}
+		}
+		NOR = {
+			has_assigned_minor_title = blood_court_count
+			has_assigned_minor_title = blood_court_duke
+			has_assigned_minor_title = blood_court_emperor
+			has_assigned_minor_title = blood_court_e_vampire_1
+			has_assigned_minor_title = blood_court_e_vampire_2
+		}
+	}
+	revoke_trigger = { always = no }
+	gain_effect = {
+	}
+	lose_effect = {
+		if = {
+			limit = {
+				FROM = {
+					NOT = {
+						has_character_flag = swapping_councillors
+					}
+				}
+			}
+			character_event = { id = VAMPIRE.153 }
+		}
+	}
+	retire_effect = {
+		character_event = { id = VAMPIRE.153 }
+	}
+	death_effect = {
+		character_event = { id = VAMPIRE.153 }
+	}
+	
+	message = yes
+}
+
+blood_court_emperor = {
+	is_high_prio = yes
+	dignity = 0.050
+	grant_limit = 1
+	opinion_effect = 10
+	monthly_salary = 0.00
+	monthly_prestige = 0.75
+	is_voter = yes
+	
+	allowed_to_grant = {
+		higher_tier_than = KING
+		has_dlc = "Zeus"
+		government = blood_court_government
+	}
+	
+	allowed_to_hold = {
+		NOT = { 
+			primary_title = { temporary = yes } 
+		}
+		can_be_councilmember_king_trigger = yes
+		has_job_title = no
+		OR = { 
+			AND = {
+				is_female = no 
+				male_can_hold_minor_title_trigger = yes
+			}
+			AND = {
+				is_female = yes
+				female_can_hold_minor_title_trigger = yes
+			}
+		}
+		NOR = {
+			has_assigned_minor_title = blood_court_count
+			has_assigned_minor_title = blood_court_duke
+			has_assigned_minor_title = blood_court_king
+			has_assigned_minor_title = blood_court_e_vampire_1
+			has_assigned_minor_title = blood_court_e_vampire_2
+		}
+	}
+	revoke_trigger = { always = no }
+	gain_effect = {
+	}
+	lose_effect = {
+		if = {
+			limit = {
+				FROM = {
+					NOT = {
+						has_character_flag = swapping_councillors
+					}
+				}
+			}
+			character_event = { id = VAMPIRE.153 }
+		}
+	}
+	retire_effect = {
+		character_event = { id = VAMPIRE.153 }
+	}
+	death_effect = {
+		character_event = { id = VAMPIRE.153 }
+	}
+	
+	message = yes
+}
+
+blood_court_e_vampire_1 = {
+	is_high_prio = yes
+	dignity = 0.050
+	grant_limit = 1
+	opinion_effect = 10
+	monthly_salary = 0.00
+	monthly_prestige = 0.75
+	is_voter = yes
+	
+	allowed_to_grant = {
+		has_landed_title = e_vampire
+		has_dlc = "Zeus"
+		government = blood_court_government
+	}
+	
+	allowed_to_hold = {
+		NOT = { 
+			primary_title = { temporary = yes } 
+		}
+		can_be_councilmember_king_trigger = yes
+		has_job_title = no
+		OR = { 
+			AND = {
+				is_female = no 
+				male_can_hold_minor_title_trigger = yes
+			}
+			AND = {
+				is_female = yes
+				female_can_hold_minor_title_trigger = yes
+			}
+		}
+		NOR = {
+			has_assigned_minor_title = blood_court_count
+			has_assigned_minor_title = blood_court_duke
+			has_assigned_minor_title = blood_court_king
+			has_assigned_minor_title = blood_court_emperor
+			has_assigned_minor_title = blood_court_e_vampire_2
+		}
+	}
+	revoke_trigger = { always = no }
+	gain_effect = {
+	}
+	lose_effect = {
+		if = {
+			limit = {
+				FROM = {
+					NOT = {
+						has_character_flag = swapping_councillors
+					}
+				}
+			}
+			character_event = { id = VAMPIRE.153 }
+		}
+	}
+	retire_effect = {
+		character_event = { id = VAMPIRE.153 }
+	}
+	death_effect = {
+		character_event = { id = VAMPIRE.153 }
+	}
+	
+	message = yes
+}
+
+blood_court_e_vampire_2 = {
+	is_high_prio = yes
+	dignity = 0.050
+	grant_limit = 1
+	opinion_effect = 10
+	monthly_salary = 0.00
+	monthly_prestige = 0.75
+	is_voter = yes
+	
+	allowed_to_grant = {
+		has_landed_title = e_vampire
+		has_dlc = "Zeus"
+		government = blood_court_government
+	}
+	
+	allowed_to_hold = {
+		NOT = { 
+			primary_title = { temporary = yes } 
+		}
+		can_be_councilmember_king_trigger = yes
+		has_job_title = no
+		OR = { 
+			AND = {
+				is_female = no 
+				male_can_hold_minor_title_trigger = yes
+			}
+			AND = {
+				is_female = yes
+				female_can_hold_minor_title_trigger = yes
+			}
+		}
+		NOR = {
+			has_assigned_minor_title = blood_court_count
+			has_assigned_minor_title = blood_court_duke
+			has_assigned_minor_title = blood_court_king
+			has_assigned_minor_title = blood_court_emperor
+			has_assigned_minor_title = blood_court_e_vampire_1
+		}
+	}
+	revoke_trigger = { always = no }
+	gain_effect = {
+	}
+	lose_effect = {
+		if = {
+			limit = {
+				FROM = {
+					NOT = {
+						has_character_flag = swapping_councillors
+					}
+				}
+			}
+			character_event = { id = VAMPIRE.153 }
+		}
+	}
+	retire_effect = {
+		character_event = { id = VAMPIRE.153 }
+	}
+	death_effect = {
+		character_event = { id = VAMPIRE.153 }
+	}
+	
+	message = yes
+}

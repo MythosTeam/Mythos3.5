@@ -1,0 +1,10 @@
+762.1.1={
+	liege="d_faiyum"
+}
+762.1.1={
+	holder = 210016
+}
+790.3.13={
+	liege="d_alexandria"
+	holder = 268452
+}

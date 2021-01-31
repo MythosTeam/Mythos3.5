@@ -1,0 +1,26 @@
+# 1228 - Swetaka Mandala
+
+# County Title
+title = c_swetaka_mandala
+
+# Settlements
+max_settlements = 3
+b_swetakapura = castle
+b_rayagada = temple
+#b_umerkote = city
+#b_badakhemundi = castle
+
+# Misc
+culture = oriya
+religion = hindu
+terrain = mountain
+
+# History
+1038.1.1={
+	culture = undead_vetala
+	religion = the_damned
+}
+1071.1.1={
+	culture = oriya
+	religion = hindu
+}

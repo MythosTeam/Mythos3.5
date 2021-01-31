@@ -1,0 +1,30 @@
+# 1332 - Trinkitat
+
+# County Title
+title = c_trinkitat
+
+# Settlements
+max_settlements = 4
+b_trinkitat = castle
+b_tokar = city
+b_teb = temple
+
+#b_mukden = city
+#b_derri = temple
+#b_farata = castle
+#b_kwababa = castle
+
+
+# Misc
+culture = nubian
+religion = miaphysite
+
+# History
+1079.1.1={
+	culture = undead_revenant
+	religion = the_damned
+}
+1111.1.1={
+	culture = nubian
+	religion = miaphysite
+}

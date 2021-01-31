@@ -1,0 +1,26 @@
+769.1.1={
+	liege="d_asyut"
+	holder = 210010
+}
+866.1.1={
+	liege="k_egypt"
+	holder = 261300
+}
+936.1.1 = {
+	holder = 261308
+	liege = d_asyut
+}
+996.10.13={
+	holder=3092
+	liege = k_egypt
+}
+1021.2.12={
+	holder=3094
+}
+1036.6.13={
+	holder=3096
+}
+1066.1.1={
+	liege=d_alexandria
+	holder=268452
+}

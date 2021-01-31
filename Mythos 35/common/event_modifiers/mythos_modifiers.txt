@@ -1,0 +1,1794 @@
+cast_spell = {
+	diplomacy = -1
+	learning = -1
+	icon = 80
+}
+challenged_liege = {
+	icon = 72
+}
+recently_challenged = {
+	icon = 72
+}
+facing_challenge = {
+	icon = 71
+}
+has_quested = {
+	icon = 49
+	monthly_character_prestige = 0.1
+}
+#golden_fleece = {
+#	icon = 1
+#	monthly_character_prestige = 1
+#	global_tax_modifier = 0.3
+#}
+#medusa_head = {
+#	icon = 1
+#	martial = 3
+#	land_morale = 0.3
+#}
+minor_aura = {
+	general_opinion = 10
+	stewardship = -1
+	intrigue = -1
+	learning = -1
+	icon = 16
+}
+persuasive_aura = {
+	general_opinion = 20
+	stewardship = -1
+	intrigue = -1
+	learning = -1
+	icon = 16
+}
+powerful_aura = {
+	general_opinion = 30
+	stewardship = -1
+	intrigue = -1
+	learning = -1
+	icon = 16
+}
+expelled_satanists = {
+	icon = 8
+	diplomacy = -1
+	church_opinion = 10
+}
+dove_familiar = {
+	is_visible = { 
+		OR = {
+			is_devil_worshiper_trigger = yes
+            character = FROM
+			trait = novice_mage
+			trait = eldritch_scholar
+			trait = veteran_wizard
+			trait = arcane_master
+		}
+	}
+	diplomacy = 2
+	culture_flex = -0.1
+	religion_flex = -0.1
+	icon = 73
+}
+# Merging with MnM familiars
+cat_familiar = {
+	is_visible = { 
+		OR = {
+			is_devil_worshiper_trigger = yes
+            character = FROM
+			trait = novice_mage
+			trait = eldritch_scholar
+			trait = veteran_wizard
+			trait = arcane_master
+		}
+	}
+	intrigue = 2
+	plot_power_modifier = 0.05
+	icon = 46
+}
+
+wolf_familiar = {
+	is_visible = { 
+		OR = {
+			is_devil_worshiper_trigger = yes
+            character = FROM
+			trait = novice_mage
+			trait = eldritch_scholar
+			trait = veteran_wizard
+			trait = arcane_master
+		}
+	}
+	martial = 2
+	combat_rating = 10
+	icon = 71
+}
+
+raven_familiar = {
+	is_visible = { 
+		OR = {
+			is_devil_worshiper_trigger = yes
+            character = FROM
+			trait = novice_mage
+			trait = eldritch_scholar
+			trait = veteran_wizard
+			trait = arcane_master
+		}
+	}
+	stewardship = 2
+	global_tax_modifier = 0.05
+	icon = 73
+}
+
+owl_familiar = {
+	is_visible = { 
+		OR = {
+			is_devil_worshiper_trigger = yes
+			character = FROM
+			trait = novice_mage
+			trait = eldritch_scholar
+			trait = veteran_wizard
+			trait = arcane_master
+		}
+	}
+	learning = 2
+	monthly_character_piety = 0.5
+	icon = 47
+}
+
+known_monster = {
+	icon = 76
+	general_opinion = -10
+}
+scorched_land = {
+	local_revolt_risk = 0.04
+	levy_size = -0.2
+	local_tax_modifier = -0.2
+	icon = 32	
+}
+recently_scorched_land = {
+	local_revolt_risk = 0.03
+	icon = 32	
+}
+recently_scorched_land_not_owner = {
+	icon = 32
+	local_revolt_risk = 0.1
+}
+study_at_scholomance = {
+	icon = 75
+	learning = 2
+	church_opinion = -10
+}
+deliberate_reveal_werewolf = {
+	icon = 71
+	martial = 2
+	intrigue = 2
+	combat_rating = 2
+}
+scared_of_monsters = {
+	icon = 42
+	martial = -2
+	global_revolt_risk = 0.01
+	combat_rating = -2
+}
+wild_wolfman_killed = {
+	icon = 71
+	local_revolt_risk = -0.04
+}
+wild_wolfman_arrested = {
+	icon = 71
+	local_revolt_risk = -0.02
+}
+wild_wolfman_ignored = {
+	icon = 72
+	local_revolt_risk = 0.02
+}
+slain_monster = {
+	icon = 1
+	vassal_opinion = 10
+	church_opinion = 10
+	combat_rating = 3
+}
+failed_to_slay_monster = {
+	icon = 42
+	diplomacy = -2
+	vassal_opinion = -10
+	church_opinion = 10
+}
+studying_conjuration = {
+	icon = 52
+}
+studying_herbalism = {
+	icon = 87
+}
+studying_alchemy = {
+	icon = 85
+}
+studying_sorcery = {
+	icon = 79
+}
+studying_necromancy = {
+	icon = 41
+	is_visible = {
+		OR = {
+			character = FROM
+			trait = necromancer
+		}
+	}
+}
+magic_study_1 = {
+	icon = 2
+	learning = 1
+}
+magic_study_2 = {
+	icon = 2
+	learning = 2
+}
+reading_books_hermes = {
+	icon = 2
+}
+#lesser_key_of_solomon = {
+#	icon = 2
+#	learning = 1
+#	custom_tooltip = { LKOS_TT }
+#}
+#greater_key_of_solomon = {
+#	icon = 2
+#	learning = 2
+#	monthly_character_prestige = 0.5
+#	custom_tooltip = { GKOS_TT }
+#}
+
+kos_search_timer = { 
+	icon = 1
+	is_visible = { always = no }
+} # Used to prevent the Key of Solomon event from triggering while on it, but with the ability to expire if you lose requirements.
+	
+illusionary_defenders = {
+	icon = 52
+	garrison_size = 0.1
+}
+bountiful_harvest = {
+	icon = 87
+	local_tax_modifier = 0.075
+}
+healing_potion_great = {
+	icon = 50
+	health_penalty = 2
+}
+healing_potion_good = {
+	icon = 50
+	health_penalty = 1
+}
+healing_potion_bad = {
+	icon = 51
+	health_penalty = -1
+}
+healing_potion_terrible = {
+	icon = 51
+	health_penalty = -2
+}
+stole_temple = {
+	icon = 35
+	church_opinion = -10
+}
+bloodloss = {
+	icon = 51
+	diplomacy = -1
+	martial = -1
+	intrigue = -1
+	health = -1
+	combat_rating = -8
+}
+sacrified_health = {
+	icon = 51
+	health = -4
+	combat_rating = -6
+}
+#panacea = {
+#	icon = 50
+#}
+
+# Conjuration Building Bonuses
+room_of_portal = {
+	icon = 79
+	levy_reinforce_rate = 0.05
+	garrison_size = 0.05
+}
+otherworldly_guard = {
+	icon = 13
+	retinuesize_perc = 0.02
+	retinue_maintenence_cost = -0.05
+}
+
+# Enchanter Building Bonuses
+scrying_chamber = {
+	icon = 81
+	plot_discovery_chance = 0.1
+}
+calming_enchantment = {
+	icon = 79
+	global_revolt_risk = -0.02
+}
+
+# Alchemist Building Bonuses
+gold_tower = {
+	icon = 7
+	monthly_character_prestige = 0.5
+	economy_techpoints = 0.03
+}
+alchemist_lab = {
+	icon = 83
+	global_tax_modifier = 0.05
+}
+
+# Herbalism Building Bonuses
+greenhouse = {
+	icon = 87
+	global_supply_limit = 0.05
+}
+#medical_supplies = { # Character modifier
+#	icon = 50
+#	health_penalty = 2
+#}
+
+summoned_demons = {
+	icon = 76
+	local_revolt_risk = 0.02
+}
+
+hired_locals = {
+	icon = 4
+	local_tax_modifier = 0.03
+}
+
+spare_materials = {
+	icon = 4
+	local_build_time_modifier = -0.1
+	local_build_cost_modifier = -0.1
+}
+
+divine_favor = {
+	icon = 8
+	land_morale = 0.1
+}
+
+abandoned_by_god = {
+	icon = 26
+	land_morale = -0.1
+	temple_levy_size = -0.05
+}
+
+foreign_god_favor = {
+	icon = 48
+	land_morale = 0.05
+}
+
+cursed = {
+	icon = 53
+	diplomacy = -2
+	stewardship = -2
+	martial = -2
+	combat_rating = -8
+	global_revolt_risk = 0.01
+}
+
+aura_intimidation_feeble = {
+	icon = 1
+	martial = 1
+	diplomacy = -1
+	siege_speed = 0.05
+}
+aura_intimidation_weak = {
+	icon = 1
+	martial = 2
+	diplomacy = -1
+	siege_speed = 0.1
+}
+aura_intimidation_standard = {
+	icon = 1
+	martial = 3
+	diplomacy = -2
+	siege_speed = 0.15
+}
+aura_intimidation_strong = {
+	icon = 1
+	martial = 4
+	diplomacy = -2
+	siege_speed = 0.2
+}
+aura_intimidation_overwhelming = {
+	icon = 1
+	martial = 5
+	diplomacy = -3
+	siege_speed = 0.25
+}
+aura_intimidation_perfect = {
+	icon = 1
+	martial = 6
+	diplomacy = -3
+	siege_speed = 0.3
+}
+aura_presence_feeble = {
+	icon = 10
+	general_opinion = 5
+	intrigue = -1
+}
+aura_presence_weak = {
+	icon = 10
+	general_opinion = 10
+	intrigue = -1
+}
+aura_presence_standard = {
+	icon = 10
+	general_opinion = 15
+	intrigue = -2
+}
+aura_presence_strong = {
+	icon = 10
+	general_opinion = 20
+	intrigue = -2
+}
+aura_presence_overwhelming = {
+	icon = 10
+	general_opinion = 25
+	intrigue = -3
+}
+aura_presence_perfect = {
+	icon = 10
+	general_opinion = 30
+	intrigue = -3
+}
+aura_shadows_feeble = {
+	icon = 5
+	intrigue = 1
+	diplomacy = -1
+}
+aura_shadows_weak = {
+	icon = 5
+	intrigue = 2
+	diplomacy = -1
+}
+aura_shadows_standard = {
+	icon = 5
+	intrigue = 3
+	diplomacy = -2
+}
+aura_shadows_strong = {
+	icon = 5
+	intrigue = 4
+	diplomacy = -2
+}
+aura_shadows_overwhelming = {
+	icon = 5
+	intrigue = 5
+	diplomacy = -3
+}
+aura_shadows_perfect = {
+	icon = 5
+	intrigue = 6
+	diplomacy = -3
+}
+aura_majesty_feeble = {
+	icon = 7
+	monthly_character_prestige = 0.5
+	monthly_character_piety = -0.5
+}
+aura_majesty_weak = {
+	icon = 7
+	monthly_character_prestige = 1
+	monthly_character_piety = -0.5
+}
+aura_majesty_standard = {
+	icon = 7
+	monthly_character_prestige = 1.5
+	monthly_character_piety = -1
+}
+aura_majesty_strong = {
+	icon = 7
+	monthly_character_prestige = 2
+	monthly_character_piety = -1
+}
+aura_majesty_overwhelming = {
+	icon = 7
+	monthly_character_prestige = 2.5
+	monthly_character_piety = -1.5
+}
+aura_majesty_perfect = {
+	icon = 7
+	monthly_character_prestige = 3
+	monthly_character_piety = -1.5
+}
+aura_valor_feeble = {
+	icon = 13
+	combat_rating = 8
+	martial = -1
+}
+aura_valor_weak = {
+	icon = 13
+	combat_rating = 16
+	martial = -1
+}
+aura_valor_standard = {
+	icon = 13
+	combat_rating = 24
+	martial = -2
+}
+aura_valor_strong = {
+	icon = 13
+	combat_rating = 32
+	martial = -2
+}
+aura_valor_overwhelming= {
+	icon = 13
+	combat_rating = 40
+	martial = -3
+}
+aura_valor_perfect = {
+	icon = 13
+	combat_rating = 48
+	martial = -3
+}
+aura_people_feeble = {
+	icon = 18
+	global_revolt_risk = -0.02
+	vassal_opinion = -5
+}
+aura_people_weak = {
+	icon = 18
+	global_revolt_risk = -0.04
+	vassal_opinion = -5
+}
+aura_people_standard = {
+	icon = 18
+	global_revolt_risk = -0.06
+	vassal_opinion = -10
+}
+aura_people_strong = {
+	icon = 18
+	global_revolt_risk = -0.08
+	vassal_opinion = -10
+}
+aura_people_overwhelming = {
+	icon = 18
+	global_revolt_risk = -0.1
+	vassal_opinion = -15
+}
+aura_people_perfect = {
+	icon = 18
+	global_revolt_risk = -0.12
+	vassal_opinion = -15
+}
+plague_bearer_health_bonus = {
+	icon = 54
+	is_visible = { always = no }
+	health_penalty = 6
+}
+# The format for these must be "expelled_[title tag]" or you will be able to employ expelled orders
+expelled_d_golden_order = {
+	icon = 35
+}
+expelled_d_army_baal = {
+	icon = 35
+}
+expelled_d_ddraig_goch = {
+	icon = 35
+}
+expelled_d_soldiers_horus = {
+	icon = 35
+}
+expelled_d_servants_anubis = {
+	icon = 35
+}
+expelled_d_ares_phalanx = {
+	icon = 35
+}
+expelled_d_sons_mars = {
+	icon = 35
+}
+expelled_d_champion_vigrithr = {
+	icon = 35
+}
+
+# Loans
+borrowed_from_golden_order = {
+	icon = 24
+	church_opinion = -10
+}
+borrowed_from_army_of_baal = {
+	icon = 24
+	church_opinion = -10
+}
+borrowed_from_y_ddraig_goch = {
+	icon = 24
+	church_opinion = -10
+}
+borrowed_from_soldiers_of_horus = {
+	icon = 24
+	church_opinion = -10
+}
+borrowed_from_servants_of_anubis = {
+	icon = 24
+	church_opinion = -10
+}
+borrowed_from_ares_phalanx = {
+	icon = 24
+	church_opinion = -10
+}
+borrowed_from_sons_of_mars = {
+	icon = 24
+	church_opinion = -10
+}
+borrowed_from_champions_of_vigrithr = {
+	icon = 24
+	church_opinion = -10
+}
+non_werewolf_heir = {
+	icon = 65
+	
+	vassal_opinion = -10
+	monthly_character_prestige = -0.1
+}
+non_dragon_heir = {
+	icon = 65
+	
+	vassal_opinion = -20
+	monthly_character_prestige = -0.3
+}
+non_dragon_heir_lesser = {
+	icon = 65
+	
+	vassal_opinion = -10
+	monthly_character_prestige = -0.1
+}
+non_dragon_ruler = {
+	icon = 65
+	
+	vassal_opinion = -30
+	monthly_character_prestige = -1
+}
+non_vampire_heir = {
+	icon = 65
+	
+	vassal_opinion = -30
+	monthly_character_prestige = -1
+}
+faction_draconic_heir_ultimatum_timer = { icon = 1 }
+unfit_flame_controller = {
+	icon = 49
+	
+	draconic_pagan_opinion = -10
+	draconic_pagan_reformed_opinion = -10
+}
+heathen_stronghold = {
+	icon = 49
+	
+	church_opinion = -10
+	local_revolt_risk = 0.02
+}
+spent_military = {
+	icon = 31
+	global_levy_size = -0.1
+}
+exhausted_military = {
+	icon = 31
+	global_levy_size = -0.25
+}
+flame_restorer = {
+	icon = 48
+	draconic_pagan_opinion = 100
+	draconic_pagan_reformed_opinion = 100
+}
+# Werewolf Province modifiers
+ruled_by_monster = {
+	icon = 31
+	local_revolt_risk = 0.05
+}
+no_monster_tax = {
+	icon = 24
+	local_tax_modifier = -0.1
+}
+soldiers_abandon_monster = {
+	icon = 31
+	levy_size = -0.1
+}
+bandits_fled = {
+	icon = 4
+	local_tax_modifier = 0.05
+}
+strong_lycan_ruler = {
+	icon = 71
+	local_revolt_risk = -0.02
+}
+werewolf_recruits = {
+	icon = 71
+	levy_reinforce_rate = 0.05
+	lycan_berzerkers_offensive = 0.05
+}
+wolf_pet = {
+	icon = 71
+	health = 1
+	martial = 2
+	combat_rating = 5
+}
+purity_review_timer = {
+	icon = 49
+}
+built_horde = {
+	icon = 6
+	stewardship = 2
+}
+can_ambition_dragon_gold_1 = {
+	icon = 6
+	is_visible = { always = no }
+	#months = 36
+}
+can_ambition_dragon_gold_2 = {
+	icon = 6
+	is_visible = { always = no }
+	#months = 36
+}
+can_ambition_dragon_gold_3 = {
+	icon = 6
+	is_visible = { always = no }
+	#months = 36
+}
+can_ambition_dragon_gold_4 = {
+	icon = 6
+	is_visible = { always = no }
+	#months = 36
+}
+can_ambition_dragon_gold_5 = {
+	icon = 6
+	is_visible = { always = no }
+	#months = 36
+}
+can_ambition_dragon_gold_6 = {
+	icon = 6
+	is_visible = { always = no }
+	#months = 36
+}
+can_ambition_dragon_gold_7 = {
+	icon = 6
+	is_visible = { always = no }
+	#months = 36
+}
+can_ambition_dragon_piety_1 = {
+	icon = 48
+	is_visible = { always = no }
+	#months = 36
+}
+can_ambition_dragon_piety_2 = {
+	icon = 48
+	is_visible = { always = no }
+	#months = 36
+}
+can_ambition_dragon_piety_3 = {
+	icon = 48
+	is_visible = { always = no }
+	#months = 36
+}
+can_ambition_pilgrimage = {
+	icon = 48
+	is_visible = { always = no }
+	#months = 36
+}
+can_ambition_clean_marriage = {
+	icon = 48
+	is_visible = { always = no }
+	#months = 36
+}
+can_ambition_clean_love = {
+	icon = 48
+	is_visible = { always = no }
+	#months = 36
+}
+can_ambition_clean_heir = {
+	icon = 48
+	is_visible = { always = no }
+	#months = 36
+}
+can_ambition_human_prestige_1 = {
+	icon = 48
+	is_visible = { always = no }
+	#months = 36
+}
+can_ambition_human_prestige_2 = {
+	icon = 48
+	is_visible = { always = no }
+	#months = 36
+}
+can_ambition_human_prestige_3 = {
+	icon = 48
+	is_visible = { always = no }
+	#months = 36
+}
+can_ambition_human_prestige_4 = {
+	icon = 48
+	is_visible = { always = no }
+	#months = 36
+}
+can_ambition_human_prestige_5 = {
+	icon = 48
+	is_visible = { always = no }
+	#months = 36
+}
+can_ambition_diligent = {
+	icon = 48
+	is_visible = { always = no }
+	#months = 36
+}
+can_ambition_dragon_prestige_1 = {
+	icon = 48
+	is_visible = { always = no }
+	#months = 36
+}
+can_ambition_dragon_prestige_2 = {
+	icon = 48
+	is_visible = { always = no }
+	#months = 36
+}
+unfit_sapphire_flame = {
+	icon = 27
+	draconic_pagan_opinion = -5
+	draconic_pagan_reformed_opinion = -20
+	church_opinion = -20
+	monthly_character_prestige = -0.2
+	monthly_character_piety = -1
+	land_morale = -0.1
+}
+replaced_impure_flame = {
+	icon = 48
+	#custom_tooltip = { text = purity_plus_1 }
+}
+rebelled_against_religious_head = {
+	icon = 49
+	#custom_tooltip = { text = purity_down_3 }
+}
+sapphire_flame_blessing = {
+	icon = 48
+	#custom_tooltip = { text = purity_plus_1 }
+	monthly_character_piety = 0.1
+	draconic_pagan_reformed_opinion = 5
+}
+current_SF_offer = {
+	icon = 48
+	is_visible = { always = no }
+}
+begger = {
+	icon = 24
+	#custom_tooltip = { text = purity_down_3 }
+	draconic_pagan_reformed_opinion = -5
+	draconic_pagan_opinion = -5
+	#months = 120
+}
+
+### secret_religious_society modifiers
+secret_draconic_pagan_community = {
+	icon = 18
+	is_visible = {
+		society_member_of = secret_religious_society_draconic_pagan
+	}
+}
+secret_draconic_pagan_reformed_community = {
+	icon = 18
+	is_visible = {
+		society_member_of = secret_religious_society_draconic_pagan_reformed
+	}
+}
+secret_druidic_community = {
+	icon = 18
+	is_visible = {
+		society_member_of = secret_religious_society_druidic
+	}
+}
+secret_druidic_reformed_community = {
+	icon = 18
+	is_visible = {
+		society_member_of = secret_religious_society_druidic_reformed
+	}
+}
+secret_jotnar_community = {
+	icon = 18
+	is_visible = {
+		society_member_of = secret_religious_society_jotnar
+	}
+}
+secret_jotnar_reformed_community = {
+	icon = 18
+	is_visible = {
+		society_member_of = secret_religious_society_jotnar_reformed
+	}
+}
+secret_kemetic_pagan_community = {
+	icon = 18
+	is_visible = {
+		society_member_of = secret_religious_society_kemetic_pagan
+	}
+}
+secret_kemetic_pagan_reformed_community = {
+	icon = 18
+	is_visible = {
+		society_member_of = secret_religious_society_kemetic_pagan_reformed
+	}
+}
+secret_atenist_community = {
+	icon = 18
+	is_visible = {
+		society_member_of = secret_religious_society_atenist
+	}
+}
+secret_satanist_community = {
+	icon = 18
+	is_visible = {
+		society_member_of = secret_religious_society_satanist
+	}
+}
+destroyed_major_icon = {
+	icon = 8
+	local_revolt_risk = -0.04
+}
+destroyed_minor_icon = {
+	icon = 8
+	local_revolt_risk = -0.02
+}
+destroyed_major_icon_character = {
+	icon = 8
+	same_religion_opinion = 10
+	orthodox_opinion = -10
+	monthly_character_piety = 0.5
+}
+destroyed_minor_icon_character = {
+	icon = 8
+	same_religion_opinion = 5
+	orthodox_opinion = -5
+	monthly_character_piety = 0.2
+}
+charity_to_poor = {
+	icon = 59
+	local_revolt_risk = -0.02
+	disease_defence = 0.02
+}
+acts_of_charity = {
+	icon = 16
+	church_opinion = 10
+	vassal_opinion = 5
+	general_opinion = 3
+}
+recently_fed = {
+	icon = 59
+	is_visible = { FROM = { character = ROOT } }
+}
+minor_political_influence = {
+	icon = 3
+	monthly_character_prestige = 0.5
+	liege_opinion = 10
+	castle_opinion = 10
+	is_visible = { 
+		ROOT = { 
+			OR = {
+				character = FROM 
+				has_opinion_modifier = { modifier = aware_of_secret_actions who = FROM }
+			}
+		} 
+	}
+}
+political_influence = {
+	icon = 3
+	monthly_character_prestige = 0.75
+	liege_opinion = 15
+	castle_opinion = 15
+	is_visible = { 
+		ROOT = { 
+			OR = {
+				character = FROM 
+				has_opinion_modifier = { modifier = aware_of_secret_actions who = FROM }
+			}
+		} 
+	}
+}
+major_political_influence = {
+	icon = 3
+	monthly_character_prestige = 1
+	liege_opinion = 20
+	castle_opinion = 20
+	is_visible = { 
+		ROOT = { 
+			OR = {
+				character = FROM 
+				has_opinion_modifier = { modifier = aware_of_secret_actions who = FROM }
+			}
+		} 
+	}
+}
+political_humilitation = {
+	icon = 21
+	monthly_character_prestige = -0.5
+	liege_opinion = -10
+	castle_opinion = -10
+}
+minor_military_influence = {
+	icon = 1
+	levy_size = 0.01
+	levy_reinforce_rate = 0.02
+	land_morale = 0.02
+	is_visible = { 
+		ROOT = { 
+			OR = {
+				character = FROM 
+				has_opinion_modifier = { modifier = aware_of_secret_actions who = FROM }
+			}
+		} 
+	}
+}
+military_influence = {
+	icon = 1
+	levy_size = 0.03
+	levy_reinforce_rate = 0.05
+	land_morale = 0.05
+	is_visible = { 
+		ROOT = { 
+			OR = {
+				character = FROM 
+				has_opinion_modifier = { modifier = aware_of_secret_actions who = FROM }
+			}
+		} 
+	}
+}
+major_military_influence = {
+	icon = 1
+	levy_size = 0.05
+	levy_reinforce_rate = 0.1
+	land_morale = 0.1
+	is_visible = { 
+		ROOT = { 
+			OR = {
+				character = FROM 
+				has_opinion_modifier = { modifier = aware_of_secret_actions who = FROM }
+			}
+		} 
+	}
+}
+military_disorganisation = {
+	icon = 19
+	levy_reinforce_rate = -0.05
+	land_morale = -0.05
+	land_organisation = -0.1
+}
+minor_economic_influence = {
+	icon = 4
+	build_cost_modifier = -0.03
+	build_time_modifier = -0.03
+	global_tax_modifier = 0.03
+	is_visible = { 
+		ROOT = { 
+			OR = {
+				character = FROM 
+				has_opinion_modifier = { modifier = aware_of_secret_actions who = FROM }
+			}
+		} 
+	}
+}
+economic_influence = {
+	icon = 4
+	build_cost_modifier = -0.05
+	build_time_modifier = -0.05
+	global_tax_modifier = 0.05
+	is_visible = { 
+		ROOT = { 
+			OR = {
+				character = FROM 
+				has_opinion_modifier = { modifier = aware_of_secret_actions who = FROM }
+			}
+		} 
+	}
+}
+major_economic_influence = {
+	icon = 4
+	build_cost_modifier = -0.1
+	build_time_modifier = -0.1
+	global_tax_modifier = 0.1
+	is_visible = { 
+		ROOT = { 
+			OR = {
+				character = FROM 
+				has_opinion_modifier = { modifier = aware_of_secret_actions who = FROM }
+			}
+		} 
+	}
+}
+economic_disaster = {
+	icon = 22
+	build_cost_modifier = 0.1
+	build_time_modifier = 0.1
+	global_tax_modifier = -0.05
+}
+undermined_bureaucracy = {
+	icon = 21
+	diplomacy = -1
+	vassal_opinion = -5
+}
+loss_of_military_control = {
+	icon = 31
+	martial = -1
+	levy_reinforce_rate = -0.05
+	levy_size = -0.02
+}
+operating_losses = {
+	icon = 24
+	stewardship = -1
+	global_tax_modifier = -0.02
+}
+diplomatic_control = {
+	icon = 16
+	general_opinion = 10
+	is_visible = { 
+		ROOT = { 
+			OR = {
+				character = FROM 
+				has_opinion_modifier = { modifier = aware_of_secret_actions who = FROM }
+			}
+		} 
+	}
+}
+undermined_diplomacy = {
+	icon = 34
+	general_opinion = -10
+}
+control_of_court = {
+	icon = 16
+	defensive_plot_power_modifier = 0.1
+	plot_discovery_chance = 0.1
+	is_visible = { 
+		ROOT = { 
+			OR = {
+				character = FROM 
+				has_opinion_modifier = { modifier = aware_of_secret_actions who = FROM }
+			}
+		} 
+	}
+}
+hostile_court = {
+	defensive_plot_power_modifier = -0.1
+	plot_discovery_chance = -0.1
+}
+unrestricted_access = {
+	icon = 16
+	plot_power_modifier = 0.1
+	assassinate_chance_modifier = 0.1
+	global_tax_modifier = 0.01
+	is_visible = { 
+		ROOT = { 
+			OR = {
+				character = FROM 
+				has_opinion_modifier = { modifier = aware_of_secret_actions who = FROM }
+			}
+		} 
+	}
+}
+access_comprimised = {
+	icon = 34
+	plot_power_modifier = -0.1
+	assassinate_chance_modifier = -0.1
+	global_tax_modifier = -0.01
+}
+castle_guards = {
+	icon = 13
+	global_garrison_size = 0.2
+	levy_size = 0.01
+	is_visible = { 
+		ROOT = { 
+			OR = {
+				character = FROM 
+				has_opinion_modifier = { modifier = aware_of_secret_actions who = FROM }
+			}
+		} 
+	}
+}
+disloyal_guards = {
+	icon = 31
+	global_garrison_size = -0.2
+	levy_size = -0.01
+}
+supply_chains = {
+	icon = 13
+	global_supply_limit = 0.1
+	global_winter_supply = 0.2
+	is_visible = { 
+		ROOT = { 
+			OR = {
+				character = FROM 
+				has_opinion_modifier = { modifier = aware_of_secret_actions who = FROM }
+			}
+		} 
+	}
+}
+diverted_supplies = {
+	icon = 31
+	global_supply_limit = -0.1
+	global_winter_supply = -0.2
+}
+guarded_roads = {
+	icon = 13
+	global_tax_modifier = 0.02
+	global_movement_speed = 0.1
+	is_visible = { 
+		ROOT = { 
+			OR = {
+				character = FROM 
+				has_opinion_modifier = { modifier = aware_of_secret_actions who = FROM }
+			}
+		} 
+	}
+}
+unguarded_roads = {
+	icon = 31
+	global_tax_modifier = -0.02
+	global_movement_speed = -0.1
+}
+trade_negotiations = {
+	icon = 4
+	tradevalue = 4
+	tax_income = 2
+	siege_defence = 0.05
+	is_visible = { 
+		ROOT = { 
+			OR = {
+				character = FROM 
+				has_opinion_modifier = { modifier = aware_of_secret_actions who = FROM }
+			}
+		} 
+	}
+}
+poor_trade_negotiations = {
+	icon = 22
+	tradevalue = -4
+	tax_income = -2
+	siege_defence = -0.05
+}
+port_control = {
+	icon = 4
+	city_tax_modifier = 0.2
+	is_visible = { 
+		ROOT = { 
+			OR = {
+				character = FROM 
+				has_opinion_modifier = { modifier = aware_of_secret_actions who = FROM }
+			}
+		} 
+	}
+}
+poorly_controlled_ports = {
+	icon = 22
+	city_tax_modifier = -0.2
+}
+skilled_workers = {
+	icon = 4
+	build_cost_modifier = -0.1
+	build_time_modifier = -0.1
+	is_visible = { 
+		ROOT = { 
+			OR = {
+				character = FROM 
+				has_opinion_modifier = { modifier = aware_of_secret_actions who = FROM }
+			}
+		} 
+	}
+}
+loss_of_skilled_workers = {
+	icon = 22
+	build_cost_modifier = 0.1
+	build_time_modifier = 0.1
+}
+transferred_staff = {
+	icon = 34
+	levy_size = -0.05
+	local_tax_modifier = -0.05
+	arrest_chance_modifier = -0.05
+}
+transferred_guards = {
+	icon = 31
+	global_garrison_size = -0.4
+	levy_size = -0.02
+}
+transferred_supplies = {
+	icon = 31
+	global_supply_limit = -0.2
+	global_winter_supply = -0.4
+}
+covering_financial_losses = {
+	icon = 24
+	global_tax_modifier = -0.1
+	is_visible = { ROOT = { character = FROM } }
+}
+spy_network = {
+	icon = 5
+	plot_power_modifier = 0.1
+	plot_discovery_chance = 0.05
+	is_visible = { ROOT = { character = FROM } }
+}
+subverted_spies = {
+	icon = 23
+	plot_power_modifier = -0.3
+	plot_discovery_chance = -0.15
+	is_visible = { liege = { character = ROOT } }
+}
+worrying_rumors = {
+	icon = 14
+	plot_discovery_chance = 0.1
+	defensive_plot_power_modifier = 0.2
+	arrest_chance_modifier = 0.2
+}
+plotting_coup = {
+	icon = 13
+	is_visible = { always = no }
+}
+distracted = {
+	icon = 34
+	general_opinion = -5
+	diplomacy = -1
+}
+rally_against_monster = {
+	icon = 72
+	local_revolt_risk = 0.1
+}
+monster_hunter_training = {
+	icon = 31
+	local_revolt_risk = 0.05
+	# Revolt leaders more likely to have monster hunter, and monster hunters have higher martial
+}
+monster_hunting_weapons = {
+	icon = 31
+	local_revolt_risk = 0.05
+	# Increases revolt size
+}
+growing_discontent = {
+	icon = 31
+	local_revolt_risk = 0.1
+}
+human_riots = {
+	icon = 31
+	local_revolt_risk = 0.1
+	local_tax_modifier = -0.2
+	local_build_cost_modifier = 0.1
+	local_build_time_modifier = 0.1
+	monthly_character_prestige = -0.2
+}
+
+### religious_secret_society modifiers ###
+secret_draconic_pagan_reformed_community = {
+	icon = 18
+	is_visible = {
+		society_member_of = secret_religious_society_draconic_pagan_reformed
+	}
+}
+secret_draconic_pagan_community = {
+	icon = 18
+	is_visible = {
+		society_member_of = secret_religious_society_draconic_pagan
+	}
+}
+secret_druidic_reformed_community = {
+	icon = 18
+	is_visible = {
+		society_member_of = secret_religious_society_druidic_reformed
+	}
+}
+secret_druidic_community = {
+	icon = 18
+	is_visible = {
+		society_member_of = secret_religious_society_druidic
+	}
+}
+secret_atenist_community = {
+	icon = 18
+	is_visible = {
+		society_member_of = secret_religious_society_atenist
+	}
+}
+secret_kemetic_pagan_community = {
+	icon = 18
+	is_visible = {
+		society_member_of = secret_religious_society_kemetic_pagan
+	}
+}
+secret_kemetic_pagan_reformed_community = {
+	icon = 18
+	is_visible = {
+		society_member_of = secret_religious_society_kemetic_pagan_reformed
+	}
+}
+secret_jotnar_reformed_community = {
+	icon = 18
+	is_visible = {
+		society_member_of = secret_religious_society_jotnar_reformed
+	}
+}
+secret_jotnar_community = {
+	icon = 18
+	is_visible = {
+		society_member_of = secret_religious_society_jotnar
+	}
+}
+defeated_monster_hunters = {
+	icon = 13
+	global_revolt_risk = -0.03
+}
+werewolf_commander = {
+	icon = 1
+	martial = 4
+	land_morale = 0.2
+	land_organisation = 0.2
+}
+werewolf_fighter = {
+	icon = 1
+	combat_rating = 32
+	martial = -2
+	heavy_infantry_offensive = 0.2
+	lycan_berzerkers_offensive = 0.2
+}
+appeared_weak = {
+	icon = 3
+	general_opinion = -5
+}
+borrowed_from_bank = {
+	icon = 24
+	church_opinion = -5
+}
+refused_to_repay_loan = {
+	icon = 22
+	town_opinion = -10
+	general_opinion = -10
+}
+secret_passageways = {
+	icon = 14
+	murder_plot_power_modifier = 0.15
+}
+overheard_rumors = {
+	icon = 14
+	plot_discovery_chance = 0.2
+}
+member_exposed = {
+	society_influence = -1
+}
+grandmaster_exposed = {
+	society_influence = -10
+}
+ancient_advice = {
+	icon = 3
+	vassal_opinion = 15
+}
+haunted_castle = {
+	icon = 42
+	castle_opinion = -15
+}
+seeker_of_secrets = {
+	icon = 5
+	plot_power_modifier = 0.1
+}
+consorted_with_demons = {
+	icon = 76
+	church_opinion = -20
+}
+spirit_blessed_farmlands = {
+	icon = 87
+	local_tax_modifier = 0.1
+	supply_limit = 0.1
+}
+night_spirits = {
+	icon = 57
+	local_revolt_risk = 0.4
+}
+sacrificed_crops = {
+	icon = 60
+	local_tax_modifier = -0.15
+}
+sacrificed_livestock = {
+	icon = 60
+	local_tax_modifier = -0.3
+}
+regeneration_strain = {
+	icon = 51
+	combat_rating = -20
+	health = -1
+}
+potion_of_purity = {
+	icon = 83
+	#custom_tooltip = { text = purity_plus_1 }
+}
+potion_of_battle = {
+	icon = 83
+	martial = 2
+	combat_rating = 10
+	land_morale = 0.05
+	levy_reinforce_rate = 0.2
+}
+potion_of_fertility = {
+	icon = 83
+	fertility = 0.2
+	sex_appeal_opinion = 10
+}
+potion_of_health = {
+	icon = 83
+	health = 2
+}
+potion_of_secrets = {
+	icon = 83
+	plot_power_modifier = 0.3
+	defensive_plot_power_modifier = 0.3
+	plot_discovery_chance = 0.3
+}
+# Experimental Potion - Q1 Herb, Good
+experimental_potion_1 = {
+	icon = 83
+	health = 2
+	fertility_penalty = -0.1
+}
+# Experimental Potion - Q1 Animal, Good
+experimental_potion_2 = {
+	icon = 83
+	fertility = 0.2
+	health_penalty = -0.5
+}
+# Experimental Potion - Q1 Metal, Good
+experimental_potion_3 = {
+	icon = 83
+	land_morale = 0.1
+	health_penalty = -0.5
+}
+# Experimental Potion - Q2 Herb, Good
+experimental_potion_4 = {
+	icon = 83
+	sex_appeal_opinion = 10
+	defensive_plot_power_modifier  = -0.1
+}
+# Experimental Potion - Q3 Herb, Good
+experimental_potion_5 = {
+	icon = 83
+	general_opinion = 10
+	combat_rating  = -5
+}
+# Experimental Potion - Q1 Herb, Bad
+experimental_potion_6 = {
+	icon = 84
+	health_penalty = -1
+}
+# Experimental Potion - Q1 Animal, Bad
+experimental_potion_7 = {
+	icon = 84
+	stewardship_penalty = -1
+}
+# Experimental Potion - Q1 Metal, Bad
+experimental_potion_8 = {
+	icon = 84
+	diplomacy_penalty = -1
+}
+# Experimental Potion - Q2 Herb, Bad
+experimental_potion_9 = {
+	icon = 84
+	intrigue_penalty = -1
+}
+# Experimental Potion - Q3 Herb, Bad
+experimental_potion_10 = {
+	icon = 84
+	fertility_penalty = -0.5
+}
+# Devastation - only used without Reaper's Due
+devastation_1 = {
+	icon = 42
+	levy_size = -0.2
+}
+devastation_2 = {
+	icon = 42
+	levy_size = -0.4
+}
+devastation_3 = {
+	icon = 42
+	levy_size = -0.6
+}
+demonic_sacrifices = {
+	icon = 42
+	global_revolt_risk = 0.02
+	global_tax_modifier = -0.1
+	monthly_character_prestige = -1
+	monthly_character_piety = -1
+	vassal_opinion = -10
+	levy_size = -0.02
+	global_garrison_size = -0.02
+}
+tended_to_dead = {
+	icon = 18
+	general_opinion = 5
+	church_opinion = 5
+}
+honored_soldiers = {
+	icon = 3
+	culture_flex = -0.1
+	short_reign_length = -1
+}
+undead_laborers = {
+	icon = 41
+	local_build_cost_modifier = -0.2
+	local_build_time_modifier = -0.1
+	local_revolt_risk = 0.04
+}
+divination_room = {
+	icon = 52
+	tech_growth_modifier = 0.2
+}
+tower_crypt = {
+	icon = 41
+	zombie_troops_offensive = 0.05
+	zombie_troops_defensive = 0.05
+	zombie_troops_morale = 0.05
+}
+diplomacy_drained = {
+	icon = 21
+	diplomacy = -2
+}
+drained_diplomacy = {
+	icon = 3
+	diplomacy = 2
+	is_visible = { character = FROM }
+}
+martial_drained = {
+	icon = 19
+	martial = -2
+}
+drained_martial = {
+	icon = 1
+	martial = 2
+	is_visible = { character = FROM }
+}
+stewardship_drained = {
+	icon = 22
+	stewardship = -2
+}
+drained_stewardship = {
+	icon = 4
+	stewardship = 2
+	is_visible = { character = FROM }
+}
+intrigue_drained = {
+	icon = 23
+	intrigue = -2
+}
+drained_intrigue = {
+	icon = 5
+	intrigue = 2
+	is_visible = { character = FROM }
+}
+learning_drained = {
+	icon = 20
+	intrigue = -2
+}
+drained_learning = {
+	icon = 2
+	intrigue = 2
+	is_visible = { character = FROM }
+}
+studied_masters_writings = {
+	icon = 2
+	learning = 2
+}
+organized_notes = {
+	icon = 4
+	stewardship = 2
+}
+undead_swarm = {
+	icon = 42
+	local_revolt_risk = 0.1
+}
+undead_desolation = {
+	icon = 42
+}
+draconic_tributary = {
+	icon = 27
+}
+bountiful_harvests = {
+	icon = 87
+	supply_limit = 4
+}
+well_supplied = {
+	icon = 1
+	supply_limit = 2
+	days_of_supply = 20
+}
+druidic_mobility = {
+	icon = 123
+	#global_movement_speed = 0.2
+	command_modifier = {
+		speed = 0.2
+	}
+}
+SF_loan = {	icon = 24 }
+
+tainted_blood = {
+	icon = 42
+	health_penalty = -3
+	intrigue_penalty = -2
+	combat_rating = -5
+	is_visible = { character = FROM }
+}
+plague_vampire = {
+	icon = 42
+	general_opinion = -5
+	vampire_culture_opinion = -5
+	vampire_opinion = -10
+}
+focused_research = {
+	icon = 86
+	diplomacy = -3
+	stewardship = -3
+}
+focused_research_minor = {
+	icon = 86
+	diplomacy = -1
+	stewardship = -1
+}
+donated_land = {
+	icon = 83
+	disease_defence = 0.05
+	hospital_level = 1
+}
+church_financial_aid = {
+	icon = 17
+	church_opinion = 10
+}
+diverted_troops = {
+	icon = 31
+	levy_size = -0.1
+}
+purified_water = {
+	icon = 87
+	disease_defense = 0.1
+}
+shining_buildings = {
+	icon = 79
+	monthly_character_prestige = 0.5
+}
+preserved_food = {
+	icon = 59
+	disease_defense = 0.05
+	siege_defence = 0.1
+	supply_limit = 2
+	local_revolt_risk = -0.01
+}
+calming_music = {
+	icon = 18
+	local_revolt_risk = -0.05
+}
+idyllic_weather = {
+	icon = 52
+	local_build_cost_modifier = -0.05
+	local_build_time_modifier = -0.05
+}
+parade_guards = {
+	icon = 1
+	monthly_character_prestige = 0.5
+	local_levy_size = -0.02
+}
+favored_nobles = {
+	icon = 10
+	castle_opinion = 10
+}
+favored_clergy = {
+	icon = 2
+	temple_opinion = 10
+}
+favored_tribesmen = {
+	icon = 1
+	tribal_opinion = 10
+}
+favored_burghers = {
+	icon = 4
+	city_opinion = 10
+}
+necromancer_event_looted = {
+	icon = 24
+	local_tax_modifier = -0.25
+}
+vampire_starving = {
+	icon = 60
+	health = -1
+}
+asked_for_wish = {
+	icon = 53
+}

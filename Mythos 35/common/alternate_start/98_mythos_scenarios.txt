@@ -1,0 +1,2148 @@
+mythos_generate_monsters = {
+	type = selection
+	sort_priority = 0
+	
+	mandatory = {
+		effect = {
+			# Set up revenants in blank provinces
+			while = {
+				count = 3
+				random_province = {
+					limit = {
+						OR = {
+							no_religion = yes
+							no_culture = yes
+						}
+					}
+					save_event_target_as = base_province
+					religion = the_damned
+					random_list = {
+						1 = {
+							modifier = {
+								factor = 2
+								climate = severe_winter
+							}
+							modifier = {
+								factor = 1.5
+								climate = normal_winter
+							}
+							modifier = {
+								factor = 0.1
+								NOR = {
+									climate = severe_winter
+									climate = normal_winter
+									climate = mild_winter
+								}
+							}
+							modifier = {
+								factor = 3
+								any_neighbor_province = {
+									OR = {
+										religion = baltic_pagan
+										religion = baltic_pagan_reformed
+										religion = slavic_pagan
+										religion = slavic_pagan_reformed
+										religion = finnish_pagan
+										religion = finnish_pagan_reformed
+										culture_group = east_slavic
+										culture_group = west_slavic
+										culture_group = south_slavic
+									}
+								}
+							}
+							culture = undead_cold_ones
+						}
+						1 = {
+							modifier = {
+								factor = 3
+								any_neighbor_province = {
+									OR = {
+										culture_group = north_germanic
+										religion = norse_pagan
+										religion = norse_pagan_reformed
+									}
+								}
+							}
+							culture = undead_aptrganger
+						}
+						1 = {
+							modifier = {
+								factor = 3
+								any_neighbor_province = {
+									OR = {
+										culture = jotunn
+										religion = jotnar
+										religion = jotnar_reformed
+									}
+								}
+							}
+							culture = undead_draugr
+						}
+						1 = {
+							modifier = {
+								factor = 3
+								any_neighbor_province = {
+									OR = {
+										culture_group = israelite
+										religion_group = jewish_group
+									}
+								}
+							}
+							culture = undead_dybbuk
+						}
+						1 = {
+							modifier = {
+								factor = 3
+								any_neighbor_province = {
+									OR = {
+										culture_group = arabic
+										religion_group = muslim
+									}
+								}
+							}
+							culture = undead_ghoul
+						}
+						1 = {
+							modifier = {
+								factor = 3
+								any_neighbor_province = {
+									OR = {
+										culture_group = west_germanic
+										culture_group = celtic
+										religion = druidic
+										religion = druidic_reformed
+									}
+								}
+							}
+							culture = undead_wight
+						}
+						1 = {
+							modifier = {
+								factor = 3
+								any_neighbor_province = {
+									OR = {
+										culture_group = west_african
+										religion = west_african_pagan
+										religion = west_african_pagan_reformed
+									}
+								}
+							}
+							culture = undead_zombie
+						}
+						1 = {
+							modifier = {
+								factor = 3
+								any_neighbor_province = {
+									OR = {
+										culture_group = indo_aryan_group
+										culture_group = dravidian_group
+										religion_group = indian_group
+									}
+								}
+							}
+							culture = undead_vetala
+						}
+						1 = {
+							modifier = {
+								factor = 3
+								any_neighbor_province = {
+									OR = {
+										culture_group = byzantine
+										culture = roman
+										religion = hellenic_pagan
+										religion = hellenic_pagan_reformed
+									}
+								}
+							}
+							culture = undead_vrykolakas
+						}
+					}
+					random_list = {
+						1 = { set_variable = { which = num_provinces value = 10 } }
+						2 = { set_variable = { which = num_provinces value = 9 } }
+						3 = { set_variable = { which = num_provinces value = 8 } }
+						4 = { set_variable = { which = num_provinces value = 7 } }
+						5 = { set_variable = { which = num_provinces value = 6 } }
+						6 = { set_variable = { which = num_provinces value = 5 } }
+						7 = { set_variable = { which = num_provinces value = 4 } }
+						8 = { set_variable = { which = num_provinces value = 3 } }
+						9 = { set_variable = { which = num_provinces value = 2 } }
+					}
+					fix_local_character_religion = yes
+					fix_local_character_culture = yes
+					set_variable = { which = province_count value = 0 }
+					while = {
+						limit = {
+							NOT = { check_variable = { which = province_count which = num_provinces } }
+						}
+						random_province = {
+							limit = {
+								any_neighbor_province = { culture = event_target:base_province }
+								OR = {
+									no_religion = yes
+									no_culture = yes
+								}
+							}
+							religion = the_damned
+							culture = event_target:base_province
+							fix_local_character_religion = yes
+							fix_local_character_culture = yes
+						}
+						change_variable = { which = province_count value = 1 }
+					}
+				}
+			}
+			
+			# Give a religion to 4 random no-religion provinces to act as seeds
+			while = {
+				count = 4
+				random_province = {
+					limit = {
+						no_religion = yes
+					}
+					if = {
+						limit = {
+							any_neighbor_province = { has_religion = yes }
+						}
+						random_neighbor_province = {
+							limit = { has_religion = yes }
+							religion = PREV
+						}
+					}
+					else = {
+						random_list = {
+							5 = { religion = catholic }
+							1 = { religion = cathar }
+							1 = { religion = fraticelli }
+							1 = { religion = waldensian }
+							1 = { religion = lollard }
+							5 = { religion = orthodox }
+							1 = { religion = miaphysite }
+							1 = { religion = monophysite }
+							1 = { religion = bogomilist }
+							1 = { religion = monothelite }
+							1 = { religion = iconoclast }
+							1 = { religion = paulician }
+							1 = { religion = nestorian }
+							1 = { religion = messalian }
+							5 = { religion = sunni }
+							1 = { religion = zikri }
+							1 = { religion = yazidi }
+							5 = { religion = ibadi }
+							1 = { religion = kharijite }
+							5 = { religion = shiite }
+							1 = { religion = druze }
+							1 = { religion = hurufi }
+							5 = { religion = norse_pagan }
+							5 = { religion = tengri_pagan }
+							5 = { religion = baltic_pagan }
+							5 = { religion = finnish_pagan }
+							5 = { 
+								trigger = { has_alternate_start_parameter = { key = religion value = full_random } has_dlc = "Sunset Invasion" }
+								religion = aztec
+							}
+							5 = { religion = slavic_pagan }
+							5 = { religion = west_african_pagan }
+							5 = { religion = zun_pagan }
+							5 = { 
+								trigger = { has_alternate_start_parameter = { key = religion value = full_random } }
+								religion = hellenic_pagan
+							}
+							5 = { religion = bon }
+							5 = { religion = zoroastrian }
+							1 = { religion = mazdaki }
+							1 = { religion = manichean }
+							1 = { religion = khurmazta }
+							5 = { religion = jewish }
+							1 = { religion = samaritan }
+							1 = { religion = karaite }
+							5 = { religion = hindu }
+							5 = { religion = buddhist }
+							5 = { religion = jain }
+							5 = { religion = taoist }
+							3 = {
+								modifier = {
+									factor = 2
+									culture = draconic
+								}
+								religion = draconic_pagan
+							}
+							5 = { religion = druidic }
+							1 = { 
+								modifier = { 
+									factor = 5
+									has_alternate_start_parameter = { key = religion value = full_random }
+								}
+								religion = atenist
+							}
+							5 = { religion = kemetic_pagan }
+							3 = { religion = jotnar }
+							1 = { 
+								modifier = { 
+									factor = 5
+									has_alternate_start_parameter = { key = religion value = full_random }
+								}
+								religion = satanist
+							}
+						}
+					}
+					fix_local_character_religion = yes
+					any_neighbor_province = {
+						limit = { no_religion = yes }
+						religion = PREV
+						fix_local_character_religion = yes
+					}
+				}
+			}
+			# Find each province with no religion where a neighbor has a religion
+			while = {
+				limit = {
+					any_province = {
+						no_religion = yes
+						any_neighbor_province = {
+							has_religion = yes
+						}
+					}
+				}
+				any_province = {
+					limit = { 
+						no_religion = yes
+						any_neighbor_province = {
+							has_religion = yes
+						}
+					}
+					save_event_target_as = base_province
+					random_neighbor_province = {
+						limit = {
+							has_religion = yes
+						}
+						event_target:base_province = {
+							religion = PREV
+						}
+					}
+					fix_local_character_religion = yes
+					any_neighbor_province = {
+						limit = { no_religion = yes }
+						religion = PREV
+						fix_local_character_religion = yes
+					}
+				}
+			}
+			# Handle any leftovers
+			while = {
+				limit = {
+					any_province = {
+						no_religion = yes
+					}
+				}
+				random_province = {
+					limit = {
+						no_religion = yes
+					}
+					random_list = {
+						5 = { religion = catholic }
+						1 = { religion = cathar }
+						1 = { religion = fraticelli }
+						1 = { religion = waldensian }
+						1 = { religion = lollard }
+						5 = { religion = orthodox }
+						1 = { religion = miaphysite }
+						1 = { religion = monophysite }
+						1 = { religion = bogomilist }
+						1 = { religion = monothelite }
+						1 = { religion = iconoclast }
+						1 = { religion = paulician }
+						1 = { religion = nestorian }
+						1 = { religion = messalian }
+						5 = { religion = sunni }
+						1 = { religion = zikri }
+						1 = { religion = yazidi }
+						5 = { religion = ibadi }
+						1 = { religion = kharijite }
+						5 = { religion = shiite }
+						1 = { religion = druze }
+						1 = { religion = hurufi }
+						5 = { religion = norse_pagan }
+						5 = { religion = tengri_pagan }
+						5 = { religion = baltic_pagan }
+						5 = { religion = finnish_pagan }
+						5 = { 
+							trigger = { has_alternate_start_parameter = { key = religion value = full_random } has_dlc = "Sunset Invasion" }
+							religion = aztec
+						}
+						5 = { religion = slavic_pagan }
+						5 = { religion = west_african_pagan }
+						5 = { religion = zun_pagan }
+						5 = { 
+							trigger = { has_alternate_start_parameter = { key = religion value = full_random } }
+							religion = hellenic_pagan
+						}
+						5 = { religion = bon }
+						5 = { religion = zoroastrian }
+						1 = { religion = mazdaki }
+						1 = { religion = manichean }
+						1 = { religion = khurmazta }
+						5 = { religion = jewish }
+						1 = { religion = samaritan }
+						1 = { religion = karaite }
+						5 = { religion = hindu }
+						5 = { religion = buddhist }
+						5 = { religion = jain }
+						5 = { religion = taoist }
+						3 = {
+							modifier = {
+								factor = 2
+								culture = draconic
+							}
+							religion = draconic_pagan
+						}
+						5 = { religion = druidic }
+						1 = { 
+							modifier = { 
+								factor = 5
+								has_alternate_start_parameter = { key = religion value = full_random }
+							}
+							religion = atenist
+						}
+						5 = { religion = kemetic_pagan }
+						3 = { religion = jotnar }
+						1 = { 
+							modifier = { 
+								factor = 5
+								has_alternate_start_parameter = { key = religion value = full_random }
+							}
+							religion = satanist
+						}
+					}
+					fix_local_character_religion = yes
+					any_neighbor_province = {
+						limit = {
+							no_religion = yes
+						}
+						religion = PREV
+						fix_local_character_religion = yes
+						any_neighbor_province = {
+							limit = {
+								no_religion = yes
+							}
+							religion = PREV
+							fix_local_character_religion = yes
+							any_neighbor_province = {
+								limit = {
+									no_religion = yes
+								}
+								religion = PREV
+								fix_local_character_religion = yes
+							}
+						}
+					}
+				}
+			}
+			# Any characters with no religion should take their province religion
+			any_character = {
+				limit = { no_religion = yes }
+				location = {
+					PREV = {
+						religion = PREV
+					}
+				}
+			}
+			
+			# Now handle cultures
+			log = "Setting culture seed provinces"
+			while = {
+				count = 5
+				random_province = {
+					limit = {
+						no_culture = yes
+					}
+					if = {
+						limit = { any_neighbor_province = { has_culture = yes } }
+						save_event_target_as = base_province
+						any_neighbor_province = {
+							limit = { has_culture = yes }
+							event_target:base_province = { culture = PREV }
+						}
+					}
+					else = {
+						random_list = {
+							1 = {
+								modifier = {
+									factor = 3
+									OR = {
+										year < 1000 
+										has_alternate_start_parameter = { key = culture value = full_random }
+									}
+								}
+								culture = norse
+							}
+							1 = {
+								modifier = {
+									factor = 3
+									OR = {
+										year >= 1000 
+										has_alternate_start_parameter = { key = culture value = full_random }
+									}
+								}
+								culture = swedish
+							}
+							1 = {
+								modifier = {
+									factor = 3
+									OR = {
+										year >= 1000 
+										has_alternate_start_parameter = { key = culture value = full_random }
+									}
+								}
+								culture = norwegian
+							}
+							1 = {
+								modifier = {
+									factor = 3
+									OR = {
+										year >= 1000 
+										has_alternate_start_parameter = { key = culture value = full_random }
+									}
+								}
+								culture = danish
+							}
+							3 = { culture = german }
+							1 = {
+								modifier = {
+									factor = 3
+									OR = {
+										year < 1000
+										has_alternate_start_parameter = { key = culture value = full_random }
+									}
+								}
+								culture = lombard
+							}
+							1 = {
+								modifier = {
+									factor = 3
+									OR = {
+										year < 1000
+										has_alternate_start_parameter = { key = culture value = full_random }
+									}
+								}
+								culture = old_frankish
+							}
+							1 = {
+								modifier = {
+									factor = 3
+									OR = {
+										year < 1000
+										has_alternate_start_parameter = { key = culture value = full_random }
+									}
+								}
+								culture = suebi
+							}
+							1 = {
+								modifier = {
+									factor = 3
+									OR = {
+										year >= 1000
+										has_alternate_start_parameter = { key = culture value = full_random }
+									}
+								}
+								culture = english
+							}
+							1 = {
+								modifier = {
+									factor = 3
+									OR = {
+										year < 1100
+										has_alternate_start_parameter = { key = culture value = full_random }
+									}
+								}
+								culture = saxon
+							}
+							1 = {
+								modifier = {
+									factor = 3
+									OR = {
+										year < 800
+										has_alternate_start_parameter = { key = culture value = full_random }
+									}
+								}
+								culture = old_saxon
+							}
+							1 = {
+								modifier = {
+									factor = 3
+									OR = {
+										year < 800
+										has_alternate_start_parameter = { key = culture value = full_random }
+									}
+								}
+								culture = frisian
+							}
+							1 = {
+								modifier = {
+									factor = 3
+									OR = {
+										year >= 800
+										has_alternate_start_parameter = { key = culture value = full_random }
+									}
+								}
+								culture = dutch
+							}
+							1 = {
+								modifier = {
+									factor = 3
+									OR = {
+										year >= 800
+										has_alternate_start_parameter = { key = culture value = full_random }
+									}
+								}
+								culture = frankish
+							}
+							1 = {
+								modifier = {
+									factor = 3
+									OR = {
+										year >= 1000
+										has_alternate_start_parameter = { key = culture value = full_random }
+									}
+								}
+								culture = norman
+							}
+							3 = { culture = italian }
+							1 = {
+								modifier = {
+									factor = 3
+									OR = {
+										year >= 1000
+										has_alternate_start_parameter = { key = culture value = full_random }
+									}
+								}
+								culture = occitan
+							}
+							1 = {
+								modifier = {
+									factor = 3
+									has_alternate_start_parameter = { key = culture value = full_random }
+								}
+								culture = roman
+							}
+							3 = { culture = dalmatian }
+							1 = {
+								modifier = {
+									factor = 3
+									has_alternate_start_parameter = { key = culture value = full_random }
+								}
+								culture = outremer
+							}
+							3 = { culture = basque }
+							1 = {
+								modifier = {
+									factor = 3
+									OR = {
+										year >= 1000
+										has_alternate_start_parameter = { key = culture value = full_random }
+									}
+								}
+								culture = castillan
+							}
+							1 = {
+								modifier = {
+									factor = 3
+									OR = {
+										year >= 1000
+										has_alternate_start_parameter = { key = culture value = full_random }
+									}
+								}
+								culture = catalan
+							}
+							1 = {
+								modifier = {
+									factor = 3
+									OR = {
+										year >= 1000
+										has_alternate_start_parameter = { key = culture value = full_random }
+									}
+								}
+								culture = portuguese
+							}
+							1 = {
+								modifier = {
+									factor = 3
+									OR = {
+										year < 1000
+										has_alternate_start_parameter = { key = culture value = full_random }
+									}
+								}
+								culture = visigothic
+							}
+							3 = { culture = arberian }
+							3 = { culture = armenian }
+							3 = { culture = greek }
+							3 = { culture = alan }
+							3 = { culture = georgian }
+							3 = { culture = assyrian }
+							3 = { culture = coptic }
+							3 = { culture = crimean_gothic }
+							3 = { culture = irish }
+							1 = {
+								modifier = {
+									factor = 3
+									OR = {
+										year >= 800
+										has_alternate_start_parameter = { key = culture value = full_random }
+									}
+								}
+								culture = scottish
+							}
+							1 = {
+								modifier = {
+									factor = 3
+									OR = {
+										year < 1000
+										has_alternate_start_parameter = { key = culture value = full_random }
+									}
+								}
+								culture = pictish
+							}
+							3 = { culture = welsh }
+							3 = { culture = breton }
+							3 = { culture = finnish }
+							3 = { culture = lappish }
+							3 = { culture = ugricbaltic }
+							3 = { culture = komi }
+							3 = { culture = khanty }
+							3 = { culture = samoyed }
+							3 = { culture = mordvin }
+							3 = { culture = meshchera }
+							3 = { culture = lettigallish }
+							3 = { culture = lithuanian }
+							3 = { culture = prussian }
+							3 = { culture = turkish }
+							3 = { culture = pecheneg }
+							3 = { culture = cuman }
+							3 = { culture = khazar }
+							3 = { culture = bolghar }
+							1 = {
+								modifier = {
+									factor = 3
+									OR = {
+										year < 1000
+										has_alternate_start_parameter = { key = culture value = full_random }
+									}
+								}
+								culture = avar
+							}
+							3 = { culture = karluk }
+							3 = { culture = kirghiz }
+							3 = { culture = uyghur }
+							1 = {
+								modifier = {
+									factor = 3
+									OR = {
+										year < 1000
+										has_alternate_start_parameter = { key = culture value = full_random }
+									}
+								}
+								culture = mongol
+							}
+							3 = { culture = khitan }
+							3 = { culture = jurchen }
+							3 = { culture = bedouin_arabic }
+							3 = { culture = maghreb_arabic }
+							3 = { culture = levantine_arabic }
+							3 = { culture = egyptian_arabic }
+							1 = {
+								modifier = {
+									factor = 3
+									OR = {
+										year >= 1000
+										has_alternate_start_parameter = { key = culture value = full_random }
+									}
+								}
+								culture = andalusian_arabic
+							}
+							1 = {
+								modifier = {
+									factor = 3
+									OR = {
+										year >= 800
+										has_alternate_start_parameter = { key = culture value = full_random }
+									}
+								}
+								culture = russian
+							}
+							1 = {
+								modifier = {
+									factor = 3
+									OR = {
+										year < 800
+										has_alternate_start_parameter = { key = culture value = full_random }
+									}
+								}
+								culture = ilmenian
+							}
+							1 = {
+								modifier = {
+									factor = 3
+									OR = {
+										year < 800
+										has_alternate_start_parameter = { key = culture value = full_random }
+									}
+								}
+								culture = severian
+							}
+							1 = {
+								modifier = {
+									factor = 3
+									OR = {
+										year < 800
+										has_alternate_start_parameter = { key = culture value = full_random }
+									}
+								}
+								culture = volhynian
+							}
+							3 = { culture = pommeranian }
+							3 = { culture = bohemian }
+							3 = { culture = polish }
+							3 = { culture = croatian }
+							3 = { culture = serbian }
+							3 = { culture = romanian }
+							3 = { culture = bulgarian }
+							3 = { culture = bosnian }
+							3 = { culture = carantanian }
+							3 = { culture = hungarian }
+							3 = { culture = persian }
+							3 = { culture = sogdian }
+							3 = { culture = tocharian }
+							3 = { culture = kurdish }
+							3 = { culture = afghan }
+							3 = { culture = baloch }
+							3 = { culture = saka }
+							3 = { culture = ethiopian }
+							3 = { culture = somali }
+							3 = { culture = nubian }
+							3 = { culture = daju }
+							3 = { culture = kanuri }
+							3 = { culture = hausa }
+							3 = { culture = zaghawa }
+							3 = { culture = manden }
+							3 = { culture = soninke }
+							3 = { culture = songhay }
+							1 = {
+								modifier = {
+									factor = 3
+									has_alternate_start_parameter = { key = culture value = full_random }
+									has_dlc = "Sunset Invasion" 
+								}
+								culture = nahuatl
+							}
+							2 = {
+								modifier = {
+									factor = 1.5
+									religion_group = jewish_group
+								}
+								culture = ashkenazi
+							}
+							2 = {
+								modifier = {
+									factor = 1.5
+									religion_group = jewish_group
+								}
+								culture = sephardi
+							}
+							3 = { culture = bengali }
+							3 = { culture = oriya }
+							3 = { culture = assamese }
+							3 = { culture = hindustani }
+							3 = { culture = gujurati }
+							3 = { culture = panjabi }
+							3 = { culture = rajput }
+							3 = { culture = sindhi }
+							3 = { culture = marathi }
+							3 = { culture = sinhala }
+							3 = { culture = nepali }
+							3 = { culture = tamil }
+							3 = { culture = telugu }
+							3 = { culture = kannada }
+							3 = { culture = bodpa }
+							3 = { culture = tangut }
+							1 = {
+								modifier = {
+									factor = 3
+									OR = {
+										year < 1000 
+										has_alternate_start_parameter = { key = culture value = full_random }
+									}
+								}
+								culture = zhangzhung
+							}
+							1 = {
+								modifier = {
+									factor = 3
+									OR = {
+										year < 1000 
+										has_alternate_start_parameter = { key = culture value = full_random }
+									}
+								}
+								culture = sumpa
+							}
+							3 = { culture = han }
+							1 = {
+								modifier = {
+									factor = 3
+									OR = {
+										has_alternate_start_parameter = { key = culture value = full_random }
+										has_alternate_start_parameter = { key = special_culture value = monster_kingdoms }
+									}
+								}
+								culture = djinni
+							}
+							1 = {
+								modifier = {
+									factor = 3
+									has_alternate_start_parameter = { key = culture value = full_random }
+								}
+								culture = egyptian
+							}
+							1 = {
+								modifier = {
+									factor = 3
+									OR = {
+										has_alternate_start_parameter = { key = culture value = full_random }
+										has_alternate_start_parameter = { key = special_culture value = monster_kingdoms }
+									}
+								}
+								culture = jotunn
+							}
+							1 = {
+								modifier = {
+									factor = 3
+									OR = {
+										has_alternate_start_parameter = { key = culture value = full_random }
+										has_alternate_start_parameter = { key = special_culture value = monster_kingdoms }
+									}
+								}
+								culture = draconic
+							}
+							3 = {
+								modifier = {
+									factor = 0
+									NOT = { has_alternate_start_parameter = { key = special_culture value = monster_kingdoms } }
+								}
+								culture = vampire_culture
+							}
+							3 = {
+								modifier = {
+									factor = 0
+									NOT = { has_alternate_start_parameter = { key = special_culture value = monster_kingdoms } }
+								}
+								culture = werewolf_culture
+							}
+						}
+					}
+					fix_local_character_culture = yes
+				}
+			}
+			while = {
+				limit = {
+					any_province = {
+						no_culture = yes
+						any_neighbor_province = {
+							has_culture = yes
+						}
+					}
+				}
+				any_province = {
+					limit = { 
+						no_culture = yes
+						any_neighbor_province = { has_culture = yes }
+					}
+					save_event_target_as = base_province
+					random_neighbor_province = {
+						limit = { has_culture = yes }
+						event_target:base_province = {
+							culture = PREV
+						}
+					}
+					fix_local_character_culture = yes
+				}
+			}
+			# Handle any leftovers
+			log = "Handling culture of leftovers"
+			while = {
+				limit = {
+					any_province = { no_culture = yes }
+				}
+				random_province = {
+					limit = { no_culture = yes }
+					random_list = {
+						1 = {
+							modifier = {
+								factor = 3
+								OR = {
+									year < 1000 
+									has_alternate_start_parameter = { key = culture value = full_random }
+								}
+							}
+							culture = norse
+						}
+						1 = {
+							modifier = {
+								factor = 3
+								OR = {
+									year >= 1000 
+									has_alternate_start_parameter = { key = culture value = full_random }
+								}
+							}
+							culture = swedish
+						}
+						1 = {
+							modifier = {
+								factor = 3
+								OR = {
+									year >= 1000 
+									has_alternate_start_parameter = { key = culture value = full_random }
+								}
+							}
+							culture = norwegian
+						}
+						1 = {
+							modifier = {
+								factor = 3
+								OR = {
+									year >= 1000 
+									has_alternate_start_parameter = { key = culture value = full_random }
+								}
+							}
+							culture = danish
+						}
+						3 = { culture = german }
+						1 = {
+							modifier = {
+								factor = 3
+								OR = {
+									year < 1000
+									has_alternate_start_parameter = { key = culture value = full_random }
+								}
+							}
+							culture = lombard
+						}
+						1 = {
+							modifier = {
+								factor = 3
+								OR = {
+									year < 1000
+									has_alternate_start_parameter = { key = culture value = full_random }
+								}
+							}
+							culture = old_frankish
+						}
+						1 = {
+							modifier = {
+								factor = 3
+								OR = {
+									year < 1000
+									has_alternate_start_parameter = { key = culture value = full_random }
+								}
+							}
+							culture = suebi
+						}
+						1 = {
+							modifier = {
+								factor = 3
+								OR = {
+									year >= 1000
+									has_alternate_start_parameter = { key = culture value = full_random }
+								}
+							}
+							culture = english
+						}
+						1 = {
+							modifier = {
+								factor = 3
+								OR = {
+									year < 1100
+									has_alternate_start_parameter = { key = culture value = full_random }
+								}
+							}
+							culture = saxon
+						}
+						1 = {
+							modifier = {
+								factor = 3
+								OR = {
+									year < 800
+									has_alternate_start_parameter = { key = culture value = full_random }
+								}
+							}
+							culture = old_saxon
+						}
+						1 = {
+							modifier = {
+								factor = 3
+								OR = {
+									year < 800
+									has_alternate_start_parameter = { key = culture value = full_random }
+								}
+							}
+							culture = frisian
+						}
+						1 = {
+							modifier = {
+								factor = 3
+								OR = {
+									year >= 800
+									has_alternate_start_parameter = { key = culture value = full_random }
+								}
+							}
+							culture = dutch
+						}
+						1 = {
+							modifier = {
+								factor = 3
+								OR = {
+									year >= 800
+									has_alternate_start_parameter = { key = culture value = full_random }
+								}
+							}
+							culture = frankish
+						}
+						1 = {
+							modifier = {
+								factor = 3
+								OR = {
+									year >= 1000
+									has_alternate_start_parameter = { key = culture value = full_random }
+								}
+							}
+							culture = norman
+						}
+						3 = { culture = italian }
+						1 = {
+							modifier = {
+								factor = 3
+								OR = {
+									year >= 1000
+									has_alternate_start_parameter = { key = culture value = full_random }
+								}
+							}
+							culture = occitan
+						}
+						1 = {
+							modifier = {
+								factor = 3
+								has_alternate_start_parameter = { key = culture value = full_random }
+							}
+							culture = roman
+						}
+						3 = { culture = dalmatian }
+						1 = {
+							modifier = {
+								factor = 3
+								has_alternate_start_parameter = { key = culture value = full_random }
+							}
+							culture = outremer
+						}
+						3 = { culture = basque }
+						1 = {
+							modifier = {
+								factor = 3
+								OR = {
+									year >= 1000
+									has_alternate_start_parameter = { key = culture value = full_random }
+								}
+							}
+							culture = castillan
+						}
+						1 = {
+							modifier = {
+								factor = 3
+								OR = {
+									year >= 1000
+									has_alternate_start_parameter = { key = culture value = full_random }
+								}
+							}
+							culture = catalan
+						}
+						1 = {
+							modifier = {
+								factor = 3
+								OR = {
+									year >= 1000
+									has_alternate_start_parameter = { key = culture value = full_random }
+								}
+							}
+							culture = portuguese
+						}
+						1 = {
+							modifier = {
+								factor = 3
+								OR = {
+									year < 1000
+									has_alternate_start_parameter = { key = culture value = full_random }
+								}
+							}
+							culture = visigothic
+						}
+						3 = { culture = arberian }
+						3 = { culture = armenian }
+						3 = { culture = greek }
+						3 = { culture = alan }
+						3 = { culture = georgian }
+						3 = { culture = assyrian }
+						3 = { culture = coptic }
+						3 = { culture = crimean_gothic }
+						3 = { culture = irish }
+						1 = {
+							modifier = {
+								factor = 3
+								OR = {
+									year >= 800
+									has_alternate_start_parameter = { key = culture value = full_random }
+								}
+							}
+							culture = scottish
+						}
+						1 = {
+							modifier = {
+								factor = 3
+								OR = {
+									year < 1000
+									has_alternate_start_parameter = { key = culture value = full_random }
+								}
+							}
+							culture = pictish
+						}
+						3 = { culture = welsh }
+						3 = { culture = breton }
+						3 = { culture = finnish }
+						3 = { culture = lappish }
+						3 = { culture = ugricbaltic }
+						3 = { culture = komi }
+						3 = { culture = khanty }
+						3 = { culture = samoyed }
+						3 = { culture = mordvin }
+						3 = { culture = meshchera }
+						3 = { culture = lettigallish }
+						3 = { culture = lithuanian }
+						3 = { culture = prussian }
+						3 = { culture = turkish }
+						3 = { culture = pecheneg }
+						3 = { culture = cuman }
+						3 = { culture = khazar }
+						3 = { culture = bolghar }
+						1 = {
+							modifier = {
+								factor = 3
+								OR = {
+									year < 1000
+									has_alternate_start_parameter = { key = culture value = full_random }
+								}
+							}
+							culture = avar
+						}
+						3 = { culture = karluk }
+						3 = { culture = kirghiz }
+						3 = { culture = uyghur }
+						1 = {
+							modifier = {
+								factor = 3
+								OR = {
+									year < 1000
+									has_alternate_start_parameter = { key = culture value = full_random }
+								}
+							}
+							culture = mongol
+						}
+						3 = { culture = khitan }
+						3 = { culture = jurchen }
+						3 = { culture = bedouin_arabic }
+						3 = { culture = maghreb_arabic }
+						3 = { culture = levantine_arabic }
+						3 = { culture = egyptian_arabic }
+						1 = {
+							modifier = {
+								factor = 3
+								OR = {
+									year >= 1000
+									has_alternate_start_parameter = { key = culture value = full_random }
+								}
+							}
+							culture = andalusian_arabic
+						}
+						1 = {
+							modifier = {
+								factor = 3
+								OR = {
+									year >= 800
+									has_alternate_start_parameter = { key = culture value = full_random }
+								}
+							}
+							culture = russian
+						}
+						1 = {
+							modifier = {
+								factor = 3
+								OR = {
+									year < 800
+									has_alternate_start_parameter = { key = culture value = full_random }
+								}
+							}
+							culture = ilmenian
+						}
+						1 = {
+							modifier = {
+								factor = 3
+								OR = {
+									year < 800
+									has_alternate_start_parameter = { key = culture value = full_random }
+								}
+							}
+							culture = severian
+						}
+						1 = {
+							modifier = {
+								factor = 3
+								OR = {
+									year < 800
+									has_alternate_start_parameter = { key = culture value = full_random }
+								}
+							}
+							culture = volhynian
+						}
+						3 = { culture = pommeranian }
+						3 = { culture = bohemian }
+						3 = { culture = polish }
+						3 = { culture = croatian }
+						3 = { culture = serbian }
+						3 = { culture = romanian }
+						3 = { culture = bulgarian }
+						3 = { culture = bosnian }
+						3 = { culture = carantanian }
+						3 = { culture = hungarian }
+						3 = { culture = persian }
+						3 = { culture = sogdian }
+						3 = { culture = tocharian }
+						3 = { culture = kurdish }
+						3 = { culture = afghan }
+						3 = { culture = baloch }
+						3 = { culture = saka }
+						3 = { culture = ethiopian }
+						3 = { culture = somali }
+						3 = { culture = nubian }
+						3 = { culture = daju }
+						3 = { culture = kanuri }
+						3 = { culture = hausa }
+						3 = { culture = zaghawa }
+						3 = { culture = manden }
+						3 = { culture = soninke }
+						3 = { culture = songhay }
+						1 = {
+							modifier = {
+								factor = 3
+								has_alternate_start_parameter = { key = culture value = full_random }
+								has_dlc = "Sunset Invasion" 
+							}
+							culture = nahuatl
+						}
+						2 = {
+							modifier = {
+								factor = 1.5
+								religion_group = jewish_group
+							}
+							culture = ashkenazi
+						}
+						2 = {
+							modifier = {
+								factor = 1.5
+								religion_group = jewish_group
+							}
+							culture = sephardi
+						}
+						3 = { culture = bengali }
+						3 = { culture = oriya }
+						3 = { culture = assamese }
+						3 = { culture = hindustani }
+						3 = { culture = gujurati }
+						3 = { culture = panjabi }
+						3 = { culture = rajput }
+						3 = { culture = sindhi }
+						3 = { culture = marathi }
+						3 = { culture = sinhala }
+						3 = { culture = nepali }
+						3 = { culture = tamil }
+						3 = { culture = telugu }
+						3 = { culture = kannada }
+						3 = { culture = bodpa }
+						3 = { culture = tangut }
+						1 = {
+							modifier = {
+								factor = 3
+								OR = {
+									year < 1000 
+									has_alternate_start_parameter = { key = culture value = full_random }
+								}
+							}
+							culture = zhangzhung
+						}
+						1 = {
+							modifier = {
+								factor = 3
+								OR = {
+									year < 1000 
+									has_alternate_start_parameter = { key = culture value = full_random }
+								}
+							}
+							culture = sumpa
+						}
+						3 = { culture = han }
+						1 = {
+							modifier = {
+								factor = 3
+								OR = {
+									has_alternate_start_parameter = { key = culture value = full_random }
+									has_alternate_start_parameter = { key = special_culture value = monster_kingdoms }
+								}
+							}
+							culture = djinni
+						}
+						1 = {
+							modifier = {
+								factor = 3
+								has_alternate_start_parameter = { key = culture value = full_random }
+							}
+							culture = egyptian
+						}
+						1 = {
+							modifier = {
+								factor = 3
+								OR = {
+									has_alternate_start_parameter = { key = culture value = full_random }
+									has_alternate_start_parameter = { key = special_culture value = monster_kingdoms }
+								}
+							}
+							culture = jotunn
+						}
+						1 = {
+							modifier = {
+								factor = 3
+								OR = {
+									has_alternate_start_parameter = { key = culture value = full_random }
+									has_alternate_start_parameter = { key = special_culture value = monster_kingdoms }
+								}
+							}
+							culture = draconic
+						}
+						3 = {
+							modifier = {
+								factor = 0
+								NOT = { has_alternate_start_parameter = { key = special_culture value = monster_kingdoms } }
+							}
+							culture = vampire_culture
+						}
+						3 = {
+							modifier = {
+								factor = 0
+								NOT = { has_alternate_start_parameter = { key = special_culture value = monster_kingdoms } }
+							}
+							culture = werewolf_culture
+						}
+					}
+					fix_local_character_culture = yes
+					any_neighbor_province = {
+						limit = { no_culture = yes }
+						culture = PREV
+						fix_local_character_culture = yes
+						any_neighbor_province = {
+							limit = { no_culture = yes }
+							culture = PREV
+							fix_local_character_culture = yes
+							any_neighbor_province = {
+								limit = { no_culture = yes }
+								culture = PREV
+								fix_local_character_culture = yes
+							}
+						}
+					}
+				}
+			}
+			# Handle characters with no culture
+			any_character = {
+				limit = { no_culture = yes }
+				save_event_target_as = base_character
+				location = {
+					event_target:base_character = { culture = PREV }
+				}
+			}
+			
+			# Make sure there are enough revenants
+			if = {
+				limit = {
+					NOT = {
+						any_independent_ruler = {
+							culture_group = undead_culture_group
+						}
+					}
+				}
+				random_independent_ruler = {
+					limit = {
+						NOT = { culture_group = undead_culture_group }
+						NOT = { realm_size = 50 }
+					}
+					preferred_limit = { NOT = { realm_size = 15 } }
+					preferred_limit = { NOT = { realm_size = 30 } }
+					set_undead_culture = yes
+					religion = the_damned
+					add_trait = zombie
+					set_graphical_culture = undead_revenant
+					set_government_type = zombie_horde
+					any_demesne_province = {
+						religion = the_damned
+						culture = PREV
+						fix_local_character_culture = yes
+					}
+				}
+			}
+			if = {
+				limit = {
+					NOT = {
+						any_independent_ruler = {
+							culture_group = undead_culture_group
+							count = 2
+						}
+					}
+				}
+				random_independent_ruler = {
+					limit = {
+						NOT = { culture_group = undead_culture_group }
+						NOT = { realm_size = 50 }
+					}
+					preferred_limit = { NOT = { realm_size = 15 } }
+					preferred_limit = { NOT = { realm_size = 30 } }
+					set_undead_culture = yes
+					religion = the_damned
+					add_trait = zombie
+					set_graphical_culture = undead_revenant
+					set_government_type = zombie_horde
+					any_demesne_province = {
+						religion = the_damned
+						culture = PREV
+						fix_local_character_culture = yes
+					}
+				}
+			}
+			if = {
+				limit = {
+					has_alternate_start_parameter = { key = special_culture value = monster_kingdoms }
+				}
+				random_independent_ruler = {
+					limit = {
+						NOT = { culture_group = undead_culture_group }
+						NOT = { realm_size = 80 }
+					}
+					preferred_limit = { NOT = { realm_size = 30 } }
+					preferred_limit = { NOT = { realm_size = 50 } }
+					set_undead_culture = yes
+					religion = the_damned
+					add_trait = zombie
+					set_graphical_culture = undead_revenant
+					set_government_type = zombie_horde
+					any_demesne_province = {
+						religion = the_damned
+						culture = PREV
+						fix_local_character_culture = yes
+					}
+				}
+			}
+			
+			# Setup mythos races
+			# First, werewolves
+			any_character = {
+				limit = {
+					culture = werewolf_culture
+					NOT = { trait = werewolf }
+				}
+				if = {
+					limit = { is_landed = no }
+					random = {
+						chance = 30
+						additive_modifier = {
+							is_tribal = yes
+							value = 10
+						}
+						add_trait = werewolf
+						add_trait = secret_werewolf
+						add_trait = control_3
+						set_variable = { which = control value = 3 }
+					}
+				}
+				else_if = {
+					limit = { tier = baron }
+					random = {
+						chance = 40
+						additive_modifier = {
+							is_tribal = yes
+							value = 10
+						}
+						add_trait = werewolf
+						add_trait = secret_werewolf
+						add_trait = control_4
+						set_variable = { which = control value = 4 }
+					}
+				}
+				else_if = {
+					limit = { tier = count }
+					random = {
+						chance = 50
+						additive_modifier = {
+							is_tribal = yes
+							value = 10
+						}
+						add_trait = werewolf
+						add_trait = secret_werewolf
+						add_trait = control_5
+						set_variable = { which = control value = 5 }
+					}
+				}
+				else_if = {
+					limit = { tier = duke }
+					random = {
+						chance = 70
+						additive_modifier = {
+							is_tribal = yes
+							value = 10
+						}
+						add_trait = werewolf
+						add_trait = secret_werewolf
+						add_trait = control_6
+						set_variable = { which = control value = 6 }
+					}
+				}
+				else_if = {
+					limit = { tier = king }
+					random = {
+						chance = 90
+						additive_modifier = {
+							is_tribal = yes
+							value = 10
+						}
+						add_trait = werewolf
+						add_trait = secret_werewolf
+						add_trait = control_7
+						set_variable = { which = control value = 7 }
+					}
+				}
+				else_if = {
+					limit = { tier = emperor }
+					add_trait = werewolf
+					add_trait = secret_werewolf
+					add_trait = control_8
+					set_variable = { which = control value = 8 }
+				}
+			}
+			# Vampires
+			log = "Set Vampires"
+			any_character = {
+				limit = {
+					culture = vampire_culture
+					NOT = { trait = vampire }
+				}
+				if = {
+					limit = { is_landed = no }
+					random = {
+						chance = 5
+						additive_modifier = {
+							religion = satanist
+							value = 5
+						}
+						add_trait = vampire
+						add_trait = secret_vampire
+					}
+				}
+				else_if = {
+					limit = { tier = baron }
+					random = {
+						chance = 10
+						additive_modifier = {
+							religion = satanist
+							value = 10
+						}
+						add_trait = vampire
+						add_trait = secret_vampire
+					}
+				}
+				else_if = {
+					limit = { tier = count }
+					random = {
+						chance = 30
+						additive_modifier = {
+							religion = satanist
+							value = 10
+						}
+						add_trait = vampire
+						add_trait = secret_vampire
+					}
+				}
+				else_if = {
+					limit = { tier = duke }
+					random = {
+						chance = 40
+						additive_modifier = {
+							religion = satanist
+							value = 10
+						}
+						add_trait = vampire
+						add_trait = secret_vampire
+					}
+				}
+				else_if = {
+					limit = { tier = king }
+					random = {
+						chance = 60
+						additive_modifier = {
+							religion = satanist
+							value = 10
+						}
+						add_trait = vampire
+						add_trait = secret_vampire
+					}
+				}
+				else_if = {
+					limit = { tier = emperor }
+					add_trait = vampire
+					add_trait = secret_vampire
+				}
+				if = {
+					limit = {
+						trait = vampire
+						NOT = { religion = satanist }
+					}
+					random = {
+						chance = 70
+						religion = satanist
+						any_demesne_province = {
+							religion = satanist
+						}
+					}
+				}
+			}
+			# Dragons
+			any_character = {
+				limit = { religion = draconic_pagan }
+				random = {
+					chance = 4
+					modifier = {
+						factor = 5
+						is_landed = no
+					}
+					modifier = {
+						factor = 3
+						tier = count
+					}
+					modifier = {
+						factor = 4
+						tier = duke
+					}
+					modifier = {
+						factor = 5
+						tier = king
+					}
+					modifier = {
+						factor = 8
+						tier = emperor
+					}
+					modifier = {
+						factor = 1.5
+						independent = yes
+					}
+					add_trait = dragon
+					set_graphical_culture = draconic
+					random = {
+						chance = 5
+						culture = draconic
+					}
+					any_spouse = {
+						random_list = {
+							10 = {
+								add_trait = dragon
+								set_graphical_culture = draconic
+								random = {
+									chance = 5
+									modifier = {
+										factor = 8
+										any_spouse = { culture = draconic }
+									}
+									culture = draconic
+								}
+							}
+							3 = {
+								add_trait = dragonborn
+							}
+							1 = {}
+						}
+					}
+					any_consort = {
+						random_list = {
+							4 = {
+								add_trait = dragon
+								set_graphical_culture = draconic
+								random = {
+									chance = 5
+									culture = draconic
+								}
+							}
+							2 = {
+								add_trait = dragonborn
+							}
+							1 = {}
+						}
+					}
+					any_child = {
+						random_list = {
+							3 = {
+								trigger = {
+									OR = {
+										AND = {
+											father = {
+												OR = { trait = dragon trait = dragonborn }
+											}
+											mother = { OR = { trait = dragon trait = dragonborn } }
+										}
+										NOT = { father = { always = yes } }
+										NOT = { mother = { always = yes } }
+									}
+								}
+								modifier = {
+									factor = 100
+									father = { trait = dragon }
+									mother = { trait = dragon }
+								}
+								add_trait = dragon
+								set_graphical_culture = draconic
+								random = {
+									chance = 5
+									modifier = {
+										factor = 5
+										mother = { culture = draconic }
+									}
+									modifier = {
+										factor = 5
+										father = { culture = draconic }
+									}
+									culture = draconic
+								}
+							}
+							2 = {
+								trigger = {
+									NAND = {
+										father = { trait = dragon }
+										mother = { trait = dragon }
+									}
+								}
+								add_trait = dragonborn
+							}
+							1 = {
+								trigger = {
+									NOR = {
+										AND = {
+											father = {
+												OR = { trait = dragon trait = dragonborn }
+											}
+											mother = { OR = { trait = dragon trait = dragonborn } }
+										}
+										NOT = { father = { always = yes } }
+										NOT = { mother = { always = yes } }
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			any_character = {
+				limit = { graphical_culture = draconicgfx }
+				add_trait = dragon
+			}
+			# Giants and Jotun culture or Jotnar religion
+			any_character = {
+				limit = { culture = jotunn }
+				random = {
+					chance = 10
+					modifier = {
+						factor = 1.5
+						is_landed = yes
+					}
+					modifier = {
+						factor = 1.2
+						tier = count
+					}
+					modifier = {
+						factor = 1.5
+						tier = duke
+					}
+					modifier = {
+						factor = 2
+						tier = king
+					}
+					modifier = {
+						factor = 3
+						tier = emperor
+					}
+					add_trait = mythos_giant
+					random_list = {
+						1 = {
+							modifier = {
+								factor = 5
+								location = {
+									terrain = hills
+								}
+							}
+							modifier = {
+								factor = 3
+								location = { terrain = mountain }
+							}
+							add_trait = giant_bergrisar
+						}
+						1 = {
+							modifier = {
+								factor = 5
+								location = { climate = severe_winter }
+							}
+							add_trait = giant_hrimthursar
+						}
+						1 = {
+							modifier = {
+								factor = 5
+								location = {
+									NOR = {
+										climate = severe_winter
+										climate = normal_winter
+										climate = mild_winter
+									}
+								}
+							}
+							add_trait = giant_eldjotnar
+						}
+					}
+				}
+			}
+			any_character = {
+				limit = {
+					religion = jotnar
+					NOT = { trait = mythos_giant }
+				}
+				random = {
+					chance = 3
+					modifier = {
+						factor = 1.5
+						is_landed = yes
+					}
+					modifier = {
+						factor = 1.2
+						tier = count
+					}
+					modifier = {
+						factor = 1.5
+						tier = duke
+					}
+					modifier = {
+						factor = 2
+						tier = king
+					}
+					modifier = {
+						factor = 3
+						tier = emperor
+					}
+					add_trait = mythos_giant
+					random_list = {
+						1 = {
+							modifier = {
+								factor = 5
+								location = {
+									terrain = hills
+								}
+							}
+							modifier = {
+								factor = 3
+								location = { terrain = mountain }
+							}
+							add_trait = giant_bergrisar
+						}
+						1 = {
+							modifier = {
+								factor = 5
+								location = { climate = severe_winter }
+							}
+							add_trait = giant_hrimthursar
+						}
+						1 = {
+							modifier = {
+								factor = 5
+								location = {
+									NOR = {
+										climate = severe_winter
+										climate = normal_winter
+										climate = mild_winter
+									}
+								}
+							}
+							add_trait = giant_eldjotnar
+						}
+					}
+					random = {
+						chance = 5
+						culture = jotunn
+					}
+				}
+			}
+			# Djinni
+			any_character = {
+				limit = { culture = djinni }
+				random = {
+					chance = 20
+					modifier = {
+						factor = 3.5
+						is_landed = yes
+					}
+					add_trait = djinn
+				}
+			}
+			# Revenants
+			any_character = {
+				limit = { culture_group = undead_culture_group }
+				add_trait = zombie
+				religion = the_damned
+				set_government_type = zombie_horde
+				set_graphical_culture = undead_revenant
+			}
+			# Demons and ethereal just in case
+			any_character = {
+				limit = { culture = demon_culture }
+				add_trait = demon_trait
+				set_graphical_culture = demon_culture
+			}
+			any_character = {
+				limit = { culture = ethereal_culture }
+				add_trait = ethereal_trait
+				set_graphical_culture = ethereal_culture
+			}
+			# Add one random mummy, two with monster kingdoms
+			random_independent_ruler = {
+				limit = {
+					realm_size < 70
+					NOR = {
+						trait = vampire
+						trait = werewolf
+						trait = zombie
+						trait = djinn
+						trait = demon_trait
+						trait = ethereal_trait
+					}
+				}
+				preferred_limit = { realm_size < 30 }
+				add_trait = mummy
+				any_vassal = {
+					limit = {
+						NOR = {
+							trait = vampire
+							trait = werewolf
+							trait = zombie
+							trait = djinn
+							trait = demon_trait
+							trait = ethereal_trait
+							trait = mummy
+						}
+					}
+					random = {
+						chance = 20
+						modifier = {
+							factor = 1.4
+							culture = egyptian
+						}
+						add_trait = mummy
+					}
+				}
+				any_realm_character = {
+					limit = {
+						NOR = {
+							trait = vampire
+							trait = werewolf
+							trait = zombie
+							trait = djinn
+							trait = demon_trait
+							trait = ethereal_trait
+							trait = mummy
+						}
+					}
+					random = {
+						chance = 20
+						modifier = {
+							factor = 1.4
+							culture = egyptian
+						}
+						add_trait = mummy
+					}
+				}
+			}
+			if = {
+				limit = {
+					has_alternate_start_parameter = { key = special_culture value = monster_kingdoms }
+				}
+				random_independent_ruler = {
+					limit = {
+						realm_size < 70
+						NOR = {
+							trait = vampire
+							trait = werewolf
+							trait = zombie
+							trait = djinn
+							trait = demon_trait
+							trait = ethereal_trait
+						}
+					}
+					preferred_limit = { realm_size < 30 }
+					add_trait = mummy
+					any_vassal = {
+						limit = {
+							NOR = {
+								trait = vampire
+								trait = werewolf
+								trait = zombie
+								trait = djinn
+								trait = demon_trait
+								trait = ethereal_trait
+							}
+						}
+						random = {
+							chance = 20
+							modifier = {
+								factor = 1.4
+								culture = egyptian
+							}
+							add_trait = mummy
+						}
+					}
+					any_realm_character = {
+						limit = {
+							NOR = {
+								trait = vampire
+								trait = werewolf
+								trait = zombie
+								trait = djinn
+								trait = demon_trait
+								trait = ethereal_trait
+							}
+						}
+						random = {
+							chance = 20
+							modifier = {
+								factor = 1.4
+								culture = egyptian
+							}
+							add_trait = mummy
+						}
+					}
+				}
+			}
+		}
+	}
+}

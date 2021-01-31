@@ -1,0 +1,190 @@
+government_flavor = {
+	name = gov_hereditary_aristocratic_monarchy
+	graphics = GFX_evt_found_hre
+	priority = 1
+	trigger = {
+		OR={							
+			has_law = succ_imperial_primogenure
+			has_law = succ_imperial_seniority
+			has_law = succ_imperial_ultimogeniture
+		}
+		NOT = { has_law = succ_byzantine_elective }
+		mercenary = no
+		NOR = { 
+			has_law = imperial_administration
+			has_law = ze_administration_laws_2
+		}
+		calc_true_if = {
+			amount = 6
+			has_law = law_voting_power_1
+			has_law = banish_voting_power_1
+			has_law = execution_voting_power_1
+			has_law = revoke_title_voting_power_1
+			has_law = grant_title_voting_power_1
+			has_law = imprison_voting_power_1
+			has_law = war_voting_power_1
+		}
+	}	
+}
+
+government_flavor = {
+	name = gov_hereditary_despotic_monarchy
+	graphics = GFX_evt_throne_room
+	priority = 1
+	trigger = {
+		OR={							
+			has_law = succ_imperial_primogenure
+			has_law = succ_imperial_seniority
+			has_law = succ_imperial_ultimogeniture
+		}
+		NOT = { has_law = succ_byzantine_elective }
+		mercenary = no
+		NOR = { 
+			has_law = imperial_administration
+			has_law = ze_administration_laws_2
+		}
+		OR = {
+			NOT = { has_dlc = "Conclave" }
+			calc_true_if = {
+				amount = 2
+				has_law = banish_voting_power_0
+				has_law = execution_voting_power_0
+				has_law = revoke_title_voting_power_0
+				has_law = grant_title_voting_power_0
+				has_law = imprison_voting_power_0
+				has_law = war_voting_power_0
+			}
+		}
+		NOT = {
+			calc_true_if = {
+				amount = 7
+				has_law = law_voting_power_0
+				has_law = banish_voting_power_0
+				has_law = execution_voting_power_0
+				has_law = revoke_title_voting_power_0
+				has_law = grant_title_voting_power_0
+				has_law = imprison_voting_power_0
+				has_law = war_voting_power_0
+			}
+		}
+	}	
+}
+
+government_flavor = {
+	name = gov_hereditary_absolute_monarchy
+	graphics = GFX_evt_powerful_ruler
+	priority = 1
+	trigger = {
+		OR={							
+			has_law = succ_imperial_primogenure
+			has_law = succ_imperial_seniority
+			has_law = succ_imperial_ultimogeniture
+		}
+		NOT = { has_law = succ_byzantine_elective }
+		mercenary = no
+		NOR = { 
+			has_law = imperial_administration
+			has_law = ze_administration_laws_2
+		}
+		has_law = law_voting_power_0
+		has_law = banish_voting_power_0
+		has_law = execution_voting_power_0
+		has_law = revoke_title_voting_power_0
+		has_law = grant_title_voting_power_0
+		has_law = imprison_voting_power_0
+		has_law = war_voting_power_0
+	}	
+}
+
+government_flavor = {
+	name = gov_electorial_absolute_autocracy
+	graphics = GFX_evt_judged_by_ruler
+	priority = 1
+	trigger = {
+		OR={							
+			has_law = succ_imperial_primogenure
+			has_law = succ_imperial_seniority
+			has_law = succ_imperial_ultimogeniture
+		}
+		NOT = { has_law = succ_byzantine_elective }
+		has_law = law_voting_power_0
+		has_law = banish_voting_power_0
+		has_law = execution_voting_power_0
+		has_law = revoke_title_voting_power_0
+		has_law = grant_title_voting_power_0
+		has_law = imprison_voting_power_0
+		has_law = war_voting_power_0
+	}	
+}
+
+government_flavor = {
+	name = gov_hereditary_despotic_autocracy
+	graphics = GFX_evt_emissary_byzantine
+	priority = 1
+	trigger = {
+		OR={							
+			has_law = succ_imperial_primogenure
+			has_law = succ_imperial_seniority
+			has_law = succ_imperial_ultimogeniture
+		}
+		NOT = { has_law = succ_byzantine_elective }
+		mercenary = no
+		OR = { 
+			has_law = imperial_administration
+			has_law = ze_administration_laws_2
+		}
+		OR = {
+			NOT = { has_dlc = "Conclave" }
+			calc_true_if = {
+				amount = 2
+				has_law = banish_voting_power_0
+				has_law = execution_voting_power_0
+				has_law = revoke_title_voting_power_0
+				has_law = grant_title_voting_power_0
+				has_law = imprison_voting_power_0
+				has_law = war_voting_power_0
+			}
+		}
+		NOT = {
+			calc_true_if = {
+				amount = 7
+				has_law = law_voting_power_0
+				has_law = banish_voting_power_0
+				has_law = execution_voting_power_0
+				has_law = revoke_title_voting_power_0
+				has_law = grant_title_voting_power_0
+				has_law = imprison_voting_power_0
+				has_law = war_voting_power_0
+			}
+		}
+	}	
+}
+
+government_flavor = {
+	name = gov_hereditary_aristocratic_autocracy
+	graphics = GFX_evt_throne_room_byzantine
+	priority = 1
+	trigger = {
+		OR={							
+			has_law = succ_imperial_primogenure
+			has_law = succ_imperial_seniority
+			has_law = succ_imperial_ultimogeniture
+		}
+		NOT = { has_law = succ_byzantine_elective }
+		mercenary = no
+		OR = { 
+			has_law = imperial_administration
+			has_law = ze_administration_laws_2
+		}
+		calc_true_if = {
+			amount = 6
+			has_law = law_voting_power_1
+			has_law = banish_voting_power_1
+			has_law = execution_voting_power_1
+			has_law = revoke_title_voting_power_1
+			has_law = grant_title_voting_power_1
+			has_law = imprison_voting_power_1
+			has_law = war_voting_power_1
+		}
+	}
+}

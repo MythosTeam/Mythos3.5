@@ -1,0 +1,649 @@
+pagan_group = {
+	has_coa_on_barony_only = yes
+	graphical_culture = westerngfx
+	playable = yes
+	
+	color = { 0.6 0.0 0.0 }
+	
+	interface_skin = { pagan_interface }
+	
+	# Names given only to Pagan characters (base names)
+	male_names = {
+		Anund Asbjörn Aslak Audun Bagge Balder Brage Egil Emund Frej Gnupa Gorm Gudmund Gudröd Hardeknud Helge Odd Orm 
+		Orvar Ottar Rikulfr Rurik Sigbjörn Styrbjörn Starkad Styrkar Sämund Sölve Sörkver Thorolf Tjudmund Toke Tolir 
+		Torbjörn Torbrand Torfinn Torgeir Toste Tyke
+	}
+	female_names = {
+		Aslaug Bothild Björg Freja Grima Gytha Kráka Malmfrid Thora Thordis Thyra Ragnfrid Ragnhild Svanhild Ulvhilde
+	}
+	
+	draconic_pagan_reformed = {
+		graphical_culture = norsegfx
+		alternate_start = { always = no }
+
+		icon = 66
+		heresy_icon = 65
+		
+		ai_convert_other_group = 2
+		
+		color = { 0.7 0.2 0.2 }
+		crusade_name = GREAT_HOLY_WAR
+		scripture_name = THE_LEGENDS
+		high_god_name = GOD_DRAGON_TIAMAT
+		god_names = {
+			GOD_DRAGON_NIDHOGG GOD_DRAGON_JORMUNGANDR GOD_DRAGON_FAFNIR GOD_DRAGON_LANDVAETTUR GOD_DRAGON_WAWEL 
+			GOD_DRAGON_TIAMAT GOD_DRAGON_ABZU GOD_DRAGON_ZIRNITA GOD_DRAGON_DEWI
+		}
+		evil_god_names = { SIGURD ST_GEORGE RAGNAR BEOWULF ENKI GOD_MARDUK }
+		
+		unit_modifier = {
+			levy_size = 0.2
+			
+			retinuesize_perc = 0.2
+			
+			key = "OFF_RELIGION"
+		}
+		
+		#allow_viking_invasion = yes #Special features are added via reformation. If HF is not installed, default features are applied on reformed religion by event.
+		priests_can_marry = yes
+		female_temple_holders = yes
+		max_consorts = 3
+		allow_looting = yes
+		priest_title = FLAME
+		#allow_rivermovement = yes
+		aggression = 2 # AI aggression factor
+		
+		can_call_crusade = yes
+		join_crusade_if_bordering_hostile = yes
+		
+		religious_clothing_head = 15
+		religious_clothing_priest = 3
+		
+		intermarry = draconic_pagan
+		
+		allow_in_ruler_designer = no
+		
+		dynamic_cult_template = secret_draconic_religious_society_template
+		
+		character_modifier = {
+			the_damned_opinion = -200
+		}
+	}
+	
+	draconic_pagan = {
+		graphical_culture = norsegfx
+
+		icon = 63
+		heresy_icon = 63
+		
+		color = { 0.6 0.15 0.15 }
+		crusade_name = GREAT_HOLY_WAR
+		scripture_name = THE_LEGENDS
+		high_god_name = GOD_DRAGON_ABZU
+		god_names = {
+			GOD_DRAGON_NIDHOGG GOD_DRAGON_JORMUNGANDR GOD_DRAGON_LANDVAETTUR GOD_DRAGON_WAWEL 
+			GOD_DRAGON_TIAMAT GOD_DRAGON_ABZU GOD_DRAGON_ZIRNITA GOD_DRAGON_DEWI
+		}
+		evil_god_names = { SIGURD ST_GEORGE RAGNAR BEOWULF ENKI GOD_MARDUK }
+		
+		unit_modifier = {
+			levy_size = 0.1
+			
+			retinuesize_perc = 0.5
+			
+			key = "OFF_RELIGION"
+		}
+		
+		reformed = draconic_pagan_reformed
+		
+		allow_viking_invasion = yes
+		priests_can_marry = yes
+		female_temple_holders = yes
+		max_consorts = 3
+		allow_looting = yes
+		priest_title = PRIEST
+		defensive_attrition = yes
+		allow_rivermovement = yes
+		aggression = 3 # AI aggression factor
+		can_demand_religious_conversion = no
+		seafarer = yes # 3.0 Changes to Wales kind of made Faroyar start too hard without this
+		
+		religious_clothing_head = 15
+		religious_clothing_priest = 3
+		
+		intermarry = draconic_pagan_reformed
+		
+		dynamic_cult_template = secret_draconic_religious_society_template
+		
+		character_modifier = {
+			the_damned_opinion = -200
+		}
+	}
+
+	druidic_reformed = {
+		graphical_culture = celticgfx
+		alternate_start = { always = no }
+		
+		icon = 61
+		heresy_icon = 62
+		
+		ai_convert_other_group = 2
+		
+		color = { 0.2 0.6 0.03 }
+		crusade_name = GREAT_HOLY_WAR
+		scripture_name = THE_VERSES
+		high_god_name = GOD_LLEU
+		god_names = {
+			GOD_BELI GOD_MANAWYDAN GOD_AMANAETH GOD_LLEU GOD_RHIANNON GOD_EARTH GOD_SKY GOD_CERNUNNOS GOD_MACHA
+			GOD_TUIRANN GOD_ESUS GOD_TOUTATIS GOD_THE_DAGDA
+		}
+		evil_god_names = { GOD_BALOR }
+		
+	#	unit_modifier = {	
+	#		levy_size = 0.15
+	#		
+	#		retinuesize_perc = 0.3
+	#		garrison_size = 0.2
+	#		
+	#		key = "HERO_RELIGION"
+	#	}
+	#	unit_home_modifier = {
+	#		land_morale = 0.4
+	#		light_infantry_defensive = 0.4
+	#		heavy_infantry_defensive = 0.4
+	#		pikemen_defensive = 0.4
+	#		light_cavalry_defensive = 0.4
+	#		knights_defensive = 0.4
+	#		archers_defensive = 0.4
+	#		horse_archers_defensive = 0.4
+	#		
+	#		garrison_size = 0.2
+	#		
+	#		key = "HERO_RELIGION_HOME_TERRITORY"
+	#	}
+		
+		priests_can_marry = yes
+		female_temple_holders = yes
+		allow_looting = yes
+		max_consorts = 3
+		priest_title = DRUID
+		#can_excommunicate = yes
+		aggression = 1.5 # AI aggression factor
+		
+		can_call_crusade = yes
+		join_crusade_if_bordering_hostile = yes
+		
+		short_reign_opinion_year_mult = 2 # The default is 2
+		
+		religious_clothing_head = 15
+		religious_clothing_priest = 3
+		
+		allow_in_ruler_designer = no
+		
+		character_modifier = {
+			the_damned_opinion = -200
+		}
+	}	
+	
+	druidic = {
+		graphical_culture = celticgfx
+		alternate_start = {
+			OR = {
+				year < 1100
+				has_alternate_start_parameter = { key = religion value = full_random }
+			}
+		}
+		
+		icon = 60
+		heresy_icon = 62
+		
+		color = { 0.14 0.36 0.16 }
+		crusade_name = GREAT_HOLY_WAR
+		scripture_name = THE_BALLADS
+		high_god_name = GOD_LLEU
+		god_names = {
+			GOD_BELI GOD_MANAWYDAN GOD_AMANAETH GOD_LLEU GOD_RHIANNON GOD_EARTH GOD_SKY GOD_CERNUNNOS GOD_MACHA
+			GOD_TUIRANN GOD_ESUS GOD_TOUTATIS GOD_THE_DAGDA
+		}
+		evil_god_names = { GOD_BALOR }
+		
+		unit_modifier = {	
+			levy_size = 0.15
+			
+			retinuesize_perc = 0.3	
+			garrison_size = 0.2
+			
+			key = "HERO_RELIGION"
+		}
+		unit_home_modifier = {
+			land_morale = 0.6
+			light_infantry_defensive = 0.6
+			heavy_infantry_defensive = 0.6
+			pikemen_defensive = 0.6
+			light_cavalry_defensive = 0.6
+			knights_defensive = 0.6
+			archers_defensive = 0.6
+			horse_archers_defensive = 0.6
+			
+			garrison_size = 0.2
+			
+			key = "HERO_RELIGION_HOME_TERRITORY"
+		}
+		priest_title = DRUID
+		priests_can_marry = yes
+		female_temple_holders = yes
+		defensive_attrition = yes
+		allow_looting = yes
+		max_consorts = 3
+		peace_prestige_loss = yes # Lose Prestige while at peace
+		raised_vassal_opinion_loss = no
+		can_demand_religious_conversion = no
+		
+		reformed = druidic_reformed
+		aggression = 1.5 # AI aggression factor
+		
+		
+		short_reign_opinion_year_mult = 4 # The default is 2
+		
+		religious_clothing_head = 15
+		religious_clothing_priest = 3
+		
+		character_modifier = {
+			the_damned_opinion = -200
+		}
+	}
+
+	atenist = { # Heresy of Kemetic Paganism
+		graphical_culture = muslimgfx
+		alternate_start = { always = no }
+
+		icon = 58
+		heresy_icon = 59
+		
+		ai_convert_other_group = 2
+		
+		color = { 0.4 0.2 0.2 }
+		crusade_name = GREAT_HOLY_WAR
+		scripture_name = THE_LEGENDS
+		high_god_name = GOD_ATEN
+		god_names = {
+			GOD_ATEN GOD_SUN_DISK GOD_RA_HORUS_ATEN GOD_RA_HORAKHTY GOD_LIVING_ATEN
+		}
+		evil_god_names = {
+			GOD_SET GOD_AM-HEH GOD_APEP GOD_BA-PEF GOD_KEK GOD_KAUKET GOD_NU
+		}
+		
+		unit_modifier = {		
+			garrison_size = 0.3
+			levy_size = 0.1
+			
+			key = "DEF_RELIGION"
+		}
+		unit_home_modifier = {
+			land_morale = 0.8
+			light_infantry_defensive = 0.8
+			heavy_infantry_defensive = 0.8
+			pikemen_defensive = 0.8
+			light_cavalry_defensive = 0.8
+			knights_defensive = 0.8
+			archers_defensive = 0.8
+			horse_archers_defensive = 0.8
+			
+			garrison_size = 0.4
+			
+			key = "DEF_RELIGION_HOME_TERRITORY"
+		}
+		
+		priests_can_marry = yes
+		female_temple_holders = yes
+		can_call_crusade = yes
+		join_crusade_if_bordering_hostile = yes
+		max_consorts = 3
+		priest_title = HEM_NETJER
+		aggression = 0.5 # AI aggression factor
+		pre_reformed = yes
+		can_demand_religious_conversion = no
+		
+		parent = kemetic_pagan
+		
+		bs_marriage = yes
+		pc_marriage = yes
+		divine_blood = yes
+		
+		religious_clothing_head = 3
+		religious_clothing_priest = 3
+		
+		intermarry = zun_pagan
+		intermarry = zun_pagan_reformed
+		
+		allow_in_ruler_designer = no
+		
+		character_modifier = {
+			the_damned_opinion = -200
+		}
+	}
+	
+	kemetic_pagan_reformed = {
+		graphical_culture = muslimgfx
+		alternate_start = { always = no }
+
+		icon = 57
+		heresy_icon = 59
+		
+		ai_convert_other_group = 2 # always try to convert
+		
+		color = { 0 0.5 0.5 }
+		
+		crusade_name = GREAT_HOLY_WAR
+		scripture_name = THE_LEGENDS
+		priest_title = HEM_NETJER
+		high_god_name = GOD_RA
+		god_names = {
+			GOD_RA GOD_ANUBIS GOD_IMHOTEP GOD_AMUN GOD_ATEN GOD_BAST GOD_HAPI GOD_HORUS GOD_OSIRIS GOD_ISIS GOD_MAAT
+			GOD_NUT GOD_PTAH GOD_SEKHMET GOD_THOTH
+		}
+		evil_god_names = {
+			GOD_SET GOD_AM-HEH GOD_APEP GOD_BA-PEF GOD_KEK GOD_KAUKET GOD_NU
+		}
+		
+		priests_can_marry = yes
+		female_temple_holders = yes
+		can_call_crusade = yes
+		join_crusade_if_bordering_hostile = yes
+		max_consorts = 3
+		aggression = 0.5 # AI aggression factor
+		can_demand_religious_conversion = no
+		
+		parent = kemetic_pagan
+		
+		bs_marriage = yes
+		pc_marriage = yes
+		divine_blood = yes
+		
+		religious_clothing_head = 15
+		religious_clothing_priest = 3
+		
+		intermarry = atenist
+		intermarry = kemetic_pagan
+		
+		allow_in_ruler_designer = no
+	}		
+	
+	kemetic_pagan = {
+		graphical_culture = muslimgfx
+
+		icon = 57
+		heresy_icon = 59
+		
+		color = { 0.5 0.3 0.3 }
+		crusade_name = GREAT_HOLY_WAR
+		scripture_name = THE_LEGENDS
+		high_god_name = GOD_RA
+		god_names = {
+			GOD_RA GOD_ANUBIS GOD_IMHOTEP GOD_AMUN GOD_ATEN GOD_BAST GOD_HAPI GOD_HORUS GOD_OSIRIS GOD_ISIS GOD_MAAT
+			GOD_NUT GOD_PTAH GOD_SEKHMET GOD_THOTH
+		}
+		evil_god_names = {
+			GOD_SET GOD_AM-HEH GOD_APEP GOD_BA-PEF GOD_KEK GOD_KAUKET GOD_NU
+		}
+		
+		unit_modifier = {
+			levy_size = 0.3
+			
+			retinuesize_perc = 0.3
+			
+			key = "OFF_RELIGION"
+		}
+		
+		priests_can_marry = yes
+		female_temple_holders = yes
+		max_consorts = 3
+		priest_title = HEM_NETJER
+		
+		bs_marriage = yes
+		pc_marriage = yes
+		divine_blood = yes
+		can_demand_religious_conversion = no
+		
+		aggression = 10 # AI aggression factor
+		
+		religious_clothing_head = 3
+		religious_clothing_priest = 3
+		
+		intermarry = atenist
+		intermarry = kemetic_pagan_reformed
+		
+		character_modifier = {
+			the_damned_opinion = -200
+		}
+	}
+	jotnar_reformed = {
+		graphical_culture = norsegfx
+		secondary_event_pictures = norse_pagan
+		alternate_start = { always = no }
+
+		icon = 71
+		heresy_icon = 72
+		
+		ai_convert_other_group = 2
+		
+		color = { 0.9 0.9 0.9 }
+		high_god_name = GOD_YMIR
+		god_names = {
+			LOKI HEL FENRIR JORMUNGANDR GOD_BERGELMIR GOD_THHRIVALDI GOD_SKADI GOD_MIMIR GOD_VAFTHRUDNIR GOD_GERDR
+			GOD_LAUFEY GOD_FARBAUTI
+		}
+		evil_god_names = {
+			GOD_THOR GOD_THE_THUNDERER GOD_ODIN GOD_FREY GOD_TYR
+		} 
+		
+		unit_modifier = {
+			levy_size = 0.3
+			
+			key = "OFF_RELIGION"
+		}
+		
+		crusade_name = GREAT_HOLY_WAR
+		scripture_name = THE_SAGAS
+		max_consorts = 3
+		priest_title = GODI
+		priests_can_marry = yes
+		
+		can_call_crusade = yes
+		join_crusade_if_bordering_hostile = yes
+		
+		#allow_viking_invasion = yes # Allows the "Prepare Invasion" diplo action
+		allow_looting = yes
+		#allow_rivermovement = yes
+		female_temple_holders = yes
+		
+		short_reign_opinion_year_mult = 3 # The default is 2
+		
+		aggression = 1.5 # AI aggression factor
+		
+		religious_clothing_head = 15
+		religious_clothing_priest = 3
+		
+		intermarry = jotnar
+		intermarry = satanist
+		
+		parent = norse_pagan_reformed
+		
+		allow_in_ruler_designer = no
+		
+		dynamic_cult_template = secret_norse_religious_society_template
+		
+		character_modifier = {
+			the_damned_opinion = -200
+		}
+	}		
+	
+	jotnar = {
+		graphical_culture = norsegfx
+		alternate_start = {
+			OR = {
+				year < 1100
+				has_alternate_start_parameter = { key = religion value = full_random }
+			}
+		}
+
+		icon = 69
+		heresy_icon = 70
+		
+		color = { 0.7 0.7 0.7 }
+		high_god_name = GOD_YMIR
+		god_names = {
+			LOKI HEL FENRIR JORMUNGANDR GOD_BERGELMIR GOD_THHRIVALDI GOD_SKADI GOD_MIMIR GOD_VAFTHRUDNIR GOD_GERDR
+			GOD_LAUFEY GOD_FARBAUTI
+		}
+		evil_god_names = {
+			GOD_THOR GOD_THE_THUNDERER GOD_ODIN GOD_FREY GOD_TYR
+		} 
+		
+		unit_modifier = {
+			levy_size = 0.3
+			
+			retinuesize_perc = 0.5
+			
+			key = "OFF_RELIGION"
+		}
+		
+		crusade_name = GREAT_HOLY_WAR
+		scripture_name = THE_SAGAS
+		priest_title = GODI
+		
+		priests_can_marry = yes
+		allow_viking_invasion = yes # Allows the "Prepare Invasion" diplo action
+		allow_looting = yes
+		allow_rivermovement = yes
+		female_temple_holders = yes
+		defensive_attrition = yes
+		peace_prestige_loss = yes # Lose Prestige while at peace
+		raised_vassal_opinion_loss = no
+		max_consorts = 3
+		independence_war_score_bonus = 30 # Overrides define CONTESTED_TITLE_OCCUPIED_WARSCORE_BONUS_INDEP
+		reformed = jotnar_reformed
+		can_demand_religious_conversion = no
+		
+		aggression = 2.0 # AI aggression factor
+		
+		short_reign_opinion_year_mult = 5 # The default is 2
+		
+		religious_clothing_head = 15
+		religious_clothing_priest = 3
+		
+		intermarry = jotnar_reformed
+		intermarry = satanist
+		
+		parent = norse_pagan
+		
+		dynamic_cult_template = secret_norse_religious_society_template
+		
+		character_modifier = {
+			the_damned_opinion = -200
+		}
+	}
+}
+
+other_group = {
+	has_coa_on_barony_only = yes
+	graphical_culture = westerngfx
+	playable = yes
+	color = { 0.5 0 0 }
+	
+	satanist = {
+		graphical_culture = westerngfx
+		alternate_start = { has_alternate_start_parameter = { key = religion value = full_random } }
+
+		icon = 67
+		heresy_icon = 68
+
+		crusade_name = "CRUSADE"
+		use_new_crusade = yes
+		crusade_cb = new_crusade
+		scripture_name = THE_BIBLE
+		high_god_name = LUCIFER
+		god_names = {
+			LUCIFER SATAN THE_UNHOLY_FATHER
+		}
+		evil_god_names = {
+			GOD_JESUS ARCHANGEL_MICHAEL
+		}
+		
+		color = { 0.7 0 0 }
+
+		priests_can_marry = yes
+		female_temple_holders = yes
+		can_excommunicate = yes
+		can_grant_divorce = yes
+		can_call_crusade = yes
+		join_crusade_if_bordering_hostile = yes
+		max_consorts = 3
+		allow_looting = yes
+		pc_marriage = yes
+		bs_marriage = yes
+		rel_head_defense = yes
+		
+		religious_clothing_head = 0
+		religious_clothing_priest = 1
+		
+		expel_modifier = expelled_satanists
+		
+		character_modifier = {
+			christian_opinion = -20
+			muslim_opinion = -20
+			jewish_group_opinion = -20
+			the_damned_opinion = -100
+		}
+		
+		intermarry = jotnar
+		intermarry = jotnar_reformed
+		# Perhaps add Messalian and Yazidi?
+		
+		dynamic_cult = no # No Sympathy trait for "Other".  Will use Lucifer's Own eventually
+		
+	}
+}
+
+undead_religion_group = {
+	
+	color = { 0.1 0 0 }
+	graphical_culture = undeadgfx
+	playable = no
+	
+	the_damned = {
+		graphical_culture = undeadgfx
+		alternate_start = { always = no } # For now - if I can make sure it will connect with the right traits and cultures, add it back
+		
+		icon = 73
+		heresy_icon = 73
+		
+		color = { 0.1 0.1 0.1 }
+		crusade_name = GREAT_HOLY_WAR
+		scripture_name = THE_LEGENDS
+		high_god_name = THE_DEAD_GOD
+		god_names = {
+			THE_DEAD_GOD GOD_THE_DAMNED THE_DEAD THE_RISEN
+		}
+		evil_god_names = { THE_LIVING }
+		piety_name = MANA
+		
+		priests_can_marry = yes
+		female_temple_holders = yes
+		allow_looting = yes
+		priest_title = PRIEST
+		aggression = 5 # AI aggression factor
+		ai_convert_same_group = 1
+		ai_convert_other_group = 1
+		can_demand_religious_conversion = no
+		feminist = yes
+		short_reign_opinion_year_mult = 0
+		defensive_attrition = yes
+		allow_in_ruler_designer = no
+		
+		religious_clothing_head = 3
+		religious_clothing_priest = 3
+		
+		dynamic_cult = no # Can't convert either way
+	}
+}

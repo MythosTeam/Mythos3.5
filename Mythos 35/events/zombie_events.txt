@@ -1,0 +1,1792 @@
+namespace = ZOMBIE
+### Events related to Zombies
+
+# ZOMBIE.1 - Form the Horde
+character_event = {
+	id = "ZOMBIE.1"
+	title = EVTNAME_ZOMBIE.1
+	desc = "EVTDESC_ZOMBIE.1"
+	picture = GFX_evt_crusaders
+	border = GFX_event_normal_frame_war
+	is_triggered_only = yes
+	
+	only_playable = yes
+	prisoner = no
+	only_independent = yes
+	
+	trigger = {
+		#is_ruler = yes
+		#prisoner = no
+		trait = zombie
+		e_zombie = { has_holder = no }
+		higher_tier_than = DUKE
+	}
+	
+	option = {
+		name = "EVTOPTA_ZOMBIE.1"
+		e_zombie = {
+			grant_title = ROOT
+			culture = ROOT
+		}
+		if = {
+			limit = { culture = undead_cold_ones }
+			set_special_character_title = "Arch Cold One"
+		}
+		else_if = {
+			limit = { culture = undead_aptrganger }
+			set_special_character_title = "Archaptrganger"
+		}
+		else_if = {
+			limit = { culture = undead_draugr }
+			set_special_character_title = "Archdraugr"
+		}
+		else_if = {
+			limit = { culture = undead_dybbuk }
+			set_special_character_title = "Archdybbuk"
+		}
+		else_if = {
+			limit = { culture = undead_ghoul }
+			set_special_character_title = "Archghoul"
+		}
+		else_if = {
+			limit = { culture = undead_wight }
+			set_special_character_title = "Archwight"
+		}
+		else_if = {
+			limit = { culture = undead_zombie }
+			set_special_character_title = "Archzombie"
+		}
+		else_if = {
+			limit = { culture = undead_vetala }
+			set_special_character_title = "Archvetala"
+		}
+		else_if = {
+			limit = { culture = undead_vrykolakas}
+			set_special_character_title = "Archvrykolakas"
+		}
+		else = {
+			set_special_character_title = "Archrevenant"
+		}
+		
+		capital_scope = {
+			ROOT = {
+				spawn_unit = {
+					province = PREV
+					owner = ROOT
+					scaled_by_biggest_garrison = 1.5
+					troops = {
+						zombie_troops = { 10 10 }
+					}
+					reinforces = no
+					earmark = event_zombie
+				}
+			}
+			
+			hidden_tooltip = {
+				create_character = {
+					random_traits = yes
+					dynasty = none
+					religion = ROOT
+					culture = ROOT
+					female = no
+					age = 23
+					attributes = {
+						martial = 5
+					}
+					trait = zombie
+				}
+				create_character = {
+					random_traits = yes
+					dynasty = none
+					religion = ROOT
+					culture = ROOT
+					female = no
+					age = 30
+					attributes = {
+						martial = 5
+					}
+					trait = zombie
+				}
+				create_character = {
+					random_traits = yes
+					dynasty = none
+					religion = ROOT
+					culture = ROOT
+					female = no
+					age = 31
+					attributes = {
+						martial = 5
+					}
+					trait = zombie
+				}
+			}
+		}
+	}
+}
+
+# ZOMBIE.2 - Zombie faith conversion
+character_event = {
+	id = "ZOMBIE.2"
+	title = EVTNAME_ZOMBIE.2
+	desc = "EVTDESC_ZOMBIE.2"
+	picture = GFX_evt_crusaders
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		trait = zombie
+		NOT = { religion = the_damned }
+	}
+	
+	option = {
+		name = "EVTOPTA_ZOMBIE.2"
+		religion = the_damned
+		set_undead_culture = yes
+	}
+}
+
+# ZOMBIE.3 - Get Zombie Plague
+#Zombie Plague: chest_pain cramps headache abdominal_pain
+character_event = {
+	id = ZOMBIE.3
+	
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		random_list = {
+			100 = {
+				modifier = {
+					factor = 0
+					num_of_symptoms = 3
+				}
+				add_zombie_plague_symptom_effect = yes #Disease effect
+			}
+			50 = {
+				modifier = {
+					factor = 0
+					NOR = {
+						trait = headache
+						trait = chest_pain
+						trait = cramps
+						trait = abdominal_pain
+					}
+				}
+				character_event = { id = ZOMBIE.4 days = 20 random = 20 } #Disease develops
+			}
+		}
+	}
+}
+
+# ZOMBIE.4 - Zombie Plague manifests - chest_pain cramps headache abdominal_pain
+character_event = {
+	id = ZOMBIE.4
+	desc = EVTDESCZOMBIE.4
+	picture = GFX_evt_illness
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = ALAS
+		add_trait = zombie_infection
+		set_character_flag = manifest_zombie_plague
+		add_disease_level_effect = yes
+		blessing_removes_disease_effect = yes
+		deaths_gift_removes_disease_effect = yes
+		clr_character_flag = developing_illness
+		clr_character_flag = got_zombie_plague
+		if = {
+			limit = {
+				trait = chest_pain
+			}
+			remove_trait = chest_pain
+		}
+		if = {
+			limit = {
+				trait = cramps
+			}
+			remove_trait = cramps
+		}
+		if = {
+			limit = {
+				trait = headache
+			}
+			remove_trait = headache
+		}
+		if = {
+			limit = {
+				trait = abdominal_pain
+			}
+			remove_trait = abdominal_pain
+		}
+		hidden_tooltip = {
+			if = {
+				limit = {
+					is_unimportant_trigger = yes
+				}
+				health = -3
+			}
+			host = {
+				random_courtier_or_vassal = { #Markus doing
+					limit = {
+						liege = { character = PREVPREV }
+						has_minor_title = title_court_physician
+					}
+					character_event = { id = RIP.11031 days = 1 }
+				}
+			}
+			father = {
+				if = {
+					limit = { 
+						ai = no 
+						is_liege_of = ROOT
+					}
+					set_character_flag = announce_zombie_plague
+					character_event = { id = RIP.5060 }
+				}
+			}
+			mother = {
+				if = {
+					limit = { 
+						ai = no 
+						is_liege_of = ROOT
+					}
+					set_character_flag = announce_zombie_plague
+					character_event = { id = RIP.5060 }
+				}
+			}
+			spouse = {
+				if = {
+					limit = { ai = no }
+					set_character_flag = announce_zombie_plague
+					character_event = { id = RIP.5060 }
+				}
+			}
+			# If still alive and infected in 30 days, chance of becoming a zombie
+			if = {
+				limit = {
+					NOT = { trait = god }
+				}
+				character_event = { id = ZOMBIE.5 days = 30 }
+			}
+		}
+	}
+}
+
+# ZOMBIE.5 -  Chance to become a zombie
+character_event = {
+	id = ZOMBIE.5
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		random_list = {
+			90 = {
+				character_event = { id = ZOMBIE.5 days = 30 }
+			}
+			10 = {
+				modifier = {
+					factor = 2
+					religion = the_damned
+				}
+				modifier = {
+					factor = 1.5
+					liege = { trait = zombie }
+				}
+				log = "[Root.GetBestName] is becoming a zombie through the plague."
+				character_event = { id = ZOMBIE.6 }
+			}
+		}
+	}
+}
+
+# ZOMBIE.6 - Convert to zombie
+character_event = {
+	id = ZOMBIE.6
+	desc = EVTDESCZOMBIE.6
+	picture = GFX_evt_danse_macabre
+	border = GFX_event_normal_frame_religion
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAZOMBIE.6
+		add_trait = zombie
+		set_undead_culture = yes
+		remove_trait = zombie_infection
+		if = {
+			limit = { ai = no } # Not playable
+			abdicate = yes
+		}
+		religion = the_damned
+		any_claim = { remove_claim = PREV }
+		set_government_type = zombie_horde
+		if = {
+			limit = { higher_tier_than = DUKE }
+			set_special_character_title = String_Zombie_King
+		}
+		character_event = { id = ZOMBIE.39 } # Abdicate if religious head
+	}
+}
+
+# Infected province converts
+province_event = {
+	id = ZOMBIE.7
+	desc = EVTDESCZOMBIE.7
+	picture = GFX_evt_depopulated_town
+	
+	trigger = {
+		OR = {
+			has_province_modifier = depopulated_1
+			has_province_modifier = depopulated_2
+			has_province_modifier = depopulated_3
+		}
+		disease = zombie_plague
+		NAND = {
+			culture_group = undead_culture_group
+			religion = the_damned
+		}
+	}
+	
+	mean_time_to_happen = {
+		years = 3
+		modifier = {
+			factor = 0.75
+			has_province_modifier = depopulated_2
+		}
+		modifier = {
+			factor = 0.5
+			has_province_modifier = depopulated_3
+		}
+	}
+	
+	option = {
+		name = EVTOPTAZOMIBE.7
+		random_list = {
+			10 = {
+				trigger = {
+					NOT = { culture_group = undead_culture_group }
+				}
+				set_undead_province_culture = yes
+				log = "[Root.GetName] converted to undead culture through plague"
+			}
+			5 = {
+				trigger = {
+					NOT = { religion = the_damned }
+				}
+				religion = the_damned
+				log = "[Root.GetName] converted to undead religion through plague"
+			}
+			1 = {
+				trigger = {
+					NOR = {
+						culture_group = undead_culture_group
+						religion = the_damned
+					}
+				}
+				set_undead_province_culture = yes
+				religion = the_damned
+				log = "[Root.GetName] converted to undead culture and religion through plague"
+			}
+		}
+	}
+}
+
+# Update devastation on non-undead controlled provinces
+character_event = {
+	id = ZOMBIE.8
+	hide_window = yes
+	is_triggered_only = yes
+	
+	lacks_dlc = Reapers
+	only_playable = yes
+	
+	trigger = {
+		NOT = { trait = zombie }
+	}
+	
+	immediate = {
+		random_demesne_province = {
+			limit = {
+				OR = {
+					has_province_modifier = devastation_1
+					has_province_modifier = devastation_2
+					has_province_modifier = devastation_3
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						NOT = { has_province_modifier = undead_desolation }
+						random = 70 # Not as severe as the RIP version, since it's already slower
+					}
+				}
+				if = {
+					limit = { has_province_modifier = devastation_1 }
+					remove_province_modifier = devastation_1
+				}
+				else_if = {
+					limit = { has_province_modifier = devastation_2 }
+					remove_province_modifier = devastation_2
+					add_province_modifier = { name = devastation_1 duration = -1 }
+				}
+				else_if = {
+					limit = { has_province_modifier = devastation_3 }
+					remove_province_modifier = devastation_3
+					add_province_modifier = { name = devastation_2 duration = -1 }
+				}
+			}
+		}
+	}
+}
+
+# Update devastation on undead controlled provinces
+character_event = {
+	id = ZOMBIE.9
+	hide_window = yes
+	is_triggered_only = yes
+	
+	lacks_dlc = Reapers
+	only_playable = yes
+	
+	trigger = {
+		trait = zombie
+	}
+	
+	immediate = {
+		random_demesne_province = {
+			limit = {
+				NOT = {
+					has_province_modifier = devastation_3
+				}
+			}if = {
+				limit = { has_province_modifier = devastation_2 }
+				remove_province_modifier = devastation_2
+				add_province_modifier = { name = devastation_2 duration = -1 }
+			}
+			else_if = {
+				limit = { has_province_modifier = devastation_1 }
+				remove_province_modifier = devastation_1
+				add_province_modifier = { name = devastation_2 duration = -1 }
+			}
+			else = {
+				add_province_modifier = { name = devastation_1 duration = -1 }
+			}
+		}
+	}
+}
+
+# Setup for monthly corpse gain
+# Runs at game start, anually, and on gaining a title
+# Defunct - from old system where zombie hordes were nomads
+character_event = {
+	id = ZOMBIE.10
+	hide_window = yes
+	is_triggered_only = yes
+	
+	only_playable = yes
+	
+	trigger = {
+		government = zombie_horde
+	}
+	
+	immediate = {
+		clear_delayed_event = { id = ZOMBIE.11 }
+		character_event = { id = ZOMBIE.11 }
+	}
+}
+
+# Formerly gave manpower from devastation and depopulation. Now gives troops
+character_event = {
+	id = ZOMBIE.11
+	hide_window = yes
+	is_triggered_only = yes
+	
+	only_rulers = yes
+	
+	trigger = {
+		trait = zombie
+	}
+	
+	option = {
+		any_demesne_province = {
+			province_event = { id = ZOMBIE.41 }
+		}
+	}
+}
+
+# Chance to trigger a zombie revolt on depopulation from zombie infection
+province_event = {
+	id = ZOMBIE.12
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		OR = {
+			has_province_modifier = depopulated_1
+			has_province_modifier = depopulated_2
+			has_province_modifier = depopulated_3
+		}
+		NOT = { owner = { trait = zombie } }
+		NOT = { owner = { any_war = { using_cb = zombie_uprising } } }
+	}
+	
+	immediate = {
+		# Chance to trigger a revolt
+		random_list = {
+			1 = {
+				modifier = {
+					factor = 2
+					has_province_modifier = depopulated_2
+				}
+				modifier = {
+					factor = 2
+					has_province_modifier = depopulated_3
+				}
+				modifier = {
+					factor = 2.5
+					culture_group = undead_culture_group
+				}
+				modifier = {
+					factor = 2
+					religion = the_damned
+				}
+				log = "Triggering undead revolt in [Root.GetName] on [Root.owner.GetBestName]."
+				province_event = { id = ZOMBIE.13 }
+			}
+			9 = {}
+		}
+	}
+}
+# Undead revolt
+province_event = {
+	id = ZOMBIE.13
+	desc = EVTDESCZOMBIE.13
+	picture = GFX_evt_plague_spreading
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		create_character = {
+			random_traits = yes
+			dynasty = none
+			religion = ROOT
+			culture = ROOT
+			female = no
+			age = 25
+			attributes = {
+				martial = 5
+			}
+			trait = zombie
+			trait = tough_soldier
+		}
+		
+		new_character = {
+			set_undead_culture = yes
+			religion = the_damned
+			set_graphical_culture = undead_revenant
+			create_title = {
+				tier = DUKE
+				landless = yes
+				temporary = yes
+				rebel = yes
+				culture = ROOT
+				name = "ZOMBIE_UPRISING_TITLE"
+				holder = THIS
+			}
+			log = "Creating undead revolt leader, [Root.GetBestName]"
+			
+			wealth = 50
+			
+			spawn_zombie_army_effect = yes
+			
+			if = {
+				limit = {
+					has_game_rule = {
+						name = provincial_revolt_strength
+						value = powerful
+					}
+				}
+				spawn_zombie_army_effect = yes
+			}
+			
+			if = {
+				limit = {
+					has_game_rule = {
+						name = provincial_revolt_strength
+						value = very_powerful
+					}
+				}
+				spawn_zombie_army_effect = yes
+				spawn_zombie_army_effect = yes
+				spawn_zombie_army_effect = yes
+			}
+			
+			if = {
+				limit = {
+					has_game_rule = {
+						name = provincial_revolt_strength
+						value = extremely_powerful
+					}
+				}
+				spawn_zombie_army_effect = yes
+				spawn_zombie_army_effect = yes
+				spawn_zombie_army_effect = yes
+				spawn_zombie_army_effect = yes
+				spawn_zombie_army_effect = yes
+			}
+			
+			# DoW on the province top liege
+			ROOT = {
+				owner = {
+					top_liege = {
+#						set_defacto_vassal = PREVPREVPREV
+						reverse_war = {
+							target = PREVPREVPREV
+							casus_belli = zombie_uprising
+							thirdparty_title = ROOT # The county
+						}
+						log = "[PrevPrevPrev.GetBestName] declared zombie revolt on [This.GetBestName] over [Root.GetName]"
+						reverse_opinion = {
+							who = PREVPREVPREV
+							modifier = opinion_evil_tyrant
+						}
+					}
+				}
+			}
+		}
+		
+		owner = {
+			any_liege = { # Inform the lieges
+				character_event = {
+					id = ZOMBIE.14
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTAZOMBIE.13
+	}
+}
+
+character_event = {
+	id = ZOMBIE.14
+	desc = EVTDESCZOMBIE.14
+	picture = GFX_evt_plague_spreading
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "EVTOPTAZOMBIE.14"
+	}
+}
+
+# Random revolt is a zombie revolt
+province_event = {
+	id = ZOMBIE.15
+	hide_window = yes # Calls ZOMBIE.13 for the actual work
+	is_triggered_only = yes
+	
+	trigger = {
+		has_dlc = "The Old Gods"
+
+		any_province_holding = {
+			NOT = { holding_type = nomad }
+		}
+		
+		owner = {
+			top_liege = {
+				NOT = { culture_group = undead_culture_group }
+			}
+		}
+		
+		OR = {
+			culture_group = undead_culture_group
+		}
+	}
+	
+	immediate = { province_event = { id = ZOMBIE.13 } }
+}
+
+# Undead uprising seizes a holding
+character_event = {
+	id = ZOMBIE.16
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		rebel = yes
+		FROM = { 
+			is_capital = yes # The capital holding
+		}
+		any_war = {
+			attacker = { character = ROOT }
+			using_cb = zombie_uprising
+		}
+	}
+	
+	immediate = {
+		FROM = {
+			location = {
+				
+				random_list = {
+					40 = {}
+					10 = {
+						trigger = {
+							NOT = { has_province_modifier = depopulated_3 }
+						}
+						increase_depopulation_effect = yes
+					}
+					5 = {
+						trigger = { NOT = { culture = ROOT } }
+						culture = ROOT
+					}
+					3 = {
+						trigger = { NOT = { religion = the_damned } }
+						religion = the_damned
+					}
+					1 = {
+						trigger = {
+							NOT = { disease = zombie_plague }
+						}
+						spawn_disease = zombie_plague
+					}
+				}
+			}
+		}
+	}
+}
+
+# More zombies rise up to reinforce the existing uprising
+province_event = {
+	id = ZOMBIE.17
+	desc = EVTDESCZOMBIE.17
+	picture = GFX_evt_plague_spreading
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		has_dlc = "The Old Gods"
+
+		any_province_holding = {
+			NOT = { holding_type = nomad }
+		}
+		
+		# There is already an ongoing nationalist revolt for the same kingdom
+		owner = {
+			top_liege = {
+				war = yes
+				any_war = {
+					defender = { character = PREV }
+					using_cb = zombie_uprising
+				}
+			}
+		}
+	}
+	
+	immediate = {
+		add_province_modifier = {
+			name = recent_county_uprising
+			duration = 1825 # Five years of -100% revolt risk in this county
+		}
+		owner = {
+			top_liege = {
+				any_war = {
+					limit = {
+						defender = { character = PREV }
+						using_cb = zombie_uprising
+					}
+					attacker = {
+						spawn_zombie_reinforcements_effect = yes
+						if = {
+							limit = {
+								has_game_rule = {
+									name = provincial_revolt_strength
+									value = powerful
+								}
+							}
+							spawn_zombie_reinforcements_effect = yes
+						}
+						
+						if = {
+							limit = {
+								has_game_rule = {
+									name = provincial_revolt_strength
+									value = very_powerful
+								}
+							}
+							spawn_zombie_reinforcements_effect = yes
+							spawn_zombie_reinforcements_effect = yes
+							spawn_zombie_reinforcements_effect = yes
+						}
+						
+						if = {
+							limit = {
+								has_game_rule = {
+									name = provincial_revolt_strength
+									value = extremely_powerful
+								}
+							}
+							spawn_zombie_reinforcements_effect = yes
+							spawn_zombie_reinforcements_effect = yes
+							spawn_zombie_reinforcements_effect = yes
+							spawn_zombie_reinforcements_effect = yes
+							spawn_zombie_reinforcements_effect = yes
+						}
+					}
+				}
+			}
+		}
+		
+		owner = {
+			any_liege = { # Inform the lieges
+				character_event = {
+					id = ZOMBIE.18
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = "EVTOPTAZOMBIE.14"
+	}
+}
+
+character_event = {
+	id = ZOMBIE.18
+	desc = EVTDESCZOMBIE.18
+	picture = GFX_evt_plague_spreading
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "EVTOPTAZOMBIE.18"
+	}
+}
+
+# Determine if a building should be converted
+character_event = {
+	id = ZOMBIE.19
+	hide_window = yes
+	is_triggered_only = yes
+	
+	only_rulers = yes
+	
+	immediate = {
+		# Undead characters
+		if = {
+			limit = { trait = zombie }
+			random_demesne_title = {
+				limit = {
+					tier = BARON
+				}
+				if = {
+					limit = { holding_type = city }
+					if = {
+						limit = { has_convertable_living_building_city = yes }
+						convert_city_building_to_undead = yes
+						ROOT = { set_character_flag = building_conversion }
+					}
+				}
+				else_if = {
+					limit = { holding_type = temple }
+					if = {
+						limit = { has_convertable_living_building_temple = yes }
+						convert_temple_building_to_undead = yes
+						ROOT = { set_character_flag = building_conversion }
+					}
+				}
+				else_if = {
+					limit = { holding_type = castle }
+					if = {
+						limit = { has_convertable_living_building_castle = yes }
+						convert_castle_building_to_undead = yes
+						ROOT = { set_character_flag = building_conversion }
+					}
+				}
+				else_if = {
+					limit = { holding_type = tribal }
+					if = {
+						limit = { has_convertable_living_building_tribal = yes }
+						convert_tribal_building_to_undead = yes
+						ROOT = { set_character_flag = building_conversion }
+					}
+				}
+				if = {
+					limit = {
+						ROOT = { has_character_flag = building_conversion }
+						location = { owner = { character = ROOT } }
+					}
+					# Notification
+					location = {
+						province_event = { id = ZOMBIE.20 }
+					}
+				}
+			}
+			random = {
+				chance = 10
+				modifier = {
+					factor = 0
+					NOT = { has_character_flag = building_conversion }
+				}
+				modifier = {
+					factor = 2
+					demesne_size = 4
+				}
+				modifier = {
+					factor = 1.5
+					demesne_size = 6
+				}
+				repeat_event = { id = ZOMBIE.19 }
+			}
+			clr_character_flag = building_conversion
+		}
+		# Living Characters
+		else = {
+			random_demesne_title = {
+				limit = {
+					tier = BARON
+				}
+				if = {
+					limit = { holding_type = city }
+					if = {
+						limit = { has_undead_building_city = yes }
+						convert_city_building_to_living = yes
+						ROOT = { set_character_flag = building_conversion }
+					}
+				}
+				else_if = {
+					limit = { holding_type = temple }
+					if = {
+						limit = { has_undead_building_temple = yes }
+						convert_temple_building_to_living = yes
+						ROOT = { set_character_flag = building_conversion }
+					}
+				}
+				else_if = {
+					limit = { holding_type = castle }
+					if = {
+						limit = { has_undead_building_castle = yes }
+						convert_castle_building_to_living = yes
+						ROOT = { set_character_flag = building_conversion }
+					}
+				}
+				else_if = {
+					limit = { holding_type = tribal }
+					if = {
+						limit = { has_undead_building_tribal = yes }
+						convert_tribal_building_to_living = yes
+						ROOT = { set_character_flag = building_conversion }
+					}
+				}
+				if = {
+					limit = {
+						ROOT = { has_character_flag = building_conversion }
+						location = { owner = { character = ROOT } }
+					}
+					# Notification
+					location = {
+						province_event = { id = ZOMBIE.21 }
+					}
+				}
+			}
+			random = {
+				chance = 10
+				modifier = {
+					factor = 0
+					NOT = { has_character_flag = building_conversion }
+				}
+				modifier = {
+					factor = 2
+					demesne_size = 4
+				}
+				modifier = {
+					factor = 1.5
+					demesne_size = 6
+				}
+				repeat_event = { id = ZOMBIE.19 }
+			}
+			clr_character_flag = building_conversion
+		}
+	}
+}
+
+# Undead building conversion notification
+province_event = {
+	id = ZOMBIE.20
+	desc = EVTDESCZOMIBE.20
+	picture = GFX_evt_burning_house
+	is_triggered_only = yes
+	notification = yes
+	
+	trigger = {
+		any_province_holding = {  num_of_buildings = 1 }
+	}
+	
+	option = {
+		name = OK
+	}
+}
+
+# Living building conversion notification
+province_event = {
+	id = ZOMBIE.21
+	desc = EVTDESCZOMIBE.21
+	picture = GFX_evt_construction_site
+	is_triggered_only = yes
+	notification = yes
+	
+	trigger = {
+		any_province_holding = {  num_of_buildings = 1 }
+	}
+	
+	option = {
+		name = OK
+	}
+}
+
+# Convert undead county back to living
+character_event = {
+	id = ZOMBIE.22
+	hide_window = yes
+	is_triggered_only = yes
+	
+	only_playable = yes
+	
+	trigger = {
+		NOT = { culture_group = undead_culture_group }
+		any_demesne_province = {
+			culture_group = undead_culture_group
+			NOR = {
+				has_province_modifier = depopulated_1
+				has_province_modifier = depopulated_2
+				has_province_modifier = depopulated_3
+				has_province_modifier = devastation_1
+				has_province_modifier = devastation_2
+				has_province_modifier = devastation_3
+			}
+		}
+	}
+	
+	immediate = {
+		random_demesne_province = {
+			limit = {
+				culture_group = undead_culture_group
+				NOR = {
+					has_province_modifier = depopulated_1
+					has_province_modifier = depopulated_2
+					has_province_modifier = depopulated_3
+					has_province_modifier = devastation_1
+					has_province_modifier = devastation_2
+					has_province_modifier = devastation_3
+				}
+			}
+			random = {
+				chance = 15
+				modifier = {
+					factor = 2
+					has_province_modifier = prosperity_modifier_1
+				}
+				modifier = {
+					factor = 3
+					has_province_modifier = prosperity_modifier_2
+				}
+				modifier = {
+					factor = 4
+					has_province_modifier = prosperity_modifier_3
+				}
+				random_list = {
+					1 = {
+						culture = ROOT
+					}
+					1 = {
+						trigger = {
+							any_neighbor_province = {
+								NOT = { culture_group = undead_culture_group }
+							}
+						}
+						random_neighbor_province = {
+							limit = { NOT = { culture_group = undead_culture_group } }
+							PREV = {
+								culture = PREV
+							}
+						}
+					}
+				}
+				# Notification
+				province_event = { id = ZOMBIE.23 }
+			}
+		}
+	}
+}
+
+province_event = {
+	id = ZOMBIE.23
+	desc = EVTDESCZOMBIE.23
+	picture = GFX_evt_culture_change
+	is_triggered_only = yes
+	notification = yes
+	
+	option = {
+		name = OK
+	}
+}
+
+character_event = {
+	id = ZOMBIE.24
+	hide_window = yes
+	is_triggered_only = yes
+	
+	only_playable = yes
+	
+	trigger = {
+		NOT = { religion = the_damned }
+		any_demesne_province = {
+			religion = the_damned
+			NOR = {
+				has_province_modifier = depopulated_1
+				has_province_modifier = depopulated_2
+				has_province_modifier = depopulated_3
+				has_province_modifier = devastation_1
+				has_province_modifier = devastation_2
+				has_province_modifier = devastation_3
+			}
+		}
+	}
+	
+	immediate = {
+		random_demesne_province = {
+			limit = {
+				religion = the_damned
+				NOR = {
+					has_province_modifier = depopulated_1
+					has_province_modifier = depopulated_2
+					has_province_modifier = depopulated_3
+					has_province_modifier = devastation_1
+					has_province_modifier = devastation_2
+					has_province_modifier = devastation_3
+				}
+			}
+			random = {
+				chance = 15
+				modifier = {
+					factor = 2
+					has_province_modifier = prosperity_modifier_1
+				}
+				modifier = {
+					factor = 3
+					has_province_modifier = prosperity_modifier_2
+				}
+				modifier = {
+					factor = 4
+					has_province_modifier = prosperity_modifier_3
+				}
+				random_list = {
+					1 = {
+						religion = ROOT
+					}
+					1 = {
+						trigger = {
+							any_neighbor_province = {
+								NOT = { religion = the_damned }
+							}
+						}
+						random_neighbor_province = {
+							limit = { NOT = { religion = the_damned } }
+							PREV = {
+								religion = PREV
+							}
+						}
+					}
+				}
+				# Notification
+				province_event = { id = ZOMBIE.25 }
+			}
+		}
+	}
+}
+
+province_event = {
+	id = ZOMBIE.25
+	desc = EVTDESCZOMBIE.25
+	picture = GFX_evt_religious_exultation
+	is_triggered_only = yes
+	notification = yes
+	
+	option = {
+		name = OK
+	}
+}
+
+character_event = {
+	id = ZOMBIE.26
+	hide_window = yes
+	is_triggered_only = yes
+	
+	only_playable = yes
+	
+	trigger = {
+		religion = the_damned
+		any_demesne_province = {
+			NOT = { religion = the_damned }
+			OR = {
+				has_province_modifier = depopulated_3
+				has_province_modifier = devastation_3
+			}
+		}
+	}
+	
+	immediate = {
+		random_demesne_province = {
+			limit = {
+				OR = {
+					NOT = { religion = the_damned }
+					NOT = { culture = ROOT }
+				}
+				OR = {
+					has_province_modifier = depopulated_3
+					has_province_modifier = devastation_3
+				}
+			}
+			random = {
+				chance = 60
+				religion = the_damned
+				if = {
+					limit = { NOT = { culture = ROOT } }
+					culture = ROOT
+				}
+				# Notification
+				province_event = { id = ZOMBIE.27 }
+			}
+		}
+	}
+}
+
+province_event = {
+	id = ZOMBIE.27
+	desc = EVTDESCZOMBIE.27
+	picture = GFX_evt_sacrifice
+	is_triggered_only = yes
+	notification = yes
+	
+	option = {
+		name = OK
+	}
+}
+
+character_event = {
+	id = ZOMBIE.28
+	hide_window = yes
+	is_triggered_only = yes
+	
+	only_playable = yes
+	
+	trigger = {
+		trait = zombie
+		NOT = {
+			any_demesne_province = {
+				disease = zombie_plague
+			}
+		}
+	}
+	
+	immediate = {
+		random_demesne_province = {
+			limit = { culture_group = undead_culture_group }
+			spawn_disease = zombie_plague
+		}
+	}
+}
+
+# 29 - Zombie controlled by necromancer
+character_event = {
+	id = ZOMBIE.29
+	desc = EVTDESCZOMBIE.29
+	picture = GFX_evt_shadow
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAZOMBIE.29
+		opinion = { modifier = opinion_controlled_undead who = FROMFROM years = 700 }
+		FROMFROM = { character_event = { id = ZOMBIE.30 } }
+	}
+}
+# 30 - Inform necromancer of success
+character_event = {
+	id = ZOMBIE.30
+	desc = EVTDESCZOMBIE.30
+	picture = GFX_evt_shadow
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EXCELLENT
+		tooltip = { FROM = { opinion = { modifier = opinion_controlled_undead who = ROOT years = 700 } } }
+	}
+}
+# 31 - Other undead influenced
+character_event = {
+	id = ZOMBIE.31
+	desc = EVTDESCZOMBIE.31
+	picture = GFX_evt_shadow
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAZOMBIE.31
+		opinion = { modifier = opinion_influenced_undead who = FROMFROM years = 700 }
+		FROMFROM = { character_event = { id = ZOMBIE.32 } }
+	}
+}
+# 32 - Inform necromancer of influence
+character_event = {
+	id = ZOMBIE.32
+	desc = EVTDESCZOMBIE.32
+	picture = GFX_evt_shadow
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAZOMBIE.32
+		tooltip = { FROM = { opinion = { modifier = opinion_influenced_undead who = FROMFROM years = 700 } } }
+	}
+}
+# 33 - Inform necromancer of failure
+character_event = {
+	id = ZOMBIE.33
+	desc = EVTDESCZOMBIE.33
+	picture = GFX_evt_shadow
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAZOMBIE.33
+	}
+}
+
+character_event = {
+	id = ZOMBIE.34
+	
+	trigger = {
+		has_character_flag = got_zombie_plague
+	}
+	
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		random_list = {
+			100 = {
+				modifier = {
+					factor = 0
+					num_of_symptoms = 3
+				}
+				add_zombie_plague_symptom_effect = yes #Disease effect
+			}
+			50 = {
+				modifier = {
+					factor = 0
+					NOR = {
+						trait = headache
+						trait = chest_pain
+						trait = cramps
+						trait = abdominal_pain
+					}
+				}
+				character_event = { id = ZOMBIE.35 days = 20 random = 20 } #Disease develops
+			}
+		}
+	}
+}
+
+# Zombie Plague: headache chest_pain cramps abdominal_pain
+character_event = {
+	id = ZOMBIE.35
+	desc = EVTDESCZOMBIE.35
+	picture = GFX_evt_illness
+	border = GFX_event_normal_frame_religion
+	
+	hide_from = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = ALAS
+		add_trait = zombie_infection
+		set_character_flag = manifest_zombie_plague 
+		add_disease_level_effect = yes
+		blessing_removes_disease_effect = yes
+		deaths_gift_removes_disease_effect = yes
+		scrying_omen_fulfilled_by_gaining_disease_effect = yes
+		clr_character_flag = developing_illness
+		clr_character_flag = got_zomibe_plague
+		if = {
+			limit = {
+				trait = headache
+			}
+			remove_trait = headache
+		}
+		if = {
+			limit = {
+				trait = cramps
+			}
+			remove_trait = cramps
+		}
+		if = {
+			limit = {
+				trait = chest_pain
+			}
+			remove_trait = chest_pain
+		}
+		if = {
+			limit = {
+				trait = abdominal_pain
+			}
+			remove_trait = abdominal_pain
+		}
+		hidden_tooltip = {
+			if = {
+				limit = {
+					is_unimportant_trigger = yes
+				}
+				health = -3
+			}
+			if = { 
+				limit = { is_playable = no }
+				host = {
+					random_courtier_or_vassal = { #Markus doing
+						limit = {
+							liege = { character = PREVPREV }
+							has_minor_title = title_court_physician
+						}
+						character_event = { id = RIP.11031 days = 1 }
+					}
+				}
+			}
+			if = { 
+				limit = { is_playable = yes }
+				random_courtier_or_vassal = { #Markus doing
+					limit = {
+						has_minor_title = title_court_physician
+					}
+					character_event = { id = RIP.11031 days = 1 }
+				}
+			}
+			father = {
+				if = {
+					limit = { 
+						ai = no 
+						is_liege_of = ROOT
+					}
+					set_character_flag = announce_zombie_plague
+					character_event = { id = RIP.5060 }
+				}
+			}
+			mother = {
+				if = {
+					limit = { 
+						ai = no 
+						is_liege_of = ROOT
+					}
+					set_character_flag = announce_zombie_plague
+					character_event = { id = RIP.5060 }
+				}
+			}
+			spouse = {
+				if = {
+					limit = { ai = no }
+					set_character_flag = announce_zombie_plague
+					character_event = { id = RIP.5060 }
+				}
+			}
+		}
+	}
+}
+
+# Zombies become more common in undead province
+province_event = {
+	id = ZOMBIE.36
+	desc = EVTDESCZOMBIE.36
+	picture = GFX_evt_plague_spreading
+	
+	trigger = {
+		culture_group = undead_culture_group
+		owner = {
+			NOR = {
+				trait = zombie
+				trait = necromancer
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 12
+		modifier = {
+			factor = 0.8
+			OR = {
+				has_province_modifier = devastation_1
+				has_province_modifier = depopulated_1
+			}
+		}
+		modifier = {
+			factor = 0.7
+			OR = {
+				has_province_modifier = devastation_2
+				has_province_modifier = depopulated_2
+			}
+		}
+		modifier = {
+			factor = 0.6
+			OR = {
+				has_province_modifier = devastation_3
+				has_province_modifier = depopulated_3
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTAZOMBIE.36
+		add_province_modifier = { modifier = undead_swarm duration = 900 }
+	}
+}
+
+# Force zombies to be fuedal
+character_event = {
+	id = ZOMBIE.37
+	hide_window = yes
+	is_triggered_only = yes
+	
+	religion = the_damned
+	
+	trigger = {
+		is_landed = yes
+		NOT = { government = zombie_horde }
+	}
+	
+	immediate = {
+		set_government_type = zombie_horde
+	}
+}
+
+# Undead increase devastation
+# Already handled by ZOMBIE.9?
+province_event = {
+	id = ZOMBIE.38
+	hide_window = yes
+
+	is_triggered_only = yes
+	lacks_dlc = Reapers
+
+	trigger = {
+		NOT = { has_province_modifier = devastation_3 }
+	}
+	
+	immediate = {
+		random_list = {
+			30 = {
+				modifier = {
+					factor = 1.5
+					is_capital = yes
+				}
+				modifier = {
+					factor = 1.3
+					holder_scope = {
+						stewardship = 20
+					}
+				}
+				modifier = {
+					factor = 1.2
+					holder_scope = {
+						stewardship = 15
+					}
+				}
+				modifier = {
+					factor = 1.1
+					holder_scope = {
+						stewardship = 10
+					}
+				}
+				modifier = {
+					factor = 1.1
+					NOT = { num_of_settlements = 2 }
+				}
+				modifier = {
+					factor = 1.2
+					is_winter = yes
+				}
+				if = {
+					limit = { has_province_modifier = devastation_2 }
+					remove_province_modifier = devastation_2
+					add_province_modifier = { name = devastation_3 duration = -1 }
+				}
+				else_if = {
+					limit = { has_province_modifier = devastation_1 }
+					remove_province_modifier = devastation_1
+					add_province_modifier = { name = devastation_2 duration = -1 }
+				}
+				else = {
+					add_province_modifier = { name = devastation_1 duration = -1 }
+				}
+			}
+			70 = {
+				modifier = {
+					factor = 1.3
+					port = yes
+				}
+				modifier = {
+					factor = 1.3
+					has_trade_post = yes
+				}
+				modifier = {
+					factor = 1.5
+					has_province_modifier = devastation_2
+				}
+				modifier = {
+					factor = 2
+					has_province_modifier = devastation_3
+				}
+				# Nothing happens
+			}
+		}
+	}
+}
+
+# Force undead religious heads to abdicate
+character_event = {
+	id = ZOMBIE.39
+	desc = EVTDESCZOMBIE.39
+	picture = GFX_evt_bishop
+	
+	is_triggered_only = yes
+	religion = the_damned
+	
+	trigger = {
+		controls_religion = yes
+	}
+	
+	option = {
+		name = EVTOPTAZOMBIE.39
+		abdicate = yes
+	}
+}
+
+# On death, remove zome zombies. They are immortal, so they rarely die and are immune to normal purging.
+character_event = {
+	id = ZOMBIE.40
+	hide_window = yes
+	is_triggered_only = yes
+	
+	ai = yes
+	
+	trigger = {
+		OR = {
+			NOT = { trait = zombie }
+			any_courtier = {
+				count = 30
+			}
+		}
+		any_courtier = { trait = zombie }
+	}
+	
+	immediate = {
+		any_courtier = {
+			limit = { trait = zombie }
+			random = {
+				chance = 10
+				modifier = {
+					factor = 2
+					dynasty = none
+				}
+				modifier = {
+					factor = 2
+					NOT = { num_of_dynasty_members = 2 }
+				}
+				modifier = {
+					factor = 0.5
+					has_minor_title = yes
+				}
+				modifier = {
+					factor = 0.2
+					is_councillor = yes
+				}
+				death = { death_reason = death_missing }
+			}
+		}
+	}
+}
+
+# Generate the actual zombies for each province
+province_event = {
+	id = ZOMBIE.41
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		FROM = { trait = zombie }
+	}
+	
+	immediate = {
+		random = {
+			chance = 15
+			modifier = {
+				factor = 1.5
+				OR = {
+					has_province_modifier = devastation_1
+					has_province_modifier = depopulated_1
+				}
+			}
+			modifier = {
+				factor = 2
+				OR = {
+					has_province_modifier = devastation_1
+					has_province_modifier = depopulated_1
+				}
+			}
+			modifier = {
+				factor = 2.5
+				OR = {
+					has_province_modifier = devastation_1
+					has_province_modifier = depopulated_1
+				}
+			}
+			modifier = {
+				factor = 0.5
+				OR = {
+					has_province_modifier = prosperity_modifier_1
+					has_province_modifier = prosperity_modifier_2
+					has_province_modifier = prosperity_modifier_3
+				}
+			}
+			modifier = {
+				factor = 0.5
+				OR = {
+					has_province_modifier = prosperity_modifier_2
+					has_province_modifier = prosperity_modifier_3
+				}
+			}
+			modifier = {
+				factor = 0.5
+				has_province_modifier = prosperity_modifier_3
+			}
+			FROM = {
+				spawn_unit = {
+					province = PREV
+					owner = FROM
+					scaled_by_biggest_garrison = 0.5
+					troops = {
+						zombie_troops = { 1 1 }
+					}
+					reinforces = no
+					earmark = event_zombie
+				}
+			}
+		}
+	}
+}

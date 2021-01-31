@@ -1,0 +1,1259 @@
+namespace = GIANT
+# GIANT.1 - Check if giant size needs to change
+character_event = {
+	id = GIANT.1
+	hide_window = yes
+	is_triggered_only = yes 
+	
+	trigger = {
+		OR = {
+			trait = mythos_giant
+			trait = half_giant
+		}
+		age = 16
+		NOT = { trait = dwarf }
+	}
+	
+	immediate = {
+		if = {
+			limit = {
+				trait = mythos_giant
+				NOT = { trait = giant }
+			}
+			if = {
+				limit = {
+					age = 16
+					NOT = { age = 28 }
+					NOT = { trait = size_1 }
+				}
+				set_variable = { which = local_size value = 1 }
+				character_event = { id = GIANT.2 }
+			}
+			else_if = {
+				limit = {
+					age = 28
+					NOT = { age = 40 }
+					NOT = { trait = size_2 }
+				}
+				set_variable = { which = local_size value = 2 }
+				character_event = { id = GIANT.2 }
+			}
+			else_if = {
+				limit = {
+					age = 40
+					NOT = { age = 52 }
+					NOT = { trait = size_3 }
+				}
+				set_variable = { which = local_size value = 3 }
+				character_event = { id = GIANT.2 }
+			}
+			else_if = {
+				limit = {
+					age = 52
+					NOT = { age = 64 }
+					NOT = { trait = size_4 }
+				}
+				set_variable = { which = local_size value = 4 }
+				character_event = { id = GIANT.2 }
+			}
+			else_if = {
+				limit = {
+					age = 64
+					NOT = { age = 76 }
+					NOT = { trait = size_5 }
+				}
+				set_variable = { which = local_size value = 5 }
+				character_event = { id = GIANT.2 }
+			}
+			else_if = {
+				limit = {
+					age = 76
+					NOT = { age = 88 }
+					NOT = { trait = size_6 }
+				}
+				set_variable = { which = local_size value = 6 }
+				character_event = { id = GIANT.2 }
+			}
+			else_if = {
+				limit = {
+					age = 88
+					NOT = { age = 110 }
+					NOT = { trait = size_7 }
+				}
+				set_variable = { which = local_size value = 7 }
+				character_event = { id = GIANT.2 }
+			}
+			else_if = {
+				limit = {
+					age = 110
+					NOT = { age = 122 }
+					NOT = { trait = size_8 }
+				}
+				set_variable = { which = local_size value = 8 }
+				character_event = { id = GIANT.2 }
+			}
+			else_if = {
+				limit = {
+					age = 122
+					NOT = { age = 134 }
+					NOT = { trait = size_9 }
+				}
+				set_variable = { which = local_size value = 9 }
+				character_event = { id = GIANT.2 }
+			}
+			else_if = {
+				limit = {
+					age = 134
+					NOT = { trait = size_10 }
+				}
+				set_variable = { which = local_size value = 10 }
+				character_event = { id = GIANT.2 }
+			}
+		}
+		else_if = {
+			limit = {
+				trait = mythos_giant
+				trait = giant
+			}
+			if = {
+				limit = {
+					age = 16
+					NOT = { age = 28 }
+					NOT = { trait = size_2 }
+				}
+				set_variable = { which = local_size value = 2 }
+				character_event = { id = GIANT.2 }
+			}
+			else_if = {
+				limit = {
+					age = 28
+					NOT = { age = 40 }
+					NOT = { trait = size_3 }
+				}
+				set_variable = { which = local_size value = 3 }
+				character_event = { id = GIANT.2 }
+			}
+			else_if = {
+				limit = {
+					age = 40
+					NOT = { age = 52 }
+					NOT = { trait = size_4 }
+				}
+				set_variable = { which = local_size value = 4 }
+				character_event = { id = GIANT.2 }
+			}
+			else_if = {
+				limit = {
+					age = 52
+					NOT = { age = 64 }
+					NOT = { trait = size_5 }
+				}
+				set_variable = { which = local_size value = 5 }
+				character_event = { id = GIANT.2 }
+			}
+			else_if = {
+				limit = {
+					age = 64
+					NOT = { age = 76 }
+					NOT = { trait = size_6 }
+				}
+				set_variable = { which = local_size value = 6 }
+				character_event = { id = GIANT.2 }
+			}
+			else_if = {
+				limit = {
+					age = 76
+					NOT = { age = 88 }
+					NOT = { trait = size_7 }
+				}
+				set_variable = { which = local_size value = 7 }
+				character_event = { id = GIANT.2 }
+			}
+			else_if = {
+				limit = {
+					age = 88
+					NOT = { age = 110 }
+					NOT = { trait = size_8 }
+				}
+				set_variable = { which = local_size value = 8 }
+				character_event = { id = GIANT.2 }
+			}
+			else_if = {
+				limit = {
+					age = 110
+					NOT = { age = 122 }
+					NOT = { trait = size_9 }
+				}
+				set_variable = { which = local_size value = 9 }
+				character_event = { id = GIANT.2 }
+			}
+			else_if = {
+				limit = {
+					age = 122
+					NOT = { age = 134 }
+					NOT = { trait = size_10 }
+				}
+				set_variable = { which = local_size value = 10 }
+				character_event = { id = GIANT.2 }
+			}
+		}
+		else_if = {
+			limit = {
+				trait = half_giant
+				NOT = { trait = mythos_giant }
+			}
+			if = {
+				limit = {
+					age = 20
+					NOT = { age = 40 }
+					NOT = { trait = size_1 }
+				}
+				set_variable = { which = local_size value = 1 }
+				character_event = { id = GIANT.2 }
+			}
+			else_if = {
+				limit = {
+					age = 40
+					NOT = { age = 60 }
+					NOT = { trait = size_2 }
+				}
+				set_variable = { which = local_size value = 2 }
+				character_event = { id = GIANT.2 }
+			}
+			else_if = {
+				limit = {
+					age = 60
+					NOT = { age = 80 }
+					NOT = { trait = size_3 }
+				}
+				set_variable = { which = local_size value = 3 }
+				character_event = { id = GIANT.2 }
+			}
+			else_if = {
+				limit = {
+					age = 80
+					NOT = { age = 100 }
+					NOT = { trait = size_4 }
+				}
+				set_variable = { which = local_size value = 4 }
+				character_event = { id = GIANT.2 }
+			}
+			else_if = {
+				limit = {
+					age = 100
+					NOT = { trait = size_5 }
+				}
+				set_variable = { which = local_size value = 5 }
+				character_event = { id = GIANT.2 }
+			}
+		}
+		else_if = {
+			limit = {
+				trait = half_giant
+				trait = mythos_giant
+			}
+			if = {
+				limit = {
+					age = 20
+					NOT = { age = 40 }
+					NOT = { trait = size_2 }
+				}
+				set_variable = { which = local_size value = 2 }
+				character_event = { id = GIANT.2 }
+			}
+			else_if = {
+				limit = {
+					age = 40
+					NOT = { age = 60 }
+					NOT = { trait = size_3 }
+				}
+				set_variable = { which = local_size value = 3 }
+				character_event = { id = GIANT.2 }
+			}
+			else_if = {
+				limit = {
+					age = 60
+					NOT = { age = 80 }
+					NOT = { trait = size_4 }
+				}
+				set_variable = { which = local_size value = 4 }
+				character_event = { id = GIANT.2 }
+			}
+			else_if = {
+				limit = {
+					age = 80
+					NOT = { age = 100 }
+					NOT = { trait = size_5 }
+				}
+				set_variable = { which = local_size value = 5 }
+				character_event = { id = GIANT.2 }
+			}
+			else_if = {
+				limit = {
+					age = 100
+					NOT = { trait = size_6 }
+				}
+				set_variable = { which = local_size value = 6 }
+				character_event = { id = GIANT.2 }
+			}
+		}
+	}
+}
+
+# GIANT.2 - Increase Giant/Half-giant size
+character_event = {
+	id = GIANT.2
+	desc = EVTDESC_GIANT.2
+	picture = GFX_evt_shaman
+	border = GFX_event_normal_frame_war
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_GIANT.2
+		hidden_tooltip = {
+			remove_trait = size_1
+			remove_trait = size_2
+			remove_trait = size_3
+			remove_trait = size_4
+			remove_trait = size_5
+			remove_trait = size_6
+			remove_trait = size_7
+			remove_trait = size_8
+			remove_trait = size_9
+			remove_trait = size_10
+		}
+		if = {
+			limit = { check_variable = { which = local_size value = 10 } }
+			add_trait = size_10
+		}
+		else_if = {
+			limit = { check_variable = { which = local_size value = 9 } }
+			add_trait = size_9
+		}
+		else_if = {
+			limit = { check_variable = { which = local_size value = 8 } }
+			add_trait = size_8
+		}
+		else_if = {
+			limit = { check_variable = { which = local_size value = 7 } }
+			add_trait = size_7
+		}
+		else_if = {
+			limit = { check_variable = { which = local_size value = 6 } }
+			add_trait = size_6
+		}
+		else_if = {
+			limit = { check_variable = { which = local_size value = 5 } }
+			add_trait = size_5
+		}
+		else_if = {
+			limit = { check_variable = { which = local_size value = 4 } }
+			add_trait = size_4
+		}
+		else_if = {
+			limit = { check_variable = { which = local_size value = 3 } }
+			add_trait = size_3
+		}
+		else_if = {
+			limit = { check_variable = { which = local_size value = 2 } }
+			add_trait = size_2
+		}
+		else = {
+			add_trait = size_1
+		}
+		prestige = 10
+	}
+}
+
+# GIANT.3 - Start for giant child culture event
+character_event = {
+	id = GIANT.3
+	hide_window = yes
+	
+	min_age = 6
+	max_age = 11
+	prisoner = no
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		trait = mythos_giant
+		OR = {
+			NOT = { has_dlc = Conclave }
+			has_focus = focus_ch_heritage
+		}
+		OR = {
+			religion = jotnar
+			religion = jotnar_reformed
+			religion = norse_pagan
+			religion = norse_pagan_reformed
+			culture_group = north_germanic
+			culture_group = central_germanic
+		}
+		NOT = { culture = jotunn }
+		NOT = { has_character_flag = giant_culture_childhood_event }
+	}
+	
+	weight_multiplier = {
+		days = 1
+		modifier = {
+			factor = 1.5
+			OR = {
+				religion = jotnar
+				religion = jotnar_reformed
+			}
+		}
+	}
+	
+	immediate = {
+		set_character_flag = giant_culture_childhood_event
+		# Ping for localization
+		educator = {
+			character_event = { id = GIANT.4 }
+		}
+	}
+}
+
+character_event = {
+	id = GIANT.4
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		FROM = {
+			character_event = { id = GIANT.5 }
+		}
+	}
+}
+
+character_event = {
+	id = GIANT.5
+	desc = EVTDESC_GIANT.5
+	picture = GFX_evt_child_play
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_GIANT.5
+		hidden_tooltip = {
+			educator = {
+				character_event = {
+					id = GIANT.6
+					days = 3
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTB_GIANT.5
+		trigger = { ai = no }
+	}
+}
+
+character_event = {
+	id = GIANT.6
+	desc = EVTDESC_GIANT.6
+	picture = GFX_evt_child_play
+	
+	is_triggered_only = yes
+	
+	# Encourage
+	option = {
+		name = EVTOPTA_GIANT.6
+		tooltip = {
+			FROM = { culture = jotunn }
+		}
+		hidden_tooltip = {
+			FROM = {
+				character_event = { id = GIANT.7 }
+			}
+		}
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 4
+				culture = jotunn
+			}
+			modifier = {
+				factor = 2
+				trait = giant
+				OR = {
+					culture_group = north_germanic
+					culture_group = central_germanic
+				}
+			}
+			modifier = {
+				factor = 3
+				OR = {
+					religion = jotnar
+					religion = jotnar_reformed
+				}
+			}
+		}
+	}
+	
+	# Discourage
+	option = {
+		name = EVTOPTB_GIANT.6
+		hidden_tooltip = {
+			FROM = {
+				character_event = { id = GIANT.8 }
+			}
+		}
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 3
+				trait = monster_hunter
+				NOR = { 
+					trait = mythos_giant
+					trait = half_giant
+					culture = jotunn
+					religion = jotnar
+					religion = jotnar_reformed
+				}
+			}
+			modifier = {
+				factor = 2
+				OR = {
+					religion_group = christian
+					religion_group = muslim
+					religion_group = jewish_group
+					religion = norse_pagan
+					religion = norse_pagan_reformed
+				}
+			}
+		}
+	}
+}
+
+character_event = {
+	id = GIANT.7
+	desc = EVTDESC_GIANT.7
+	picture = GFX_evt_child_play
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_GIANT.7
+		culture = jotunn
+	}
+}
+
+character_event = {
+	id = GIANT.8
+	desc = EVTDESC_GIANT.8
+	picture = GFX_evt_child_play
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_GIANT.8
+	}
+}
+
+# GIANT.9 - Giant child adopts jotnar religion - start
+character_event = {
+	id = GIANT.9
+	hide_window = yes
+	
+	min_age = 6
+	max_age = 11
+	prisoner = no
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		trait = mythos_giant
+		OR = {
+			NOT = { has_dlc = Conclave }
+			has_focus = focus_ch_heritage
+		}
+		NOR = {
+			religion = jotnar
+			religion = jotnar_reformed
+			religion = the_damned
+		}
+		OR = {
+			religion = norse_pagan
+			religion = norse_pagan_reformed
+			religion = baltic_pagan
+			religion = baltic_pagan_reformed
+			religion = finnish_pagan
+			religion = finnish_pagan_reformed
+			religion = slavic_pagan
+			religion = slavic_pagan_reformed
+			culture = jotunn
+		}
+		NOT = { has_character_flag = giant_religion_childhood_event }
+	}
+	weight_multiplier = {
+		days = 1
+		modifier = {
+			factor = 0.7
+			is_reformed_religion = yes
+		}
+		modifier = {
+			factor = 0.5
+			NOT = { religion_group = pagan_group }
+		}
+		modifier = {
+			factor = 0.5
+			father = {
+				is_reformed_religion = yes
+				NOT = { religion = jotnar_reformed }
+			}
+		}
+		modifier = {
+			factor = 0.5
+			mother = {
+				is_reformed_religion = yes
+				NOT = { religion = jotnar_reformed }
+			}
+		}
+		modifier = {
+			factor = 1.5
+			father = { 
+				OR = {
+					religion = jotnar
+					religion = jotnar_reformed
+				}
+			}
+		}
+		modifier = {
+			factor = 1.5
+			mother = { 
+				OR = {
+					religion = jotnar
+					religion = jotnar_reformed
+				}
+			}
+		}
+		modifier = {
+			factor = 0.5
+			father = { 
+				is_reformed_religion = yes
+				NOR = {
+					religion = norse_pagan_reformed
+					religion = jotnar_reformed
+				}
+			}
+		}
+		modifier = {
+			factor = 0.5
+			mother = { 
+				is_reformed_religion = yes
+				NOR = {
+					religion = norse_pagan_reformed
+					religion = jotnar_reformed
+				}
+			}
+		}
+	}
+	
+	immediate = {
+		# Ping for localization
+		educator = {
+			character_event = { id = GIANT.10 }
+		}
+	}
+}
+
+character_event = {
+	id = GIANT.10
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		FROM = {
+			character_event = { id = GIANT.11 }
+		}
+	}
+}
+
+character_event = {
+	id = GIANT.11
+	desc = EVTDESC_GIANT.11
+	picture = GFX_evt_child_play
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_GIANT.11
+		hidden_tooltip = {
+			educator = {
+				character_event = {
+					id = GIANT.12
+					days = 3
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTB_GIANT.11
+		trigger = { ai = no }
+	}
+}
+
+character_event = {
+	id = GIANT.12
+	desc = EVTDESC_GIANT.12
+	picture = GFX_evt_child_play
+	
+	is_triggered_only = yes
+	
+	# Encourage
+	option = {
+		name = EVTOPTA_GIANT.12
+		tooltip = {
+			FROM = {
+				if = {
+					limit = { has_global_flag = jotnar_reformation  }
+					religion = jotnar_reformed
+				}
+				else = {
+					religion = jotnar
+				}
+			}
+		}
+		hidden_tooltip = {
+			FROM = {
+				character_event = { id = GIANT.13 }
+			}
+		}
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 4
+				OR = {
+					religion = jotnar
+					religion = jotnar_reformed
+				}
+			}
+			modifier = {
+				factor = 2
+				OR = {
+					religion = jotnar
+					religion = jotnar_reformed
+				}
+				OR = {
+					has_religion_feature = religion_proselytizing
+					has_religion_feature = religion_dogmatic
+				}
+			}
+			modifier = {
+				factor = 0.2
+				NOR = {
+					religion = jotnar
+					religion = jotnar_reformed
+				}
+				OR = {
+					has_religion_feature = religion_proselytizing
+					has_religion_feature = religion_dogmatic
+				}
+			}
+			modifier = {
+				factor = 4
+				culture = jotunn
+			}
+			modifier = {
+				factor = 2
+				trait = mythos_giant
+			}
+		}
+	}
+	
+	# Discourage
+	option = {
+		name = {
+			trigger = {
+				NOR = {
+					religion = norse_pagan
+					religion = norse_pagan_reformed
+					religion = jotnar
+					religion = jotnar_reformed
+				}
+			}
+			text = EVTOPTB_GIANT.12
+		}
+		name = {
+			trigger = {
+				OR = {
+					religion = norse_pagan
+					religion = norse_pagan_reformed
+				}
+			}
+			text = EVTOPTC_GIANT.12
+		}
+		name = {
+			trigger = {
+				OR = {
+					religion = jotnar
+					religion = jotnar_reformed
+				}
+			}
+			text = EVTOPTD_GIANT.12
+		}
+		hidden_tooltip = {
+			FROM = {
+				character_event = { id = GIANT.14 }
+			}
+		}
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 3
+				trait = monster_hunter
+				NOR = { 
+					trait = mythos_giant
+					trait = half_giant
+					culture = jotunn
+					religion = jotnar
+					religion = jotnar_reformed
+				}
+			}
+			modifier = {
+				factor = 3
+				is_reformed_religion = yes
+				NOT = { religion = jotnar_reformed }
+			}
+			modifier = {
+				factor = 2
+				is_priest = yes
+				NOR = {
+					religion = jotnar
+					religion = jotnar_reformed
+				}
+			}
+			modifier = {
+				factor = 2
+				trait = zealous
+				NOR = {
+					religion = jotnar
+					religion = jotnar_reformed
+				}
+			}
+		}
+	}
+}
+
+character_event = {
+	id = GIANT.13
+	desc = EVTDESC_GIANT.13
+	picture = GFX_evt_child_play
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_GIANT.13
+		if = {
+			limit = { has_global_flag = jotnar_reformation  }
+			religion = jotnar_reformed
+		}
+		else = {
+			religion = jotnar
+		}
+	}
+}
+
+character_event = {
+	id = GIANT.14
+	desc = EVTDESC_GIANT.14
+	picture = GFX_evt_child_play
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_GIANT.14
+	}
+}
+
+# Giant.15 - Unimportant landed giant marries an unimportant unlanded giant
+# Should help avoid giants breeding themselves to extinction
+character_event = {
+	id = GIANT.15
+	hide_window = yes
+	is_triggered_only = yes
+	
+	only_rulers = yes
+	ai = yes
+	min_age = 18
+	capable_only = yes
+	prisoner = no
+	in_command = no
+	
+	trigger = {
+		is_marriage_adult = yes
+		is_pregnant = no
+		NOR = {
+			trait = celibate
+			trait = horse
+			trait = cat
+		}
+		NOT = { is_ascetic_trigger = yes }
+		NOT = { has_character_flag = ai_flag_refuse_marriage }
+		NOT = { has_character_flag = cannot_marry }
+		can_marry = yes
+		is_undead = no
+		is_infertile = no
+		NOT = {
+			any_close_relative = { ai = no }
+		}
+		trait = mythos_giant
+		any_courtier = {
+			OR = {
+				AND = {
+					is_female = yes
+					ROOT = { is_female = no }
+				}
+				AND = {
+					is_female = no
+					ROOT = { is_female = yes }
+				}
+			}
+			ai = yes
+			is_consort = no
+			is_married = no
+			is_landed = no
+			is_marriage_adult = yes
+			is_pregnant = no
+			NOR = {
+				trait = celibate
+				trait = horse
+				trait = cat
+			}
+			NOT = { is_ascetic_trigger = yes }
+			NOT = { has_character_flag = ai_flag_refuse_marriage }
+			NOT = { has_character_flag = cannot_marry }
+			is_undead = no
+			is_infertile = no
+			NOT = {
+				any_close_relative = { ai = no }
+			}
+			trait = mythos_giant
+			can_marry = ROOT
+		}
+	}
+	
+	weight_multiplier = {
+		days = 1
+		modifier = {
+			factor = 0.75
+			trait = homosexual
+		}
+		modifier = {
+			factor = 0.9
+			trait = chaste
+		}
+		modifier = {
+			factor = 1.2
+			is_30 = yes
+		}
+		modifier = {
+			factor = 1.2
+			is_40 = yes
+		}
+	}
+	
+	immediate = {
+		any_courtier = {
+			limit = {
+				OR = {
+					AND = {
+						is_female = yes
+						ROOT = { is_female = no }
+					}
+					AND = {
+						is_female = no
+						ROOT = { is_female = yes }
+					}
+				}
+				ai = yes
+				is_consort = no
+				is_married = no
+				is_landed = no
+				is_marriage_adult = yes
+				is_pregnant = no
+				NOR = {
+					trait = celibate
+					trait = horse
+					trait = cat
+				}
+				NOT = { is_ascetic_trigger = yes }
+				NOT = { has_character_flag = ai_flag_refuse_marriage }
+				NOT = { has_character_flag = cannot_marry }
+				is_undead = no
+				is_infertile = no
+				NOT = {
+					any_close_relative = { ai = no }
+				}
+				trait = mythos_giant
+				can_marry = ROOT
+			}
+			score_value = {
+				value = 10
+				romantic_courtier_selection_score = yes
+				additive_modifier = {
+					value = 1
+					trait = underhanded_rogue
+				}
+				additive_modifier = {
+					value = 1
+					trait = charismatic_negotiator
+				}
+				additive_modifier = {
+					value = 2
+					trait = grey_eminence
+				}
+				additive_modifier = {
+					value = 1
+					trait = thrifty_clerk
+				}
+				additive_modifier = {
+					value = 2
+					trait = fortune_builder
+				}
+				additive_modifier = {
+					value = 3
+					trait = midas_touched
+				}
+				additive_modifier = {
+					value = -1
+					trait = scholarly_theologian
+				}
+				additive_modifier = {
+					value = -1
+					trait = mastermind_theologian
+				}
+				additive_modifier = {
+					value = -10
+					trait = syphilitic
+				}
+				additive_modifier = {
+					value = -10
+					trait = inbred
+				}
+				additive_modifier = {
+					value = 4
+					trait = strong
+				}
+				additive_modifier = {
+					value = -2
+					trait = weak
+				}
+				additive_modifier = {
+					value = 6
+					trait = genius
+				}
+				additive_modifier = {
+					value = 3
+					trait = quick
+				}
+				additive_modifier = {
+					value = 3
+					trait = fair
+				}
+				additive_modifier = {
+					value = 4
+					trait = hedonist
+				}
+				additive_modifier = {
+					value = -10
+					trait = has_aztec_disease
+				}
+				additive_modifier = {
+					value = 3
+					trait = giant
+				}
+				additive_modifier = {
+					value = -3
+					trait = dwarf
+				}
+			}
+			add_spouse = ROOT
+		}
+	}
+}
+
+# GIANT.16 - Unimportant landed giant makes a concubine of an unimportant unlanded giant
+# Should help avoid giants breeding themselves to extinction
+# This event assumes the default 3 concubines until better code exists to check if a character can take a concubine
+character_event = {
+	id = GIANT.16
+	hide_window = yes
+	is_triggered_only = yes
+	
+	only_rulers = yes
+	ai = yes
+	min_age = 18
+	capable_only = yes
+	prisoner = no
+	in_command = no
+	
+	trigger = {
+		has_concubinage = yes
+		is_female = no
+		num_of_consorts < 3
+		is_marriage_adult = yes
+		NOR = {
+			trait = celibate
+			trait = horse
+			trait = cat
+		}
+		NOT = { is_ascetic_trigger = yes }
+		NOT = { has_character_flag = ai_flag_refuse_marriage }
+		NOT = { has_character_flag = cannot_marry }
+		is_undead = no
+		is_infertile = no
+		NOT = {
+			any_close_relative = { ai = no }
+		}
+		trait = mythos_giant
+		any_courtier = {
+			is_female = yes
+			ai = yes
+			is_consort = no
+			is_married = no
+			is_landed = no
+			is_marriage_adult = yes
+			is_pregnant = no
+			NOR = {
+				trait = celibate
+				trait = horse
+				trait = cat
+			}
+			NOT = { is_ascetic_trigger = yes }
+			NOT = { has_character_flag = ai_flag_refuse_concubinage }
+			is_undead = no
+			is_infertile = no
+			NOT = {
+				any_close_relative = { ai = no }
+			}
+			trait = mythos_giant
+		}
+	}
+	
+	weight_multiplier = {
+		days = 1
+		modifier = {
+			factor = 0.75
+			trait = homosexual
+		}
+		modifier = {
+			factor = 0.9
+			trait = chaste
+		}
+		modifier = {
+			factor = 1.2
+			is_30 = yes
+		}
+		modifier = {
+			factor = 1.2
+			is_40 = yes
+		}
+		modifier = {
+			factor = 0.5
+			is_married = no # Try to marry first
+		}
+	}
+	
+	immediate = {
+		any_courtier = {
+			limit = {
+				is_female = yes
+				ai = yes
+				is_consort = no
+				is_married = no
+				is_landed = no
+				is_marriage_adult = yes
+				is_pregnant = no
+				NOR = {
+					trait = celibate
+					trait = horse
+					trait = cat
+				}
+				NOT = { is_ascetic_trigger = yes }
+				NOT = { has_character_flag = ai_flag_refuse_concubinage }
+				is_undead = no
+				is_infertile = no
+				NOT = {
+					any_close_relative = { ai = no }
+				}
+				trait = giant
+			}
+			score_value = {
+				value = 10
+				romantic_courtier_selection_score = yes
+				additive_modifier = {
+					value = 1
+					trait = underhanded_rogue
+				}
+				additive_modifier = {
+					value = 1
+					trait = charismatic_negotiator
+				}
+				additive_modifier = {
+					value = 2
+					trait = grey_eminence
+				}
+				additive_modifier = {
+					value = 1
+					trait = thrifty_clerk
+				}
+				additive_modifier = {
+					value = 2
+					trait = fortune_builder
+				}
+				additive_modifier = {
+					value = 3
+					trait = midas_touched
+				}
+				additive_modifier = {
+					value = -1
+					trait = scholarly_theologian
+				}
+				additive_modifier = {
+					value = -1
+					trait = mastermind_theologian
+				}
+				additive_modifier = {
+					value = -10
+					trait = syphilitic
+				}
+				additive_modifier = {
+					value = -10
+					trait = inbred
+				}
+				additive_modifier = {
+					value = 4
+					trait = strong
+				}
+				additive_modifier = {
+					value = -2
+					trait = weak
+				}
+				additive_modifier = {
+					value = 6
+					trait = genius
+				}
+				additive_modifier = {
+					value = 3
+					trait = quick
+				}
+				additive_modifier = {
+					value = 3
+					trait = fair
+				}
+				additive_modifier = {
+					value = 4
+					trait = hedonist
+				}
+				additive_modifier = {
+					value = -10
+					trait = has_aztec_disease
+				}
+			}
+			add_spouse = ROOT
+		}
+	}
+}

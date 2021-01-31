@@ -1,0 +1,21 @@
+spriteTypes = {
+	spriteType = {
+		name = "wonder_strip_eternal_flame_large"
+		texturefile = "gfx\\interface\\wonder_interface\\wonder_strips\\wonder_stages_eternal_flame_large.dds"
+		noOfFrames = 5
+	}
+	spriteType = {
+		name = "wonder_strip_eternal_flame_medium"
+		texturefile = "gfx\\interface\\wonder_interface\\wonder_strips\\wonder_stages_eternal_flame_medium.dds"
+		noOfFrames = 5
+	}
+	spriteType = {
+		name = "wonder_strip_eternal_flame_small"
+		texturefile = "gfx\\interface\\wonder_interface\\wonder_strips\\wonder_stages_eternal_flame_small.dds"
+		noOfFrames = 5
+	}
+	spriteType = {
+		name = "GFX_upgrade_icon_brazier_blue"
+		texturefile = "gfx\\interface\\wonder_interface\\wonder_upgrades\\wonder_upgrade_brazier_blue.dds"
+	}
+}

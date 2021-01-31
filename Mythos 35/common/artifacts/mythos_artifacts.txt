@@ -1,0 +1,358 @@
+### Hellenic Quest items
+golden_fleece = {
+	global_tax_modifier = 0.3
+	monthly_character_prestige = 1
+	quality = 3
+	stacking = no
+	flags = { mythic hellenic textile unique fantasy }
+	picture = GFX_relic_box_simple
+}
+
+medusa_head = {
+	martial = 3
+	land_morale = 0.3
+	quality = 3
+	stacking = no
+	flags = { mythic hellenic bodypart unique fantasy }
+	picture = GFX_strange_chest
+}
+
+lesser_key_of_solomon = {
+	learning = 2
+	stewardship = 2
+	monthly_character_prestige = 0.5
+	global_tax_modifier = 0.05
+	quality = 3
+	stacking = no
+	flags = { mythic alchemy unique lore }
+	picture = GFX_book_roots_crown_01
+	active = {
+		OR = {
+			learning = 15
+			trait = arcane_master
+			trait = alchemist
+		}
+	}
+	slot = library
+}
+
+greater_key_of_solomon = {
+	learning = 3
+	stewardship = 2
+	monthly_character_prestige = 1
+	global_levy_size = 0.02
+	global_tax_modifier = 0.05
+	plot_power_modifier = 0.1
+	quality = 4
+	stacking = no
+	flags = { mythic alchemy unique lore }
+	picture = GFX_book_roots_crown_03
+	active = {
+		OR = {
+			learning = 20
+			trait = arcane_master
+			trait = alchemist
+		}
+	}
+	slot = library
+}
+
+panacea = {
+	quality = 3
+	stacking = yes
+	flags = { mythic healing unique }
+	picture = GFX_pouch
+}
+
+medical_supplies = {
+	health_penalty = 2
+	quality = 1
+	stacking = no
+	flags = { mythic healing }
+	picture = GFX_pouch
+	history = no
+}
+
+philosopher_stone = {
+	#immortal = yes # Might not work...
+	health = 20
+	learning = 2
+	global_tax_modifier = 0.3
+	monthly_character_prestige = 2
+	quality = 4
+	stacking = no
+	flags = { mythic unique fantasy very_rare }
+	picture = GFX_gem_ruby
+}
+### Draconic
+eternal_torch = {
+	monthly_character_prestige = 0.1
+	monthly_character_piety = 0.1
+	allowed_gift = {
+		OR = {
+			religion = draconic_pagan
+			religion = draconic_pagan_reformed
+		}
+	}
+	quality = 2
+	stacking = no
+	flags = { mythic religious draconic }
+	picture = "GFX_relic_box" # Give it its own picture eventually
+}
+
+holy_coin = {
+	monthly_character_prestige = 0.05
+	stewardship = 1
+	allowed_gift = {
+		OR = {
+			religion = draconic_pagan
+			religion = draconic_pagan_reformed
+		}
+	}
+	quality = 2
+	stacking = no
+	flags = { mythic religious draconic }
+	picture = "GFX_pouch" # Give it its own picture eventually
+}
+
+annointing_necklace = {
+	# Ceremonial necklace worn by draconic priests when creating a shrine to a fallen draconic hero
+	monthly_character_piety = 0.05
+	learning = 1
+	allowed_gift = {
+		OR = {
+			religion = draconic_pagan
+			religion = draconic_pagan_reformed
+		}
+	}
+	quality = 2
+	stacking = no
+	flags = { mythic religious draconic }
+	slot = neck
+	picture = "GFX_indian_necklace"
+}
+
+religious_icon = {
+	monthly_character_piety = 0.25
+	quality = 1
+	allowed_gift = {
+		religion_group = christian
+	}
+	active = {
+		religion_group = christian
+		NOT = { religion = iconoclast }
+	}
+	flags = { religious christian art decor wealth minor_icon }
+	stacking = no
+	picture = "GFX_magnificent_painting"
+}
+
+religious_icon_not_made_by_hand = {
+	monthly_character_piety = 0.5
+	quality = 2
+	allowed_gift = {
+		religion_group = christian
+	}
+	active = {
+		religion_group = christian
+		NOT = { religion = iconoclast }
+	}
+	flags = { religious christian art decor wealth minor_icon }
+	stacking = no
+	picture = "GFX_magnificent_painting"
+}
+
+ingredient_mistletoe = {
+	quality = 1
+	allowed_gift = {
+		OR = {
+			society_member_of = hermetics 
+			trait = herbalist
+		}
+	}
+	flags = { hermetics ingredient }
+	picture = "GFX_pouch_of_ingredients"
+	history = no
+}
+ingredient_fennel = {
+	quality = 1
+	allowed_gift = {
+		OR = {
+			society_member_of = hermetics 
+			trait = herbalist
+		}
+	}
+	flags = { hermetics ingredient }
+	picture = "GFX_pouch_of_ingredients"
+	history = no
+}
+ingredient_thyme = {
+	quality = 1
+	allowed_gift = {
+		OR = {
+			society_member_of = hermetics 
+			trait = herbalist
+		}
+	}
+	flags = { hermetics ingredient }
+	picture = "GFX_pouch_of_ingredients"
+	history = no
+}
+ingredient_horehound = {
+	quality = 1
+	allowed_gift = {
+		OR = {
+			society_member_of = hermetics 
+			trait = herbalist
+		}
+	}
+	flags = { hermetics ingredient }
+	picture = "GFX_pouch_of_ingredients"
+	history = no
+}
+ingredient_wolfsbane = {
+	quality = 2
+	allowed_gift = {
+		trait = herbalist
+	}
+	flags = { hermetics ingredient }
+	picture = "GFX_pouch_of_ingredients"
+	history = no
+}
+ingredient_fern_flower = {
+	quality = 2
+	allowed_gift = {
+		trait = herbalist
+	}
+	flags = { hermetics ingredient }
+	picture = "GFX_pouch_of_ingredients"
+	history = no
+}
+ingredient_moly = {
+	quality = 2
+	allowed_gift = {
+		trait = herbalist
+	}
+	flags = { hermetics ingredient }
+	picture = "GFX_pouch_of_ingredients"
+	history = no
+}
+ingredient_lotus = {
+	quality = 2
+	allowed_gift = {
+		trait = herbalist
+	}
+	flags = { hermetics ingredient }
+	picture = "GFX_pouch_of_ingredients"
+	history = no
+}
+ingredient_sage = {
+	quality = 2
+	allowed_gift = {
+		trait = herbalist
+	}
+	flags = { hermetics ingredient }
+	picture = "GFX_pouch_of_ingredients"
+	history = no
+}
+ingredient_raskovnik = {
+	quality = 2
+	allowed_gift = {
+		trait = herbalist
+	}
+	flags = { hermetics ingredient }
+	picture = "GFX_pouch_of_ingredients"
+	history = no
+}
+ingredient_asclepois = {
+	quality = 3
+	allowed_gift = {
+		trait = herbalist
+	}
+	flags = { hermetics ingredient }
+	picture = "GFX_pouch_of_ingredients"
+	history = no
+}
+
+crown_draconic_fylkir = { 
+	monthly_character_prestige = 0.4
+	monthly_character_piety = 0.7
+	stewardship = 2
+	martial = 2
+	same_religion_opinion = 3
+	quality = 4
+	active = { 
+		has_landed_title = k_draconic_pagan_reformed
+	}
+	flags = { religious unique crown jewelry crown_jewel }
+	stacking = no
+	# Placeholder image. Final image should be elaborite jewelry attached to the horns, If wearer is human, includes a horned crown
+	picture = "GFX_crown_fylkir"
+	slot = crown
+	indestructible = yes
+	allowed_gift = {
+		always = no
+	}
+}
+
+crown_celtic_fylkir = { 
+	monthly_character_prestige = 0.4
+	monthly_character_piety = 0.7
+	diplomacy = 2
+	martial = 2
+	tribal_opinion = 10
+	quality = 4
+	active = { 
+		has_landed_title = d_druidic_reformed
+	}
+	flags = { religious unique crown jewelry crown_jewel }
+	stacking = no
+	# Placeholder image. Final image should be a gold circlet with red cloth around it
+	picture = "GFX_crown_byzantine"
+	slot = crown
+	indestructible = yes
+	allowed_gift = {
+		always = no
+	}
+}
+
+crown_kemetic_fylkir = { 
+	monthly_character_prestige = 0.4
+	monthly_character_piety = 0.7
+	diplomacy = 2
+	martial = 2
+	same_religion_opinion = 3
+	quality = 4
+	active = { 
+		has_landed_title = d_kemetic_pagan_reformed
+	}
+	flags = { religious unique crown jewelry crown_jewel }
+	stacking = no
+	# Placeholder image. Final image should be a sun disc
+	picture = "GFX_crown_fylkir"
+	slot = crown
+	indestructible = yes
+	allowed_gift = {
+		always = no
+	}
+}
+
+crown_jotnar_fylkir = { 
+	monthly_character_prestige = 0.4
+	monthly_character_piety = 0.7
+	stewardship = 2
+	martial = 2
+	tribal_opinion = 10
+	quality = 4
+	active = { 
+		has_landed_title = d_jotnar_reformed
+	}
+	flags = { religious unique crown jewelry crown_jewel }
+	stacking = no
+	picture = "GFX_crown_fylkir"
+	slot = crown
+	indestructible = yes
+	allowed_gift = {
+		always = no
+	}
+}

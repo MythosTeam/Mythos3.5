@@ -1,0 +1,2822 @@
+# DRAGON.106 - Control for Dragon rival raid. ROOT is being raided, FROMFROM is raider
+character_event = {
+	id = DRAGON.106
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		# Lack of honor vs lack of viligence may rarely be able to quietly steal
+		if = {
+			limit = {
+				FROMFROM = { ai_honor < -10 }
+				OR = {
+					trait = slothful
+					trait = content
+				}
+			}
+			random = {
+				chance = 10
+				FROMFROM = { character_event = { id = DRAGON.107 } }
+				break = yes
+			}
+		}
+		# Otherwise, raided party gets a choice on how to procede
+		character_event = { id = DRAGON.109 }
+	}
+}
+
+# DRAGON.107 - Caught rival sleeping and made off with prize
+character_event = {
+	id = DRAGON.107
+	desc = EVTDESC_DRAGON.107
+	picture = GFX_evt_dragon_horde
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		FROM = {
+			export_to_variable = { which = local_stolen value = wealth }
+			divide_variable = { which = local_stolen value = 5 }
+			if = {
+				limit = { check_variable = { which = local_stolen value < 10 } }
+				set_variable = { which = local_stolen value = 10 }
+			}
+			else_if = {
+				limit = { check_variable = { which = local_stolen value = 100 } }
+			}
+		}
+		#set_variable = { which = local_stolen which = FROM }
+	}
+	
+	option = {
+		name = EVTOPTA_DRAGON.107
+		wealth = local_stolen
+		hidden_tooltip = {
+			FROM = { character_event = { id = DRAGON.108 } }
+		}
+	}
+}
+
+# DRAGON.108 - Rival stole from you
+character_event = {
+	id = DRAGON.108
+	desc = EVTDESC_DRAGON.108
+	picture = GFX_evt_dragon_horde
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		multiply_variable = { which = local_stolen value = -1 }
+	}
+	
+	option = {
+		name = EVTOPTA_DRAGON.108
+		wealth = local_stolen
+		tooltip = { opinion = { who = FROM modifier = opinion_raided } }
+	}
+}
+
+# DRAGON.109 - Choice to fight - ROOT is challenged party, FROMFROMFROM is challenger
+character_event = {
+	id = DRAGON.109
+	desc = EVTDESC_DRAGON.109
+	picture = GFX_evt_dragon_face
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		
+		# Determine stakes
+		FROMFROMFROM = {
+			export_to_variable = { which = local_attacker_pot value = wealth }
+			divide_variable = { which = local_attacker_pot value = 3 }
+		}
+		export_to_variable = { which = local_defender_pot value = wealth }
+		divide_variable = { which = local_defender_pot value = 3 }
+		
+		if = {
+			limit = {
+				NOT = { check_variable = { which = local_attacker_pot value = 20 } }
+			}
+			set_variable = { which = local_attacker_pot value = 20 }
+		}
+		else_if = {
+			limit = {
+				check_variable = { which = local_attacker_pot value = 600 }
+			}
+			set_variable = { which = local_attacker_pot value = 600 }
+		}
+		if = {
+			limit = {
+				NOT = { check_variable = { which = local_defender_pot value = 20 } }
+			}
+			set_variable = { which = local_defender_pot value = 20 }
+		}
+		else_if = {
+			limit = {
+				check_variable = { which = local_defender_pot value = 600 }
+			}
+			set_variable = { which = local_defender_pot value = 600 }
+		}
+		
+		set_variable = { which = local_attacker_pay which = local_attacker_pot}
+		multiply_variable = { which = local_attacker_pay value = -1 }
+		set_variable = { which = local_defender_pay which = local_defender_pot}
+		multiply_variable = { which = local_defender_pay value = -1 }
+		
+		
+		save_event_target_as = challenged_party
+		FROMFROMFROM = {
+			save_event_target_as = challenger
+		}
+	}
+	
+	option = {
+		name = EVTOPTA_DRAGON.109
+		trigger = {
+			NOR = {
+				owes_favor_to = FROMFROMFROM
+				holds_favor_on = FROMFROMFROM
+			}
+		}
+		hidden_tooltip = {
+			FROMFROMFROM = { character_event = { id = DRAGON.110 days = 1 } }
+		}
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 2
+				trait = deceitful
+			}
+		}
+	}
+	option = {
+		name = EVTOPTB_DRAGON.109
+		wealth = local_defender_pay
+		prestige = -50
+		hidden_tooltip = {
+			FROMFROMFROM = { character_event = { id = DRAGON.111 days = 1 } }
+		}
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 2
+				trait = craven
+			}
+			modifier = {
+				factor = 2
+				trait = shy
+			}
+			modifier = {
+				factor = 2
+				combat_rating < 10
+			}
+		}
+	}
+	option = {
+		name = EVTOPTC_DRAGON.109
+		hidden_tooltip = {
+			FROMFROMFROM = { character_event = { id = DRAGON.112 days = 1 } }
+		}
+		ai_chance = {
+			factor = 2
+			modifier = {
+				factor = 3
+				trait = brave
+			}
+			modifier = {
+				factor = 1.5
+				trait = greedy
+			}
+			modifier = {
+				factor = 2
+				combat_rating = 7
+			}
+		}
+	}
+}
+
+# DRAGON.110 - Offered favor to call off attack
+character_event = {
+	id = DRAGON.110
+	desc = EVTDESC_DRAGON.110
+	picture = GFX_evt_dragon_face
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	
+	option = {
+		name = EVTOPTA_DRAGON.110
+		add_favor = FROM
+		hidden_tooltip = {
+			FROM = { character_event = { id = DRAGON.137 } }
+		}
+	}
+	option = {
+		name = EVTOPTB_DRAGON.110
+		hidden_tooltip = {
+			FROM = { character_event = { id = DRAGON.138 } }
+		}
+	}
+}
+
+# DRAGON.111 - Offered gold without conflict
+character_event = {
+	id = DRAGON.111
+	desc = EVTDESC_DRAGON.111
+	picture = GFX_evt_dragon_horde
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	
+	option = {
+		name = EVTOPTA_DRAGON.111
+		wealth = local_defender_pot
+		prestige = 50
+	}
+}
+
+# DRAGON.112 - Prepare for fight
+character_event = {
+	id = DRAGON.112
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		event_target:challenged_party = {
+			set_draconic_raid_hp = yes
+			set_draconic_raid_def = yes
+			set_draconic_raid_initiative = yes
+			set_draconic_raid_morale = yes
+			set_variable = { which = local_wounded value = 0 }
+		}
+		event_target:challenger = {
+			set_draconic_raid_hp = yes
+			set_draconic_raid_def = yes
+			set_draconic_raid_initiative = yes
+			set_draconic_raid_morale = yes
+			set_variable = { which = local_wounded value = 0 }
+		}
+		if = {
+			limit = {
+				event_target:challenged_party = {
+					check_variable = { which = draconic_raid_initiative which = event_target:challenger }
+				}
+			}
+			event_target:challenged_party = {
+				save_event_target_as = first_turn
+			}
+			event_target:challenger = {
+				save_event_target_as = second_turn
+			}
+		}
+		else_if = {
+			limit = {
+				event_target:challenger = {
+					check_variable = { which = draconic_raid_initiative which = event_target:challenged_party }
+				}
+			}
+			event_target:challenger = {
+				save_event_target_as = first_turn
+			}
+			event_target:challenged_party = {
+				save_event_target_as = second_turn
+			}
+		}
+		else = {
+			random_list = {
+				1 = {
+					event_target:challenged_party = {
+						save_event_target_as = first_turn
+					}
+					event_target:challenger = {
+						save_event_target_as = second_turn
+					}
+				}
+				1 = {
+					event_target:challenger = {
+						save_event_target_as = first_turn
+					}
+					event_target:challenged_party = {
+						save_event_target_as = second_turn
+					}
+				}
+			}
+		}
+		event_target:first_turn = {
+			character_event = { id = DRAGON.113 }
+		}
+	}
+}
+# DRAGON.113 - First turn
+character_event = {
+	id = DRAGON.113
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		draconic_raid_get_damage = yes
+		
+		# Deal physical damage
+		set_variable = { which = local_damage which = physical_damage }
+		event_target:second_turn = {
+			set_variable = { which = local_damage which = ROOT }
+			subtract_variable = { which = local_damage which = draconic_raid_def }
+			if = {
+				limit = { check_variable = { which = local_damage value = 1 } }
+				set_variable = { which = local_damage value = 1 }
+			}
+			else = { 
+				# Non-trivial damage increases chance of being wounded
+				change_variable = { which = local_wounded value = 1 }
+				if = {
+					limit = {
+						ROOT = { trait = cruel }
+					}
+					random = {
+						chance = 30
+						change_variable = { which = local_wounded value = 1 }
+					}
+				}
+			}
+			subtract_variable = { which = draconic_raid_hp which = local_damage }
+		}
+		
+		# Deal morale damage
+		set_variable = { which = local_damage which = morale_damage }
+		change_variable = { which = local_damage value = 1 } # 1 extra morale damage for going first
+		event_target:second_turn = {
+			set_variable = { which = local_damage which = ROOT }
+			subtract_variable = { which = draconic_raid_morale which = local_damage }
+		}
+		
+		# See if opponent dies, is too injured to continue, or surrenders
+		event_target:second_turn = {
+			character_event = { id = DRAGON.114 }
+		}
+	}
+}
+# DRAGON.114 - Determine if character stays in
+character_event = {
+	id = DRAGON.114
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {		
+		# Lose morale from wounds
+		subtract_variable = { which = draconic_raid_morale which = local_wounded }
+		
+		# Dead
+		if = {
+			limit = {
+				OR = { 
+					# Has an existing injury
+					has_injury_trigger = yes
+					is_maimed_trigger = yes
+					has_severe_disability_trigger = yes
+				}
+				check_variable = { which = local_wounded which = draconic_raid_hp } # More wounds than health
+				random = 5 # 5% Chance
+			}
+			set_character_flag = died_in_raid
+			character_event = { id = DRAGON.117 }
+		}
+		# Completely beaten
+		else_if = {
+			limit = {
+				check_variable = { which = draconic_raid_hp value < 0 }
+			}
+			set_character_flag = completely_beaten
+			character_event = { id = DRAGON.117 }
+		}
+		# Flee for your life
+		else_if = {
+			limit = {
+				check_variable = { which = draconic_raid_morale value < 0 }
+			}
+			set_character_flag = fled_from_raid
+			character_event = { id = DRAGON.117 }
+		}
+		# Continue
+		else = {
+			character_event = { id = DRAGON.115 }
+		}
+	}
+}
+
+# DRAGON.115 - Second turn
+character_event = {
+	id = DRAGON.115
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		draconic_raid_get_damage = yes
+		
+		# Deal physical damage
+		set_variable = { which = local_damage which = physical_damage }
+		event_target:first_turn = {
+			set_variable = { which = local_damage which = ROOT }
+			subtract_variable = { which = local_damage which = draconic_raid_def }
+			if = {
+				limit = { check_variable = { which = local_damage value = 1 } }
+				set_variable = { which = local_damage value = 1 }
+			}
+			else = { # Non-trivial damage increases chance of being wounded
+				change_variable = { which = local_wounded value = 1 }
+				if = {
+					limit = {
+						ROOT = { trait = cruel }
+					}
+					random = {
+						chance = 30
+						change_variable = { which = local_wounded value = 1 }
+					}
+				}
+			}
+			subtract_variable = { which = draconic_raid_hp which = local_damage }
+		}
+		
+		# Deal morale damage
+		set_variable = { which = local_damage which = morale_damage }
+		event_target:first_turn = {
+			set_variable = { which = local_damage which = ROOT }
+			subtract_variable = { which = draconic_raid_morale which = local_damage }
+		}
+		
+		# See if opponent dies, is too injured to continue, or surrenders
+		event_target:first_turn = {
+			character_event = { id = DRAGON.116 }
+		}
+	}
+}
+
+# DRAGON.116 - Does first turn continue?
+character_event = {
+	id = DRAGON.116
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		# Lose morale from wounds
+		subtract_variable = { which = draconic_raid_morale which = local_wounded }
+		
+		# Dead
+		if = {
+			limit = {
+				OR = { # Has an existing injury
+					has_injury_trigger = yes
+					is_maimed_trigger = yes
+					has_severe_disability_trigger = yes
+				}
+				check_variable = { which = local_wounded which = draconic_raid_hp } # More wounds than health
+				random = 5 # 5% Chance
+			}
+			set_character_flag = died_in_raid
+			character_event = { id = DRAGON.117 }
+		}
+		# Completely beaten
+		else_if = {
+			limit = {
+				check_variable = { which = draconic_raid_hp value < 0 }
+			}
+			set_character_flag = completely_beaten
+			character_event = { id = DRAGON.117 }
+		}
+		# Flee for your life
+		else_if = {
+			limit = {
+				check_variable = { which = draconic_raid_morale value < 0 }
+			}
+			set_character_flag = fled_from_raid
+			character_event = { id = DRAGON.117 }
+		}
+		# Continue
+		else = {
+			character_event = { id = DRAGON.113 }
+		}
+	}
+}
+
+# DRAGON.117 - Determine which side won and how. Determine injury
+character_event = {
+	id = DRAGON.117
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		# Determine injuries
+		event_target:challenger = { dragon_raid_injury = yes }
+		event_target:challenged_party = { dragon_raid_injury = yes }
+		
+		# Both die
+		if = {
+			limit = {
+				event_target:challenger = { has_character_flag = died_in_raid }
+				event_target:challenged_party = { has_character_flag = died_in_raid }
+			}
+			event_target:challenger = { character_event = { id = DRAGON.139 } }
+			event_target:challenged_party = { character_event = { id = DRAGON.139 } }
+		}
+		# Attacker dies, defender injured
+		else_if = {
+			limit = {
+				event_target:challenger = { has_character_flag = died_in_raid }
+				event_target:challenged_party = { is_injured_in_dragon_raid = yes }
+			}
+			event_target:challenged_party = { character_event = { id = DRAGON.133 } }
+		}
+		# Attacker dies
+		else_if = {
+			limit = {
+				event_target:challenger = { has_character_flag = died_in_raid }
+			}
+			event_target:challenged_party = { character_event = { id = DRAGON.129 } }
+		}
+		# Defender dies, attacker injured
+		else_if = {
+			limit = {
+				event_target:challenged_party = { has_character_flag = died_in_raid }
+				event_target:challenger = { is_injured_in_dragon_raid = yes }
+			}
+			event_target:challenger = { character_event = { id = DRAGON.134 } }
+		}
+		# Defender dies
+		else_if = {
+			limit = {
+				event_target:challenged_party = { has_character_flag = died_in_raid }
+			}
+			event_target:challenger = { character_event = { id = DRAGON.131 } }
+		}
+		# Attacker wins, but injured
+		else_if = {
+			limit = {
+				event_target:challenger = { is_injured_in_dragon_raid = yes }
+				event_target:challenged_party = {
+					OR = {
+						has_character_flag = completely_beaten
+						has_character_flag = fled_from_raid
+					}
+				}
+			}
+			event_target:challenger = { character_event = { id = DRAGON.121 } }
+		}
+		# Attacker wins
+		else_if = {
+			limit = {
+				event_target:challenged_party = {
+					OR = {
+						has_character_flag = completely_beaten
+						has_character_flag = fled_from_raid
+					}
+				}
+			}
+			event_target:challenger = { character_event = { id = DRAGON.118 } }
+		}
+		# Defender wins, but injured
+		else_if = {
+			limit = {
+				event_target:challenged_party = { is_injured_in_dragon_raid = yes }
+				event_target:challenger = {
+					OR = {
+						has_character_flag = completely_beaten
+						has_character_flag = fled_from_raid
+					}
+				}
+			}
+			event_target:challenged_party = { character_event = { id = DRAGON.128 } }
+		}
+		# Defender wins
+		else = { # Also, fallback, in case of something unexpected
+			event_target:challenged_party = { character_event = { id = DRAGON.122 } }
+		}
+	}
+}
+
+# DRAGON.118 - Attacker wins, uninjured, defender survives
+character_event = {
+	id = DRAGON.118
+	desc = {
+		trigger = {
+			event_target:challenged_party = { has_character_flag = completely_beaten }
+		}
+		text = EVTDESCA_DRAGON.118
+	}
+	desc = {
+		trigger = {
+			event_target:challenged_party = { NOT = { has_character_flag = completely_beaten } }
+		}
+		text = EVTDESCB_DRAGON.118
+	}
+	picture = GFX_evt_dragon_castle
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_DRAGON.118
+		wealth = local_defender_pot
+		if = {
+			limit = { event_target:challenged_party = { has_character_flag = fled_from_raid } }
+			prestige = 200
+		}
+		else = {
+			prestige = 100
+		}
+		hidden_tooltip = {
+			if = {
+				limit = {
+					event_target:challenged_party = {
+						any_artifact = {
+							is_artifact_equipped = no
+							is_indestructible = no
+							event_target:challenger = { NOT = { has_artifact = PREV } }
+						}
+					}
+				}
+				random = {
+					chance = 10
+					event_target:challenged_party = { save_event_target_as = raid_loser }
+					character_event = { id = DRAGON.135 } # Steal an artifact
+				}
+			}
+			event_target:challenged_party = {
+				if = {
+					limit = { is_injured_in_dragon_raid = yes }
+					character_event = { id = DRAGON.119 }
+				}
+				else = {
+					character_event = { id = DRAGON.120 }
+				}
+			}
+			clear_dragon_raid_variables_flags = yes
+		}
+	}
+	after = {
+		hidden_tooltip = { set_variable = { which = transfer_gold value = 0 } }
+	}
+}
+
+# DRAGON.119 - Defender lost battle, injured
+character_event = {
+	id = DRAGON.119
+	desc = {
+		trigger = {
+			has_character_flag = completely_beaten
+		}
+		text = EVTDESCA_DRAGON.119
+	}
+	desc = {
+		trigger = {
+			NOT = { has_character_flag = completely_beaten }
+		}
+		text = EVTDESCB_DRAGON.119
+	}
+	picture = GFX_evt_dragon_castle
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		add_blood_splatter_effect = yes
+	}
+	
+	option = {
+		name = EVTOPTA_DRAGON.119
+		wealth = local_defender_pay
+		if = {
+			limit = { has_character_flag = fled_from_raid }
+			prestige = -200
+			if = {
+				limit = { trait = brave }
+				random = {
+					chance = 10
+					remove_trait = brave
+				}
+			}
+			else_if = {
+				limit = { NOT = { trait = craven } }
+				random = {
+					chance = 5
+					add_trait = craven
+					hidden_tooltip = { character_event = { id = 38257 } }
+				}
+			}
+		}
+		else = {
+			prestige = -100
+		}
+		if = {
+			limit = { has_character_flag = dragon_raid_wounded }
+			add_trait = wounded
+		}
+		else_if = {
+			limit = { has_character_flag = dragon_raid_maimed }
+			add_trait = maimed
+		}
+		else_if = {
+			limit = { has_character_flag = dragon_raid_eye }
+			add_trait = one_eyed
+			add_trait = severely_injured
+			hidden_tooltip = { resolve_severely_injured_effect = yes }
+		}
+		else_if = {
+			limit = { has_character_flag = dragon_raid_leg }
+			add_trait = one_legged
+			add_trait = severely_injured
+			hidden_tooltip = { resolve_severely_injured_effect = yes }
+		}
+		else_if = {
+			limit = { has_character_flag = dragon_raid_hand }
+			add_trait = one_handed
+			add_trait = severely_injured
+			hidden_tooltip = { resolve_severely_injured_effect = yes }
+		}
+		else_if = {
+			limit = { has_character_flag = dragon_raid_disfigured }
+			add_trait = disfigured
+			add_trait = severely_injured
+			hidden_tooltip = { resolve_severely_injured_effect = yes }
+		}
+		else_if = {
+			limit = { has_character_flag = dragon_raid_mangled }
+			add_trait = mangled
+			add_trait = severely_injured
+			hidden_tooltip = { resolve_severely_injured_effect = yes }
+		}
+		if = {
+			limit = { has_character_flag = gain_black_eye }
+			add_character_modifier = { modifier = black_eye months = 10 }
+        }
+		if = {
+			limit = { has_character_flag = gain_swollen_wrist }
+			add_character_modifier = { modifier = swollen_wrist months = 10 }
+        }
+		if = {
+			limit = { has_character_flag = gain_swollen_ankle }
+			add_character_modifier = { modifier = swollen_ankle months = 10 }
+        }
+		if = {
+			limit = { has_character_flag = gain_concussion }
+			add_character_modifier = { modifier = concussion months = 10 }
+        }
+		if = {
+			limit = { has_character_flag = gain_cracked_ribs }
+			add_character_modifier = { modifier = cracked_ribs months = 10 }
+        }
+		if = {
+			limit = { has_character_flag = gain_badly_bruised }
+			add_character_modifier = { modifier = badly_bruised months = 10 }
+        }
+		hidden_tooltip = { clear_dragon_raid_variables_flags = yes }
+	}
+}
+
+# DRAGON.120 - Defender lost, but uninjured
+character_event = {
+	id = DRAGON.120
+	desc = {
+		trigger = {
+			has_character_flag = completely_beaten
+		}
+		text = EVTDESCA_DRAGON.120
+	}
+	desc = {
+		trigger = {
+			NOT = { has_character_flag = completely_beaten }
+		}
+		text = EVTDESCB_DRAGON.120
+	}
+	picture = GFX_evt_dragon_castle
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		add_blood_splatter_effect = yes
+	}
+	
+	option = {
+		name = EVTOPTA_DRAGON.120
+		wealth = local_defender_pay
+		if = {
+			limit = { has_character_flag = fled_from_raid }
+			prestige = -200
+			if = {
+				limit = { trait = brave }
+				random = {
+					chance = 10
+					remove_trait = brave
+				}
+			}
+			else_if = {
+				limit = { NOT = { trait = craven } }
+				random = {
+					chance = 5
+					add_trait = craven
+					hidden_tooltip = { character_event = { id = 38257 } }
+				}
+			}
+		}
+		else = {
+			prestige = -100
+		}
+		hidden_tooltip = { clear_dragon_raid_variables_flags = yes }
+	}
+}
+
+# DRAGON.121 - Attacker wins, but is injured. Opponent survives
+character_event = {
+	id = DRAGON.121
+	desc = {
+		trigger = {
+			event_target:challenged_party = { has_character_flag = completely_beaten }
+		}
+		text = EVTDESCA_DRAGON.121
+	}
+	desc = {
+		trigger = {
+			event_target:challenged_party = { NOT = { has_character_flag = completely_beaten } }
+		}
+		text = EVTDESCB_DRAGON.121
+	}
+	picture = GFX_evt_dragon_castle
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		# Determine reward
+		event_target:challenged_party = {
+			export_to_variable = { which = transfer_gold value = wealth }
+			divide_variable = { which = transfer_gold value = 2 }
+			if = {
+				limit = { check_variable = { which = transfer_gold value < 20 } }
+				export_to_variable = { which = transfer_gold value = wealth } # Take all of it if too low
+			}
+			else_if = {
+				limit = { check_variable = { which = transfer_gold value = 600 } }
+				set_variable = { which = transfer_gold value = 600 }
+			}
+		}
+		set_variable = { which = transfer_gold which = event_target:challenged_party }
+		add_blood_splatter_effect = yes
+	}
+	
+	option = {
+		name = EVTOPTA_DRAGON.121
+		wealth = transfer_gold
+		if = {
+			limit = { event_target:challenged_party = { has_character_flag = fled_from_raid } }
+			prestige = 200
+		}
+		else = {
+			prestige = 100
+		}
+		if = {
+			limit = { has_character_flag = dragon_raid_wounded }
+			add_trait = wounded
+		}
+		else_if = {
+			limit = { has_character_flag = dragon_raid_maimed }
+			add_trait = maimed
+		}
+		else_if = {
+			limit = { has_character_flag = dragon_raid_eye }
+			add_trait = one_eyed
+			add_trait = severely_injured
+			hidden_tooltip = { resolve_severely_injured_effect = yes }
+		}
+		else_if = {
+			limit = { has_character_flag = dragon_raid_leg }
+			add_trait = one_legged
+			add_trait = severely_injured
+			hidden_tooltip = { resolve_severely_injured_effect = yes }
+		}
+		else_if = {
+			limit = { has_character_flag = dragon_raid_hand }
+			add_trait = one_handed
+			add_trait = severely_injured
+			hidden_tooltip = { resolve_severely_injured_effect = yes }
+		}
+		else_if = {
+			limit = { has_character_flag = dragon_raid_disfigured }
+			add_trait = disfigured
+			add_trait = severely_injured
+			hidden_tooltip = { resolve_severely_injured_effect = yes }
+		}
+		else_if = {
+			limit = { has_character_flag = dragon_raid_mangled }
+			add_trait = mangled
+			add_trait = severely_injured
+			hidden_tooltip = { resolve_severely_injured_effect = yes }
+		}
+		if = {
+			limit = { has_character_flag = gain_black_eye }
+			add_character_modifier = { modifier = black_eye months = 10 }
+        }
+		if = {
+			limit = { has_character_flag = gain_swollen_wrist }
+			add_character_modifier = { modifier = swollen_wrist months = 10 }
+        }
+		if = {
+			limit = { has_character_flag = gain_swollen_ankle }
+			add_character_modifier = { modifier = swollen_ankle months = 10 }
+        }
+		if = {
+			limit = { has_character_flag = gain_concussion }
+			add_character_modifier = { modifier = concussion months = 10 }
+        }
+		if = {
+			limit = { has_character_flag = gain_cracked_ribs }
+			add_character_modifier = { modifier = cracked_ribs months = 10 }
+        }
+		if = {
+			limit = { has_character_flag = gain_badly_bruised }
+			add_character_modifier = { modifier = badly_bruised months = 10 }
+        }
+		hidden_tooltip = {
+			if = {
+				limit = {
+					event_target:challenged_party = {
+						any_artifact = {
+							is_artifact_equipped = no
+							is_indestructible = no
+							event_target:challenger = { NOT = {  has_artifact = PREV } }
+						}
+					}
+				}
+				random = {
+					chance = 10
+					event_target:challenged_party = { save_event_target_as = raid_loser }
+					character_event = { id = DRAGON.135 } # Steal an artifact
+				}
+			}
+			event_target:challenged_party = {
+				if = {
+					limit = { is_injured_in_dragon_raid = yes }
+					character_event = { id = DRAGON.119 }
+				}
+				else = {
+					character_event = { id = DRAGON.120 }
+				}
+			}
+			clear_dragon_raid_variables_flags = yes
+		}
+	}
+	after = {
+		hidden_tooltip = { set_variable = { which = transfer_gold value = 0 } }
+	}
+}
+
+# DRAGON.122 - Defender wins uninjured, attacker survives
+character_event = {
+	id = DRAGON.122
+	desc = {
+		trigger = {
+			event_target:challenger = { has_character_flag = completely_beaten }
+		}
+		text = EVTDESCA_DRAGON.122
+	}
+	desc = {
+		trigger = {
+			event_target:challenger = { NOT = { has_character_flag = completely_beaten } }
+		}
+		text = EVTDESCB_DRAGON.122
+	}
+	picture = GFX_evt_dragon_spire
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		event_target:challenger = {
+			random_child = {
+				limit = {
+					is_adult = no
+					has_guardian = no
+				}
+				save_event_target_as = selected_ward
+			}
+		}
+	}
+	
+	# Force reparations
+	option = {
+		name = EVTOPTA_DRAGON.122
+		wealth = local_attacker_pot
+		tooltip = {
+			event_target:challenger = {
+				wealth = local_attacker_pay
+			}
+		}
+		if = {
+			limit = { event_target:challenger = { has_character_flag = fled_from_raid } }
+			prestige = 200
+		}
+		else = {
+			prestige = 100
+		}
+		hidden_tooltip = {
+			if = {
+				limit = {
+					event_target:challenger = {
+						any_artifact = {
+							is_artifact_equipped = no
+							is_indestructible = no
+							event_target:challenged_party = { NOT = {  has_artifact = PREV } }
+						}
+					}
+				}
+				random = {
+					chance = 10
+					event_target:challenger = { save_event_target_as = raid_loser }
+					character_event = { id = DRAGON.135 } # Steal an artifact
+				}
+			}
+			event_target:challenger = {
+				character_event = { id = DRAGON.123 }
+			}
+			clear_dragon_raid_variables_flags = yes
+		}
+		ai_chance = {
+			factor = 4
+			modifier = {
+				factor = 2
+				trait = greedy
+			}
+			modifier = {
+				factor = 1.5
+				wealth < 100
+			}
+			modifier = {
+				factor = 2
+				check_variable = { which = transfer_gold value = 500 }
+			}
+		}
+	}
+	# Force a favor
+	option = {
+		trigger = {
+			NOR = {
+				owes_favor_to = event_target:challenger
+				holds_favor_on = event_target:challenger
+			}
+		}
+		name = EVTOPTB_DRAGON.122
+		add_favor = event_target:challenger
+		if = {
+			limit = { event_target:challenger = { has_character_flag = fled_from_raid } }
+			prestige = 200
+		}
+		else = {
+			prestige = 100
+		}
+		hidden_tooltip = {
+			event_target:challenger = {
+				character_event = { id = DRAGON.124 }
+			}
+			clear_dragon_raid_variables_flags = yes
+		}
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 2
+				liege = {
+					character = event_target:challenger
+				}
+			}
+			modifier = {
+				factor = 2
+				same_realm = event_target:challenger
+				is_voter = yes
+				event_target:challenger = { is_voter = yes }
+			}
+		}
+	}
+	# Cripple opponent
+	option = {
+		trigger = {
+			OR = {
+				NOR = {
+					has_dlc = "Reapers"
+					event_target:challenger = { trait = maimed }
+				}
+				AND = {
+					has_dlc = "Reapers"
+					NOT = {
+						event_target:challenger = {
+							calc_true_if = {
+								amount = 2
+								trait = disfigured
+								trait = one_handed
+								trait = one_eyed
+								trait = one_legged
+								trait = mangled
+								trait = blinded
+							}
+						}
+					}
+				}
+			}
+		}
+		name = EVTOPTC_DRAGON.122
+		if = {
+			limit = { event_target:challenger = { has_character_flag = fled_from_raid } }
+			prestige = 200
+		}
+		else = {
+			prestige = 100
+		}
+		event_target:challenger = {
+			if = {
+				limit = { NOT = { trait = wounded } }
+				tooltip = { add_trait = wounded }
+			}
+			if = {
+				limit = { NOT = { has_dlc = "Reapers" } }
+				tooltip = { add_trait = maimed }
+			}
+			else = {
+				random_list = {
+					1 = {
+						trigger = {
+							NOR = {
+								trait = one_eyed
+								trait = blinded
+							}
+						}
+						tooltip = { add_trait = one_eyed }
+					}
+					1 = {
+						trigger = {
+							NOT = { trait = blinded }
+							trait = one_eyed
+						}
+						tooltip = { add_trait = blinded }
+					}
+					1 = {
+						trigger = { NOT = { trait = one_legged } }
+						tooltip = { add_trait = one_legged }
+					}
+					1 = {
+						trigger = { NOT = { trait = one_handed } }
+						tooltip = { add_trait = one_handed }
+					}
+					1 = {
+						trigger = { NOT = { trait = disfigured } }
+						tooltip = { add_trait = disfigured }
+					}
+					1 = {
+						trigger = { NOT = { trait = mangled } }
+						tooltip = { add_trait = mangled }
+					}
+				}
+			}
+		}
+		hidden_tooltip = {
+			event_target:challenger = {
+				character_event = { id = DRAGON.125 }
+			}
+			clear_dragon_raid_variables_flags = yes
+		}
+		ai_chance = {
+			factor = 2
+			modifier = {
+				factor = 2
+				trait = cruel
+			}
+			modifier = {
+				factor = 2
+				trait = impaler
+			}
+			modifier = {
+				factor = 1.5
+				trait = wroth
+			}
+		}
+	}
+	# Kill - injuries aren't teaching a lesson
+	option = {
+		name = EVTOPTD_DRAGON.122
+		trigger = {
+			OR = {
+				AND = {
+					NOT = { has_dlc = "Reapers" }
+					event_target:challenger = { trait = maimed }
+				}
+				AND = {
+					has_dlc = "Reapers"
+					event_target:challenger = {
+						calc_true_if = {
+							amount = 2
+							trait = disfigured
+							trait = one_handed
+							trait = one_eyed
+							trait = one_legged
+							trait = mangled
+							trait = blinded
+						}
+					}
+				}
+			}
+		}
+		if = {
+			limit = { event_target:challenger = { has_character_flag = fled_from_raid } }
+			prestige = 200
+		}
+		else = {
+			prestige = 100
+		}
+		tooltip = {
+			event_target:challenger = {
+				death = { death_reason = death_battle killer = ROOT }
+			}
+		}
+		hidden_tooltip = {
+			event_target:challenger = {
+				character_event = { id = DRAGON.126 }
+			}
+			clear_dragon_raid_variables_flags = yes
+		}
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 2
+				trait = cruel
+			}
+			modifier = {
+				factor = 2
+				trait = impaler
+			}
+			modifier = {
+				factor = 1.5
+				trait = wroth
+			}
+		}
+	}
+	# Force claim heir
+	option = {
+		name = EVTOPTE_DRAGON.122
+		trigger = {
+			NOT = {
+				any_ward = {
+					count = 2
+				}
+			}
+			event_target:selected_ward = { always = yes }
+		}
+		
+		if = {
+			limit = { event_target:challenger = { has_character_flag = fled_from_raid } }
+			prestige = 200
+		}
+		else = {
+			prestige = 100
+		}
+		event_target:selected_ward = {
+			tooltip = { set_guardian = ROOT }
+		}
+		hidden_tooltip = {
+			event_target:challenger = {
+				character_event = { id = DRAGON.127 }
+			}
+			clear_dragon_raid_variables_flags = yes
+		}
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 2
+				trait = deceitful
+			}
+			modifier = {
+				factor = 2
+				trait = grey_eminence
+			}
+			modifier = {
+				factor = 2
+				trait = schemer
+			}
+		}
+	}
+	after = {
+		hidden_tooltip = { set_variable = { which = transfer_gold value = 0 } }
+	}
+}
+
+# DRAGON.123 - Attacker loses and repays gold
+character_event = {
+	id = DRAGON.123
+	desc = {
+		trigger = {
+			has_character_flag = completely_beaten
+			has_character_flag = is_injured_in_dragon_raid
+		}
+		text = EVTDESCA_DRAGON.123
+	}
+	desc = {
+		trigger = {
+			NOT = { has_character_flag = completely_beaten }
+			has_character_flag = is_injured_in_dragon_raid
+		}
+		text = EVTDESCB_DRAGON.123
+	}
+	desc = {
+		trigger = {
+			has_character_flag = completely_beaten
+			NOT = { has_character_flag = is_injured_in_dragon_raid }
+		}
+		text = EVTDESCC_DRAGON.123
+	}
+	desc = {
+		trigger = {
+			NOT = { has_character_flag = completely_beaten }
+			NOT = { has_character_flag = is_injured_in_dragon_raid }
+		}
+		text = EVTDESCD_DRAGON.123
+	}
+	picture = GFX_evt_dragon_castle
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_DRAGON.123
+		wealth = local_attacker_pay
+		tooltip = {
+			event_target:challenged_party = {
+				wealth = local_attacker_pot
+			}
+		}
+		if = {
+			limit = { has_character_flag = fled_from_raid }
+			prestige = -200
+			if = {
+				limit = { trait = brave }
+				random = {
+					chance = 10
+					remove_trait = brave
+				}
+			}
+			else_if = {
+				limit = { NOT = { trait = craven } }
+				random = {
+					chance = 5
+					add_trait = craven
+					hidden_tooltip = { character_event = { id = 38257 } }
+				}
+			}
+		}
+		else = {
+			prestige = -100
+		}
+		if = {
+			limit = { has_character_flag = dragon_raid_wounded }
+			add_trait = wounded
+			add_blood_splatter_effect = yes
+		}
+		else_if = {
+			limit = { has_character_flag = dragon_raid_maimed }
+			add_trait = maimed
+			add_blood_splatter_effect = yes
+		}
+		else_if = {
+			limit = { has_character_flag = dragon_raid_eye }
+			add_trait = one_eyed
+			add_trait = severely_injured
+			hidden_tooltip = { resolve_severely_injured_effect = yes }
+			add_blood_splatter_effect = yes
+		}
+		else_if = {
+			limit = { has_character_flag = dragon_raid_leg }
+			add_trait = one_legged
+			add_trait = severely_injured
+			hidden_tooltip = { resolve_severely_injured_effect = yes }
+			add_blood_splatter_effect = yes
+		}
+		else_if = {
+			limit = { has_character_flag = dragon_raid_hand }
+			add_trait = one_handed
+			add_trait = severely_injured
+			hidden_tooltip = { resolve_severely_injured_effect = yes }
+			add_blood_splatter_effect = yes
+		}
+		else_if = {
+			limit = { has_character_flag = dragon_raid_disfigured }
+			add_trait = disfigured
+			add_trait = severely_injured
+			hidden_tooltip = { resolve_severely_injured_effect = yes }
+			add_blood_splatter_effect = yes
+		}
+		else_if = {
+			limit = { has_character_flag = dragon_raid_mangled }
+			add_trait = mangled
+			add_trait = severely_injured
+			hidden_tooltip = { resolve_severely_injured_effect = yes }
+			add_blood_splatter_effect = yes
+		}
+		if = {
+			limit = { has_character_flag = gain_black_eye }
+			add_character_modifier = { modifier = black_eye months = 10 }
+        }
+		if = {
+			limit = { has_character_flag = gain_swollen_wrist }
+			add_character_modifier = { modifier = swollen_wrist months = 10 }
+        }
+		if = {
+			limit = { has_character_flag = gain_swollen_ankle }
+			add_character_modifier = { modifier = swollen_ankle months = 10 }
+        }
+		if = {
+			limit = { has_character_flag = gain_concussion }
+			add_character_modifier = { modifier = concussion months = 10 }
+        }
+		if = {
+			limit = { has_character_flag = gain_cracked_ribs }
+			add_character_modifier = { modifier = cracked_ribs months = 10 }
+        }
+		if = {
+			limit = { has_character_flag = gain_badly_bruised }
+			add_character_modifier = { modifier = badly_bruised months = 10 }
+        }
+		hidden_tooltip = { clear_dragon_raid_variables_flags = yes }
+	}
+}
+
+# DRAGON.124 - Forced to owe a favor
+character_event = {
+	id = DRAGON.124
+	desc = {
+		trigger = {
+			has_character_flag = completely_beaten
+			has_character_flag = is_injured_in_dragon_raid
+		}
+		text = EVTDESCA_DRAGON.124
+	}
+	desc = {
+		trigger = {
+			NOT = { has_character_flag = completely_beaten }
+			has_character_flag = is_injured_in_dragon_raid
+		}
+		text = EVTDESCB_DRAGON.124
+	}
+	desc = {
+		trigger = {
+			has_character_flag = completely_beaten
+			NOT = { has_character_flag = is_injured_in_dragon_raid }
+		}
+		text = EVTDESCC_DRAGON.124
+	}
+	desc = {
+		trigger = {
+			NOT = { has_character_flag = completely_beaten }
+			NOT = { has_character_flag = is_injured_in_dragon_raid }
+		}
+		text = EVTDESCD_DRAGON.124
+	}
+	picture = GFX_evt_dragon_castle
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_DRAGON.124
+		tooltip = { event_target:challenged_party = { add_favor = event_target:challenger } }
+		if = {
+			limit = { has_character_flag = fled_from_raid }
+			prestige = -200
+			if = {
+				limit = { trait = brave }
+				random = {
+					chance = 10
+					remove_trait = brave
+				}
+			}
+			else_if = {
+				limit = { NOT = { trait = craven } }
+				random = {
+					chance = 5
+					add_trait = craven
+					hidden_tooltip = { character_event = { id = 38257 } }
+				}
+			}
+		}
+		else = {
+			prestige = -100
+		}
+		if = {
+			limit = { has_character_flag = dragon_raid_wounded }
+			add_trait = wounded
+			add_blood_splatter_effect = yes
+		}
+		else_if = {
+			limit = { has_character_flag = dragon_raid_maimed }
+			add_trait = maimed
+			add_blood_splatter_effect = yes
+		}
+		else_if = {
+			limit = { has_character_flag = dragon_raid_eye }
+			add_trait = one_eyed
+			add_trait = severely_injured
+			hidden_tooltip = { resolve_severely_injured_effect = yes }
+			add_blood_splatter_effect = yes
+		}
+		else_if = {
+			limit = { has_character_flag = dragon_raid_leg }
+			add_trait = one_legged
+			add_trait = severely_injured
+			hidden_tooltip = { resolve_severely_injured_effect = yes }
+			add_blood_splatter_effect = yes
+		}
+		else_if = {
+			limit = { has_character_flag = dragon_raid_hand }
+			add_trait = one_handed
+			add_trait = severely_injured
+			hidden_tooltip = { resolve_severely_injured_effect = yes }
+			add_blood_splatter_effect = yes
+		}
+		else_if = {
+			limit = { has_character_flag = dragon_raid_disfigured }
+			add_trait = disfigured
+			add_trait = severely_injured
+			hidden_tooltip = { resolve_severely_injured_effect = yes }
+			add_blood_splatter_effect = yes
+		}
+		else_if = {
+			limit = { has_character_flag = dragon_raid_mangled }
+			add_trait = mangled
+			add_trait = severely_injured
+			hidden_tooltip = { resolve_severely_injured_effect = yes }
+			add_blood_splatter_effect = yes
+		}
+		if = {
+			limit = { has_character_flag = gain_black_eye }
+			add_character_modifier = { modifier = black_eye months = 10 }
+        }
+		if = {
+			limit = { has_character_flag = gain_swollen_wrist }
+			add_character_modifier = { modifier = swollen_wrist months = 10 }
+        }
+		if = {
+			limit = { has_character_flag = gain_swollen_ankle }
+			add_character_modifier = { modifier = swollen_ankle months = 10 }
+        }
+		if = {
+			limit = { has_character_flag = gain_concussion }
+			add_character_modifier = { modifier = concussion months = 10 }
+        }
+		if = {
+			limit = { has_character_flag = gain_cracked_ribs }
+			add_character_modifier = { modifier = cracked_ribs months = 10 }
+        }
+		if = {
+			limit = { has_character_flag = gain_badly_bruised }
+			add_character_modifier = { modifier = badly_bruised months = 10 }
+        }
+		hidden_tooltip = { clear_dragon_raid_variables_flags = yes }
+	}
+}
+
+# DRAGON.125 - Attacker lost. Opponent deliberately injuring
+character_event = {
+	id = DRAGON.125
+	desc = {
+		trigger = {
+			has_character_flag = completely_beaten
+			has_character_flag = is_injured_in_dragon_raid
+		}
+		text = EVTDESCA_DRAGON.125
+	}
+	desc = {
+		trigger = {
+			NOT = { has_character_flag = completely_beaten }
+			has_character_flag = is_injured_in_dragon_raid
+		}
+		text = EVTDESCB_DRAGON.125
+	}
+	desc = {
+		trigger = {
+			has_character_flag = completely_beaten
+			NOT = { has_character_flag = is_injured_in_dragon_raid }
+		}
+		text = EVTDESCC_DRAGON.125
+	}
+	desc = {
+		trigger = {
+			NOT = { has_character_flag = completely_beaten }
+			NOT = { has_character_flag = is_injured_in_dragon_raid }
+		}
+		text = EVTDESCD_DRAGON.125
+	}
+	picture = GFX_evt_dragon_castle
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	
+	immediate = {
+		add_blood_splatter_effect = yes
+	}
+	
+	option = {
+		name = EVTOPTA_DRAGON.125
+		tooltip = { event_target:challenged_party = { add_favor = event_target:challenger } }
+		if = {
+			limit = { has_character_flag = fled_from_raid }
+			prestige = -200
+			if = {
+				limit = { trait = brave }
+				random = {
+					chance = 10
+					remove_trait = brave
+				}
+			}
+			else_if = {
+				limit = { NOT = { trait = craven } }
+				random = {
+					chance = 5
+					add_trait = craven
+					hidden_tooltip = { character_event = { id = 38257 } }
+				}
+			}
+		}
+		else = {
+			prestige = -100
+		}
+		if = {
+			limit = { has_character_flag = dragon_raid_wounded }
+			add_trait = wounded
+			apply_random_minor_injury_effect = yes
+		}
+		else_if = {
+			limit = { has_character_flag = dragon_raid_maimed }
+			add_trait = maimed
+			apply_random_minor_injury_effect = yes
+		}
+		else_if = {
+			limit = { has_character_flag = dragon_raid_eye }
+			add_trait = one_eyed
+			add_trait = severely_injured
+			add_character_modifier = {
+				modifier = black_eye
+				months = 10
+			}
+			hidden_tooltip = { resolve_severely_injured_effect = yes }
+		}
+		else_if = {
+			limit = { has_character_flag = dragon_raid_leg }
+			add_trait = one_legged
+			add_trait = severely_injured
+        	add_character_modifier = {
+				modifier = swollen_ankle
+				months = 10
+			}
+			hidden_tooltip = { resolve_severely_injured_effect = yes }
+		}
+		else_if = {
+			limit = { has_character_flag = dragon_raid_hand }
+			add_trait = one_handed
+			add_trait = severely_injured
+        	add_character_modifier = {
+				modifier = swollen_wrist
+				months = 10
+			}
+			hidden_tooltip = { resolve_severely_injured_effect = yes }
+		}
+		else_if = {
+			limit = { has_character_flag = dragon_raid_disfigured }
+			add_trait = disfigured
+			add_trait = severely_injured
+        	add_character_modifier = {
+				modifier = concussion
+				months = 10
+			}
+			hidden_tooltip = { resolve_severely_injured_effect = yes }
+		}
+		else_if = {
+			limit = { has_character_flag = dragon_raid_mangled }
+			add_trait = mangled
+			add_trait = severely_injured
+        	add_character_modifier = {
+				modifier = cracked_ribs
+				months = 10
+			}
+			hidden_tooltip = { resolve_severely_injured_effect = yes }
+		}
+		if = {
+			limit = { NOT = { trait = wounded } }
+			add_trait = wounded
+		}
+		if = {
+			limit = { NOT = { has_dlc = "Reapers" } }
+			add_trait = maimed
+			apply_random_minor_injury_effect = yes
+		}
+		else = {
+			random_list = {
+				1 = {
+					trigger = {
+						NOR = {
+							trait = one_eyed
+							trait = blinded
+						}
+					}
+					add_trait = one_eyed
+					add_character_modifier = {
+						modifier = black_eye
+						months = 10
+					}
+				}
+				1 = {
+					trigger = {
+						NOT = { trait = blinded }
+						trait = one_eyed
+					}
+					add_trait = blinded
+					add_character_modifier = {
+						modifier = black_eye
+						months = 10
+					}
+				}
+				1 = {
+					trigger = { NOT = { trait = one_legged } }
+					add_trait = one_legged
+					add_character_modifier = {
+						modifier = swollen_ankle
+						months = 10
+					}
+				}
+				1 = {
+					trigger = { NOT = { trait = one_handed } }
+					add_trait = one_handed
+					add_character_modifier = {
+						modifier = swollen_wrist
+						months = 10
+					}
+				}
+				1 = {
+					trigger = { NOT = { trait = disfigured } }
+					add_trait = disfigured
+					add_character_modifier = {
+						modifier = concussion
+						months = 10
+					}
+				}
+				1 = {
+					trigger = { NOT = { trait = mangled } }
+					add_trait = mangled
+					add_character_modifier = {
+						modifier = cracked_ribs
+						months = 10
+					}
+				}
+			}
+		}
+		hidden_tooltip = { clear_dragon_raid_variables_flags = yes }
+	}
+}
+
+# DRAGON.126 - Attacker lost, killed
+character_event = {
+	id = DRAGON.126
+	desc = {
+		trigger = {
+			has_character_flag = completely_beaten
+		}
+		text = EVTDESCA_DRAGON.126
+	}
+	desc = {
+		trigger = {
+			NOT = { has_character_flag = completely_beaten }
+		}
+		text = EVTDESCB_DRAGON.126
+	}
+	picture = GFX_evt_dragon_castle
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_DRAGON.126
+		if = {
+			limit = { has_character_flag = fled_from_raid }
+			prestige = -200
+		}
+		else = {
+			prestige = -100
+		}
+		death = { death_reason = death_battle killer = FROM }
+		hidden_tooltip = { clear_dragon_raid_variables_flags = yes }
+	}
+}
+# DRAGON.127 - Attacker loses, heir taken
+character_event = {
+	id = DRAGON.127
+	desc = {
+		trigger = {
+			has_character_flag = completely_beaten
+			has_character_flag = is_injured_in_dragon_raid
+		}
+		text = EVTDESCA_DRAGON.127
+	}
+	desc = {
+		trigger = {
+			NOT = { has_character_flag = completely_beaten }
+			has_character_flag = is_injured_in_dragon_raid
+		}
+		text = EVTDESCB_DRAGON.127
+	}
+	desc = {
+		trigger = {
+			has_character_flag = completely_beaten
+			NOT = { has_character_flag = is_injured_in_dragon_raid }
+		}
+		text = EVTDESCC_DRAGON.127
+	}
+	desc = {
+		trigger = {
+			NOT = { has_character_flag = completely_beaten }
+			NOT = { has_character_flag = is_injured_in_dragon_raid }
+		}
+		text = EVTDESCD_DRAGON.127
+	}
+	picture = GFX_evt_dragon_castle
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_DRAGON.127
+		event_target:selected_ward = {
+			set_guardian = FROM
+		}
+		if = {
+			limit = { has_character_flag = fled_from_raid }
+			prestige = -200
+			if = {
+				limit = { trait = brave }
+				random = {
+					chance = 10
+					remove_trait = brave
+				}
+			}
+			else_if = {
+				limit = { NOT = { trait = craven } }
+				random = {
+					chance = 5
+					add_trait = craven
+					hidden_tooltip = { character_event = { id = 38257 } }
+				}
+			}
+		}
+		else = {
+			prestige = -100
+		}
+		if = {
+			limit = { has_character_flag = dragon_raid_wounded }
+			add_trait = wounded
+		}
+		else_if = {
+			limit = { has_character_flag = dragon_raid_maimed }
+			add_trait = maimed
+		}
+		else_if = {
+			limit = { has_character_flag = dragon_raid_eye }
+			add_trait = one_eyed
+			add_trait = severely_injured
+			hidden_tooltip = { resolve_severely_injured_effect = yes }
+		}
+		else_if = {
+			limit = { has_character_flag = dragon_raid_leg }
+			add_trait = one_legged
+			add_trait = severely_injured
+			hidden_tooltip = { resolve_severely_injured_effect = yes }
+		}
+		else_if = {
+			limit = { has_character_flag = dragon_raid_hand }
+			add_trait = one_handed
+			add_trait = severely_injured
+			hidden_tooltip = { resolve_severely_injured_effect = yes }
+		}
+		else_if = {
+			limit = { has_character_flag = dragon_raid_disfigured }
+			add_trait = disfigured
+			add_trait = severely_injured
+			hidden_tooltip = { resolve_severely_injured_effect = yes }
+		}
+		else_if = {
+			limit = { has_character_flag = dragon_raid_mangled }
+			add_trait = mangled
+			add_trait = severely_injured
+			hidden_tooltip = { resolve_severely_injured_effect = yes }
+		}
+		if = {
+			limit = { has_character_flag = gain_black_eye }
+			add_character_modifier = { modifier = black_eye months = 10 }
+        }
+		if = {
+			limit = { has_character_flag = gain_swollen_wrist }
+			add_character_modifier = { modifier = swollen_wrist months = 10 }
+        }
+		if = {
+			limit = { has_character_flag = gain_swollen_ankle }
+			add_character_modifier = { modifier = swollen_ankle months = 10 }
+        }
+		if = {
+			limit = { has_character_flag = gain_concussion }
+			add_character_modifier = { modifier = concussion months = 10 }
+        }
+		if = {
+			limit = { has_character_flag = gain_cracked_ribs }
+			add_character_modifier = { modifier = cracked_ribs months = 10 }
+        }
+		if = {
+			limit = { has_character_flag = gain_badly_bruised }
+			add_character_modifier = { modifier = badly_bruised months = 10 }
+        }
+		hidden_tooltip = { clear_dragon_raid_variables_flags = yes }
+	}
+}
+# DRAGON.128 - Defender wins but is injured, attacker survives
+character_event = {
+	id = DRAGON.128
+	desc = {
+		trigger = {
+			event_target:challenger = { has_character_flag = completely_beaten }
+		}
+		text = EVTDESCA_DRAGON.128
+	}
+	desc = {
+		trigger = {
+			event_target:challenger = { NOT = { has_character_flag = completely_beaten } }
+		}
+		text = EVTDESCB_DRAGON.128
+	}
+	picture = GFX_evt_dragon_spire
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		# Determine reward
+		event_target:challenger = {
+			random_child = {
+				limit = {
+					is_adult = no
+					has_guardian = no
+				}
+				save_event_target_as = selected_ward
+			}
+		}
+		add_blood_splatter_effect = yes
+	}
+	
+	# Force reparations
+	option = {
+		name = EVTOPTA_DRAGON.122
+		wealth = local_attacker_pot
+		tooltip = {
+			event_target:challenger = {
+				wealth = local_attacker_pay
+			}
+		}
+		if = {
+			limit = { event_target:challenger = { has_character_flag = fled_from_raid } }
+			prestige = 200
+		}
+		else = {
+			prestige = 100
+		}
+		hidden_tooltip = {
+			if = {
+				limit = {
+					event_target:challenger = {
+						any_artifact = {
+							is_artifact_equipped = no
+							is_indestructible = no
+							event_target:challenged_party = { NOT = {  has_artifact = PREV } }
+						}
+					}
+				}
+				random = {
+					chance = 10
+					event_target:challenger = { save_event_target_as = raid_loser }
+					character_event = { id = DRAGON.135 } # Steal an artifact
+				}
+			}
+			event_target:challenger = {
+				character_event = { id = DRAGON.123 }
+			}
+			clear_dragon_raid_variables_flags = yes
+		}
+		ai_chance = {
+			factor = 4
+			modifier = {
+				factor = 2
+				trait = greedy
+			}
+			modifier = {
+				factor = 1.5
+				wealth < 100
+			}
+			modifier = {
+				factor = 2
+				check_variable = { which = transfer_gold value = 500 }
+			}
+		}
+	}
+	# Force a favor
+	option = {
+		trigger = {
+			NOR = {
+				owes_favor_to = event_target:challenger
+				holds_favor_on = event_target:challenger
+			}
+		}
+		name = EVTOPTB_DRAGON.122
+		add_favor = event_target:challenger
+		if = {
+			limit = { event_target:challenger = { has_character_flag = fled_from_raid } }
+			prestige = 200
+		}
+		else = {
+			prestige = 100
+		}
+		hidden_tooltip = {
+			event_target:challenger = {
+				character_event = { id = DRAGON.124 }
+			}
+			clear_dragon_raid_variables_flags = yes
+		}
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 2
+				liege = {
+					character = event_target:challenger
+				}
+			}
+			modifier = {
+				factor = 2
+				same_realm = event_target:challenger
+				is_voter = yes
+				event_target:challenger = { is_voter = yes }
+			}
+		}
+	}
+	# Cripple opponent
+	option = {
+		trigger = {
+			OR = {
+				NOR = {
+					has_dlc = "Reapers"
+					event_target:challenger = { trait = maimed }
+				}
+				AND = {
+					has_dlc = "Reapers"
+					NOT = {
+						event_target:challenger = {
+							calc_true_if = {
+								amount = 2
+								trait = disfigured
+								trait = one_handed
+								trait = one_eyed
+								trait = one_legged
+								trait = mangled
+								trait = blinded
+							}
+						}
+					}
+				}
+			}
+		}
+		name = EVTOPTC_DRAGON.122
+		if = {
+			limit = { event_target:challenger = { has_character_flag = fled_from_raid } }
+			prestige = 200
+		}
+		else = {
+			prestige = 100
+		}
+		event_target:challenger = {
+			if = {
+				limit = { NOT = { trait = wounded } }
+				tooltip = { add_trait = wounded }
+			}
+			if = {
+				limit = { NOT = { has_dlc = "Reapers" } }
+				tooltip = { add_trait = maimed }
+			}
+			else = {
+				random_list = {
+					1 = {
+						trigger = {
+							NOR = {
+								trait = one_eyed
+								trait = blinded
+							}
+						}
+						tooltip = { add_trait = one_eyed }
+					}
+					1 = {
+						trigger = {
+							NOT = { trait = blinded }
+							trait = one_eyed
+						}
+						tooltip = { add_trait = blinded }
+					}
+					1 = {
+						trigger = { NOT = { trait = one_legged } }
+						tooltip = { add_trait = one_legged }
+					}
+					1 = {
+						trigger = { NOT = { trait = one_handed } }
+						tooltip = { add_trait = one_handed }
+					}
+					1 = {
+						trigger = { NOT = { trait = disfigured } }
+						tooltip = { add_trait = disfigured }
+					}
+					1 = {
+						trigger = { NOT = { trait = mangled } }
+						tooltip = { add_trait = mangled }
+					}
+				}
+			}
+		}
+		hidden_tooltip = {
+			event_target:challenger = {
+				character_event = { id = DRAGON.125 }
+			}
+			clear_dragon_raid_variables_flags = yes
+		}
+		ai_chance = {
+			factor = 2
+			modifier = {
+				factor = 2
+				trait = cruel
+			}
+			modifier = {
+				factor = 2
+				trait = impaler
+			}
+			modifier = {
+				factor = 1.5
+				trait = wroth
+			}
+		}
+	}
+	# Kill - injuries aren't teaching a lesson
+	option = {
+		name = EVTOPTD_DRAGON.122
+		trigger = {
+			OR = {
+				AND = {
+					NOT = { has_dlc = "Reapers" }
+					event_target:challenger = { trait = maimed }
+				}
+				AND = {
+					has_dlc = "Reapers"
+					event_target:challenger = {
+						calc_true_if = {
+							amount = 2
+							trait = disfigured
+							trait = one_handed
+							trait = one_eyed
+							trait = one_legged
+							trait = mangled
+							trait = blinded
+						}
+					}
+				}
+			}
+		}
+		if = {
+			limit = { event_target:challenger = { has_character_flag = fled_from_raid } }
+			prestige = 200
+		}
+		else = {
+			prestige = 100
+		}
+		tooltip = {
+			event_target:challenger = {
+				death = { death_reason = death_battle killer = ROOT }
+			}
+		}
+		hidden_tooltip = {
+			event_target:challenger = {
+				character_event = { id = DRAGON.126 }
+			}
+			clear_dragon_raid_variables_flags = yes
+		}
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 2
+				trait = cruel
+			}
+			modifier = {
+				factor = 2
+				trait = impaler
+			}
+			modifier = {
+				factor = 1.5
+				trait = wroth
+			}
+		}
+	}
+	# Force claim heir
+	option = {
+		name = EVTOPTE_DRAGON.122
+		trigger = {
+			NOT = {
+				any_ward = {
+					count = 2
+				}
+			}
+			event_target:selected_ward = { always = yes }
+		}
+		
+		if = {
+			limit = { event_target:challenger = { has_character_flag = fled_from_raid } }
+			prestige = 200
+		}
+		else = {
+			prestige = 100
+		}
+		event_target:selected_ward = {
+			tooltip = { set_guardian = ROOT }
+		}
+		hidden_tooltip = {
+			event_target:challenger = {
+				character_event = { id = DRAGON.127 }
+			}
+			clear_dragon_raid_variables_flags = yes
+		}
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 2
+				trait = deceitful
+			}
+			modifier = {
+				factor = 2
+				trait = grey_eminence
+			}
+			modifier = {
+				factor = 2
+				trait = schemer
+			}
+		}
+	}
+	
+	after = {
+		if = {
+			limit = { has_character_flag = dragon_raid_wounded }
+			add_trait = wounded
+		}
+		else_if = {
+			limit = { has_character_flag = dragon_raid_maimed }
+			add_trait = maimed
+		}
+		else_if = {
+			limit = { has_character_flag = dragon_raid_eye }
+			add_trait = one_eyed
+			add_trait = severely_injured
+			hidden_tooltip = { resolve_severely_injured_effect = yes }
+		}
+		else_if = {
+			limit = { has_character_flag = dragon_raid_leg }
+			add_trait = one_legged
+			add_trait = severely_injured
+			hidden_tooltip = { resolve_severely_injured_effect = yes }
+		}
+		else_if = {
+			limit = { has_character_flag = dragon_raid_hand }
+			add_trait = one_handed
+			add_trait = severely_injured
+			hidden_tooltip = { resolve_severely_injured_effect = yes }
+		}
+		else_if = {
+			limit = { has_character_flag = dragon_raid_disfigured }
+			add_trait = disfigured
+			add_trait = severely_injured
+			hidden_tooltip = { resolve_severely_injured_effect = yes }
+		}
+		else_if = {
+			limit = { has_character_flag = dragon_raid_mangled }
+			add_trait = mangled
+			add_trait = severely_injured
+			hidden_tooltip = { resolve_severely_injured_effect = yes }
+		}
+		if = {
+			limit = { has_character_flag = gain_black_eye }
+			add_character_modifier = { modifier = black_eye months = 10 }
+        }
+		if = {
+			limit = { has_character_flag = gain_swollen_wrist }
+			add_character_modifier = { modifier = swollen_wrist months = 10 }
+        }
+		if = {
+			limit = { has_character_flag = gain_swollen_ankle }
+			add_character_modifier = { modifier = swollen_ankle months = 10 }
+        }
+		if = {
+			limit = { has_character_flag = gain_concussion }
+			add_character_modifier = { modifier = concussion months = 10 }
+        }
+		if = {
+			limit = { has_character_flag = gain_cracked_ribs }
+			add_character_modifier = { modifier = cracked_ribs months = 10 }
+        }
+		if = {
+			limit = { has_character_flag = gain_badly_bruised }
+			add_character_modifier = { modifier = badly_bruised months = 10 }
+        }
+	}
+}
+
+# DRAGON.129 - Attacker died
+character_event = {
+	id = DRAGON.129
+	desc = EVTDESC_DRAGON.129
+	picture = GFX_evt_dragon_castle
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_DRAGON.118
+		wealth = local_attacker_pot
+		prestige = 100
+		tooltip = {
+			event_target:challenger = {
+				wealth = local_attacker_pay
+				death = { death_reason = death_battle killer = ROOT }
+			}
+		}
+		hidden_tooltip = {
+			if = {
+				limit = {
+					event_target:challenger = {
+						any_artifact = {
+							is_indestructible = no
+							NOT = { event_target:challenged_party = { has_artifact = PREV } }
+						}
+					}
+				}
+				random = {
+					chance = 10
+					event_target:challenger = { save_event_target_as = raid_loser }
+					character_event = { id = DRAGON.140 } # Steal an artifact
+				}
+			}
+			event_target:challenger = {
+				character_event = { id = DRAGON.130 }
+			}
+			clear_dragon_raid_variables_flags = yes
+		}
+	}
+}
+
+# DRAGON.130 - You died in battle
+character_event = {
+	id = DRAGON.130
+	desc = EVTDESC_DRAGON.130
+	picture = GFX_evt_dragon_immolation
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_DRAGON.130
+		wealth = local_attacker_pay
+		prestige = -100
+		death = { death_reason = death_battle killer = FROM }
+	}
+}
+
+# DRAGON.131 - Defender dies
+character_event = {
+	id = DRAGON.131
+	desc = EVTDESC_DRAGON.131
+	picture = GFX_evt_dragon_castle
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_DRAGON.118
+		wealth = local_defender_pot
+		prestige = 100
+		tooltip = {
+			event_target:challenged_party = {
+				wealth = local_defender_pay
+				death = { death_reason = death_battle killer = ROOT }
+			}
+		}
+		hidden_tooltip = {
+			if = {
+				limit = {
+					event_target:challenged_party = {
+						any_artifact = {
+							is_indestructible = no
+							NOT = { event_target:challenger = { has_artifact = PREV } }
+						}
+					}
+				}
+				random = {
+					chance = 10
+					event_target:challenged_party = { save_event_target_as = raid_loser }
+					character_event = { id = DRAGON.140 } # Steal an artifact
+				}
+			}
+			event_target:challenged_party = {
+				character_event = { id = DRAGON.130 }
+			}
+			clear_dragon_raid_variables_flags = yes
+		}
+	}
+}
+
+# DRAGON.132 - Merged with DRAGON.130
+
+# DRAGON.133 - Attacker dies, defender injured
+character_event = {
+	id = DRAGON.133
+	desc = EVTDESC_DRAGON.133
+	picture = GFX_evt_dragon_castle
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		# Determine reward
+		add_blood_splatter_effect = yes
+	}
+	
+	option = {
+		name = EVTOPTA_DRAGON.133
+		wealth = local_attacker_pot
+		prestige = 100
+		tooltip = {
+			event_target:challenger = {
+				wealth = local_attacker_pay
+				death = { death_reason = death_battle killer = ROOT }
+			}
+		}
+		if = {
+			limit = { has_character_flag = dragon_raid_wounded }
+			add_trait = wounded
+		}
+		else_if = {
+			limit = { has_character_flag = dragon_raid_maimed }
+			add_trait = maimed
+		}
+		else_if = {
+			limit = { has_character_flag = dragon_raid_eye }
+			add_trait = one_eyed
+			add_trait = severely_injured
+			hidden_tooltip = { resolve_severely_injured_effect = yes }
+		}
+		else_if = {
+			limit = { has_character_flag = dragon_raid_leg }
+			add_trait = one_legged
+			add_trait = severely_injured
+			hidden_tooltip = { resolve_severely_injured_effect = yes }
+		}
+		else_if = {
+			limit = { has_character_flag = dragon_raid_hand }
+			add_trait = one_handed
+			add_trait = severely_injured
+			hidden_tooltip = { resolve_severely_injured_effect = yes }
+		}
+		else_if = {
+			limit = { has_character_flag = dragon_raid_disfigured }
+			add_trait = disfigured
+			add_trait = severely_injured
+			hidden_tooltip = { resolve_severely_injured_effect = yes }
+		}
+		else_if = {
+			limit = { has_character_flag = dragon_raid_mangled }
+			add_trait = mangled
+			add_trait = severely_injured
+			hidden_tooltip = { resolve_severely_injured_effect = yes }
+		}
+		if = {
+			limit = { has_character_flag = gain_black_eye }
+			add_character_modifier = { modifier = black_eye months = 10 }
+        }
+		if = {
+			limit = { has_character_flag = gain_swollen_wrist }
+			add_character_modifier = { modifier = swollen_wrist months = 10 }
+        }
+		if = {
+			limit = { has_character_flag = gain_swollen_ankle }
+			add_character_modifier = { modifier = swollen_ankle months = 10 }
+        }
+		if = {
+			limit = { has_character_flag = gain_concussion }
+			add_character_modifier = { modifier = concussion months = 10 }
+        }
+		if = {
+			limit = { has_character_flag = gain_cracked_ribs }
+			add_character_modifier = { modifier = cracked_ribs months = 10 }
+        }
+		if = {
+			limit = { has_character_flag = gain_badly_bruised }
+			add_character_modifier = { modifier = badly_bruised months = 10 }
+        }
+		hidden_tooltip = {
+			if = {
+				limit = {
+					event_target:challenger = {
+						any_artifact = {
+							is_indestructible = no
+							NOT = { event_target:challenged_party = { has_artifact = PREV } }
+						}
+					}
+				}
+				random = {
+					chance = 10
+					event_target:challenger = { save_event_target_as = raid_loser }
+					character_event = { id = DRAGON.140 } # Steal an artifact
+				}
+			}
+			event_target:challenger = {
+				character_event = { id = DRAGON.130 }
+			}
+			clear_dragon_raid_variables_flags = yes
+		}
+	}
+}
+# DRAGON.134 - Defender dies, attacker injured
+character_event = {
+	id = DRAGON.134
+	desc = EVTDESC_DRAGON.134
+	picture = GFX_evt_dragon_castle
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		# Determine reward
+		add_blood_splatter_effect = yes
+	}
+	
+	option = {
+		name = EVTOPTA_DRAGON.134
+		wealth = local_defender_pay
+		prestige = 100
+		tooltip = {
+			event_target:challenged_party = {
+				wealth = local_defender_pay
+				death = { death_reason = death_battle killer = ROOT }
+			}
+		}
+		if = {
+			limit = { has_character_flag = dragon_raid_wounded }
+			add_trait = wounded
+		}
+		else_if = {
+			limit = { has_character_flag = dragon_raid_maimed }
+			add_trait = maimed
+		}
+		else_if = {
+			limit = { has_character_flag = dragon_raid_eye }
+			add_trait = one_eyed
+			add_trait = severely_injured
+			hidden_tooltip = { resolve_severely_injured_effect = yes }
+		}
+		else_if = {
+			limit = { has_character_flag = dragon_raid_leg }
+			add_trait = one_legged
+			add_trait = severely_injured
+			hidden_tooltip = { resolve_severely_injured_effect = yes }
+		}
+		else_if = {
+			limit = { has_character_flag = dragon_raid_hand }
+			add_trait = one_handed
+			add_trait = severely_injured
+			hidden_tooltip = { resolve_severely_injured_effect = yes }
+		}
+		else_if = {
+			limit = { has_character_flag = dragon_raid_disfigured }
+			add_trait = disfigured
+			add_trait = severely_injured
+			hidden_tooltip = { resolve_severely_injured_effect = yes }
+		}
+		else_if = {
+			limit = { has_character_flag = dragon_raid_mangled }
+			add_trait = mangled
+			add_trait = severely_injured
+			hidden_tooltip = { resolve_severely_injured_effect = yes }
+		}
+		if = {
+			limit = { has_character_flag = gain_black_eye }
+			add_character_modifier = { modifier = black_eye months = 10 }
+        }
+		if = {
+			limit = { has_character_flag = gain_swollen_wrist }
+			add_character_modifier = { modifier = swollen_wrist months = 10 }
+        }
+		if = {
+			limit = { has_character_flag = gain_swollen_ankle }
+			add_character_modifier = { modifier = swollen_ankle months = 10 }
+        }
+		if = {
+			limit = { has_character_flag = gain_concussion }
+			add_character_modifier = { modifier = concussion months = 10 }
+        }
+		if = {
+			limit = { has_character_flag = gain_cracked_ribs }
+			add_character_modifier = { modifier = cracked_ribs months = 10 }
+        }
+		if = {
+			limit = { has_character_flag = gain_badly_bruised }
+			add_character_modifier = { modifier = badly_bruised months = 10 }
+        }
+		hidden_tooltip = {
+			if = {
+				limit = {
+					event_target:challenged_party = {
+						any_artifact = {
+							is_indestructible = no
+							NOT = { event_target:challenger = { has_artifact = PREV } }
+						}
+					}
+				}
+				random = {
+					chance = 10
+					event_target:challenged_party = { save_event_target_as = raid_loser }
+					character_event = { id = DRAGON.140 } # Steal an artifact
+				}
+			}
+			event_target:challenged_party = {
+				character_event = { id = DRAGON.130 }
+			}
+			clear_dragon_raid_variables_flags = yes
+		}
+	}
+}
+# DRAGON.135 - Steal an artifact, can't take equipped items
+character_event = {
+	id = DRAGON.135
+	desc = EVTDESC_DRAGON.135
+	picture = GFX_evt_relic_box
+    border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		# Select relic
+		event_target:raid_loser = {
+			random_artifact = {
+				limit = {
+					is_artifact_equipped = no
+					is_indestructible = no
+					ROOT = { NOT = { has_artifact = PREV } }
+				}
+				save_event_target_as = stolen_artifact
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTA_DRAGON.135
+		event_target:stolen_artifact = {
+			transfer_artifact = { from = event_target:raid_loser to = ROOT }
+		}
+		hidden_tooltip = {
+			if = {
+				limit = {
+					event_target:stolen_artifact = {
+						artifact_type = philosopher_stone
+					}
+				}
+				event_target:raid_loser = {
+					remove_trait = philosopher_stone_trait
+				}
+				add_trait = philosopher_stone_trait
+			}
+			event_target:raid_loser = {
+				character_event = { id = DRAGON.136 }
+			}
+		}
+	}
+}
+# DRAGON.136 - Lost artifact
+character_event = {
+	id = DRAGON.136
+	desc = EVTDESC_DRAGON.136
+	picture = GFX_evt_relic_box
+    border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	ai = no
+	
+	option = {
+		name = EVTOPTA_DRAGON.136
+		event_target:stolen_artifact = {
+			tooltip = { transfer_artifact = { from = event_target:raid_loser to = ROOT } }
+		}
+	}
+}
+# DRAGON.137 - Favor offer was accepted
+character_event = {
+	id = DRAGON.137
+	desc = EVTDESC_DRAGON.137
+	picture = GFX_evt_dragon_meeting
+    border = GFX_event_normal_frame_diplomacy
+	
+	is_triggered_only = yes
+	
+	ai = no
+	
+	option = {
+		name = EVTOPTA_DRAGON.137
+	}
+}
+# DRAGON.138 - Favor offer was declind
+character_event = {
+	id = DRAGON.138
+	desc = EVTDESC_DRAGON.138
+	picture = GFX_evt_dragon_meeting
+    border = GFX_event_normal_frame_diplomacy
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_DRAGON.138
+		
+		hidden_tooltip = {
+			character_event = { id = DRAGON.112 days = 1 }
+		}
+	}
+}
+# DRAGON.139 - Both participants died
+character_event = {
+	id = DRAGON.139
+	desc = EVTDESC_DRAGON.139
+	picture = GFX_evt_dragon_face
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_DRAGON.139
+		death = { death_reason = death_battle }
+		hidden_tooltip = { clear_dragon_raid_variables_flags = yes }
+	}
+}
+# DRAGON.140 - Steal an artifact, can take equipped items
+character_event = {
+	id = DRAGON.140
+	desc = EVTDESC_DRAGON.135
+	picture = GFX_evt_relic_box
+    border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		# Select relic
+		event_target:raid_loser = {
+			any_artifact = {
+				limit = {
+					is_indestructible = no
+					ROOT = { NOT = { has_artifact = PREV } }
+				}
+				save_event_target_as = stolen_artifact
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTA_DRAGON.135
+		event_target:stolen_artifact = {
+			transfer_artifact = { from = event_target:raid_loser to = ROOT }
+		}
+		hidden_tooltip = {
+			if = {
+				limit = {
+					event_target:stolen_artifact = {
+						artifact_type = philosopher_stone
+					}
+				}
+				event_target:raid_loser = {
+					remove_trait = philosopher_stone_trait
+				}
+				add_trait = philosopher_stone_trait
+			}
+			event_target:raid_loser = {
+				character_event = { id = DRAGON.136 }
+			}
+		}
+	}
+}

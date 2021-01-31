@@ -1,0 +1,1284 @@
+family_palace = {
+	
+	# Dragon
+	fp_dragon_tower_1 = {
+		desc = fp_dragon_tower_1_desc
+		
+		potential = {
+			OR = {
+				holder_scope = {
+					OR = {
+						trait = dragon
+						trait = dragonborn
+						culture = draconic
+					}
+				}
+				FROMFROM = {
+					has_building = fp_dragon_tower_1
+					NOR = {
+						has_building = fp_werewolf_lodge_1
+						has_building = fp_vampire_mansion_1
+						has_building = fp_giant_shield_1
+						has_building = fp_mummy_necropolis_1
+						has_building = fp_djinni_caves_1
+						has_building = fp_monster_hunter_lodge_1
+						has_building = fp_ritual_crypt_1
+					}
+				}
+			}
+		}
+		
+		trigger = {
+			TECH_CASTLE_CONSTRUCTION = 1
+			holder_scope = {
+				OR = {
+					trait = dragon
+					trait = dragonborn
+				}
+			}
+		}
+		
+		is_active_trigger = {
+			holder_scope = {
+				OR = {
+					trait = dragon
+					trait = dragonborn
+				}
+			}
+			holder_scope = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		prerequisites = { fp_mansion_1 }
+		ai_creation_factor = 100
+		
+		gold_cost = 300
+		build_time = 730
+		monthly_character_prestige = 0.3
+		dragon_cavalry = 16
+		global_movement_speed = 0.03
+		
+		extra_tech_building_start = 1.0
+	}
+	fp_dragon_tower_2 = {
+		desc = fp_dragon_tower_2_desc
+		
+		potential = {
+			OR = {
+				holder_scope = {
+					OR = {
+						trait = dragon
+						trait = dragonborn
+						culture = draconic
+					}
+				}
+				FROMFROM = {
+					has_building = fp_dragon_tower_2
+					NOR = {
+						has_building = fp_werewolf_lodge_1
+						has_building = fp_vampire_mansion_1
+						has_building = fp_giant_shield_1
+						has_building = fp_mummy_necropolis_1
+						has_building = fp_djinni_caves_1
+						has_building = fp_monster_hunter_lodge_1
+						has_building = fp_ritual_crypt_1
+					}
+				}
+			}
+		}
+		
+		trigger = {
+			TECH_CASTLE_CONSTRUCTION = 3
+			holder_scope = {
+				OR = {
+					trait = dragon
+					trait = dragonborn
+				}
+			}
+		}
+		
+		is_active_trigger = {
+			holder_scope = {
+				OR = {
+					trait = dragon
+					trait = dragonborn
+				}
+			}
+			holder_scope = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		upgrades_from = fp_dragon_tower_1
+		prerequisites = { fp_mansion_2 }
+		ai_creation_factor = 99
+		
+		gold_cost = 400
+		build_time = 1095
+		monthly_character_prestige = 0.5
+		dragon_cavalry = 16
+		global_movement_speed = 0.03
+		
+		extra_tech_building_start = 2.5
+	}
+	fp_dragon_tower_3 = {
+		desc = fp_dragon_tower_3_desc
+		
+		potential = {
+			OR = {
+				holder_scope = {
+					OR = {
+						trait = dragon
+						trait = dragonborn
+						culture = draconic
+					}
+				}
+				FROMFROM = {
+					has_building = fp_dragon_tower_3
+					NOR = {
+						has_building = fp_werewolf_lodge_1
+						has_building = fp_vampire_mansion_1
+						has_building = fp_giant_shield_1
+						has_building = fp_mummy_necropolis_1
+						has_building = fp_djinni_caves_1
+						has_building = fp_monster_hunter_lodge_1
+						has_building = fp_ritual_crypt_1
+					}
+				}
+			}
+		}
+		
+		trigger = {
+			TECH_CASTLE_CONSTRUCTION = 5
+			holder_scope = {
+				OR = {
+					trait = dragon
+					trait = dragonborn
+				}
+			}
+		}
+		
+		is_active_trigger = {
+			holder_scope = {
+				OR = {
+					trait = dragon
+					trait = dragonborn
+				}
+			}
+			holder_scope = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		upgrades_from = fp_dragon_tower_2
+		prerequisites = { fp_mansion_3 }
+		ai_creation_factor = 98
+		
+		gold_cost = 500
+		build_time = 1460
+		monthly_character_prestige = 1
+		dragon_cavalry = 24
+		global_movement_speed = 0.03
+		
+		extra_tech_building_start = 4.0
+	}
+	
+	# Werewolf Capital
+	fp_werewolf_lodge_1 = {
+		desc = fp_werewolf_lodge_desc
+		
+		potential = {
+			OR = {
+				holder_scope = {
+					OR = {
+						trait = werewolf
+						culture = werewolf_culture
+					}
+				}
+				FROMFROM = { 
+					has_building = fp_werewolf_lodge_1
+					NOR = {
+						has_building = fp_dragon_tower_1
+						has_building = fp_vampire_mansion_1
+						has_building = fp_giant_shield_1
+						has_building = fp_mummy_necropolis_1
+						has_building = fp_djinni_caves_1
+						has_building = fp_monster_hunter_lodge_1
+						has_building = fp_ritual_crypt_1
+					}
+				}
+			}
+		}
+		trigger = {
+			holder_scope = { trait = known_werewolf }
+			TECH_CASTLE_CONSTRUCTION = 1
+			holder_scope = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		is_active_trigger = {
+			holder_scope = {
+				trait = known_werewolf
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		prerequisites = { fp_mansion_1 }
+		ai_creation_factor = 100
+		
+		gold_cost = 300
+		build_time = 730
+		lycan_berzerkers = 50
+		archers = 200
+		global_winter_supply = 1
+		
+		extra_tech_building_start = 1.0
+	}
+	fp_werewolf_lodge_2 = {
+		desc = fp_werewolf_lodge_desc
+		
+		potential = {
+			OR = {
+				holder_scope = {
+					OR = {
+						trait = werewolf
+						culture = werewolf_culture
+					}
+				}
+				FROMFROM = { 
+					has_building = fp_werewolf_lodge_2
+					NOR = {
+						has_building = fp_dragon_tower_1
+						has_building = fp_vampire_mansion_1
+						has_building = fp_giant_shield_1
+						has_building = fp_mummy_necropolis_1
+						has_building = fp_djinni_caves_1
+						has_building = fp_monster_hunter_lodge_1
+						has_building = fp_ritual_crypt_1
+					}
+				}
+			}
+		}
+		trigger = {
+			holder_scope = { trait = known_werewolf }
+			TECH_CASTLE_CONSTRUCTION = 3
+			holder_scope = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		is_active_trigger = {
+			holder_scope = {
+				trait = known_werewolf
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		upgrades_from = fp_werewolf_lodge_1
+		prerequisites = { fp_mansion_2 }
+		ai_creation_factor = 100
+		
+		gold_cost = 400
+		build_time = 1030
+		lycan_berzerkers = 75
+		archers = 250
+		global_winter_supply = 1.5
+		
+		extra_tech_building_start = 2.5
+	}
+	fp_werewolf_lodge_3 = {
+		desc = fp_werewolf_lodge_desc
+		
+		potential = {
+			OR = {
+				holder_scope = {
+					OR = {
+						trait = werewolf
+						culture = werewolf_culture
+					}
+				}
+				FROMFROM = { 
+					has_building = fp_werewolf_lodge_3
+					NOR = {
+						has_building = fp_dragon_tower_1
+						has_building = fp_vampire_mansion_1
+						has_building = fp_giant_shield_1
+						has_building = fp_mummy_necropolis_1
+						has_building = fp_djinni_caves_1
+						has_building = fp_monster_hunter_lodge_1
+						has_building = fp_ritual_crypt_1
+					}
+				}
+			}
+		}
+		trigger = {
+			holder_scope = { trait = known_werewolf }
+			TECH_CASTLE_CONSTRUCTION = 5
+			holder_scope = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		is_active_trigger = {
+			holder_scope = {
+				trait = known_werewolf
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		upgrades_from = fp_werewolf_lodge_2
+		prerequisites = { fp_mansion_3 }
+		ai_creation_factor = 100
+		
+		gold_cost = 500
+		build_time = 1430
+		lycan_berzerkers = 100
+		archers = 300
+		global_winter_supply = 2
+		
+		extra_tech_building_start = 4.0
+	}
+	
+	fp_vampire_mansion_1 = {
+		desc = fp_vampire_mansion_1_desc
+		
+		potential = {
+			OR = {
+				holder_scope = { trait = vampire }
+				FROMFROM = { 
+					has_building = fp_vampire_mansion_1
+					NOR = {
+						has_building = fp_dragon_tower_1
+						has_building = fp_werewolf_lodge_1
+						has_building = fp_giant_shield_1
+						has_building = fp_mummy_necropolis_1
+						has_building = fp_djinni_caves_1
+						has_building = fp_monster_hunter_lodge_1
+						has_building = fp_ritual_crypt_1
+					}
+				}
+			}
+		}
+		trigger = { 
+			holder_scope = { trait = vampire }
+			TECH_CASTLE_CONSTRUCTION = 1
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		is_active_trigger = {
+			holder_scope = { trait = known_vampire }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		prerequisites = { fp_mansion_1 }
+		ai_creation_factor = 100
+		
+		vampires = 150
+		knights = 10
+		tax_income = 1.5
+		monthly_character_prestige = 0.25
+		
+		gold_cost = 395
+		build_time = 795
+		
+		extra_tech_building_start = 1.0
+	}
+	fp_vampire_mansion_2 = {
+		desc = fp_vampire_mansion_2_desc
+		
+		potential = {
+			OR = {
+				holder_scope = { trait = vampire }
+				FROMFROM = { 
+					has_building = fp_vampire_mansion_2
+					NOR = {
+						has_building = fp_dragon_tower_1
+						has_building = fp_werewolf_lodge_1
+						has_building = fp_giant_shield_1
+						has_building = fp_mummy_necropolis_1
+						has_building = fp_djinni_caves_1
+						has_building = fp_monster_hunter_lodge_1
+						has_building = fp_ritual_crypt_1
+					}
+				}
+			}
+		}
+		trigger = { 
+			holder_scope = { trait = vampire }
+			TECH_CASTLE_CONSTRUCTION = 3
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		is_active_trigger = {
+			holder_scope = { trait = known_vampire }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		upgrades_from = fp_vampire_mansion_1
+		prerequisites = { fp_mansion_2 }
+		ai_creation_factor = 99
+		
+		vampires = 175
+		knights = 15
+		tax_income = 2
+		monthly_character_prestige = 0.25
+		
+		gold_cost = 495
+		build_time = 1095
+		
+		extra_tech_building_start = 2.5
+	}
+	fp_vampire_mansion_3 = {
+		desc = fp_vampire_mansion_3_desc
+		
+		potential = {
+			OR = {
+				holder_scope = { trait = vampire }
+				FROMFROM = { 
+					has_building = fp_vampire_mansion_3
+					NOR = {
+						has_building = fp_dragon_tower_1
+						has_building = fp_werewolf_lodge_1
+						has_building = fp_giant_shield_1
+						has_building = fp_mummy_necropolis_1
+						has_building = fp_djinni_caves_1
+						has_building = fp_monster_hunter_lodge_1
+						has_building = fp_ritual_crypt_1
+					}
+				}
+			}
+		}
+		trigger = { 
+			holder_scope = { trait = vampire }
+			TECH_CASTLE_CONSTRUCTION = 5
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		is_active_trigger = {
+			holder_scope = { trait = known_vampire }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		upgrades_from = fp_vampire_mansion_2
+		prerequisites = { fp_mansion_3 }
+		ai_creation_factor = 98
+		
+		vampires = 200
+		knights = 20
+		tax_income = 2.5
+		monthly_character_prestige = 0.25
+		
+		gold_cost = 595
+		build_time = 1495
+		
+		extra_tech_building_start = 4.0
+	}
+	
+	fp_giant_shield_1 = {
+		desc = ct_giant_shield_desc
+		
+		potential = { 
+			OR = {
+				holder_scope = {
+					OR = {
+						trait = mythos_giant
+						trait = half_giant
+					}
+				}
+				FROMFROM = {
+					has_building = fp_giant_shield_1
+					NOR = {
+						has_building = fp_dragon_tower_1
+						has_building = fp_werewolf_lodge_1
+						has_building = fp_vampire_mansion_1
+						has_building = fp_mummy_necropolis_1
+						has_building = fp_djinni_caves_1
+						has_building = fp_monster_hunter_lodge_1
+						has_building = fp_ritual_crypt_1
+					}
+				}
+			}
+		}
+		trigger = {
+			holder_scope = { trait = mythos_giant }
+			TECH_CASTLE_CONSTRUCTION = 1
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		is_active_trigger = {
+			holder_scope = {
+				OR = {
+					trait = mythos_giant
+					trait = half_giant
+				}
+			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		
+		prerequisites = { fp_mansion_1 }
+		ai_creation_factor = 100
+		
+		heavy_infantry = 120
+		heavy_infantry_offensive = 0.05
+		monthly_character_prestige = 0.5
+		tax_income = 0.5
+		
+		gold_cost = 350
+		build_time = 750
+		extra_tech_building_start = 1.0
+	}
+	fp_giant_shield_2 = {
+		desc = ct_giant_shield_desc
+		
+		potential = { 
+			OR = {
+				holder_scope = {
+					OR = {
+						trait = mythos_giant
+						trait = half_giant
+					}
+				}
+				FROMFROM = {
+					has_building = fp_giant_shield_2
+					NOR = {
+						has_building = fp_dragon_tower_1
+						has_building = fp_werewolf_lodge_1
+						has_building = fp_vampire_mansion_1
+						has_building = fp_mummy_necropolis_1
+						has_building = fp_djinni_caves_1
+						has_building = fp_monster_hunter_lodge_1
+						has_building = fp_ritual_crypt_1
+					}
+				}
+			}
+		}
+		trigger = {
+			holder_scope = { trait = mythos_giant }
+			TECH_CASTLE_CONSTRUCTION = 3
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		is_active_trigger = {
+			holder_scope = {
+				OR = {
+					trait = mythos_giant
+					trait = half_giant
+				}
+			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		upgrades_from = fp_giant_shield_1
+		prerequisites = { fp_mansion_2 }
+		ai_creation_factor = 99
+		
+		heavy_infantry = 150
+		heavy_infantry_offensive = 0.10
+		monthly_character_prestige = 0.75
+		tax_income = 0.75
+		
+		gold_cost = 450
+		build_time = 1050
+		extra_tech_building_start = 2.5
+	}
+	fp_giant_mansion = {
+		desc = fp_giant_mansion_desc
+		
+		potential = { 
+			OR = {
+				holder_scope = {
+					OR = {
+						trait = mythos_giant
+						trait = half_giant
+					}
+				}
+				FROMFROM = {
+					has_building = fp_giant_mansion
+					NOR = {
+						has_building = fp_dragon_tower_1
+						has_building = fp_werewolf_lodge_1
+						has_building = fp_vampire_mansion_1
+						has_building = fp_mummy_necropolis_1
+						has_building = fp_djinni_caves_1
+						has_building = fp_monster_hunter_lodge_1
+						has_building = fp_ritual_crypt_1
+					}
+				}
+			}
+		}
+		trigger = {
+			holder_scope = { trait = mythos_giant }
+			TECH_CASTLE_CONSTRUCTION = 3
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		is_active_trigger = {
+			holder_scope = {
+				OR = {
+					trait = mythos_giant
+					trait = half_giant
+				}
+			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		upgrades_from = fp_giant_shield_2
+		prerequisites = { fp_mansion_3 }
+		ai_creation_factor = 98
+		
+		heavy_infantry = 175
+		heavy_infantry_offensive = 0.10
+		monthly_character_prestige = 1
+		tax_income = 1
+		
+		gold_cost = 550
+		build_time = 1450
+		extra_tech_building_start = 4.0
+	}
+	
+	fp_mummy_necropolis_1 = {
+		desc = fp_mummy_necropolis_desc
+		
+		potential = {
+			OR = {
+				holder_scope = { trait = mummy }
+				FROMFROM = {
+					has_building = fp_mummy_necropolis_1
+					NOR = {
+						has_building = fp_dragon_tower_1
+						has_building = fp_werewolf_lodge_1
+						has_building = fp_vampire_mansion_1
+						has_building = fp_giant_shield_1
+						has_building = fp_djinni_caves_1
+						has_building = fp_monster_hunter_lodge_1
+						has_building = fp_ritual_crypt_1
+					}
+				}
+			}
+		}
+		trigger = {
+			holder_scope = { trait = mummy }
+			TECH_CASTLE_CONSTRUCTION = 1
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		is_active_trigger = {
+			holder_scope = { trait = mummy }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		prerequisites = { fp_mansion_1 }
+		ai_creation_factor = 100
+		
+		light_infantry = 150
+		heavy_infantry = 50
+		monthly_character_piety = 0.5
+		retinuesize = 50
+		
+		gold_cost = 300
+		build_time = 750
+		extra_tech_building_start = 1.0
+	}
+	fp_mummy_necropolis_2 = {
+		desc = fp_mummy_necropolis_desc
+		
+		potential = {
+			OR = {
+				holder_scope = { trait = mummy }
+				FROMFROM = {
+					has_building = fp_mummy_necropolis_2
+					NOR = {
+						has_building = fp_dragon_tower_1
+						has_building = fp_werewolf_lodge_1
+						has_building = fp_vampire_mansion_1
+						has_building = fp_giant_shield_1
+						has_building = fp_djinni_caves_1
+						has_building = fp_monster_hunter_lodge_1
+						has_building = fp_ritual_crypt_1
+					}
+				}
+			}
+		}
+		trigger = {
+			holder_scope = { trait = mummy }
+			TECH_CASTLE_CONSTRUCTION = 3
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		is_active_trigger = {
+			holder_scope = { trait = mummy }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		upgrades_from = fp_mummy_necropolis_1
+		prerequisites = { fp_mansion_2 }
+		ai_creation_factor = 99
+		
+		light_infantry = 200
+		heavy_infantry = 75
+		monthly_character_piety = 0.5
+		retinuesize = 75
+		
+		gold_cost = 400
+		build_time = 1050
+		extra_tech_building_start = 2.5
+	}
+	fp_mummy_necropolis_3 = {
+		desc = fp_mummy_necropolis_desc
+		
+		potential = {
+			OR = {
+				holder_scope = { trait = mummy }
+				FROMFROM = {
+					has_building = fp_mummy_necropolis_3
+					NOR = {
+						has_building = fp_dragon_tower_1
+						has_building = fp_werewolf_lodge_1
+						has_building = fp_vampire_mansion_1
+						has_building = fp_giant_shield_1
+						has_building = fp_djinni_caves_1
+						has_building = fp_monster_hunter_lodge_1
+						has_building = fp_ritual_crypt_1
+					}
+				}
+			}
+		}
+		trigger = {
+			holder_scope = { trait = mummy }
+			TECH_CASTLE_CONSTRUCTION = 5
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		is_active_trigger = {
+			holder_scope = { trait = mummy }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		upgrades_from = fp_mummy_necropolis_2
+		prerequisites = { fp_mansion_3 }
+		ai_creation_factor = 98
+		
+		light_infantry = 250
+		heavy_infantry = 100
+		monthly_character_piety = 0.5
+		retinuesize = 100
+		
+		gold_cost = 500
+		build_time = 1450
+		extra_tech_building_start = 4.0
+	}
+	
+	fp_djinni_caves_1 = {
+		desc = fp_djinni_caves_desc
+		
+		potential = {
+			OR = {
+				holder_scope = { trait = djinn }
+				FROMFROM = {
+					has_building = fp_djinni_caves_1
+					NOT = {
+						has_building = fp_dragon_tower_1
+						has_building = fp_werewolf_lodge_1
+						has_building = fp_vampire_mansion_1
+						has_building = fp_giant_shield_1
+						has_building = fp_mummy_necropolis_1
+						has_building = fp_monster_hunter_lodge_1
+						has_building = fp_ritual_crypt_1
+					}
+				}
+			}
+		}
+		trigger = {
+			holder_scope = { trait = djinn }
+			TECH_CASTLE_CONSTRUCTION = 1
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		is_active_trigger = {
+			holder_scope = { trait = djinn }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		prerequisites = { fp_mansion_1 }
+		ai_creation_factor = 100
+		
+		heavy_infantry = 70
+		tax_income = 1.5
+		global_movement_speed = 0.05
+		
+		gold_cost = 400
+		build_time = 750
+		extra_tech_building_start = 1.0
+	}
+	fp_djinni_caves_2 = {
+		desc = fp_djinni_caves_desc
+		
+		potential = {
+			OR = {
+				holder_scope = { trait = djinn }
+				FROMFROM = {
+					has_building = fp_djinni_caves_2
+					NOT = {
+						has_building = fp_dragon_tower_1
+						has_building = fp_werewolf_lodge_1
+						has_building = fp_vampire_mansion_1
+						has_building = fp_giant_shield_1
+						has_building = fp_mummy_necropolis_1
+						has_building = fp_monster_hunter_lodge_1
+						has_building = fp_ritual_crypt_1
+					}
+				}
+			}
+		}
+		trigger = {
+			holder_scope = { trait = djinn }
+			TECH_CASTLE_CONSTRUCTION = 3
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		is_active_trigger = {
+			holder_scope = { trait = djinn }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		upgrades_from = fp_djinni_caves_1
+		prerequisites = { fp_mansion_2 }
+		ai_creation_factor = 99
+		
+		heavy_infantry = 85
+		tax_income = 1.5
+		global_movement_speed = 0.05
+		
+		gold_cost = 400
+		build_time = 1050
+		extra_tech_building_start = 2.5
+	}
+	fp_djinni_caves_3 = {
+		desc = fp_djinni_caves_3_desc
+		
+		potential = {
+			OR = {
+				holder_scope = { trait = djinn }
+				FROMFROM = {
+					has_building = fp_djinni_caves_3
+					NOT = {
+						has_building = fp_dragon_tower_1
+						has_building = fp_werewolf_lodge_1
+						has_building = fp_vampire_mansion_1
+						has_building = fp_giant_shield_1
+						has_building = fp_mummy_necropolis_1
+						has_building = fp_monster_hunter_lodge_1
+						has_building = fp_ritual_crypt_1
+					}
+				}
+			}
+		}
+		trigger = {
+			holder_scope = { trait = djinn }
+			TECH_CASTLE_CONSTRUCTION = 5
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		is_active_trigger = {
+			holder_scope = { trait = djinn }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		upgrades_from = fp_djinni_caves_2
+		prerequisites = { fp_mansion_3 }
+		ai_creation_factor = 98
+		
+		heavy_infantry = 100
+		tax_income = 1.5
+		global_movement_speed = 0.05
+		
+		gold_cost = 500
+		build_time = 1450
+		extra_tech_building_start = 4.0
+	}
+	
+	fp_monster_hunter_lodge_1 = {
+		desc = fp_monster_hunter_lodge_desc
+		
+		potential = {
+			OR = {
+				holder_scope = { trait = monster_hunter }
+				FROMFROM = {
+					has_building = fp_monster_hunter_lodge_1
+					NOR = {
+						has_building = fp_dragon_tower_1
+						has_building = fp_werewolf_lodge_1
+						has_building = fp_vampire_mansion_1
+						has_building = fp_giant_shield_1
+						has_building = fp_mummy_necropolis_1
+						has_building = fp_djinni_caves_1
+						has_building = fp_ritual_crypt_1
+					}
+				}
+			}
+		}
+		trigger = {
+			TECH_CASTLE_CONSTRUCTION = 1
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		is_active_trigger = {
+			holder_scope = { trait = monster_hunter }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		prerequisites = { fp_mansion_1 }
+		ai_creation_factor = 100
+		
+		archers = 150
+		heavy_infantry = 50
+		knights = 20
+		land_morale = 0.1
+		
+		gold_cost = 500
+		build_time = 750
+		extra_tech_building_start = 1.0
+	}
+	fp_monster_hunter_lodge_2 = {
+		desc = fp_monster_hunter_lodge_desc
+		
+		potential = {
+			OR = {
+				holder_scope = { trait = monster_hunter }
+				FROMFROM = {
+					has_building = fp_monster_hunter_lodge_2
+					NOR = {
+						has_building = fp_dragon_tower_1
+						has_building = fp_werewolf_lodge_1
+						has_building = fp_vampire_mansion_1
+						has_building = fp_giant_shield_1
+						has_building = fp_mummy_necropolis_1
+						has_building = fp_djinni_caves_1
+						has_building = fp_ritual_crypt_1
+					}
+				}
+			}
+		}
+		trigger = {
+			TECH_CASTLE_CONSTRUCTION = 3
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		is_active_trigger = {
+			holder_scope = { trait = monster_hunter }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		upgrades_from = fp_monster_hunter_lodge_1
+		prerequisites = { fp_mansion_2 }
+		ai_creation_factor = 99
+		
+		archers = 175
+		heavy_infantry = 75
+		knights = 25
+		land_morale = 0.1
+		
+		gold_cost = 600
+		build_time = 1050
+		extra_tech_building_start = 2.5
+	}
+	fp_monster_hunter_lodge_3 = {
+		desc = fp_monster_hunter_lodge_desc
+		
+		potential = {
+			OR = {
+				holder_scope = { trait = monster_hunter }
+				FROMFROM = {
+					has_building = fp_monster_hunter_lodge_3
+					NOR = {
+						has_building = fp_dragon_tower_1
+						has_building = fp_werewolf_lodge_1
+						has_building = fp_vampire_mansion_1
+						has_building = fp_giant_shield_1
+						has_building = fp_mummy_necropolis_1
+						has_building = fp_djinni_caves_1
+						has_building = fp_ritual_crypt_1
+					}
+				}
+			}
+		}
+		trigger = {
+			TECH_CASTLE_CONSTRUCTION = 5
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		is_active_trigger = {
+			holder_scope = { trait = monster_hunter }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		upgrades_from = fp_monster_hunter_lodge_2
+		prerequisites = { fp_mansion_3 }
+		ai_creation_factor = 98
+		
+		archers = 200
+		heavy_infantry = 100
+		knights = 30
+		land_morale = 0.1
+		
+		gold_cost = 700
+		build_time = 1450
+		extra_tech_building_start = 5.0
+	}
+	
+	fp_ritual_crypt_1 = {
+		desc = fp_ritual_crypt_desc
+
+		potential = {
+			OR = {
+				holder_scope = { trait = necromancer }
+				FROMFROM = {
+					has_building = fp_ritual_crypt_1
+					NOT = {
+						has_building = fp_dragon_tower_1
+						has_building = fp_werewolf_lodge_1
+						has_building = fp_vampire_mansion_1
+						has_building = fp_giant_shield_1
+						has_building = fp_mummy_necropolis_1
+						has_building = fp_djinni_caves_1
+						has_building = fp_monster_hunter_lodge_1
+					}
+				}
+			}
+		}
+		trigger = {
+			TECH_CASTLE_CONSTRUCTION = 1
+			holder_scope = { trait = necromancer }
+		}
+		is_active_trigger = {
+			holder_scope = { trait = necromancer }
+		}
+		prerequisites = { fp_mansion_1 }
+		ai_creation_factor = 100
+		
+		gold_cost = 400
+		build_time = 730
+
+		zombie_troops = 100
+		zombie_troops_offensive = 0.1
+		
+		extra_tech_building_start = 1.0
+	}
+	fp_ritual_crypt_2 = {
+		desc = fp_ritual_crypt_desc
+
+		potential = {
+			OR = {
+				holder_scope = { trait = necromancer }
+				FROMFROM = {
+					has_building = fp_ritual_crypt_2
+					NOT = {
+						has_building = fp_dragon_tower_1
+						has_building = fp_werewolf_lodge_1
+						has_building = fp_vampire_mansion_1
+						has_building = fp_giant_shield_1
+						has_building = fp_mummy_necropolis_1
+						has_building = fp_djinni_caves_1
+						has_building = fp_monster_hunter_lodge_1
+					}
+				}
+			}
+		}
+		trigger = {
+			TECH_CASTLE_CONSTRUCTION = 3
+			holder_scope = { trait = necromancer }
+		}
+		is_active_trigger = {
+			holder_scope = { trait = necromancer }
+		}
+		upgrades_from = fp_ritual_crypt_1
+		prerequisites = { fp_mansion_1 }
+		ai_creation_factor = 99
+		
+		gold_cost = 500
+		build_time = 1030
+
+		zombie_troops = 125
+		zombie_troops_offensive = 0.1
+		extra_tech_building_start = 2.5
+	}
+	fp_ritual_crypt_3 = {
+		desc = fp_ritual_crypt_desc
+
+		potential = {
+			OR = {
+				holder_scope = { trait = necromancer }
+				FROMFROM = {
+					has_building = fp_ritual_crypt_3
+					NOT = {
+						has_building = fp_dragon_tower_1
+						has_building = fp_werewolf_lodge_1
+						has_building = fp_vampire_mansion_1
+						has_building = fp_giant_shield_1
+						has_building = fp_mummy_necropolis_1
+						has_building = fp_djinni_caves_1
+						has_building = fp_monster_hunter_lodge_1
+					}
+				}
+			}
+		}
+		trigger = {
+			TECH_CASTLE_CONSTRUCTION = 5
+			holder_scope = { trait = necromancer }
+		}
+		is_active_trigger = {
+			holder_scope = { trait = necromancer }
+		}
+		upgrades_from = fp_ritual_crypt_2
+		prerequisites = { fp_mansion_3 }
+		ai_creation_factor = 98
+		
+		gold_cost = 600
+		build_time = 1430
+
+		zombie_troops = 150
+		zombie_troops_offensive = 0.1
+		extra_tech_building_start = 5.0
+	}
+}

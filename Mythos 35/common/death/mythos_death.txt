@@ -1,0 +1,226 @@
+death_execution_dragonfire = {
+	violent = yes
+	long_desc = DEATH_EXECUTION_DRAGONFIRE
+	can_nokiller = yes
+	execution = yes
+	sound_list = {
+		female = {
+			"burning_female_01"
+			"burning_female_02"
+			"burning_female_03"
+		}
+		male = {
+			"burning_male_01"
+			"burning_male_02"
+			"burning_male_03"
+			"burning_male_04"
+		}
+	}
+}
+death_execution_vampire = {
+	violent = yes
+	long_desc = DEATH_EXECUTION_VAMPIRE
+	can_nokiller = yes
+	execution = yes
+	sound_list = {
+		female = {
+			"female_violent_death_01"
+			"female_violent_death_02"
+			"female_violent_death_03"
+			"female_violent_death_04"
+		}
+		male = {
+			"male_violent_death_01"
+			"male_violent_death_02"
+			"male_violent_death_03"
+			"male_violent_death_04"
+			"male_violent_death_05"
+		}
+	}
+}
+death_vampire = {
+	violent = yes
+	long_desc = DEATH_EXECUTION_VAMPIRE
+	can_nokiller = yes
+	sound_list = {
+		female = {
+			"female_violent_death_01"
+			"female_violent_death_02"
+			"female_violent_death_03"
+			"female_violent_death_04"
+		}
+		male = {
+			"male_violent_death_01"
+			"male_violent_death_02"
+			"male_violent_death_03"
+			"male_violent_death_04"
+			"male_violent_death_05"
+		}
+	}
+}
+death_vampire_unknown = {
+	violent = yes
+	long_desc = DEATH_EXECUTION_VAMPIRE
+	can_nokiller = yes
+	murder_unknown = yes
+	sound_list = {
+		female = {
+			"female_violent_death_01"
+			"female_violent_death_02"
+			"female_violent_death_03"
+			"female_violent_death_04"
+		}
+		male = {
+			"male_violent_death_01"
+			"male_violent_death_02"
+			"male_violent_death_03"
+			"male_violent_death_04"
+			"male_violent_death_05"
+		}
+	}
+}
+death_gorgon = {
+	violent = yes
+	long_desc = DEATH_PETRIFIED_GORGON
+	sound_list = {
+		female = {
+			"female_violent_death_01"
+			"female_violent_death_02"
+			"female_violent_death_03"
+			"female_violent_death_04"
+		}
+		male = {
+			"male_violent_death_01"
+			"male_violent_death_02"
+			"male_violent_death_03"
+			"male_violent_death_04"
+			"male_violent_death_05"
+		}
+	}
+}
+death_dragon = {
+	violent = yes
+	long_desc = DEATH_DRAGON
+	sound_list = {
+		female = {
+			"burning_female_01"
+			"burning_female_02"
+			"burning_female_03"
+		}
+		male = {
+			"burning_male_01"
+			"burning_male_02"
+			"burning_male_03"
+			"burning_male_04"
+		}
+	}
+}
+death_oxen = {
+	violent = yes
+	long_desc = "DEATH_EXECUTION_OXEN"
+	can_nokiller = yes
+	execution = yes
+	sound_list = {
+		female = {
+			"trampling_horse_female_01"
+			"trampling_horse_female_02"
+			"trampling_horse_female_03"
+		}
+		male = {
+			"trampling_horse_male_01"
+			"trampling_horse_male_02"
+			"trampling_horse_male_03"
+		}
+	}
+}
+death_werewolf = {
+	violent = yes
+	long_desc = DEATH_WEREWOLF
+	can_nokiller = yes
+	sound_list = {
+		female = {
+			"female_violent_death_01"
+			"female_violent_death_02"
+			"female_violent_death_03"
+			"female_violent_death_04"
+		}
+		male = {
+			"male_violent_death_01"
+			"male_violent_death_02"
+			"male_violent_death_03"
+			"male_violent_death_04"
+			"male_violent_death_05"
+		}
+	}
+}
+death_werewolf_unknown = {
+	violent = yes
+	long_desc = DEATH_WEREWOLF
+	murder_unknown = yes
+	can_nokiller = yes
+	sound_list = {
+		female = {
+			"female_violent_death_01"
+			"female_violent_death_02"
+			"female_violent_death_03"
+			"female_violent_death_04"
+		}
+		male = {
+			"male_violent_death_01"
+			"male_violent_death_02"
+			"male_violent_death_03"
+			"male_violent_death_04"
+			"male_violent_death_05"
+		}
+	}
+}
+death_murder_wolf = {
+	violent = yes
+	long_desc = DEATH_MURDER_WOLF
+	can_nokiller = yes
+	sound_list = {
+		female = {
+			"forest_event_02"
+		}
+		male = {
+			"forest_event_02"
+		}
+	}
+}
+death_murder_wolf_unknown = {
+	violent = yes
+	long_desc = DEATH_MURDER_WOLF
+	can_nokiller = yes
+	murder_unknown = yes
+	sound_list = {
+		female = {
+			"forest_event_02"
+		}
+		male = {
+			"forest_event_02"
+		}
+	}
+}
+death_dragged_to_hell = {
+	violent = yes
+	long_desc = DEATH_MEPHISTOPHELES
+	sound_list = {
+		female = {
+			"female_violent_death_01"
+			"female_violent_death_02"
+			"female_violent_death_03"
+			"female_violent_death_04"
+		}
+		male = {
+			"male_violent_death_01"
+			"male_violent_death_02"
+			"male_violent_death_03"
+			"male_violent_death_04"
+			"male_violent_death_05"
+		}
+	}
+}
+death_banished = {
+	violent = no
+	long_desc = DEATH_BANISHED
+}

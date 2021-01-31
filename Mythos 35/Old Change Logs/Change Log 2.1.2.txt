@@ -1,0 +1,94 @@
+##########################################################
+##########################2.1.2###########################
+##########################################################
+
+################
+# Warrior Lodges
+################
+
+- Added Warrior Lodges for Draconic, Druidic, Kemetic, and Jotnar pagans.
+- Druidic and Jotnar warrior lodges can engage in Flyting and the Kemetic warrior lodge can engage in games of dice.
+- The Kemetic Lodge has a power to increase the supply limit near major rivers and provide supplies to their commanders.
+- The Druidic Lodge has a power to increase your speed commanding armies
+- The Draconic Lodge has a dragon-exclusive power to deal additional damage at the start of combat
+- The Jotnar Lodge shares the Germanic Pagan berserking
+
+############
+# Bloodlines
+############
+
+- With Holy Fury, the Blood of the Gods trait has been replaced with Blood of the Gods bloodlines
+- Different gods will have different bloodlines
+- Blood of the Gods bloodlines are passed on to only biological children, including bastards, even if they are unacknowledged
+- Blood of the Gods may not always be passed on to children, especially if only one parent has a divine bloodline or the the children is further from divinity
+- Characters can only have a single divine bloodline, with more specific bloodlines, such as "Blood of Zeus" taking precidence over more generic ones, like "Blood of Olympus"
+- Currently, only the Germanic and Greco-Roman pantheons have god- or pantheon-specific bloodlines. Others will use a generic "Blood of the Gods" bloodline type.
+- Characters with certain divine bloodlines are more likely to pick appropriate focuses
+- Characters with bloodlines from gods known for chastity are harder to seduce
+- AI characters, especially gods, that have certain bloodlines may seduce outside of their court
+
+##########
+# Religion
+##########
+
+- Religious reformation now adds all characters of that religion with the god trait to their list of gods
+- Mythos religions now exclude certain gods if reforming with Domatic, Patriarichal, or Matriarichal
+- Religions with ancestor veneration now consider religion-specific virtues and vices
+- The Sapphire Flame starts off in existance when Draconic Paganism Reforms
+- Instead of granting a holy site to create the Sapphire Flame, reformed draconic pagans can grant a holy site to an unlanded Sapphire Flame
+- If the character granting the holy site is an emperor, the Sapphire Flame will become their vassal. Otherwise, it will become independant
+- Removed decisions to borrow money or request claims from the Sapphire Flame, as they are redundant with the same ability added in 3.0
+- Removed decision to grant the Sapphire Flame land in exchange for an alliance
+- Religious heads will consider a character's virtues and vices dependant on their religion when answering requests
+- Religious heads consider magic education, blood of the gods, and purity, as appropriate
+- Reformed Draconic Pagans can no longer ask the Sapphire Flame for money
+- Reformed Draconic Pagans can now take a loan from the Sapphire Flame, gaining 2 years of income, and paying back 25% of yearly income for 10 years
+- Reformed Draconic Pagan's ability to request a blessing has been reworked to be more consistent with other favors
+
+##########
+# Database
+##########
+
+- Rovaniemi is now controlled by Kola at the Viking Age start
+- Germanic and Greek gods now have divine bloodlines
+- Added Hestia to Olympus
+- Thor no longer looks like an old man
+
+#########
+# Balance
+#########
+
+- Dragons now have slightly lower fertility
+- Draconic Paganism is now Seafaring
+- Reverted cultural building behavior to vanilla
+- Scorch Tactic has been replaced with Rain of Fire tactic, benefiting both dragon cavalry and archers in the skirmish phase
+- Certain Mythos city buildings are only available to merchant republics
+- AI Vampires are less likely to convert to satanism
+
+###########
+# Bug Fixes
+###########
+
+- Fixed some crashes at the 769 start
+- Fixed an issue where Reformed Hellenic Paganism had no icon
+- Fixed an issue where inherited debts gave two half-payment options
+- Losing in a dragon raid no longer makes you lose prestige twice
+- Reworked how the dragon raids work behind the scenes to make it more accurately move gold
+- Fixed draconic pagans losing access to concubines on reformation
+- Granting a holy site to the Sapphire Flame no longer requires you to directly hold the barony, but does require you to directly hold the county
+- Fixed incorrect flags for several titles
+- Fixed broken dynasty icons for Aesir and Vanir
+- The inability for gods to convert to monotheistic religions now considers the Dogmatic doctrine
+- The inability for gods to convert to non-theistic religions now includes Jainism
+- The slavic dragon god Zirnitra's name has been corrected for draconic pagans
+- The Norse goddess Hel is now a Norse goddess.
+- Fixed an issue where unreformed post-reformation pagans would be missing a space after "Old"
+- Fixed some incorrect virtue/vice tooltips for satanists
+- Zombies can no longer join warrior lodges merely because they aren't zealous about being undead
+- Fixed some cases where zombies were just zombie cosplayers
+- Revenants can no longer build and use bloodline buildings or shrines
+- Dragons can no longer eat other dragons unless they are cannibals
+- Same goes for bears
+- Fixed some cases where a vampire could get upset at themself for feeding on someone they were protecting
+- Fixed some cases where a vampire could feed on someone protected without a penalty
+- Buildings now properly convert to being part of your family palace when reforming from a tribe to a merchant republic

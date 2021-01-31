@@ -1,0 +1,5743 @@
+namespace = WEREWOLF
+# Events specific to werewolves.  Excudes events based on Way of Life focuses or Conclave education
+
+# WEREWOLF.1 - was MYTH.16 - Spouse injured during love making
+character_event = {
+	id = "WEREWOLF.1"
+	title = EVTNAME_WEREWOLF.1
+	desc = "EVTDESC_WEREWOLF.1"
+	picture = GFX_evt_lovers
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	is_married = yes
+	
+	trigger = {
+		#is_married = yes
+		trait = werewolf 
+		spouse = {
+			NOT = { trait = ethereal_trait }
+		}
+	}
+	
+	#mean_time_to_happen = { months = 60 }
+	weight_multiplier = {
+		days = 1
+		modifier = {
+			factor = 2
+			trait = lustful
+		}
+		modifier = {
+			factor = 2
+			OR = {
+				trait = strong
+				trait = robust
+			}
+		}
+		modifier = {
+			factor = 0.1
+			trait = weak
+		}
+		modifier = {
+			factor = 0.8
+			check_variable = { which = control value = 6 }
+		}
+		modifier = {
+			factor = 0.8
+			check_variable = { which = control value = 7 }
+		}
+		modifier = {
+			factor = 0.8
+			check_variable = { which = control value = 8 }
+		}
+		modifier = {
+			factor = 0.8
+			check_variable = { which = control value = 9 }
+		}
+		modifier = {
+			factor = 1.2
+			check_variable = { which = control value <= 4 }
+		}
+		modifier = {
+			factor = 1.2
+			check_variable = { which = control value <= 3 }
+		}
+		modifier = {
+			factor = 1.2
+			check_variable = { which = control value <= 2 }
+		}
+		modifier = {
+			factor = 1.2
+			check_variable = { which = control value == 1 }
+		}
+	}
+	
+	option = {
+		name = "EVTOPTA_WEREWOLF.1"
+		spouse = {
+			random_list = {
+				1 = {
+					trigger = {
+						NOT = { trait = wounded }
+					}
+					add_trait = wounded
+				}
+				1 = {
+					trigger = {
+						NOT = { has_character_modifier = badly_bruised }
+					}
+					add_character_modifier = { modifier = badly_bruised months = 10 }
+				}
+				1 = {
+					trigger = {
+						NOT = { has_character_modifier = swollen_wrist }
+					}
+					add_character_modifier = { modifier = swollen_wrist months = 10 }
+				}
+				1 = {
+					trigger = {
+						NOT = { has_character_modifier = swollen_ankle }
+					}
+					add_character_modifier = { modifier = swollen_ankle months = 10 }
+				}
+				3 = {
+					trigger = {
+						NOT = { has_character_modifier = sore_muscles }
+					}
+					add_character_modifier = { modifier = sore_muscles months = 10 }
+				}
+				1 = {
+					trigger = {
+						NOT = { has_character_modifier = cracked_ribs }
+					}
+					add_character_modifier = { modifier = cracked_ribs months = 10 }
+				}
+			}
+		}
+		hidden_tooltip = { 
+			if = { 
+				limit = { 
+					spouse = { 
+						is_female = yes
+						is_infertile = no
+					}
+				}
+				spouse = {
+					impregnate = ROOT
+				}
+			}
+		}
+	}
+}
+
+# WEREWOLF.2 - was MONSTER.3 - Supernatural Healing - Werewolf heals from wounds
+character_event = {
+	id = "WEREWOLF.2"
+	title = EVTNAME_WEREWOLF.2
+	desc = "EVTDESC_WEREWOLF.2"
+	picture = GFX_evt_werewolf_moon
+	border = GFX_event_normal_frame_war
+	
+	min_age = 16
+	
+	trigger = {
+		trait = werewolf
+		OR = {
+			trait = wounded
+			trait = maimed
+			has_scarred_trait_trigger = yes
+			trait = disfigured
+			trait = one_eyed
+			trait = one_handed
+			trait = one_legged
+			trait = mangled
+			trait = eunuch
+			trait = blinded
+			has_minor_injury = yes
+			AND = {
+				trait = control_1
+				trait = incapable
+			}
+		}
+	}
+	
+	immediate = {
+		# Calculate how much the character was obviously healed to see the risk of them being found out
+		set_variable = { which = healing value = 0 }
+		if = {
+			limit = { trait = wounded }
+			change_variable = { which = healing value = 1 }
+		}
+		if = {
+			limit = { trait = maimed }
+			change_variable = { which = healing value = 5 }
+		}
+		if = {
+			limit = { has_scarred_trait_trigger = yes }
+			change_variable = { which = healing value = 1 }
+		}
+		if = {
+			limit = { trait = disfigured }
+			change_variable = { which = healing value = 5 }
+		}
+		if = {
+			limit = { trait = one_eyed }
+			change_variable = { which = healing value = 3 } # Lower because you could more easily claim to have faked it (eye patch over a good eye) than, for instance, losing a hand or leg
+		}
+		if = {
+			limit = { trait = blinded }
+			change_variable = { which = healing value = 4 }
+		}
+		if = {
+			limit = { trait = one_handed }
+			change_variable = { which = healing value = 5 }
+		}
+		if = {
+			limit = { trait = one_legged }
+			change_variable = { which = healing value = 5 }
+		}
+		if = {
+			limit = { trait = mangled }
+			change_variable = { which = healing value = 4 }
+		}
+		if = {
+			limit = { has_minor_injury = yes }
+			change_variable = { which = healing value = 1 }
+		}
+		if = {
+			limit = { trait = eunuch }
+			change_variable = { which = healing value = 2 } # Obvious, but most people won't have a chance to notice
+		}
+		if = {
+			limit = {
+				trait = incapable
+				trait = control_1
+			}
+			change_variable = { which = healing value = 4 }
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 60
+		
+		modifier = {
+			factor = 0.9
+			check_variable = { which = control value = 6 }
+		}
+		modifier = {
+			factor = 0.8
+			check_variable = { which = control value = 7 }
+		}
+		modifier = {
+			factor = 0.7
+			check_variable = { which = control value = 8 }
+		}
+		modifier = {
+			factor = 0.6
+			check_variable = { which = control value = 9 }
+		}
+		modifier = {
+			factor = 1.1
+			check_variable = { which = control value <= 4 }
+		}
+		modifier = {
+			factor = 1.2
+			check_variable = { which = control value <= 3 }
+		}
+		modifier = {
+			factor = 1.3
+			check_variable = { which = control value <= 2 }
+		}
+		modifier = {
+			factor = 1.4
+			check_variable = { which = control value == 1 }
+		}
+	}
+	
+	option = {
+		name ="EVTOPTA_WEREWOLF.2"
+		if = {
+			limit = { trait = wounded }
+			remove_trait = wounded
+		}
+		if = {
+			limit = { trait = maimed }
+			remove_trait = maimed
+		}
+		if = {
+			limit = { has_scarred_trait_trigger = yes }
+			remove_scarred = yes
+		}
+		if = {
+			limit = { trait = disfigured }
+			remove_trait = disfigured
+		}
+		if = {
+			limit = { trait = one_eyed }
+			remove_trait = one_eyed
+		}
+		if = {
+			limit = { trait = blinded }
+			remove_trait = blinded
+		}
+		if = {
+			limit = { trait = one_handed }
+			remove_trait = one_handed
+		}
+		if = {
+			limit = { trait = one_legged }
+			remove_trait = one_legged
+		}
+		if = {
+			limit = { trait = mangled }
+			remove_trait = mangled
+		}
+		if = {
+			limit = { trait = eunuch }
+			remove_trait = eunuch
+		}
+		if = {
+			limit = { has_minor_injury = yes }
+			remove_minor_injuries = yes
+		}
+	}
+	
+	after = {
+		# Check if people become suspicous
+		# Starting at 11, detection is automatic
+		hidden_tooltip = {
+			if = {
+				limit = { check_variable = { which = healing value = 11 } }
+				character_event = { id = WEREWOLF.49 }
+				set_variable = { which = healing value = 0 }
+				break = yes
+			}
+			random_list = {
+				20 = {
+					# Unnoticed
+					modifier = {
+						factor = 2
+						NOT = { check_variable = { which = healing value = 3 } }
+					}
+					modifier = {
+						factor = 2
+						NOT = { check_variable = { which = healing value = 2 } }
+					}
+					modifier = {
+						factor = 10
+						NOT = { check_variable = { which = healing value = 1 } }
+					}
+					modifier = {
+						factor = 1.5
+						intrigue = 20 # Skilled liar
+					}
+					# Nothing happens
+				}
+				20 = {
+					# Supected monster
+					modifier = {
+						factor = 0
+						trait = known_werewolf
+					}
+					modifier = {
+						factor = 2
+						check_variable = { which = healing value = 3 }
+						NOT = { check_variable = { which = healing value = 5 } } 
+					}
+					modifier = {
+						factor = 4
+						check_variable = { which = healing value = 3 }
+						NOT = { check_variable = { which = healing value = 5 } } 
+					}
+					modifier = {
+						factor = 2
+						has_game_rule = { name = secrecy value = more }
+					}
+					modifier = {
+						factor = 0.5
+						has_game_rule = { name = secrecy value = fewer }
+					}
+					character_event = { id = MONSTER.11 }
+				}
+				10 = {
+					# Revealed werewolf
+					modifier = {
+						factor = 0
+						trait = known_werewolf
+					}
+					modifier = {
+						factor = 2
+						check_variable = { which = healing value = 5 }
+					}
+					modifier = {
+						factor = 2
+						check_variable = { which = healing value = 6 }
+					}
+					modifier = {
+						factor = 2
+						check_variable = { which = healing value = 7 }
+					}
+					modifier = {
+						factor = 2
+						check_variable = { which = healing value = 8 }
+					}
+					modifier = {
+						factor = 2
+						check_variable = { which = healing value = 9 }
+					}
+					modifier = {
+						factor = 2
+						check_variable = { which = healing value = 10 }
+					}
+					modifier = {
+						factor = 2
+						has_game_rule = { name = secrecy value = more }
+					}
+					modifier = {
+						factor = 0.5
+						has_game_rule = { name = secrecy value = fewer }
+					}
+					character_event = { id = WEREWOLF.49 }
+				}
+			}
+			# Clean up the variable we used
+			set_variable = { which = healing value = 0 }
+		}
+	}
+}
+
+# WEREWOLF.3 - was MYTH.27 - Werewolf kills a courtier
+character_event = {
+	id = "WEREWOLF.3"
+	title = EVTNAME_WEREWOLF.3
+	desc = "EVTDESC_WEREWOLF.3"
+	picture = GFX_evt_werewolf_shadowed
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		trait = werewolf
+		any_courtier = {
+				host = { character = ROOT }
+		}
+	}
+	
+	weight_multiplier = {
+		days = 1
+		modifier = {
+			factor = 2
+			trait = wroth
+		}
+		modifier = {
+			factor = 2
+			trait = gluttonous
+		}
+		modifier = {
+			factor = 0.4
+			trait = temperate
+		}
+		modifier = {
+			factor = 0.4
+			trait = kind
+		}
+		modifier = {
+			factor = 1.5
+			trait = arbitrary
+		}
+		modifier = {
+			factor = 0.4
+			trait = slothful
+		}
+		modifier = {
+			factor = 1.5
+			NOT = { ai_rationality = 0 }
+		}
+		modifier = {
+			factor = 0.8
+			check_variable = { which = control value = 6 }
+		}
+		modifier = {
+			factor = 0.8
+			check_variable = { which = control value = 7 }
+		}
+		modifier = {
+			factor = 0.8
+			check_variable = { which = control value = 8 }
+		}
+		modifier = {
+			factor = 0.8
+			check_variable = { which = control value = 9 }
+		}
+		modifier = {
+			factor = 1.2
+			check_variable = { which = control value <= 4 }
+		}
+		modifier = {
+			factor = 1.2
+			check_variable = { which = control value <= 3 }
+		}
+		modifier = {
+			factor = 1.2
+			check_variable = { which = control value <= 2 }
+		}
+		modifier = {
+			factor = 1.2
+			check_variable = { which = control value == 1 }
+		}
+	}
+	
+	immediate = {
+		random_courtier = {
+			limit = {
+				host = { character = ROOT }
+			}
+			death = {
+				death_reason = death_werewolf
+				killer = ROOT
+			}
+		}
+	}
+	
+	option = {
+		name ="EVTOPTA_WEREWOLF.3"
+		any_vassal = {
+			opinion = {
+				who = ROOT
+				modifier = opinion_tyrant
+				months = 60
+			}
+		}
+		if = {
+			limit = { trait = known_werewolf }
+			any_courtier = {
+				limit = { NOT = { trait = werewolf } }
+				random = {
+					chance = 50
+					opinion = { who = FROM modifier = opinion_terrified years = 5 }
+				}
+			}
+			any_vassal = {
+				limit = { NOT = { trait = werewolf } }
+				random = {
+					chance = 50
+					opinion = { who = FROM modifier = opinion_terrified years = 5 }
+				}
+			}
+		}
+		else = {
+			add_character_modifier = {
+				modifier = known_monster
+				years = 5
+				stacking = yes
+			}
+		}
+	}
+	option = {
+		name ="EVTOPTB_WEREWOLF.3"
+		random_list = {
+			50 = {
+				any_vassal = {
+					opinion = {
+						who = ROOT
+						modifier = opinion_tyrant
+						multiplier = 2
+						months = 60
+					}
+				}
+				if = {
+					limit = { trait = known_werewolf }
+					any_courtier = {
+						limit = { NOT = { trait = werewolf } }
+						random = {
+							chance = 50
+							opinion = { who = FROM modifier = opinion_terrified years = 5 }
+						}
+					}
+					any_vassal = {
+						limit = { NOT = { trait = werewolf } }
+						random = {
+							chance = 50
+							opinion = { who = FROM modifier = opinion_terrified years = 5 }
+						}
+					}
+				}
+				else = {
+					add_character_modifier = {
+						modifier = known_monster
+						years = 5
+						stacking = yes
+					}
+				}
+			}
+			50 = {
+				custom_tooltip = { text = coverup_successful }
+			}	
+		}
+	}
+}
+# WEREWOLF.4 - was MYTH.38 - Pup develops into Werewolf
+character_event = {
+	id = "WEREWOLF.4"
+	title = EVTNAME_WEREWOLF.4
+	desc = "EVTDESC_WEREWOLF.4"
+	picture = GFX_evt_werewolf_moon
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		trait = pup
+	}
+	
+	option = {
+		name ="EVTOPTA_WEREWOLF.4"
+		remove_trait = pup
+		random = {
+			chance = 20
+			modifier = {
+				factor = 1.5
+				any_owned_bloodline = { has_bloodline_flag = child_werewolf }
+			}
+			modifier = {
+				factor = 2
+				father_even_if_dead = { trait = werewolf }
+				is_father_real_father = yes
+			}
+			modifier = {
+				factor = 2
+				real_father_even_if_dead = { trait = werewolf }
+			}
+			modifier = {
+				factor = 2
+				mother_even_if_dead = { trait = werewolf }
+			}
+			modifier = {
+				factor = 0.2
+				father_even_if_dead = { trait = vampire }
+				is_father_real_father = yes
+			}
+			modifier = {
+				factor = 0.2
+				real_father_even_if_dead = { trait = vampire }
+			}
+			modifier = {
+				factor = 0.2
+				mother_even_if_dead = { trait = vampire }
+			}
+			modifier = {
+				factor = 1.1
+				trait = strong
+			}
+			modifier = {
+				factor = 1.2
+				has_character_flag = child_play_outside_encouraged
+			}
+			modifier = {
+				factor = 0.8
+				has_character_flag = child_play_outside_discouraged
+			}
+			modifier = {
+				factor = 1.1
+				has_character_flag = child_wolf_pet
+			}
+			modifier = {
+				factor = 0.9
+				has_character_flag = child_wolf_pet_refused
+			}
+			modifier = {
+				factor = 1.1
+				has_character_flag = wolf_pet_fearful
+			}
+			modifier = {
+				factor = 0.8
+				has_character_flag = wolf_pet_domesticated
+			}
+			modifier = {
+				factor = 1.2
+				has_character_flag = child_pup_introduced
+			}
+			modifier = {
+				factor = 0.9
+				has_character_flag = child_pup_imprison
+			}
+			modifier = {
+				factor = 1.1
+				has_character_flag = child_pup_pray_strength
+			}
+			modifier = {
+				factor = 0.9
+				has_character_flag = child_pup_pray_soul
+			}
+			modifier = {
+				factor = 0.5
+				has_character_flag = child_pup_ritual_exorcism
+			}
+			modifier = {
+				factor = 1.5
+				has_character_flag = child_pup_ritual_wolf
+			}
+			modifier = {
+				factor = 3
+				OR = {
+					has_character_modifier = wolf_child
+					has_character_modifier = wolf_blood
+				}
+			}
+			modifier = {
+				factor = 1.3
+				OR = {
+					mother = { has_character_modifier = wolf_blood }
+					real_father = { has_character_modifier = wolf_blood }
+					AND = {
+						father = { has_character_modifier = wolf_blood }
+						is_father_real_father = yes
+					}
+				}
+			}
+			modifier = {
+				factor = 10
+				has_character_flag = giant_born_werewolf
+			}
+			add_trait = werewolf
+			control_restrict_range = yes
+			update_control = yes
+			hidden_tooltip = {
+				if = {
+					limit = {
+						culture = werewolf_culture
+						OR = {
+							top_liege = { culture = werewolf_culture }
+							independent = yes
+						}
+						capital_scope = { culture = werewolf_culture }
+					}
+					add_trait = known_werewolf
+				}
+			}
+		}
+		hidden_tooltip = {
+			if = {
+				limit = {
+					has_character_flag = child_pup_imprison
+					prisoner = yes
+					trait = werewolf
+				}
+				# Captor immediately discovers
+				character_event = { id = WEREWOLF.86 days = 1 }
+				host = { character_event = { id = WEREWOLF.87 days = 1 } }
+			}
+			if = {
+				limit = {
+					has_character_flag = child_pup_introduced
+					NOT = { is_landed = yes }
+					prisoner = no
+				}
+				liege = {
+					character_event = { id = WEREWOLF.82 days = 2 }
+				}
+			}
+			clr_character_flag = child_play_outside_encouraged
+			clr_character_flag = child_play_outside_discouraged
+			clr_character_flag = child_outside_play_event
+			clr_character_flag = child_wolf_pet
+			clr_character_flag = child_wolf_pet_refused
+			clr_character_flag = wolf_pet_event
+			clr_character_flag = child_pup_suspected_werewolf
+			clr_character_flag = child_pup_strange_behavior_1
+			clr_character_flag = child_pup_strange_behavior_2
+			clr_character_flag = child_pup_strange_behavior_3
+			clr_character_flag = wolf_pet_fearful
+			clr_character_flag = wolf_pet_domesticated
+			clr_character_flag = child_pup_imprison
+			clr_character_flag = child_pup_introduced
+			clr_character_flag = child_pup_pray_strength
+			clr_character_flag = child_pup_pray_soul
+			clr_character_flag = child_pup_ritual_exorcism
+			clr_character_flag = child_pup_ritual_wolf
+		}
+	}
+}
+# WEREWOLF.5-13 - Werewolf duel - Replaced with new system}
+
+# WEREWOLF.14 - was MYTH.84 - Offer of lycanthropy
+letter_event = {
+	id = WEREWOLF.14
+	title = EVTNAME_WEREWOLF.14
+	desc = EVTDESC_WEREWOLF.14
+	border = GFX_event_letter_frame_diplomacy
+	
+	is_triggered_only = yes
+	
+	
+	option = {
+		name = EVTOPTA_WEREWOLF.14 # Accept
+		trigger = { NOT = { trait = vampire } }
+		ai_chance = {
+			factor = 20
+			modifier = {
+				factor = 1.3
+				trait = ambitious
+			}
+			modifier = {
+				factor = 1.1
+				trait = cynical
+			}
+			modifier = {
+				factor = 1.3
+				OR = {
+					trait = wroth
+					trait = cruel
+				}
+			}
+			modifier = {
+				factor = 1.5
+				trait = berserker
+			}
+			modifier = {
+				factor = 1.2
+				ai_ambition = 30
+			}
+			modifier = {
+				factor = 1.1
+				NOT = { ai_rationality = -10 }
+			}
+			modifier = {
+				factor = 1.1
+				opinion = { who = FROMFROM value = 50 }
+			}
+			modifier = {
+				factor = 1.3
+				opinion = { who = FROMFROM value = 70 }
+			}
+			modifier = {
+				factor = 1.5
+				opinion = { who = FROMFROM value = 90 }
+			}
+			modifier = {
+				factor = 2
+				opinion = { who = FROMFROM value = 100 }
+			}
+			modifier = {
+				factor = 1.2
+				liege = { character = FROMFROM }
+				is_ruler = no
+			}
+			modifier = {
+				factor = 1.1
+				liege = { character = FROMFROM }
+				is_ruler = yes
+			}
+			modifier = {
+				factor = 3
+				culture = werewolf_culture
+			}
+			modifier = {
+				factor = 1.5
+				spouse = { character = FROMFROM }
+			}
+			modifier = {
+				factor = 1.2
+				any_lover = { character = FROMFROM }
+			}
+			# Wounded characters very likely to accept
+			modifier = {
+				factor = 5
+				OR = {
+					trait = maimed
+					trait = one_eyed
+					trait = one_handed
+					trait = one_legged
+					trait = disfigured
+					trait = mangled
+					trait = severely_injured
+					trait = eunuch # It involves having body parts cut off, too
+					trait = infirm
+				}
+			}
+			modifier = {
+				factor = 1.2
+				FROMFROM = { diplomacy = 10 }
+			}
+			modifier = {
+				factor = 1.2
+				FROMFROM = { diplomacy = 20 }
+			}
+			modifier = {
+				factor = 1.2
+				FROMFROM = { diplomacy = 30 }
+			}
+			modifier = {
+				factor = 1.2
+				FROMFROM = { diplomacy = 40 }
+			}
+			# ai prisoners forced to accept
+			modifier = {
+				factor = 10000
+				prisoner = yes
+			}
+		}
+		hidden_tooltip = { FROMFROM = { letter_event = { id = WEREWOLF.15 days = 7 } } }
+	}
+	option = {
+		name = EVTOPTB_WEREWOLF.14 # Decline
+		ai_chance = {
+			factor = 30
+			modifier = {
+				factor = 2
+				high_werewolf_turn_resistance = yes
+			}
+			modifier = {
+				factor = 1.5
+				low_werewolf_turn_resistance = yes
+			}
+			modifier = {
+				factor = 2
+				trait = kind
+			}
+			modifier = {
+				factor = 0
+				prisoner = yes
+				NOT = { trait = vampire }
+			}
+			modifier = {
+				factor = 1.5
+				culture = vampire_culture
+			}
+			modifier = {
+				factor = 1.2
+				opinion = { who = FROMFROM value < 0 }
+			}
+			modifier = {
+				factor = 1.4
+				opinion = { who = FROMFROM value < -30 }
+			}
+			modifier = {
+				factor = 1.6
+				opinion = { who = FROMFROM value < -60 }
+			}
+			modifier = {
+				factor = 2
+				opinion = { who = FROMFROM value < -80 }
+			}
+		}
+		opinion = { modifier = opinion_turn_refusal who = FROMFROM  }
+
+		hidden_tooltip = { 
+			FROMFROM = { letter_event = { id = WEREWOLF.16 days = 7 } } 
+		}
+	}
+	option = {
+		name = EVTOPTC_WEREWOLF.14 # Decline and Expose the Monster
+		piety = 30
+		prestige = 30
+		trigger = {
+			prisoner = no
+			OR = { 
+				religion_group = muslim
+				religion_group = christian
+				religion_group = jewish_group
+			}
+			trait = zealous
+			NOT = { culture = werewolf_culture }
+		}
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 5
+				OR = {
+					trait = brave
+					opinion = { who = ROOT value = -50 }
+				}
+			}
+			modifier = {
+				factor = 1.5
+				ai_honor = 20
+			}
+			modifier = {
+				factor = 2
+				ai_zeal = 20
+			}
+			modifier = {
+				factor = 2
+				culture = vampire_culture
+			}
+			modifier = {
+				factor = 0.1
+				culture = werewolf_culture
+			}
+			modifier = {
+				factor = 2
+				trait = vampire
+			}
+			modifier = {
+				factor = 2
+				opinion = { who = FROMFROM value < -80 }
+			}
+			modifier = {
+				factor = 2
+				opinion = { who = FROMFROM value < -99 }
+			}
+			modifier = {
+				factor = 0
+				prisoner = yes
+			}
+			modifier = {
+				factor = 2
+				has_game_rule = { name = secrecy value = more }
+			}
+			modifier = {
+				factor = 0.5
+				has_game_rule = { name = secrecy value = fewer }
+			}
+		}
+		opinion = { modifier = opinion_turn_refusal who = FROMFROM  }
+		hidden_tooltip = { FROMFROM = { letter_event = { id = WEREWOLF.17 days = 7 } } }
+	}
+}
+# WEREWOLF.15 - was MYTH.85 - Werewolf receives positive answer to offer
+letter_event = {
+	id = WEREWOLF.15
+	title = EVTNAME_WEREWOLF.15
+	desc = "EVTDESC_WEREWOLF.15"
+	border = GFX_event_letter_frame_diplomacy
+
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_WEREWOLF.15
+		FROM = {
+			add_trait = werewolf
+			hidden_tooltip = {
+				set_variable = { which = control which = ROOT }
+				decrease_control = yes
+			}
+			if = {
+				limit = {
+					prisoner = yes
+					host = { character = ROOT }
+				}
+				prisoner = no
+			}
+		}
+		prestige = 50
+		
+		hidden_tooltip = {
+			FROM = { add_trait = secret_werewolf }
+			FROM = { clr_character_flag = considering_decision }
+		}
+	}
+}
+# WEREWOLF.16 - was MYTH.86 - Werewolf receives negative answer to offer
+letter_event = {
+	id = WEREWOLF.16
+	title = EVTNAME_WEREWOLF.16
+	desc = "EVTDESC_WEREWOLF.16"
+	border = GFX_event_letter_frame_diplomacy
+
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_WEREWOLF.16
+		prestige = -10
+		
+		hidden_tooltip = {
+			FROM = { clr_character_flag = considering_decision }
+		}
+	}
+}
+# WEREWOLF.17 - was MYTH.87 - Werewolf receives negative answer and is exposed
+letter_event = {
+	id = WEREWOLF.17
+	title = EVTNAME_WEREWOLF.17
+	desc = "EVTDESC_WEREWOLF.17"
+	border = GFX_event_letter_frame_intrigue
+
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_WEREWOLF.17
+		prestige = -10
+		add_character_modifier = {
+			modifier = known_monster
+			years = 5
+			stacking = yes
+		}
+		if = {
+			limit = { NOT = { trait = known_werewolf } }
+			add_trait = known_werewolf
+			hidden_tooltip = { 
+				remove_trait = secret_werewolf
+				remove_character_modifier = known_monster
+			}
+			any_realm_character = { character_event = { id = WEREWOLF.33 } } # Court finds out character is a werewolf
+			if = {
+				limit = {
+					independent = no
+				}
+				liege = { character_event = { id = WEREWOLF.33 } } # Liege finds out character is a werewolf
+			}
+		}
+		
+		hidden_tooltip = {
+			FROM = { clr_character_flag = considering_decision }
+		}
+	}
+}
+# WEREWOLF.18 - was MYTH.88 - Werewolf aging
+character_event = {
+	id = WEREWOLF.18
+	title = EVTNAME_WEREWOLF.18
+	desc = "EVTDESC_WEREWOLF.18"
+	picture = GFX_evt_werewolf_moon
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	capable_only = yes
+	
+	trigger = {
+		trait = werewolf
+	}
+	
+	weight_multiplier = {
+		days = 1
+		modifier = {
+			factor = 1.2
+			age = 30
+		}
+		modifier = {
+			factor = 1.2
+			age = 40
+		}
+		modifier = {
+			factor = 1.2
+			age = 60
+		}
+		modifier = {
+			factor = 1.2
+			age = 80
+		}
+		modifier = {
+			factor = 1.1
+			check_variable = { which = control value <= 4 }
+		}
+		modifier = {
+			factor = 1.2
+			check_variable = { which = control value <= 3 }
+		}
+		modifier = {
+			factor = 1.2
+			check_variable = { which = control value <= 2 }
+		}
+		modifier = {
+			factor = 1.2
+			check_variable = { which = control value == 1 }
+		}
+	}
+	
+	option = {
+		name = "EVTOPTA_WEREWOLF.18"
+		change_martial = 2
+		change_learning = 2
+		health = 0.1
+		decrease_high_control = yes
+		increase_low_control = yes
+	}
+}
+
+### Murder plot - wolf attack (hidden werewolf)
+# WEREWOLF.19 - was MYTH.122 - Plotter sees an opportunity
+character_event = {
+	id = WEREWOLF.19
+	title = EVTNAME_WEREWOLF.19
+	desc = EVTDESC_WEREWOLF.19
+	picture = GFX_evt_whispers
+	border = GFX_event_normal_frame_intrigue
+	
+	capable_only = yes
+	prisoner = no
+	is_part_of_plot = yes
+	min_age = 16
+	
+	trigger = {
+		OR = {
+			has_plot = plot_kill_character
+			has_plot = plot_kill_spouse
+		}
+		plot_target_char = {
+			age = 16
+			prisoner = no
+			at_location = ROOT # The Plot Head needs to be at the target's location to get a chance
+			NOT = { trait = incapable }
+			NOT = { is_inaccessible_trigger = yes }
+			NOT = { trait = werewolf }
+			OR = {
+				NOT = { religion_group = muslim }
+				trait = decadent
+				trait = hedonist
+				trait = drunkard
+			}
+		}
+		NOT = { has_character_flag = murder_in_motion }
+		plot_power_contribution = 
+		{
+			plotter = ROOT
+			power = 0.025
+		}
+		trait = werewolf
+		NOT = { trait = known_werewolf }
+	}
+	
+	mean_time_to_happen = {
+		months = 8400
+		
+		modifier = {
+			factor = 0.7
+			plot_power_contribution = 
+			{
+				plotter = ROOT
+				power = 0.10
+			}
+		}
+		modifier = {
+			factor = 0.7
+			plot_power_contribution = 
+			{
+				plotter = ROOT
+				power = 0.20
+			}
+		}
+		modifier = {
+			factor = 0.7
+			plot_power_contribution = 
+			{
+				plotter = ROOT
+				power = 0.30
+			}
+		}
+		modifier = {
+			factor = 0.7
+			plot_power_contribution = 
+			{
+				plotter = ROOT
+				power = 0.40
+			}
+		}
+		modifier = {
+			factor = 0.7
+			plot_power_contribution = 
+			{
+				plotter = ROOT
+				power = 0.50
+			}
+		}
+		modifier = {
+			factor = 0.7
+			plot_power_contribution = 
+			{
+				plotter = ROOT
+				power = 0.60
+			}
+		}
+		modifier = {
+			factor = 0.7
+			plot_power_contribution = 
+			{
+				plotter = ROOT
+				power = 0.70
+			}
+		}
+		modifier = {
+			factor = 0.7
+			plot_power_contribution = 
+			{
+				plotter = ROOT
+				power = 0.80
+			}
+		}
+		modifier = {
+			factor = 0.7
+			plot_power_contribution = 
+			{
+				plotter = ROOT
+				power = 0.90
+			}
+		}
+		modifier = {
+			factor = 0.7
+			plot_power_contribution = 
+			{
+				plotter = ROOT
+				power = 1.5
+			}
+		}
+		
+		modifier = {
+			factor = 0.33
+			any_backed_character = {
+				OR = {
+					has_plot = plot_kill_character
+					has_plot = plot_kill_spouse
+				}
+				plot_power = 1.0
+			}
+		}
+		modifier = {
+			factor = 0.33
+			any_backed_character = {
+				OR = {
+					has_plot = plot_kill_character
+					has_plot = plot_kill_spouse
+				}
+				plot_power = 1.5
+			}
+		}
+		modifier = {
+			factor = 0.33
+			any_backed_character = {
+				OR = {
+					has_plot = plot_kill_character
+					has_plot = plot_kill_spouse
+				}
+				plot_power = 2.0
+			}
+		}
+	}
+	
+	immediate = {
+		plot_target_char = { save_event_target_as = plot_target }
+	}
+	
+	option = {
+		name = "EVTOPTA_WEREWOLF.19" # Kill the target but risk exposure
+		set_character_flag = murder_in_motion
+		ROOT = {
+			save_event_target_as = werewolf_attacker
+		}
+		event_target:plot_target = { character_event = { id = WEREWOLF.20 days = 30 tooltip = "EVTTOOLTIP_WEREWOLF.19" } }
+	}
+	option = {
+		name = EVTOPTB_WEREWOLF.19 # Not worth the risk
+		trigger = {
+			ai = no
+		}
+	}
+}
+# WEREWOLF.20 - was MYTH.123 - The murder attempt
+character_event = {
+	id = WEREWOLF.20
+	title = EVTNAME_WEREWOLF.20
+	desc = EVTDESC_WEREWOLF.20
+	picture = GFX_evt_hunt
+	border = GFX_event_normal_frame_intrigue
+	
+	hide_from = yes
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		prisoner = no
+		
+		# Is the plot still in motion?
+		OR = {
+			FROM = {
+				OR = {
+					has_plot = plot_kill_character
+					has_plot = plot_kill_spouse
+				}
+				plot_target_char = {
+					character = ROOT
+				}
+			}
+			FROMFROM = {
+				OR = {
+					has_plot = plot_kill_character
+					has_plot = plot_kill_spouse
+				}
+				plot_target_char = {
+					character = ROOT
+				}
+			}
+		}
+	}
+	
+	immediate = {
+		save_event_target_as = target_victim
+	}
+	
+	option = {
+		name = EVTOPTA_WEREWOLF.20 # Attack succeeds
+		trigger = {
+			NOT = {
+				OR = { # more likely to succeed than other plots, but more risk upon exposure.
+					AND = {
+						trait = hunter
+						random = 33
+					}
+					AND = {
+						trait = craven
+						random = 60
+					}
+					AND = {
+						trait = brave
+						random = 90
+					}
+					AND = {
+						NOR = {
+							trait = hunter
+							trait = craven
+							trait = brave
+						}
+						random = 80
+					}
+				}
+			}
+		}
+		hidden_tooltip = {
+			random_list = {
+				25 = {
+					hidden_tooltip = {
+						FROM = { character_event = { id = WEREWOLF.21 days = 1 } }
+						FROMFROM = { character_event = { id = WEREWOLF.21 days = 1 } }
+					}
+					character_event = { id = WEREWOLF.22 days = 1 } # Dies, murdered discovered
+				}
+				75 = {
+					hidden_tooltip = { 
+						FROM = { character_event = { id = WEREWOLF.23 days = 1 } }
+						FROMFROM = { character_event = { id = WEREWOLF.23 days = 1 } }
+					}
+					character_event = { id = WEREWOLF.24 days = 1 } # Dies, apparantly killed by a wolf in the forest
+				}
+			}
+		}
+	}
+	option = {
+		name = EVTOPTB_WEREWOLF.20 # Fends the wolf off
+		trigger = {
+			OR = {
+				AND = {
+					trait = hunter
+					random = 33
+				}
+				AND = {
+					trait = craven
+					random = 60
+				}
+				AND = {
+					trait = brave
+					random = 90
+				}
+				AND = {
+					NOR = {
+						trait = hunter
+						trait = craven
+						trait = brave
+					}
+					random = 80
+				}
+			}
+		}
+		hidden_tooltip = {
+			random_list = {
+				50 = {
+					hidden_tooltip = {
+						FROM = { character_event = { id = WEREWOLF.25 days = 1 } }
+						FROMFROM = { character_event = { id = WEREWOLF.25 days = 1 } }
+					}
+					character_event = { id = WEREWOLF.26 days = 1 } # Lives, attacker unknown
+				}
+				49 = {
+					modifier = {
+						factor = 1.2
+						has_game_rule = { name = secrecy value = more }
+					}
+					modifier = {
+						factor = 0.8
+						has_game_rule = { name = secrecy value = fewer }
+					}
+					hidden_tooltip = {
+						FROM = { character_event = { id = WEREWOLF.27 days = 1 } }
+						FROMFROM = { character_event = { id = WEREWOLF.27 days = 1 } }
+					}
+					character_event = { id = WEREWOLF.28 days = 1 } # Lives, attacker discovered
+				}
+				1 = {
+					hidden_tooltip = {
+						if = {
+							limit = {
+								FROM = {
+									character = event_target:werewolf_attacker
+								}
+							}
+							FROM = { character_event = { id = WEREWOLF.29 days = 1 } }
+						}
+						if = {
+							limit = {
+								FROM = {
+									NOT = { character = event_target:werewolf_attacker }
+								}
+							}
+							FROM = { character_event = { id = WEREWOLF.30 days = 1 } }
+						}
+						if = {
+							limit = {
+								FROMFROM = {
+									character = event_target:werewolf_attacker
+								}
+							}
+							FROMFROM = { character_event = { id = WEREWOLF.29 days = 1 } }
+						}
+						if = {
+							limit = {
+								FROMFROM = {
+									NOT = { character = event_target:werewolf_attacker }
+								}
+							}
+							FROMFROM = { character_event = { id = WEREWOLF.30 days = 1 } }
+						}
+					}
+					character_event = { id = WEREWOLF.31 days = 1 }
+				}
+			}
+		}
+	}
+}
+
+# WEREWOLF.21 - was MYTH.124 - Your assassination attempt succeeded, but you (werewolf_attacker) were found out
+character_event = {
+	id = WEREWOLF.21
+	title = EVTNAME_WEREWOLF.21
+	picture = GFX_evt_shadow
+	border = GFX_event_normal_frame_intrigue
+	desc = {
+		text = EVTDESC_WEREWOLF.21
+		picture = GFX_evt_wolf
+		trigger = { 
+			has_dlc = "Horse Lords" 
+			character = event_target:werewolf_attacker
+		}
+	}
+	desc = {
+		text = EVTDESC_WEREWOLF.21
+		picture = GFX_evt_shadow
+		trigger = { 
+			NOT = { has_dlc = "Horse Lords" } 
+			character = event_target:werewolf_attacker
+		}
+	}
+	desc = {
+		text = EVTDESCA_WEREWOLF.21
+		picture = GFX_evt_wolf
+		trigger = { 
+			has_dlc = "Horse Lords" 
+			NOT = { character = event_target:werewolf_attacker }
+		}
+	}
+	desc = {
+		text = EVTDESCA_WEREWOLF.21
+		picture = GFX_evt_shadow
+		trigger = { 
+			NOT = { has_dlc = "Horse Lords" } 
+			NOT = { character = event_target:werewolf_attacker }
+		}
+	}
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		character_event = { id = WEREWOLF.32 } # Consequences of discovery
+		clear_event_target = target_victim
+		clear_event_target = werewolf_attacker
+	}
+	
+	option = {
+		name = EVTOPT_WEREWOLF.21
+	}
+}
+# WEREWOLF.22 - was MYTH.125 - You were assassinated, but your attacker was discovered
+character_event = {
+	id = WEREWOLF.22
+	title = EVTNAME_WEREWOLF.22
+	desc = EVTDESC_WEREWOLF.22
+	picture = GFX_evt_death
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPT_WEREWOLF.22
+		
+		death = {
+			death_reason = death_murder_wolf
+			killer = event_target:werewolf_attacker
+		}
+	}
+}
+# WEREWOLF.23 - was MYTH.126 - Your assassination attempt succeeded and your identity is safe
+character_event = {
+	id = WEREWOLF.23
+	title = EVTNAME_WEREWOLF.23
+	picture = GFX_evt_shadow
+	border = GFX_event_normal_frame_intrigue
+	desc = {
+		text = EVTDESC_WEREWOLF.23
+		picture = GFX_evt_wolf
+		trigger = { 
+			has_dlc = "Horse Lords" 
+			character = event_target:werewolf_attacker
+		}
+	}
+	desc = {
+		text = EVTDESC_WEREWOLF.23
+		picture = GFX_evt_shadow
+		trigger = { 
+			NOT = { has_dlc = "Horse Lords" } 
+			character = event_target:werewolf_attacker
+		}
+	}
+	desc = {
+		text = EVTDESCA_WEREWOLF.23
+		picture = GFX_evt_wolf
+		trigger = { 
+			has_dlc = "Horse Lords" 
+			NOT = { character = event_target:werewolf_attacker }
+			OR = {
+				trait = werewolf
+				event_target:werewolf_attacker = { trait = known_werewolf }
+			}
+		}
+	}
+	desc = {
+		text = EVTDESCA_WEREWOLF.23
+		picture = GFX_evt_shadow
+		trigger = { 
+			NOT = { has_dlc = "Horse Lords" } 
+			NOT = { character = event_target:werewolf_attacker }
+			OR = {
+				trait = werewolf
+				event_target:werewolf_attacker = { trait = known_werewolf }
+			}
+		}
+	}
+	desc = {
+		text = EVTDESCB_WEREWOLF.23
+		picture = GFX_evt_wolf
+		trigger = { 
+			has_dlc = "Horse Lords" 
+			NOR = { 
+				character = event_target:werewolf_attacker
+				trait = werewolf
+				event_target:werewolf_attacker = { trait = known_werewolf }
+			}
+		}
+	}
+	desc = {
+		text = EVTDESCB_WEREWOLF.23
+		picture = GFX_evt_shadow
+		trigger = { 
+			NOT = { has_dlc = "Horse Lords" } 
+			NOR = { 
+				character = event_target:werewolf_attacker
+				trait = werewolf
+				event_target:werewolf_attacker = { trait = known_werewolf }
+			}
+		}
+	}
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPT_WEREWOLF.23
+	}
+}
+
+# WEREWOLF.24 - was MYTH.127 - Killed by a wolf
+character_event = {
+	id = WEREWOLF.24
+	title = EVTNAME_WEREWOLF.24
+	desc = EVTDESC_WEREWOLF.24
+	picture = GFX_evt_death
+	border = GFX_event_normal_frame_intrigue
+	
+	hide_from = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPT_WEREWOLF.24
+		
+		death = {
+			death_reason = death_murder_wolf_unknown
+			killer = FROMFROM
+		}
+	}
+}
+
+# WEREWOLF.25 - was MYTH.128 - Attack fails, but identity is safe
+character_event = {
+	id = WEREWOLF.25
+	title = EVTNAME_WEREWOLF.25
+	desc = {
+		text = EVTDESC_WEREWOLF.25
+		trigger = { character = event_target:werewolf_attacker }
+	}
+	desc = {
+		text = EVTDESCA_WEREWOLF.25
+		trigger = { 
+			NOT = { character = event_target:werewolf_attacker }
+			OR = {
+				trait = werewolf
+				event_target:werewolf_attacker = { trait = known_werewolf }
+			}
+		}
+	}
+	picture = GFX_evt_shadowy_cabal
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPT_WEREWOLF.25
+		
+		if = {
+			limit = { 
+				plot_target_char = {
+					character = FROM
+				}
+				OR = {
+					has_plot = plot_kill_character
+					has_plot = plot_kill_spouse
+				}
+			}
+			clr_character_flag = murder_in_motion
+		}
+	}
+}
+# WEREWOLF.26 - was MYTH.129 - Wolf attacked you in forest but driven off
+character_event = {
+	id = WEREWOLF.26
+	title = EVTNAME_WEREWOLF.26
+	picture = GFX_evt_hunt
+	desc = {
+		text = EVTDESC_WEREWOLF.26
+		picture = GFX_evt_wolf
+		trigger = { has_dlc = "Horse Lords" }
+	}
+	desc = {
+		text = EVTDESC_WEREWOLF.26
+		picture = GFX_evt_hunt
+		trigger = { NOT = { has_dlc = "Horse Lords" } }
+	}
+	border = GFX_event_normal_frame_intrigue
+	
+	hide_from = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPT_WEREWOLF.26
+	}
+}
+# WEREWOLF.27 - was MYTH.130 - Attack failed, identity revealed
+character_event = {
+	id = WEREWOLF.27
+	title = EVTNAME_WEREWOLF.27
+	desc = {
+		text = EVTDESCA_WEREWOLF.27
+		trigger = {	character = event_target:werewolf_attacker }
+	}
+	desc = {
+		text = EVTDESCB_WEREWOLF.27
+		trigger = { NOT = { character = event_target:werewolf_attacker } }
+	}
+	picture = GFX_evt_shadowy_cabal
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		character_event = { id = WEREWOLF.32 }
+		clear_event_target = target_victim
+		
+		if = {
+			limit = {
+				plot_target_char = {
+					character = FROM
+				}
+				OR = {
+					has_plot = plot_kill_character
+					has_plot = plot_kill_spouse
+				}
+			}
+			reveal_plot = yes
+		}
+	}
+	
+	option = {
+		name = EVTOPT_WEREWOLF.27
+		if = {
+			limit = {
+				plot_target_char = {
+					character = FROM
+				}
+				OR = {
+					has_plot = plot_kill_character
+					has_plot = plot_kill_spouse
+				}
+			}
+			clr_character_flag = murder_in_motion
+			tooltip = { reveal_plot = yes }
+		}
+	}
+}
+# WEREWOLF.28 - was MYTH.131 - Attacked by werewolf, identity revealed
+character_event = {
+	id = WEREWOLF.28
+	title = EVTNAME_WEREWOLF.28
+	picture = GFX_evt_werewolf_moon
+	desc = {
+		text = EVTDESC_WEREWOLF.28
+		picture = GFX_evt_wolf
+		trigger = { has_dlc = "Horse Lords" }
+	}
+	desc = {
+		text = EVTDESC_WEREWOLF.28
+		picture = GFX_evt_scandal
+		trigger = { NOT = { has_dlc = "Horse Lords" } }
+	}
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPT_WEREWOLF.28
+	}
+}
+# WEREWOLF.29 - was MYTH.132 - Attack failed, you died
+character_event = {
+	id = WEREWOLF.29
+	title = EVTNAME_WEREWOLF.29
+	desc = EVTDESC_WEREWOLF.29
+	picture = GFX_evt_death
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPT_WEREWOLF.29
+		death = {
+			death_reason = death_battle
+			killer = event_target:target_victim
+		}
+	}
+}
+# WEREWOLF.30 - was MYTH.133 - Attack failed, co-conspiritor died
+character_event = {
+	id = WEREWOLF.30
+	title = EVTNAME_WEREWOLF.30
+	desc = EVTDESC_WEREWOLF.30
+	picture = GFX_evt_death
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPT_WEREWOLF.30
+		event_target:werewolf_attacker = {
+			death = {
+				death_reason = death_battle
+				killer = event_target:target_victim
+			}
+		}
+		clear_event_target = werewolf_attacker
+	}
+}
+# WEREWOLF.31 - was MYTH.134 - Attacked by werewolf, killed it
+character_event = {
+	id = WEREWOLF.31
+	title = EVTNAME_WEREWOLF.31
+	picture = GFX_evt_werewolf_shadowed
+	desc = {
+		text = EVTDESC_WEREWOLF.31
+		picture = GFX_evt_wolf
+		trigger = { has_dlc = "Horse Lords" }
+	}
+	desc = {
+		text = EVTDESC_WEREWOLF.31
+		picture = GFX_evt_hunt
+		trigger = { NOT = { has_dlc = "Horse Lords" } }
+	}
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPT_WEREWOLF.31
+	}
+}
+# WEREWOLF.32 - was MYTH.135 - Results of Werewolf discovered in murder. Base off id = 10
+character_event = {
+	id = WEREWOLF.32
+	
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		character_event = { id = 10 } # Vanilla events for being caught
+		if = {
+			limit = {
+				NOT = { trait = known_werewolf }
+			}
+			add_trait = known_werewolf
+			hidden_tooltip = { remove_character_modifier = known_monster }
+			any_realm_character = { character_event = { id = WEREWOLF.33 } } # Court finds out character is a werewolf
+			if = {
+				limit = {
+					independent = no
+				}
+				liege = { character_event = { id = WEREWOLF.33 } } # Liege finds out character is a werewolf
+			}
+		}
+	}
+}
+# WEREWOLF.33 - was MYTH.136 - A Werewolf revealed, generic
+character_event = {
+	id = WEREWOLF.33
+	title = EVTNAME_WEREWOLF.33
+	desc = { # Not werewolf or werewolf culture - they are a monster
+		text = EVTDESCA_WEREWOLF.33
+		trigger = {
+			NOT = { trait = werewolf }
+			NOT = { culture = werewolf_culture }
+		}
+	}
+	desc = { # Werewolf culture looks up to werewolves
+		text = EVTDESCB_WEREWOLF.33
+		trigger = {
+			NOT = { trait = werewolf }
+			culture = werewolf_culture
+		}
+	}
+	desc = { # Hidden werewolf needs to keep their cover
+		text = EVTDESCC_WEREWOLF.33
+		trigger = {
+			trait = werewolf
+			NOT = { trait = known_werewolf }
+		}
+	}
+	desc = { # Another known werewolf
+		text = EVTDESCD_WEREWOLF.33
+		trigger = {
+			trait = known_werewolf
+		}
+	}
+	
+	picture = GFX_evt_werewolf_moon
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	capable_only = yes
+	
+	trigger = {
+		#NOT = { trait = incapable }
+	}
+	
+	# Most people just hate you
+	option = {
+		name = EVTOPTA_WEREWOLF.33	
+		trigger = { # Most people
+			NOT = { trait = werewolf }
+			NOT = { culture = werewolf_culture }
+		}
+		opinion = {
+			modifier = newly_found_werewolf
+			who = FROM
+			years = 1
+		}
+		custom_tooltip = { text = EVTTOOLTIPA_WEREWOLF.33 }
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 10
+				trait = monster_hunter
+			}
+			modifier = {
+				factor = 2
+				trait = zealous
+			}
+			modifier = {
+				factor = 1.5
+				ai_zeal = 20
+			}
+		}
+	}	
+	# Secret werewolves can take advantage of this
+	option = {
+		name = EVTOPTB_WEREWOLF.33
+		trigger = {
+			trait = werewolf
+			NOT = { trait = known_werewolf }
+		}
+		opinion = {
+			modifier = newly_found_werewolf
+			who = FROM
+			years = 1
+		}
+		custom_tooltip = { text = EVTTOOLTIPA_WEREWOLF.33 }
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 2
+				ai_ambition = 30
+			}
+			modifier = {
+				factor = 3
+				trait = paranoid
+			}
+		}
+	}
+	# Werewolf culture views this positively - impressed toward werewolf, approves of my behavior from werewolf
+	option = {
+		name = EVTOPTC_WEREWOLF.33
+		trigger = { culture = werewolf_culture }
+		opinion = {
+			modifier = opinion_approves
+			who = FROM
+			years = 1
+		}
+		reverse_opinion = {
+			modifier = approves_of_my_behaviour
+			who = FROM
+			years = 1
+		}
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 1.5
+				trait = content
+			}
+			modifier = {
+				factor = 1.5
+				trait = gregarious
+			}
+		}
+	}
+	# Werewolf culture + ambitious is envious. May gain envious trait
+	option = {
+		name = EVTOPTD_WEREWOLF.33
+		trigger = {
+			culture = werewolf_culture
+			OR = {
+				trait = ambitious
+				trait = envious
+			}
+			NOT = { trait = werewolf }
+		}
+		opinion = {
+			modifier = opinion_envy
+			who = FROM
+			years = 1
+		}
+		random = {
+			chance = 20
+			add_trait = envious
+			hidden_tooltip = {
+				# Notify
+				character_event = { id = 38271 }
+			}
+		}
+		ai_chance = {
+			factor = 100
+			modifier = {
+				opinion = { who = FROM value = 50 }
+				factor = 1.4
+			}
+			modifier = {
+				NOT = { opinion = { who = FROM value = 50 } }
+				factor = 0.8
+			}
+		}
+	}
+	# Werewolves can ignore it
+	option = {
+		name = EVTOPTE_WEREWOLF.33
+		trigger = { trait = werewolf }
+		ai_chance = {
+			factor = 100
+		}
+	}
+	# Known werewolves approve
+	option = {
+		name = EVTOPTF_WEREWOLF.33
+		trigger = {	trait = known_werewolf }
+		opinion = {
+			modifier = likes_newly_found_werewolf
+			who = FROM
+			years = 1
+		}
+		ai_chance = {
+			factor = 150
+		}
+	}		
+	# Known werewolves can try to become friends
+	option = {
+		name = EVTOPTG_WEREWOLF.33
+		trigger = { 
+			trait = known_werewolf
+			NOR = {
+				is_friend = FROM
+				trait = shy
+				trait = paranoid
+			}
+		}
+		opinion = {
+			modifier = likes_newly_found_werewolf
+			who = FROM
+			years = 1
+		}
+		FROM = { character_event = { id = MYTH_WoL.16 days = 3 random = 3 } }
+		ai_chance = {
+			factor = 50 # Lower than from plot discovery, since this is usually for something bad
+			modifier = {
+				trait = gregarious
+				factor = 1.5
+			}
+			modifier = {
+				trait = shy
+				factor = 0.5
+			}
+			modifier = {
+				trait = trusting
+				factor = 1.2
+			}
+			modifier = {
+				trait = paranoid
+				factor = 0.5
+			}
+		}
+	}
+}
+# WEREWOLF.34 - was MYTH.138 - Werewolf attack - A Plot backer sees an opportunity.
+character_event = {
+	id = WEREWOLF.34
+	title = EVTNAME_WEREWOLF.34
+	picture = GFX_evt_werewolf_shadowed
+	desc = {
+		text = EVTDESC_WEREWOLF.34
+		picture = GFX_evt_wolf
+		trigger = { has_dlc = "Horse Lords" }
+	}
+	desc = {
+		text = EVTDESC_WEREWOLF.34
+		picture = GFX_evt_hunt
+		trigger = { NOT = { has_dlc = "Horse Lords" } }
+	}
+	border = GFX_event_normal_frame_intrigue
+	
+	capable_only = yes
+	prisoner = no
+	is_part_of_plot = yes
+	
+	trigger = {
+		trait = werewolf
+		any_backed_character = {
+			OR = {
+				has_plot = plot_kill_character
+				has_plot = plot_kill_spouse
+			}
+			plot_power = 0.5
+			plot_target_char = {
+				age = 16
+				is_ruler = yes
+				NOT = { trait = incapable }
+				NOT = { is_inaccessible_trigger = yes }
+				prisoner = no
+			}
+			NOT = { has_character_flag = murder_in_motion }
+			ROOT = {
+				plot_power_contribution = 
+				{
+					plotter = PREV
+					power = 0.025
+				}
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 8400
+		
+		modifier = {
+			factor = 0.6
+			any_backed_character = {
+				OR = {
+					has_plot = plot_kill_character
+					has_plot = plot_kill_spouse
+				}
+				ROOT = {
+					plot_power_contribution = 
+					{
+						plotter = PREV
+						power = 0.10
+					}
+				}
+			}
+		}
+		modifier = {
+			factor = 0.6
+			any_backed_character = {
+				OR = {
+					has_plot = plot_kill_character
+					has_plot = plot_kill_spouse
+				}
+				ROOT = {
+					plot_power_contribution = 
+					{
+						plotter = PREV
+						power = 0.20
+					}
+				}
+			}
+		}
+		modifier = {
+			factor = 0.6
+			any_backed_character = {
+				OR = {
+					has_plot = plot_kill_character
+					has_plot = plot_kill_spouse
+				}
+				ROOT = {
+					plot_power_contribution = 
+					{
+						plotter = PREV
+						power = 0.30
+					}
+				}
+			}
+		}
+		modifier = {
+			factor = 0.6
+			any_backed_character = {
+				OR = {
+					has_plot = plot_kill_character
+					has_plot = plot_kill_spouse
+				}
+				ROOT = {
+					plot_power_contribution = 
+					{
+						plotter = PREV
+						power = 0.40
+					}
+				}
+			}
+		}
+		modifier = {
+			factor = 0.6
+			any_backed_character = {
+				OR = {
+					has_plot = plot_kill_character
+					has_plot = plot_kill_spouse
+				}
+				ROOT = {
+					plot_power_contribution = 
+					{
+						plotter = PREV
+						power = 0.50
+					}
+				}
+			}
+		}
+		modifier = {
+			factor = 0.6
+			any_backed_character = {
+				OR = {
+					has_plot = plot_kill_character
+					has_plot = plot_kill_spouse
+				}
+				ROOT = {
+					plot_power_contribution = 
+					{
+						plotter = PREV
+						power = 0.60
+					}
+				}
+			}
+		}
+		modifier = {
+			factor = 0.6
+			any_backed_character = {
+				OR = {
+					has_plot = plot_kill_character
+					has_plot = plot_kill_spouse
+				}
+				ROOT = {
+					plot_power_contribution = 
+					{
+						plotter = PREV
+						power = 0.70
+					}
+				}
+			}
+		}
+		modifier = {
+			factor = 0.6
+			any_backed_character = {
+				OR = {
+					has_plot = plot_kill_character
+					has_plot = plot_kill_spouse
+				}
+				ROOT = {
+					plot_power_contribution = 
+					{
+						plotter = PREV
+						power = 0.80
+					}
+				}
+			}
+		}
+		modifier = {
+			factor = 0.6
+			any_backed_character = {
+				OR = {
+					has_plot = plot_kill_character
+					has_plot = plot_kill_spouse
+				}
+				ROOT = {
+					plot_power_contribution = 
+					{
+						plotter = PREV
+						power = 0.90
+					}
+				}
+			}
+		}
+		
+		modifier = {
+			factor = 0.33
+			any_backed_character = {
+				OR = {
+					has_plot = plot_kill_character
+					has_plot = plot_kill_spouse
+				}
+				plot_power = 1.0
+			}
+		}
+		modifier = {
+			factor = 0.33
+			any_backed_character = {
+				OR = {
+					has_plot = plot_kill_character
+					has_plot = plot_kill_spouse
+				}
+				plot_power = 1.5
+			}
+		}
+		modifier = {
+			factor = 0.33
+			any_backed_character = {
+				OR = {
+					has_plot = plot_kill_character
+					has_plot = plot_kill_spouse
+				}
+				plot_power = 2.0
+			}
+		}
+		modifier = {
+			factor = 2
+			trait = known_werewolf
+		}
+	}
+	
+	immediate = {
+		random_backed_character = {
+			limit = {
+				OR = {
+					has_plot = plot_kill_character
+					has_plot = plot_kill_spouse
+				}
+				plot_power = 0.5
+				plot_target_char = {
+					age = 16
+					is_ruler = yes
+					NOT = { trait = incapable }
+					NOT = { is_inaccessible_trigger = yes }
+					prisoner = no
+				}
+				NOT = { has_character_flag = murder_in_motion }
+				ROOT = {
+					plot_power_contribution = 
+					{
+						plotter = PREV
+						power = 0.025
+					}
+				}
+			}
+			save_event_target_as = plot_leader
+		}
+	}
+	
+	option = {
+		name = EVTOPTA_WEREWOLF.34 # Wait for a planned hunting trip. This will take a long time
+		character_event = { id = WEREWOLF.35 days = 60 random = 30 tooltip = EVTTOOLTIP_WEREWOLF.34 }
+	}
+	
+	option = {
+		name = EVTOPTB_WEREWOLF.34 # Invite the target on a hunting trip. Must be friends with the target
+		trigger = {
+			event_target:plot_leader = {
+				plot_power = 1.0
+				plot_target_char = {
+					is_friend = ROOT
+				}
+			}
+		}
+		
+		event_target:plot_leader = {
+			character_event = { id = WEREWOLF.36 days = 3 tooltip = EVTTOOLTIP_WEREWOLF.34 }
+			set_character_flag = murder_in_action
+		}
+	}
+	
+	option = {
+		name = EVTOPTC_WEREWOLF.34 # Spread rumors of a rare animal to start a hunt.
+		trigger = {
+			intrigue = 10
+		}
+		tooltip_info = intrigue
+		
+		event_target:plot_leader = {
+			character_event = { id = WEREWOLF.36 days = 3 tooltip = EVTTOOLTIP_WEREWOLF.34 }
+			set_character_flag = murder_in_action
+		}
+	}
+	
+	option = {
+		name = EVTOPTD_WEREWOLF.34 # Pay the guards to get "Lost" on a normal trip
+		trigger = {
+			event_target:plot_leader = {
+			plot_power = 1.0
+			}
+		}
+		scaled_wealth = { value = -0.4 min = -20 max = -250 }
+		event_target:plot_leader = {
+			character_event = { id = WEREWOLF.36 days = 3 tooltip = EVTTOOLTIP_WEREWOLF.34 }
+			set_character_flag = murder_in_action
+		}
+	}
+			
+	# Bad idea
+	option = {
+		name = EVTOPTE_WEREWOLF.34 # Bad idea, don't risk it
+	}
+}
+# WEREWOLF.35 - was MYTH.139 - Hunting trip is ready. Inform plotter or cancel
+character_event = {
+	id = WEREWOLF.35
+	title = EVTNAME_WEREWOLF.35
+	desc = EVTDESC_WEREWOLF.35
+	picture = GFX_evt_hunt
+	border = GFX_event_normal_frame_intrigue
+	
+	capable_only = yes
+	prisoner = no
+	is_part_of_plot = yes
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		event_target:plot_leader = {
+			# Plot still in action
+			OR = {
+				has_plot = plot_kill_character
+				has_plot = plot_kill_spouse
+			}
+			# No murder plot in action
+			NOT = { has_character_flag = murder_in_motion }
+			# Plot still strong enough
+			plot_power = 0.5
+			# Plot target still matters
+			plot_target_char = {
+				is_alive = yes
+				is_ruler = yes
+				NOT = { trait = incapable }
+				NOT = { is_inaccessible_trigger = yes }
+				prisoner = no
+			}
+		}
+	}
+	
+	option = { # Go through with the plot
+		name = EVTOPTA_WEREWOLF.35
+		event_target:plot_leader = {
+			character_event = { id = WEREWOLF.36 days = 3 tooltip = EVTTOOLTIP_WEREWOLF.35 }
+			set_character_flag = murder_in_action
+		}
+	}
+	option = { # Cancel
+		name = EVTOPTB_WEREWOLF.35
+		trigger = { ai = no }
+	}
+}
+# WEREWOLF.36 - was MYTH.140 - Backer brings you a plot
+character_event = {
+	id = WEREWOLF.36
+	title = EVTNAME_WEREWOLF.36
+	picture = GFX_evt_hunt
+	border = GFX_event_normal_frame_intrigue
+	desc = {
+		text = EVTDESCA_WEREWOLF.36 # Plotter knows backer is a werewolf
+		picture = GFX_evt_wolf
+		trigger = { 
+			trait = werewolf
+			FROM = { trait = known_werewolf }
+			has_dlc = "Horse Lords"
+		}
+	}
+	desc = {
+		text = EVTDESCA_WEREWOLF.36 # Plotter knows backer is a werewolf
+		picture = GFX_evt_hunt
+		trigger = { 
+			trait = werewolf
+			FROM = { trait = known_werewolf }
+			NOT = { has_dlc = "Horse Lords" }
+		}
+	}
+	desc = {
+		text = EVTDESCB_WEREWOLF.36 # Plotter doesn't know backer is a werewolf
+		picture = GFX_evt_wolf
+		trigger = { 
+			NOT = { trait = werewolf }
+			FROM = { NOT = { trait = known_werewolf } }
+			has_dlc = "Horse Lords"
+		}
+	}
+	desc = {
+		text = EVTDESCB_WEREWOLF.36 # Plotter doesn't know backer is a werewolf
+		picture = GFX_evt_hunt
+		trigger = { 
+			NOT = { trait = werewolf }
+			FROM = { NOT = { trait = known_werewolf } }
+			NOT = { has_dlc = "Horse Lords" }
+		}
+	}
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		plot_target_char = { save_event_target_as = plot_target }
+	}
+	
+	option = {
+		name = EVTOPT_WEREWOLF.36
+		set_character_flag = murder_in_motion
+		FROM = { character_event = { id = WEREWOLF.37 tooltip = EVTTOOLTIP_WEREWOLF.36 } }
+		hidden_tooltip = {
+			any_plot_backer = {
+				limit = {
+					NOT = { character = FROM }
+				}
+				character_event = { id = WEREWOLF.38 days = 1 }
+			}
+		}
+	}
+}
+# WEREWOLF.37 - was MYTH.141 - Werewolf attack - Plotter tells backer to go ahead
+character_event = {
+	id = WEREWOLF.37
+	title = EVTNAME_WEREWOLF.37
+	desc = EVTDESC_WEREWOLF.37
+	picture = GFX_evt_whispers
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPT_WEREWOLF.37
+		event_target:plot_target = { character_event = { id = WEREWOLF.20 days = 27 tooltip = EVTTOOLTIP_WEREWOLF.19 } }
+	}
+}
+# WEREWOLF.38 - was MYTH.142 - Werewolf attack - Initiator informs other plotter
+character_event = {
+	id = WEREWOLF.38
+	title = EVTNAME_WEREWOLF.38
+	picture = GFX_evt_hunt
+	border = GFX_event_normal_frame_intrigue
+	desc = {
+		text = EVTDESC_WEREWOLF.38
+		picture = GFX_evt_wolf
+		trigger = { has_dlc = "Horse Lords" }
+	}
+	desc = {
+		text = EVTDESC_WEREWOLF.38
+		picture = GFX_evt_hunt
+		trigger = { NOT = { has_dlc = "Horse Lords" } }
+	}
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "EVTOPT_WEREWOLF.38"
+	}
+}
+# WEREWOLF.39 - was MYTH.143 - Werewolf loses control in combat
+character_event = {
+	id = WEREWOLF.39
+	title = EVTNAME_WEREWOLF.39
+	desc = EVTDESC_WEREWOLF.39
+	picture = GFX_evt_werewolf_moon
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	min_age = 16
+	
+	trigger = {
+		trait = werewolf
+		NOT = { trait = known_werewolf }
+		in_command = yes
+	}
+	
+	option = {
+		name = EVTOPT_WEREWOLF.39
+		add_trait = known_werewolf
+		hidden_tooltip = {
+			remove_trait = secret_werewolf
+			remove_character_modifier = known_monster
+			any_realm_character = { # Commanders find out character is a werewolf
+				if = {
+					limit = { in_command = yes }
+					character_event = { id = WEREWOLF.33 } 
+				} 
+			}
+			if = {
+				limit = {
+					independent = no
+					liege = { in_command = yes }
+				}
+				liege = { character_event = { id = WEREWOLF.33 } } # Liege finds out character is a werewolf
+			}
+		}
+	}
+}
+# WEREWOLF.40 - was MYTH.144 - Werewolf gains Gluttonous
+character_event = {
+	id = WEREWOLF.40
+	title = EVTNAME_WEREWOLF.40
+	desc = EVTDESC_WEREWOLF.40
+	picture = GFX_evt_feast
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		trait = werewolf
+		NOR = { 
+			trait = temperate
+			trait = gluttonous
+		}
+	}
+	
+	weight_multiplier = {
+		days = 1
+		modifier = {
+			factor = 0.8
+			check_variable = { which = control value = 6 }
+		}
+		modifier = {
+			factor = 0.8
+			check_variable = { which = control value = 7 }
+		}
+		modifier = {
+			factor = 0.8
+			check_variable = { which = control value = 8 }
+		}
+		modifier = {
+			factor = 0.8
+			check_variable = { which = control value = 9 }
+		}
+		modifier = {
+			factor = 1.2
+			check_variable = { which = control value <= 4 }
+		}
+		modifier = {
+			factor = 1.2
+			check_variable = { which = control value <= 3 }
+		}
+		modifier = {
+			factor = 1.2
+			check_variable = { which = control value <= 2 }
+		}
+		modifier = {
+			factor = 1.2
+			check_variable = { which = control value == 1 }
+		}
+	}
+	
+	option = {
+		name = EVTOPT_WEREWOLF.40
+		add_trait = gluttonous
+		gain_weight_small_effect = yes
+		weight_trait_check_effect = yes
+	}
+	
+	after = {
+		hidden_tooltip = {
+			character_event = { id = MYTH.56 }
+		}
+	}
+}
+# WEREWOLF.41 - was MYTH.145 - Werewolf gains Wroth
+character_event = {
+	id = WEREWOLF.41
+	title = EVTNAME_WEREWOLF.41
+	desc = EVTDESC_WEREWOLF.41
+	picture = GFX_evt_quarrel
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		trait = werewolf
+		NOR = {
+			trait = wroth
+			trait = patient
+		}
+	}
+	
+	weight_multiplier = {
+		days = 1
+		modifier = {
+			factor = 0.8
+			check_variable = { which = control value = 6 }
+		}
+		modifier = {
+			factor = 0.8
+			check_variable = { which = control value = 7 }
+		}
+		modifier = {
+			factor = 0.8
+			check_variable = { which = control value = 8 }
+		}
+		modifier = {
+			factor = 0.8
+			check_variable = { which = control value = 9 }
+		}
+		modifier = {
+			factor = 1.2
+			check_variable = { which = control value <= 4 }
+		}
+		modifier = {
+			factor = 1.2
+			check_variable = { which = control value <= 3 }
+		}
+		modifier = {
+			factor = 1.2
+			check_variable = { which = control value <= 2 }
+		}
+		modifier = {
+			factor = 1.2
+			check_variable = { which = control value == 1 }
+		}
+	}
+	
+	option = {
+		name = EVTOPT_WEREWOLF.41
+		add_trait = wroth
+	}
+	
+	after = {
+		hidden_tooltip = {
+			character_event = { id = MYTH.56 }
+		}
+	}
+}
+# WEREWOLF.42 - was MYTH.146 - Werewolf is cheery
+character_event = {
+	id = WEREWOLF.42
+	title = EVTNAME_WEREWOLF.42
+	picture = GFX_evt_hunt
+	border = GFX_event_normal_frame_diplomacy
+	desc = {
+		text = EVTDESC_WEREWOLF.42
+		picture = GFX_evt_wolf
+		trigger = { has_dlc = "Horse Lords" }
+	}
+	desc = {
+		text = EVTDESC_WEREWOLF.42
+		picture = GFX_evt_hunt
+		trigger = { NOT = { has_dlc = "Horse Lords" } }
+	}
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		trait = werewolf
+	}
+	
+	weight_multiplier = {
+		days = 1
+		modifier = {
+			factor = 0.8
+			check_variable = { which = control value = 6 }
+		}
+		modifier = {
+			factor = 0.8
+			check_variable = { which = control value = 7 }
+		}
+		modifier = {
+			factor = 0.8
+			check_variable = { which = control value = 8 }
+		}
+		modifier = {
+			factor = 0.8
+			check_variable = { which = control value = 9 }
+		}
+		modifier = {
+			factor = 1.2
+			check_variable = { which = control value <= 4 }
+		}
+		modifier = {
+			factor = 1.2
+			check_variable = { which = control value <= 3 }
+		}
+		modifier = {
+			factor = 1.2
+			check_variable = { which = control value <= 2 }
+		}
+		modifier = {
+			factor = 1.2
+			check_variable = { which = control value == 1 }
+		}
+	}
+	
+	option = {
+		name = EVTOPT_WEREWOLF.42
+		add_character_modifier = {
+			name = good_times
+			days = 90
+		}
+	}
+}
+# WEREWOLF.43 - was MYTH.148 - Wake up covered in blood
+character_event = {
+	id = WEREWOLF.43
+	title = EVTNAME_WEREWOLF.43
+	desc = EVTDESC_WEREWOLF.43
+	picture = GFX_evt_recovery
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		trait = werewolf
+		NOT = { trait = known_werewolf }
+	}
+	
+	weight_multiplier = {
+		days = 2
+		modifier = {
+			factor = 2
+			trait = wroth
+		}
+		modifier = {
+			factor = 2
+			trait = arbitrary
+		}
+		modifier = {
+			factor = 0.8
+			trait = diligent
+		}
+		modifier = {
+			factor = 2
+			trait = cruel
+		}
+		modifier = {
+			factor = 3
+			trait = berserker
+		}
+		modifier = {
+			factor = 4
+			trait = cannibal_trait
+		}
+		modifier = {
+			factor = 0.8
+			check_variable = { which = control value = 6 }
+		}
+		modifier = {
+			factor = 0.8
+			check_variable = { which = control value = 7 }
+		}
+		modifier = {
+			factor = 0.8
+			check_variable = { which = control value = 8 }
+		}
+		modifier = {
+			factor = 0.8
+			check_variable = { which = control value = 9 }
+		}
+		modifier = {
+			factor = 1.2
+			check_variable = { which = control value <= 4 }
+		}
+		modifier = {
+			factor = 1.2
+			check_variable = { which = control value <= 3 }
+		}
+		modifier = {
+			factor = 1.2
+			check_variable = { which = control value <= 2 }
+		}
+		modifier = {
+			factor = 1.2
+			check_variable = { which = control value == 1 }
+		}
+	}
+	
+	option = {
+		name = EVTOPT_WEREWOLF.43
+		if = {
+			limit = { trait = known_werewolf }
+			any_courtier = {
+				limit = { NOT = { trait = werewolf } }
+				random = {
+					chance = 50
+					opinion = { who = FROM modifier = opinion_terrified years = 5 }
+				}
+			}
+			any_vassal = {
+				limit = { NOT = { trait = werewolf } }
+				random = {
+					chance = 50
+					opinion = { who = FROM modifier = opinion_terrified years = 5 }
+				}
+			}
+		}
+		else = {
+			add_character_modifier = {
+				name = known_monster
+				years = 5
+				stacking = yes
+			}
+		}
+		decrease_control = yes
+	}
+	option = {
+		name = EVTOPTB_WEREWOLF.43
+		tooltip_info = impaler
+		trigger = { trait = impaler }
+	}
+}
+# WEREWOLF.44 - was MYTH.149 - Boring time allays suspicion
+character_event = {
+	id = WEREWOLF.44
+	title = EVTNAME_WEREWOLF.44
+	desc = EVTDESC_WEREWOLF.44
+	picture = GFX_evt_library
+	border = GFX_event_normal_frame_diplomacy
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		trait = werewolf
+		has_character_modifier = known_monster
+		NOT = { trait = known_werewolf }
+	}
+	
+	weight_multiplier = {
+		days = 1
+		modifier = {
+			factor = 0.8
+			OR = {
+				trait = impaler
+				trait = berserker
+			}
+		}
+		modifier = {
+			factor = 0.5
+			OR = {
+				trait = gluttonous
+				trait = wroth
+			}
+		}
+		modifier = {
+			factor = 2
+			OR = {
+				trait = humble
+				trait = kind
+			}
+		}
+		modifier = {
+			factor = 2
+			trait = patient
+		}
+		modifier = {
+			factor = 1.3
+			trait = shy
+		}
+		modifier = {
+			factor = 0.8
+			trait = ambitious
+		}
+		modifier = {
+			factor = 1.2
+			trait = content
+		}
+		modifier = {
+			factor = 1.5
+			trait = paranoid
+		}
+		modifier = {
+			factor = 0.1
+			trait = cruel
+		}
+		modifier = {
+			factor = 0.1
+			trait = cannibal_trait
+		}
+		modifier = {
+			factor = 3
+			NOT = { ai_ambition = -50 }
+		}
+		modifier = {
+			factor = 1.1
+			check_variable = { which = control value = 6 }
+		}
+		modifier = {
+			factor = 1.2
+			check_variable = { which = control value = 7 }
+		}
+		modifier = {
+			factor = 1.3
+			check_variable = { which = control value = 8 }
+		}
+		modifier = {
+			factor = 1.4
+			check_variable = { which = control value = 9 }
+		}
+		modifier = {
+			factor = 0.9
+			check_variable = { which = control value <= 4 }
+		}
+		modifier = {
+			factor = 0.8
+			check_variable = { which = control value <= 3 }
+		}
+		modifier = {
+			factor = 0.7
+			check_variable = { which = control value <= 2 }
+		}
+		modifier = {
+			factor = 0.6
+			check_variable = { which = control value == 1 }
+		}
+	}
+	
+	option = {
+		name = EVTOPT_WEREWOLF.44
+		remove_character_modifier = known_monster
+		increase_control = yes
+	}
+}
+# WEREWOLF.45 - was MYTH.150 - Werewolf goes berserk while hunting
+character_event = {
+	id = WEREWOLF.45
+	title = EVTNAME_WEREWOLF.45
+	picture = GFX_evt_werewolf_moon
+	border = GFX_event_normal_frame_war
+	desc = EVTDESC_WEREWOLF.45
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		trait = known_werewolf
+	}
+	
+	option = {
+		name = EVTOPT_WEREWOLF.45
+		clr_character_flag = do_not_disturb
+		any_vassal = {
+			opinion = {
+				modifier = opinion_went_berserk
+				who = ROOT
+			}
+		}
+		decrease_control = yes
+	}
+}
+# WEREWOLF.46 - was MYTH.151 - Werewolf becomes berserker
+character_event = {
+	id = WEREWOLF.46
+	title = EVTNAME_WEREWOLF.46
+	desc = EVTDESC_WEREWOLF.46
+	picture = GFX_evt_battle
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		trait = known_werewolf
+		NOT = { trait = berserker }
+		trait = wroth
+		in_command = yes
+	}
+	
+	weight_multiplier = {
+		days = 1
+		modifier = {
+			factor = 0.8
+			check_variable = { which = control value = 6 }
+		}
+		modifier = {
+			factor = 0.8
+			check_variable = { which = control value = 7 }
+		}
+		modifier = {
+			factor = 0.8
+			check_variable = { which = control value = 8 }
+		}
+		modifier = {
+			factor = 0.8
+			check_variable = { which = control value = 9 }
+		}
+		modifier = {
+			factor = 1.2
+			check_variable = { which = control value <= 4 }
+		}
+		modifier = {
+			factor = 1.2
+			check_variable = { which = control value <= 3 }
+		}
+		modifier = {
+			factor = 1.2
+			check_variable = { which = control value <= 2 }
+		}
+		modifier = {
+			factor = 1.2
+			check_variable = { which = control value == 1 }
+		}
+	}
+	
+	option = {
+		name = EVTOPT_WEREWOLF.46
+		add_trait = berserker
+	}
+	
+	after = {
+		hidden_tooltip = {
+			character_event = { id = MYTH.56 }
+		}
+	}
+}
+
+# WEREWOLF.47 - was MONSTER.4 - Supernatural Healing - Werewolf heals from weakness
+character_event = {
+	id = "WEREWOLF.47"
+	title = EVTNAME_WEREWOLF.47
+	desc = "EVTDESC_WEREWOLF.47"
+	picture = GFX_evt_werewolf_moon
+	border = GFX_event_normal_frame_war
+	
+	min_age = 16
+	
+	trigger = {
+		trait = werewolf
+		OR = {
+			trait = infirm
+			trait = severely_injured
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 2
+		modifier = {
+			factor = 0.9
+			check_variable = { which = control value = 6 }
+		}
+		modifier = {
+			factor = 0.8
+			check_variable = { which = control value = 7 }
+		}
+		modifier = {
+			factor = 0.7
+			check_variable = { which = control value = 8 }
+		}
+		modifier = {
+			factor = 0.6
+			check_variable = { which = control value = 9 }
+		}
+		modifier = {
+			factor = 1.1
+			check_variable = { which = control value <= 4 }
+		}
+		modifier = {
+			factor = 1.2
+			check_variable = { which = control value <= 3 }
+		}
+		modifier = {
+			factor = 1.3
+			check_variable = { which = control value <= 2 }
+		}
+		modifier = {
+			factor = 1.4
+			check_variable = { which = control value == 1 }
+		}
+	}
+	
+	option = {
+		name ="EVTOPTA_WEREWOLF.47"
+		remove_trait = infirm
+		remove_trait = severely_injured
+		clear_delayed_event = { id = RIP.11000 }
+		hidden_tooltip = {
+			random_list = {
+				80 = {
+					# No one is aware
+				}
+				15 = {
+					modifier = {
+						factor = 0
+						trait = known_werewolf
+					}
+					character_event = { id = MONSTER.11 }
+				}
+				5 = {
+					modifier = {
+						factor = 0
+						trait = known_werewolf
+					}
+					character_event = { id = WEREWOLF.49 }
+				}
+			}
+		}
+	}
+}
+
+# WEREWOLF.48 - was MONSTER,5 - Supernatural Healing - Werewolf heals from incapacitation
+character_event = {
+	id = "WEREWOLF.48"
+	title = EVTNAME_WEREWOLF.48
+	desc = "EVTDESC_WEREWOLF.48"
+	picture = GFX_evt_werewolf_moon
+	border = GFX_event_normal_frame_war
+	
+	min_age = 16
+	
+	trigger = {
+		trait = werewolf
+		trait = incapable
+		check_variable = { which = control value == 1 }
+	}
+	
+	mean_time_to_happen = {
+		months = 6
+	}
+	
+	option = {
+		name ="EVTOPTA_WEREWOLF.48"
+		remove_trait = incapable
+		hidden_tooltip = {
+			random_list = {
+				10 = {
+					# Get off scott-free
+				}
+				20 = {
+					# Suspected monster
+					modifier = {
+						factor = 0
+						trait = known_werewolf
+					}
+					character_event = { id = MONSTER.11 }
+				}
+				20 = {
+					# Revealed werewolf
+					modifier = {
+						factor = 0
+						trait = known_werewolf
+					}
+					character_event = { id = WEREWOLF.49 }
+				}
+			}
+		}
+	}
+}
+
+# WEREWOLF.49 - Healing reveals hidden nature
+character_event = {
+	id = WEREWOLF.49
+	title = EVTNAME_WEREWOLF.49
+	desc = EVTDESC_WEREWOLF.49
+	picture = GFX_evt_werewolf_moon
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	min_age = 16
+	
+	trigger = {
+		trait = werewolf
+		NOT = { trait = known_werewolf }
+	}
+	
+	option = {
+		name = EVTOPTA_WEREWOLF.49
+		hidden_tooltip = {
+			any_realm_character = { character_event = { id = WEREWOLF.33 } } # Court finds out character is a werewolf
+			if = {
+				limit = {
+					independent = no
+				}
+				liege = { character_event = { id = WEREWOLF.33 } } # Liege finds out character is a werewolf
+			}
+		}
+		remove_trait = secret_werewolf
+		add_trait = known_werewolf
+		hidden_tooltip = { remove_character_modifier = known_monster }
+	}
+}
+
+# WEREWOLF.50 - Seen howling at moon
+character_event = {
+	id = WEREWOLF.50
+	desc = EVTDESC_WEREWOLF.50
+	picture = GFX_evt_whispers
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		NOT = { location = { culture = werewolf_culture } }
+		NOT = { trait = known_werewolf }
+	}
+	
+	option = {
+		name = EVTOPTA_WEREWOLF.50
+		add_character_modifier = {
+			name = known_monster
+			years = 2
+			stacking = yes
+		}
+	}
+}
+
+# WEREWOLF.51 - Seen hunting
+character_event = {
+	id = WEREWOLF.51
+	desc = EVTDESC_WEREWOLF.51
+	picture = GFX_evt_whispers
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		NOT = { location = { culture = werewolf_culture } }
+		NOT = { trait = known_werewolf }
+	}
+	
+	option = {
+		name = EVTOPTA_WEREWOLF.51
+		add_character_modifier = {
+			name = known_monster
+			years = 5
+			stacking = yes
+		}
+	}
+}
+
+# WEREWOLF.52 - Result of moon frezy
+character_event = {
+	id = WEREWOLF.52
+	picture = GFX_evt_bad_news
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+
+	desc = {
+		text = EVTDESCA_WEREWOLF.52
+		trigger = { has_character_flag = werewolf_howling_on_mountaintop }
+	}
+	desc = {
+		text = EVTDESCB_WEREWOLF.52
+		trigger = { has_character_flag = werewolf_swims_river_sleeps_outside }
+	}
+	desc = {
+		text = EVTDESCC_WEREWOLF.52
+		trigger = { has_character_flag = werewolf_killed_something }
+	}
+	
+	option = {
+		name = EVTOPTA_WEREWOLF.52
+		if = {
+			limit = { has_character_flag = werewolf_howling_on_mountaintop }
+			add_character_modifier = {
+				name = hoarse
+				years = 2
+			}
+		}
+		if = {
+			limit = {
+				has_character_flag = werewolf_swims_river_sleeps_outside
+				trait = pneumonic
+			}
+			random = {
+				chance = 20
+				add_trait = infirm
+				hidden_tooltip = {
+					character_event = {
+						id = 38284 #Notify Infirm
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_character_flag = werewolf_swims_river_sleeps_outside
+				trait = ill
+			}
+			add_trait = pneumonic
+		}
+		if = {
+			limit = {
+				has_character_flag = werewolf_swims_river_sleeps_outside
+				is_ill = no
+				NOT = { trait = pneumonic }
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_dlc = "Reapers"
+					}
+				}
+				add_trait = ill
+			}
+			if = {
+				limit = {
+					has_dlc = "Reapers"
+				}
+				add_symptom_effect = yes
+			}
+		}
+		if = {
+			limit = { has_character_flag = werewolf_killed_something }
+			add_character_modifier = {
+				name = werewolf_killed
+				years = 2
+			}
+		}
+		clr_character_flag = werewolf_howling_on_mountaintop
+		clr_character_flag = werewolf_swims_river_sleeps_outside
+		clr_character_flag = werewolf_killed_something
+	}
+}
+
+# WEREWOLF.53 - Trigger a Werewolf province event. Positive if province is Lycan culture, negative if not
+character_event = {
+	id = WEREWOLF.53
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		trait = known_werewolf
+	}
+	
+	weight_multiplier = {
+		days = 1
+		modifier = {
+			factor = 2
+			any_liege = {
+				trait = known_werewolf
+			}
+		}
+	}
+	
+	immediate = {
+		random_demesne_province = {
+			if = {
+				limit = { culture = werewolf_culture }
+				random_list = {
+					1 = {
+						province_event = { id = WEREWOLF.57 }
+					}
+					1 = {
+						province_event = { id = WEREWOLF.58 }
+					}
+					1 = {
+						province_event = { id = WEREWOLF.59 }
+					}
+				}
+			}
+			if = {
+				limit = { NOT = { culture = werewolf_culture } }
+				random_list = {
+					1 = {
+						province_event = { id = WEREWOLF.54 }
+					}
+					1 = {
+						province_event = { id = WEREWOLF.55 }
+					}
+					1 = {
+						province_event = { id = WEREWOLF.56 }
+					}
+				}
+			}
+		}
+	}
+}
+
+# WEREWOLF.54 - Revolt risk increase from being ruled by a monster
+province_event = {
+	id = WEREWOLF.54
+	desc = EVTDESC_WEREWOLF.54
+	picture = GFX_evt_riots_byzantine
+	border = GFX_event_normal_frame_diplomacy
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_WEREWOLF.54
+		add_province_modifier = { modifier = ruled_by_monster years = 3 }
+	}
+}
+
+# WEREWOLF.55 - People refuse to pay taxes to a monster
+province_event = {
+	id = WEREWOLF.55
+	desc = EVTDESC_WEREWOLF.55
+	picture = GFX_evt_riots_byzantine
+	border = GFX_event_normal_frame_economy
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_WEREWOLF.55
+		add_province_modifier = { modifier = no_monster_tax years = 3 }
+	}
+	option = {
+		name = EVTOPTB_WEREWOLF.55
+		add_province_modifier = { modifier = peasants_upset years = 1 }
+	}
+}
+
+# WEREWOLF.56 - Soldiers desert rather than work for a monster
+province_event = {
+	id = WEREWOLF.56
+	desc = EVTDESC_WEREWOLF.56
+	picture = GFX_evt_crusaders
+	border = GFX_event_normal_frame_war
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_WEREWOLF.56
+		add_province_modifier = { modifier = soldiers_abandon_monster years = 3 }
+	}
+}
+
+# WEREWOLF.57 - Bandits flee, fearing being hunted by werewolves
+province_event = {
+	id = WEREWOLF.57
+	desc = EVTDESC_WEREWOLF.57
+	picture = GFX_evt_bandits
+	border = GFX_event_normal_frame_economy
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_WEREWOLF.57
+		add_province_modifier = { modifier = bandits_fled years = 3 }
+	}
+}
+
+# WEREWOLF.58 - Strong Lycan ruler, people feel safe in their homes
+province_event = {
+	id = WEREWOLF.58
+	desc = EVTDESC_WEREWOLF.58
+	picture = GFX_evt_fishing
+	border = GFX_event_normal_frame_diplomacy
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_WEREWOLF.56
+		add_province_modifier = { modifier = strong_lycan_ruler years = 3 }
+	}
+}
+
+# WEREWOLF.59 - Recruits hope to become werewolves
+province_event = {
+	id = WEREWOLF.59
+	desc = EVTDESC_WEREWOLF.59
+	picture = GFX_evt_crusaders
+	border = GFX_event_normal_frame_diplomacy
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_WEREWOLF.56
+		add_province_modifier = { modifier = werewolf_recruits years = 3 }
+	}
+}
+
+# Werewolf childhood education events
+
+# WEREWOLF.60 - Child spends lots of time playing in the wild. Talks to wolves.
+character_event = {
+	id = WEREWOLF.60
+	picture = GFX_evt_child_play
+	desc = EVTDESC_WEREWOLF.60
+	border = GFX_event_normal_frame_diplomacy
+	
+	is_triggered_only = yes
+	
+	only_capable = yes
+	
+	trigger = {
+		trait = pup
+		NOT = { has_character_flag = child_outside_play_event }
+		age = 5
+	}
+	
+	immediate = { 
+		set_character_flag = child_outside_play_event
+	}
+	
+	# Tell your guardian
+	option = {
+		name = EVTOPTA_WEREWOLF.60
+		hidden_tooltip = {
+			if = {
+				limit = { has_dlc = "Zeus" }
+				educator = {
+					character_event = { id = WEREWOLF.61 days = 2 }
+				}
+			}
+			if = {
+				limit = { NOT = { has_dlc = "Zeus" } }
+				guardian = {
+					character_event = { id = WEREWOLF.61 days = 2 }
+				}
+			}
+			increase_control = yes
+		}
+	}
+	# Keep it a secret
+	option = {
+		name = EVTOPTB_WEREWOLF.60
+		trigger = { ai = no }
+		if = {
+			limit = { has_dlc = "Zeus" }
+			add_trait = timid
+		}
+		if = {
+			limit = { NOT = { has_dlc = "Zeus" } }
+			add_trait = deceitful
+		}
+		hidden_tooltip = {
+			set_character_flag = child_play_outside_encouraged
+			decrease_control = yes
+		}
+	}
+	
+	after = {
+		hidden_tooltip = {
+			character_event = { id = MYTH.56 }
+		}
+	}
+}
+
+# WEREWOLF.61 - Child encounted a wolf in the forest
+character_event = {
+	id = WEREWOLF.61
+	desc = EVTDESC_WEREWOLF.61
+	picture = GFX_evt_child_play
+	border = GFX_event_normal_frame_diplomacy
+	
+	is_triggered_only = yes
+	
+	only_capable = yes
+	prisoner = no
+	
+	trigger = { age = 5 }
+	
+	# Encourage
+	option = {
+		name = EVTOPTA_WEREWOLF.61
+		if = {
+			limit = { has_dlc = "Zeus" }
+			FROM = { add_trait = playful }
+		}
+		if = {
+			limit = { NOT = { has_dlc = "Zeus" }}
+			FROM = { add_trait = brave }
+		}
+		hidden_tooltip = {
+			FROM = { 
+				set_character_flag = child_play_outside_encouraged
+				character_event = { id = WEREWOLF.62 days = 1 }
+			}
+		}
+	}
+	# Discourage
+	option = {
+		name = EVTOPTB_WEREWOLF.61
+		if = {
+			limit = { has_dlc = "Zeus" }
+			FROM = { add_trait = timid }
+		}
+		if = {
+			limit = { NOT = { has_dlc = "Zeus" }}
+			FROM = { add_trait = shy }
+		}
+		hidden_tooltip = {
+			FROM = { 
+				set_character_flag = child_play_outside_discouraged
+				character_event = { id = WEREWOLF.62 days = 1 }
+			}
+		}
+	}
+	
+	after = {
+		hidden_tooltip = {
+			FROM = { character_event = { id = MYTH.56 } }
+		}
+	}
+}
+
+# WEREWOLF.62 - Child gets guardian response about outside play
+character_event = {
+	id = WEREWOLF.62
+	desc = {
+		text = EVTDESCA_WEREWOLF.62
+		trigger = {
+			has_character_flag = child_play_outside_encouraged
+		}
+	}
+	desc = {
+		text = EVTDESCB_WEREWOLF.62
+		trigger = {
+			has_character_flag = child_play_outside_discouraged
+		}
+	}
+	picture = GFX_evt_child_play
+	border = GFX_event_normal_frame_diplomacy
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_WEREWOLF.62
+		trigger = { has_character_flag = child_play_outside_encouraged }
+		opinion = { modifier = opinion_glad who = FROM months = 2 }
+		hidden_tooltip = { increase_control = yes }
+	}
+	option = {
+		name = EVTOPTB_WEREWOLF.62
+		trigger = { has_character_flag = child_play_outside_discouraged }
+		opinion = { modifier = opinion_disappointed who = FROM months = 2 }
+		hidden_tooltip = { decrease_control = yes }
+	}
+}
+	
+# WEREWOLF.63 - Ping to guardian for strange behavior
+character_event = {
+	id = WEREWOLF.63
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		trait = pup
+		NOR = {
+			has_character_flag = child_pup_strange_behavior_1
+			has_character_flag = child_pup_strange_behavior_2
+			has_character_flag = child_pup_strange_behavior_3
+			has_character_flag = child_pup_suspected_werewolf
+		}
+		age = 3
+	}
+	
+	immediate = {
+		set_character_flag = child_pup_suspected_werewolf
+		random_list = {
+			1 = {
+				set_character_flag = child_pup_strange_behavior_1
+			}
+			1 = {
+				set_character_flag = child_pup_strange_behavior_2
+			}
+			1 = {
+				set_character_flag = child_pup_strange_behavior_3
+			}
+		}
+		if = { 
+			limit = { has_dlc = "Zeus" }
+			educator = { character_event = { id = WEREWOLF.64 } }
+		}
+		if = {
+			limit = { NOT = { has_dlc = "Zeus" } }
+			guardian = { character_event = { id = WEREWOLF.64 } }
+		}
+	}
+}
+
+# WEREWOLF.64 - Guardian sees strange behavior in ward
+character_event = {
+	id = WEREWOLF.64
+	desc = {
+		text = EVTDESCA_WEREWOLF.64
+		trigger = {
+			FROM = { has_character_flag = child_pup_strange_behavior_1 }
+		}
+	}
+	desc = {
+		text = EVTDESCB_WEREWOLF.64
+		trigger = {
+			FROM = { has_character_flag = child_pup_strange_behavior_2 }
+		}
+	}
+	desc = {
+		text = EVTDESCC_WEREWOLF.64
+		trigger = {
+			FROM = { has_character_flag = child_pup_strange_behavior_3 }
+		}
+	}
+	picture = GFX_evt_child_play
+	border = GFX_event_normal_frame_diplomacy
+	
+	is_triggered_only = yes
+	
+	only_capable = yes
+	prisoner = no
+	
+	option = {
+		name = EVTOPTA_WEREWOLF.64
+		trigger = {
+			NOT = { trait = werewolf }
+		}
+		hidden_tooltip = {
+			character_event = { id = WEREWOLF.73 days = 15 }
+			FROM = { character_event = { id = WEREWOLF.65 days = 3 } }
+		}
+	}
+	option = {
+		name = EVTOPTB_WEREWOLF.64
+		trigger = {
+			trait = werewolf
+		}
+		hidden_tooltip = {
+			character_event = { id = WEREWOLF.73 days = 15 }
+			FROM = { character_event = { id = WEREWOLF.65 days = 3 } }
+		}
+	}
+}
+
+# WEREWOLF.65 - Child informed of weird behavior
+character_event = {
+	id = WEREWOLF.65
+	desc = {
+		text = EVTDESCA_WEREWOLF.65
+		trigger = {
+			has_character_flag = child_pup_strange_behavior_1
+		}
+	}
+	desc = {
+		text = EVTDESCB_WEREWOLF.65
+		trigger = {
+			has_character_flag = child_pup_strange_behavior_2
+		}
+	}
+	desc = {
+		text = EVTDESCC_WEREWOLF.65
+		trigger = {
+			has_character_flag = child_pup_strange_behavior_3
+		}
+	}
+	picture = GFX_evt_child_play
+	border = GFX_event_normal_frame_diplomacy
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_WEREWOLF.65
+	}
+}
+
+# WEREWOLF.66 - Child finds a wolf as a pet
+character_event = {
+	id = WEREWOLF.66
+	desc = EVTDESC_WEREWOLF.66
+	picture = GFX_evt_wolf
+	border = GFX_event_normal_frame_diplomacy
+	
+	is_triggered_only = yes
+	
+	only_capable = yes
+	prisoner = no
+	
+	trigger = {
+		NOR = {
+			has_character_flag = child_pup_suspected_werewolf
+			has_character_flag = wolf_pet_event
+		}
+		age = 5
+	}
+	
+	weight_multiplier = {
+		days = 1
+		modifier = {
+			factor = 0.3
+			has_character_flag = child_play_outside_discouraged
+		}
+		modifier = {
+			factor = 2
+			has_character_flag = child_play_outside_encouraged
+		}
+	}
+	
+	option = {
+		name = EVTOPTA_WEREWOLF.66
+		hidden_tooltip = {
+			if = {
+				limit = { has_dlc = "Zeus" }
+				educator = {
+					character_event = { id = WEREWOLF.67 days = 1 }
+				}
+			}
+			if = {
+				limit = { NOT = { has_dlc = "Zeus" } }
+				guardian = {
+					character_event = { id = WEREWOLF.67 days = 1 }
+				}
+			}
+		}
+	}
+}
+
+# WEREWOLF.67 - Child brings a wolf home
+character_event = {
+	id = WEREWOLF.67
+	desc = EVTDESC_WEREWOLF.67
+	picture = GFX_evt_hunting_scene
+	border = GFX_event_normal_frame_diplomacy
+	
+	is_triggered_only = yes
+	
+	prisoner = no
+	
+	trigger = {
+		NOT = { age = 14 }  # Too late and events may clip into adulthood
+	}
+	
+	option = {
+		name = EVTOPTA_WEREWOLF.67
+		FROM = {
+			add_character_modifier = { modifier = wolf_pet }
+			opinion = { modifier = opinion_delighted who = ROOT months = 10 }
+			hidden_tooltip = {
+				set_character_flag = child_wolf_pet
+				increase_control = yes
+				character_event = { id = WEREWOLF.68 }
+			}
+		}
+	}
+	option = {
+		name = EVTOPTB_WEREWOLF.67
+		FROM = {
+			opinion = { modifier = opinion_disappointed who = ROOT months = 10 }
+			hidden_tooltip = {
+				set_character_flag = child_wolf_refused
+				decrease_control = yes
+				character_event = { id = WEREWOLF.78 }
+			}
+		}
+	}
+}
+
+# WEREWOLF.68 - Child keeps wolf
+character_event = {
+	id = WEREWOLF.68
+	desc = EVTDESC_WEREWOLF.68
+	picture = GFX_evt_wolf
+	border = GFX_event_normal_frame_diplomacy
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_WEREWOLF.68
+		add_character_modifier = { modifier = wolf_pet }
+		opinion = { modifier = opinion_delighted who = FROM months = 10 }
+		hidden_tooltip = {
+			if = {
+				limit = { NOT = { FROM = { trait = werewolf } } }
+				random = {
+					chance = 50
+					FROM = { character_event = { id = WEREWOLF.69 days = 60 random = 60 } }
+				}
+			}
+		}
+	}
+}
+
+# WEREWOLF.69 - Wolf dislikes everyone but child
+character_event = {
+	id = WEREWOLF.69
+	desc = EVTDESC_WEREWOLF.69
+	picture = GFX_evt_hunting_scene
+	border = GFX_event_normal_frame_war
+
+	is_triggered_only = yes
+	
+	prisoner = no
+	only_capable = yes
+	
+	trigger = {
+		FROM = { has_character_modifier = wolf_pet }
+	}
+	
+	option = {
+		name = EVTOPTA_WEREWOLF.69
+		random = {
+			chance = 10
+			add_wounded_effect = yes
+		}
+		hidden_tooltip = {
+			FROM = { set_character_flag = child_pup_suspected_werewolf }
+			character_event = { id = WEREWOLF.73 days = 5 random = 3 }
+		}
+	}
+}
+
+# WEREWOLF.70 - Wolf changes as child gets older. Determine result
+character_event = {
+	id = WEREWOLF.70
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		has_character_modifier = wolf_pet
+		age = 14
+	}
+	
+	immediate = {
+		random_list = {
+			10 = {
+				modifier = {
+					factor = 1.1
+					father_even_if_dead = { trait = werewolf }
+				}
+				modifier = {
+					factor = 1.1
+					mother_even_if_dead = { trait = werewolf }
+				}
+				# Wolf grows fearful as werewolf begins to awaken
+				character_event = { id = WEREWOLF.71 }
+			}
+			10 = {
+				# Wolf become more domesticated
+				character_event = { id = WEREWOLF.72 }
+			}
+		}
+	}
+}
+
+# WEREWOLF.71 - Pet wolf becomes fearful and leaves as werewolf's power begins to awaken
+character_event = {
+	id = WEREWOLF.71
+	desc = EVTDESC_WEREWOLF.71
+	picture = GFX_evt_child_play
+	border = GFX_event_normal_frame_diplomacy
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_WEREWOLF.71
+		remove_character_modifier = wolf_pet
+		hidden_tooltip = {
+			set_character_flag = wolf_pet_fearful
+		}
+	}
+}
+
+# WEREWOLF.72 - Pet wolf becomes domesticated
+character_event = {
+	id = WEREWOLF.72
+	desc = EVTDESC_WEREWOLF.72
+	picture = GFX_evt_hunting_scene
+	border = GFX_event_normal_frame_diplomacy
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_WEREWOLF.72
+		hidden_tooltip = {
+			remove_character_modifier = wolf_pet
+			set_character_flag = wolf_pet_domesticated
+		}
+		add_character_modifier = {
+			modifier = pet_hunting_dog
+			duration = -1
+		}
+		hidden_tooltip = { character_event = { id = WoL.5290 days = 3500 random = 2000 } } # Dog dies
+		hidden_tooltip = { character_event = { id = 77861 days = 30 random = 100 } } # Cat & dog
+		set_character_flag = had_hunting_dog
+		set_character_flag = dog_name_hunter
+	}
+}
+
+# WEREWOLF.73 - Guardian becomes concerted over child's behavior - suspects child is a werewolf. Child is FROMFROM
+character_event = {
+	id = WEREWOLF.73
+	desc = EVTDESC_WEREWOLF.73
+	picture = GFX_evt_child_play
+	border = GFX_event_normal_frame_diplomacy
+	
+	is_triggered_only = yes
+	
+	only_capable = yes
+	prisoner = no
+	
+	# Take child to court chaplain
+	option = {
+		trigger = {
+			job_spiritual = { 
+				prisoner = no
+				is_incapable = no
+			}
+		}
+		name = EVTOPTA_WEREWOLF.73
+		job_spiritual = { character_event = { id = WEREWOLF.74 days = 2 } }
+		ai_chance = {
+			factor = 50
+		}
+	}
+	# Lock up child in the dungeon
+	option = {
+		trigger = {
+			NOT = { trait = werewolf }
+		}
+		name = EVTOPTB_WEREWOLF.73
+		FROMFROM = {
+			imprison = ROOT
+			set_character_flag = child_pup_imprison
+			opinion = { modifier = opinion_hate who = ROOT }
+			hidden_tooltip = {
+				decrease_control = yes
+				decrease_control = yes
+			}
+			if = {
+				limit = { mother = { NOT = { character = ROOT } } }
+				father = {
+					opinion = { modifier = opinion_imprisoned_child who = ROOT }
+				}
+			}
+			if = {
+				limit = { father = { NOT = { character = ROOT } } }
+				mother = {
+					opinion = { modifier = opinion_imprisoned_child who = ROOT }
+				}
+			}
+			character_event = { id = WEREWOLF.75 }
+		}
+		ai_chance = {
+			factor = 10
+		}
+	}
+	# Kill the abomination
+	option = {
+		trigger = {
+			NOR = { 
+				trait = werewolf
+				culture = werewolf_culture
+			}
+		}
+		name = EVTOPTC_WEREWOLF.73
+		FROMFROM = {
+			death = { death_reason = death_execution killer = ROOT }
+			if = {
+				limit = { mother = { NOT = { character = ROOT } } }
+				father = {
+					opinion = { modifier = opinion_executed_child who = ROOT }
+				}
+			}
+			if = {
+				limit = { father = { NOT = { character = ROOT } } }
+				mother = {
+					opinion = { modifier = opinion_executed_child who = ROOT }
+				}
+			}
+		}
+		if = { limit = { NOT = { trait = cruel } }
+			add_trait = cruel
+		}
+		# I think opinion penalties should be automatic - need testing
+		ai_chance = {
+			factor = 1
+		}
+	}
+	# Intoduce your heir as a werewolf
+	option = {
+		trigger = {
+			trait = known_werewolf
+			culture = werewolf_culture
+			current_heir = { 
+				character = FROMFROM
+				NOR = {
+					has_character_flag = introduced_heir 
+					trait = bastard
+					trait = eunuch
+					trait = celibate
+					trait = incapable
+					is_inaccessible_trigger = yes
+					is_ascetic_trigger = yes
+				}
+			}
+		}
+		name = EVTOPTD_WEREWOLF.73
+		any_vassal = {
+			limit = { culture = werewolf_culture }
+			opinion = { modifier = opinion_approves who = FROMFROM years = 16 }
+		}
+		FROMFROM = {
+			hidden_tooltip = {
+				set_character_flag = child_pup_introduced
+				increase_control = yes
+				if = {
+					limit = {
+						has_dlc = "Zeus"
+					}
+					set_character_flag = introduced_heir
+					save_event_target_as = introduced_heir
+					ROOT = {
+						character_event = { id = ZE.22900 }
+					}
+				}
+			}
+		}
+		ai_chance = {
+			factor = 80
+		}
+	}
+	# Good!
+	option = {
+		trigger = { trait = werewolf }
+		name = EVTOPTE_WEREWOLF.73
+		ai_chance = {
+			factor = 40
+		}
+	}
+	# Nothing to be done
+	option = {
+		trigger = { NOT = { trait = werewolf } }
+		name = EVTOPTF_WEREWOLF.73
+		ai_chance = {
+			factor = 20
+		}
+	}
+	
+	after = {
+		hidden_tooltip = {
+			character_event = { id = MYTH.56 }
+		}
+	}
+}
+
+# WEREWOLF.74 - Child is brought to priest. Child is FROMFROMFROM, guardian is FROM
+character_event = {
+	id = WEREWOLF.74
+	desc = EVTDESC_WEREWOLF.74
+	picture = GFX_evt_child_reading
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	only_capable = yes
+	prisoner = no
+	
+	immediate = {
+		#Selects ingredient...
+    	select_random_hermetic_ingredient_effect = yes
+	}
+	
+	option = {
+		name = EVTOPTA_WEREWOLF.74
+		trigger = {
+			OR = {
+				trait = werewolf
+				culture = werewolf_culture
+			}
+		}
+		hidden_tooltip = {
+			FROMFROMFROM = {
+				set_character_flag = child_pup_pray_strength
+				character_event = { id = WEREWOLF.76 days = 1 }
+				increase_control = yes
+			}
+			FROM = {
+				character_event = { id = WEREWOLF.77 days = 2 }
+			}
+		}
+		ai_chance = {
+			factor = 5
+			modifier = {
+				factor = 2
+				FROM = { culture = werewolf_culture }
+			}
+			modifier = {
+				factor = 1.5
+				culture = werewolf_culture
+			}
+		}
+	}
+	option = {
+		name = EVTOPTB_WEREWOLF.74
+		trigger = {
+			NOT = { trait = werewolf }
+		}
+		hidden_tooltip = {
+			FROMFROMFROM = {
+				set_character_flag = child_pup_pray_soul
+				character_event = { id = WEREWOLF.76 days = 1 }
+				decrease_control = yes
+			}
+			FROM = {
+				character_event = { id = WEREWOLF.77 days = 2 }
+			}
+		}
+		ai_chance = {
+			factor = 5
+			modifier = {
+				factor = 2
+				FROM = { NOT = { culture = werewolf_culture } }
+			}
+			modifier = {
+				factor = 1.5
+				NOT = { culture = werewolf_culture }
+			}
+		}
+	}
+	option = {
+		name = EVTOPTC_WEREWOLF.75
+		tooltip_info = yes
+		custom_tooltip = { text = ingredient_option_available_tt }
+        custom_tooltip = { text = EVTOPTB_MNM_1435_TT }
+		destroy_selected_ingredient_1_effect = yes
+		hidden_tooltip = {
+			FROMFROMFROM = {
+				set_character_flag = child_pup_ritual_wolf
+				increase_control = yes
+				increase_control = yes
+				character_event = { id = WEREWOLF.78 days = 1 }
+			}
+			FROM = {
+				character_event = { id = WEREWOLF.79 days = 2 }
+			}
+		}
+		trigger = {
+			any_artifact = {
+        		has_artifact_flag = ingredient
+        	}
+			OR = {
+				trait = werewolf
+				culture = werewolf_culture
+			}
+		}
+		ai_chance = {
+			factor = 3
+			modifier = {
+				factor = 2
+				FROM = { culture = werewolf_culture }
+			}
+			modifier = {
+				factor = 1.5
+				culture = werewolf_culture
+			}
+		}
+	}
+	option = {
+		name = EVTOPTD_WEREWOLF.75
+		tooltip_info = yes
+		custom_tooltip = { text = ingredient_option_available_tt }
+        custom_tooltip = { text = EVTOPTB_MNM_1435_TT }
+		destroy_selected_ingredient_1_effect = yes
+		hidden_tooltip = {
+			FROMFROMFROM = {
+				set_character_flag = child_pup_ritual_exorcism
+				decrease_control = yes
+				decrease_control = yes
+				character_event = { id = WEREWOLF.78 days = 1 }
+			}
+			FROM = {
+				character_event = { id = WEREWOLF.79 days = 2 }
+			}
+		}
+		trigger = {
+			any_artifact = {
+        		has_artifact_flag = ingredient
+        	}
+			NOR = {
+				trait = werewolf
+				culture = werewolf_culture
+			}
+		}
+		ai_chance = {
+			factor = 3
+			modifier = {
+				factor = 2
+				FROM = { NOT = { culture = werewolf_culture } }
+			}
+			modifier = {
+				factor = 1.5
+				NOT = { culture = werewolf_culture }
+			}
+		}
+	}
+	option = {
+		name = EVTOPTE_WEREWOLF.75
+		FROMFROMFROM = {
+			character_event = { id = WEREWOLF.80 days = 1 }
+		}
+		FROM = {
+			character_event = { id = WEREWOLF.81 days = 1 }
+		}
+		ai_chance = {
+			factor = 2
+			modifier = {
+				factor = 2
+				trait = slothful
+			}
+			modifier = {
+				factor = 2
+				trait = cynical
+			}
+		}
+	}
+}
+
+# WEREWOLF.75 - Child locked up in dungeon, informed
+character_event = {
+	id = WEREWOLF.75
+	desc = EVTDESC_WEREWOLF.75
+	picture = GFX_evt_child_reading
+	border = GFX_event_normal_frame_diplomacy
+	
+	is_triggered_only = yes
+	ai = no # Purely informative - only effect is a duplicate of what already happened
+	
+	option = {
+		name = EVTOPTA_WEREWOLF.75
+		opinion = { modifier = opinion_hate who = FROM }
+	}
+}
+
+# WEREWOLF.76 - Priest prayed over you
+character_event = {
+	id = WEREWOLF.76
+	desc = EVTDESC_WEREWOLF.76
+	picture = GFX_evt_bishop
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_WEREWOLF.76
+	}
+}
+
+# WEREWOLF.77 - Priest prayed over child
+character_event = {
+	id = WEREWOLF.77
+	desc = EVTDESC_WEREWOLF.77
+	picture = GFX_evt_bishop
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_WEREWOLF.77
+	}
+}
+
+# WEREWOLF.78 - Priest performed a ritual over you
+character_event = {
+	id = WEREWOLF.78
+	desc = EVTDESC_WEREWOLF.78
+	picture = GFX_evt_bishop
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_WEREWOLF.78
+	}
+}
+
+# WEREWOLF.79 - Priest performed ritual over child
+character_event = {
+	id = WEREWOLF.79
+	desc = EVTDESC_WEREWOLF.79
+	picture = GFX_evt_bishop
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_WEREWOLF.77
+	}
+}
+
+# WEREWOLF.80 - Priest thinks guardian is overreacting
+character_event = {
+	id = WEREWOLF.80
+	desc = EVTDESC_WEREWOLF.80
+	picture = GFX_evt_bishop
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_WEREWOLF.80
+	}
+}
+
+# WEREWOLF.81 - Priest thinks you are overreacting
+character_event = {
+	id = WEREWOLF.81
+	desc = EVTDESC_WEREWOLF.81
+	picture = GFX_evt_bishop
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_WEREWOLF.81
+	}
+}
+
+# WEREWOLF.82 - Ask child to reveal themself
+character_event = {
+	id = WEREWOLF.82
+	desc = EVTDESC_WEREWOLF.82
+	picture = GFX_evt_guardian
+	border = GFX_event_normal_frame_diplomacy
+	
+	is_triggered_only = yes
+	
+	only_capable = yes
+	prisoner = no
+	
+	option = {
+		name = EVTOPTA_WEREWOLF.82
+		hidden_tooltip = {
+			FROM = { character_event = { id = WEREWOLF.83 days = 2 } }
+		}
+	}
+	option = {
+		name = EVTOPTB_WEREWOLF.82
+	}
+}
+
+# WEREWOLF.83 - Child asked to reveal self
+character_event = {
+	id = WEREWOLF.83
+	desc = EVTDESC_WEREWOLF.83
+	picture = GFX_evt_son_asking_father
+	border = GFX_event_normal_frame_diplomacy
+	
+	is_triggered_only = yes
+	
+	only_capable = yes
+	prisoner = no
+	
+	# Not a werewolf
+	option = {
+		name = EVTOPTA_WEREWOLF.83
+		trigger = { NOT = { trait = werewolf } }
+		hidden_tooltip = {
+			FROM = { character_event = { id = WEREWOLF.84 days = 1 } }
+		}
+		ai_chance = {
+			factor = 1
+		}
+	}
+	# Reveal
+	option = {
+		name = EVTOPTB_WEREWOLF.83
+		trigger = { trait = werewolf }
+		add_trait = known_werewolf
+		increase_control = yes
+		hidden_tooltip = {
+			remove_character_modifier = known_monster
+			FROM = { character_event = { id = WEREWOLF.85 days = 1 } }
+		}
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 2
+				culture = werewolf_culture
+			}
+			modifier = {
+				factor = 2
+				FROM = { culture = werewolf_culture }
+			}
+			modifier = {
+				factor = 2
+				has_game_rule = { name = secrecy value = more }
+			}
+			modifier = {
+				factor = 0.5
+				has_game_rule = { name = secrecy value = fewer }
+			}
+		}
+	}
+	# Refuse
+	option = {
+		name = EVTOPTC_WEREWOLF.83
+		trigger = { trait = werewolf }
+		decrease_control = yes
+		hidden_tooltip = {
+			FROM = { character_event = { id = WEREWOLF.85 days = 1 } }
+		}
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 2
+				NOT = { culture = werewolf_culture }
+			}
+		}
+	}
+}
+
+# WEREWOLF.84 - Child is not a werewolf
+character_event = {
+	id = WEREWOLF.84
+	desc = EVTDESC_WEREWOLF.84
+	picture = GFX_evt_son_asking_father
+	border = GFX_event_normal_frame_diplomacy
+	
+	is_triggered_only = yes
+	
+	only_capable = yes
+	prisoner = no
+	ai = no
+	
+	option = {
+		name = EVTOPTA_WEREWOLF.84
+	}
+}
+
+# WEREWOLF.85 - Received response from child
+character_event = {
+	id = WEREWOLF.85
+	desc = {
+		text = EVTDESCA_WEREWOLF.85
+		trigger = {
+			FROM = { trait = known_werewolf }
+		}
+	}
+	desc = {
+		text = EVTDESCB_WEREWOLF.85
+		trigger = {
+			NOT = { FROM = { trait = werewolf } }
+		}
+	}
+	picture = GFX_evt_son_asking_father
+	border = GFX_event_normal_frame_diplomacy
+	
+	is_triggered_only = yes
+	
+	only_capable = yes
+	prisoner = no
+	
+	option = {
+		name = EVTOPTA_WEREWOLF.85
+		trigger = { FROM = { trait = werewolf } }
+		opinion = { modifier = opinion_proud who = FROM years = 3 }
+	}
+	option = {
+		name = EVTOPTB_WEREWOLF.85
+		trigger = { FROM = { NOT = { trait = werewolf } } }
+		opinion = { modifier = opinion_disappointed who = FROM years = 3 }
+	}
+}
+
+# WEREWOLF.86 - First turn was in prison.  You are exposed.
+character_event = {
+	id = WEREWOLF.86
+	desc = EVTDESC_WEREWOLF.86
+	picture = GFX_evt_werewolf_shadowed
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	prisoner = yes
+	
+	trigger = { trait = werewolf }
+	
+	option = {
+		name = EVTOPTA_WEREWOLF.86
+		add_trait = known_werewolf
+		hidden_tooltip = { remove_character_modifier = known_monster }
+		update_control = yes
+		host = { ROOT = { opinion = { modifier = exposed_me who = PREV } } }
+	}
+}
+
+# WEREWOLF.87 - Child's first transformation was in prison
+character_event = {
+	id = WEREWOLF.87
+	desc = EVTDESC_WEREWOLF.87
+	picture = GFX_evt_werewolf_shadowed
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_WEREWOLF.87
+	}
+}
+
+# WEREWOLF.88 - Stressed werewolf loses control
+character_event = {
+	id = WEREWOLF.88
+	desc = EVTDESC_WEREWOLF.88
+	picture = GFX_evt_bad_news
+	border = GFX_event_normal_frame_diplomacy
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		trait = werewolf
+		trait = stressed
+		check_variable = { which = control value = 2 }
+	}
+	
+	option = {
+		name = EVTOPTA_WEREWOLF.88
+		decrease_control = yes
+	}
+	option = {
+		name = EVTOPTB_WEREWOLF.88
+		trigger = { check_variable = { which = control value = 3 } }
+		decrease_control = yes
+		decrease_control = yes
+		remove_trait = stressed
+	}
+}
+
+# WEREWOLF.89 - Depressed werewolf loses control
+character_event = {
+	id = WEREWOLF.89
+	desc = EVTDESC_WEREWOLF.89
+	picture = GFX_evt_bad_news
+	border = GFX_event_normal_frame_diplomacy
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		trait = werewolf
+		trait = depressed
+		check_variable = { which = control value = 2 }
+	}
+	
+	option = {
+		name = EVTOPTA_WEREWOLF.89
+		decrease_control = yes
+	}
+}
+
+# WEREWOLF.90 - Injured werewolf loses control
+character_event = {
+	id = WEREWOLF.90
+	desc = EVTDESC_WEREWOLF.90
+	picture = GFX_evt_werewolf_moon
+	border = GFX_event_normal_frame_diplomacy
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		trait = werewolf
+		OR = {
+			has_injury_trigger = yes
+			is_maimed_trigger = yes
+			trait = blinded
+			trait = eunuch
+		}
+		NOT = { trait = control_1 }
+	}
+	
+	weight_multiplier = {
+		days = 1
+		modifier = {
+			factor = 1.1
+			check_variable = { which = control value = 2 }
+		}
+		modifier = {
+			factor = 1.1
+			check_variable = { which = control value = 3 }
+		}
+		modifier = {
+			factor = 1.1
+			check_variable = { which = control value = 4 }
+		}
+		modifier = {
+			factor = 1.1
+			check_variable = { which = control value = 5 }
+		}
+		modifier = {
+			factor = 1.1
+			check_variable = { which = control value = 6 }
+		}
+		modifier = {
+			factor = 1.1
+			check_variable = { which = control value = 7 }
+		}
+		modifier = {
+			factor = 1.1
+			check_variable = { which = control value = 8 }
+		}
+		modifier = {
+			factor = 1.1
+			check_variable = { which = control value = 9 }
+		}
+	}
+	
+	option = {
+		name = EVTOPTA_WEREWOLF.90
+		decrease_control = yes
+	}
+	option = {
+		name = EVTOPTB_WEREWOLF.90
+	}
+}
+
+# WEREWOLF.91 - Wroth or Berserker decreases control
+character_event = {
+	id = WEREWOLF.91
+	desc = EVTDESC_WEREWOLF.91
+	picture = GFX_evt_werewolf_fight
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		trait = werewolf
+		OR = {
+			trait = wroth
+			trait = berserker
+		}
+		NOT = { trait = control_1 }
+	}
+	
+	option = {
+		name = EVTOPTA_WEREWOLF.91
+		decrease_control = yes
+	}
+}
+
+# WEREWOLF.92 - In combat, focus on commanding troops or shapeshift and fight directly
+character_event = {
+	id = WEREWOLF.92
+	desc = EVTDESC_WEREWOLF.92
+	picture = GFX_evt_werewolf_fight
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		trait = known_werewolf
+		is_alive = yes
+	}
+	
+	# Focus on command
+	option = {
+		name = EVTOPTA_WEREWOLF.92
+		increase_control = yes
+		add_character_modifier = { name = werewolf_commander duration = 7 }
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 1.5
+				trait = patient
+			}
+			modifier = {
+				factor = 1.5
+				trait = gamer
+			}
+			modifier = {
+				factor = 1.5
+				trait = strategist
+			}
+			modifier = {
+				factor = 1.5
+				OR = {
+					trait = defensive_leader
+					trait = inspiring_leader
+					trait = organizer
+					trait = logistics_expert
+				}
+			}
+		}
+	}
+	# Focus on fighting
+	option = {
+		name = EVTOPTB_WEREWOLF.92
+		decrease_control = yes
+		add_character_modifier = { name = werewolf_fighter duration = 7 }
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 1.5
+				trait = duelist
+			}
+			modifier = {
+				factor = 1.5
+				trait = hunter
+			}
+			modifier = {
+				factor = 1.5
+				trait = wroth
+			}
+			modifier = {
+				factor = 1.5
+				trait = arbitrary
+			}
+			modifier = {
+				factor = 1.5
+				trait = berserker
+			}
+			modifier = {
+				factor = 1.5
+				OR = {
+					trait = aggressive_leader
+					trait = experimenter
+					trait = master_of_flame
+				}
+			}
+		}
+	}
+}
+
+# WEREWOLF.93 - Heckeled by peasant
+character_event = {
+	id = WEREWOLF.93
+	desc = EVTDESC_WEREWOLF.93
+	picture = GFX_evt_noble_haughty_talking_to_peasants
+	border = GFX_event_normal_frame_diplomacy
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		trait = known_werewolf
+	}
+	
+	weight_multiplier = {
+		days = 1
+		modifier = {
+			# Reacts more to heckling
+			factor = 1.5
+			trait = wroth
+		}
+		modifier = {
+			# More likely to be heckled
+			factor = 2
+			OR = {
+				trait = stutter
+				trait = lisp
+				trait = slow
+				trait = imbecile
+				has_ugly_trait_trigger = yes
+			}
+		}
+	}
+	
+	# Injure him
+	option = {
+		name = EVTOPTA_WEREWOLF.93
+		decrease_control = yes
+		random_courtier = {
+			limit = { NOT = { has_opinion_modifier = { who = ROOT modifier = opinion_cruel } } }
+			score_value = {
+				value = 10
+				interesting_courtier_selection_score = yes
+			}
+			opinion = { who = ROOT modifier = opinion_cruel years = 3 }
+		}
+		random_courtier = {
+			limit = { NOT = { has_opinion_modifier = { who = ROOT modifier = opinion_cruel } } }
+			score_value = {
+				value = 10
+				interesting_courtier_selection_score = yes
+			}
+			opinion = { who = ROOT modifier = opinion_cruel years = 3 }
+		}
+		random_vassal = {
+			limit = { NOT = { has_opinion_modifier = { who = ROOT modifier = opinion_cruel } } }
+			score_value = {
+				value = 10
+				interesting_courtier_selection_score = yes
+			}
+			opinion = { who = ROOT modifier = opinion_cruel years = 3 }
+		}
+		random_vassal = {
+			limit = { NOT = { has_opinion_modifier = { who = ROOT modifier = opinion_cruel } } }
+			score_value = {
+				value = 10
+				interesting_courtier_selection_score = yes
+			}
+			opinion = { who = ROOT modifier = opinion_cruel years = 3 }
+		}
+	}
+	# Ignore him
+	option = {
+		name = EVTOPTB_WEREWOLF.93
+		increase_control = yes
+		add_character_modifier = { name = appeared_weak years = 3 }
+	}
+}
+
+# WEREWOLF.94 - Had a stressful day
+character_event = {
+	id = WEREWOLF.94
+	desc = EVTDESC_WEREWOLF.94
+	picture = GFX_evt_stressed_ruler
+	border = GFX_event_normal_frame_diplomacy
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		trait = werewolf
+		NOT = { trait = stressed }
+	}
+	
+	option = {
+		name = EVTOPTA_WEREWOLF.94
+		decrease_control = yes
+		if = {
+			limit = { has_dlc = "Horse Lords" }
+			custom_tooltip = {
+				text = DEFAULT_SENDEVENT_EVENTOPTION_TOOLTIP
+				hidden_tooltip = {
+					random_list = {
+						10 = { character_event = { id = HL.1410 } }
+						10 = { character_event = { id = HL.1420 } }
+						10 = { character_event = { id = HL.1430 } }
+						10 = { character_event = { id = HL.1440 } }
+						10 = { character_event = { id = HL.1450 } }
+						10 = { character_event = { id = HL.1460 } }
+						10 = { character_event = { id = HL.1470 } }
+						10 = { character_event = { id = HL.1480 } }
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = { trait = known_werewolf }
+			any_courtier = {
+				limit = { NOT = { trait = werewolf } }
+				random = {
+					chance = 50
+					opinion = { who = ROOT modifier = opinion_terrified years = 5 }
+				}
+			}
+			any_vassal = {
+				limit = { NOT = { trait = werewolf } }
+				random = {
+					chance = 50
+					opinion = { who = ROOT modifier = opinion_terrified years = 5 }
+				}
+			}
+		}
+		else = {
+			add_character_modifier = { name = known_monster years = 5 }
+		}
+	}
+	option = {
+		name = EVTOPTB_WEREWOLF.94
+		increase_control = yes
+		add_trait = stressed
+		hidden_tooltip = {
+			character_event = {
+				id = 38282 #Notify Stressed
+			}
+		}
+	}
+}
+
+# WEREWOLF.95 - Set control at start
+character_event = {
+	id = WEREWOLF.95
+	hide_window = yes
+	is_triggered_only = yes
+	
+	ai = no
+	
+	trigger = {
+		is_multiplayer_host_character = yes
+	}
+	
+	immediate = {
+		any_character = {
+			limit = {
+				trait = werewolf
+			}
+			if = {
+				limit = { trait = control_1 }
+				set_variable = { which = control value = 1 }
+			}
+			else_if = {
+				limit = { trait = control_2 }
+				set_variable = { which = control value = 2 }
+			}
+			else_if = {
+				limit = { trait = control_3 }
+				set_variable = { which = control value = 3 }
+			}
+			else_if = {
+				limit = { trait = control_4 }
+				set_variable = { which = control value = 4 }
+			}
+			else_if = {
+				limit = { trait = control_5 }
+				set_variable = { which = control value = 5 }
+			}
+			else_if = {
+				limit = { trait = control_6 }
+				set_variable = { which = control value = 6 }
+			}
+			else_if = {
+				limit = { trait = control_7 }
+				set_variable = { which = control value = 7 }
+			}
+			else_if = {
+				limit = { trait = control_8 }
+				set_variable = { which = control value = 8 }
+			}
+			else_if = {
+				limit = { trait = control_9 }
+				set_variable = { which = control value = 9 }
+			}
+			else = {
+				set_variable = { which = control value = 5 }
+				add_trait = control_5
+			}
+		}
+	}
+}
+
+# WEREWOLF.96 - Set control for single character
+character_event = {
+	id = WEREWOLF.96
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		trait = werewolf
+	}
+	
+	immediate = {
+		if = {
+			limit = { trait = control_1 }
+			set_variable = { which = control value = 1 }
+		}
+		else_if = {
+			limit = { trait = control_2 }
+			set_variable = { which = control value = 2 }
+		}
+		else_if = {
+			limit = { trait = control_3 }
+			set_variable = { which = control value = 3 }
+		}
+		else_if = {
+			limit = { trait = control_4 }
+			set_variable = { which = control value = 4 }
+		}
+		else_if = {
+			limit = { trait = control_5 }
+			set_variable = { which = control value = 5 }
+		}
+		else_if = {
+			limit = { trait = control_6 }
+			set_variable = { which = control value = 6 }
+		}
+		else_if = {
+			limit = { trait = control_7 }
+			set_variable = { which = control value = 7 }
+		}
+		else_if = {
+			limit = { trait = control_8 }
+			set_variable = { which = control value = 8 }
+		}
+		else_if = {
+			limit = { trait = control_9 }
+			set_variable = { which = control value = 9 }
+		}
+		else = {
+			set_variable = { which = control value = 5 }
+			add_trait = control_5
+		}
+	}
+}
+
+# WEREWOLF.97 - Child interested in werewolf heritage
+character_event = {
+	id = WEREWOLF.97
+	desc = {
+		trigger = {
+			father = { trait = known_werewolf }
+		}
+		text = EVTDESCA_WEREWOLF.97
+	}
+	desc = {
+		trigger = {
+			mother = { trait = known_werewolf }
+		}
+		text = EVTDESCB_WEREWOLF.97
+	}
+	picture = GFX_evt_child_play
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_WEREWOLF.97
+		hidden_tooltip = {
+			educator = {
+				character_event = {
+					id = WEREWOLF.98
+					days = 3
+				}
+			}
+		}
+	}
+}
+
+# WEREWOLF.98 - Educator can encourage or discourage werewolf culture
+character_event = {
+	id = WEREWOLF.98
+	desc = EVTDESC_WEREWOLF.98
+	picture = GFX_evt_child_play
+	
+	is_triggered_only = yes
+	
+	# Encourage
+	option = {
+		name = EVTOPTA_WEREWOLF.98
+		tooltip = {
+			FROM = { culture = werewolf_culture }
+		}
+		hidden_tooltip = {
+			FROM = {
+				character_event = { id = WEREWOLF.99 }
+			}
+		}
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 4
+				culture = werewolf_culture
+			}
+			modifier = {
+				factor = 3
+				trait = werewolf
+			}
+			modifier = {
+				factor = 2
+				trait = known_werewolf
+			}
+		}
+	}
+	
+	# Discourage
+	option = {
+		name = EVTOPTB_WEREWOLF.98
+		trigger = { NOT = { trait = werewolf } }
+		tooltip = {
+			reverse_opinion = { who = FROM modifier = opinion_horrified years = 3 }
+		}
+		hidden_tooltip = {
+			FROM = {
+				character_event = { id = WEREWOLF.100 }
+			}
+		}
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 2
+				trait = monster_hunter
+				NOT = { culture = werewolf_culture }
+			}
+			modifier = {
+				factor = 4
+				trait = vampire
+			}
+			modifier = {
+				factor = 2
+				culture = werewolf_culture
+			}
+		}
+	}
+}
+
+# WEREWOLF.99 - Werewolf Encouraged
+character_event = {
+	id = WEREWOLF.99
+	desc = EVTDESC_WEREWOLF.99
+	picture = GFX_evt_child_play
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_WEREWOLF.99
+		culture = werewolf_culture
+	}
+}
+
+# WEREWOLF.100 - Werewolf Discouraged
+character_event = {
+	id = WEREWOLF.100
+	desc = EVTDESC_WEREWOLF.100
+	picture = GFX_evt_child_play
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_WEREWOLF.100
+		opinion = { who = FROM modifier = opinion_horrified years = 3 }
+		father = { reverse_opinion = { who = ROOT modifier = opinion_horrified years = 3 } }
+		mother = { reverse_opinion = { who = ROOT modifier = opinion_horrified years = 3 } }
+	}
+}
+
+# WEREWOLF.101 - Start wolf heritage childhood event
+character_event = {
+	id = WEREWOLF.101
+	hide_window = yes
+	
+	min_age = 6
+	max_age = 11
+	prisoner = no
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		trait = pup
+		OR = {
+			NOT = { has_dlc = Conclave }
+			has_focus = focus_ch_heritage
+		}
+		OR = {
+			father = { trait = known_werewolf }
+			mother = { trait = known_werewolf }
+		}
+		NOT = { culture = werewolf_culture }
+		NOT = { has_character_flag = pup_culture_event }
+	}
+	
+	immediate = {
+		set_character_flag = pup_culture_event
+		# Ping educator for localization
+		educator = {
+			character_event = { id = WEREWOLF.102 }
+		}
+	}
+}
+
+character_event = {
+	id = WEREWOLF.102
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		FROM = {
+			character_event = { id = WEREWOLF.97 }
+		}
+	}
+}
+
+# WEREWOLF.103 - Found new noble werewolf clan
+character_event = {
+	id = WEREWOLF.103
+	desc = EVTDESC_WEREWOLF.103
+	picture = GFX_evt_powerful_ruler
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_WEREWOLF.103
+		create_bloodline = {
+			type = BL_werewolf_nobility
+		}
+	}
+}
+
+# Werewolf.104 - Unimportant landed werewolf marries an unimportant unlanded werewolf
+# Should help avoid werewolves breeding themselves to extinction, but less important than giants or dragons
+character_event = {
+	id = WEREWOLF.104
+	hide_window = yes
+	is_triggered_only = yes
+	
+	only_rulers = yes
+	ai = yes
+	min_age = 18
+	capable_only = yes
+	prisoner = no
+	in_command = no
+	
+	trigger = {
+		is_marriage_adult = yes
+		is_pregnant = no
+		NOR = {
+			trait = celibate
+			trait = horse
+			trait = cat
+		}
+		NOT = { is_ascetic_trigger = yes }
+		NOT = { has_character_flag = ai_flag_refuse_marriage }
+		NOT = { has_character_flag = cannot_marry }
+		can_marry = yes
+		is_undead = no
+		is_infertile = no
+		NOT = {
+			any_close_relative = { ai = no }
+		}
+		trait = werewolf
+		any_courtier = {
+			OR = {
+				AND = {
+					is_female = yes
+					ROOT = { is_female = no }
+				}
+				AND = {
+					is_female = no
+					ROOT = { is_female = yes }
+				}
+			}
+			ai = yes
+			is_consort = no
+			is_married = no
+			is_landed = no
+			is_marriage_adult = yes
+			is_pregnant = no
+			NOR = {
+				trait = celibate
+				trait = horse
+				trait = cat
+			}
+			NOT = { is_ascetic_trigger = yes }
+			NOT = { has_character_flag = ai_flag_refuse_marriage }
+			NOT = { has_character_flag = cannot_marry }
+			is_undead = no
+			is_infertile = no
+			NOT = {
+				any_close_relative = { ai = no }
+			}
+			trait = werewolf
+			can_marry = ROOT
+		}
+	}
+	
+	weight_multiplier = {
+		days = 1
+		modifier = {
+			factor = 0.75
+			trait = homosexual
+		}
+		modifier = {
+			factor = 0.9
+			trait = chaste
+		}
+		modifier = {
+			factor = 1.2
+			is_30 = yes
+		}
+		modifier = {
+			factor = 1.2
+			is_40 = yes
+		}
+	}
+	
+	immediate = {
+		any_courtier = {
+			limit = {
+				OR = {
+					AND = {
+						is_female = yes
+						ROOT = { is_female = no }
+					}
+					AND = {
+						is_female = no
+						ROOT = { is_female = yes }
+					}
+				}
+				ai = yes
+				is_consort = no
+				is_married = no
+				is_landed = no
+				is_marriage_adult = yes
+				is_pregnant = no
+				NOR = {
+					trait = celibate
+					trait = horse
+					trait = cat
+				}
+				NOT = { is_ascetic_trigger = yes }
+				NOT = { has_character_flag = ai_flag_refuse_marriage }
+				NOT = { has_character_flag = cannot_marry }
+				is_undead = no
+				is_infertile = no
+				NOT = {
+					any_close_relative = { ai = no }
+				}
+				trait = werewolf
+				can_marry = ROOT
+			}
+			score_value = {
+				value = 10
+				romantic_courtier_selection_score = yes
+				additive_modifier = {
+					value = 1
+					trait = underhanded_rogue
+				}
+				additive_modifier = {
+					value = 1
+					trait = charismatic_negotiator
+				}
+				additive_modifier = {
+					value = 2
+					trait = grey_eminence
+				}
+				additive_modifier = {
+					value = 1
+					trait = thrifty_clerk
+				}
+				additive_modifier = {
+					value = 2
+					trait = fortune_builder
+				}
+				additive_modifier = {
+					value = 3
+					trait = midas_touched
+				}
+				additive_modifier = {
+					value = -1
+					trait = scholarly_theologian
+				}
+				additive_modifier = {
+					value = -1
+					trait = mastermind_theologian
+				}
+				additive_modifier = {
+					value = -10
+					trait = syphilitic
+				}
+				additive_modifier = {
+					value = -10
+					trait = inbred
+				}
+				additive_modifier = {
+					value = 4
+					trait = strong
+				}
+				additive_modifier = {
+					value = -2
+					trait = weak
+				}
+				additive_modifier = {
+					value = 6
+					trait = genius
+				}
+				additive_modifier = {
+					value = 3
+					trait = quick
+				}
+				additive_modifier = {
+					value = 3
+					trait = fair
+				}
+				additive_modifier = {
+					value = 4
+					trait = hedonist
+				}
+				additive_modifier = {
+					value = -10
+					trait = has_aztec_disease
+				}
+			}
+			add_spouse = ROOT
+		}
+	}
+}
+
+# WEREWOLF.105 - Unimportant landed werewolf makes a concubine of an unimportant unlanded werewolf
+# Should help avoid werewolves breeding themselves to extinction, but less important than giants or dragons
+# This event assumes the default 3 concubines until better code exists to check if a character can take a concubine
+character_event = {
+	id = WEREWOLF.105
+	hide_window = yes
+	is_triggered_only = yes
+	
+	only_rulers = yes
+	ai = yes
+	min_age = 18
+	capable_only = yes
+	prisoner = no
+	in_command = no
+	
+	trigger = {
+		has_concubinage = yes
+		is_female = no
+		num_of_consorts < 3
+		is_marriage_adult = yes
+		NOR = {
+			trait = celibate
+			trait = horse
+			trait = cat
+		}
+		NOT = { is_ascetic_trigger = yes }
+		NOT = { has_character_flag = ai_flag_refuse_marriage }
+		NOT = { has_character_flag = cannot_marry }
+		is_undead = no
+		is_infertile = no
+		NOT = {
+			any_close_relative = { ai = no }
+		}
+		trait = werewolf
+		any_courtier = {
+			is_female = yes
+			ai = yes
+			is_consort = no
+			is_married = no
+			is_landed = no
+			is_marriage_adult = yes
+			is_pregnant = no
+			NOR = {
+				trait = celibate
+				trait = horse
+				trait = cat
+			}
+			NOT = { is_ascetic_trigger = yes }
+			NOT = { has_character_flag = ai_flag_refuse_concubinage }
+			is_undead = no
+			is_infertile = no
+			NOT = {
+				any_close_relative = { ai = no }
+			}
+			trait = werewolf
+		}
+	}
+	
+	weight_multiplier = {
+		days = 1
+		modifier = {
+			factor = 0.75
+			trait = homosexual
+		}
+		modifier = {
+			factor = 0.9
+			trait = chaste
+		}
+		modifier = {
+			factor = 1.2
+			is_30 = yes
+		}
+		modifier = {
+			factor = 1.2
+			is_40 = yes
+		}
+		modifier = {
+			factor = 0.5
+			is_married = no # Try to marry first
+		}
+	}
+	
+	immediate = {
+		any_courtier = {
+			limit = {
+				is_female = yes
+				ai = yes
+				is_consort = no
+				is_married = no
+				is_landed = no
+				is_marriage_adult = yes
+				is_pregnant = no
+				NOR = {
+					trait = celibate
+					trait = horse
+					trait = cat
+				}
+				NOT = { is_ascetic_trigger = yes }
+				NOT = { has_character_flag = ai_flag_refuse_concubinage }
+				is_undead = no
+				is_infertile = no
+				NOT = {
+					any_close_relative = { ai = no }
+				}
+				trait = werewolf
+			}
+			score_value = {
+				value = 10
+				romantic_courtier_selection_score = yes
+				additive_modifier = {
+					value = 1
+					trait = underhanded_rogue
+				}
+				additive_modifier = {
+					value = 1
+					trait = charismatic_negotiator
+				}
+				additive_modifier = {
+					value = 2
+					trait = grey_eminence
+				}
+				additive_modifier = {
+					value = 1
+					trait = thrifty_clerk
+				}
+				additive_modifier = {
+					value = 2
+					trait = fortune_builder
+				}
+				additive_modifier = {
+					value = 3
+					trait = midas_touched
+				}
+				additive_modifier = {
+					value = -1
+					trait = scholarly_theologian
+				}
+				additive_modifier = {
+					value = -1
+					trait = mastermind_theologian
+				}
+				additive_modifier = {
+					value = -10
+					trait = syphilitic
+				}
+				additive_modifier = {
+					value = -10
+					trait = inbred
+				}
+				additive_modifier = {
+					value = 4
+					trait = strong
+				}
+				additive_modifier = {
+					value = -2
+					trait = weak
+				}
+				additive_modifier = {
+					value = 6
+					trait = genius
+				}
+				additive_modifier = {
+					value = 3
+					trait = quick
+				}
+				additive_modifier = {
+					value = 3
+					trait = fair
+				}
+				additive_modifier = {
+					value = 4
+					trait = hedonist
+				}
+				additive_modifier = {
+					value = -10
+					trait = has_aztec_disease
+				}
+			}
+			add_spouse = ROOT
+		}
+	}
+}

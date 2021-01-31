@@ -1,0 +1,33 @@
+hre_feudal_elective = {
+	#ROOT = Current Title holder, FROM = Candidate, FROMFROM = Title, FROMFROMFROM = Null
+	candidate_trigger = {
+		NOT = { character = FROM } #Not the current ruler.
+		FROM = { 
+			NOT = { 
+				trait = refuses_imperium
+			} 
+		} 
+	}
+}
+
+byzantine_elective = {
+	candidate_trigger = {
+		NOT = { character = FROM } #Not the current ruler.
+		FROM = { 
+			NOT = { 
+				trait = refuses_imperium_byz
+			} 
+		} 
+	}
+}
+
+feudal_elective = {
+	candidate_trigger = {
+		NOT = { character = FROM}
+		FROM = {
+			NOT = {
+				trait = refuses_the_crown
+			}
+		}
+	}
+}

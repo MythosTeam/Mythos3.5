@@ -1,0 +1,28 @@
+651.1.1={
+	holder=268302 #Davakonus
+}
+895.6.1={	
+	liege=k_africa
+	holder=163096 #Some Arab
+}
+909.1.1={
+	liege=0
+	holder=268302 #Taken Back
+}
+1127.1.1={
+	liege=d_sicily
+	holder=211502 #Roger I of Sicily
+}
+1140.1.1={
+	holder=268302 #Taken back again
+}
+1230.12.25={
+	liege=k_trinacria #Early Founding of Trinacria
+}
+1262.2.4={
+	liege=0 #Crusaders land and lay waste to Blackrock, captured dynasty members are put to the sword, those who can flee do so
+}
+1262.2.5={
+	holder=30409 #Teutons set up home in the ruins of the Basalt Fortress.
+}
+

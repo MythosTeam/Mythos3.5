@@ -1,0 +1,41 @@
+# 33 - Faereyar
+
+# County Title
+title = c_faereyar
+
+# Settlements
+max_settlements = 2
+b_skansin = castle
+#b_torshavn = city
+b_kirkjubour = temple
+
+#b_funningur = castle
+#b_kvivik = castle
+#b_sandur = castle
+#b_hov = castle
+#b_klaksvik = castle
+
+# Misc
+culture = draconic	
+religion = draconic_pagan
+terrain = mountain
+
+# History
+700.1.1 = {
+	b_skansin = ca_shipyard_1
+	b_skansin = ca_shipyard_2
+	b_skansin = ca_dragon_militia_1
+	b_skansin = ca_dragon_vault_1
+}
+800.1.1 = {
+	b_skansin = ca_wall_q_1
+	b_skansin = ca_barracks_1
+}
+885.1.1={
+	culture = norse
+	religion = norse_pagan
+}
+1000.1.1 = {
+	religion = catholic
+} 
+1066.1.1 = { culture = norwegian }

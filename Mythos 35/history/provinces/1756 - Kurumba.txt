@@ -1,0 +1,26 @@
+# 1756 - Kurumba
+
+# County Title
+title = c_kurumba
+
+# Settlements
+max_settlements = 3
+b_kissi = tribal
+
+#b_aribinda
+#b_dori
+#b_douentza
+
+# Misc
+culture = undead_zombie
+religion = the_damned
+
+# History
+860.1.1 = {
+	culture = songhay
+	religion = west_african_pagan
+}
+1300.1.1 = { religion = sunni }
+1300.1.1 = {
+	b_kissi = castle
+}

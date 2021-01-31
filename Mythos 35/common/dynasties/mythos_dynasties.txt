@@ -1,0 +1,2781 @@
+1048999 = {
+	name="Vilkolakis"
+	culture="lithuanian"
+	coat_of_arms = {
+		data = { 0 1 0 2 5 1 10 }
+		religion="baltic_pagan"
+	}
+}
+1049001 = {
+	name="Veidimadr"
+	culture = jotunn
+	used_for_random = no
+	coat_of_arms= {
+		data= { 0 1 0 8 1 12 11 }
+		religion="norse_pagan"
+	}
+}
+1049002 = {
+	name="Menpehtire"
+	culture = egyptian
+	used_for_random = no
+	coat_of_arms= {
+		data= { 0 0 0 16 7 1 8 }
+		religion="kemetic_pagan"
+	}
+}
+1049003 = {
+	name="Ambrosius"
+	culture = welsh
+	used_for_random = no
+	coat_of_arms= {
+		data= { 0 2 0 41 9 1 6 }
+		religion="catholic"
+	}
+}
+1049004 = {
+	name="van Helsing"
+	culture = dutch
+	used_for_random = no
+	coat_of_arms = {
+        template = 3
+        layer = {
+            texture = 0
+            texture_internal = 11
+            emblem = 0
+            color = 1
+            color = 3
+            color = 6
+        }
+        layer = {
+            texture = 0
+            texture_internal = 36
+            emblem = 19
+            color = 8
+            color = 2
+            color = 12
+        }
+        layer = {
+            texture = 4
+            texture_internal = 36
+            emblem = 0
+            color = 0
+            color = 2
+            color = 3
+        }
+        layer = {
+            texture = 4
+            texture_internal = 36
+            emblem = 0
+            color = 0
+            color = 2
+            color = 0
+        }
+		religion="catholic"
+	}
+}
+1049005 = {
+	name="Olympiad"
+	culture = greek
+	used_for_random = no
+	coat_of_arms= {
+		data= { 0 3 0 18 0 6 8 }
+		religion="hellenic_pagan"
+	}
+}
+1049006 = {
+	name="Æsir"
+	culture = norse
+	used_for_random = no
+	coat_of_arms= {
+		data= { 0 1 0 3 1 5 2 }
+		religion="norse_pagan"
+	}
+}
+1049007 = {
+	name="Lagarfljótsormur"
+	culture = draconic
+	used_for_random = no
+	coat_of_arms= {
+		data= { 0 2 0 29 1 0 7 }
+		religion="draconic_pagan"
+	}
+}
+1049008 = {
+	name = "Vanir"
+	culture = norse
+	used_for_random = no
+	coat_of_arms = {
+        template = 2
+        layer = {
+            texture = 0
+            texture_internal = 30
+            emblem = 0
+            color = 3
+            color = 1
+            color = 7
+        }
+        layer = {
+            texture = 0
+            texture_internal = 30
+            emblem = 0
+            color = 1
+            color = 3
+            color = 2
+        }
+		religion = norse_pagan
+    }
+}
+1049009 = {
+	name = Fárbautison
+	culture = norse
+	used_for_random = no
+}
+1049010 = {
+	name = Nepsdóttir
+	culture = norse
+	used_for_random = no
+}
+1049011 = {
+	name = Linormr
+	culture = draconic
+	used_for_random = no
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 1
+			texture_internal = 1
+			color = 2
+			color = 9
+			color = 12
+		}
+	}
+}
+1049100 = {
+	name="Drac"
+	culture="draconic"
+	coat_of_arms = {
+		data = { 0 3 0 29 13 7 1 }
+		religion="draconic_pagan"
+	}
+}
+1049101 = {
+	name="Vibria"
+	coat_of_arms = {
+		data = { 0 1 0 1 1 2 0 }
+		religion="draconic_pagan"
+	}
+}
+1049102 = {
+	name="Bisterne"
+	coat_of_arms = {
+		data = { 0 1 0 4 3 1 2 }
+		religion="draconic_pagan"
+	}
+}
+1049103 = {
+	name="Bignor"
+	culture="draconic"
+	coat_of_arms = {
+		data = { 0 0 6 1 3 1 2 }
+		religion="draconic_pagan"
+	}
+}
+1049104 = {
+	name="Goch"
+	coat_of_arms = {
+		data = { 0 0 21 1 2 1 13 }
+		religion="draconic_pagan"
+	}
+}
+1049105 = {
+	name="Zomok"
+	coat_of_arms = {
+		data = { 0 0 15 3 2 1 13 }
+		religion="draconic_pagan"
+	}
+}
+1049106 = {
+	name="Sárkány"
+	coat_of_arms = {
+		data = { 0 0 17 6 1 6 13 }
+		religion="draconic_pagan"
+	}
+}
+1049107 = {
+	name="Naga"
+	coat_of_arms = {
+		data = { 0 0 17 13 14 4 1 }
+		religion="draconic_pagan"
+	}
+}
+1049108 = {
+	name="Wyvern"
+	coat_of_arms = {
+		data = { 0 0 0 23 2 3 1 }
+		religion="draconic_pagan"
+	}
+}
+1049109 = {
+	name="Zmey"
+	coat_of_arms = {
+		data = { 0 0 4 1 5 2 11 }
+		religion="draconic_pagan"
+	}
+}
+1049110 = {
+	name="Zmiy"
+	coat_of_arms = {
+		data = { 0 0 17 14 2 0 13 }
+		religion="draconic_pagan"
+	}
+}
+1049111 = {
+	name="Zmij"
+	coat_of_arms = {
+		data = { 0 0 1 8 13 2 9 }
+		religion="draconic_pagan"
+	}
+}
+1049112 = {
+	name="Vishap"
+	coat_of_arms = {
+		data = { 0 0 13 12 5 2 13 }
+		religion="draconic_pagan"
+	}
+}
+1049113 = {
+	name="Balaur"
+	culture="draconic"
+	coat_of_arms = {
+		data = { 1 2 0 2 2 13 2 1 0 15 9 5 2 }
+		religion="draconic_pagan"
+	}
+}
+1049114 = {
+	name="Zburator"
+	coat_of_arms = {
+		data = { 1 0 0 28 9 5 8 0 0 28 5 6 10 }
+		religion="draconic_pagan_reformed"
+	}
+}
+1049115 = {
+	name="Vere Celen"
+	culture="draconic"
+	coat_of_arms = {
+		data = { 3 0 0 28 1 5 8 0 0 28 5 4 10 0 0 28 5 4 10 0 0 28 1 5 8 }
+		religion="draconic_pagan"
+	}
+}
+1049116 = {
+	name="Cuélebre"
+	coat_of_arms = {
+		data = { 3 0 0 28 5 13 13 0 0 28 5 3 3 0 0 28 5 3 3 0 0 28 5 13 13 }
+		religion="draconic_pagan"
+	}
+}
+1049117 = {
+	name="Bolla"
+	culture="draconic"
+	coat_of_arms = {
+		data = { 0 0 18 12 4 11 10 }
+		religion="draconic_pagan"
+	}
+}
+1049118 = {
+	name="Kulshedra"
+	culture="draconic"
+	coat_of_arms = {
+		data = { 0 1 21 8 12 1 4 }
+		religion="draconic_pagan"
+	}
+}
+1049119 = {
+	name="Dreq"
+	coat_of_arms = {
+		data = { 0 0 0 27 0 12 9 }
+		religion="draconic_pagan_reformed"
+	}
+}
+1049120 = {
+	name="Drákon"
+	culture="greek"
+	coat_of_arms = {
+		data = { 0 0 0 38 1 10 9 }
+		religion="draconic_pagan"
+	}
+}
+1049121 = {
+	name="Zilant"
+	culture="draconic"
+	coat_of_arms = {
+		data = { 0 0 0 18 4 1 0 }
+		religion="draconic_pagan_reformed"
+	}
+}
+1049122 = {
+	name="Ejderha"
+	coat_of_arms = {
+		data = { 0 2 0 17 4 6 1 }
+		religion="draconic_pagan"
+	}
+}
+1049123 = {
+	name="Evren"
+	culture="draconic"
+	coat_of_arms = {
+		data = { 0 1 0 1 11 1 12 }
+		religion="draconic_pagan"
+	}
+}
+1049124 = {
+	name="Slibinas"
+	coat_of_arms = {
+		data = { 0 0 15 37 2 8 6 }
+		religion="draconic_pagan"
+	}
+}
+1049125 = {
+	name="Knucker"
+	coat_of_arms = {
+		data = { 0 3 0 29 4 2 4 }
+		religion="draconic_pagan"
+	}
+}
+1049126 = {
+	name="Lagarfljótsormurinn"
+	coat_of_arms = {
+		data = { 0 1 21 9 7 3 1 }
+		religion="draconic_pagan"
+	}
+}
+1049127 = {
+	name="Hydra"
+	coat_of_arms = {
+		data = { 0 2 0 0 4 0 5 }
+		religion="draconic_pagan"
+	}
+}
+1049128 = {
+	name="Illuyankas"
+	coat_of_arms = {
+		data = { 0 2 0 30 2 13 6}
+		religion="draconic_pagan"
+	}
+}
+1049129 = {
+	name="Gorynych"
+	coat_of_arms = {
+		data = { 1 1 0 0 7 3 2 0 0 40 3 1 5 }
+		religion="draconic_pagan"
+	}
+}
+1049130 = {
+	name="Graoully"
+	culture="draconic"
+	coat_of_arms = {
+		data = { 1 1 0 0 12 6 1 1 0 9 1 12 6 }
+		religion="draconic_pagan_reformed"
+	}
+}
+1049131 = {
+	name="Guivres"
+	coat_of_arms = {
+		data = { 1 1 0 0 9 12 1 1 2 10 3 8 0 }
+		religion="draconic_pagan"
+	}
+}
+1049132 = {
+	name="Lotan"
+	culture="draconic"
+	coat_of_arms = {
+		data = { 1 1 0 11 1 3 9 1 0 3 3 7 9 }
+	}
+}
+1049133 = {
+	name="Mushussu"
+	coat_of_arms = {
+		data = { 2 0 0 44 6 1 0 0 0 44 6 0 10 }
+		religion="draconic_pagan"
+	}
+}
+1049134 = {
+	name="Python"
+	coat_of_arms = {
+		data = { 2 1 0 16 9 1 12 0 0 9 9 12 1 }
+		religion="draconic_pagan_reformed"
+	}
+}
+1049135 = {
+	name="Wawelski"
+	coat_of_arms = {
+		data = { 0 1 0 1 10 0 7 }
+		religion="draconic_pagan"
+	}
+}
+1049136 = {
+	name="Sirrusu"
+	coat_of_arms = {
+		data = { 0 1 21 10 1 12 1 }
+		religion="draconic_pagan_reformed"
+	}
+}
+1049137 = {
+	name="Typhon"
+	coat_of_arms = {
+		data = { 0 0 13 27 0 1 7 }
+		religion="draconic_pagan"
+	}
+}
+1049138 = {
+	name="Vritra"
+	coat_of_arms = {
+		data = { 0 0 6 33 8 0 7 }
+		religion="draconic_pagan_reformed"
+	}
+}
+1049139 = {
+	name="Yam"
+	coat_of_arms = {
+		data = { 0 0 22 44 5 3 1 }
+		religion="draconic_pagan"
+	}
+}
+1049140 = {
+	name="Gorynych"
+	culture="draconic"
+}
+1049141 = {
+	name="Coca"
+	coat_of_arms = {
+		data = { 0 1 15 15 3 1 10 }
+		religion="draconic_pagan"
+	}
+}
+1049142 = {
+	name="Tepes"
+	culture="romanian"
+	    coat_of_arms = {
+        template = 3
+        layer = {
+            texture = 4
+            texture_internal = 17
+            emblem = 0
+            color = 1
+            color = 2
+            color = 3
+        }
+        layer = {
+            texture = 0
+            texture_internal = 8
+            emblem = 0
+            color = 0
+            color = 3
+            color = 5
+        }
+        layer = {
+            texture = 2
+            texture_internal = 2
+            emblem = 14
+            color = 1
+            color = 2
+            color = 2
+        }
+        layer = {
+            texture = 0
+            texture_internal = 8
+            emblem = 0
+            color = 0
+            color = 3
+            color = 1
+        }
+		religion="satanist"
+	}
+}
+1049143 = {
+	name="Dracul"
+	culture="vampire_culture"
+	    coat_of_arms = {
+        template = 3
+        layer = {
+            texture = 4
+            texture_internal = 17
+            emblem = 0
+            color = 1
+            color = 3
+            color = 3
+        }
+        layer = {
+            texture = 0
+            texture_internal = 8
+            emblem = 0
+            color = 12
+            color = 7
+            color = 5
+        }
+        layer = {
+            texture = 2
+            texture_internal = 2
+            emblem = 14
+            color = 1
+            color = 3
+            color = 3
+        }
+        layer = {
+            texture = 0
+            texture_internal = 8
+            emblem = 0
+            color = 12
+            color = 7
+            color = 1
+        }
+		religion="satanist"
+	}
+}
+1049000 = {
+	name ="Draculesti"
+	culture ="romanian"
+	    coat_of_arms = {
+        template = 3
+        layer = {
+            texture = 4
+            texture_internal = 17
+            emblem = 0
+            color = 1
+            color = 5
+            color = 3
+        }
+        layer = {
+            texture = 0
+            texture_internal = 8
+            emblem = 0
+            color = 5
+            color = 3
+            color = 5
+        }
+        layer = {
+            texture = 2
+            texture_internal = 2
+            emblem = 21
+            color = 1
+            color = 5
+            color = 5
+        }
+        layer = {
+            texture = 0
+            texture_internal = 8
+            emblem = 0
+            color = 5
+            color = 3
+            color = 1
+        }
+		religion="satanist"
+	}
+}
+1049144 = {
+	name="Zarovich"
+	culture="vampire_culture"
+	    coat_of_arms = {
+        template = 1
+        layer = {
+            texture = 4
+            texture_internal = 15
+            emblem = 0
+            color = 1
+            color = 5
+            color = 3
+        }
+        layer = {
+            texture = 0
+            texture_internal = 8
+            emblem = 0
+            color = 5
+            color = 2
+            color = 5
+        }
+		religion="satanist"
+	}
+}
+1049145 = {
+	name="Markov"
+	culture="vampire_culture"
+	    coat_of_arms = {
+        template = 2
+        layer = {
+            texture = 4
+            texture_internal = 35
+            emblem = 0
+            color = 1
+            color = 5
+            color = 3
+        }
+        layer = {
+            texture = 4
+            texture_internal = 29
+            emblem = 0
+            color = 3
+            color = 2
+            color = 5
+        }
+		religion="satanist"
+	}
+}
+1049146 = {
+	name="Shtriga"
+	coat_of_arms = {
+		data = { 0 1 0 3 3 2 5 }
+		religion="satanist"
+	}
+}
+1049147 = {
+	name="Strigoi"
+	culture="romanian"
+	coat_of_arms = {
+		data = { 1 1 0 3 1 3 5 4 0 20 5 3 5 }
+		religion="satanist"
+	}
+}
+1049149 = {
+	name="Upir"
+	coat_of_arms = {
+		data = { 1 0 0 0 3 1 7 4 0 24 3 1 5 }
+		religion="satanist"
+	}
+}
+1049150 = {
+	name="Dhampiraj"
+	coat_of_arms = {
+		data = { 0 1 18 3 13 11 5 }
+		religion="satanist"
+	}
+}
+1049151 = {
+	name="Vetalas"
+	culture="hindustani"
+	coat_of_arms = {
+		data = { 0 1 5 18 12 2 3 }
+		religion="satanist"
+	}
+}
+1049152 = {
+	name="Varney"
+	culture="english"
+	coat_of_arms = {
+		data = { 0 2 0 11 2 2 1 }
+		religion="satanist"
+	}
+}
+1049153 = {
+	name="Orlok"
+	culture="vampire_culture"
+	coat_of_arms = {
+		data = { 0 2 0 5 1 1 2 }
+		religion="satanist"
+	}
+}
+	
+1049154 = {
+	name="Carmilla"
+	coat_of_arms = {
+		data = { 0 0 1 35 1 11 11 }
+		religion="satanist"
+	}
+}
+1049155 = {
+	name="Pavle"
+	coat_of_arms = {
+		data = { 0 5 2 0 6 4 8 }
+		religion="satanist"
+	}
+}
+1049156 = {
+	name="Blautsauger"
+	culture="german"
+	coat_of_arms = {
+		data = { 0 2 0 11 1 3 5 }
+		religion="satanist"
+	}
+}
+1049157 = {
+	name="Kuzlak"
+	culture="croatian"
+	coat_of_arms = {
+		data = { 0 3 11 0 6 4 8 }
+		religion="satanist"
+	}
+}
+1049158 = {
+	name="Lugat"
+	culture="vampire_culture"
+	coat_of_arms = {
+		data = { 2 3 15 0 5 5 7 1 0 0 13 3 1 }
+		religion="satanist"
+	}
+}
+1049159 = {
+	name="Strzyga"
+	culture="severian"
+	coat_of_arms = {
+		data = { 2 0 0 5 7 1 9 1 0 8 7 1 7 }
+		religion="satanist"
+	}
+}
+1049160 = {
+	name="Vjesci"
+	culture="german"
+	coat_of_arms = {
+		data = { 2 1 19 1 9 11 8 1 22 8 9 5 3 }
+		religion="satanist"
+	}
+}
+1049161 = {
+	name="Wurdulac"
+	culture="russian"
+	coat_of_arms = {
+		data = { 4 1 9 0 3 5 11 2 0 9 12 4 1 2 0 22 5 9 9 }
+		religion="satanist"
+	}
+}
+1049162 = {
+	name = "Blacktooth"
+	culture="draconic"
+	coat_of_arms = {
+		data = { 0 1 0 14 5 3 2 }
+		religion="draconic_pagan"
+	}
+}
+1049163 = {
+	name = "Ember"
+	culture="draconic"
+	coat_of_arms = {
+		data = { 0 0 0 40 0 3 7 }
+		religion="draconic_pagan"
+	}
+}
+1049164 = {
+	name = "Æledfýr"
+	culture="draconic"
+	coat_of_arms = {
+		data = { 0 0 0 22 13 12 1 }
+		religion="draconic_pagan"
+	}
+}
+1049165 = {
+	name = "Bælád"
+	culture="draconic"
+	coat_of_arms = {
+		data = { 0 1 21 0 13 2 13 }
+		religion="draconic_pagan"
+	}
+}
+1049166 = {
+	name = "Blæstm"
+	culture="draconic"
+	coat_of_arms = {
+		data = { 0 0 17 35 1 11 13 }
+		religion="draconic_pagan"
+	}
+}
+1049167 = {
+	name = "Brand"
+	culture="draconic"
+	coat_of_arms = {
+		data = { 0 1 18 9 0 9 0 }
+		religion="draconic_pagan"
+	}
+}
+1049168 = {
+	name = "Bryne"
+	culture="draconic"
+	coat_of_arms = {
+		data = { 0 1 17 13 3 12 2 }
+		religion="draconic_pagan"
+	}
+}
+1049169 = {
+	name = "Bryneléoma"
+	culture="draconic"
+	coat_of_arms = {
+		data = { 0 1 14 1 4 12 2 }
+		religion="draconic_pagan"
+	}
+}
+1049170 = {
+	name = "Déaþlíeg"
+	culture="draconic"
+	coat_of_arms = {
+		data =  { 0 0 17 20 12 13 6 }
+		religion="draconic_pagan"
+	}
+}
+1049171 = {
+	name = "Héahfýr"
+	culture="draconic"
+	coat_of_arms = {
+		data =  { 0 0 18 21 8 4 5 }
+		religion="draconic_pagan"
+	}
+}
+1049172 = {
+	name = "Hildeléoma"
+	culture="draconic"
+	coat_of_arms = {
+		data =  { 0 0 3 6 11 1 1 }
+		religion="draconic_pagan"
+	}
+}
+1049173 = {
+	name = "Lígeleóht"
+	culture="draconic"
+	coat_of_arms = {
+		data =  { 0 1 0 8 4 1 13}
+		religion="draconic_pagan"
+	}
+}
+1049174 = {
+	name = "Belégan"
+	culture="draconic"
+	coat_of_arms = {
+		data =  { 0 0 0 13 13 10 5 }
+		religion="draconic_pagan"
+	}
+}
+1049175 = {
+	name = "Bilégan"
+	culture="draconic"
+	coat_of_arms = {
+		data =  { 0 1 4 15 12 1 5 }
+		religion="draconic_pagan"
+	}
+}
+1049176 = {
+	name = "Sowencan"
+	culture="draconic"
+	coat_of_arms = {
+		data =  { 0 2 0 9 11 13 0 }
+		religion="draconic_pagan"
+	}
+}
+1049177 = {
+	name = "Cynegold"
+	culture="draconic"
+	coat_of_arms = {
+		data =  { 0 0 0 28 0 9 2 }
+		religion="draconic_pagan"
+	}
+}
+1049178 = {
+	name = "Fætedsinc"
+	culture="draconic"
+	coat_of_arms = {
+		data =  { 0 1 21 13 9 3 3 }
+		religion="draconic_pagan"
+	}
+}
+1049179 = {
+	name = "Fætgold"
+	culture="draconic"
+	coat_of_arms = {
+		data =  { 0 0 12 35 13 5 11 }
+		religion="draconic_pagan"
+	}
+}
+1049180 = {
+	name = "Goldhord"
+	culture="draconic"
+	coat_of_arms = {
+		data =  { 0 0 14 3 7 1 1 }
+		religion="draconic_pagan"
+	}
+}
+1049181 = {
+	name = "Goldþéof"
+	culture="draconic"
+	coat_of_arms = {
+		data =  { 0 1 0 8 4 3 1 }
+		religion="draconic_pagan"
+	}
+}
+1049182 = {
+	name = "Gedolfen"
+	culture="draconic"
+	coat_of_arms = {
+		data =  { 0 2 0 5 12 1 4 }
+		religion="draconic_pagan"
+	}
+}
+1049183 = {
+	name = "Geofergylded"
+	culture="draconic"
+	coat_of_arms = {
+		data =  { 0 1 0 14 1 10 1}
+		religion="draconic_pagan"
+	}
+}
+1049184 = {
+	name = "Gescéod"
+	culture="draconic"
+	coat_of_arms = {
+		data =  { 0 0 0 34 0 10 1 }
+		religion="draconic_pagan"
+	}
+}
+1049185 = {
+	name = "Hleówfecter"
+	culture="draconic"
+	coat_of_arms = {
+		data =  { 0 0 14 27 4 12 6 }
+		religion="draconic_pagan"
+	}
+}
+1049186 = {
+	name = "Éastrodor"
+	culture="draconic"
+	coat_of_arms = {
+		data =  { 0 0 0 9 1 5 2 }
+		religion="draconic_pagan"
+	}
+}
+1049187 = {
+	name = "Fæsten"
+	culture="draconic"
+	coat_of_arms = {
+		data =  { 0 1 6 1 12 5 13 }
+		religion="draconic_pagan"
+	}
+}
+1049188 = {
+	name = "Norðrodor"
+	culture="draconic"
+	coat_of_arms = {
+		data =  { 0 1 19 4 1 4 12 }
+		religion="draconic_pagan"
+	}
+}
+1049189 = {
+	name = "Rodor"
+	culture="draconic"
+	coat_of_arms = {
+		data =  { 0 0 0 41 9 2 6 }
+		religion="draconic_pagan"
+	}
+}
+1049190 = {
+	name = "Swegl"
+	culture="draconic"
+	coat_of_arms = {
+		data =  { 1 0 3 19 13 13 8 1 22 10 8 12 6 }
+		religion="draconic_pagan"
+	}
+}
+1049191 = {
+	name = "Cleofa"
+	culture="draconic"
+	coat_of_arms = {
+		data =  { 1 1 0 9 1 3 7 0 0 23 13 4 10 }
+		religion="draconic_pagan"
+	}
+}
+1049192 = {
+	name = "Eorðhús"
+	culture="draconic"
+	coat_of_arms = {
+		data =  { 1 1 0 15 6 9 9 1 0 9 4 5 9 }
+		religion="draconic_pagan"
+	}
+}
+1049193 = {
+	name = "Cyneþrymm"
+	culture="draconic"
+	coat_of_arms = {
+		data =  { 1 1 0 4 1 4 3 1 0 0 2 1 2 }
+		religion="draconic_pagan"
+	}
+}
+1049194 = {
+	name = "Duguþ"
+	culture="draconic"
+	coat_of_arms = {
+		data =  { 1 2 0 2 6 9 1 1 0 9 6 9 1 }
+		religion="draconic_pagan"
+	}
+}
+1049195 = {
+	name = "Heofonwuldor"
+	culture="draconic"
+	coat_of_arms = {
+		data =  { 1 0 0 40 1 8 12 1 0 10 11 1 5 }
+		religion="draconic_pagan"
+	}
+}
+1049196 = {
+	name = "Herelof"
+	coat_of_arms = {
+		data =  { 2 1 0 0 5 1 0 0 0 41 0 5 1 }
+		religion="draconic_pagan"
+	}
+}
+1049197 = {
+	name = "Ríceter"
+	coat_of_arms = {
+		data =  { 2 1 0 8 9 1 2 1 0 11 13 2 1 }
+		religion="draconic_pagan"
+	}
+}
+1049198 = {
+	name = "Sweglwuldor"
+	culture="draconic"
+	coat_of_arms = {
+		data =  { 0 1 0 1 0 5 2 }
+		religion="draconic_pagan"
+	}
+}
+1049199 = {
+	name = "Þrymdóm"
+	culture="draconic"
+	coat_of_arms = {
+		data =  { 0 0 0 7 9 7 8 }
+		religion="draconic_pagan"
+	}
+}
+1049200 = {
+	name = "Þrymríce"
+	culture="draconic"
+	coat_of_arms = {
+		data =  { 0 1 23 5 1 5 5 }
+		religion="draconic_pagan"
+	}
+}
+1049201 = {
+	name = "Wuldorbéacn"
+	culture="draconic"
+	coat_of_arms = {
+		data =  { 0 1 6 6 5 11 4 }
+		religion="draconic_pagan"
+	}
+}
+1049202 = {
+	name = "Baal"
+	culture="demon_culture"
+	coat_of_arms = {
+        template = 2
+        layer = {
+            texture = 0
+            texture_internal = 10
+            emblem = 0
+            color = 7
+            color = 3
+            color = 1
+        }
+        layer = {
+            texture = 1
+            texture_internal = 1
+            emblem = 0
+            color = 7
+            color = 3
+            color = 7
+        }
+    }
+}
+1049203 = {
+	name = "Bael"
+	culture="demon_culture"
+	coat_of_arms = {
+        template = 2
+        layer = {
+            texture = 0
+            texture_internal = 10
+            emblem = 0
+            color = 7
+            color = 3
+            color = 1
+        }
+        layer = {
+            texture = 1
+            texture_internal = 5
+            emblem = 0
+            color = 7
+            color = 3
+            color = 7
+        }
+    }
+}
+1049204 = {
+	name = "Mainyu"
+	culture="demon_culture"
+	    coat_of_arms = {
+        template = 0
+        layer = {
+            texture = 0
+            texture_internal = 0
+            emblem = 0
+            color = 0
+            color = 3
+            color = 3
+        }
+    }
+}
+1049205 = {
+	name = "Manah"
+	culture="demon_culture"
+	coat_of_arms = {
+        template = 0
+        layer = {
+            texture = 2
+            texture_internal = 41
+            emblem = 0
+            color = 0
+            color = 7
+            color = 3
+        }
+    }
+}
+1049206 = {
+	name = "Utukku"
+	culture="demon_culture"
+	coat_of_arms = {
+        template = 0
+        layer = {
+            texture = 2
+            texture_internal = 37
+            emblem = 0
+            color = 2
+            color = 7
+            color = 3
+        }
+    }
+}
+1049207 = {
+	name = "Louvier"
+	culture="demon_culture"
+	coat_of_arms = {
+        template = 0
+        layer = {
+            texture = 2
+            texture_internal = 33
+            emblem = 0
+            color = 1
+            color = 7
+            color = 3
+        }
+    }
+}
+1049208 = {
+	name = "Maleficent"
+	culture="demon_culture"
+	coat_of_arms = {
+        template = 0
+        layer = {
+            texture = 2
+            texture_internal = 30
+            emblem = 0
+            color = 1
+            color = 7
+            color = 3
+        }
+    }
+}
+1049209 = {
+	name = "Maleficarum"
+	culture="demon_culture"
+	coat_of_arms = {
+        template = 0
+        layer = {
+            texture = 2
+            texture_internal = 29
+            emblem = 0
+            color = 4
+            color = 7
+            color = 3
+        }
+    }
+}
+1049210 = {
+	name = "Grigori"
+	culture="demon_culture"
+	coat_of_arms = {
+        template = 0
+        layer = {
+            texture = 2
+            texture_internal = 21
+            emblem = 0
+            color = 8
+            color = 7
+            color = 3
+        }
+    }
+}
+1049211 = {
+	name = "Ngepet"
+	culture="demon_culture"
+	coat_of_arms = {
+        template = 0
+        layer = {
+            texture = 2
+            texture_internal = 5
+            emblem = 0
+            color = 7
+            color = 7
+            color = 1
+        }
+    }
+}
+1049212 = {
+	name = "Ekron"
+	culture="demon_culture"
+	coat_of_arms = {
+        template = 0
+        layer = {
+            texture = 2
+            texture_internal = 4
+            emblem = 0
+            color = 5
+            color = 7
+            color = 3
+        }
+    }
+}
+1049213 = {
+	name = "Yaga"
+	culture="demon_culture"
+	coat_of_arms = {
+        template = 0
+        layer = {
+            texture = 2
+            texture_internal = 4
+            emblem = 0
+            color = 5
+            color = 7
+            color = 3
+        }
+    }
+}
+1049214 = {
+	name = "Ur"
+	culture="demon_culture"
+	coat_of_arms = {
+        template = 0
+        layer = {
+            texture = 2
+            texture_internal = 3
+            emblem = 0
+            color = 5
+            color = 7
+            color = 3
+        }
+    }
+}
+1049215 = {
+	name = "Sepid"
+	culture="demon_culture"
+	coat_of_arms = {
+        template = 0
+        layer = {
+            texture = 2
+            texture_internal = 2
+            emblem = 0
+            color = 5
+            color = 7
+            color = 3
+        }
+    }
+}
+1049216 = {
+	name = "Zenunim"
+	culture="demon_culture"
+	coat_of_arms = {
+        template = 0
+        layer = {
+            texture = 2
+            texture_internal = 0
+            emblem = 0
+            color = 5
+            color = 7
+            color = 3
+        }
+    }
+}
+1049217 = {
+	name = "Labolas"
+	culture="demon_culture"
+	coat_of_arms = {
+        template = 0
+        layer = {
+            texture = 1
+            texture_internal = 0
+            emblem = 0
+            color = 5
+            color = 7
+            color = 3
+        }
+    }
+}
+1049218 = {
+	name = "Lanka"
+	culture="demon_culture"
+	coat_of_arms = {
+        template = 0
+        layer = {
+            texture = 1
+            texture_internal = 4
+            emblem = 0
+            color = 5
+            color = 7
+            color = 3
+        }
+    }
+}
+1049219 = {
+	name = "Killakee"
+	culture="demon_culture"
+	coat_of_arms = {
+        template = 0
+        layer = {
+            texture = 1
+            texture_internal = 8
+            emblem = 0
+            color = 5
+            color = 7
+            color = 3
+        }
+    }
+}
+1049220 = {
+	name = "Rofocale"
+	culture="demon_culture"
+	coat_of_arms = {
+        template = 0
+        layer = {
+            texture = 1
+            texture_internal = 9
+            emblem = 0
+            color = 5
+            color = 7
+            color = 3
+        }
+    }
+}
+1049221 = {
+	name = "Rubricante"
+	culture="demon_culture"
+	coat_of_arms = {
+        template = 0
+        layer = {
+            texture = 1
+            texture_internal = 13
+            emblem = 0
+            color = 5
+            color = 7
+            color = 3
+        }
+    }
+}
+1049222 = {
+	name = "Sligstata"
+	culture="demon_culture"
+	coat_of_arms = {
+        template = 0
+        layer = {
+            texture = 1
+            texture_internal = 16
+            emblem = 0
+            color = 5
+            color = 7
+            color = 3
+        }
+    }
+}
+1049223 = {
+	name = "Griselbrand"
+	culture="demon_culture"
+	coat_of_arms = {
+        template = 0
+        layer = {
+            texture = 0
+            texture_internal = 2
+            emblem = 0
+            color = 5
+            color = 7
+            color = 3
+        }
+    }
+}
+1049224 = {
+	name = "Hastur"
+	culture="demon_culture"
+	coat_of_arms = {
+        template = 0
+        layer = {
+            texture = 0
+            texture_internal = 4
+            emblem = 0
+            color = 5
+            color = 7
+            color = 3
+        }
+    }
+}
+1049225 = {
+	name = "Laplace"
+	culture="demon_culture"
+	coat_of_arms = {
+        template = 0
+        layer = {
+            texture = 0
+            texture_internal = 12
+            emblem = 0
+            color = 5
+            color = 7
+            color = 3
+        }
+    }
+}
+1049226 = {
+	name = "Lord"
+	culture="demon_culture"
+	coat_of_arms = {
+        template = 0
+        layer = {
+            texture = 0
+            texture_internal = 12
+            emblem = 0
+            color = 5
+            color = 0
+            color = 3
+        }
+    }
+}
+1049227 = {
+	name = "Maxwell"
+	culture="demon_culture"
+	coat_of_arms = {
+        template = 0
+        layer = {
+            texture = 0
+            texture_internal = 14
+            emblem = 0
+            color = 5
+            color = 7
+            color = 3
+        }
+    }
+}
+1049228 = {
+	name = "Mord"
+	culture="demon_culture"
+	coat_of_arms = {
+        template = 0
+        layer = {
+            texture = 0
+            texture_internal = 30
+            emblem = 0
+            color = 3
+            color = 7
+            color = 3
+        }
+    }
+}
+1049229  = {
+	name="Davon"
+	culture = draconic
+	used_for_random = no
+	coat_of_arms= {
+		data= { 0 4 0 42 9 1 6 }
+		religion="catholic"
+	}
+}
+1049230 = {
+	name = "Lycaon"
+	culture = werewolf_culture
+	coat_of_arms = {
+        template = 0
+        layer = {
+            texture = 1
+            texture_internal = 5
+            emblem = 0
+            color = 1
+            color = 11
+            color = 8
+        }
+    }
+}
+1049231 = {
+	name = "Bisclavret"
+	culture = werewolf_culture
+    coat_of_arms = {
+        template = 1
+        layer = {
+            texture = 1
+            texture_internal = 0
+            emblem = 0
+            color = 1
+            color = 8
+            color = 9
+        }
+        layer = {
+            texture = 0
+            texture_internal = 0
+            emblem = 0
+            color = 1
+            color = 8
+            color = 9
+        }
+    }
+}
+1049232 = {
+	name = "Ulfhednar"
+	culture = werewolf_culture
+    coat_of_arms = {
+        template = 1
+        layer = {
+            texture = 0
+            texture_internal = 14
+            emblem = 0
+            color = 7
+            color = 9
+            color = 7
+        }
+        layer = {
+            texture = 1
+            texture_internal = 16
+            emblem = 0
+            color = 9
+            color = 1
+            color = 7
+        }
+    }
+}
+1049233 = {
+	name = "Dirks"
+	culture = werewolf_culture
+    coat_of_arms = {
+        template = 0
+        layer = {
+            texture = 0
+            texture_internal = 27
+            emblem = 1
+            color = 2
+            color = 3
+            color = 4
+        }
+    }
+}
+1049234 = {
+	name = "Martensen"
+	culture = werewolf_culture
+    coat_of_arms = {
+        template = 0
+        layer = {
+            texture = 0
+            texture_internal = 22
+            emblem = 2
+            color = 8
+            color = 2
+            color = 12
+        }
+    }
+}
+1049235 = {
+	name = "Stumpp"
+	culture = werewolf_culture
+    coat_of_arms = {
+        template = 0
+        layer = {
+            texture = 2
+            texture_internal = 35
+            emblem = 0
+            color = 1
+            color = 1
+            color = 12
+        }
+    }
+}
+1049236 = {
+	name = "van Calster"
+	culture = werewolf_culture
+    coat_of_arms = {
+        template = 0
+        layer = {
+            texture = 2
+            texture_internal = 36
+            emblem = 0
+            color = 3
+            color = 2
+            color = 6
+        }
+    }
+}
+1049237 = {
+	name = "Gardinn"
+	culture = werewolf_culture
+    coat_of_arms = {
+        template = 0
+        layer = {
+            texture = 2
+            texture_internal = 35
+            emblem = 0
+            color = 4
+            color = 3
+            color = 12
+        }
+    }
+}
+1049238 = {
+	name = "Baetens"
+	culture = werewolf_culture
+    coat_of_arms = {
+        template = 0
+        layer = {
+            texture = 0
+            texture_internal = 41
+            emblem = 0
+            color = 13
+            color = 2
+            color = 8
+        }
+    }
+}
+1049239 = {
+	name = "de Moor"
+	culture = werewolf_culture
+    coat_of_arms = {
+        template = 0
+        layer = {
+            texture = 2
+            texture_internal = 35
+            emblem = 0
+            color = 3
+            color = 2
+            color = 13
+        }
+    }
+}
+1049240 = {
+	name = "Vindevogel"
+	culture = werewolf_culture
+    coat_of_arms = {
+        template = 0
+        layer = {
+            texture = 2
+            texture_internal = 2
+            emblem = 20
+            color = 10
+            color = 0
+            color = 3
+        }
+    }
+}
+1049241 = {
+	name = "Stoop"
+	culture = werewolf_culture
+    coat_of_arms = {
+        template = 0
+        layer = {
+            texture = 0
+            texture_internal = 10
+            emblem = 7
+            color = 13
+            color = 2
+            color = 3
+        }
+    }
+}
+1049242 = {
+	name = "Garnier"
+	culture = werewolf_culture
+    coat_of_arms = {
+        template = 0
+        layer = {
+            texture = 2
+            texture_internal = 2
+            emblem = 0
+            color = 0
+            color = 1
+            color = 7
+        }
+    }
+}
+1049243 = {
+	name = "Loup"
+	culture = werewolf_culture
+    coat_of_arms = {
+        template = 0
+        layer = {
+            texture = 3
+            texture_internal = 36
+            emblem = 0
+            color = 9
+            color = 12
+            color = 6
+        }
+    }
+}
+1049244 = {
+	name = "Lubins"
+	culture = werewolf_culture
+    coat_of_arms = {
+        template = 0
+        layer = {
+            texture = 0
+            texture_internal = 6
+            emblem = 9
+            color = 1
+            color = 5
+            color = 10
+        }
+    }
+}
+1049245 = {
+	name = "Vaud"
+	culture = werewolf_culture
+    coat_of_arms = {
+        template = 0
+        layer = {
+            texture = 1
+            texture_internal = 17
+            emblem = 0
+            color = 3
+            color = 9
+            color = 10
+        }
+    }
+}
+1049246 = {
+	name = "Grando"
+	culture = vampire_culture
+    coat_of_arms = {
+        template = 0
+        layer = {
+            texture = 2
+            texture_internal = 0
+            emblem = 0
+            color = 7
+            color = 1
+            color = 0
+        }
+    }
+}
+1049247 = {
+	name = "Alilovic"
+	culture = vampire_culture
+    coat_of_arms = {
+        template = 0
+        layer = {
+            texture = 0
+            texture_internal = 17
+            emblem = 0
+            color = 1
+            color = 3
+            color = 10
+        }
+    }
+}
+1049248 = {
+	name = "Blagojevich"
+	culture = vampire_culture
+    coat_of_arms = {
+        template = 0
+        layer = {
+            texture = 0
+            texture_internal = 36
+            emblem = 0
+            color = 2
+            color = 3
+            color = 6
+        }
+    }
+}
+1049249 = {
+	name = "Cecar"
+	culture = vampire_culture
+}
+1049250 = {
+	name = "Savanovic"
+	culture = vampire_culture
+    coat_of_arms = {
+        template = 0
+        layer = {
+            texture = 0
+            texture_internal = 31
+            emblem = 13
+            color = 0
+            color = 6
+            color = 10
+        }
+    }
+}
+1049251 = {
+	name = "Mamuwalde"
+	culture = vampire_culture
+    coat_of_arms = {
+        template = 0
+        layer = {
+            texture = 2
+            texture_internal = 35
+            emblem = 0
+            color = 1
+            color = 9
+            color = 1
+        }
+    }
+}
+1049252 = {
+	name = "Ruthven"
+	culture = vampire_culture
+    coat_of_arms = {
+        template = 0
+        layer = {
+            texture = 1
+            texture_internal = 9
+            emblem = 0
+            color = 1
+            color = 13
+            color = 12
+        }
+    }
+}
+1049253 = {
+	name = "Karnstein"
+	culture = vampire_culture
+    coat_of_arms = {
+        template = 0
+        layer = {
+            texture = 0
+            texture_internal = 30
+            emblem = 5
+            color = 1
+            color = 13
+            color = 12
+        }
+    }
+}
+1049254 = {
+	name = "Varney"
+	culture = vampire_culture
+    coat_of_arms = {
+        template = 0
+        layer = {
+            texture = 0
+            texture_internal = 28
+            emblem = 13
+            color = 8
+            color = 0
+            color = 8
+        }
+    }
+}
+1049255 = {
+	name = "Majnun"
+	culture = djinni
+	    coat_of_arms = {
+        template = 0
+        layer = {
+            texture = 3
+            texture_internal = 16
+            emblem = 0
+            color = 1
+            color = 4
+            color = 8
+        }
+    }
+}
+1049256 = {
+	name = "Ginnaya"
+	culture = djinni
+	    coat_of_arms = {
+        template = 0
+        layer = {
+            texture = 3
+            texture_internal = 17
+            emblem = 0
+            color = 0
+            color = 2
+            color = 8
+        }
+    }
+}
+1049257 = {
+	name = "Amir"
+	culture = djinni
+	    coat_of_arms = {
+        template = 0
+        layer = {
+            texture = 3
+            texture_internal = 37
+            emblem = 0
+            color = 4
+            color = 2
+            color = 8
+        }
+    }
+}
+1049258 = {
+	name = "Effrit"
+	culture = djinni
+	    coat_of_arms = {
+        template = 0
+        layer = {
+            texture = 3
+            texture_internal = 29
+            emblem = 0
+            color = 3
+            color = 2
+            color = 8
+        }
+    }
+}
+1049259 = {
+	name = "Marid"
+	culture = djinni
+	    coat_of_arms = {
+        template = 0
+        layer = {
+            texture = 3
+            texture_internal = 39
+            emblem = 0
+            color = 1
+            color = 6
+            color = 8
+        }
+    }
+}
+1049260 = {
+	name = "Sila"
+	culture = djinni
+}
+1049261 = {
+	name = "al-Aswad"
+	culture = djinni
+}
+1049262 = {
+	name = "Zawba'a"
+	culture = djinni
+}
+1049263 = {
+	name = "Al-Mudhib"
+	culture = djinni
+}
+1049264 = {
+	name = "al-Harith"
+	culture = djinni
+}
+1049265 = {
+	name = "al-Ahmar"
+	culture = djinni
+}
+1049266 = {
+	name = "al-Adja'yb"
+	culture = djinni
+}
+1049267 = {
+	name = "Shamhurish"
+	culture = djinni
+}
+1049268 = {
+	name = "Maimun"
+	culture = djinni
+}
+1049269 = {
+	name = "al-Nur"
+	culture = djinni
+}
+1049430 = {
+	name = "al-Tayyar"
+	culture = djinni
+}
+1049270 = {
+	name = "Serendib"
+	culture = djinni
+}
+1049271 = {
+	name = "Hyrokkin"
+	culture = jotunn
+}
+1049272 = {
+	name = "Nott"
+	culture = jotunn
+}
+1049273 = {
+	name = "Dagr"
+	culture = jotunn
+}
+1049274 = {
+	name = "Suttung"
+	culture = jotunn
+}
+1049275 = {
+	name = "Annar"
+	culture = jotunn
+}
+1049276 = {
+	name = "Baugi"
+	culture = jotunn
+}
+1049277 = {
+	name = "Borr"
+	culture = jotunn
+}
+1049278 = {
+	name = "Eggther"
+	culture = jotunn
+}
+1049279 = {
+	name = "Gang"
+	culture = jotunn
+}
+1049280 = {
+	name = "Mokkurkalfi"
+	culture = jotunn
+}
+1049281 = {
+	name = "Thokk"
+	culture = jotunn
+}
+1049282 = {
+	name = "McFadden"
+	culture = ethereal_culture
+}
+1049283 = {
+	name = "Marley"
+	culture = ethereal_culture
+}
+1049284 = {
+	name = "Boleyn"
+	culture = ethereal_culture
+}
+1049285 = {
+	name = "Gregg"
+	culture = ethereal_culture
+}
+1049286 = {
+	name = "Cutwater"
+	culture = ethereal_culture
+}
+1049287 = {
+	name = "Collins"
+	culture = ethereal_culture
+}
+1049288 = {
+	name = "Brogan"
+	culture = ethereal_culture
+}
+1049289 = {
+	name = "Glourie"
+	culture = ethereal_culture
+}
+1049290 = {
+	name = "Warren"
+	culture = ethereal_culture
+}
+1049291 = {
+	name = "Canterville"
+	culture = ethereal_culture
+}
+1049292 = {
+	name = "Edinburgh"
+	culture = ethereal_culture
+}
+1049293 = {
+	name = "Poveglia"
+	culture = ethereal_culture
+}
+1049294 = {
+	name = "Hoia-Baciu"
+	culture = ethereal_culture
+}
+1049295 = {
+	name = "Houska"
+	culture = ethereal_culture
+}
+1049296 = {
+	name = "Moosham"
+	culture = ethereal_culture
+}
+1049297 = {
+	name = "Leap"
+	culture = ethereal_culture
+}
+1049298 = {
+	name = "Akershus"
+	culture = ethereal_culture
+}
+1049299 = {
+	name = "Brissac"
+	culture = ethereal_culture
+}
+1049300 = {
+	name = "Raynham"
+	culture = ethereal_culture
+}
+1049301 = {
+	name = "Hasdeu"
+	culture = ethereal_culture
+}
+1049302 = {
+	name = "Close"
+	culture = ethereal_culture
+}
+1049303 = {
+	name = "Dragsholm"
+	culture = ethereal_culture
+}
+1049304 = {
+	name = "White"
+	culture = ethereal_culture
+	coat_of_arms = {
+		template = 0
+        layer = {
+            texture = 0
+            texture_internal = 0
+            emblem = 0
+            color = 1 # White
+            color = 1
+            color = 1
+        }
+    }
+}
+1049305 = {
+	name = "Blue"
+	culture = ethereal_culture
+	coat_of_arms = {
+		template = 0
+        layer = {
+            texture = 0
+            texture_internal = 0
+            emblem = 0
+            color = 2 # Blue
+            color = 2
+            color = 2
+        }
+    }
+}
+1049306 = {
+	name = "Brown"
+	culture = ethereal_culture
+	coat_of_arms = {
+		template = 0
+        layer = {
+            texture = 0
+            texture_internal = 0
+            emblem = 0
+            color = 12 # Brown
+            color = 12
+            color = 12
+        }
+    }
+}
+1049307 = {
+	name = "Grey"
+	culture = ethereal_culture
+}
+1049308 = {
+	name = "Black"
+	culture = ethereal_culture
+	coat_of_arms = {
+		template = 0
+        layer = {
+            texture = 0
+            texture_internal = 0
+            emblem = 0
+            color = 5 # Black
+            color = 5
+            color = 5
+        }
+    }
+}
+1049309 = {
+	name = "Vantoase"
+	culture = ethereal_culture
+}
+1049310 = {
+	name = Ålleberg
+	culture = ethereal_culture
+}
+1049311 = {
+	name = Hepburn
+	culture = ethereal_culture
+}
+1049312 = {
+	name = Bathory
+	culture = ethereal_culture
+}
+1049313 = {
+	name = "de Ogen"
+	culture = ethereal_culture
+}
+1049314 = {
+	name = "LeChuck"
+	culture = ethereal_culture
+}
+1049315 = {
+	name = "Pijavica"
+	culture = undead_cold_ones
+}
+1049316 = {
+	name = "Strzyga"
+	culture = undead_cold_ones
+}
+1049317 = {
+	name = "Besomar"
+	culture = undead_cold_ones
+}
+1049318 = {
+	name = "Drekavac"
+	culture = undead_cold_ones
+}
+1049319 = {
+	name = "Milosnitse"
+	culture = undead_cold_ones
+}
+1049320 = {
+	name = "Nav"
+	culture = undead_cold_ones
+}
+1049321 = {
+	name = "Nezhit"
+	culture = undead_cold_ones
+}
+1049322 = {
+	name = "Chuma"
+	culture = undead_cold_ones
+}
+1049323 = {
+	name = "Petrovs"
+	culture = undead_cold_ones
+}
+1049324 = {
+	name = "Fazekas"
+	culture = undead_cold_ones
+}
+1049325 = {
+	name = "Chikatilo"
+	culture = undead_cold_ones
+}
+1049326 = {
+	name = "Gjenganger"
+	culture = undead_aptrganger
+}
+1049327 = {
+	name = "Wiederganger"
+	culture = undead_aptrganger
+}
+1049328 = {
+	name = "Gjenferf"
+	culture = undead_aptrganger
+}
+1049329 = {
+	name = "Nachzehrer"
+	culture = undead_aptrganger
+}
+1049330 = {
+	name = "Aufhocker"
+	culture = undead_aptrganger
+}
+1049331 = {
+	name = "Huckop"
+	culture = undead_aptrganger
+}
+1049332 = {
+	name = "Lovgren"
+	culture = undead_aptrganger
+}
+1049333 = {
+	name = "Pétursson"
+	culture = undead_aptrganger
+}
+1049334 = {
+	name = "Axlar-Björn"
+	culture = undead_aptrganger
+}
+1049335 = {
+	name = "Haugbui"
+	culture = undead_draugr
+}
+1049336 = {
+	name = "Glamr"
+	culture = undead_draugr
+}
+1049337 = {
+	name = "Nesset"
+	culture = undead_draugr
+}
+1049338 = {
+	name = "Nilsson"
+	culture = undead_draugr
+}
+1049339 = {
+	name = "Hansson"
+	culture = undead_draugr
+}
+1049340 = {
+	name = "Lindback"
+	culture = undead_draugr
+}
+1049341 = {
+	name = "Ansky"
+	culture = undead_dybbuk
+}
+1049342 = {
+	name = "Hizonim"
+	culture = undead_dybbuk
+}
+1049343 = {
+	name = "Luria"
+	culture = undead_dybbuk
+}
+1049344 = {
+	name = "Vital"
+	culture = undead_dybbuk
+}
+1049345 = {
+	name = "Fetya"
+	culture = undead_dybbuk
+}
+1049346 = {
+	name = "Zevi"
+	culture = undead_dybbuk
+}
+1049347 = {
+	name = "Ghala"
+	culture = undead_ghoul
+}
+1049348 = {
+	name = "Vathek"
+	culture = undead_ghoul
+}
+1049349 = {
+	name = "Gallu"
+	culture = undead_ghoul
+}
+1049350 = {
+	name = "Galland"
+	culture = undead_ghoul
+}
+1049351 = {
+	name = "Qutrub"
+	culture = undead_ghoul
+}
+1049352 = {
+	name = "Mesfewi"
+	culture = undead_ghoul
+}
+1049353 = {
+	name = "Bijeh"
+	culture = undead_ghoul
+}
+1049354 = {
+	name = "Nahavandi"
+	culture = undead_ghoul
+}
+1049355 = {
+	name = "Sjövættir"
+	culture = undead_wight
+}
+1049356 = {
+	name = "Illvatte"
+	culture = undead_wight
+}
+1049357 = {
+	name = "Johnson"
+	culture = undead_wight
+}
+1049358 = {
+	name = "Chapman"
+	culture = undead_wight
+}
+1049359 = {
+	name = "Cotton"
+	culture = undead_wight
+}
+1049360 = {
+	name = "Erskine"
+	culture = undead_wight
+}
+1049361 = {
+	name = "Grieveson"
+	culture = undead_wight
+}
+1049362 = {
+	name = "Haigh"
+	culture = undead_wight
+}
+1049363 = {
+	name = "Maudsley"
+	culture = undead_wight
+}
+1049364 = {
+	name = "Shipman"
+	culture = undead_wight
+}
+1049365 = {
+	name = "Kelly"
+	culture = undead_wight
+}
+1049366 = {
+	name = "Zumbi"
+	culture = undead_zombie
+}
+1049367 = {
+	name = "Xidachane"
+	culture = undead_zombie
+}
+1049368 = {
+	name = "Maduxwane"
+	culture = undead_zombie
+}
+1049369 = {
+	name = "Zikode"
+	culture = undead_zombie
+}
+1049370 = {
+	name = "Simelane"
+	culture = undead_zombie
+}
+1049371 = {
+	name = "Nivome"
+	culture = undead_zombie
+}
+1049372 = {
+	name = "Zimri"
+	culture = undead_zombie
+}
+1049373 = {
+	name = "Aswang"
+	culture = undead_vetala
+}
+1049374 = {
+	name = "Sagar"
+	culture = undead_vetala
+}
+1049375 = {
+	name = "Betal"
+	culture = undead_vetala
+}
+1049376 = {
+	name = "Konkan"
+	culture = undead_vetala
+}
+1049377 = {
+	name = "Behram"
+	culture = undead_vetala
+}
+1049378 = {
+	name = "Jaishankar"
+	culture = undead_vetala
+}
+1049379 = {
+	name = "Koli"
+	culture = undead_vetala
+}
+1049380 = {
+	name = "Pol"
+	culture = undead_vetala
+}
+1049381 = {
+	name = "Yadav"
+	culture = undead_vetala
+}
+1049382 = {
+	name = "Sobhraj"
+	culture = undead_vetala
+}
+1049383 = {
+	name = "Apotropaic"
+	culture = undead_vrykolakas
+}
+1049384 = {
+	name = "Allatius"
+	culture = undead_vrykolakas
+}
+1049385 = {
+	name = "Empusa"
+	culture = undead_vrykolakas
+}
+1049386 = {
+	name = "Aeschylus"
+	culture = undead_vrykolakas
+}
+1049387 = {
+	name = "Daglis"
+	culture = undead_vrykolakas
+}
+1049388 = {
+	name = "Vakrinos"
+	culture = undead_vrykolakas
+}
+1049389 = {
+	name = "Heraclid"
+	culture = undead_vrykolakas
+}
+1049390 = {
+	name = "Callippus"
+	culture = undead_vrykolakas
+}
+1049391 = {
+	name = "Mavromichalis"
+	culture = undead_vrykolakas
+}
+1049392 = {
+	name = "Schinas"
+	culture = undead_vrykolakas
+}
+1049393 = {
+	name = "West"
+	culture = undead_revenant
+}
+1049394 = {
+	name = "Frankenstein"
+	culture = undead_revenant
+}
+1049395 = {
+	name = "Romero"
+	culture = undead_revenant
+}
+1049396 = {
+	name = "Cooke"
+	culture = undead_revenant
+}
+1049397 = {
+	name = "Karlov"
+	culture = undead_revenant
+}
+1049398 = {
+	name = "Russo"
+	culture = undead_revenant
+}
+1049399 = {
+	name = "Rais"
+	culture = undead_revenant
+}
+1049400 = {
+	name = "Stumpp"
+	culture = undead_revenant
+}
+1049401 = {
+	name = "Niers"
+	culture = undead_revenant
+}
+1049402 = {
+	name = "Genipperteinga"
+	culture = undead_revenant
+}
+1049403 = {
+	name = "Monvoisin"
+	culture = undead_revenant
+}
+1049404 = {
+	name = "Martin"
+	culture = undead_revenant
+}
+1049405 = {
+	name = "Gein"
+	culture = undead_revenant
+}
+1049406 = {
+	name = "Garwlwyd"
+	culture = welsh
+	used_for_random = no
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 2
+			texture_internal = 35
+			color = 0
+			color = 1
+			color = 4
+		}
+	}
+}
+1049407={
+	name = Bisclavret
+	culture = werewolf_culture
+	coat_of_arms = {
+		data = { 0 2 0 35 1 0 11 }
+		religion=catholic
+	}
+}
+1049408={
+	name = Wolver
+	culture = werewolf_culture
+	used_for_random = no
+	coat_of_arms = {
+		data = { 0 2 0 35 1 2 2 }
+		religion=catholic
+	}
+}
+1049409={
+	name = Savanovic
+	culture = vampire_culture
+	coat_of_arms = {
+		data = { 0 1 0 29 5 1 1 }
+		religion = slavic_pagan
+	}
+}
+1049410={
+	name = Estruc
+	culture = catalan
+	coat_of_arms={
+		data=
+		{ 0 1 8 0 5 7 3 }
+		religion="catholic"
+	}
+}
+1049411={
+	name=Karnstein
+	culture=german
+}
+1049412={
+	name=Za
+	culture=undead_zombie
+	coat_of_arms={
+		data={ 0 1 0 10 12 3 2 }
+	}
+}
+1049413={
+	name=Manalane
+	culture=undead_cold_ones
+	coat_of_arms={
+		data={ 0 1 0 11 9 12 2 }
+	}
+}
+1049414={
+	name=Baital
+	culture=undead_vetala
+	coat_of_arms={
+		data={ 0 1 0 12 7 1 5 }
+	}
+}
+1049415={
+	name=al-Hamwiyah
+	culture=undead_revenant
+	used_for_random=no
+	coat_of_arms={
+		data={ 0 1 0 13 5 12 2 }
+	}
+}
+1049416={
+	name=Kuzmich
+	culture=undead_revenant
+	coat_of_arms={
+		data={ 0 1 0 14 1 11 9 }
+	}
+}
+1049417={
+	name=Abruzzo
+	culture=undead_revenant
+	coat_of_arms={
+		data={ 0 1 0 14 5 12 2 }
+	}
+}
+1049418={
+	name=Efreet
+	culture=bedouin_arabic
+	used_for_random=no
+	coat_of_arms={
+		data={ 0 1 0 16 0 3 6 }
+	}
+}
+1049419={
+	name=Marid
+	culture=persian
+	religion=sunni
+	used_for_random=no
+	coat_of_arms={
+		data={ 0 1 0 17 3 0 6 }
+	}
+}
+1049420={
+	name=Hinn
+	culture=maghreb_arabic
+	religion=shiite
+	used_for_random=no
+	coat_of_arms={
+		data={ 0 1 0 23 0 6 3 }
+	}
+}
+1049421={
+	name=Gogmagog
+	culture=breton
+	used_for_random=no
+	coat_of_arms={
+		data={ 0 1 0 10 1 5 0 }
+	}
+}
+1049422={
+	name=Panoptes
+	culture=greek
+	religion=hellenic_pagan
+	used_for_random=no
+	coat_of_arms={
+		data={ 0 2 0 22 1 0 4 }
+	}
+}
+1049423={
+	name=Scarabaios
+	culture=greek
+	religion=hellenic_pagan
+	used_for_random=no
+	coat_of_arms={
+		data={ 0 2 0 19 1 4 0 }
+	}
+}
+1049424={
+	name=Ulfaldi
+	culture=jotunn
+	religion=jotnar
+	used_for_random=no
+	coat_of_arms={
+		data = { 0 2 0 5 1 2 3 }
+	}
+}
+1049425={
+	name=Birugderc
+	culture=irish
+	used_for_random=no
+	coat_of_arms={
+		data={ 0 2 0 20 1 4 0 }
+	}
+}
+1049426={
+	name=Rakshasa
+	religion=hindu
+	used_for_random=no
+	coat_of_arms={
+		data = { 0 2 0 1 0 1 3 }
+	}
+}
+1049427={
+	name=Daitya
+	religion=hindu
+	used_for_random=no
+	coat_of_arms={
+		data = { 0 2 0 2 2 1 3 }
+	}
+}
+1049428={
+	name=Peraldus
+	culture=draconic
+	used_for_random=no
+	coat_of_arms = {
+		data = { 0 2 0 28 0 2 6 }
+	}
+}
+1049429 = {
+	name = "Gangi"
+	culture="draconic"
+	used_for_random=no
+	coat_of_arms = {
+		data =  { 0 2 0 7 4 11 6 }
+		religion="buddhism"
+	}
+}
+# 1049430 used above
+1049431 = {
+	name = "Útgarða-Loki"
+	culture="jotunn"
+	used_for_random=no
+	coat_of_arms = {
+		data= { 0 1 0 7 1 12 11 }
+		religion="jotnar"
+	}
+}

@@ -1,0 +1,39 @@
+draconic_tribute = {
+	tributary_name = DRACONIC_TRIBUTE_NAME
+	tributary_plural = DRACONIC_TRIBUTE_PLURAL
+	suzerain_name = DRACONIC_TRIBUTE_SUZERAIN
+	tribute_name = DRACONIC_TRIBUTE_TRIBUTARY
+	breaks_at_suzerain_death = yes
+	breaks_at_tributary_death = no
+	suzerain_can_be_called = yes
+	suzerain_must_defend = no
+	tributary_can_be_summoned = yes
+	tributary_must_defend = no
+	tributaries_can_infight = yes
+	suzerain_can_join_infighting = no
+	tributaries_can_unite = yes
+	breaks_on_realm_change = yes
+	icon = 7
+	cbs_against_suzerain = {
+		free_tributary_cb
+		slay_monster
+	}
+	income_tribute_percentage = {
+		value = 0.6
+	}
+	reinforce_tribute_percentage = {
+		value = 0.1
+	}
+	prestige_to_suzerain = {
+		value = 0.5
+	}
+	prestige_to_tributary = {
+		value = -0.5
+	}
+	piety_to_suzerain = {
+		value = 0
+	}
+	piety_to_tributary = {
+		value = 0
+	}
+}

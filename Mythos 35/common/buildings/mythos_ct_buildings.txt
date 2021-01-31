@@ -1,0 +1,1046 @@
+city = {
+	
+	# Dragon
+	# Dragon holding building
+	ct_dragon_tribute_1 = {
+		desc = ct_dragon_tribute_1_desc
+		
+		potential = {
+			OR = {
+				holder_scope = {
+					OR = {
+						trait = dragon
+						trait = dragonborn
+						culture = draconic
+					}
+					OR = {
+						government = draconic_merchant_republic_government
+						government = merchant_republic_government
+					}
+				}
+				FROMFROM = {
+					has_building = ct_dragon_tribute_1
+					NOT = {
+						calc_true_if = {
+							amount = 1
+							has_building = ct_werewolf_court
+							has_building = ct_vampire_blood_warehouse
+							has_building = ct_giant_market
+							has_building = ca_god_pantheon
+							has_building = ca_mage_library
+							has_building = ct_mummy_temple_district
+							has_building = ct_djinni_town
+						}
+					}
+				}
+			}
+		}
+		trigger = {
+			TECH_CITY_CONSTRUCTION = 1
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		is_active_trigger = {
+			holder_scope = {
+				OR = {
+					trait = dragon
+					trait = dragonborn
+				}
+				OR = {
+					government = draconic_merchant_republic_government
+					government = merchant_republic_government
+				}
+			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		
+		prerequisites = { ct_marketplace_1 }
+		ai_creation_factor = 101
+		
+		tax_income = 3
+		monthly_character_prestige = 0.2
+		liege_prestige = 0.2
+		trade_route_value = 2
+		
+		gold_cost = 350
+		build_time = 350
+		extra_tech_building_start = 10.0
+	}
+	ct_dragon_tribute_2 = {
+		desc = ct_dragon_tribute_1_desc
+		
+		potential = {
+			OR = {
+				holder_scope = {
+					OR = {
+						trait = dragon
+						trait = dragonborn
+						culture = draconic
+					}
+					OR = {
+						government = draconic_merchant_republic_government
+						government = merchant_republic_government
+					}
+				}
+				FROMFROM = {
+					has_building = ct_dragon_tribute_2
+					NOT = {
+						calc_true_if = {
+							amount = 1
+							has_building = ct_werewolf_court
+							has_building = ct_vampire_blood_warehouse
+							has_building = ct_giant_market
+							has_building = ca_god_pantheon
+							has_building = ca_mage_library
+							has_building = ct_mummy_temple_district
+							has_building = ct_djinni_town
+						}
+					}
+				}
+			}
+		}
+		trigger = {
+			TECH_CITY_CONSTRUCTION = 3
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		is_active_trigger = {
+			holder_scope = {
+				OR = {
+					trait = dragon
+					trait = dragonborn
+				}
+				OR = {
+					government = draconic_merchant_republic_government
+					government = merchant_republic_government
+				}
+			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		
+		upgrades_from = ct_dragon_tribute_1
+		
+		prerequisites = { ct_marketplace_4 }
+		ai_creation_factor = 101
+		
+		tax_income = 4
+		monthly_character_prestige = 0.3
+		liege_prestige = 0.3
+		trade_route_value = 3
+		
+		gold_cost = 350
+		build_time = 350
+		extra_tech_building_start = 10.0
+	}
+	ct_dragon_guards = {
+		desc = ct_dragon_guards_desc
+		
+		potential = { culture = draconic }
+		trigger = {
+			culture = draconic
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+				OR = {
+					government = draconic_merchant_republic_government
+					government = merchant_republic_government
+				}
+			}
+		}
+		is_active_trigger = {
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+				OR = {
+					government = draconic_merchant_republic_government
+					government = merchant_republic_government
+				}
+			}
+		}
+		ai_creation_factor = 90
+		
+		gold_cost = 160
+		build_time = 200
+		
+		dragon_cavalry = 3
+		garrison_size = 0.2
+		
+		extra_tech_building_start = 2.0
+	}
+	
+	# Werewolf Holding
+	ct_werewolf_court = {
+		desc = ct_werewolf_court_desc
+		
+		potential = {
+			OR = {
+				holder_scope = {
+					OR = {
+						trait = werewolf
+						culture = werewolf_culture
+					}
+					OR = {
+						government = draconic_merchant_republic_government
+						government = merchant_republic_government
+					}
+				}
+				FROMFROM = {
+					has_building = ct_werewolf_court
+					NOT = {
+						calc_true_if = {
+							amount = 1
+							has_building = ct_dragon_tribute_1
+							has_building = ct_vampire_blood_warehouse
+							has_building = ct_giant_market
+							has_building = ca_god_pantheon
+							has_building = ca_mage_library
+							has_building = ct_mummy_temple_district
+							has_building = ct_djinni_town
+						}
+					}
+				}
+			}
+		}
+		trigger = {
+			TECH_CITY_CONSTRUCTION = 1
+			holder_scope = {
+				culture = werewolf_culture
+				trait = known_werewolf
+			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		is_active_trigger = {
+			holder_scope = {
+				trait = known_werewolf
+				culture = werewolf_culture
+				OR = {
+					government = draconic_merchant_republic_government
+					government = merchant_republic_government
+				}
+			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		ai_creation_factor = 100
+		
+		tax_income = 2
+		garrison_size = 0.2
+		local_revolt_risk = -0.02
+		culture_techpoints = 0.02
+		military_techpoints = 0.01
+		
+		gold_cost = 225
+		build_time = 350
+		
+		extra_tech_building_start = 10.0
+	}
+	ct_werewolf_guards = {
+		desc = ct_werewolf_guards_desc
+		
+		potential = { culture = werewolf_culture }
+		trigger = {
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+				OR = {
+					government = draconic_merchant_republic_government
+					government = merchant_republic_government
+				}
+			}
+		}
+		is_active_trigger = {
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+				OR = {
+					government = draconic_merchant_republic_government
+					government = merchant_republic_government
+				}
+			}
+		}
+		ai_creation_factor = 90
+		
+		lycan_berzerkers = 20
+		garrison_size = 0.15
+		
+		gold_cost = 100
+		build_time = 120
+		
+		
+		extra_tech_building_start = 2.0
+	}
+	# Vampire Holding
+	ct_vampire_blood_warehouse = {
+		desc = ct_vampire_blood_warehouse_desc
+		
+		potential = {
+			OR = {
+				holder_scope = {
+					trait = vampire
+					OR = {
+						government = draconic_merchant_republic_government
+						government = merchant_republic_government
+					}
+				}
+				FROMFROM = {
+					has_building = ct_vampire_blood_warehouse
+					NOT = {
+						calc_true_if = {
+							amount = 1
+							has_building = ct_dragon_tribute_1
+							has_building = ct_werewolf_court
+							has_building = ct_giant_market
+							has_building = ca_god_pantheon
+							has_building = ca_mage_library
+							has_building = ct_mummy_temple_district
+							has_building = ct_djinni_town
+						}
+					}
+				}
+			}
+		}
+		trigger = {
+			TECH_CITY_CONSTRUCTION = 1
+			holder_scope = {
+				trait = vampire
+				OR = {
+					government = draconic_merchant_republic_government
+					government = merchant_republic_government
+				}
+			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		is_active_trigger = {
+			holder_scope = {
+				trait = known_vampire
+				OR = {
+					government = draconic_merchant_republic_government
+					government = merchant_republic_government
+				}
+			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		ai_creation_factor = 99
+		
+		supply_limit = 2
+		land_organisation = 0.1
+		vampires_morale = 0.1
+		
+		gold_cost = 225
+		build_time = 400
+		
+		extra_tech_building_start = 10.0
+	}
+	
+	ct_vampire_noble_captains = {
+		desc = ct_vampire_noble_captains_desc
+		
+		potential = { culture = vampire_culture }
+		trigger = {
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+				OR = {
+					government = draconic_merchant_republic_government
+					government = merchant_republic_government
+				}
+			}
+		}
+		is_active_trigger = {
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+				OR = {
+					government = draconic_merchant_republic_government
+					government = merchant_republic_government
+				}
+			}
+		}
+		
+		ai_creation_factor = 90
+		
+		vampires = 8
+		garrison_size = 0.1
+		
+		gold_cost = 50
+		build_time = 150
+		
+		extra_tech_building_start = 2.0
+	}
+	
+	# Giant Holding
+	ct_giant_market = {
+		desc = ct_giant_market_desc
+		
+		potential = {
+			OR = {
+				holder_scope = {
+					OR = {
+						trait = mythos_giant
+						trait = half_giant
+					}
+					OR = {
+						government = draconic_merchant_republic_government
+						government = merchant_republic_government
+					}
+				}
+				FROMFROM = {
+					has_building = ct_giant_market
+					NOT = {
+						calc_true_if = {
+							amount = 1
+							has_building = ct_dragon_tribute_1
+							has_building = ct_werewolf_court
+							has_building = ct_vampire_blood_warehouse
+							has_building = ct_mummy_temple_district
+							has_building = ct_djinni_town
+						}
+					}
+				}
+			}
+		}
+		trigger = {
+			holder_scope = { trait = mythos_giant }
+			TECH_CITY_CONSTRUCTION = 1
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		is_active_trigger = {
+			holder_scope = {
+				OR = {
+					trait = mythos_giant
+					trait = half_giant
+				}
+				OR = {
+					government = draconic_merchant_republic_government
+					government = merchant_republic_government
+				}
+			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		
+		ai_creation_factor = 100
+		
+		tax_income = 4
+		tradevalue = 10
+		siege_defence = 0.1
+		supply_limit = 1
+		
+		gold_cost = 225
+		build_time = 350
+		extra_tech_building_start = 10.0
+	}
+	
+	# Gods
+	ct_gods_pantheon = {
+		desc = ct_gods_pantheon_desc
+		
+		potential = { 
+			OR = {
+				holder_scope = {
+					AND = {
+						OR = {
+							trait = god
+							trait = demi_god
+						}
+						follows_polytheistic_religion = yes
+					}
+					OR = {
+						government = draconic_merchant_republic_government
+						government = merchant_republic_government
+					}
+				}
+				FROMFROM = {
+					has_building = ct_gods_pantheon
+				}
+			}
+		}
+		trigger = {
+			holder_scope = {
+				OR = {
+					trait = god
+					trait = demi_god
+				}
+				OR = {
+					government = draconic_merchant_republic_government
+					government = merchant_republic_government
+				}
+			}
+			TECH_CITY_CONSTRUCTION = 1
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		is_active_trigger = {
+			holder_scope = {
+				OR = {
+					trait = god
+					trait = demi_god
+					trait = blood_of_the_gods
+					any_owned_bloodline = { has_bloodline_flag = BOTG }
+				}
+				OR = {
+					government = draconic_merchant_republic_government
+					government = merchant_republic_government
+				}
+			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}		 
+		
+		prerequisites = { ct_wall_1 }
+		ai_creation_factor = 100
+		
+		fort_level = 0.5
+		tax_income = 2
+		monthly_character_piety = 1.0
+		land_morale = 0.1
+		
+		gold_cost = 350
+		build_time = 350
+		
+		extra_tech_building_start = 10.0
+	}
+	# Mage Holding
+	ct_mage_library = {
+		desc = ct_mage_library_desc
+		
+		potential = {
+			OR = {
+				holder_scope = {
+					OR = {
+						trait = novice_mage
+						trait = eldritch_scholar
+						trait = veteran_wizard
+						trait = arcane_master
+					}
+					OR = {
+						government = draconic_merchant_republic_government
+						government = merchant_republic_government
+					}
+				}
+				FROMFROM = { has_building = tb_mage_library }
+			}
+		}
+		trigger = {
+			holder_scope = {
+				OR = {
+					trait = novice_mage
+					trait = eldritch_scholar
+					trait = veteran_wizard
+					trait = arcane_master
+				}
+				OR = {
+					government = draconic_merchant_republic_government
+					government = merchant_republic_government
+				}
+			}
+			TECH_CITY_CONSTRUCTION = 1
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		is_active_trigger = {
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+				OR = {
+					government = draconic_merchant_republic_government
+					government = merchant_republic_government
+				}
+			}
+		}
+		
+		ai_creation_factor = 95
+		
+		fort_level = 1
+		land_morale = 0.1
+		levy_reinforce_rate = 0.1
+		monthly_character_prestige = 0.15
+		
+		gold_cost = 250
+		build_time = 450
+		
+		extra_tech_building_start = 10.0
+	}
+	
+	# Mummy Holding
+	ct_mummy_temple_district = {
+		desc = ct_mummy_temple_district_desc
+		
+		potential = {
+			OR = {
+				holder_scope = {
+					trait = mummy
+					OR = {
+						government = draconic_merchant_republic_government
+						government = merchant_republic_government
+					}
+				}
+				FROMFROM = {
+					has_building = ct_mummy_temple_district
+					NOT = {
+						calc_true_if = {
+							amount = 1
+							has_building = ct_dragon_tribute_1
+							has_building = ct_werewolf_court
+							has_building = ct_vampire_blood_warehouse
+							has_building = ct_giant_market
+							has_building = ct_djinni_town
+						}
+					}
+				}
+			}
+		}
+		trigger = {
+			holder_scope = {
+				trait = mummy
+				OR = {
+					government = draconic_merchant_republic_government
+					government = merchant_republic_government
+				}
+			}
+			TECH_CITY_CONSTRUCTION = 1
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		is_active_trigger = {
+			holder_scope = { trait = mummy }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+				OR = {
+					government = draconic_merchant_republic_government
+					government = merchant_republic_government
+				}
+			}
+		}
+		prerequisites = { ct_wall_2 }
+		ai_creation_factor = 101
+		
+		fort_level = 0.5
+		heavy_infantry = 40
+		monthly_character_piety = 0.5
+		siege_defence = 0.2
+		
+		gold_cost = 250
+		build_time = 350
+		extra_tech_building_start = 10.0
+	}
+	
+	# Djinn Holding
+	ct_djinni_town = {
+		desc = ct_djinni_town_desc
+		
+		potential = {
+			OR = {
+				holder_scope = {
+					trait = djinn
+					OR = {
+						government = draconic_merchant_republic_government
+						government = merchant_republic_government
+					}
+				}
+				FROMFROM = {
+					has_building = ct_mummy_temple_district
+					NOT = {
+						calc_true_if = {
+							amount = 1
+							has_building = ct_dragon_tribute_1
+							has_building = ct_werewolf_court
+							has_building = ct_vampire_blood_warehouse
+							has_building = ct_giant_market
+							has_building = ct_mummy_temple_district
+						}
+					}
+				}
+			}
+		}
+		trigger = {
+			holder_scope = { trait = djinn }
+			TECH_CITY_CONSTRUCTION = 1
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+				OR = {
+					government = draconic_merchant_republic_government
+					government = merchant_republic_government
+				}
+			}
+		}
+		is_active_trigger = {
+			holder_scope = {
+				trait = djinn
+				OR = {
+					government = draconic_merchant_republic_government
+					government = merchant_republic_government
+				}
+			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		prerequisites = { ca_wall_2 }
+		ai_creation_factor = 101
+		
+		supply_limit = 2
+		disease_defence = 0.1
+		tax_income = 2
+		
+		gold_cost = 250
+		build_time = 350
+		extra_tech_building_start = 10.0
+	}
+	# Magic Focus
+	ct_mage_tower_enchantment = {
+		desc = ct_mage_tower_enchantment_desc
+		
+		potential = {
+			FROMFROM = {
+				# Only appears it you have it.  Built by event
+				has_building = ct_mage_tower_enchantment
+			}
+		}
+		trigger = {
+			FROMFROM = {
+				# Only appears it you have it.  Built by event
+				has_building = ct_mage_tower_enchantment
+			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		is_active_trigger = {
+			holder_scope = {
+				OR = {
+					trait = enchanter
+					any_owned_bloodline = {
+						has_bloodline_flag = all_towers
+					}
+				}
+			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		not_if_x_exists = {
+			ct_mage_tower_conjuration
+			ct_mage_tower_alchemy
+			ct_mage_tower_herbalism
+			ca_mage_tower_conjuration
+			ca_mage_tower_alchemy
+			ca_mage_tower_herbalism
+		}
+		gold_cost = 1000
+		build_time = 1000
+		local_revolt_risk = -0.1
+		tax_income = 0.5
+		monthly_character_prestige = 0.5
+		monthly_character_piety = 0.5
+		local_build_time_modifier = -0.02
+		local_build_cost_modifier = -0.02
+		vassal_opinion = 5
+		garrison_size = 0.1
+	}
+	ct_mage_tower_conjuration = {
+		desc = ct_mage_tower_conjuration_desc
+		
+		potential = {
+			FROMFROM = {
+				# Only appears it you have it.  Built by event
+				has_building = ct_mage_tower_conjuration
+			}
+		}
+		trigger = {
+			FROMFROM = {
+				# Only appears it you have it.  Built by event
+				has_building = ct_mage_tower_conjuration
+			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		is_active_trigger = {
+			holder_scope = {
+				OR = {
+					trait = summoner
+					any_owned_bloodline = {
+						has_bloodline_flag = all_towers
+					}
+				}
+			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		not_if_x_exists = {
+			ct_mage_tower_enchantment
+			ct_mage_tower_alchemy
+			ct_mage_tower_herbalism
+			ca_mage_tower_conjuration
+			ca_mage_tower_alchemy
+			ca_mage_tower_herbalism
+		}
+		gold_cost = 1000
+		build_time = 1000
+		monthly_character_prestige = 0.5
+		monthly_character_piety = 0.5
+		local_build_time_modifier = -0.02
+		local_build_cost_modifier = -0.02
+		levy_size = 0.05
+		levy_reinforce_rate = 0.1
+		retinuesize = 200
+		etherial_soldiers = 20
+	}
+	ct_mage_tower_alchemy = {
+		desc = ct_mage_tower_alchemy_desc
+		
+		potential = {
+			FROMFROM = {
+				# Only appears it you have it.  Built by event
+				has_building = ct_mage_tower_alchemy
+			}
+		}
+		trigger = {
+			FROMFROM = {
+				# Only appears it you have it.  Built by event
+				has_building = ct_mage_tower_alchemy
+			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		is_active_trigger = {
+			holder_scope = {
+				OR = {
+					trait = alchemist
+					any_owned_bloodline = {
+						has_bloodline_flag = all_towers
+					}
+				}
+			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		not_if_x_exists = {
+			ct_mage_tower_enchantment
+			ct_mage_tower_conjuration
+			ct_mage_tower_herbalism
+			ca_mage_tower_conjuration
+			ca_mage_tower_alchemy
+			ca_mage_tower_herbalism
+		}
+		gold_cost = 1000
+		build_time = 1000
+		monthly_character_prestige = 0.5
+		monthly_character_piety = 0.5
+		local_build_time_modifier = -0.02
+		local_build_cost_modifier = -0.05
+		tax_income = 2
+		local_tax_modifier = 0.1
+		supply_limit = 0.02
+		tradevalue = 5
+	}
+	ct_mage_tower_herbalism = {
+		desc = ct_mage_tower_herbalism_desc
+		
+		potential = {
+			FROMFROM = {
+				# Only appears it you have it.  Built by event
+				has_building = ct_mage_tower_herbalism
+			}
+		}
+		trigger = {
+			FROMFROM = {
+				# Only appears it you have it.  Built by event
+				has_building = ct_mage_tower_herbalism
+			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		is_active_trigger = {
+			holder_scope = {
+				OR = {
+					trait = herbalist
+					any_owned_bloodline = {
+						has_bloodline_flag = all_towers
+					}
+				}
+			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		not_if_x_exists = {
+			ct_mage_tower_enchantment
+			ct_mage_tower_conjuration
+			ct_mage_tower_alchemy
+			ca_mage_tower_conjuration
+			ca_mage_tower_alchemy
+			ca_mage_tower_herbalism
+		}
+		gold_cost = 1000
+		build_time = 1000
+		monthly_character_prestige = 0.5
+		monthly_character_piety = 0.5
+		disease_defence = 0.1
+		levy_reinforce_rate = 0.05
+		land_morale = 0.08
+		supply_limit = 0.15
+		global_winter_supply = 0.05
+	}
+	ct_mage_tower_necromancy = {
+		desc = ca_mage_tower_necromancy_desc
+		
+		potential = {
+			FROMFROM = {
+				# Only appears it you have it.  Built by event
+				has_building = ct_mage_tower_necromancy
+			}
+		}
+		trigger = {
+			FROMFROM = {
+				# Only appears it you have it.  Built by event
+				has_building = ct_mage_tower_necromancy
+			}
+		}
+		is_active_trigger = {
+			holder_scope = {
+				OR = {
+					trait = necromancer
+					any_owned_bloodline = {
+						has_bloodline_flag = all_towers
+					}
+				}
+			}
+		}
+		not_if_x_exists = {
+			ca_mage_tower_enchantment
+			ca_mage_tower_conjuration
+			ca_mage_tower_alchemy
+			ca_mage_tower_herbalism
+			ca_mage_tower_necromancy
+			ct_mage_tower_enchantment
+			ct_mage_tower_conjuration
+			ct_mage_tower_alchemy
+			ct_mage_tower_herbalism
+		}
+		gold_cost = 1000
+		build_time = 1000
+		monthly_character_prestige = -0.5
+		monthly_character_piety = 0.5
+		levy_reinforce_rate = 0.1
+		the_damned_opinion = 20
+		zombie_troops = 100
+		zombie_troops_offensive = 0.1
+		zombie_troops_defensive = 0.1
+		garrison_size = 0.3
+	}
+}

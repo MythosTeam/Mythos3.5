@@ -1,0 +1,943 @@
+decisions = {
+
+	convert_draconic_merchant_republic = {
+		only_independent = yes
+		is_high_prio = yes
+		
+		potential = {
+			is_playable = yes
+			is_tribal = yes
+			independent = yes
+			has_dlc = "The Republic"
+			government = draconic_tribal_government
+		}
+		allow = {
+			wealth = 500 # Doesn't COST gold, just requires it
+			custom_tooltip = { text = gold_not_spent }
+			war = no
+			is_female = no
+			higher_tier_than = COUNT
+			primary_title = { has_law = tribal_organization_4 }
+			primary_title = { has_law = tribal_organization_4 }
+			capital_scope = {
+				port = yes
+			}
+			capital_holding = {
+				OR = {
+					AND = {
+						holding_type = tribal
+						has_building = tb_market_town_4
+					}
+					holding_type = city
+				}
+			}
+			custom_tooltip = {
+				text = four_independent_tributes
+				hidden_tooltip = {
+					any_independent_ruler = {
+						pays_tribute_to = ROOT
+						count = 4
+					}
+				}
+			}
+			
+		}
+		
+		effect = {
+			hidden_tooltip = {
+				record_MR_conversion_buildings = yes
+				create_family_palace = yes
+				convert_fp_buildings = yes
+				clear_MR_conversion_flags = yes
+				
+				set_government_type = draconic_merchant_republic_government
+				
+				primary_title = {
+					save_event_target_as = new_republic
+				}
+				
+				# Create 4 new patrician families based on your tributes
+				random_independent_ruler = {
+					limit = { pays_tribute_to = ROOT }
+					save_event_target_as = tribute_1
+					create_character = {
+						age = 27
+						attributes = {
+							martial = 5
+							diplomacy = 4
+							stewardship = 5
+							intrigue = 12
+							learning = 6
+						}
+						random_traits = yes
+						female = no
+						employer = event_target:new_republic
+						religion = THIS
+						culture = THIS
+						dynasty = random
+						race = THIS
+					}
+					new_character = {
+						wealth = 100
+						#culture = PREV
+						#set_graphical_culture = PREV
+						#religion = PREV
+						create_character = {
+							age = 24
+							attributes = {
+								martial = 5
+								diplomacy = 6
+								stewardship = 12
+								intrigue = 5
+								learning = 4
+							}
+							random_traits = yes
+							female = yes
+							employer = event_target:new_republic
+							religion = PREV
+							culture = PREV
+							dynasty = random
+							race = PREV
+						}
+						new_character = {
+							add_spouse = PREV
+							create_character = {
+								age = 6
+								random_traits = yes
+								female = no
+								employer = event_target:new_republic
+								religion = PREV
+								culture = PREV
+								dynasty = PREVPREV
+								genetic_father = PREVPREV
+								genetic_mother = PREVPREV
+								race = PREV
+							}
+							new_character = {
+								set_mother = PREV
+								set_father = PREVPREV
+							}
+						}
+						
+					reverse_opinion = { modifier = opinion_happy who = PREV years = 5 }
+					create_family_palace = yes
+					}
+				}
+				random_independent_ruler = {
+					limit = { 
+						pays_tribute_to = ROOT
+						NOT = { character = event_target:tribute_1 }
+					}
+					save_event_target_as = tribute_2
+					create_character = {
+						age = 28
+						attributes = {
+							martial = 4
+							diplomacy = 6
+							stewardship = 12
+							intrigue = 6
+							learning = 5
+						}
+						random_traits = yes
+						female = no
+						employer = event_target:new_republic
+						religion = THIS
+						culture = THIS
+						dynasty = random
+						race = THIS
+					}
+					new_character = {
+						wealth = 100
+						#culture = PREV
+						#set_graphical_culture = PREV
+						#religion = PREV
+						create_character = {
+							age = 25
+							attributes = {
+								martial = 5
+								diplomacy = 12
+								stewardship = 6
+								intrigue = 6
+								learning = 4
+							}
+							random_traits = yes
+							female = yes
+							employer = event_target:new_republic
+							religion = PREV
+							culture = PREV
+							dynasty = random
+							race = PREV
+						}
+						new_character = {
+							add_spouse = PREV
+							create_character = {
+								age = 6
+								random_traits = yes
+								female = no
+								employer = event_target:new_republic
+								religion = PREV
+								culture = PREV
+								dynasty = PREVPREV
+								genetic_father = PREVPREV
+								genetic_mother = PREVPREV
+								race = PREV
+							}
+							new_character = {
+								set_mother = PREV
+								set_father = PREVPREV
+							}
+						}
+						
+					reverse_opinion = { modifier = opinion_happy who = PREV years = 5 }
+					create_family_palace = yes
+					}
+				}
+				random_independent_ruler = {
+					limit = { 
+						pays_tribute_to = ROOT
+						NOR = { 
+							character = event_target:tribute_1
+							character = event_target:tribute_2
+						}
+					}
+					save_event_target_as = tribute_3
+					create_character = {
+						age = 26
+						attributes = {
+							martial = 4
+							diplomacy = 13
+							stewardship = 5
+							intrigue = 7
+							learning = 5
+						}
+						random_traits = yes
+						female = no
+						employer = event_target:new_republic
+						religion = THIS
+						culture = THIS
+						dynasty = random
+						race = THIS
+					}
+					new_character = {
+						wealth = 100
+						#culture = PREV
+						#set_graphical_culture = PREV
+						#religion = PREV
+						create_character = {
+							age = 25
+							attributes = {
+								martial = 7
+								diplomacy = 4
+								stewardship = 5
+								intrigue = 13
+								learning = 5
+							}
+							random_traits = yes
+							female = yes
+							employer = event_target:new_republic
+							religion = PREV
+							culture = PREV
+							dynasty = random
+							race = PREV
+						}
+						new_character = {
+							add_spouse = PREV
+							create_character = {
+								age = 5
+								random_traits = yes
+								female = no
+								employer = event_target:new_republic
+								religion = PREV
+								culture = PREV
+								dynasty = PREVPREV
+								genetic_father = PREVPREV
+								genetic_mother = PREVPREV
+								race = PREV
+							}
+							new_character = {
+								set_mother = PREV
+								set_father = PREVPREV
+							}
+						}
+						
+					reverse_opinion = { modifier = opinion_happy who = PREV years = 5 }
+					create_family_palace = yes
+					}
+				}
+				random_independent_ruler = {
+					limit = { 
+						pays_tribute_to = ROOT
+						NOR = { 
+							character = event_target:tribute_1
+							character = event_target:tribute_2
+							character = event_target:tribute_3
+						}
+					}
+					create_character = {
+						age = 27
+						attributes = {
+							martial = 5
+							diplomacy = 5
+							stewardship = 8
+							intrigue = 13
+							learning = 4
+						}
+						random_traits = yes
+						female = no
+						employer = event_target:new_republic
+						religion = THIS
+						culture = THIS
+						dynasty = random
+						race = THIS
+					}
+					new_character = {
+						wealth = 100
+						#culture = PREV
+						#set_graphical_culture = PREV
+						#religion = PREV
+						create_character = {
+							age = 24
+							attributes = {
+								martial = 8
+								diplomacy = 6
+								stewardship = 5
+								intrigue = 13
+								learning = 4
+							}
+							random_traits = yes
+							female = yes
+							employer = event_target:new_republic
+							religion = PREV
+							culture = PREV
+							dynasty = random
+							race = PREV
+						}
+						new_character = {
+							add_spouse = PREV
+							create_character = {
+								age = 6
+								random_traits = yes
+								female = no
+								employer = event_target:new_republic
+								religion = PREV
+								culture = PREV
+								dynasty = PREVPREV
+								genetic_father = PREVPREV
+								genetic_mother = PREVPREV
+								race = PREV
+							}
+							new_character = {
+								set_mother = PREV
+								set_father = PREVPREV
+							}
+						}
+						
+					reverse_opinion = { modifier = opinion_happy who = PREV years = 5 }
+					create_family_palace = yes
+					}
+				}
+				
+				any_demesne_title = {
+					limit = {
+						tier = baron
+						holding_type = tribal
+					}
+					convert_to = CITY
+					refill_holding_levy = yes
+					location = { #Clear Tribal Great Pillars
+						clr_province_flag = flag_great_pillar_norse
+						clr_province_flag = flag_great_pillar_tengri
+						clr_province_flag = flag_great_pillar_slavic
+						clr_province_flag = flag_great_pillar_baltic
+						clr_province_flag = flag_great_pillar_finnish
+						clr_province_flag = flag_great_pillar_west_african
+						clr_province_flag = flag_great_pillar_aztec
+						clr_province_flag = flag_great_pillar_bon
+						clr_province_flag = flag_great_pillar_zun
+						clr_province_flag = flag_great_pillar_hellenic
+					}
+					
+					if = {
+						limit = {
+							dejure_liege_title = {
+								holder = ROOT
+								location = {
+									num_of_empty_holdings = 1
+								}
+								NOT = {
+									any_direct_de_jure_vassal_title = {
+										holding_type = castle
+									}
+								}
+							}
+						}
+						location = {
+							build_holding = {
+								type = castle
+							}
+						}
+					}
+					if = {
+						limit = {
+							dejure_liege_title = {
+								holder = ROOT
+								location = {
+									num_of_empty_holdings = 1
+								}
+								NOT = {
+									any_direct_de_jure_vassal_title = {
+										holding_type = temple
+									}
+								}
+							}
+						}
+						location = {
+							build_holding  ={
+								type = temple
+							}
+						}
+					}
+				}
+			}
+			
+			if = {
+				limit = { ai = no }
+				set_character_flag = achievement_res_publica
+			}
+			
+			if = {
+				limit = {
+					ai = no
+				}
+				chronicle = {
+					entry = CHRONICLE_FOUNDED_MERCHANT_REPUBLIC
+					picture = GFX_evt_busy_trading_dock_republic
+				}
+			}
+			
+			set_government_type = draconic_merchant_republic_government
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+		
+	convert_draconic_feudalism = {
+		only_independent = yes
+		is_high_prio = yes
+		
+		potential = {
+			is_playable = yes
+			is_tribal = yes
+			independent = yes
+			government = draconic_tribal_government
+		}
+		allow = {
+			wealth = 500 # Doesn't COST gold, just requires it
+			custom_tooltip = { text = gold_not_spent }
+			war = no
+			primary_title = { has_law = tribal_organization_4 }
+			capital_holding = {
+				OR = {
+					AND = {
+						holding_type = tribal
+						has_building = tb_hillfort_4
+					}
+					holding_type = castle
+				}
+			}
+			OR = {
+				custom_tooltip = {
+					text = all_are_tributaries
+					hidden_tooltip = {
+						NOT = {
+							any_realm_province = {
+								any_neighbor_province = {
+									AND = {
+										is_land = yes
+										has_owner = yes
+										NOT = { owner = { character = ROOT } }
+										NOT = { owner = { any_liege = { character = ROOT } } }
+										owner = {
+											OR = {
+												AND = {
+													independent = yes
+													OR = {
+														is_tributary = no
+														suzerain = { NOT = { character = ROOT } }
+													}
+												}
+												AND = {
+													independent = no
+													NOT = {
+														any_liege = {
+															is_tributary = yes
+															suzerain = { character = ROOT }
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+								sea_zone = {
+									any_neighbor_province = {
+										AND = {
+											is_land = yes
+											has_owner = yes
+											NOT = { owner = { character = ROOT } }
+											NOT = { owner = { any_liege = { character = ROOT } } }
+											owner = {
+												OR = {
+													AND = {
+														independent = yes
+														OR = {
+															is_tributary = no
+															suzerain = { NOT = { character = ROOT } }
+														}
+													}
+													AND = {
+														independent = no
+														NOT = {
+															any_liege = {
+																is_tributary = yes
+																suzerain = { character = ROOT }
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				real_tier = KING
+			}
+		}
+		effect = {
+			if = {
+				limit = { ai = no }
+				set_character_flag = achievement_not_a_tribe
+			}
+			if = {
+				limit = {
+					ai = no
+				}
+				chronicle = {
+					entry = CHRONICLE_ADOPTED_FEUDALISM
+					picture = GFX_evt_castle_construction
+				}
+			}
+			set_government_type = draconic_feudal_government
+			if = {
+				limit = {
+					higher_tier_than = king
+				}
+				primary_title = {
+					add_law = feudal_administration
+				}
+			}
+			hidden_tooltip = {
+				any_demesne_title = {
+					limit = {
+						tier = baron
+						holding_type = tribal
+					}
+					convert_to = CASTLE
+					refill_holding_levy = yes
+					location = { #Clear Tribal Great Pillars
+						clr_province_flag = flag_great_pillar_norse
+						clr_province_flag = flag_great_pillar_tengri
+						clr_province_flag = flag_great_pillar_slavic
+						clr_province_flag = flag_great_pillar_baltic
+						clr_province_flag = flag_great_pillar_finnish
+						clr_province_flag = flag_great_pillar_west_african
+						clr_province_flag = flag_great_pillar_aztec
+						clr_province_flag = flag_great_pillar_bon
+						clr_province_flag = flag_great_pillar_zun
+						clr_province_flag = flag_great_pillar_hellenic
+					}
+					
+					if = {
+						limit = {
+							dejure_liege_title = {
+								holder = ROOT
+								location = {
+									num_of_empty_holdings = 2
+								}
+								NOT = {
+									any_direct_de_jure_vassal_title = {
+										holding_type = city
+									}
+								}
+							}
+						}
+						location = {
+							build_holding = {
+								type = city
+							}
+						}
+					}
+					if = {
+						limit = {
+							dejure_liege_title = {
+								holder = ROOT
+								location = {
+									num_of_empty_holdings = 2
+								}
+								NOT = {
+									any_direct_de_jure_vassal_title = {
+										holding_type = temple
+									}
+								}
+							}
+						}
+						location = {
+							build_holding  ={
+								type = temple
+							}
+						}
+					}
+				}
+				any_independent_ruler = {
+					limit = {
+						is_tributary = yes
+						suzerain = { character = ROOT }
+						NOT = { higher_tier_than = ROOT }
+					}
+					any_demesne_title = {
+						limit = {
+							tier = ROOT
+						}
+						ROOT = { usurp_title = { target = PREV type = claim } }
+						add_pressed_claim = PREV
+					}
+					set_defacto_liege = ROOT
+				}
+			}
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	convert_draconic_feudalism_vassal = {
+		is_high_prio = yes
+		
+		potential = {
+			is_playable = yes
+			is_tribal = yes
+			independent = no
+			government = draconic_tribal_government
+		}
+		allow = {
+			wealth = 400 # Doesn't COST gold, just requires it
+			custom_tooltip = { text = gold_not_spent }
+			war = no
+			primary_title = { has_law = tribal_organization_4 }
+			capital_holding = {
+				OR = {
+					AND = {
+						holding_type = tribal
+						has_building = tb_hillfort_4
+					}
+					holding_type = castle
+				}
+			}
+			liege = {
+				OR = {
+					is_feudal = yes
+					is_republic = yes
+					AND = {
+						is_theocracy = yes
+						custom_tooltip = {
+							text = TT_NOT_UNREFORMED_PAGAN
+							hidden_tooltip = {
+								OR = {
+									NOT = { religion_group = pagan_group }
+									is_reformed_religion = yes
+								}
+							}
+						}
+					}
+				}
+			}
+			OR = {
+				custom_tooltip = {
+					text = all_are_tributaries_vassal
+					hidden_tooltip = {
+						NOT = {
+							any_realm_province = {
+								any_neighbor_province = {
+									OR = {
+										AND = {
+											has_owner = yes
+											owner = {
+												ROOT = {
+													any_liege = {
+														character = PREVPREV
+													}
+												}
+											}
+										}
+										AND = {
+											has_owner = yes
+											owner = {
+												independent = yes
+												NOT = { is_vassal_or_below = ROOT }
+												OR = {
+													is_tributary = no
+													suzerain = { NOT = { character = ROOT } }
+												}
+											}
+										}
+										AND = {
+											has_owner = yes
+											owner = {
+												top_liege = {
+													NOT = { is_vassal_or_below = ROOT }
+													OR = {
+														is_tributary = no
+														suzerain = { NOT = { character = ROOT } }
+													}
+												}
+											}
+										}
+										AND = {
+											is_land = no
+											any_neighbor_province = {
+												OR = {
+													AND = {
+														has_owner = yes
+														owner = {
+															ROOT = {
+																any_liege = {
+																	character = PREVPREV
+																}
+															}
+														}
+													}
+													AND = {
+														has_owner = yes
+														owner = {
+															independent = yes
+															NOT = { is_vassal_or_below = ROOT }
+															OR = {
+																is_tributary = no
+																suzerain = { NOT = { character = ROOT } }
+															}
+														}
+													}
+													AND = {
+														has_owner = yes
+														owner = {
+															top_liege = {
+																NOT = { is_vassal_or_below = ROOT }
+																OR = {
+																	is_tributary = no
+																	suzerain = { NOT = { character = ROOT } }
+																}
+															}
+														}
+													}
+													AND = {
+														is_land = no
+														any_neighbor_province = {
+															OR = {
+																AND = {
+																	has_owner = yes
+																	owner = {
+																		ROOT = {
+																			any_liege = {
+																				character = PREVPREV
+																			}
+																		}
+																	}
+																}
+																AND = {
+																	has_owner = yes
+																	owner = {
+																		independent = yes
+																		NOT = { is_vassal_or_below = ROOT }
+																		OR = {
+																			is_tributary = no
+																			suzerain = { NOT = { character = ROOT } }
+																		}
+																	}
+																}
+																AND = {
+																	has_owner = yes
+																	owner = {
+																		top_liege = {
+																			NOT = { is_vassal_or_below = ROOT }
+																			OR = {
+																				is_tributary = no
+																				suzerain = { NOT = { character = ROOT } }
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				top_liege = {
+					government = draconic_feudal_government
+				}
+			}
+		}
+		effect = {
+			if = {
+				limit = { ai = no }
+				set_character_flag = achievement_not_a_tribe
+			}
+			if = {
+				limit = {
+					ai = no
+				}
+				chronicle = {
+					entry = CHRONICLE_ADOPTED_FEUDALISM
+					picture = GFX_evt_castle_construction
+				}
+			}
+			set_government_type = draconic_feudal_government
+			if = {
+				limit = {
+					higher_tier_than = king
+				}
+				primary_title = {
+					add_law = feudal_administration
+				}
+			}
+			hidden_tooltip = {
+				any_demesne_title = {
+					limit = {
+						tier = baron
+						holding_type = tribal
+					}
+					convert_to = CASTLE
+					refill_holding_levy = yes
+					location = { #Clear Tribal Great Pillars
+						clr_province_flag = flag_great_pillar_norse
+						clr_province_flag = flag_great_pillar_tengri
+						clr_province_flag = flag_great_pillar_slavic
+						clr_province_flag = flag_great_pillar_baltic
+						clr_province_flag = flag_great_pillar_finnish
+						clr_province_flag = flag_great_pillar_west_african
+						clr_province_flag = flag_great_pillar_aztec
+						clr_province_flag = flag_great_pillar_bon
+						clr_province_flag = flag_great_pillar_zun
+						clr_province_flag = flag_great_pillar_hellenic
+					}
+					
+					if = {
+						limit = {
+							dejure_liege_title = {
+								holder = ROOT
+								location = {
+									num_of_empty_holdings = 2
+								}
+								NOT = {
+									any_direct_de_jure_vassal_title = {
+										holding_type = city
+									}
+								}
+							}
+						}
+						location = {
+							build_holding = {
+								type = city
+							}
+						}
+					}
+					if = {
+						limit = {
+							dejure_liege_title = {
+								holder = ROOT
+								location = {
+									num_of_empty_holdings = 2
+								}
+								NOT = {
+									any_direct_de_jure_vassal_title = {
+										holding_type = temple
+									}
+								}
+							}
+						}
+						location = {
+							build_holding  ={
+								type = temple
+							}
+						}
+					}
+				}
+				any_independent_ruler = {
+					limit = {
+						is_tributary = yes
+						suzerain = { character = ROOT }
+						NOT = { higher_tier_than = ROOT }
+					}
+					any_demesne_title = {
+						limit = {
+							tier = ROOT
+						}
+						ROOT = { usurp_title = { target = PREV type = claim } }
+						add_pressed_claim = PREV
+					}
+					set_defacto_liege = ROOT
+				}
+			}
+		}
+		
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0.001
+				liege = {
+					OR = {
+						NOT = { religion_group = ROOT }
+						AND = {
+							religion_group = pagan_group
+							NOT = { religion = ROOT }
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 0.01
+				liege = {
+					NOT = { culture_group = ROOT }
+				}
+			}
+			
+			modifier = {
+				factor = 0.01
+				liege = {
+					religion_group = ROOT
+					NOT = { religion_group = pagan_group }
+					NOT = { religion = ROOT }
+				}
+			}
+			modifier = {
+				factor = 0.1
+				liege = {
+					culture_group = ROOT
+					NOT = { culture = ROOT }
+				}
+			}
+		}
+	}
+}

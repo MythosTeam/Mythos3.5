@@ -1,0 +1,3 @@
+demongfx = {
+	skin_tone = 1
+}

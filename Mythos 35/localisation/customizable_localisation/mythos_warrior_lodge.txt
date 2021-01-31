@@ -1,0 +1,1536 @@
+defined_text = { #Used in HF.10040 (Power: Warrior Training)
+	name = GetWarriorLodgeTrainingDesc
+	
+	text = {
+		trigger = { society_member_of = warrior_lodge_norse }
+		localisation_key = string_norse_training
+	}
+	text = {
+		trigger = { society_member_of = warrior_lodge_tengri }
+		localisation_key = string_tengri_training
+	}
+	text = {
+		trigger = { society_member_of = warrior_lodge_baltic }
+		localisation_key = string_baltic_training
+	}
+	text = {
+		trigger = { society_member_of = warrior_lodge_finnish }
+		localisation_key = string_finnish_training
+	}
+	text = {
+		trigger = { society_member_of = warrior_lodge_slavic }
+		localisation_key = string_slavic_training
+	}
+	text = {
+		trigger = { society_member_of = warrior_lodge_west_african }
+		localisation_key = string_west_african_training
+	}
+	text = {
+		trigger = { society_member_of = warrior_lodge_zun }
+		localisation_key = string_zun_training
+	}
+	text = {
+		trigger = { society_member_of = warrior_lodge_bon }
+		localisation_key = string_bon_training
+	}
+	text = {
+		trigger = { society_member_of = warrior_lodge_hellenic }
+		localisation_key = string_hellenic_training
+	}
+	text = {
+		trigger = {
+			society_member_of = warrior_lodge_draconic
+			trait = dragon
+			event_target:fellow_member = { trait = dragon }
+		}
+		localisation_key = string_draconic_training_dragon
+	}
+	text = {
+		trigger = { society_member_of = warrior_lodge_kemetic }
+		localisation_key = string_kemetic_training
+	}
+	text = {
+		trigger = { society_member_of = warrior_lodge_druidic }
+		localisation_key = string_druidic_training
+	}
+	fallback_text = { # Jotnar, and non-dragon draconics
+		localisation_key = string_norse_training #fallback, in case it fails to find relevant info
+	}
+}
+
+defined_text = { #Used in HFP.11028 (battle event)
+	name = GetWarriorLodgeSymbol
+	
+	text = {
+		trigger = { society_member_of = warrior_lodge_norse }
+		localisation_key = string_norse_symbol
+	}
+	text = {
+		trigger = { society_member_of = warrior_lodge_tengri }
+		localisation_key = string_tengri_symbol
+	}
+	text = {
+		trigger = { society_member_of = warrior_lodge_baltic }
+		localisation_key = string_baltic_symbol
+	}
+	text = {
+		trigger = { society_member_of = warrior_lodge_finnish }
+		localisation_key = string_finnish_symbol
+	}
+	text = {
+		trigger = { society_member_of = warrior_lodge_slavic }
+		localisation_key = string_slavic_symbol
+	}
+	text = {
+		trigger = { society_member_of = warrior_lodge_west_african }
+		localisation_key = string_west_african_symbol
+	}
+	text = {
+		trigger = { society_member_of = warrior_lodge_zun }
+		localisation_key = string_zun_symbol
+	}
+	text = {
+		trigger = { society_member_of = warrior_lodge_bon }
+		localisation_key = string_bon_symbol
+	}
+	text = {
+		trigger = { society_member_of = warrior_lodge_hellenic }
+		localisation_key = string_hellenic_symbol
+	}
+	text = {
+		trigger = { society_member_of = warrior_lodge_draconic }
+		localisation_key = string_draconic_symbol
+	}
+	text = {
+		trigger = { society_member_of = warrior_lodge_kemetic }
+		localisation_key = string_kemetic_symbol
+	}
+	text = {
+		trigger = { society_member_of = warrior_lodge_druidic }
+		localisation_key = string_baltic_symbol # Same symbol
+	}
+	text = {
+		trigger = { society_member_of = warrior_lodge_jotnar }
+		localisation_key = string_jotnar_symbol
+	}
+	fallback_text = {
+		localisation_key = string_hellenic_symbol #"the gods". Fallback, in case it fails to find relevant info
+	}
+}
+defined_text = { #Used here and there? Made *singular*, on purpose...
+	name = GetWarriorLodgeSymbolShort #forest, light, wolf, etc...
+	
+	text = {
+		trigger = { society_member_of = warrior_lodge_norse }
+		localisation_key = string_norse_symbol_short
+	}
+	text = {
+		trigger = { society_member_of = warrior_lodge_tengri }
+		localisation_key = string_tengri_symbol_short
+	}
+	text = {
+		trigger = { society_member_of = warrior_lodge_baltic }
+		localisation_key = string_baltic_symbol_short
+	}
+	text = {
+		trigger = { society_member_of = warrior_lodge_finnish }
+		localisation_key = string_finnish_symbol_short
+	}
+	text = {
+		trigger = { society_member_of = warrior_lodge_slavic }
+		localisation_key = string_slavic_symbol_short
+	}
+	text = {
+		trigger = { society_member_of = warrior_lodge_west_african }
+		localisation_key = string_west_african_symbol_short
+	}
+	text = {
+		trigger = { society_member_of = warrior_lodge_zun }
+		localisation_key = string_zun_symbol_short
+	}
+	text = {
+		trigger = { society_member_of = warrior_lodge_bon }
+		localisation_key = string_bon_symbol_short
+	}
+	text = {
+		trigger = { society_member_of = warrior_lodge_hellenic }
+		localisation_key = string_hellenic_symbol_short
+	}
+	text = {
+		trigger = { society_member_of = warrior_lodge_draconic }
+		localisation_key = string_draconic_symbol_short
+	}
+	text = {
+		trigger = { society_member_of = warrior_lodge_kemetic }
+		localisation_key = string_kemetic_symbol_short
+	}
+	text = {
+		trigger = { society_member_of = warrior_lodge_druidic }
+		localisation_key = string_baltic_symbol_short # Same symbol
+	}
+	text = {
+		trigger = { society_member_of = warrior_lodge_jotnar }
+		localisation_key = string_jotnar_symbol_short
+	}
+	fallback_text = {
+		localisation_key = string_hellenic_symbol_short #"the gods". Fallback, in case it fails to find relevant info
+	}
+}
+defined_text = { #Used here and there? Made *singular*, on purpose...
+	name = GetWarriorLodgeSymbolShortCap #Forest, Light, Wolf, etc...
+	
+	text = {
+		trigger = { society_member_of = warrior_lodge_norse }
+		localisation_key = string_norse_symbol_short_cap
+	}
+	text = {
+		trigger = { society_member_of = warrior_lodge_tengri }
+		localisation_key = string_tengri_symbol_short_cap
+	}
+	text = {
+		trigger = { society_member_of = warrior_lodge_baltic }
+		localisation_key = string_baltic_symbol_short_cap
+	}
+	text = {
+		trigger = { society_member_of = warrior_lodge_finnish }
+		localisation_key = string_finnish_symbol_short_cap
+	}
+	text = {
+		trigger = { society_member_of = warrior_lodge_slavic }
+		localisation_key = string_slavic_symbol_short_cap
+	}
+	text = {
+		trigger = { society_member_of = warrior_lodge_west_african }
+		localisation_key = string_west_african_symbol_short_cap
+	}
+	text = {
+		trigger = { society_member_of = warrior_lodge_zun }
+		localisation_key = string_zun_symbol_short_cap
+	}
+	text = {
+		trigger = { society_member_of = warrior_lodge_bon }
+		localisation_key = string_bon_symbol_short_cap
+	}
+	text = {
+		trigger = { society_member_of = warrior_lodge_hellenic }
+		localisation_key = string_hellenic_symbol_short_cap
+	}
+	text = {
+		trigger = { society_member_of = warrior_lodge_draconic }
+		localisation_key = string_draconic_symbol_short_cap
+	}
+	text = {
+		trigger = { society_member_of = warrior_lodge_kemetic }
+		localisation_key = string_kemetic_symbol_short_cap
+	}
+	text = {
+		trigger = { society_member_of = warrior_lodge_druidic }
+		localisation_key = string_baltic_symbol_short_cap # Same symbol
+	}
+	text = {
+		trigger = { society_member_of = warrior_lodge_jotnar }
+		localisation_key = string_jotnar_symbol_short_cap
+	}
+	fallback_text = {
+		localisation_key = string_hellenic_symbol_short_cap #"the gods". Fallback, in case it fails to find relevant info
+	}
+}
+defined_text = { #Used in HFP.11038 (battle event)
+	name = GetWarriorBattleNick
+	
+	text = {
+		trigger = { society_member_of = warrior_lodge_norse }
+		localisation_key = string_battle_nick_norse_symbol
+	}
+	text = {
+		trigger = { society_member_of = warrior_lodge_tengri }
+		localisation_key = string_battle_nick_tengri_symbol
+	}
+	text = {
+		trigger = { society_member_of = warrior_lodge_baltic }
+		localisation_key = string_battle_nick_baltic_symbol
+	}
+	text = {
+		trigger = { society_member_of = warrior_lodge_finnish }
+		localisation_key = string_battle_nick_finnish_symbol
+	}
+	text = {
+		trigger = { society_member_of = warrior_lodge_slavic }
+		localisation_key = string_battle_nick_slavic_symbol
+	}
+	text = {
+		trigger = { society_member_of = warrior_lodge_west_african }
+		localisation_key = string_battle_nick_west_african_symbol
+	}
+	text = {
+		trigger = { society_member_of = warrior_lodge_zun }
+		localisation_key = string_battle_nick_zun_symbol
+	}
+	text = {
+		trigger = { society_member_of = warrior_lodge_bon }
+		localisation_key = string_battle_nick_bon_symbol
+	}
+	text = {
+		trigger = { society_member_of = warrior_lodge_hellenic }
+		localisation_key = string_battle_nick_hellenic_symbol
+	}
+	text = {
+		trigger = { society_member_of = warrior_lodge_draconic }
+		localisation_key = string_battle_nick_draconic_symbol
+	}
+	text = {
+		trigger = { society_member_of = warrior_lodge_kemetic }
+		localisation_key = string_battle_nick_kemetic_symbol
+	}
+	text = {
+		trigger = { society_member_of = warrior_lodge_druidic }
+		localisation_key = string_battle_nick_druidic_symbol
+	}
+	text = {
+		trigger = { society_member_of = warrior_lodge_druidic }
+		localisation_key = string_battle_nick_jotnar_symbol
+	}
+	fallback_text = {
+		localisation_key = string_battle_nick_neutral_symbol #"Battering Ram". Fallback, in case it fails to find relevant info
+	}
+}
+defined_text = { #Used in HFP.11038 (battle event)
+	name = GetWLCanJoinReligion
+	
+	text = {
+		trigger = { FROM = { is_society = warrior_lodge_norse } }
+		localisation_key = string_WL_norse_religion
+	}
+	text = {
+		trigger = { FROM = { is_society = warrior_lodge_tengri } }
+		localisation_key = string_WL_tengri_religion
+	}
+	text = {
+		trigger = { FROM = { is_society = warrior_lodge_baltic } }
+		localisation_key = string_WL_baltic_religion
+	}
+	text = {
+		trigger = { FROM = { is_society = warrior_lodge_finnish } }
+		localisation_key = string_WL_finnish_religion
+	}
+	text = {
+		trigger = { FROM = { is_society = warrior_lodge_slavic } }
+		localisation_key = string_WL_slavic_religion
+	}
+	text = {
+		trigger = { FROM = { is_society = warrior_lodge_west_african } }
+		localisation_key = string_WL_west_african_religion
+	}
+	text = {
+		trigger = { FROM = { is_society = warrior_lodge_zun } }
+		localisation_key = string_WL_zun_religion
+	}
+	text = {
+		trigger = { FROM = { is_society = warrior_lodge_bon } }
+		localisation_key = string_WL_bon_religion
+	}
+	text = {
+		trigger = { FROM = { is_society = warrior_lodge_hellenic } }
+		localisation_key = string_WL_hellenic_religion
+	}
+	text = {
+		trigger = { FROM = { is_society = warrior_lodge_draconic } }
+		localisation_key = string_WL_draconic_religion
+	}
+	text = {
+		trigger = { FROM = { is_society = warrior_lodge_kemetic } }
+		localisation_key = string_WL_kemetic_religion
+	}
+	text = {
+		trigger = { FROM = { is_society = warrior_lodge_druidic } }
+		localisation_key = string_WL_druidic_religion
+	}
+	text = {
+		trigger = { FROM = { is_society = warrior_lodge_jotnar } }
+		localisation_key = string_WL_jotnar_religion
+	}
+	fallback_text = {
+		localisation_key = string_no_religion # Fallback, in case it fails to find relevant info
+	}
+}
+defined_text = { 
+	name = GetCharacterInsultOption
+
+#Insult Character Option.
+	# 																			              X <-- Don't go beyond here.
+	# Is it any surprise you would pick a game where you are the center of attention? 			(proud/groomed Vice)
+	# Try not to choke between turns, [From.GetFirstName], we have a long game ahead. 			(gluttonous Vice)
+	# I am surprised you haven't started to whine about losing yet. 							(envious Vice)
+	# Feeling alright, [From.GetFirstName]? Sure you're not tired already?						(slothful Vice)
+	# Somebody warn [From.GetFirstName] that [From.GetSheHe] won't be paid by word. 			(greedy Vice)
+	# Are you sure Flyting is good for your temper, [From.GetFirstName]?					 	(wroth Vice)
+	# I have never met a [From.GetManWoman] more easily dumpfounded by a pretty face.			(lustful Vice)
+	# Did you drag yourself through a pigsden before getting in here? 							(uncouth)
+
+	# (based on looks)
+	# Were you always this ugly, or did you just lose one too many brawls?						(not fair/groomed)
+	# I might have to yield, looking at your face is too great an offence to bear.				(not fair/groomed)
+	# [From.GetFirstName] is so repulsive children flee at [From.GetHerHis] sight.		 		(ugly)
+	# [From.GetFirstName] face is so grotesque it scares wolves and cracks stone.				(ugly)
+	# What god did your mother offend to curse you with such a revolting look?					(ugly)
+	# It is telling how often [From.GetFirstName] has to remind us that she a woman.			(ugly, female)
+
+	# (based on strength)
+	# It is telling how much faster you are to play word games over proper fights.				(not strong)
+	# I am still unsure what made you think a weakling like you can be one of us.				(not strong)
+	# Was there ever a weaker fighter recruited to [From.Society.GetName]?						(weak)
+	# I am impressed you managed to get on this table without breaking a bone...				(weak)
+	# Does the little girl need her hand held before she faints?								(weak)
+	# I shall try to speak softly, lest my voice strikes you dead.								(weak)
+	# Delicate as a flower, [From.GetFirstName] yet clings to dreams of war.					(weak)
+
+	# (based on intellect)
+	# Was there ever a problem [From.GetFirstName]'s mind couldn't avoid solving?				(not smart)
+	# Are you truly as dumb as you look, I wonder? 												(not smart)
+	# I will be using big words now, [From.GetFirstName], try to keep up.						(dumb)
+	# You realize this is a game that requires wit, right?										(dumb)
+	# I am looking forward to your grunts of rebuttal, for sure.								(dumb)
+
+	# Is it really such a surprise you jumped at the chance to yap some more?					(gregarious)
+	# Are you sure you wouldn't rather give up and go hide in a corner?							(shy)
+	# 
+
+	# One can hardly find anything bad or good to say about [From.GetFirstName].
+	# Saying you are the dullest [From.GetManWoman] I ever met would give you too much credit.
+	
+	# (Mythos)
+	# It's no wonder you're so weak, when all you ever lift are books.							(scholar, mage, theologian, not strong/robust)
+	# I should keep my insults soft, lest this beast lose [From.GetHerHis] mind again.			(known werewolf, speaker is not)
+	# I'm surprised you bothered to drag yourself out of your grave to come here.				(known vampire and speaker is not, slothful)
+	# When you give up, will you blame the dawn again this time?								(known vampire, speaker is not.)
+	# Your prowess in bed is as weak as your prowess with coin.									(Dragon, <100 gold)
+	# How badly did you have to fail to be stuck down with mere mortals?						(God)
+	# You've gotten so good at failing that you can't even die properly.						(Known vampire, mummy, zombie, ethereal)
+	# I'm amazed you came yourself instead of hiding behind one of your tricks.					(Summoner or enchanter)
+	# Are you sure you wouldn't rather be moping in a graveyard again?							(Necromancer)
+	# We'll see what kind of [From.GetManWoman] turns to the dead for friendship.				(Necromancer)
+	# I hear your nethers are no longer used by the living.										(Necromancer, lustful)
+	# Will you run away from this the way you run from everything else?							(Craven Vice)
+	# I barely need to insult you - you do it enough yourself.									(Humble Vice)
+	# And actually try this time - saying the first thing on your mind won't get you far.		(Arbitrary Vice)
+	# Get over yourself. No one's out to get you - you're not worth it.							(Paranoid Vice)
+	# And actually try - not everyone's feelings are hurt as easy as yours.						(Kind Vice)
+	# So you've finished torturing animals and finally went for someone who fights back?		(Cruel Vice)
+	# Perhaps you torture animals because you're afraid of someone that will fight back.		(Chaste Vice, male, not eunuch)
+	# Has your womb filled with dust and cobwebs from disuse?									(Chaste Vice, female)
+	# You haven't touched your [GetAlcohol]. Not able to handle it like a [From.GetManWoman}?	(Temperate Vice)
+	# I doubt I'll even have to try - you'll just give this away like everything else.			(Charitable Vice)
+	# You don't need to spend an hour deciding on each word, but I know you will anyway.		(Diligent Vice)
+	# Try to respond some time this month, your turn can't last forever.						(Patient Vice)
+	# Will [From.GetFirstName] even try to win? [From.GetSheHe] is just as happy losing.		(Content Vice)
+	# The only fearsome part of your breath is the smell.										(Dragon, low combat rating)
+	# Do you share your [GetWifeHusband] the way you share out everything else?					(Charitable Vice, chaste, married)
+
+	text = {
+		trigger = {
+			FROM = {
+				OR = { trait = proud trait = groomed }
+				is_proud_vice = yes
+			}
+		}
+		localisation_key = string_WL_flyting_character_insult_option_1
+	}
+	text = {
+		trigger = {
+			FROM = {
+				trait = gluttonous
+				is_gluttonous_vice = yes
+			}
+		}
+		localisation_key = string_WL_flyting_character_insult_option_2
+	}
+	text = {
+		trigger = {
+			FROM = {
+				trait = envious
+				is_envious_vice = yes
+			}
+		}
+		localisation_key = string_WL_flyting_character_insult_option_3
+	}
+	text = {
+		trigger = {
+			FROM = {
+				trait = slothful
+				is_slothful_vice = yes
+			}
+		}
+		localisation_key = string_WL_flyting_character_insult_option_4
+	}
+	text = {
+		trigger = {
+			FROM = {
+				trait = greedy
+				is_greedy_vice = yes
+			}
+		}
+		localisation_key = string_WL_flyting_character_insult_option_5
+	}
+	text = {
+		trigger = {
+			FROM = {
+				trait = wroth
+				is_wroth_vice = yes
+			}
+		}
+		localisation_key = string_WL_flyting_character_insult_option_6
+	}
+	text = {
+		trigger = {
+			FROM = {
+				trait = lustful
+				is_lustful_vice = yes
+			}
+		}
+		localisation_key = string_WL_flyting_character_insult_option_7
+	}
+	text = {
+		trigger = { FROM = { trait = uncouth } }
+		localisation_key = string_WL_flyting_character_insult_option_8
+	}
+	text = {
+		trigger = { FROM = { is_attractive_trigger = no } }
+		localisation_key = string_WL_flyting_character_insult_option_9
+	}
+	text = {
+		trigger = { FROM = { is_attractive_trigger = no } }
+		localisation_key = string_WL_flyting_character_insult_option_10
+	}
+	text = {
+		trigger = { FROM = { has_unattractive_trait_trigger = yes } }
+		localisation_key = string_WL_flyting_character_insult_option_11
+	}
+	text = {
+		trigger = { FROM = { has_unattractive_trait_trigger = yes } }
+		localisation_key = string_WL_flyting_character_insult_option_12
+	}
+	text = {
+		trigger = { FROM = { has_unattractive_trait_trigger = yes } }
+		localisation_key = string_WL_flyting_character_insult_option_13
+	}
+	text = {
+		trigger = { FROM = { is_female = yes has_unattractive_trait_trigger = yes } }
+		localisation_key = string_WL_flyting_character_insult_option_14
+	}
+	text = {
+		trigger = { FROM = { is_strong_trigger = no } }
+		localisation_key = string_WL_flyting_character_insult_option_15
+	}
+	text = {
+		trigger = { FROM = { is_strong_trigger = no } }
+		localisation_key = string_WL_flyting_character_insult_option_16
+	}
+	text = {
+		trigger = { FROM = { is_weak_trigger = yes } }
+		localisation_key = string_WL_flyting_character_insult_option_17
+	}
+	text = {
+		trigger = { FROM = { is_weak_trigger = yes } }
+		localisation_key = string_WL_flyting_character_insult_option_18
+	}
+	text = {
+		trigger = { FROM = { is_weak_trigger = yes } }
+		localisation_key = string_WL_flyting_character_insult_option_19
+	}
+	text = {
+		trigger = { FROM = { is_weak_trigger = yes } }
+		localisation_key = string_WL_flyting_character_insult_option_20
+	}
+	text = {
+		trigger = { FROM = { is_weak_trigger = yes } }
+		localisation_key = string_WL_flyting_character_insult_option_21
+	}
+	text = {
+		trigger = { FROM = { is_smart_trigger = no } }
+		localisation_key = string_WL_flyting_character_insult_option_22
+	}
+	text = {
+		trigger = { FROM = { is_smart_trigger = no } }
+		localisation_key = string_WL_flyting_character_insult_option_23
+	}
+	text = {
+		trigger = { FROM = { is_dumb_trigger = yes } }
+		localisation_key = string_WL_flyting_character_insult_option_24
+	}
+	text = {
+		trigger = { FROM = { is_dumb_trigger = yes } }
+		localisation_key = string_WL_flyting_character_insult_option_25
+	}
+	text = {
+		trigger = { FROM = { is_dumb_trigger = yes } }
+		localisation_key = string_WL_flyting_character_insult_option_26
+	}
+	text = {
+		trigger = { FROM = { trait = gregarious } }
+		localisation_key = string_WL_flyting_character_insult_option_27
+	}
+	text = {
+		trigger = { FROM = { OR = { trait = craven trait = shy } } }
+		localisation_key = string_WL_flyting_character_insult_option_28
+	}
+	text = {
+		trigger = { FROM = { is_alive = yes } }
+		localisation_key = string_WL_flyting_character_insult_option_29
+	}
+	text = {
+		trigger = { FROM = { is_alive = yes } }
+		localisation_key = string_WL_flyting_character_insult_option_30
+	}
+	text = {
+		trigger = {
+			FROM = {
+				OR = {
+					trait = scholar
+					trait = theologian
+					trait = mystic
+					trait = novice_mage
+					trait = eldritch_scholar
+					trait = veteran_wizard
+					trait = arcane_master
+				}
+				NOR = {
+					trait = strong
+					trait = robust
+				}
+			}
+		}
+		localisation_key = string_WL_flyting_character_insult_option_31
+	}
+	text = {
+		trigger = {
+			NOR = {
+				trait = werewolf
+				culture = werewolf_culture
+			}
+			FROM = { trait = known_werewolf }
+		}
+		localisation_key = string_WL_flyting_character_insult_option_32
+	}
+	text = {
+		trigger = {
+			NOR = {
+				trait = known_vampire
+				culture = vampire_culture
+			}
+			FROM = {
+				trait = known_vampire
+				trait = slothful
+			}
+		}
+		localisation_key = string_WL_flyting_character_insult_option_33
+	}
+	text = {
+		trigger = {
+			NOR = {
+				trait = known_vampire
+				culture = vampire_culture
+			}
+			FROM = { trait = known_vampire }
+		}
+		localisation_key = string_WL_flyting_character_insult_option_34
+	}
+	text = {
+		trigger = {
+			FROM  = {
+				trait = dragon
+				wealth < 100
+			}
+		}
+		localisation_key = string_WL_flyting_character_insult_option_35
+	}
+	text = {
+		trigger = { FROM  = { trait = god } }
+		localisation_key = string_WL_flyting_character_insult_option_36
+	}
+	text = {
+		trigger = {
+			FROM  = {
+				OR = {
+					trait = known_vampire
+					trait = mummy
+					trait = zombie
+					trait = ethereal_trait
+				}
+			}
+		}
+		localisation_key = string_WL_flyting_character_insult_option_37
+	}
+	text = {
+		trigger = {
+			FROM  = {
+				OR = {
+					trait = summoner
+					trait = enchanter
+				}
+			}
+		}
+		localisation_key = string_WL_flyting_character_insult_option_38
+	}
+	text = {
+		trigger = { FROM  = { trait = necromancer } }
+		localisation_key = string_WL_flyting_character_insult_option_39
+	}
+	text = {
+		trigger = { FROM  = { trait = necromancer } }
+		localisation_key = string_WL_flyting_character_insult_option_40
+	}
+	text = {
+		trigger = {
+			FROM  = {
+				OR = {
+					AND = { trait = necromancer trait = lustful reverse_has_opinion_modifier = { who = FROM modifier = aware_of_secret_actions } }
+					AND = {
+						any_lover = { OR = { trait = zombie trait = mummy trait = ethereal_trait } }
+						NOR = { trait = zombie trait = mummy trait = ethereal_trait }
+					}
+				}
+			}
+		}
+		localisation_key = string_WL_flyting_character_insult_option_41
+	}
+	text = {
+		trigger = {
+			FROM = {
+				trait = craven
+				is_craven_vice = yes
+			}
+		}
+		localisation_key = string_WL_flyting_character_insult_option_42
+	}
+	text = {
+		trigger = {
+			FROM = {
+				trait = humble
+				is_humble_vice = yes
+			}
+		}
+		localisation_key = string_WL_flyting_character_insult_option_43
+	}
+	text = {
+		trigger = {
+			FROM = {
+				trait = arbitrary
+				is_arbitrary_vice = yes
+			}
+		}
+		localisation_key = string_WL_flyting_character_insult_option_44
+	}
+	text = {
+		trigger = {
+			FROM = {
+				trait = paranoid
+				is_paranoid_vice = yes
+			}
+		}
+		localisation_key = string_WL_flyting_character_insult_option_45
+	}
+	text = {
+		trigger = {
+			FROM = {
+				trait = kind
+				is_kind_vice = yes
+			}
+		}
+		localisation_key = string_WL_flyting_character_insult_option_46
+	}
+	text = {
+		trigger = {
+			FROM = {
+				trait = cruel
+				is_cruel_vice = yes
+			}
+		}
+		localisation_key = string_WL_flyting_character_insult_option_47
+	}
+	text = {
+		trigger = {
+			FROM = {
+				is_female = no
+				NOT = { trait = eunuch }
+				trait = chaste
+				is_chaste_vice = yes
+			}
+		}
+		localisation_key = string_WL_flyting_character_insult_option_48
+	}
+	text = {
+		trigger = {
+			FROM = {
+				is_female = yes
+				trait = chaste
+				is_chaste_vice = yes
+			}
+		}
+		localisation_key = string_WL_flyting_character_insult_option_49
+	}
+	text = {
+		trigger = {
+			FROM = {
+				trait = temperate
+				is_temperate_vice = yes
+			}
+		}
+		localisation_key = string_WL_flyting_character_insult_option_50
+	}
+	text = {
+		trigger = {
+			FROM = {
+				trait = charitable
+				is_charitable_vice = yes
+			}
+		}
+		localisation_key = string_WL_flyting_character_insult_option_51
+	}
+	text = {
+		trigger = {
+			FROM = {
+				trait = diligent
+				is_diligent_vice = yes
+			}
+		}
+		localisation_key = string_WL_flyting_character_insult_option_52
+	}
+	text = {
+		trigger = {
+			FROM = {
+				trait = patient
+				is_patient_vice = yes
+			}
+		}
+		localisation_key = string_WL_flyting_character_insult_option_53
+	}
+	text = {
+		trigger = {
+			FROM = {
+				trait = content
+				is_content_vice = yes
+			}
+		}
+		localisation_key = string_WL_flyting_character_insult_option_54
+	}
+	text = {
+		trigger = {
+			FROM = {
+				trait = dragon
+				combat_rating < -10
+			}
+		}
+		localisation_key = string_WL_flyting_character_insult_option_55
+	}
+	text = {
+		trigger = {
+			FROM = {
+				trait = charitable
+				trait = chaste
+				is_charitable_vice = yes
+				is_married = yes
+			}
+		}
+		localisation_key = string_WL_flyting_character_insult_option_56
+	}
+	fallback_text = {
+		localisation_key = string_character_insult_option_default # Fallback, in case it fails to find relevant info
+	}
+}
+
+defined_text = { 
+	name = GetCharacterInsultDesc
+
+#Insult Character Desc.
+	# 																			X <-- Don't go beyond here.
+	# Is it any surprise you would pick a game where you are the center of attention? 			(proud/groomed)
+	# Try not to choke between turns, [From.GetFirstName], we have a long game ahead. 			(gluttonous)
+	# I am surprised you haven't started to whine about losing yet. 							(envious)
+	# Feeling alright, [From.GetFirstName]? Sure you're not tired already?						(slothful)
+	# Somebody warn [From.GetFirstName] that [From.GetSheHe] won't be paid by word. 			(greedy)
+	# Are you sure Flyting is good for your temper, [From.GetFirstName]?					 	(wroth)
+	# I have never met a [From.GetManWoman] more easily dumpfounded by a pretty face.			(lustful)
+	# Did you drag yourself through a pigsden before getting in here? 							(uncouth)
+
+	# (based on looks)
+	# Were you always this ugly, or did you just lose one too many brawls?						(not fair/groomed)
+	# I might have to yield, looking at your face is too great an offense to bear.				(not fair/groomed)
+	# [From.GetFirstName] is so repulsive children flee at [From.GetHerHis] sight.		 		(ugly)
+	# [From.GetFirstName] face is so grotesque it scares wolves and cracks stone.				(ugly)
+	# What god did your mother offend to curse you with such a revolting look?					(ugly)
+	# It is telling how often [From.GetFirstName] has to remind us that she a woman.			(ugly, female)
+
+	# (based on strength)
+	# It is telling how much eager you are to play word games over proper fights.				(not strong)
+	# I am still unsure what made you think a weakling like you can be one of us.				(not strong)
+	# Was there ever a weaker fighter recruited to [From.Society.GetName]?						(weak)
+	# I am impressed you managed to get on this table without breaking a bone...				(weak)
+	# Does the little girl need her hand held before she faints?								(weak)
+	# I shall try to speak softly, lest my voice strikes you dead.								(weak)
+	# Delicate as a flower, [From.GetFirstName] yet clings to dreams of war.					(weak)
+
+	# (based on intellect)
+	# Was there ever a problem [From.GetFirstName]'s mind couldn't avoid solving?				(not smart)
+	# Are you truly as dumb as you look, I wonder? 												(not smart)
+	# I will be using big words now, [From.GetFirstName], try to keep up.						(dumb)
+	# You realize this is a game that requires wit, right?										(dumb)
+	# I am looking forward to your grunts of rebuttal, for sure.								(dumb)
+
+	# Is it really such a surprise you jumped at the chance to yap some more?					(gregarious)
+	# Are you sure you wouldn't rather give up and go hide in a corner?							(shy)
+	# 
+
+	# One can hardly find anything bad or good to say about [From.GetFirstName].
+	# Saying you are the dullest [From.GetManWoman] I ever met would give you too much credit.
+	
+	# (Mythos)
+	# It's no wonder you're so weak, when all you ever lift are books.							(scholar, mage, theologian, not strong/robust)
+	# I should keep my insults soft, lest this beast lose [From.GetHerHis] mind again.			(known werewolf, speaker is not)
+	# I'm surprised you bothered to drag yourself out of your grave to come here.				(known vampire and speaker is not, slothful)
+	# When you give up, will you blame the dawn again this time?								(known vampire, speaker is not.)
+	# Your prowess in bed is as weak as your prowess with coin.									(Dragon, <100 gold)
+	# How badly did you have to fail to be stuck down with mere mortals?						(God)
+	# You've gotten so good at failing that you can't even die properly.						(Known vampire, mummy, zombie, ethereal)
+	# I'm amazed you came yourself instead of hiding behind one of your tricks.					(Summoner or enchanter)
+	# Are you sure you wouldn't rather be moping in a graveyard again?							(Necromancer)
+	# We'll see what kind of [From.GetManWoman] turns to the dead for friendship.				(Necromancer)
+	# I hear your nethers are no longer used by the living.										(Necromancer, lustful)
+	# Will you run away from this the way you run from everything else?							(Craven Vice)
+	# I barely need to insult you - you do it enough yourself.									(Humble Vice)
+	# And actually try this time - saying the first thing on your mind won't get you far.		(Arbitrary Vice)
+	# Get over yourself. No one's out to get you - you're not worth it.							(Paranoid Vice)
+	# And actually try - not everyone's feelings are hurt as easy as yours.						(Kind Vice)
+	# So you've finished torturing animals and finally went for someone who fights back?		(Cruel Vice)
+	# Perhaps you torture animals because you're afraid of someone that will fight back.		(Chaste Vice, male, not eunuch)
+	# Has your womb filled with dust and cobwebs from disuse?									(Chaste Vice, female)
+	# You haven't touched your [GetAlcohol]. Not able to handle it like a [From.GetManWoman}?	(Temperate Vice)
+	# I doubt I'll even have to try - you'll just give this away like everything else.			(Charitable Vice)
+	# You don't need to spend an hour deciding on each word, but I know you will anyway.		(Diligent Vice)
+	# Try to respond some time this month, your turn can't last forever.						(Patient Vice)
+	# Will [From.GetFirstName] even try to win? [From.GetSheHe] is just as happy losing.		(Content Vice)
+	# The only fearsome part of your breath is the smell.										(Dragon, low combat rating)
+
+	text = {
+		trigger = {
+			ROOT = {
+				OR = { trait = proud trait = groomed }
+				is_proud_vice = yes
+			}
+		}
+		localisation_key = string_WL_flyting_character_insult_desc_1
+	}
+	text = {
+		trigger = {
+			ROOT = {
+				trait = gluttonous
+				is_gluttonous_vice = yes
+			}
+		}
+		localisation_key = string_WL_flyting_character_insult_desc_2
+	}
+	text = {
+		trigger = {
+			ROOT = {
+				trait = envious
+				is_envious_vice = yes
+			}
+		}
+		localisation_key = string_WL_flyting_character_insult_desc_3
+	}
+	text = {
+		trigger = {
+			ROOT = {
+				trait = slothful
+				is_slothful_vice = yes
+			}
+		}
+		localisation_key = string_WL_flyting_character_insult_desc_4
+	}
+	text = {
+		trigger = {
+			ROOT = {
+				trait = greedy
+				is_greedy_vice = yes
+			}
+		}
+		localisation_key = string_WL_flyting_character_insult_desc_5
+	}
+	text = {
+		trigger = {
+			ROOT = {
+				trait = wroth
+				is_wroth_vice = yes
+			}
+		}
+		localisation_key = string_WL_flyting_character_insult_desc_6
+	}
+	text = {
+		trigger = {
+			ROOT = {
+				trait = lustful
+				is_lustful_vice = yes
+			}
+		}
+		localisation_key = string_WL_flyting_character_insult_desc_7
+	}
+	text = {
+		trigger = { ROOT = { trait = uncouth } }
+		localisation_key = string_WL_flyting_character_insult_desc_8
+	}
+	text = {
+		trigger = { ROOT = { is_attractive_trigger = no } }
+		localisation_key = string_WL_flyting_character_insult_desc_9
+	}
+	text = {
+		trigger = { ROOT = { is_attractive_trigger = no } }
+		localisation_key = string_WL_flyting_character_insult_desc_10
+	}
+	text = {
+		trigger = { ROOT = { has_unattractive_trait_trigger = yes } }
+		localisation_key = string_WL_flyting_character_insult_desc_11
+	}
+	text = {
+		trigger = { ROOT = { has_unattractive_trait_trigger = yes } }
+		localisation_key = string_WL_flyting_character_insult_desc_12
+	}
+	text = {
+		trigger = { ROOT = { has_unattractive_trait_trigger = yes } }
+		localisation_key = string_WL_flyting_character_insult_desc_13
+	}
+	text = {
+		trigger = { ROOT = { is_female = yes has_unattractive_trait_trigger = yes } }
+		localisation_key = string_WL_flyting_character_insult_desc_14
+	}
+	text = {
+		trigger = { ROOT = { is_strong_trigger = no } }
+		localisation_key = string_WL_flyting_character_insult_desc_15
+	}
+	text = {
+		trigger = { ROOT = { is_strong_trigger = no } }
+		localisation_key = string_WL_flyting_character_insult_desc_16
+	}
+	text = {
+		trigger = { ROOT = { is_weak_trigger = yes } }
+		localisation_key = string_WL_flyting_character_insult_desc_17
+	}
+	text = {
+		trigger = { ROOT = { is_weak_trigger = yes } }
+		localisation_key = string_WL_flyting_character_insult_desc_18
+	}
+	text = {
+		trigger = { ROOT = { is_weak_trigger = yes } }
+		localisation_key = string_WL_flyting_character_insult_desc_19
+	}
+	text = {
+		trigger = { ROOT = { is_weak_trigger = yes } }
+		localisation_key = string_WL_flyting_character_insult_desc_20
+	}
+	text = {
+		trigger = { ROOT = { is_weak_trigger = yes } }
+		localisation_key = string_WL_flyting_character_insult_desc_21
+	}
+	text = {
+		trigger = { ROOT = { is_smart_trigger = no } }
+		localisation_key = string_WL_flyting_character_insult_desc_22
+	}
+	text = {
+		trigger = { ROOT = { is_smart_trigger = no } }
+		localisation_key = string_WL_flyting_character_insult_desc_23
+	}
+	text = {
+		trigger = { ROOT = { is_dumb_trigger = yes } }
+		localisation_key = string_WL_flyting_character_insult_desc_24
+	}
+	text = {
+		trigger = { ROOT = { is_dumb_trigger = yes } }
+		localisation_key = string_WL_flyting_character_insult_desc_25
+	}
+	text = {
+		trigger = { ROOT = { is_dumb_trigger = yes } }
+		localisation_key = string_WL_flyting_character_insult_desc_26
+	}
+	text = {
+		trigger = { ROOT = { trait = gregarious } }
+		localisation_key = string_WL_flyting_character_insult_desc_27
+	}
+	text = {
+		trigger = { ROOT = { OR = { trait = craven trait = shy } } }
+		localisation_key = string_WL_flyting_character_insult_desc_28
+	}
+	text = {
+		trigger = { ROOT = { is_alive = yes } }
+		localisation_key = string_WL_flyting_character_insult_desc_29
+	}
+	text = {
+		trigger = { ROOT = { is_alive = yes } }
+		localisation_key = string_WL_flyting_character_insult_desc_30
+	}
+	#Additional variants
+
+	text = {
+		trigger = { ROOT = { trait = lustful is_female = no prefers_men_trigger = no } FROM = { NOT = { trait = poet } } }
+		localisation_key = string_WL_flyting_character_insult_desc_31
+	}
+	text = {
+		trigger = { ROOT = { trait = lustful is_female = no prefers_men_trigger = yes } FROM = { NOT = { trait = poet } } }
+		localisation_key = string_WL_flyting_character_insult_desc_32
+	}
+	text = {
+		trigger = { ROOT = { trait = lustful is_female = yes prefers_men_trigger = yes } FROM = { NOT = { trait = poet } } }
+		localisation_key = string_WL_flyting_character_insult_desc_33
+	}
+	text = {
+		trigger = { ROOT = { trait = lustful is_female = yes prefers_men_trigger = no } FROM = { NOT = { trait = poet } } }
+		localisation_key = string_WL_flyting_character_insult_desc_34
+	}
+	text = {
+		trigger = { ROOT = { trait = gluttonous } FROM = { NOT = { trait = poet } } }
+		localisation_key = string_WL_flyting_character_insult_desc_35
+	}
+	text = {
+		trigger = { ROOT = { trait = envious } FROM = { NOT = { trait = poet } } }
+		localisation_key = string_WL_flyting_character_insult_desc_36
+	}
+	text = {
+		trigger = { ROOT = { trait = greedy } FROM = { NOT = { trait = poet } } }
+		localisation_key = string_WL_flyting_character_insult_desc_37
+	}
+	text = {
+		trigger = { ROOT = { trait = slothful } FROM = { NOT = { trait = poet } } }
+		localisation_key = string_WL_flyting_character_insult_desc_38
+	}
+	text = {
+		trigger = { ROOT = { trait = wroth } FROM = { NOT = { trait = poet } } }
+		localisation_key = string_WL_flyting_character_insult_desc_39
+	}
+	text = {
+		trigger = { FROM = { NOT = { trait = poet } } }
+		localisation_key = string_WL_flyting_character_insult_desc_40
+	}
+	text = {
+		trigger = { ROOT = { OR = { trait = proud trait = groomed } } FROM = { trait = poet } }
+		localisation_key = string_WL_flyting_character_insult_desc_41
+	}
+	text = {
+		trigger = { ROOT = { trait = lustful prefers_men_trigger = no } FROM = { trait = poet } }
+		localisation_key = string_WL_flyting_character_insult_desc_42
+	}
+	text = {
+		trigger = { ROOT = { trait = lustful prefers_men_trigger = yes } FROM = { trait = poet } }
+		localisation_key = string_WL_flyting_character_insult_desc_43
+	}
+	text = {
+		trigger = { ROOT = { trait = gluttonous } FROM = { trait = poet } }
+		localisation_key = string_WL_flyting_character_insult_desc_44
+	}
+	text = {
+		trigger = { ROOT = { trait = envious } FROM = { trait = poet } }
+		localisation_key = string_WL_flyting_character_insult_desc_45
+	}
+	text = {
+		trigger = { ROOT = { trait = greedy } FROM = { trait = poet } }
+		localisation_key = string_WL_flyting_character_insult_desc_46
+	}
+	text = {
+		trigger = { ROOT = { trait = slothful } FROM = { trait = poet } }
+		localisation_key = string_WL_flyting_character_insult_desc_47
+	}
+	text = {
+		trigger = { ROOT = { trait = wroth } FROM = { trait = poet } }
+		localisation_key = string_WL_flyting_character_insult_desc_48
+	}
+	text = {
+		trigger = { ROOT = { OR = { trait = proud trait = groomed } } FROM = { NOT = { trait = poet } } }
+		localisation_key = string_WL_flyting_character_insult_desc_49
+	}
+	text = {
+		trigger = {
+			ROOT = {
+				OR = {
+					trait = scholar
+					trait = theologian
+					trait = mystic
+					trait = novice_mage
+					trait = eldritch_scholar
+					trait = veteran_wizard
+					trait = arcane_master
+				}
+				NOR = {
+					trait = strong
+					trait = robust
+				}
+			}
+		}
+		localisation_key = string_WL_flyting_character_insult_desc_50
+	}
+	text = {
+		trigger = {
+			FROM = {
+				NOR = {
+					trait = werewolf
+					culture = werewolf_culture
+				}
+			}
+			ROOT = { trait = known_werewolf }
+		}
+		localisation_key = string_WL_flyting_character_insult_desc_51
+	}
+	text = {
+		trigger = {
+			FROM = {
+				NOR = {
+					trait = known_vampire
+					culture = vampire_culture
+				}
+			}
+			ROOT = {
+				trait = known_vampire
+				trait = slothful
+			}
+		}
+		localisation_key = string_WL_flyting_character_insult_desc_52
+	}
+	text = {
+		trigger = {
+			FROM = {
+				NOR = {
+					trait = known_vampire
+					culture = vampire_culture
+				}
+			}
+			trait = known_vampire
+		}
+		localisation_key = string_WL_flyting_character_insult_desc_53
+	}
+	text = {
+		trigger = {
+			trait = dragon
+			wealth < 100
+		}
+		localisation_key = string_WL_flyting_character_insult_desc_54
+	}
+	text = {
+		trigger = { trait = god }
+		localisation_key = string_WL_flyting_character_insult_desc_55
+	}
+	text = {
+		trigger = {
+			ROOT  = {
+				OR = {
+					trait = known_vampire
+					trait = mummy
+					trait = zombie
+					trait = ethereal_trait
+				}
+			}
+		}
+		localisation_key = string_WL_flyting_character_insult_desc_56
+	}
+	text = {
+		trigger = {
+			ROOT  = {
+				OR = {
+					trait = summoner
+					trait = enchanter
+				}
+			}
+		}
+		localisation_key = string_WL_flyting_character_insult_desc_57
+	}
+	text = {
+		trigger = { trait = necromancer }
+		localisation_key = string_WL_flyting_character_insult_desc_58
+	}
+	text = {
+		trigger = { trait = necromancer }
+		localisation_key = string_WL_flyting_character_insult_desc_59
+	}
+	text = {
+		trigger = {
+			ROOT  = {
+				OR = {
+					AND = { trait = necromancer trait = lustful reverse_has_opinion_modifier = { who = FROM modifier = aware_of_secret_actions } }
+					AND = {
+						any_lover = { OR = { trait = zombie trait = mummy trait = ethereal_trait } }
+						NOR = { trait = zombie trait = mummy trait = ethereal_trait }
+					}
+				}
+			}
+			FROM = { NOT = { trait = poet } }
+		}
+		localisation_key = string_WL_flyting_character_insult_desc_60
+	}
+	text = {
+		trigger = {
+			ROOT  = {
+				OR = {
+					AND = { trait = necromancer trait = lustful reverse_has_opinion_modifier = { who = FROM modifier = aware_of_secret_actions } }
+					AND = {
+						any_lover = { OR = { trait = zombie trait = mummy trait = ethereal_trait } }
+						NOR = { trait = zombie trait = mummy trait = ethereal_trait }
+					}
+				}
+			}
+			FROM = { trait = poet }
+		}
+		localisation_key = string_WL_flyting_character_insult_desc_61
+	}
+	text = {
+		trigger = {
+			ROOT = {
+				trait = craven
+				is_craven_vice = yes
+			}
+		}
+		localisation_key = string_WL_flyting_character_insult_desc_62
+	}
+	text = {
+		trigger = {
+			ROOT = {
+				trait = humble
+				is_humble_vice = yes
+			}
+		}
+		localisation_key = string_WL_flyting_character_insult_desc_63
+	}
+	text = {
+		trigger = {
+			ROOT = {
+				trait = arbitrary
+				is_arbitrary_vice = yes
+			}
+		}
+		localisation_key = string_WL_flyting_character_insult_desc_64
+	}
+	text = {
+		trigger = {
+			ROOT = {
+				trait = paranoid
+				is_paranoid_vice = yes
+			}
+		}
+		localisation_key = string_WL_flyting_character_insult_desc_65
+	}
+	text = {
+		trigger = {
+			ROOT = {
+				trait = kind
+				is_kind_vice = yes
+			}
+		}
+		localisation_key = string_WL_flyting_character_insult_desc_66
+	}
+	text = {
+		trigger = {
+			ROOT = {
+				trait = cruel
+				is_cruel_vice = yes
+			}
+		}
+		localisation_key = string_WL_flyting_character_insult_desc_67
+	}
+	text = {
+		trigger = {
+			ROOT = {
+				is_female = no
+				NOT = { trait = eunuch }
+				trait = chaste
+				is_chaste_vice = yes
+			}
+		}
+		localisation_key = string_WL_flyting_character_insult_desc_68
+	}
+	text = {
+		trigger = {
+			ROOT = {
+				is_female = yes
+				trait = chaste
+				is_chaste_vice = yes
+			}
+		}
+		localisation_key = string_WL_flyting_character_insult_desc_69
+	}
+	text = {
+		trigger = {
+			ROOT = {
+				trait = temperate
+				is_temperate_vice = yes
+			}
+		}
+		localisation_key = string_WL_flyting_character_insult_desc_70
+	}
+	text = {
+		trigger = {
+			ROOT = {
+				trait = charitable
+				is_charitable_vice = yes
+			}
+		}
+		localisation_key = string_WL_flyting_character_insult_desc_71
+	}
+	text = {
+		trigger = {
+			ROOT = {
+				trait = diligent
+				is_diligent_vice = yes
+			}
+		}
+		localisation_key = string_WL_flyting_character_insult_desc_72
+	}
+	text = {
+		trigger = {
+			ROOT = {
+				trait = patient
+				is_patient_vice = yes
+			}
+		}
+		localisation_key = string_WL_flyting_character_insult_desc_73
+	}
+	text = {
+		trigger = {
+			ROOT = {
+				trait = content
+				is_content_vice = yes
+			}
+		}
+		localisation_key = string_WL_flyting_character_insult_desc_74
+	}
+	text = {
+		trigger = {
+			ROOT = {
+				trait = dragon
+				combat_rating < -10
+			}
+		}
+		localisation_key = string_WL_flyting_character_insult_desc_75
+	}
+	text = {
+		trigger = {
+			ROOT = {
+				trait = charitable
+				trait = chaste
+				is_charitable_vice = yes
+				is_married = yes
+			}
+		}
+		localisation_key = string_WL_flyting_character_insult_desc_76
+	}
+	
+	fallback_text = {
+		localisation_key = string_character_insult_desc_default # Fallback, in case it fails to find relevant info
+	}
+}
+
+defined_text = { #Used to refer to a type of "warrior", initial cap...
+	name = GetWarriorLodgeCompetitionType
+	
+	text = {
+		localisation_key = String_flyting
+		trigger = {
+			OR = { #Only for northeners
+				society_member_of = warrior_lodge_norse
+				society_member_of = warrior_lodge_slavic
+				society_member_of = warrior_lodge_baltic
+				society_member_of = warrior_lodge_finnish
+				society_member_of = warrior_lodge_druidic
+				society_member_of = warrior_lodge_jotnar
+			}
+		}
+	}
+	text = {
+		localisation_key = String_arm_wrestling
+	}
+	text = {
+		localisation_key = String_drinking
+		trigger = { NOT = { society_member_of = warrior_lodge_bon } }
+	}
+	text = {
+		localisation_key = String_dice
+		trigger = { 
+			OR = { 
+				society_member_of = warrior_lodge_bon
+				society_member_of = warrior_lodge_hellenic
+				society_member_of = warrior_lodge_kemetic
+			}
+		}
+	}
+	fallback_text = {
+		localisation_key = String_arm_wrestling # Fallback, in case it fails to find relevant info
+	}
+}
+## Draconic
+defined_text = {
+	name = GetDraconicWarriorSocietyName
+	text = { trigger = { has_alternate_start_parameter = { key = religion_names value = random } }
+		localisation_key = warrior_lodge_draconic_random
+	}
+	text = { trigger = { NOT = { has_alternate_start_parameter = { key = religion_names value = random } } }
+		localisation_key = warrior_lodge_draconic_real
+	}
+}
+defined_text = {
+	name = GetDraconicWarriorSocietyDesc
+	text = { trigger = { has_alternate_start_parameter = { key = religion_names value = random } }
+		localisation_key = warrior_lodge_draconic_desc_random
+	}
+	text = { trigger = { NOT = { has_alternate_start_parameter = { key = religion_names value = random } } }
+		localisation_key = warrior_lodge_draconic_desc_real
+	}
+}
+## Kemetic
+defined_text = {
+	name = GetKemeticWarriorSocietyName
+	text = { trigger = { has_alternate_start_parameter = { key = religion_names value = random } }
+		localisation_key = warrior_lodge_kemetic_random
+	}
+	text = { trigger = { NOT = { has_alternate_start_parameter = { key = religion_names value = random } } }
+		localisation_key = warrior_lodge_kemetic_real
+	}
+}
+defined_text = {
+	name = GetKemeticWarriorSocietyDesc
+	text = { trigger = { has_alternate_start_parameter = { key = religion_names value = random } }
+		localisation_key = warrior_lodge_kemetic_desc_random
+	}
+	text = { trigger = { NOT = { has_alternate_start_parameter = { key = religion_names value = random } } }
+		localisation_key = warrior_lodge_kemetic_desc_real
+	}
+}
+## Druidic
+defined_text = {
+	name = GetDruidicWarriorSocietyName
+	text = { trigger = { has_alternate_start_parameter = { key = religion_names value = random } }
+		localisation_key = warrior_lodge_druidic_random
+	}
+	text = { trigger = { NOT = { has_alternate_start_parameter = { key = religion_names value = random } } }
+		localisation_key = warrior_lodge_druidic_real
+	}
+}
+defined_text = {
+	name = GetDruidicWarriorSocietyDesc
+	text = { trigger = { has_alternate_start_parameter = { key = religion_names value = random } }
+		localisation_key = warrior_lodge_druidic_desc_random
+	}
+	text = { trigger = { NOT = { has_alternate_start_parameter = { key = religion_names value = random } } }
+		localisation_key = warrior_lodge_druidic_desc_real
+	}
+}
+## Jotnar
+defined_text = {
+	name = GetJotnarWarriorSocietyName
+	text = { trigger = { has_alternate_start_parameter = { key = religion_names value = random } }
+		localisation_key = warrior_lodge_jotnar_random
+	}
+	text = { trigger = { NOT = { has_alternate_start_parameter = { key = religion_names value = random } } }
+		localisation_key = warrior_lodge_jotnar_real
+	}
+}
+defined_text = {
+	name = GetJotnarWarriorSocietyDesc
+	text = { trigger = { has_alternate_start_parameter = { key = religion_names value = random } }
+		localisation_key = warrior_lodge_jotnar_desc_random
+	}
+	text = { trigger = { NOT = { has_alternate_start_parameter = { key = religion_names value = random } } }
+		localisation_key = warrior_lodge_jotnar_desc_real
+	}
+}

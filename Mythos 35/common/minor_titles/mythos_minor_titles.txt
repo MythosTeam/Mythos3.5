@@ -1,0 +1,545 @@
+title_eggkeeper = {
+	dignity = 0.05
+	realm_in_name = yes
+	grant_limit = 1
+	opinion_effect = 10
+	
+	monthly_salary = 0.05
+	monthly_prestige = 0.2
+	
+	allowed_to_hold = {
+		is_adult = yes
+		trait = dragon
+		OR = {
+			AND = {
+				is_female = yes
+				female_can_hold_minor_title_trigger = no
+			}
+			AND = {
+				is_female = no
+				male_can_hold_minor_title_trigger = no
+			}
+			AND = {
+				male_can_hold_minor_title_trigger = yes
+				female_can_hold_minor_title_trigger = yes
+			}
+		}
+		NOT = { trait = incapable } 
+	}
+	
+	allowed_to_grant = {
+		OR = {
+			is_feudal = yes
+			is_tribal = yes
+		}
+		primary_title = {
+			OR = {
+				tier = duke
+				tier = king
+				tier = emperor
+			}
+		}
+		OR = {
+			religion = draconic_pagan
+			religion = draconic_pagan_reformed
+		}
+		trait = dragon
+	}
+	
+	gain_effect = {
+	}
+	lose_effect = {
+	}
+
+	message = yes
+}
+
+title_hunting_pack = {
+	dignity = 0.05
+	realm_in_name = yes
+	grant_limit = 4
+	opinion_effect = 20
+	
+	monthly_salary = 0.01
+	monthly_prestige = 0.3
+	
+	allowed_to_hold = {
+		OR = {
+			primary_title = { temporary = no }
+			NOT = {
+				primary_title = {
+					always = yes
+				}
+			}
+		}
+		is_adult = yes
+		NOT = { trait = incapable } 
+		NOT = { religion = jain }
+		trait = known_werewolf
+	}
+	
+	allowed_to_grant = {
+		OR = {
+			is_feudal = yes
+			is_tribal = yes
+		}
+		primary_title = {
+			OR = {
+				tier = duke
+				tier = king
+				tier = emperor
+			}
+		}
+		culture = werewolf_culture
+		trait = known_werewolf
+	}
+	
+	gain_effect = {
+	}
+	lose_effect = {
+	}
+
+	message = yes
+}
+
+title_loremaster = {
+	dignity = 0.05
+	grant_limit = 1
+	opinion_effect = 10
+	
+	monthly_salary = 0.01
+	monthly_prestige = 0.1
+	monthly_piety = 0.2
+	
+	allowed_to_hold = {
+		OR = {
+			primary_title = { temporary = no }
+			NOT = {
+				primary_title = {
+					always = yes
+				}
+			}
+		}
+		OR = {
+			learning = 15
+			trait = mastermind_theologian
+			trait = arcane_master
+		}
+		OR = { 
+			male_can_hold_minor_title_trigger = yes
+			female_can_hold_minor_title_trigger = yes
+		}
+		is_adult = yes
+		is_incapable = no
+		#religion_group = pagan_group
+		liege = { religion = PREV }
+	}
+	
+	allowed_to_grant = {
+		OR = {
+			is_feudal = yes
+			is_tribal = yes
+		}
+		primary_title = {
+			OR = {
+				tier = king
+				tier = emperor
+			}
+		}
+		OR = {
+			religion = pagan
+			religion = norse_pagan
+			religion = tengri_pagan
+			religion = baltic_pagan
+			religion = finnish_pagan
+			religion = aztec
+			religion = slavic_pagan
+			religion = west_african_pagan
+			religion = zun_pagan
+			religion = draconic_pagan
+			religion = druidic
+			religion = kemetic_pagan
+			religion = jotnar
+		}
+	}
+	
+	gain_effect = {
+	}
+	lose_effect = {
+	}
+
+	message = yes
+}
+
+title_fan_bearer = {
+	dignity = 0.05
+	grant_limit = 1
+	opinion_effect = 10
+	
+	monthly_salary = 0.01
+	monthly_prestige = 0.1
+	
+	allowed_to_hold = {
+		OR = {
+			primary_title = { temporary = no }
+			NOT = {
+				primary_title = {
+					always = yes
+				}
+			}
+		}
+		is_adult = yes
+		NOT = { trait = incapable } 
+		OR = {
+			religion = kemetic_pagan
+			religion = atenist
+		}
+	}
+	
+	allowed_to_grant = {
+		OR = {
+			is_feudal = yes
+			is_tribal = yes
+		}
+		primary_title = {
+			OR = {
+				tier = king
+				tier = emperor
+			}
+		}
+		OR = {
+			religion = atenist
+			religion = kemetic_pagan
+		}
+	}
+	
+	gain_effect = {
+	}
+	lose_effect = {
+	}
+
+	message = yes
+}
+
+title_censor = {
+	dignity = 0.15
+	realm_in_name = yes
+	grant_limit = 1
+	opinion_effect = 10
+	
+	monthly_salary = 0.075
+	monthly_prestige = 0.75
+	
+	allowed_to_hold = {
+		OR = {
+			primary_title = { temporary = no }
+			NOT = {
+				primary_title = {
+					always = yes
+				}
+			}
+		}
+		age = 16
+		OR = { 
+			male_can_hold_minor_title_trigger = yes
+			female_can_hold_minor_commander_title_trigger = yes
+		}
+		NOT = { trait = incapable } 
+	}
+	
+	allowed_to_grant = {
+		OR = {
+			is_feudal = yes
+			is_tribal = yes
+		}
+		primary_title = {
+			OR = {
+				tier = king
+				tier = emperor
+			}
+		}
+		religion = hellenic_pagan_reformed
+	}
+	
+	gain_effect = {
+	}
+	lose_effect = {
+	}
+
+	message = yes
+}
+
+title_curule_aedile = {
+	dignity = 0.15
+	realm_in_name = yes
+	grant_limit = 1
+	opinion_effect = 10
+	
+	monthly_salary = 0.075
+	monthly_prestige = 0.75
+	
+	allowed_to_hold = {
+		OR = {
+			primary_title = { temporary = no }
+			NOT = {
+				primary_title = {
+					always = yes
+				}
+			}
+		}
+		age = 16
+		OR = { 
+			male_can_hold_minor_title_trigger = yes
+			female_can_hold_minor_commander_title_trigger = yes
+		}
+		NOT = { trait = incapable } 
+	}
+	
+	allowed_to_grant = {
+		OR = {
+			is_feudal = yes
+			is_tribal = yes
+		}
+		primary_title = {
+			OR = {
+				tier = king
+				tier = emperor
+			}
+		}
+		religion = hellenic_pagan_reformed
+	}
+	
+	gain_effect = {
+	}
+	lose_effect = {
+	}
+
+	message = yes
+}
+title_mage_apprentice = {
+	dignity = 0.02
+	grant_limit = 1
+	opinion_effect = 10
+	monthly_prestige = 0.2
+	allowed_to_hold = {
+		is_adult = yes
+		NOT = { lifestyle_traits = 1 }
+		prisoner = no
+	}
+	allowed_to_grant = {
+		OR = {
+			trait = enchanter
+			trait = summoner
+			trait = alchemist
+			trait = herbalist
+			trait = necromancer
+		}
+	}
+	
+	gain_effect = {
+		if = {
+			limit = { ai = yes }
+			if = {
+				limit = {
+					FROM = { trait = enchanter }
+				}
+				if = {
+					limit = {
+						OR = {
+							has_character_modifier = studying_conjuration
+							has_character_modifier = studying_herbalism
+							has_character_modifier = studying_alchemy
+							has_character_modifier = studying_necromancy
+						}
+					}
+					remove_character_modifier = studying_conjuration
+					remove_character_modifier = studying_herbalism
+					remove_character_modifier = studying_alchemy
+					remove_character_modifier = studying_necromancy
+					remove_character_modifier = magic_study_1
+					remove_character_modifier = magic_study_2
+				}
+				if = {
+					limit = { NOT = { has_character_modifier = studying_sorcery } }
+					add_character_modifier = { name = studying_sorcery duration = -1 }
+				}
+			}
+			else_if = {
+				limit = {
+					FROM = { trait = summoner }
+				}
+				if = {
+					limit = {
+						OR = {
+							has_character_modifier = studying_sorcery
+							has_character_modifier = studying_herbalism
+							has_character_modifier = studying_alchemy
+							has_character_modifier = studying_necromancy
+						}
+					}
+					remove_character_modifier = studying_sorcery
+					remove_character_modifier = studying_herbalism
+					remove_character_modifier = studying_alchemy
+					remove_character_modifier = studying_necromancy
+					remove_character_modifier = magic_study_1
+					remove_character_modifier = magic_study_2
+				}
+				if = {
+					limit = { NOT = { has_character_modifier = studying_conjuration } }
+					add_character_modifier = { name = studying_conjuration duration = -1 }
+				}
+			}
+			else_if = {
+				limit = {
+					FROM = { trait = alchemist }
+				}
+				if = {
+					limit = {
+						OR = {
+							has_character_modifier = studying_sorcery
+							has_character_modifier = studying_herbalism
+							has_character_modifier = studying_conjuration
+							has_character_modifier = studying_necromancy
+						}
+					}
+					remove_character_modifier = studying_sorcery
+					remove_character_modifier = studying_herbalism
+					remove_character_modifier = studying_conjuration
+					remove_character_modifier = studying_necromancy
+					remove_character_modifier = magic_study_1
+					remove_character_modifier = magic_study_2
+				}
+				if = {
+					limit = { NOT = { has_character_modifier = studying_alchemy } }
+					add_character_modifier = { name = studying_alchemy duration = -1 }
+				}
+			}
+			else_if = {
+				limit = {
+					FROM = { trait = herbalist }
+				}
+				if = {
+					limit = {
+						OR = {
+							has_character_modifier = studying_sorcery
+							has_character_modifier = studying_alchemy
+							has_character_modifier = studying_conjuration
+							has_character_modifier = studying_necromancy
+						}
+					}
+					remove_character_modifier = studying_sorcery
+					remove_character_modifier = studying_alchemy
+					remove_character_modifier = studying_conjuration
+					remove_character_modifier = studying_necromancy
+					remove_character_modifier = magic_study_1
+					remove_character_modifier = magic_study_2
+				}
+				if = {
+					limit = { NOT = { has_character_modifier = studying_herbalism } }
+					add_character_modifier = { name = studying_herbalism duration = -1 }
+				}
+			}
+			else_if = {
+				limit = {
+					FROM = { trait = necromancer }
+				}
+				if = {
+					limit = {
+						OR = {
+							has_character_modifier = studying_sorcery
+							has_character_modifier = studying_alchemy
+							has_character_modifier = studying_conjuration
+							has_character_modifier = studying_herbalism
+						}
+					}
+					remove_character_modifier = studying_sorcery
+					remove_character_modifier = studying_alchemy
+					remove_character_modifier = studying_conjuration
+					remove_character_modifier = studying_herbalism
+					remove_character_modifier = magic_study_1
+					remove_character_modifier = magic_study_2
+				}
+				if = {
+					limit = { NOT = { has_character_modifier = studying_necromancy } }
+					add_character_modifier = { name = studying_necromancy duration = -1 }
+				}
+			}
+			set_focus = focus_magic
+		}
+		else = {
+			character_event = { id = MYTH_WoL.284 }
+		}
+	}
+	lose_effect = {
+		set_variable = { which = apprentice_years value = 0 }
+	}
+	retire_effect = {
+		set_variable = { which = apprentice_years value = 0 }
+	}
+
+	message = yes
+}
+
+title_vampiric_protection = {
+	dignity = 0.01
+	grant_limit = 1
+	
+	allowed_to_grant = {
+		trait = vampire
+		ai = no
+	}
+	allowed_to_hold = {
+		always = yes
+	}
+	gain_effect = {}
+	lose_effect = {}
+	retire_effect = {}
+	death_effect = {}
+}
+
+title_flame_custodian = {
+	
+	dignity = 0.9
+	grant_limit = 1
+	opinion_effect = 5
+	revoke_allowed = yes
+	
+	monthly_prestige = 0.2
+	
+	allowed_to_grant = {
+		any_realm_wonder = {
+			has_wonder_upgrade = upgrade_flame_custodian
+		}
+	}
+	
+	allowed_to_hold = {
+		is_adult = yes
+		NOR = {
+			trait = incapable
+			trait = infirm
+			trait = imbecile
+			trait = in_hiding
+		}
+		piety > 100
+		prisoner = no
+		OR = { 
+			male_can_hold_minor_title_trigger = yes
+			female_can_hold_minor_commander_title_trigger = yes
+		}
+	}
+
+	revoke_trigger = {
+		always = yes
+	}
+	
+	gain_effect = {
+	}
+	lose_effect = {
+	}
+	retire_effect = {
+	}
+	death_effect = {
+	}
+
+	message = yes
+}

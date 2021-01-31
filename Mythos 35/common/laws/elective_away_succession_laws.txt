@@ -1,0 +1,477 @@
+succession_laws = {
+	succ_imperial_primogenure = {
+		oldest_child_opinion = 10
+		youngest_child_opinion = -15
+		child_opinion = -10
+		dynasty_opinion = -5
+		vassal_opinion = -10
+		potential = {
+			OR = { 
+				holder_scope = { 
+					government = roman_imperial_government
+				}
+				has_law = succ_byzantine_elective 
+				OR = { 
+					title = e_byzantium
+					title = e_roman_empire
+				}
+			}
+			holder_scope = {
+				NOT = { religion_group = muslim }
+				is_merchant_republic = no
+				is_patrician = no
+			}
+			OR = {
+				holder_scope = { # Viceroyalties can always have primogeniture if not muslim
+					any_demesne_title = {
+						is_vice_royalty = yes
+					}
+				}
+				AND = {
+					holder_scope = {
+						OR = {
+							independent = yes
+							NOT = {
+								any_liege = {
+									holy_order = yes
+								}
+							}
+						}
+						OR = {
+							NOT = { religion_group = pagan_group }
+							religion = bon
+							religion = bon_reformed
+							is_reformed_religion = yes
+							religion = hellenic_pagan
+						}
+					}
+					OR = {
+						is_landless_type_title = no
+						is_tribal_type_title = yes
+						temporary = yes
+					}
+					is_primary_type_title = no
+					OR = {
+						AND = {
+							tier = baron
+							is_feudal = yes
+						}
+						holder_scope = { is_feudal = yes }
+					}
+				}
+				has_title_flag = alternate_byz
+			}
+			NOT = { holder_scope = { government = confucian_bureaucracy } }
+		}
+		allow = {
+			conditional_tooltip = {
+				trigger = {
+					has_dlc = "Conclave"
+				}
+				AND = {
+					holder_scope = {
+						show_scope_change = no
+						primary_title = {
+							show_scope_change = no
+							OR = {
+								has_law = ze_administration_laws_1
+								has_law = ze_administration_laws_2
+							}
+						}
+					}
+				}
+			}
+			conditional_tooltip = {
+				trigger = {
+					NOT = { has_dlc = "Conclave" }
+					NOT = { has_law = succ_hre_elective }
+				}
+				OR = {
+					hidden_tooltip = {
+						has_crown_law_title = no
+					}
+					crownlaw_title = {
+						OR = {
+							has_law = crown_authority_3
+							has_law = crown_authority_4
+						}
+					}
+				}
+			}
+
+			custom_tooltip = {
+				text = not_forced_tt
+				hidden_tooltip = {
+					holder_scope = { NOT = { has_character_flag = liege_forced_succ_law } }
+				}
+			}
+			conditional_tooltip = {
+				trigger = {
+					has_dlc = "Conclave"
+				}
+				custom_tooltip = {
+					text = forced_elective_tt
+					hidden_tooltip = {
+						NAND = { 
+							has_law = succession_voting_power_1
+							OR = { 
+								has_law = succ_feudal_elective 
+								has_law = succ_byzantine_elective 
+							}
+						}
+					}
+				}
+			}
+			conditional_tooltip = {
+				trigger = {
+					OR={
+						has_law = succ_byzantine_elective 
+					}
+					NOT = { has_dlc = "Conclave" }
+				}
+				has_law = crown_authority_4
+			}
+			conditional_tooltip = {
+				trigger = {
+					has_game_rule = { name = byzantine_succ_centralisation value = max }
+					has_law = succ_byzantine_elective
+				}
+				has_law = centralization_4
+			}
+			conditional_tooltip = {
+				trigger = {
+					has_game_rule = { name = byzantine_succ_centralisation value = high }
+					has_law = succ_byzantine_elective
+				}
+				OR={
+					has_law = centralization_3
+					has_law = centralization_4
+				}
+			}
+		}
+
+		effect = {
+			succession = primogeniture
+		}
+		revoke_allowed = {
+			always = no
+		}			
+	}
+	
+	succ_imperial_seniority = {
+		vassal_opinion = -15
+		oldest_child_opinion = -15
+		child_opinion = -10
+		dynasty_opinion = 5
+		potential = {
+			OR = { 
+				holder_scope = { 
+					government = roman_imperial_government
+				}
+				has_law = succ_byzantine_elective 
+				OR = { 
+					title = e_byzantium
+					title = e_roman_empire
+				}
+			}
+			holder_scope = {
+				NOT = { religion_group = muslim }
+				is_merchant_republic = no
+				is_patrician = no
+			}
+			OR = {
+				holder_scope = { # Viceroyalties can always have primogeniture if not muslim
+					any_demesne_title = {
+						is_vice_royalty = yes
+					}
+				}
+				AND = {
+					holder_scope = {
+						OR = {
+							independent = yes
+							NOT = {
+								any_liege = {
+									holy_order = yes
+								}
+							}
+						}
+						OR = {
+							NOT = { religion_group = pagan_group }
+							religion = bon
+							religion = bon_reformed
+							is_reformed_religion = yes
+							religion = hellenic_pagan
+						}
+					}
+					OR = {
+						is_landless_type_title = no
+						is_tribal_type_title = yes
+						temporary = yes
+					}
+					is_primary_type_title = no
+					OR = {
+						AND = {
+							tier = baron
+							is_feudal = yes
+						}
+						holder_scope = { is_feudal = yes }
+					}
+				}
+				has_title_flag = alternate_byz
+			}
+			NOT = { holder_scope = { government = confucian_bureaucracy } }
+		}
+		allow = {
+			conditional_tooltip = {
+				trigger = {
+					has_dlc = "Conclave"
+				}
+				AND = {
+					holder_scope = {
+						show_scope_change = no
+						primary_title = {
+							show_scope_change = no
+							OR = {
+								has_law = ze_administration_laws_1
+								has_law = ze_administration_laws_2
+							}
+						}
+					}
+				}
+			}
+			conditional_tooltip = {
+				trigger = {
+					NOT = { has_dlc = "Conclave" }
+					NOT = { has_law = succ_hre_elective }
+				}
+				OR = {
+					hidden_tooltip = {
+						has_crown_law_title = no
+					}
+					crownlaw_title = {
+						OR = {
+							has_law = crown_authority_3
+							has_law = crown_authority_4
+						}
+					}
+				}
+			}
+
+			custom_tooltip = {
+				text = not_forced_tt
+				hidden_tooltip = {
+					holder_scope = { NOT = { has_character_flag = liege_forced_succ_law } }
+				}
+			}
+			conditional_tooltip = {
+				trigger = {
+					has_dlc = "Conclave"
+				}
+				custom_tooltip = {
+					text = forced_elective_tt
+					hidden_tooltip = {
+						NAND = { 
+							has_law = succession_voting_power_1
+							OR = { 
+								has_law = succ_feudal_elective 
+								has_law = succ_byzantine_elective 
+							}
+						}
+					}
+				}
+			}
+			conditional_tooltip = {
+				trigger = {
+					OR={
+						has_law = succ_byzantine_elective 
+					}
+					NOT = { has_dlc = "Conclave" }
+				}
+				has_law = crown_authority_4
+			}
+			conditional_tooltip = {
+				trigger = {
+					has_law = succ_byzantine_elective
+					has_game_rule = { name = byzantine_succ_centralisation value = max }
+				}
+				has_law = centralization_4
+			}
+			conditional_tooltip = {
+				trigger = {
+					has_game_rule = { name = byzantine_succ_centralisation value = high }
+					has_law = succ_byzantine_elective
+				}
+				OR={
+					has_law = centralization_3
+					has_law = centralization_4
+				}
+			}
+		}
+
+		effect = {
+			succession = seniority
+		}
+		revoke_allowed = {
+			always = no
+		}			
+	}
+	
+	succ_imperial_ultimogeniture = {
+		youngest_child_opinion = 10
+		oldest_child_opinion = -15
+		child_opinion = -10
+		dynasty_opinion = -5
+		vassal_opinion = -10
+		potential = {
+			OR = { 
+				holder_scope = { 
+					government = roman_imperial_government
+				}
+				has_law = succ_byzantine_elective 
+				OR = { 
+					title = e_byzantium
+					title = e_roman_empire
+				}
+			}
+			holder_scope = {
+				NOT = { religion_group = muslim }
+				is_merchant_republic = no
+				is_patrician = no
+			}
+			OR = {
+				holder_scope = { # Viceroyalties can always have primogeniture if not muslim
+					any_demesne_title = {
+						is_vice_royalty = yes
+					}
+				}
+				AND = {
+					holder_scope = {
+						OR = {
+							independent = yes
+							NOT = {
+								any_liege = {
+									holy_order = yes
+								}
+							}
+						}
+						OR = {
+							NOT = { religion_group = pagan_group }
+							religion = bon
+							religion = bon_reformed
+							is_reformed_religion = yes
+							religion = hellenic_pagan
+						}
+					}
+					OR = {
+						is_landless_type_title = no
+						is_tribal_type_title = yes
+						temporary = yes
+					}
+					is_primary_type_title = no
+					OR = {
+						AND = {
+							tier = baron
+							is_feudal = yes
+						}
+						holder_scope = { is_feudal = yes }
+					}
+				}
+				has_title_flag = alternate_byz
+			}
+			NOT = { holder_scope = { government = confucian_bureaucracy } }
+		}
+		allow = {
+			conditional_tooltip = {
+				trigger = {
+					has_dlc = "Conclave"
+				}
+				AND = {
+					holder_scope = {
+						show_scope_change = no
+						primary_title = {
+							show_scope_change = no
+							OR = {
+								has_law = ze_administration_laws_1
+								has_law = ze_administration_laws_2
+							}
+						}
+					}
+				}
+			}
+			conditional_tooltip = {
+				trigger = {
+					NOT = { has_dlc = "Conclave" }
+					NOT = { has_law = succ_hre_elective }
+				}
+				OR = {
+					hidden_tooltip = {
+						has_crown_law_title = no
+					}
+					crownlaw_title = {
+						OR = {
+							has_law = crown_authority_3
+							has_law = crown_authority_4
+						}
+					}
+				}
+			}
+
+			custom_tooltip = {
+				text = not_forced_tt
+				hidden_tooltip = {
+					holder_scope = { NOT = { has_character_flag = liege_forced_succ_law } }
+				}
+			}
+			conditional_tooltip = {
+				trigger = {
+					has_dlc = "Conclave"
+				}
+				custom_tooltip = {
+					text = forced_elective_tt
+					hidden_tooltip = {
+						NAND = { 
+							has_law = succession_voting_power_1
+							OR = { 
+								has_law = succ_feudal_elective 
+								has_law = succ_byzantine_elective 
+							}
+						}
+					}
+				}
+			}
+			conditional_tooltip = {
+				trigger = {
+					OR={
+						has_law = succ_byzantine_elective 
+					}
+					NOT = { has_dlc = "Conclave" }
+				}
+				has_law = crown_authority_4
+			}
+			conditional_tooltip = {
+				trigger = {
+					has_game_rule = { name = byzantine_succ_centralisation value = max }
+					has_law = succ_byzantine_elective
+				}
+				has_law = centralization_4
+			}
+			conditional_tooltip = {
+				trigger = {
+					has_game_rule = { name = byzantine_succ_centralisation value = high }
+					has_law = succ_byzantine_elective
+				}
+				OR={
+					has_law = centralization_3
+					has_law = centralization_4
+				}
+			}
+		}
+
+		effect = {
+			succession = ultimogeniture
+		}
+		revoke_allowed = {
+			always = no
+		}			
+	}
+}

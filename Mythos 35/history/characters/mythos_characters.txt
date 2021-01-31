@@ -1,0 +1,5106 @@
+# Audax Validator EnableCommentMetadata
+# Audax Validator "!" Ignore_2001
+268285 = {
+	name="Argos"
+	dna = bcedirmbfcy
+	dynasty=1022161
+	religion="hellenic_pagan"
+	culture="greek"
+	trait="zealous"
+	trait="proud"
+	trait="blood_of_the_gods"
+	trait="grey_eminence"
+	martial=6
+	diplomacy=8
+	841.1.1={
+		birth="841.1.1"
+		effect = { set_character_flag = checked_race }
+	}
+	901.1.1={
+		death="901.1.1"
+	}
+}
+268286 = {
+	name="Vlad"
+	dna = bcedirmaaay
+	dynasty=1049000
+	religion="satanist"
+	culture="romanian"
+	trait="vampire"
+	trait="secret_vampire"
+	trait="hunger_0"
+	trait="impaler"
+	trait="patient"
+	trait="quick"
+	trait="deceitful"
+	trait="proud"
+	trait="cruel"
+	trait="skilled_tactician"
+	845.1.1 = {
+		birth="845.1.1"
+		effect = { set_character_flag = checked_race }
+	}
+	866.1.1 = {
+		give_nickname = nick_the_impaler
+	}
+}
+268287 = {
+	name="Velnias"
+	dna = bdedirmbfcy
+	dynasty=1048999
+	religion=baltic_pagan
+	culture=lithuanian
+	father=6893
+	trait="werewolf"
+	trait="patient"
+	trait="ambitious"
+	trait="skilled_tactician"
+	835.1.1 = {
+		birth="835.1.1"
+		effect = { set_character_flag = checked_race }
+	}
+	854.1.1=
+	{
+		add_spouse=82143
+	}
+}
+268288 = {
+	name="Svarnas" 
+	dynasty=1048999
+	religion="baltic_pagan"
+	culture="lithuanian"
+	trait="pup"
+	father=268287
+	mother=82143
+	858.1.1 = {
+		birth="858.1.1"
+		effect = { set_character_flag = checked_race }
+	}
+	873.1.1 = {
+		remove_trait = pup
+		add_trait = werewolf
+		add_trait = secret_werewolf
+	}
+	930.1.1 = {
+		death="930.1.1"
+	}
+}
+268289 = {
+	name = "Ramesses"
+	dna="ajibe00ae00"
+	dynasty = 1049002
+	religion = kemetic_pagan
+	culture = egyptian
+	trait = "mummy"
+	trait = "proud"
+	trait = "architect"
+	trait = "brilliant_strategist"
+	1.1.1 = {
+		birth="1.1.1"
+		effect = { set_character_flag = checked_race }
+		create_bloodline = {
+			type = BL_ramesis
+		}
+	}
+}	
+268290 = {
+	name="Rhodric"
+	dna = bcedirmbfcy
+	dynasty=1049003
+	religion="druidic"
+	culture="welsh"
+	trait="patient"
+	trait="deceitful"
+	trait="proud"
+	trait="quick"
+	trait="veteran_wizard"
+	trait="magic_heritage"
+	850.3.1 = {
+		birth="850.3.1"
+		effect = { set_character_flag = checked_race }
+	}
+	905.1.27 = {
+		death="905.1.27"
+	}
+}
+
+268295 = {
+	name=Æthelinda
+	religion="draconic_pagan"
+	culture="draconic"
+	trait="dragon"
+	female = yes
+	748.3.1 = {
+		birth="718.3.1"
+		effect = { set_character_flag = checked_race }
+	}
+	860.2.2 = {
+		death=yes
+	}
+}
+268296 = {
+	name="Cuélebre"
+	dynasty=1049007
+	religion="draconic_pagan"
+	culture="draconic"
+	trait="dragon"
+	trait="veteran_wizard"
+	trait="greedy"
+	trait="just"
+	trait="diligent"
+	trait="proud"
+	trait="magic_heritage"
+	711.4.5 = {
+		birth="711.4.5"
+		effect = { set_character_flag = checked_race }
+	}
+	764.1.1 = { add_spouse = 268295 }
+	821.1.1 = {
+		death=yes
+	}
+}
+268297 = {
+	name="Melusine"
+	religion="draconic_pagan"
+	culture="greek"
+	trait="dragon"
+	female=yes
+	820.7.2 = {
+		birth="820.7.2"
+		effect = {
+			set_graphical_culture=draconic
+			set_character_flag = checked_race
+		}
+	}
+	838.1.1 = {
+		add_spouse=268298
+	}
+	870.3.3 = {
+		death=yes
+	}
+}
+268298 = {
+	name="Bisterne"
+	dynasty=1049007
+	father=268296
+	mother=268295
+	religion="draconic_pagan"
+	culture="draconic"
+	trait="dragon"
+	trait="magic_heritage"
+	799.3.12 = {
+		birth="799.3.12"
+		effect = { set_character_flag = checked_race }
+	}
+	838.1.1 = {
+		add_spouse=268297
+	}
+	867.1.1 = {
+		death = yes
+	}
+}
+268299 = {
+	name="Rugarth"
+	dna = bcedirmbfcy
+	dynasty=1049007
+	father=268298
+	mother=268297
+	religion="draconic_pagan"
+	culture="draconic"
+	trait="dragon"
+	trait="greedy"
+	trait="envious"
+	trait="just"
+	trait="gregarious"
+	trait="scholar"
+	trait="midas_touched"
+	trait="magic_heritage"
+	martial=7
+	diplomacy=6
+	stewardship=9
+	839.12.1 = {
+		birth="839.12.1"
+		effect = { set_character_flag = checked_race }
+	}
+	856.2.5 = {
+		add_spouse = 268301
+	}
+	866.1.1 = {
+		effect = {
+			opinion = {
+				modifier = in_non_aggression_pact
+				years = 15
+				who = 144000
+			}
+			reverse_opinion = {
+				modifier = in_non_aggression_pact
+				years = 15
+				who = 144000
+			}
+		}
+	}
+	960.5.3 = {
+		death = yes
+	}
+}
+268300 = {
+	name="Alagor"
+	dynasty=1049007
+	religion="draconic_pagan"
+	culture="draconic"
+	trait="dragon"
+	trait="quick"
+	trait="just"
+	trait="magic_heritage"
+	father=268299
+	mother=268301
+	866.3.1 = {
+		birth="866.3.1"
+		effect = { set_character_flag = checked_race }
+	}
+	906.5.1={
+		add_spouse=268322
+	}
+	990.3.2 = {
+		death = yes
+	}
+}
+268301 = {
+	name="Berinil"
+	female=yes
+	religion="draconic_pagan"
+	culture="draconic"
+	trait="dragon"
+	trait="fair"
+	trait="gregarious"
+	trait="deceitful"
+	trait="seductress"
+	trait="grey_eminence"
+	840.3.1 = {
+		birth="840.3.1"
+		effect = { set_character_flag = checked_race }
+	}
+	1000.1.2 = {
+		death = yes
+	}
+}
+268302 = {
+	name="Davakonus" #Archetypical dragon tyrant. Intended to serve as a rival for any hellenic players.
+	dna=gccabhaahhh #He and his dynasty are Kellen's pet project, do tell him before making major changes
+	dynasty=1049229
+	#real_father=268298
+	religion="draconic_pagan"
+	culture="draconic"
+	trait="bastard"
+	trait="demi_god"
+	trait="dragon"
+	trait="arbitrary"
+	trait="possessed"
+	trait="deceitful"
+	trait="genius"
+	trait="ambitious"
+	trait="arcane_master"
+	trait="magic_heritage"
+	trait="heldragon"
+	321.3.5 = {
+		birth="321.3.5"
+		wealth = 400
+		effect = { set_character_flag = checked_race }
+		create_bloodline = {
+			type = BL_blood_of_the_gods_generic
+		}
+	}
+	500.1.1 = {
+		trait="immortal"
+		trait="summoner"
+		trait="schemer"
+	}
+	840.3.1 = {
+		trait="cynical"
+		trait="wroth"
+		add_claim="d_sicily"
+	}
+	895.6.1={
+		add_claim="c_malta"
+	}
+	909.1.1={
+		remove_claim="c_malta"
+		trait="scarred"
+	}
+	1127.1.1 = {
+		trait="lunatic"
+		trait="cruel"
+		add_claim="c_malta"
+	}
+	1130.12.25={
+		add_claim="k_sicily"
+		trait="envious"
+	}
+	1216.1.1 = {
+		trait="proud"
+		wealth = 500
+	}
+		
+	1302.8.31 = {
+		add_claim="k_naples"
+	}
+}
+268303 = {
+	name = "Edelène"
+	dna = bcedirmbfcy
+	religion="draconic_pagan"
+	culture="norman"
+	trait="lustful"
+	trait="seductress"
+	trait="fair"
+	female = yes
+	734.2.21 = {
+		birth="934.2.21"
+		effect = {
+			dynasty = none
+			set_character_flag = checked_race
+		}
+	}
+	751.5.15 = {
+		death = { death_reason = death_dragon killer = 268302 }
+	}
+}
+268304 = {
+	name = "Dakarr"
+	dna = gcadbhahb
+	dynasty=1049229
+	father=268302
+	mother=268303
+	religion="draconic_pagan"
+	culture="norman"
+	trait="legit_bastard"
+	trait="genius"
+	trait="robust"
+	trait="duelist"
+	trait="strategist"
+	trait="dragonborn"
+	trait="blood_of_the_gods"
+	trait="experimenter"
+	trait="inspiring_leader"
+	trait="immortal" #Gift from his father.
+	751.5.13 = {
+		birth="951.5.13"
+		effect = {
+			set_graphical_culture = norman
+			set_character_flag = checked_race
+		}
+	}
+	769.5.13 = {
+	 	give_job_title = job_marshal
+	}
+}
+268305 = {
+	name = "Ymir"
+	dynasty = 1049006
+	religion = jotnar
+	culture = norse
+	trait = detached_priest
+	trait = strong
+	trait = slothful
+	trait = wroth
+	trait = arbitrary
+	trait = mythos_giant
+	trait = size_10
+	1.1.1 = {
+		birth = "1.1.1"
+		effect = {
+			set_character_flag = norse_god_ymir
+			set_character_flag = checked_race
+		}
+		create_bloodline = {
+			type = BL_blood_of_the_gods_generic
+		}
+	}
+	316.1.1={
+		death={ death_reason = death_murder killer = 268485 }
+	}
+}	
+
+
+
+# Dragon family ruling Kola at CM/TOG start
+268310 = {
+	name = Grafvitni
+	dynasty = 1049011
+	female = no
+	father = 268311
+	mother = 268312
+	religion = draconic_pagan
+	culture = draconic
+	trait = brilliant_strategist
+	trait = holy_warrior
+	trait = greedy
+	trait = proud
+	trait = patient
+	trait = zealous
+	trait = just
+	trait = dragon
+	diplomacy=9
+	martial=9
+	stewardship=5
+	intrigue=7
+	learning=4
+	dna="h00000a00a0"
+	properties="c0000000000000"
+	729.8.14 = {
+		birth = "729.8.14"
+		effect = { set_character_flag = checked_race }
+	}
+	745.8.20 = {
+		add_spouse = 268313
+	}
+	833.6.3 = {
+		death = yes
+	}
+}
+268311 = {
+	name = Grafvölluðr
+	dynasty = 1049011
+	female = no
+	religion = draconic_pagan
+	culture = draconic
+	trait = dragon
+	683.3.12 = {
+		birth = "683.3.12"
+		effect = {
+			set_character_flag = checked_race
+		}
+	}
+	720.6.16 = {
+		add_spouse = 268312
+	}
+	768.12.8 = {
+		death = { death_reason = death_battle }
+	}
+}
+268312 = {
+	name = Ofnir
+	dynasty = 0
+	female = yes
+	religion = draconic_pagan
+	culture = draconic
+	trait = dragon
+	704.1.4 = {
+		birth = "704.1.4"
+		effect = {
+			set_character_flag = checked_race
+		}
+	}
+	720.6.16 = {
+		add_spouse = 268311
+	}
+	803.10.6 = {
+		death = yes
+	}
+}
+268313 = {
+	name = Lambton
+	female = yes
+	religion = draconic_pagan
+	culture = draconic
+	trait = dragon
+	trait = fortune_builder
+	trait = strong
+	trait = duelist
+	trait = wroth
+	trait = gluttonous
+	731.9.3 = {
+		birth = "731.9.3"
+		effect = {
+			set_graphical_culture = draconic
+			set_character_flag = checked_race
+		}
+		culture = irish
+	}
+	745.8.20 = {
+		add_spouse = 268310
+	}
+	842.10.7 = {
+		death = yes
+	}
+}
+268314 = {
+	name = Góinn
+	dynasty = 1049011
+	dna = eb0000ad0a0
+	female = no
+	father = 268310
+	mother = 268313
+	religion = draconic_pagan
+	culture = draconic
+	trait = dragon
+	trait = ambitious
+	trait = diligent
+	trait = strong
+	750.6.3 = {
+		birth = "750.6.3"
+		effect = {
+			set_character_flag = checked_race
+		}
+	}
+	816.5.5 = {
+		add_spouse = 268316
+	}
+	868.7.4 = {
+		death = yes
+	}
+}
+268315 = {
+	name = Móinn
+	dynasty = 1049011
+	female = no
+	father = 268310
+	mother = 268313
+	religion = draconic_pagan
+	culture = draconic
+	trait = dragon
+	771.4.8 = {
+		birth = "771.4.8"
+		effect = {
+			set_character_flag = checked_race
+		}
+	}
+	880.4.7 = {
+		death = yes
+	}
+}
+268316 = {
+	name = Bolla
+	dynasty = 0
+	female = yes
+	religion = draconic_pagan
+	culture = draconic
+	trait = dragon
+	800.5.5 = {
+		birth = "800.5.5"
+		effect = {
+			set_character_flag = checked_race
+		}
+	}
+	816.5.5 = {
+		add_spouse = 268314
+	}
+	921.10.3 = {
+		death = yes
+	}
+}
+268317 = {
+	name = Grábakr
+	dynasty = 1049011
+	female = no
+	father = 268314
+	mother = 268316
+	religion = draconic_pagan
+	culture = draconic
+	trait = dragon
+	850.1.5 = {
+		birth = "850.1.5"
+		effect = {
+			set_character_flag = checked_race
+		}
+	}
+	892.2.3 = {
+		death = yes
+	}
+}
+268318 = {
+	name = Knucker
+	female = no
+	religion = draconic_pagan
+	culture = draconic
+	trait = dragon
+	740.3.12 = {
+		birth = "740.3.12"
+		employer = 268311
+		effect = {
+			set_graphical_culture = draconic
+		}
+		culture = saxon
+	}
+	863.7.7 = {
+		death = yes
+	}
+}
+268319 = {
+	name = Tatzelwurm
+	dynasty = 0
+	religion = draconic_pagan
+	culture = draconic
+	trait = dragon
+	750.10.1 = {
+		birth = "750.10.1"
+		employer = 268311
+		effect = {
+			set_character_flag = checked_race
+		}
+	}
+	890.6.7 = {
+		death = yes
+	}
+}
+268320 = {
+	name = "Saffi Eriksdotter"
+	dynasty = 0
+	easter_egg=yes
+	religion = norse_pagan
+	culture = norse
+	trait=physician
+	female = yes
+	848.1.1 = {
+		birth=848.1.1
+		employer = 168320
+	}
+	866.1.1 = {
+		add_spouse=268321
+	}
+	901.1.1 = {
+		death=yes
+	}
+}
+268321 = {
+	name = "Hans"
+	dynasty = 0
+	easter_egg=yes
+	religion = norse_pagan
+	culture = norse
+	trait=organizer
+	845.1.1 = {
+		birth=845.1.1
+		employer = 168320
+	}
+	866.1.1 = {
+		add_spouse=268320
+	}
+	905.1.1 = {
+		death=yes
+	}
+}
+268322 = {
+	name = "Ofnir"
+	dynasty = 0
+	female = yes
+	religion="draconic_pagan"
+	culture="draconic"
+	trait="dragon"
+	890.3.3={
+		birth=890.3.3
+		employer=268299
+		effect = { set_character_flag = checked_race }
+	}
+	906.5.1={
+		add_spouse=268300
+	}
+	1020.1.2={
+		death=yes
+	}
+}
+268323={
+	name=Algarond
+	dynasty=1049007
+	female = no
+	religion="draconic_pagan"
+	culture="draconic"
+	trait="dragon"
+	trait="quick"
+	trait=arbitrary
+	trait=slothful
+	father=268300
+	mother=268322
+	907.2.2={
+		birth=907.2.2
+		effect = { set_character_flag = checked_race }
+	}
+	926.9.3={
+		add_spouse=268324
+	}
+	1040.6.7={
+		death = { death_reason = death_murder killer = 268325 }
+	}
+}
+268324={
+	name = Lambton
+	female = yes
+	religion = draconic_pagan
+	culture = draconic
+	trait = dragon
+	910.9.3 = {
+		birth = "910.9.3"
+		effect = {
+			set_graphical_culture = draconic
+			set_character_flag = checked_race
+		}
+		culture = irish
+	}
+	926.9.3={
+		add_spouse=268323
+	}
+	1040.6.7={
+		death = { death_reason = death_murder killer = 268325 }
+	}
+}
+268325={
+	name="Cuélebre"
+	dynasty=1049007
+	female=no
+	father=268323
+	mother=268324
+	religion=draconic_pagan
+	culture=draconic
+	trait=dragon
+	trait=wroth
+	trait=tough_soldier
+	trait=deceitful
+	950.4.14={
+		birth=950.4.14
+		effect = { set_character_flag = checked_race }
+	}
+	976.1.9={
+		add_spouse=268326
+	}
+	1040.6.7={
+		add_trait = kinslayer
+	}
+	1047.1.1={
+		death = { death_reason = death_battle }
+	}
+}
+268326={
+	name=Boglyn
+	female=yes
+	religion = draconic_pagan
+	culture = draconic
+	employer=268299
+	trait = dragon
+	trait = shy
+	trait = craven
+	trait = trusting
+	960.1.8={
+		birth=960.1.8
+		effect = { set_character_flag = checked_race }
+	}
+	976.1.9={
+		add_spouse=268325
+	}
+	1047.1.3={
+		death = yes
+	}
+}
+268327={
+	name=Ilsgat
+	female=no
+	dynasty=1049007
+	father=268325
+	mother=268326
+	religion = draconic_pagan
+	culture = draconic
+	trait = dragon
+	trait = shy
+	trait = trusting
+	trait = honest
+	trait = content
+	trait = kind
+	trait = charismatic_negotiator
+	dna="cb0000ad0b0"
+	properties="b0000000000000"
+	1020.3.7={
+		birth=1020.3.7
+		effect = { set_character_flag = checked_race }
+	}
+	1110.4.2={
+		death=yes
+	}
+}
+268328={
+	name=Elsbet
+	female=yes
+	dynasty=1049007
+	father=268325
+	mother=268326
+	religion = draconic_pagan
+	culture = draconic
+	trait = dragon
+	trait = scholarly_theologian
+	trait = theologian
+	trait = greedy
+	trait = diligent
+	1026.4.4={
+		birth=1026.4.4
+		effect = { set_character_flag = checked_race }
+	}
+	1140.3.6={
+		death=yes
+	}
+}
+268329={
+	name=Algarond
+	female=no
+	dynasty=1049007
+	father=268325
+	mother=268326
+	religion = draconic_pagan
+	culture = draconic
+	trait = dragon
+	trait = intricate_webweaver
+	trait = deceitful
+	trait = charitable
+	trait = paranoid
+	1040.1.6={
+		birth=1040.1.6
+		effect = { set_character_flag = checked_race }
+	}
+	1066.7.1={
+		add_spouse=268330
+	}
+	1101.3.2={
+		add_spouse=268331
+	}
+	1173.3.3={
+		death=yes
+	}
+}
+268330={
+	name=Brigda
+	female=yes
+	dynasty=1049101
+	father=268343
+	mother=268357
+	religion = draconic_pagan
+	culture = draconic
+	trait = dragon
+	1050.6.12={
+		birth=1050.6.12
+		effect = { set_character_flag = checked_race }
+	}
+	1066.7.1={
+		add_spouse=268329
+	}
+	1100.4.5={
+		death=yes
+	}
+}
+268331={
+	name=Graoully
+	female=yes
+	religion = draconic_pagan
+	culture = draconic
+	trait = dragon
+	1059.3.3={
+		birth=1059.3.3
+		effect = { set_character_flag = checked_race }
+	}
+	1101.3.2={
+		add_spouse=268329
+	}
+	1186.10.24={
+		death=yes
+	}
+}
+268332={
+	name=Lindwyr
+	female=yes
+	dynasty=1049007
+	father=268329
+	mother=268330
+	religion = draconic_pagan
+	culture = draconic
+	trait = dragon
+	1068.1.1={
+		birth=1068.1.1
+		effect = { set_character_flag = checked_race }
+	}
+	1201.3.17={
+		death=yes
+	}
+}
+268333={
+	name=Stoor
+	female=no
+	dynasty=1049007
+	father=268329
+	mother=268331
+	religion = draconic_pagan
+	culture = draconic
+	trait = dragon
+	1106.10.3={
+		birth=1106.10.3
+		effect = { set_character_flag = checked_race }
+	}
+	1123.3.1={
+		add_spouse=268334
+	}
+	1229.10.1={
+		death=yes
+	}
+}
+268334={
+	name=Lagarfljótsormurinn
+	female=yes
+	dynasty=0
+	religion = draconic_pagan
+	culture = draconic
+	trait = dragon
+	1105.9.20={
+		birth=1105.9.20
+		effect = { set_character_flag = checked_race }
+	}
+	1123.3.1={
+		add_spouse=268333
+	}
+	1250.1.8={
+		death=yes
+	}
+}
+268335={
+	name=Longwitton
+	female=no
+	dynasty=1049007
+	father=268333
+	mother=268334
+	religion = draconic_pagan
+	culture = draconic
+	trait = dragon
+	trait = tough_soldier
+	1140.3.8={
+		birth=1140.3.8
+		effect = { set_character_flag = checked_race }
+	}
+	1217.4.23={
+		effect={remove_trait=tough_soldier}
+		add_trait=skilled_tactician
+		add_trait=one_eyed
+	}
+	1282.4.7={
+		death = yes
+	}
+}
+268336={
+	name=Guivres
+	female=yes
+	dynasty=0
+	religion = draconic_pagan
+	culture = draconic
+	trait = dragon
+	1180.11.17={
+		birth=1180.11.17
+		effect = {
+			set_graphical_culture = draconic
+			set_character_flag = checked_race
+		}
+		culture = frankish
+	}
+	1200.1.1={
+		add_spouse=268335
+	}
+	1312.3.6={
+		death=yes
+	}
+}
+268337={
+	name=Thevetat
+	female=no
+	dynasty=1049007
+	father=268335
+	mother=268336
+	religion = draconic_pagan
+	culture = draconic
+	trait = dragon
+	1230.3.6={
+		birth=1230.3.6
+		effect = { set_character_flag = checked_race }
+	}
+	1380.4.7={
+		death=yes
+	}
+}
+268338={
+	name=Zomok
+	female=yes
+	religion = draconic_pagan
+	culture = draconic
+	trait = dragon
+	1241.5.19={
+		birth=1241.5.19
+		effect = { set_character_flag = checked_race }
+	}
+	1257.3.12={
+		add_spouse=268337
+	}
+	1369.4.3={
+		death = yes
+	}
+}
+268339={
+	name=Zmey
+	female=no
+	dynasty=1049007
+	father=268337
+	mother=268338
+	religion = draconic_pagan
+	culture = draconic
+	trait = dragon
+	1320.4.4={
+		birth=1320.4.4
+		effect = { set_character_flag = checked_race }
+	}
+}
+268340={
+	name=Móinn
+	dynasty = 1049011
+	female = no
+	father = 268317
+	religion = draconic_pagan
+	culture = draconic
+	trait = dragon
+	888.8.8={
+		birth=888.8.8
+		effect = { set_character_flag = checked_race }
+	}
+	920.3.3={
+		add_spouse=268341
+	}
+	1003.4.7={
+		death=yes
+	}
+}
+268341={
+	name=Boglyn
+	female=yes
+	religion = draconic_pagan
+	culture = draconic
+	trait = dragon
+	902.4.7={
+		birth=902.4.7
+		effect = { set_character_flag = checked_race }
+	}
+	920.3.3={
+		add_spouse=268340
+	}
+	1010.10.10={
+		death = yes
+	}
+}
+268342={
+	name=Jormun
+	female=no
+	dynasty = 1049011
+	father=268340
+	mother=268341
+	religion = draconic_pagan
+	culture = draconic
+	trait = dragon
+	953.12.10={
+		birth=953.12.10
+		effect = { set_character_flag = checked_race }
+	}
+	1016.1.1 = {
+		effect = { set_government_type = draconic_merchant_republic_government }
+	}
+	1016.10.6={
+		add_spouse=268347
+	}
+	1080.3.6={
+		death=yes
+	}
+}
+268343={
+	name=Drac
+	female=no
+	dynasty=1049101
+	religion = draconic_pagan
+	culture = draconic
+	trait = dragon
+	982.3.6={
+		birth=982.3.6
+		effect = {
+			set_graphical_culture = draconic
+			set_character_flag = checked_race
+		}
+		culture = catalan
+	}
+	1016.1.1={
+		add_spouse=268357
+	}
+	1103.3.7={
+		death=yes
+	}
+}
+268344={
+	name=Bignor
+	female=no
+	dynasty=1049102
+	religion = draconic_pagan
+	culture = draconic
+	trait = dragon
+	984.12.4 = {
+		birth=984.12.4
+		effect = {
+			set_graphical_culture = draconic
+			set_character_flag = checked_race
+		}
+		culture = saxon
+	}
+	1016.3.1={
+		add_spouse=268367
+	}
+	1108.12.3={
+		death=yes
+	}
+}
+268345={
+	name=Ddraig
+	female=no
+	dynasty=1049104
+	religion = draconic_pagan
+	culture = draconic
+	trait = dragon
+	985.11.4 = {
+		birth=985.11.4
+		effect = {
+			set_graphical_culture = draconic
+			set_character_flag = checked_race
+		}
+		culture = welsh
+	}
+	1026.3.17={
+		add_spouse=268377
+	}
+	1112.6.3={
+		death=yes
+	}
+}
+268346={
+	name=Zomok
+	female=no
+	dynasty=1049106
+	religion = draconic_pagan
+	culture = draconic
+	trait = dragon
+	987.8.8={
+		birth=987.8.8
+		effect = {
+			set_graphical_culture = draconic
+			set_character_flag = checked_race
+		}
+		culture = hungarian
+	}
+	1120.10.1={
+		death=yes
+	}
+}
+268347={
+	name=Kulshedra
+	female=yes
+	dynasty = 0
+	religion = draconic_pagan
+	culture = draconic
+	trait = dragon
+	1000.10.6={
+		birth=1000.10.6
+		effect = { set_character_flag = checked_race }
+	}
+	1016.10.6={
+		add_spouse=268342
+	}
+	1131.6.3={
+		death=yes
+	}
+}
+268348={
+	name=Evren
+	female=no
+	dynasty=1049011
+	father=268342
+	mother=268347
+	religion = draconic_pagan
+	culture = draconic
+	trait = dragon
+	1036.12.30={
+		birth=1036.12.30
+		effect = { set_character_flag = checked_race }
+	}
+	1079.2.12={
+		add_spouse=268349
+	}
+	1160.11.6={
+		death=yes
+	}
+}
+268349={
+	name=Ejderha
+	female=yes
+	dynasty=0
+	religion = draconic_pagan
+	culture = draconic
+	trait = dragon
+	1063.2.12={
+		birth=1063.2.12
+		effect = { set_character_flag = checked_race }
+	}
+	1079.2.12={
+		add_spouse=268348
+	}
+	1190.3.3={
+		death=yes
+	}
+}
+268350={
+	name=Azhi
+	female=no
+	dynasty=1049011
+	father=268348
+	mother=268349
+	religion = draconic_pagan
+	culture = draconic
+	trait = dragon
+	1130.6.4={
+		birth=1130.6.4
+		effect = { set_character_flag = checked_race }
+	}
+	1156.3.3={
+		add_spouse=268351
+	}
+	1260.1.2={
+		death=yes
+	}
+}
+268351={
+	name=Brnensky
+	female=yes
+	dynasty=0
+	religion = draconic_pagan
+	culture = draconic
+	trait = dragon
+	1140.3.2={
+		birth=1140.3.2
+		effect = { set_character_flag = checked_race }
+	}
+	1156.3.3={
+		add_spouse=268350
+	}
+	1263.4.7={
+		death=yes
+	}
+}
+268352={
+	name=Grafvölluðr
+	female=no
+	dynasty=1049011
+	father=268350
+	mother=268351
+	religion = draconic_pagan
+	culture = draconic
+	trait = dragon
+	1182.4.4={
+		birth=1182.4.4
+		effect = { set_character_flag = checked_race }
+	}
+	1204.6.1={
+		add_spouse=268353
+	}
+	1301.1.1={
+		death=yes
+	}
+}
+268353={
+	name=Laidly
+	female=yes
+	dynasty=0
+	religion = draconic_pagan
+	culture = draconic
+	trait = dragon
+	1187.10.5={
+		birth=1187.10.5
+		effect = { set_character_flag = checked_race }
+	}
+	1204.6.1={
+		add_spouse=268352
+	}
+	1299.3.1={
+		death=yes
+	}
+}
+268354={
+	name=Evren
+	female=no
+	dynasty=1049011
+	father=268352
+	mother=268353
+	religion = draconic_pagan
+	culture = draconic
+	trait = dragon
+	1240.7.5={
+		birth=1240.7.5
+		effect = { set_character_flag = checked_race }
+	}
+	1258.4.3={
+		add_spouse=268355
+	}
+	1380.6.1={
+		death=yes
+	}
+}
+268355={
+	name=Knucker
+	female=yes
+	dynasty=0
+	religion = draconic_pagan
+	culture = draconic
+	trait = dragon
+	1242.4.3={
+		birth=1242.4.3
+		effect = { set_character_flag = checked_race }
+	}
+	1258.4.3={
+		add_spouse=268354
+	}
+	1370.4.3={
+		death=yes
+	}
+}
+268356={
+	name=Jormun
+	female=no
+	dynasty=1049011
+	father=268354
+	mother=268355
+	religion = draconic_pagan
+	culture = draconic
+	trait = dragon
+	1312.12.3={
+		birth=1312.12.3
+		effect = { set_character_flag = checked_race }
+	}
+}
+268357={
+	name=Illuyankas
+	female=yes
+	dynasty=0
+	religion=draconic_pagan
+	culture=draconic
+	trait=dragon
+	1000.1.1={
+		birth=1000.1.1
+		effect = { set_character_flag = checked_race }
+	}
+	1016.1.1={
+		add_spouse=268343
+	}
+	1232.4.3={
+		death=yes
+	}
+}
+268358={
+	name=Drac
+	female=no
+	dynasty=1049101
+	father=268343
+	mother=268357
+	religion = draconic_pagan
+	culture = draconic
+	trait = dragon
+	1040.3.6={
+		birth=1040.3.6
+		effect = {
+			set_graphical_culture = draconic
+			set_character_flag = checked_race
+		}
+		culture = catalan
+	}
+	1070.1.8={
+		add_spouse=268359
+	}
+	1163.3.7={
+		death=yes
+	}
+}
+268359={
+	name=Coca
+	female=yes
+	dynasty=0
+	religion = draconic_pagan
+	culture = draconic
+	trait = dragon
+	1052.3.3={
+		birth=1052.3.3
+		effect = {
+			set_graphical_culture = draconic
+			set_character_flag = checked_race
+		}
+		culture = catalan
+	}
+	1070.1.8={
+		add_spouse=268358
+	}
+	1180.5.1={
+		death=yes
+	}
+}
+268360={
+	name=Herensuge
+	female=no
+	dynasty=1049101
+	father=268358
+	mother=268359
+	religion = draconic_pagan
+	culture = draconic
+	trait = dragon
+	1091.6.3={
+		birth=1091.6.3
+		effect = { set_character_flag = checked_race }
+	}
+	1120.1.1={
+		add_spouse=268361
+	}
+	1220.2.26={
+		death=yes
+	}
+}
+268361={
+	name=Smok
+	female=yes
+	dynasty=0
+	religion = draconic_pagan
+	culture = draconic
+	trait = dragon
+	1101.3.2={
+		birth=1101.3.2
+		effect = { set_character_flag = checked_race }
+	}
+	1120.1.1={
+		add_spouse=268360
+	}
+	1241.8.6={
+		death=yes
+	}
+}
+268362={
+	name=Thyrus
+	female=no
+	dynasty=1049101
+	father=268360
+	mother=268361
+	religion = draconic_pagan
+	culture = draconic
+	trait = dragon
+	1163.12.10={
+		birth=1163.12.10
+		effect = { set_character_flag = checked_race }
+	}
+	1188.12.2={
+		add_spouse=268363
+	}
+	1292.1.4={
+		death=yes
+	}
+}
+268363={
+	name=Ala
+	female=yes
+	dynasty=0
+	religion = draconic_pagan
+	culture = draconic
+	trait = dragon
+	1171.5.8={
+		birth=1171.5.8
+		effect = { set_character_flag = checked_race }
+	}
+	1188.12.2={
+		add_spouse=268362
+	}
+	1293.6.7={
+		death=yes
+	}
+}
+268364={
+	name=Ladon
+	female=no
+	dynasty=1049101
+	father=268362
+	mother=268363
+	religion = draconic_pagan
+	culture = draconic
+	trait = dragon
+	1245.10.9={
+		birth=1245.10.9
+		effect = { set_character_flag = checked_race }
+	}
+	1270.2.1={
+		add_spouse=268402
+	}
+	1368.6.12={
+		death = yes
+	}
+}
+
+268365 = {
+	name="Björgolf"
+	dynasty=1049001
+	religion="jotnar"
+	culture="jotunn"
+	trait="mythos_giant"
+	820.1.1 = {
+		birth="820.1.1"
+		effect = { set_character_flag = checked_race }
+	}
+	836.1.1 = {
+		add_trait = size_1
+	}
+	848.1.1 = {
+		effect = { 
+			remove_trait = size_1
+			add_trait = size_2
+		}
+	}
+	860.1.1 = {
+		add_spouse=268369
+		effect = {
+			remove_trait = size_2
+			add_trait = size_3
+		}
+	}
+	872.1.1 = {
+		effect = {
+			remove_trait = size_3
+			add_trait = size_4
+		}
+	}
+	884.1.1 = {
+		effect = {
+			remove_trait = size_4
+			add_trait = size_5
+		}
+	}
+	896.1.1 = {
+		effect = {
+			remove_trait = size_5
+			add_trait = size_6
+		}
+	}
+	900.1.1 = {
+		death="900.1.1"
+	}
+}
+
+268366 = {
+	name="Brynjolf"
+	dna = bcedirmbfcy
+	dynasty=1049001
+	religion="jotnar"
+	trait="brave"
+	trait="honest"
+	trait="strong"
+	trait="mythos_giant"
+	trait="brilliant_strategist"
+	culture="jotunn"
+	father=268365
+	850.1.1 = {
+		birth ="850.1.1"
+		effect = { set_character_flag = checked_race }
+	}
+	866.1.1 = {
+		add_spouse=268370
+		add_trait = size_1
+	}
+	878.1.1 = {
+		effect = {
+			remove_trait = size_1
+			add_trait = size_2
+		}
+	}
+	890.1.1 = {
+		effect = {
+			remove_trait = size_2
+			add_trait = size_3
+		}
+	}
+	902.1.1 = {
+		effect = {
+			remove_trait = size_3
+			add_trait = size_4
+		}
+	}
+	905.1.1 = {
+		death ="905.1.1"
+	}
+}
+
+268367={
+	name=Melusine
+	female=yes
+	dynasty=0
+	religion = draconic_pagan
+	culture = draconic
+	trait = dragon
+	999.9.9={
+		birth= 999.9.9
+		effect = { set_character_flag = checked_race }
+	}
+	1016.3.1={
+		add_spouse=268344
+	}
+	1123.3.3={
+		death=yes
+	}
+}
+268368={
+	name=Fafnir
+	female=no
+	dynasty=1049102
+	father=268344
+	mother=268367
+	religion = draconic_pagan
+	culture = draconic
+	trait = dragon
+	1043.2.8={
+		birth=1043.2.8
+		effect = { set_character_flag = checked_race }
+	}
+	1059.12.29={
+		add_spouse=268404
+	}
+	1184.3.3={
+		death=yes
+	}
+}
+
+268369 = {
+	name="Hildrida"
+	female=yes
+	religion="jotnar"
+	culture="jotunn"
+	trait="mythos_giant"
+	842.1.1 = {
+		birth="842.1.1"
+		effect = { set_character_flag = checked_race }
+	}
+	858.1.1 = {
+		add_trait = size_1
+	}
+	870.1.1 = {
+		effect = {
+			remove_trait = size_1
+			add_trait = size_2
+		}
+	}
+	882.1.1 = {
+		effect = {
+			remove_trait = size_2
+			add_trait = size_3
+		}
+	}
+	885.1.1 = {
+		death="885.1.1"
+	}
+}
+
+
+268370 = {
+	name="Helge"
+	female=yes
+	religion="jotnar"
+	culture="jotunn"
+	trait="mythos_giant"
+	850.1.1 = {
+		birth="850.1.1"
+		effect = { set_character_flag = checked_race }
+	}
+	866.1.1 = {
+		add_trait = size_1
+	}
+	878.1.1 = {
+		effect = {
+			remove_trait = size_1
+			add_trait = size_2
+		}
+	}
+	890.1.1 = {
+		effect = {
+			remove_trait = size_2
+			add_trait = size_3
+		}
+	}
+	900.1.1 = {
+		death="900.1.1"
+	}
+}
+
+268371={
+	name=Mulassa
+	female=yes
+	dynasty=1049101
+	father=268358
+	mother=268359
+	religion = draconic_pagan
+	culture = draconic
+	trait = dragon
+	1114.8.4={
+		birth=1114.8.4
+		effect = { set_character_flag = checked_race }
+	}
+	1130.12.31={
+		add_spouse=268405
+	}
+	1245.6.2={
+		death=yes
+	}
+}
+268372={
+	name=Bignor
+	female=no
+	dynasty=1049102
+	father=268405
+	mother=268371
+	religion = draconic_pagan
+	culture = draconic
+	trait = dragon
+	1181.6.2={
+		birth=1181.6.2
+		effect = { set_character_flag = checked_race }
+	}
+	1307.5.1={
+		death = yes
+	}
+}
+268373={
+	name=Tintaglia
+	female=yes
+	dynasty=0
+	religion = draconic_pagan
+	culture = draconic
+	trait = dragon
+	1191.6.2={
+		birth=1191.6.2
+		effect = { set_character_flag = checked_race }
+	}
+	1207.6.2={
+		add_spouse=268372
+	}
+	1220.5.3={
+		death = { death_reason = death_childbirth }
+	}
+}
+268374={
+	name=Chrysophylax 
+	female=no
+	dynasty=1049102
+	father=268372
+	mother=268373
+	religion = draconic_pagan
+	culture = draconic
+	trait = dragon
+	1220.5.3={
+		birth=1220.5.3
+		effect = { set_character_flag = checked_race }
+	}
+	1238.6.6={
+		add_spouse=268375
+	}
+	1351.8.7={
+		death = yes
+	}
+}
+268375={
+	name = Tia
+	female = yes
+	dynasty=0
+	religion = draconic_pagan
+	culture = draconic
+	trait = dragon
+	1221.6.4={
+		birth=1221.6.4
+		effect = { set_character_flag = checked_race }
+	}
+	1229.5.3={
+		effect = { add_friend = 268374 }
+	}
+	1238.6.6={
+		add_spouse=268374
+	}
+	1352.8.1={
+		death = yes
+	}
+}
+268376={
+	name=Malroth
+	female=no
+	dynasty=1049102
+	father=268374
+	mother=268375
+	religion = draconic_pagan
+	culture = draconic
+	trait = dragon
+	1310.4.4={
+		birth=1310.4.4
+		effect = { set_character_flag = checked_race }
+	}
+}
+268377={
+	name=Scatha
+	female=yes
+	dynasty=0
+	religion = draconic_pagan
+	culture = draconic
+	trait = dragon
+	1010.3.17={
+		birth = 1010.3.17
+		effect = { set_character_flag = checked_race }
+	}
+	1026.3.17={
+		add_spouse=268345
+	}
+	1244.6.18={
+		death=yes
+	}
+}
+268378={
+	name=Rhindle
+	female=no
+	dynasty=1049104
+	father=268345
+	mother=268377
+	religion = draconic_pagan
+	culture = draconic
+	trait = dragon
+	1053.8.18={
+		birth=1053.8.18
+		effect = {
+			set_graphical_culture = draconic
+			set_character_flag = checked_race
+		}
+		culture = welsh
+	}
+	1076.5.10={
+		add_spouse=268379
+	}
+	1180.1.7={
+		death=yes
+	}
+}
+268379={
+	name=Grundle
+	female=yes
+	dynasty=0
+	religion = draconic_pagan
+	culture = draconic
+	trait = dragon
+	1060.4.7={
+		birth=1060.4.7
+		effect = { set_character_flag = checked_race }
+	}
+	1076.5.10={
+		add_spouse=268378
+	}
+	1183.4.3={
+		death=yes
+	}
+}
+268380={
+	name=Yorgle
+	female=no
+	dynasty=1049104
+	father=268378
+	mother=268379
+	religion = draconic_pagan
+	culture = draconic
+	trait = dragon
+	1123.2.3={
+		birth=1123.2.3
+		effect = {
+			set_graphical_culture = draconic
+			set_character_flag = checked_race
+		}
+		culture = welsh
+	}
+	1143.7.6={
+		add_spouse=268381
+	}
+	1251.6.6={
+		death=yes
+	}
+}
+268381={
+	name=Tia
+	female=yes
+	dynasty=0
+	religion = draconic_pagan
+	culture = draconic
+	trait = dragon
+	1128.7.12={
+		birth=1128.7.12
+		effect = { set_character_flag = checked_race }
+	}
+	1143.7.6={
+		add_spouse=268380
+	}
+	1253.11.7={
+		death=yes
+	}
+}
+268382={
+	name=Huey
+	female=no
+	dynasty=1049104
+	father=268380
+	mother=268381
+	religion = draconic_pagan
+	culture = draconic
+	trait = dragon
+	1166.8.14={
+		birth=1166.8.14
+		effect = { set_character_flag = checked_race }
+	}
+	1216.1.1={
+		add_spouse=268383
+	}
+	1290.2.4={
+		death=yes
+	}
+}
+268383={
+	name=Siria
+	female=yes
+	dynasty=0
+	religion = draconic_pagan
+	culture = draconic
+	trait = dragon
+	1200.1.1={
+		birth=1200.1.1
+		effect = { set_character_flag = checked_race }
+	}
+	1216.1.1={
+		add_spouse=268382
+	}
+	1341.3.4={
+		death=yes
+	}
+}
+268384={
+	name=Ddraig
+	female=no
+	dynasty=1049104
+	father=268382
+	mother=268383
+	religion = draconic_pagan
+	culture = draconic
+	trait = dragon
+	1255.8.18={
+		birth=1255.8.18
+		effect = { set_character_flag = checked_race }
+	}
+	1373.3.3={
+		death=yes
+	}
+}
+268385={
+	name=Cassara
+	female=yes
+	dynasty=1049011
+	father=268352
+	mother=268353
+	religion = draconic_pagan
+	culture = draconic
+	trait = dragon
+	1256.3.1={
+		birth=1256.3.1
+		effect = { set_character_flag = checked_race }
+	}
+	1273.5.4={
+		add_spouse=268384
+	}
+	1382.9.7={
+		death=yes
+	}
+}
+268386={
+	name=Annoth
+	female=no
+	dynasty=1049104
+	father=268384
+	mother=268385
+	religion = draconic_pagan
+	culture = draconic
+	trait = dragon
+	1341.6.9={
+		birth=1341.6.9
+		effect = { set_character_flag = checked_race }
+	}
+}
+268387={
+	name=Synn
+	female=yes
+	dynasty=0
+	religion = draconic_pagan
+	culture = draconic
+	trait = dragon
+	990.3.12={
+		birth=990.3.12
+		effect = { set_character_flag = checked_race }
+	}
+	1006.12.12={
+		add_spouse=268346
+	}
+	1120.5.6={
+		death=yes
+	}
+}
+268388={
+	name=Süsü
+	female=no
+	dynasty=1049106
+	father=268346
+	mother=268387
+	religion = draconic_pagan
+	culture = draconic
+	trait = dragon
+	1035.12.2={
+		birth=1035.12.2
+		effect = {
+			set_graphical_culture = draconic
+			set_character_flag = checked_race
+		}
+		culture = hungarian
+	}
+	1058.4.12={
+		add_spouse=268389
+	}
+	1163.2.2={
+		death=yes
+	}
+}
+268389={
+	name=Vox
+	female=yes
+	dynasty=0
+	religion = draconic_pagan
+	culture = draconic
+	trait = dragon
+	1040.7.20={
+		birth=1040.7.20
+		effect = { set_character_flag = checked_race }
+	}
+	1058.4.12={
+		add_spouse=268388
+	}
+	1171.12.9={
+		death=yes
+	}
+}
+268390={
+	name=Zmey
+	female=no
+	dynasty=1049106
+	father=268388
+	mother=268389
+	religion = draconic_pagan
+	culture = draconic
+	trait = dragon
+	1063.1.12={
+		birth=1063.1.12
+		effect = {
+			set_graphical_culture = draconic
+			set_character_flag = checked_race
+		}
+		culture = hungarian
+	}
+	1083.10.4={
+		add_spouse=268391
+	}
+	1192.3.6={
+		death=yes
+	}
+}
+268391={
+	name=Treva
+	female=yes
+	dynasty=0
+	religion = draconic_pagan
+	culture = draconic
+	trait = dragon
+	1065.12.3={
+		birth=1065.12.3
+		effect = { set_character_flag = checked_race }
+	}
+	1083.10.4={
+		add_spouse=268390
+	}
+	1196.10.3={
+		death=yes
+	}
+}
+268392={
+	name=Zhaitan
+	female=no
+	dynasty=1049106
+	father=268390
+	mother=268391
+	religion = draconic_pagan
+	culture = draconic
+	trait = dragon
+	1117.11.2={
+		birth=1117.11.2
+		effect = { set_character_flag = checked_race }
+	}
+	1135.5.4={
+		add_spouse=268393
+	}
+	1241.3.5={
+		death=yes
+	}
+}
+268393={
+	name=Ruby
+	female=yes
+	dynasty=0
+	religion = draconic_pagan
+	culture = draconic
+	trait = dragon
+	1118.6.4={
+		birth=1118.6.4
+		effect = { set_character_flag = checked_race }
+	}
+	1135.5.4={
+		add_spouse=268392
+	}
+	1251.12.2={
+		death=yes
+	}
+}
+268394={
+	name=Nall
+	female=no
+	dynasty=1049106
+	father=268392
+	mother=268393
+	religion = draconic_pagan
+	culture = draconic
+	trait = dragon
+	1170.12.3={
+		birth=1170.12.3
+		effect = { set_character_flag = checked_race }
+	}
+	1300.2.1={
+		death=yes
+	}
+}
+268395={
+	name=Nidh
+	female=yes
+	dynasty=0
+	religion = draconic_pagan
+	culture = draconic
+	trait = dragon
+	1176.3.8={
+		birth=1176.3.8
+		effect = { set_character_flag = checked_race }
+	}
+	1195.5.3={
+		add_spouse=268394
+	}
+	1301.1.5={
+		death=yes
+	}
+}
+268396={
+	name=Süsü
+	female=no
+	dynasty=1049106
+	father=268394
+	mother=268395
+	religion = draconic_pagan
+	culture = draconic
+	trait = dragon
+	1229.7.4={
+		birth=1229.7.4
+		effect = { set_character_flag = checked_race }
+	}
+	1249.11.6={
+		add_spouse=268397
+	}
+	1360.2.1={
+		death=yes
+	}
+}
+268397={
+	name=Nevis
+	female=yes
+	dynasty=0
+	religion = draconic_pagan
+	culture = draconic
+	trait = dragon
+	1233.7.4={
+		birth=1233.7.4
+		effect = { set_character_flag = checked_race }
+	}
+	1249.11.6={
+		add_spouse=268396
+	}
+	1352.6.6={
+		death=yes
+	}
+}
+268398={
+	name=Grafvitni
+	female=no
+	dynasty=1049106
+	father=268396
+	mother=268397
+	religion = draconic_pagan
+	culture = draconic
+	trait = dragon
+	1330.2.19={
+		birth=1330.2.19
+		effect = { set_character_flag = checked_race }
+	}
+}
+
+268400 = {
+	name="Uranus"
+	dynasty=1049005
+	religion="hellenic_pagan"
+	culture="greek"
+	trait="kinslayer"
+	trait="eunuch"
+	trait="envious"
+	trait="god"
+	trait="midas_touched"
+	1.1.1 = {
+		birth="1.1.1"
+		effect = {
+			set_character_flag = greek_god_uranus
+			set_character_flag = checked_race
+		}
+		create_bloodline = {
+			type = BL_blood_of_the_gods_generic
+			name = BOTG_Sky
+			desc = "Uranus, primal god of the sky, hated the children born to him by Gaia and imprisoned them until he was castrated by his son, Chronos."
+		}
+	}
+	30.3.1 = {
+		death={ death_reason = death_murder killer = 268401 }
+	}
+}
+268401 = {
+	name="Kronos"
+	dynasty=1049005
+	religion="hellenic_pagan"
+	culture="greek"
+	father=268400
+	trait="kinslayer"
+	trait="envious"
+	trait="gluttonous"
+	trait="god"
+	trait="tough_soldier"
+	1.10.1 = {
+		birth="1.10.1"
+		effect = {
+			set_character_flag = greek_god_chronos
+			set_character_flag = checked_race
+		}
+		create_bloodline = {
+			type = BL_blood_of_the_gods_generic
+			name = BOTG_Time
+			desc = "After castrating his father Usanus, Kronos feared that he too would be overthrown by his offspring and ate them, save his youngest, Zeus, who was hidden from him."
+		}
+	}
+	17.1.1={
+		add_spouse=268472
+	}
+	34.1.1={
+		death = { death_reason = death_murder killer = 268477 }
+	}
+}
+
+268402={
+	name=Succube
+	female=yes
+	dynasty=0
+	religion = draconic_pagan
+	culture = draconic
+	trait = dragon
+	1253.6.8={
+		birth=1253.6.8
+		effect = { set_character_flag = checked_race }
+	}
+	1270.2.1={
+		add_spouse=268364
+	}
+	1380.9.9={
+		death = yes
+	}
+}
+268403={
+	name=Paiste
+	female=no
+	dynasty=1049101
+	father=268364
+	mother=268402
+	religion = draconic_pagan
+	culture = draconic
+	trait = dragon
+	1318.5.1={
+		birth=1318.5.1
+		effect = { set_character_flag = checked_race }
+	}
+}
+268404={
+	name=Bel
+	female=yes
+	dynasty=0
+	religion = draconic_pagan
+	culture = draconic
+	trait = dragon
+	1043.12.7={
+		birth=1043.12.7
+		effect = { set_character_flag = checked_race }
+	}
+	1059.12.29={
+		add_spouse=268368
+	}
+	1190.8.4={
+		death=yes
+	}
+}
+268405={
+	name=Anzu
+	female=no
+	dynasty=1049102
+	father=268368
+	mother=268404
+	religion = draconic_pagan
+	culture = draconic
+	trait = dragon
+	1110.3.7={
+		birth=1110.3.7
+		effect = { set_character_flag = checked_race }
+	}
+	1130.12.31={
+		add_spouse=268371
+	}
+	1240.6.2={
+		death=yes
+	}
+}
+268406={
+	name = Gwrgi
+	female=no
+	dynasty=1049406
+	religion = catholic
+	culture = welsh
+	trait = werewolf
+	trait = secret_werewolf
+	trait = skilled_tactician
+	trait = wroth
+	trait = control_2
+	dna="0ccce0gaga0"
+	properties="0i0dga00000000"
+	750.1.1={
+		birth=750.1.1
+		effect = { set_variable = { which = control value = 2 } }
+		effect = { set_character_flag = checked_race }
+	}
+	844.1.1={
+		death = { death_reason = death_battle killer = 81831 }
+	}
+}
+268407={
+	name=Felman
+	female=no
+	dynasty=497
+	religion=norse_pagan
+	culture=norse
+	employer=168320
+	trait = werewolf
+	trait = secret_werewolf
+	trait = skilled_tactician
+	trait = patient
+	trait = brave
+	849.3.3={
+		birth=849.3.3
+		effect = { set_character_flag = checked_race }
+	}
+	947.1.1={
+		death=yes
+	}
+}
+268408={
+	name=Bizuneh
+	female=no
+	dynasty=1049407
+	religion=catholic
+	culture=frankish
+	employer=205506
+	trait = werewolf
+	trait = secret_werewolf
+	trait = charismatic_negotiator
+	trait = socializer
+	trait = kind
+	trait = gregarious
+	1204.1.1={
+		birth=1204.1.1
+		effect = { set_character_flag = checked_race }
+	}
+	1220.1.1={
+		effect={ add_friend = 455404 }
+	}
+	1286.10.8={
+		death=yes
+	}
+}
+268409={
+	name=Marie
+	female=yes
+	dynasty=716
+	religion=catholic
+	culture=frankish
+	employer=205506
+	trait = flamboyant_schemer
+	trait = lustful
+	trait = fair
+	1206.1.1={
+		birth=1206.1.1
+		effect = { set_character_flag = checked_race }
+	}
+	1222.1.1={
+		add_spouse=268408
+		effect={add_lover=268410}
+	}
+	1245.1.1={
+		death = { death_reason = death_execution killer = 455404 }
+	}
+}
+268410={
+	name=Jean
+	female=no
+	religion=catholic
+	culture=frankish
+	employer=205506
+	trait=brilliant_strategist
+	trait=robust
+	trait=strategist
+	trait=lustful
+	trait=envious
+	trait=deceitful
+	trait=ambitious
+	1202.1.1={
+		birth=1202.1.1
+		effect = { set_character_flag = checked_race }
+	}
+	1221.10.21 = {
+		employer = 268408
+	}
+	1222.1.1={
+		effect={add_lover=268409}
+	}
+	1245.1.1={
+		death = { death_reason = death_execution killer = 455404 }
+	}
+}
+268411={
+	name=Håkon
+	female=no
+	dynasty=1049408
+	religion=catholic
+	culture=norwegian
+	trait=werewolf
+	trait=secret_werewolf
+	1030.1.1={
+		birth=1030.1.1
+		effect = { set_character_flag = checked_race }
+	}
+	1048.1.1={
+		add_spouse=268412
+	}
+	1092.1.1={
+		death=yes
+	}
+}
+268412={
+	name=Borghildr
+	female=yes
+	religion=catholic
+	culture=norwegian
+	1032.1.1={
+		birth=1032.1.1
+		effect = { set_character_flag = checked_race }
+	}
+	1048.1.1={
+		add_spouse=268411
+	}
+	1051.1.1={
+		add_trait = werewolf
+		add_trait = secret_werewolf
+		add_trait = control_4
+		effect = { set_variable = { which = control value = 4 } }
+	}
+	1096.1.1={
+		death=yes
+	}
+}
+268413={
+	name=Heimir
+	female=no
+	dynasty=1049408
+	father=268411
+	mother=268412
+	religion=catholic
+	culture=norwegian
+	trait=werewolf
+	trait=secret_werewolf
+	1051.1.1={
+		birth=1051.1.1
+		effect = { set_character_flag = checked_race }
+	}
+	1073.1.1={
+		add_spouse=268414
+	}
+	1112.1.1={
+		death=yes
+	}
+}
+268414={
+	name=Kara
+	female=yes
+	religion=catholic
+	culture=norwegian
+	1055.1.1={
+		birth=1055.1.1
+		effect = { set_character_flag = checked_race }
+	}
+	1073.1.1={
+		add_spouse=268413
+	}
+	1077.1.1={
+		add_trait = werewolf
+		add_trait = secret_werewolf
+		add_trait = control_4
+		effect = { set_variable = { which = control value = 4 } }
+	}
+	1120.1.1={
+		death=yes
+	}
+}
+268415 = {
+	name=Ulf
+	female=no
+	dynasty=1049408
+	father=268413
+	mother=268414
+	religion=catholic
+	culture=norwegian
+	trait=werewolf
+	trait=secret_werewolf
+	1080.1.1={
+		birth=1080.1.1
+		effect = { set_character_flag = checked_race }
+	}
+	1101.1.1={
+		add_spouse=268416
+	}
+	1137.1.1={
+		death=yes
+	}
+}
+268416 = {
+	name = Gunvor
+	female = yes
+	religion=catholic
+	culture=norwegian
+	1083.1.1={
+		birth=1083.1.1
+		effect = { set_character_flag = checked_race }
+	}
+	1101.1.1={
+		add_spouse=268415
+	}
+	1104.1.1={
+		add_trait = werewolf
+		add_trait = secret_werewolf
+		add_trait = control_4
+		effect = { set_variable = { which = control value = 4 } }
+	}
+	1150.1.1={
+		death=yes
+	}
+}
+268417 = {
+	name=Heimir
+	female=no
+	dynasty=1049408
+	father=268415
+	mother=268416
+	religion=catholic
+	culture=norwegian
+	trait=werewolf
+	trait=secret_werewolf
+	trait = strong
+	1105.1.1={
+		birth=1105.1.1
+		effect = { set_character_flag = checked_race }
+	}
+	1126.1.1={
+		add_spouse=268418
+	}
+	1170.5.5={
+		add_spouse=268419
+	}
+	1206.1.1={
+		death=yes
+	}
+}
+268418={
+	name=Deòiridh
+	female=yes
+	religion=catholic
+	culture=scottish
+	1110.1.1={
+		birth=1110.1.1
+		effect = { set_character_flag = checked_race }
+	}
+	1126.1.1={
+		add_spouse=268417
+	}
+	1128.1.1={
+		add_trait = werewolf
+		add_trait = secret_werewolf
+		add_trait = control_4
+		effect = { set_variable = { which = control value = 4 } }
+	}
+	1170.1.1={
+		death=yes
+	}
+}
+268419={
+	name=Eimhir
+	female=yes
+	religion=catholic
+	culture=scottish
+	1149.1.1={
+		birth=1149.1.1
+		effect = { set_character_flag = checked_race }
+	}
+	1170.5.5={
+		add_spouse=268417
+	}
+	1172.1.1={
+		add_trait = werewolf
+		add_trait = secret_werewolf
+		add_trait = control_4
+		effect = { set_variable = { which = control value = 4 } }
+	}
+	1210.1.1={
+		death=yes
+	}
+}
+268420={
+	name=Gilchrist
+	female=no
+	dynasty=1049408
+	father=268417
+	mother=268418
+	religion=catholic
+	culture=scottish
+	trait=werewolf
+	trait=secret_werewolf
+	trait=strong
+	trait=ambitious
+	trait=zealous
+	dna="cfbee0a00b0"
+	properties="0i0eh000000000"
+	1130.1.1={
+		birth=1130.1.1
+		effect = { set_character_flag = checked_race }
+	}
+	1157.1.1={
+		add_spouse=268421
+	}
+	1231.1.1={
+		death=yes
+	}
+}
+268421={
+	name=Jean
+	female=yes
+	religion=catholic
+	culture=scottish
+	1140.1.1={
+		birth=1140.1.1
+		effect = { set_character_flag = checked_race }
+	}
+	1157.1.1={
+		add_spouse=268420
+	}
+	1157.10.5={
+		add_trait = werewolf
+		add_trait = secret_werewolf
+		add_trait = control_4
+		effect = { set_variable = { which = control value = 4 } }
+	}
+	1210.1.1={
+		death=yes
+	}
+}
+268422={
+	name=Ulf
+	female=no
+	dynasty=1049408
+	father=268420
+	mother=268421
+	religion=catholic
+	culture=scottish
+	trait=werewolf
+	trait=secret_werewolf
+	1158.1.1={
+		birth=1158.1.1
+		effect = { set_character_flag = checked_race }
+	}
+	1178.1.1={
+		add_spouse=268423
+	}
+	1239.1.1={
+		death=yes
+	}
+}
+268423={
+	name=Caoimhe
+	female=yes
+	religion=catholic
+	culture=scottish
+	trait=werewolf
+	trait=secret_werewolf
+	1162.1.1={
+		birth=1162.1.1
+		effect = { set_character_flag = checked_race }
+	}
+	1178.1.1={
+		add_spouse=268422
+	}
+	1235.1.1={
+		death=yes
+	}
+}
+268424={
+	name=Lachlan
+	female=no
+	dynasty=1049408
+	father=268422
+	mother=268423
+	religion=catholic
+	culture=scottish
+	trait=werewolf
+	trait=secret_werewolf
+	1181.1.1={
+		birth=1181.1.1
+		effect = { set_character_flag = checked_race }
+	}
+	1256.1.1={
+		death=yes
+	}
+}
+268425={
+	name=Màiri
+	female=yes
+	religion=catholic
+	culture=scottish
+	1190.1.1={
+		birth=1190.1.1
+		effect = { set_character_flag = checked_race }
+	}
+	1206.1.1={
+		add_spouse=268424
+	}
+	1208.1.1={
+		add_trait = werewolf
+		add_trait = secret_werewolf
+		add_trait = control_4
+		effect = { set_variable = { which = control value = 4 } }
+	}
+	1263.1.1={
+		death=yes
+	}
+}
+268426={
+	name=Nicol
+	female=no
+	dynasty=1049408
+	father=268424
+	mother=268425
+	religion=catholic
+	culture=scottish
+	trait=werewolf
+	trait=secret_werewolf
+	1210.1.1={
+		birth=1210.1.1
+		effect = { set_character_flag = checked_race }
+	}
+	1231.1.1={
+		add_spouse=268427
+		
+	}
+	1273.1.1={
+		death=yes
+	}
+}
+268427={
+	name=Oighrig
+	female=yes
+	religion=catholic
+	culture=scottish
+	1214.1.1={
+		birth=1214.1.1
+		effect = { set_character_flag = checked_race }
+	}
+	1231.1.1={
+		add_spouse=268426
+		add_trait = werewolf
+		add_trait = secret_werewolf
+		add_trait = control_4
+		effect = { set_variable = { which = control value = 4 } }
+	}
+	1282.1.1={
+		death=yes
+	}
+}
+268428={
+	name=Ranald
+	female=no
+	dynasty=1049408
+	father=268426
+	mother=268427
+	religion=catholic
+	culture=scottish
+	trait=werewolf
+	trait=secret_werewolf
+	1231.5.1={
+		birth=1231.5.1
+		effect = { set_character_flag = checked_race }
+	}
+	1249.1.1={
+		add_spouse=268429
+	}
+	1312.10.28={
+		death=yes
+	}
+}
+268429={
+	name=Seonag
+	female=yes
+	religion=catholic
+	culture=scottish
+	trait=werewolf
+	trait=secret_werewolf
+	1233.1.1={
+		birth=1233.1.1
+		effect = { set_character_flag = checked_race }
+	}
+	1249.1.1={
+		add_spouse=268428
+	}
+	1302.1.1={
+		death = yes
+	}
+}
+268430={
+	name=Nicol
+	female=no
+	dynasty=1049408
+	father=268428
+	mother=268429
+	religion=catholic
+	culture=scottish
+	trait=werewolf
+	trait=secret_werewolf
+	1252.1.1={
+		birth=1252.1.1
+		effect = { set_character_flag = checked_race }
+	}
+	1321.1.1={
+		death=yes
+	}
+}
+268431={
+	name=Sorcha
+	female=yes
+	religion=catholic
+	culture=scottish
+	1301.1.1={
+		birth=1301.1.1
+		effect = { set_character_flag = checked_race }
+	}
+	1317.1.1={
+		add_spouse=268430
+	}
+	1318.1.1={
+		add_trait = werewolf
+		add_trait = secret_werewolf
+		add_trait = control_4
+		effect = { set_variable = { which = control value = 4 } }
+	}
+	1378.1.1={
+		death=yes
+	}
+}
+268432={
+	name=Suibhne
+	female=no
+	dynasty=1049408
+	father=268430
+	mother=268431
+	religion=catholic
+	culture=scottish
+	trait=werewolf
+	trait=secret_werewolf
+	trait=skilled_tactician
+	trait=mountain_terrain_leader
+	trait=ambitious
+	dna="adiba0g0000"
+	properties="og0a0000000000"
+	1319.1.1={
+		birth=1319.1.1
+		effect = { set_character_flag = checked_race }
+	}
+}
+268433={
+	name=Lilitu
+	female=yes
+	religion=sunni
+	culture=bedouin_arabic
+	trait=vampire
+	trait="hunger_0"
+	trait=secret_vampire
+	trait=elusive_shadow
+	trait=seductress
+	trait=lustful
+	trait=deceitful
+	immortal_age=25
+	710.1.1={
+		birth=710.1.1
+		effect = { set_character_flag = checked_race }
+	}
+	750.1.1={
+		employer=34000
+	}
+	925.1.1={
+		death={ death_reason = death_execution_burning }
+	}
+}
+268434={
+	name=Lilu
+	female=yes
+	religion=sunni
+	culture=bedouin_arabic
+	trait=vampire
+	trait="hunger_0"
+	trait=secret_vampire
+	trait=elusive_shadow
+	trait=schemer
+	immortal_age=25
+	733.1.1={
+		birth=733.1.1
+		effect = { set_character_flag = checked_race }
+	}
+	750.1.1={
+		employer=34000
+	}
+	925.1.1={
+		death={ death_reason = death_execution_burning }
+	}
+}
+268435={
+	name=Sava
+	female=no
+	dynasty=1049409
+	religion=slavic_pagan
+	culture=serbian
+	trait=vampire
+	trait="hunger_0"
+	trait=secret_vampire
+	immortal_age=45
+	dna="cjefg0ha000"
+	properties="0d0bdd00000000"
+	805.1.1={
+		birth=805.1.1
+		effect = { set_character_flag = checked_race }
+	}
+	1060.1.1 = {
+		death = { death_reason = death_battle }
+	}
+}
+268436={
+	name=Baobhan
+	female=yes
+	dynasty=1049145
+	religion=catholic
+	culture=scottish
+	trait=vampire
+	trait="hunger_0"
+	trait=secret_vampire
+	immortal_age=20
+	1020.1.1={
+		birth=1020.1.1
+		effect = { set_character_flag = checked_race }
+	}
+	1020.7.1={
+		employer=83587
+	}
+	1032.7.1 = {
+		employer=5996
+	}
+	1042.1.1={
+		effect = { add_lover = 5996 }
+	}
+	1100.1.1={
+		death=yes
+	}
+}
+268437={
+	name=Gello
+	female=yes
+	dynasty=8634
+	religion=orthodox
+	culture=greek
+	employer=1732
+	trait=vampire
+	trait="hunger_0"
+	trait=secret_vampire
+	immortal_age=20
+	1061.1.1={
+		birth=1061.1.1
+		effect = { set_character_flag = checked_race }
+	}
+	1243.1.1={
+		death=yes
+	}
+}
+268438={
+	name=Arnald
+	female=no
+	dynasty=1049410
+	religion=catholic
+	culture=catalan
+	trait=wroth
+	trait=envious
+	trait=proud
+	immortal_age=40
+	dna="cd0ca000cb0"
+	properties="0j0a0000000000"
+	1133.1.1={
+		birth=1133.1.1
+		effect = { set_character_flag = checked_race }
+	}
+	1173.1.1={
+		# "Death"
+		add_trait=vampire
+		add_trait="hunger_0"
+		add_trait=secret_vampire
+	}
+	1269.1.1={
+		death=yes
+	}
+}
+268439={
+	name=Carmilla
+	female=yes
+	dynasty=1049411
+	religion=catholic
+	culture=german
+	employer=212513
+	trait=vampire
+	trait="hunger_0"
+	trait=secret_vampire
+	trait=homosexual
+	trait=elusive_shadow
+	trait=seductress
+	trait=lustful
+	trait=temperate
+	immortal_age=21
+	1220.1.1={
+		birth=1220.1.1
+		effect = { set_character_flag = checked_race }
+	}
+	1310.1.1={
+		death=yes
+	}
+}
+268440={
+	name=Astryiah
+	female=yes
+	religion=jewish
+	culture=ashkenazi
+	employer=462736
+	trait=vampire
+	trait="hunger_0"
+	trait=secret_vampire
+	trait=elusive_shadow
+	1312.1.1={
+		birth=1312.1.1
+		effect = { set_character_flag = checked_race }
+	}
+}
+268441={
+	name=Przemysl
+	female=no
+	dynasty=1049149
+	religion=slavic_pagan
+	culture=pommeranian
+	trait=vampire
+	trait="hunger_0"
+	trait=secret_vampire
+	trait=elusive_shadow
+	immortal_age=20
+	dna="agc000aa0a0"
+	properties="0e0a0b00000000"
+	730.1.1={
+		birth=730.1.1
+		effect = { set_character_flag = checked_race }
+	}
+	943.1.1={
+		death=yes
+	}
+}
+268442={
+	name=Gunnhild
+	female=no
+	dynasty=1049149
+	father=268441
+	religion=slavic_pagan
+	culture=pommeranian
+	trait=vampire
+	trait="hunger_0"
+	trait=secret_vampire
+	trait=brilliant_strategist
+	immortal_age=45
+	903.1.1={
+		birth=903.1.1
+		effect = { set_character_flag = checked_race }
+	}
+	1066.1.1={
+		death=yes
+	}
+}
+268443={
+	name=Liudolf
+	female=no
+	dynasty=1049149
+	father=268442
+	religion=slavic_pagan
+	culture=pommeranian
+	trait=vampire
+	trait="hunger_0"
+	trait=secret_vampire
+	trait=flamboyant_schemer
+	immortal_age=27
+	dna="beheh0hbb00"
+	properties="nd0adc00000000"
+	1030.1.1={
+		birth=1030.1.1
+		effect = { set_character_flag = checked_race }
+	}
+	1060.1.1={
+		religion=catholic
+	}
+	1278.2.14={
+		death=yes
+	}
+}
+268444={
+	name=Przybyslaw
+	female=no
+	dynasty=1049149
+	father=268443
+	religion=catholic
+	culture=pommeranian
+	trait=vampire
+	trait="hunger_0"
+	trait=secret_vampire
+	trait=scholarly_theologian
+	immortal_age=33
+	1240.1.1={
+		birth=1240.1.1
+		effect = { set_character_flag = checked_race }
+	}
+	1310.1.1={
+		death=yes
+	}
+}
+268445={
+	name=Katherina
+	female=yes
+	dynasty=1049149
+	religion=catholic
+	culture=pommeranian
+	trait=vampire
+	trait="hunger_0"
+	trait=secret_vampire
+	trait=intricate_webweaver
+	immortal_age=16
+	dna="acfdc0e0000"
+	properties="og0a0000000000"
+	1290.1.1={
+		birth=1290.1.1
+		effect = { set_character_flag = checked_race }
+	}
+	1306.1.1={
+		add_spouse=268444
+	}
+	1309.12.31={
+		effect = { set_father=268444 }
+	}
+}
+268446={
+	name=Takoi
+	female=no
+	dynasty=1049412
+	religion=the_damned
+	culture=undead_zombie
+	trait=zombie
+	trait=tough_soldier
+	trait=hunter
+	trait=desert_terrain_leader
+	trait=wroth
+	trait=arbitrary
+	immortal_age=35
+	720.1.1={
+		birth=720.1.1
+		effect = { 
+			set_character_flag = checked_race
+			set_government_type = zombie_horde
+		}
+	}
+	768.12.31={
+		effect = {
+			set_special_character_title = String_Zombie_King
+			spawn_unit = {
+				province = 914
+				home = 914
+				owner = c_268446
+				troops = {
+					zombie_troops = { 1500 1500 }
+				}
+				reinforces = no
+				maintenance = no
+			}
+			any_realm_province = {
+				if = {
+					limit = { has_dlc = Reapers }
+					add_province_modifier = { name = depopulated_3 duration = -1 }
+				}
+				else = {
+					add_province_modifier = { name = devastation_3 duration = -1 }
+				}
+			}
+		}
+	}
+	860.1.1={
+		death=yes
+		effect = {
+			any_realm_province = {
+				if = {
+					limit = { has_dlc = Reapers }
+					remove_province_modifier = depopulated_3
+				}
+				else = {
+					remove_province_modifier = devastation_3
+				}
+			}
+		}
+	}
+}
+
+268447={
+	name=Kääbas
+	female=no
+	dynasty=1049413
+	religion=the_damned
+	culture=undead_cold_ones
+	trait=zombie
+	trait=tough_soldier
+	trait=duelist
+	trait=winter_soldier
+	trait=brave
+	immortal_age=35
+	811.1.1={
+		birth=831.1.1
+		effect = { 
+			set_character_flag = checked_race
+			set_government_type = zombie_horde
+		}
+	}
+	866.12.31={
+		effect = {
+			set_special_character_title = String_Zombie_King
+			spawn_unit = {
+				province = 396
+				home = 396
+				owner = c_268447
+				troops = {
+					zombie_troops = { 1000 1000 }
+				}
+				reinforces = no
+				maintenance = no
+			}
+			any_realm_province = {
+				if = {
+					limit = { has_dlc = Reapers }
+					add_province_modifier = { name = depopulated_3 duration = -1 }
+				}
+				else = {
+					add_province_modifier = { name = devastation_3 duration = -1 }
+				}
+			}
+		}
+	}
+	880.1.1={
+		death=yes
+		effect = {
+			any_realm_province = {
+				if = {
+					limit = { has_dlc = Reapers }
+					remove_province_modifier = depopulated_3
+				}
+				else = {
+					remove_province_modifier = devastation_3
+				}
+			}
+		}
+	}
+}
+
+268448={
+	name=Vikram
+	female=no
+	dynasty=1049414
+	religion=the_damned
+	culture=undead_vetala
+	trait=zombie
+	trait=tough_soldier
+	trait=narrow_flank_leader
+	trait=stubborn
+	trait=deceitful
+	immortal_age=40
+	1020.1.1={
+		birth=1020.1.1
+		effect = { 
+			set_character_flag = checked_race
+			set_government_type = zombie_horde
+		}
+	}
+	1065.12.31={
+		effect = {
+			set_special_character_title = String_Zombie_King
+			spawn_unit = {
+				province = 1224
+				home = 1224
+				owner = c_268448
+				troops = {
+					zombie_troops = { 7000 7000 }
+				}
+				reinforces = no
+				maintenance = no
+			}
+			any_realm_province = {
+				if = {
+					limit = { has_dlc = Reapers }
+					add_province_modifier = { name = depopulated_3 duration = -1 }
+				}
+				else = {
+					add_province_modifier = { name = devastation_3 duration = -1 }
+				}
+			}
+		}
+	}
+	1071.1.1={
+		death=yes
+		effect = {
+			set_special_character_title = String_Zombie_King
+			any_realm_province = {
+				if = {
+					limit = { has_dlc = Reapers }
+					remove_province_modifier = depopulated_3
+				}
+				else = {
+					remove_province_modifier = devastation_3
+				}
+			}
+		}
+	}
+}
+
+268449={
+	name=Bani
+	female=yes
+	dynasty=1049415
+	religion=the_damned
+	culture=undead_revenant
+	trait=zombie
+	trait=tough_soldier
+	trait=defensive_leader
+	trait=cruel
+	immortal_age=24
+	1064.1.1={
+		birth=1064.1.1
+		effect = { 
+			set_character_flag = checked_race
+			set_government_type = zombie_horde
+		}
+	}
+	1080.12.31={
+		effect = {
+			set_special_character_title = String_Zombie_King
+			spawn_unit = {
+				province = 1332
+				home = 1332
+				owner = c_268449
+				troops = {
+					zombie_troops = { 3000 3000 }
+				}
+				reinforces = no
+				maintenance = no
+			}
+			any_realm_province = {
+				if = {
+					limit = { has_dlc = Reapers }
+					add_province_modifier = { name = depopulated_3 duration = -1 }
+				}
+				else = {
+					add_province_modifier = { name = devastation_3 duration = -1 }
+				}
+			}
+		}
+	}
+	1111.1.1={
+		death=yes
+		effect = {
+			any_realm_province = {
+				if = {
+					limit = { has_dlc = Reapers }
+					remove_province_modifier = depopulated_3
+				}
+				else = {
+					remove_province_modifier = devastation_3
+				}
+			}
+		}
+	}
+}
+
+268450={
+	name=Vasily
+	female=no
+	dynasty=1049416
+	religion=the_damned
+	culture=undead_revenant
+	trait=zombie
+	trait=tough_soldier
+	trait=experimenter
+	trait=greedy
+	trait=wroth
+	immortal_age=55
+	1180.1.1={
+		birth=1180.1.1
+		effect = { 
+			set_character_flag = checked_race
+			set_government_type = zombie_horde
+		}
+	}
+	1240.12.31={
+		effect = {
+			set_special_character_title = String_Zombie_King
+			spawn_unit = {
+				province = 576
+				home = 576
+				owner = c_268450
+				troops = {
+					zombie_troops = { 5000 5000 }
+				}
+				reinforces = no
+				maintenance = no
+			}
+			any_realm_province = {
+				if = {
+					limit = { has_dlc = Reapers }
+					add_province_modifier = { name = depopulated_3 duration = -1 }
+				}
+				else = {
+					add_province_modifier = { name = devastation_3 duration = -1 }
+				}
+			}
+		}
+	}
+	1300.1.1={
+		death=yes
+		effect = {
+			any_realm_province = {
+				if = {
+					limit = { has_dlc = Reapers }
+					remove_province_modifier = depopulated_3
+				}
+				else = {
+					remove_province_modifier = devastation_3
+				}
+			}
+		}
+	}
+}
+
+268451={
+	name=Lemure
+	female=no
+	dynasty=1049417
+	religion=the_damned
+	culture=undead_revenant
+	trait=zombie
+	trait=tough_soldier
+	trait=inspiring_leader
+	1302.11.1={
+		birth=1302.11.1
+		effect = { 
+			set_character_flag = checked_race
+			set_government_type = zombie_horde
+		}
+	}
+	1336.12.31={
+		effect = {
+			set_special_character_title = String_Zombie_King
+			spawn_unit = {
+				province = 329
+				home = 329
+				owner = c_268451
+				troops = {
+					zombie_troops = { 8000 8000 }
+				}
+				reinforces = no
+				maintenance = no
+			}
+			any_realm_province = {
+				if = {
+					limit = { has_dlc = Reapers }
+					add_province_modifier = { name = depopulated_3 duration = -1 }
+				}
+				else = {
+					add_province_modifier = { name = devastation_3 duration = -1 }
+				}
+			}
+		}
+	}
+}
+268452={
+	name = Ramesses
+	female=no
+	dynasty = 1043002
+	culture = egyptian_arabic
+	religion = kemetic_pagan
+	martial = 8
+	diplomacy = 4
+	stewardship = 5
+	intrigue = 4
+	learning = 6
+	health = 6
+	fertility = 0.7
+	trait = brilliant_strategist
+	trait = mummy
+	trait = quick
+	trait = proud
+	trait = zealous
+	trait = brave
+	dna="ajibe00ae00"
+	properties="jb00ak00000000"
+	immortal_age=30
+	770.3.13={
+		birth=1.3.13 # Will the game lie for me?
+		give_nickname = nick_ozymandias
+		effect = {
+			set_global_flag = ramesses_reborn
+			set_character_flag = checked_race
+		}
+	}
+}
+268453={
+	name=Zuba'a
+	female=no
+	dynasty=1029034
+	culture=ethiopian
+	religion=sunni
+	martial=6
+	intrigue=3
+	learning=6
+	trait=djinn
+	trait=scholarly_theologian
+	immortal_age=18
+	720.1.1={
+		birth=yes
+		effect = { set_character_flag = checked_race }
+	}
+	745.1.1 = {
+		employer=145642
+	}
+	755.1.1={
+		effect={ opinion = { who = 145643 modifier = bound_by_magic years = 200 } }
+	}
+	890.1.1={
+		death=yes
+	}
+}
+268454={
+	name=Sennar
+	female=no
+	dynasty=1049418
+	culture=bedouin_arabic
+	religion=sunni
+	trait=djinn
+	immortal_age=45
+	800.1.1={
+		birth=yes
+		effect = { set_character_flag = checked_race }
+	}
+	1065.1.1={
+		death=yes
+	}
+}
+268455={
+	name=Siq
+	female=no
+	dynasty=1049418
+	culture=bedouin_arabic
+	religion=sunni
+	trait=djinn
+	immortal_age=45
+	dna="cdlic0ac000"
+	properties="j00hbb00000000"
+	1000.1.1={
+		birth=yes
+		effect = { set_character_flag = checked_race }
+	}
+	1170.1.1={
+		death=yes
+	}
+}
+268456={
+	name=Cezevi
+	female=no
+	dynasty=1049419
+	culture=persian
+	religion=sunni
+	trait=djinn
+	trait=midas_touched
+	trait=administrator
+	trait=greedy
+	trait=patient
+	trait=diligent
+	trait=cynical
+	trait=deceitful
+	immortal_age=30
+	dna="cdfka0h0000"
+	properties="oj0a0a00000000"
+	1203.1.1={
+		birth=yes
+		effect = { set_character_flag = checked_race }
+	}
+	1330.1.1={
+		death=yes
+	}
+}
+268457={
+	name=Khinzab
+	female=no
+	dynasty=1049420
+	culture=maghreb_arabic
+	religion=shiite
+	immortal_age=30
+	dna="ackfg0cbc00"
+	properties="ia00fd00000000"
+	trait=djinn
+	1300.1.1={
+		birth=yes
+		effect = { set_character_flag = checked_race }
+	}
+}
+268458={
+	name=Cormoran
+	female=no
+	dynasty=1049421
+	culture=jotunn
+	religion=druidic
+	trait=mythos_giant
+	trait=giant_bergrisar
+	trait=strong
+	trait=skilled_tactician
+	trait=wroth
+	trait=ambitious
+	trait=cruel
+	trait=heavy_infantry_leader
+	dna="cdfbe0dada0"
+	properties="qe0ffb00000000"
+	730.1.1={
+		birth=yes
+		effect = { set_character_flag = checked_race }
+	}
+	746.1.1={
+		add_trait = size_1
+	}
+	756.1.1={
+		add_spouse=268459
+	}
+	762.1.1={
+		effect={ remove_trait = size_1 }
+		add_trait = size_2
+	}
+	778.1.1={
+		effect={ remove_trait = size_2 }
+		add_trait = size_3
+	}
+	793.1.1={
+		death={ death_reason = death_battle killer = 159454 }
+	}
+}
+268459={
+	name=Cormelian
+	female=yes
+	culture=jotunn
+	religion=druidic
+	trait=mythos_giant
+	trait=giant_bergrisar
+	740.1.1={
+		birth=yes
+		effect = { set_character_flag = checked_race }
+	}
+	756.1.1={
+		add_spouse=268458
+		add_trait=size_1
+	}
+	772.1.1={
+		effect={ remove_trait = size_1 }
+		add_trait = size_2
+	}
+	788.1.1={
+		effect={ remove_trait = size_2 }
+		add_trait = size_3
+	}
+	797.1.1={
+		death=yes
+	}
+}
+268460={
+	name=Argus
+	female=no
+	dynasty=1049422
+	culture=greek
+	religion=hellenic_pagan
+	employer=145802
+	trait=mythos_giant
+	734.1.2={
+		birth=yes
+		employer=145802
+		effect = { set_character_flag = checked_race }
+	}
+	750.1.1={
+		add_trait=size_1
+	}
+	766.1.1={
+		effect={ remove_trait = size_1 }
+		add_trait = size_2
+	}
+	782.1.1={
+		effect={ remove_trait = size_2 }
+		add_trait = size_3
+	}
+	798.1.1={
+		effect={ remove_trait = size_3 }
+		add_trait = size_4
+	}
+	814.1.1={
+		effect={ remove_trait = size_4 }
+		add_trait = size_5
+	}
+	830.1.1={
+		effect={ remove_trait = size_5 }
+		add_trait = size_6
+	}
+	846.1.1={
+		effect={ remove_trait = size_6 }
+		add_trait = size_7
+	}
+	863.1.1={
+		effect={ remove_trait = size_7 }
+		add_trait = size_8
+	}
+	878.1.1={
+		effect={ remove_trait = size_8 }
+		add_trait = size_9
+	}
+	880.1.1={
+		death=yes
+	}
+}
+268461={
+	name=Aristatios
+	female=no
+	dynasty=1049423
+	culture=greek
+	religion=hellenic_pagan
+	trait = mythos_giant
+	731.1.1={
+		birth=yes
+		effect = { set_character_flag = checked_race }
+	}
+	747.1.1={
+		add_trait=size_1
+	}
+	763.1.1={
+		effect={ remove_trait = size_1 }
+		add_trait = size_2
+	}
+	765.1.1={
+		employer=145797
+	}
+	779.1.1={
+		effect={ remove_trait = size_2 }
+		add_trait = size_3
+	}
+	800.1.1={
+		death=yes
+	}
+}
+268462={
+	name=Brynjolf
+	female=no
+	dynasty=1049424
+	culture=jotunn
+	religion=jotnar
+	trait=mythos_giant
+	trait=giant_eldjotnar
+	trait=size_1
+	840.1.1={
+		birth=yes
+		effect = { set_character_flag = checked_race }
+	}
+	900.1.1={
+		death=yes
+	}
+}
+268463={
+	name=Dobrozhir
+	female=no
+	dynasty=1049271
+	culture=jotunn
+	religion=norse_pagan
+	trait=mythos_giant
+	trait=giant_hrimthursar
+	trait=size_2
+	821.1.1={
+		birth=yes
+		effect = { set_character_flag = checked_race }
+	}
+	912.1.2={
+		death=yes
+	}
+}
+268464={
+	name=Ferragut
+	female=no
+	dynasty=12308
+	father=73968
+	mother=73975
+	culture=bedouin_arabic
+	religion=sunni
+	learning=7
+	trait=mythos_giant
+	trait=skilled_tactician
+	trait=duelist
+	trait=holy_warrior
+	trait=wroth
+	trait=gregarious
+	trait=brave
+	trait=zealous
+	trait=trusting
+	dna="cjcea0aa000"
+	properties="0b0edj00000000"
+	843.1.1={
+		birth=yes
+		effect = { set_character_flag = checked_race }
+	}
+	931.1.1={
+		death=yes
+	}
+}
+268465={
+	name=Balor
+	female=no
+	dynasty=1049425
+	culture=irish
+	religion=druidic
+	trait=mythos_giant
+	trait = skilled_tactician
+	trait = aggressive_leader
+	trait = wroth
+	trait = cruel
+	trait = impaler
+	trait = demi_god
+	trait = proud
+	dna="cgcgh0dbga0"
+	properties="gd00id00000000"
+	1020.1.1={
+		birth=yes
+		give_nickname = nick_of_the_evil_eye
+		effect = { set_character_flag = checked_race }
+		create_bloodline = {
+			type = BL_blood_of_the_gods_generic
+		}
+	}
+	1102.7.1={
+		death=yes
+	}
+}
+268466={
+	name=Ravana
+	female=no
+	dynasty=1049426
+	father=268467
+	mother=268468
+	culture=marathi
+	religion=hindu
+	trait=mythos_giant
+	trait=wroth
+	trait=erudite
+	trait = demi_god
+	dna="bcfdc0e0000"
+	properties="og0a0000000000"
+	1202.1.1={
+		birth=yes
+		effect = {
+			add_character_modifier = { name = patron_shiva duration = -1 }
+			set_character_flag = checked_race
+		}
+		create_bloodline = {
+			type = BL_blood_of_the_gods_generic
+		}
+	}
+	1219.1.1={
+		add_claim = d_lanka
+		add_claim = k_lanka
+	}
+	1304.1.1={
+		death=yes
+	}
+}
+268467={
+	name=Vishrava
+	female=no
+	dynasty=1049426
+	culture=marathi
+	religion=hindu
+	trait=mythos_giant
+	1168.1.1={
+		birth=yes
+		effect = { set_character_flag = checked_race }
+	}
+	1185.1.1={
+		add_spouse=268468
+	}
+	1219.1.1={
+		death=yes
+	}
+}
+268468={
+	name=Kaikeshi
+	female=yes
+	dynasty=1049427
+	culture=marathi
+	religion=hindu
+	trait=mythos_giant
+	1169.1.1={
+		birth=yes
+		effect = { set_character_flag = checked_race }
+	}
+	1185.1.1={
+		add_spouse=268467
+	}
+	1255.1.1={
+		death=yes
+	}
+}
+268469={
+	name=Shurpanakha
+	female=yes
+	dynasty=1049426
+	father=268467
+	mother=268468
+	culture=marathi
+	religion=hindu
+	trait=mythos_giant
+	trait=ugly
+	1208.1.1={
+		birth=yes
+		effect = { set_character_flag = checked_race }
+	}
+	1226.1.1={
+		add_trait=disfigured
+	}
+	1320.1.1={
+		death=yes
+	}
+}
+
+268470={
+	name = Tarasque
+	female = no
+	dynasty = 1049428
+	culture = draconic
+	religion = draconic_pagan
+	diplomacy=4
+	martial=7
+	stewardship=6
+	intrigue=5
+	learning=3
+	trait = dragon
+	trait = brilliant_strategist
+	trait = strategist
+	trait = adventurer
+	trait = mountain_terrain_leader
+	trait = narrow_flank_leader
+	trait = ambitious
+	trait = greedy
+	trait = proud
+	trait = stubborn
+	trait = zealous
+	dna="ea0000bc000"
+	properties="00000000000000"
+	1310.1.1={
+		birth = yes
+		effect = { set_character_flag = checked_race }
+	}
+	1337.1.1={
+		effect = {
+			spawn_unit={
+				province = 747
+				home = 747
+				owner = ROOT
+				troops = {
+					dragon_cavalry = { 300 300 }
+				}
+				maintenance = no
+			}
+		}
+	}
+}
+268471={
+	name = Apalala
+	female = no
+	dynasty = 1049429
+	culture = draconic
+	religion = draconic_pagan
+	trait = dragon
+	trait = kshatriya
+	trait = arcane_master
+	trait = wroth
+	trait = temperate
+	dna="fb0000aa0a0"
+	properties="k0000000000000"
+	728.1.1={
+		birth=yes
+		effect = { set_character_flag = checked_race }
+	}
+	750.1.1={
+		religion=buddhist
+	}
+	852.1.1={
+		death=yes
+	}
+}
+
+# Greek Gods
+
+268472={
+	name=Rhea
+	female=yes
+	dynasty=1049005
+	religion = hellenic_pagan
+	culture = greek
+	employer=268400
+	father=268400
+	trait = god
+	trait = intricate_webweaver
+	trait = charitable
+	trait = kind
+	1.1.2={
+		birth=yes
+		effect = {
+			set_character_flag=greek_god_rhea
+			set_character_flag=ai_flag_refuse_conversion
+			set_character_flag=checked_race
+		}
+		create_bloodline = {
+			type = BL_blood_of_olympus
+		}
+		immortal_age = 40
+	}
+	17.1.1={
+		add_spouse=268401
+	}
+}
+268473={
+	name=Hades
+	female=no
+	dynasty=1049005
+	religion = hellenic_pagan
+	culture = greek
+	employer=268400
+	father=268401
+	mother=268472
+	trait = just
+	trait = god
+	trait = quick
+	trait = wroth
+	trait = midas_touched
+	17.9.1={
+		birth=yes
+		effect = {
+			set_character_flag=greek_god_hades
+			set_character_flag=ai_flag_refuse_conversion
+			set_character_flag=checked_race
+		}
+		create_bloodline = {
+			type = BL_blood_of_hades
+		}
+		immortal_age = 30
+	}
+}
+268474={
+	name=Poseidon
+	female=no
+	dynasty=1049005
+	religion = hellenic_pagan
+	culture = greek
+	employer=268400
+	father=268401
+	mother=268472
+	trait = brave
+	trait = envious
+	trait = proud
+	trait = patient
+	trait = quick
+	trait = god
+	trait = midas_touched
+	18.6.1={
+		birth=yes
+		effect = {
+			set_character_flag=greek_god_poseidon
+			set_character_flag=ai_flag_refuse_conversion
+			set_character_flag=checked_race
+		}
+		create_bloodline = {
+			type = BL_blood_of_poseidon
+		}
+		immortal_age=40
+	}
+}
+268475={
+	name=Aphrodite
+	female=yes
+	dynasty=1049005
+	religion = hellenic_pagan
+	culture = greek
+	employer=268400
+	father=268400
+	trait = fair
+	trait = seductress
+	trait = kind
+	trait = just
+	trait = lustful
+	trait = gregarious
+	trait = god
+	trait = elusive_shadow
+	3.1.1={
+		birth=yes
+		effect = {
+			set_character_flag=greek_god_aphrodite
+			set_character_flag=ai_flag_refuse_conversion
+			set_character_flag=checked_race
+		}
+		create_bloodline = {
+			type = BL_blood_of_aphrodite
+		}
+		immortal_age=20
+	}
+}
+268476={
+	name=Hera
+	female=yes
+	dynasty=1049005
+	religion = hellenic_pagan
+	culture = greek
+	employer=268400
+	father=268401
+	mother=268472
+	trait = elusive_shadow
+	trait = god
+	trait = envious
+	trait = diligent
+	19.3.1={
+		birth=yes
+		effect = {
+			set_character_flag=greek_god_hera
+			set_character_flag=ai_flag_refuse_conversion
+			set_character_flag=checked_race
+		}
+		immortal_age = 40
+	}
+	36.1.1={
+		add_spouse=268477
+	}
+}
+268477={
+	name="Zeus"
+	female=no
+	dynasty=1049005
+	religion = hellenic_pagan
+	culture = greek
+	employer=268400
+	father=268401
+	mother=268472
+	trait = god
+	trait = brave
+	trait = just
+	trait = proud
+	trait = lustful
+	trait = genius
+	trait = seducer
+	trait = brilliant_strategist
+	20.1.1={
+		birth=yes
+		effect = {
+			set_character_flag=greek_god_zeus
+			set_character_flag=ai_flag_refuse_conversion
+			set_character_flag=checked_race
+		}
+		create_bloodline = {
+			type = BL_blood_of_zeus
+		}
+		immortal_age = 40
+	}
+	36.1.1={
+		add_spouse=268476
+	}
+}
+268478={
+	name=Athena
+	female=yes
+	dynasty=1049005
+	religion = hellenic_pagan
+	culture = greek
+	father=268477
+	trait = god
+	trait = kind
+	trait = temperate
+	trait = just
+	trait = chaste
+	trait = honest
+	trait = genius
+	trait = grey_eminence
+	learning=8
+	39.1.1={
+		birth=yes
+		effect = {
+			set_character_flag=greek_god_athena
+			set_character_flag=ai_flag_refuse_conversion
+			set_character_flag=checked_race
+		}
+		create_bloodline = {
+			type = BL_blood_of_athena
+		}
+		employer=268477
+		immortal_age = 25
+	}
+}
+268479={
+	name=Ares
+	female=no
+	dynasty=1049005
+	religion = hellenic_pagan
+	culture = greek
+	father=268477
+	mother=268476
+	trait = god
+	trait = brave
+	trait = stubborn
+	trait = wroth
+	trait = proud
+	trait = diligent
+	trait = strong
+	trait = brilliant_strategist
+	trait = ares_own
+	martial=8
+	36.9.1={
+		birth=yes
+		effect = {
+			set_character_flag=greek_god_ares
+			set_character_flag=ai_flag_refuse_conversion
+			set_character_flag=checked_race
+		}
+		create_bloodline = {
+			type = BL_blood_of_ares
+		}
+		immortal_age = 30
+	}
+}
+268480={
+	name=Hermes
+	female=no
+	dynasty=1049005
+	religion = hellenic_pagan
+	culture = greek
+	father=268477
+	trait = god
+	trait = midas_touched
+	trait = fair
+	trait = quick
+	trait = feeble
+	trait = socializer
+	trait = charitable
+	trait = kind
+	trait = deceitful
+	trait = arbitrary
+	trait = gregarious
+	trait = organizer
+	trait = bastard
+	stewardship=8
+	37.1.1={
+		birth=yes
+		effect = {
+			set_character_flag=greek_god_hermes
+			set_character_flag=ai_flag_refuse_conversion
+			set_character_flag=checked_race
+		}
+		create_bloodline = {
+			type = BL_blood_of_hermes
+		}
+		immortal_age = 20
+	}
+}
+268481={
+	name=Pan
+	female=no
+	dynasty=1049005
+	religion = hellenic_pagan
+	culture = greek
+	father=268480 # Sometimes listed as a son of Zeus, Cronos, or Aegipan instead
+	trait = god
+	trait = hedonist
+	trait = charismatic_negotiator
+	trait = seducer # Yes, two lifestyles.  Busy guy.
+	trait = lustful
+	trait = gluttonous
+	trait = greedy
+	trait = gregarious
+	trait = content
+	60.1.1={
+		birth=yes
+		effect = {
+			set_character_flag=greek_god_pan
+			set_character_flag=ai_flag_refuse_conversion
+			set_character_flag=checked_race
+		}
+		immortal_age = 20
+	}
+}
+268482={
+	name=Leto
+	female=yes
+	religion = hellenic_pagan
+	culture = greek
+	employer=268400
+	trait=charismatic_negotiator
+	trait = god
+	trait=fair
+	20.1.1={
+		birth=yes
+		effect = {
+			set_character_flag=ai_flag_refuse_conversion
+			set_character_flag=checked_race
+		}
+		create_bloodline = {
+			type = BL_blood_of_olympus
+		}
+		immortal_age = 25
+	}
+}
+	
+268483={
+	name=Apollo
+	female=no
+	dynasty=1049005
+	religion = hellenic_pagan
+	culture = greek
+	father=268477
+	mother=268482
+	trait = charismatic_negotiator
+	trait = god
+	trait = physician
+	trait = mystic
+	trait = poet
+	trait = honest
+	trait = twin
+	trait = diligent
+	trait = patient
+	trait = bastard
+	39.1.1={
+		birth=yes
+		effect = {
+			set_character_flag=greek_god_apollo
+			set_character_flag=ai_flag_refuse_conversion
+			set_character_flag=checked_race
+		}
+		create_bloodline = {
+			type = BL_blood_of_apollo
+		}
+		immortal_age = 20
+	}
+}
+268484={
+	name=Artemis
+	female=yes
+	dynasty=1049005
+	religion = hellenic_pagan
+	culture = greek
+	father=268477
+	mother=268482
+	trait = god
+	trait = chaste
+	trait = hunter
+	trait = twin
+	trait = skilled_tactician
+	trait = fair
+	trait = strong
+	trait = celibate
+	trait = falconer
+	trait = proud
+	trait = envious
+	trait = patient
+	trait = rough_terrain_leader
+	39.1.1={
+		birth=yes
+		effect = {
+			set_character_flag=greek_god_artemis
+			set_character_flag=ai_flag_refuse_conversion
+			set_character_flag=checked_race
+		}
+		immortal_age = 20
+	}
+}
+
+268485={
+	name=Óðinn
+	female=no
+	dynasty=1049006
+	religion=norse_pagan
+	culture=norse
+	employer=268305
+	trait = god
+	trait = genius
+	trait = brave
+	trait = just
+	trait = patient
+	trait = diligent
+	trait = erudite
+	trait = midas_touched
+	trait = one_eyed
+	300.1.1={
+		birth=yes
+		effect = {
+			set_character_flag=norse_god_odin
+			set_character_flag=ai_flag_refuse_conversion
+			set_character_flag=checked_race
+		}
+		create_bloodline = {
+			type = BL_blood_of_odin
+		}
+		immortal_age = 50
+	}
+	330.1.1={
+		add_spouse=268489
+	}
+}
+268486={
+	name=Þórr
+	female=no
+	dynasty = 1049006
+	dna="0i0i00hbe00"
+	religion=norse_pagan
+	culture=norse
+	trait = god
+	trait = brave
+	trait = just
+	trait = trusting
+	trait = honest
+	trait = proud
+	trait = zealous
+	trait = strong
+	350.1.1={
+		birth=yes
+		effect = {
+			set_character_flag=norse_god_thor
+			set_character_flag=ai_flag_refuse_conversion
+			set_character_flag=checked_race
+		}
+		employer=268485
+		create_bloodline = {
+			type = BL_blood_of_thor
+		}
+		immortal_age = 30
+	}
+	428.1.1={
+		add_spouse=268495
+		effect= { add_lover = 268495 }
+	}
+}
+268487={
+	name=Loki
+	female=no
+	dynasty=1049009
+	religion = norse_pagan # Might convert to Jotun later by event or through his wife
+	culture = norse
+	trait = god
+	trait = mythos_giant
+	trait = cynical
+	trait = deceitful
+	trait = envious
+	trait = quick
+	trait = schemer
+	trait = elusive_shadow
+	trait = size_10
+	354.1.1={
+		birth=yes
+		effect = {
+			set_character_flag=norse_god_loki
+			set_character_flag=ai_flag_refuse_conversion
+			set_character_flag=checked_race
+		}
+		employer=268485
+		create_bloodline = {
+			type = BL_blood_of_loki
+		}
+		immortal_age = 25
+	}
+}
+268488={
+	name=Sleipnir
+	female=no
+	dynasty = 1049009
+	mother = 268487
+	religion=norse_pagan
+	culture=norse
+	trait = demi_god
+	trait = horse
+	trait = immortal
+	trait = tough_soldier
+	trait = half_giant
+	trait = strong
+	trait = content
+	trait = cavalry_leader
+	trait = size_5
+	trait = bastard
+	400.1.1={
+		birth=yes
+		effect = {
+			set_character_flag=ai_flag_refuse_conversion
+			set_character_flag=checked_race
+			set_graphical_culture = horse
+		}
+		employer=268485
+		immortal_age = 18
+	}
+}
+268489={
+	name=Frigg
+	female = yes
+	dynasty = 1049006
+	employer=268485
+	religion=norse_pagan
+	culture=norse
+	trait = god
+	trait = mystic
+	trait = mastermind_theologian
+	trait = shrewd
+	310.1.1={
+		birth=yes
+		effect = {
+			set_character_flag=norse_god_frigg
+			set_character_flag=ai_flag_refuse_conversion
+			set_character_flag=checked_race
+		}
+		employer=268305
+		create_bloodline = {
+			type = BL_blood_of_asgard
+		}
+		immortal_age=25
+	}
+	330.1.1={
+		add_spouse=268485
+	}
+}
+268490={
+	name=Freyja
+	female=yes
+	dynasty = 1049008
+	religion=norse_pagan
+	culture=norse
+	trait = god
+	trait = seductress
+	trait = fair
+	trait = lustful
+	trait = greedy
+	trait = grey_eminence
+	401.1.1={
+		birth=yes
+		effect = {
+			set_character_flag=norse_god_freyja
+			set_character_flag=ai_flag_refuse_conversion
+			set_character_flag=checked_race
+		}
+		employer=268485
+		create_bloodline = {
+			type = BL_blood_of_njorthr
+		}
+		immortal_age=25
+	}
+}
+268491={
+	name=Heimdallr
+	female=no
+	dynasty = 1049006
+	religion=norse_pagan
+	culture=norse
+	trait = god
+	trait = midas_touched
+	trait = patient
+	trait = fair
+	trait = diligent
+	trait = humble
+	trait = brave
+	trait = content
+	260.1.1={
+		birth=yes
+		effect = {
+			set_character_flag=norse_god_heimdallr
+			set_character_flag=ai_flag_refuse_conversion
+			set_character_flag=checked_race
+		}
+		employer=268305
+		create_bloodline = {
+			type = BL_blood_of_heimdal
+		}
+		immortal_age=35
+	}
+}
+268492={
+	name=Baldr
+	female=no
+	dynasty = 1049006
+	father=268485
+	mother=268489
+	religion=norse_pagan
+	culture=norse
+	trait = god
+	trait = fair
+	trait = quick
+	trait = strong
+	trait = mystic
+	trait = just
+	trait = grey_eminence
+	419.1.1={
+		birth=yes
+		effect = {
+			set_character_flag=norse_god_baldr
+			set_character_flag=ai_flag_refuse_conversion
+			set_character_flag=checked_race
+		}
+		immortal_age=20
+		employer=268485
+	}
+	439.1.1={
+		add_spouse=268493
+		employer=268485
+	}
+}
+268493={
+	name=Nanna
+	female=yes
+	dynasty = 1049010
+	religion=norse_pagan
+	culture=norse
+	trait = god
+	trait = temperate
+	trait = just
+	423.1.1={
+		birth = yes
+		effect = {
+			set_character_flag=norse_god_nanna
+			set_character_flag=ai_flag_refuse_conversion
+			set_character_flag=checked_race
+		}
+		employer=268485
+		create_bloodline = {
+			type = BL_blood_of_asgard
+		}
+		immortal_age=20
+	}
+	439.1.1={
+		add_spouse=268492
+		employer=268485
+	}
+}
+268494={
+	name=Bragi
+	female=no
+	dynasty = 1049006
+	father=268485
+	religion=norse_pagan
+	culture=norse
+	trait = god
+	trait = poet
+	trait = grey_eminence
+	trait = socializer
+	trait = half_giant
+	trait = size_5
+	408.1.1={
+		birth = yes
+		effect = {
+			set_character_flag=norse_god_bragi
+			set_character_flag=ai_flag_refuse_conversion
+			set_character_flag=checked_race
+		}
+		immortal_age=30
+	}
+}
+268495={
+	name=Sif
+	female=yes
+	dynasty = 1049006
+	dna="b0bd000ba00"
+	religion=norse_pagan
+	culture=norse
+	trait = god
+	412.1.1={
+		birth=yes
+		effect = {
+			set_character_flag=norse_god_sif
+			set_character_flag=ai_flag_refuse_conversion
+			set_character_flag=checked_race
+		}
+		employer=268485
+		create_bloodline = {
+			type = BL_blood_of_sif
+		}
+		immortal_age=18
+	}
+	428.1.1={
+		add_spouse=268486
+		effect= { add_lover = 268486 }
+	}
+}
+268496={
+	name=Týr
+	female=no
+	dynasty = 1049006
+	religion=norse_pagan
+	culture=norse
+	trait = god
+	trait = just
+	trait = brave
+	trait = deceitful
+	trait = brilliant_strategist
+	trait = one_handed # Flagged to not heal via divine regeneration
+	trait = strong
+	trait = temperate
+	trait = diligent
+	trait = kind
+	408.1.1={
+		birth=yes
+		effect = {
+			set_character_flag=norse_god_tyr
+			set_character_flag=ai_flag_refuse_conversion
+			set_character_flag=checked_race
+		}
+		create_bloodline = {
+			type = BL_blood_of_tyr
+		}
+		immortal_age=18
+	}
+}
+268497={
+	name=Angrboða
+	female=yes
+	religion = jotnar
+	culture=norse
+	trait = demi_god
+	trait = strong
+	trait = skilled_tactician
+	trait = mythos_giant
+	trait = wroth
+	trait = cruel
+	trait = deceitful
+	trait = size_10
+	720.1.1={
+		birth=yes
+		effect = {
+			set_character_flag=ai_flag_refuse_conversion
+			set_character_flag=checked_race
+		}
+		employer=268485
+		create_bloodline = {
+			type = BL_blood_of_the_gods_generic
+		}
+	}
+	736.1.1={
+		add_spouse=268487
+		employer=268485
+	}
+}
+268498={
+	name=Hel
+	female=yes
+	father=268487
+	mother=268497
+	religion = norse_pagan
+	culture = norse
+	trait = god
+	trait = half_giant
+	trait = elusive_shadow
+	trait = stubborn
+	752.1.1={
+		birth=yes
+		effect = {
+			set_character_flag=norse_god_hel
+			set_character_flag=ai_flag_refuse_conversion
+			set_character_flag=checked_race
+		}
+		immortal_age=70
+		employer=268485
+	}
+}
+268499={
+	name=Hestia
+	female=yes
+	father=268401
+	mother=268472
+	dynasty=1049005
+	religion=hellenic_pagan
+	culture=greek
+	trait=god
+	trait=charismatic_negotiator
+	trait=administrator
+	trait=charitable
+	trait=diligent
+	trait=humble
+	trait=content
+	trait=gregarious
+	18.1.1={
+		birth=yes
+		effect = {
+			set_character_flag=greek_god_hestia
+			set_character_flag=ai_flag_refuse_conversion
+			set_character_flag=checked_race
+		}
+		create_bloodline = { type = BL_blood_of_hestia }
+		immortal_age=40
+	}
+}
+
+268500 = {
+	# Skrýmir Útgar?a-Loki
+	name = Skrýmir
+	female=no
+	dynasty=1049431
+	religion=jotnar
+	culture=jotunn
+	diplomacy = 6
+	martial = 6
+	intrigue = 8
+	stewardship = 4
+	learning = 7
+	trait = mythos_giant
+	trait = veteran_wizard
+	trait = enchanter
+	trait = quick
+	trait = proud
+	trait = size_3
+	disallow_random_traits=yes
+	823.1.1={
+		birth = yes
+		create_bloodline = { type = BL_of_utgardr_loki }
+		employer=280020
+	}
+	916.1.1={
+		death = { death_reason = death_vanished }
+	}
+}
+268501={
+	name = "Logi"
+	female=no
+	religion=jotnar
+	culture=jotunn
+	trait = mythos_giant
+	trait = skilled_tactician
+	trait = duelist
+	trait = lustful
+	trait = aggressive_leader
+	trait = size_1
+	disallow_random_traits=yes
+	846.1.1={
+		birth=yes
+		employer=280020
+	}
+	865.1.2={
+		employer=268500
+		give_nickname = nick_the_cleansing_flame
+	}
+	916.1.1={
+		death = { death_reason = death_vanished }
+	}
+}
+268502={
+	name="Hugi"
+	female=no
+	religion=jotnar
+	culture=jotunn
+	trait = mythos_giant
+	trait = genius
+	trait = mastermind_theologian
+	trait = gamer
+	trait = trickster
+	trait = size_1
+	840.1.1={
+		birth=yes
+		employer=280020
+	}
+	845.1.2={
+		employer=268500
+	}
+	916.1.1={
+		death = { death_reason = death_vanished }
+	}
+}
+268503={
+	name="Elli"
+	female=yes
+	religion=jotnar
+	culture=jotunn
+	trait = mythos_giant
+	trait = immortal
+	trait = size_9
+	trait = cannot_marry
+	770.1.1={
+		birth=yes
+		employer=280020
+		effect = {
+			set_character_flag = ai_flag_refuse_marriage
+			set_character_flag = ai_flag_refuse_concubinage
+			set_character_flag = cannot_marry
+			set_character_flag = no_court_invites
+			will_not_marry_effect = yes
+		}
+		immortal_age = 70
+	}
+	845.1.2={
+		employer=268500
+		give_nickname = nick_the_old
+	}
+	916.1.1={
+		death = { death_reason = death_vanished }
+	}
+}
+268504 = {
+	name="Baba Vanga"
+	female=yes
+	dna="0fgb00cb000"
+	religion=orthodox
+	culture=bulgarian
+	trait=mystic
+	trait=blind
+	trait=genius
+	
+	730.1.1={
+		birth=yes
+		effect = {
+			set_character_flag = ai_flag_refuse_marriage
+			set_character_flag = ai_flag_refuse_concubinage
+			set_character_flag = cannot_marry
+			set_character_flag = no_court_invites
+			will_not_marry_effect = yes
+		}
+	}
+	768.12.1={
+		employer=159121
+	}
+	852.1.2={
+		employer=70382
+	}
+	936.1.1={
+		employer=714
+	}
+	950.1.1={
+		death = { death_reason = death_vanished }
+	}
+}
+	268505 = {
+		name="Uldine"
+		dna="g00000ac000"
+		female=no
+		dynasty=1049229
+		father=268302
+		mother=268507
+		religion="draconic_pagan"
+		culture="draconic"
+		trait="dragon"
+		trait="kind"
+		trait="ambitious"
+		trait="heldragon"
+		trait="arcane_master"
+		trait="magic_heritage"
+		632.1.1 = {
+			birth=yes
+		}
+	}
+		268506 = {
+		name="Natus"
+		dna="g00000ac000"
+		female=no
+		dynasty=1049229
+		father=268302
+		mother=268507
+		religion="draconic_pagan"
+		culture="draconic"
+		trait="dragon"
+		trait="cruel"
+		trait="mystic"
+		trait="alchemist"
+		trait="heldragon"
+		trait="arcane_master"
+		trait="magic_heritage"
+		632.1.1 = {
+			birth=yes
+		}
+	}
+		268507 = {
+		name="Iota"
+		dna="a00000ac000"
+		female=yes
+		religion="draconic_pagan"
+		culture="draconic"
+		trait="dragon"
+		trait="kind"
+		trait="generous"
+		trait="midas_touched"
+		trait="magic_heritage"
+		370.1.1 = {
+			birth=yes
+		}
+		532.1.1 = {
+			add_spouse=268302
+		}
+	}
+}

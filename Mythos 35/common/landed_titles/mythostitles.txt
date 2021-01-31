@@ -1,0 +1,853 @@
+b_bisterne = {
+	culture = draconic
+	religion = draconic_pagan
+}
+
+b_linormr = {
+	culture = draconic
+	religion = draconic_pagan
+}
+
+b_sarkany = {
+	culture = draconic
+	religion = draconic_pagan
+}
+
+b_vibria = {
+	culture = draconic
+	religion = draconic_pagan
+}
+
+c_alexandria = {
+	holy_site = kemetic_pagan
+	holy_site = kemetic_pagan_reformed
+	holy_site = atenist
+	
+	atenist = 2000
+}
+c_aswan = {
+	holy_site = kemetic_pagan
+	holy_site = kemetic_pagan_reformed
+}
+c_sjaelland = {
+	holy_site = draconic_pagan
+	holy_site = draconic_pagan_reformed
+	
+	draconic_pagan_reformed = 3000
+}
+c_roma = {
+	holy_site = satanist
+	holy_site = the_damned
+	
+	satanist = 8000
+}
+c_gizeh = {
+	holy_site = kemetic_pagan
+	holy_site = kemetic_pagan_reformed
+	holy_site = atenist
+	
+	atenist = 3000
+}
+c_jerusalem = {
+	holy_site = satanist
+}
+c_asyut = {
+	holy_site = atenist
+	
+	atenist = 8000
+}
+c_malta = {
+	b_basalt_fortress = {
+	}
+}
+c_marrakech = {
+	holy_site = kemetic_pagan
+	holy_site = kemetic_pagan_reformed
+	holy_site = atenist
+	
+	atenist = 1000
+}
+c_medjerda = {
+	holy_site = kemetic_pagan
+	holy_site = kemetic_pagan_reformed
+	holy_site = atenist	
+
+	atenist = 1000
+}
+c_nordland = {
+	b_bjerkestrand = {}
+}
+c_plock = {
+	holy_site = draconic_pagan
+	holy_site = draconic_pagan_reformed
+	
+	draconic_pagan_reformed = 1000
+}
+c_chartres = {
+	holy_site = druidic
+	holy_site = druidic_reformed
+	
+	druidic_reformed = 1000
+}
+c_vannes = {
+	holy_site = druidic
+	holy_site = druidic_reformed
+	
+	druidic_reformed = 1500
+}
+c_essex = {
+	holy_site = druidic
+	holy_site = druidic_reformed
+	
+	druidic_reformed = 3000
+}
+c_kent = {
+	holy_site = draconic_pagan
+	holy_site = draconic_pagan_reformed
+	
+	draconic_pagan_reformed = 2000
+}
+c_gwynedd = {
+	holy_site = druidic
+	holy_site = druidic_reformed
+	
+	druidic_reformed = 4000
+}
+c_galloway = {
+	holy_site = druidic
+	holy_site = druidic_reformed
+	holy_site = draconic_pagan
+	holy_site = draconic_pagan_reformed
+	
+	druidic_reformed = 1500
+	draconic_pagan_reformed = 1500
+}
+c_uppland = {
+	holy_site = draconic_pagan
+	holy_site = draconic_pagan_reformed
+	
+	draconic_pagan_reformed = 1000
+}
+c_narbonne = {
+	holy_site = satanist # Birth of Catharism, major target of inquisition
+}
+c_lyon = {
+	holy_site = satanist # Birth of Waldensianism, major target of inquisition
+}
+c_ossory = {
+	holy_site = satanist # Site of the first medieval witch trial
+}
+c_byzantion = {
+	holy_site = the_damned
+}
+c_baghdad = {
+	holy_site = the_damned
+}
+c_cordoba = {
+	holy_site = the_damned
+}
+c_cairo = {
+	holy_site = the_damned
+}
+d_satanist = {
+	color={ 25 24 19 }
+	color2={ 22 22 0 }
+		
+	capital = 333 # Rome
+
+	creation_requires_capital = yes
+	
+	title = "Patriarch"
+	title_female = "Matriarch"
+	foa = "ECUMENICAL_PATRIARCH_FOA"
+	
+	religion = satanist
+	controls_religion = satanist
+
+	dynasty_title_names = no 	# Will not be named "Seljuk", etc.
+	
+	#male_names = {
+	#	Aim Aguarès Allogor Alocer Amaymon Amon Amduscias Amy Andras Andrealphus Asmoday Astaroth Aym Baall Baël Balam Barbas
+	#	Barbatos Bathin Bathym Beelzebub Bélial Beleth Berith Bifrons Botis Buer Bune Byleth Caleos Caym Chax Cimeries Coolor
+	#	Crocell Decarabia Eligos Flauros Focalor Forneus Forras Furcas Furfur Gaap Glasya Gomory Gremory Gusion Gusoyn Haagenti 
+	#	Halphas Ipes Leraje Loray Lucifuge Malphas Marbas Marchocias Morax Murmur Naberius Orlas Orobas Oze Palmon Phenex Phoenix
+	#	Pruflas Pursan Purson Pucel Raum Rofocale Roneve Sabnac Sabnock Saleos Sallos Samigina Seere Shax Sidonay Sitri Stolas
+	#	Sytry Valefor Vapula Vassago Vepar Vine Volac Vuall Zagan Zepar 
+	#}
+	
+	#female_names = {
+	#	Agrat Delilah Eisheth Endor Jezebel Lilith Meridiana Naamah Orpah Zar Zeresh Zuleikha
+	#}
+}
+d_jotnar_reformed = {
+	color={ 155 155 235 }
+	color2={ 220 220 0 }
+		
+	capital = 290 #Uppland
+	
+	title = "FYLKIR"
+	title_female = "FYLKJA"
+	foa = "FYLKIR_FOA"
+	
+	creation_requires_capital = no
+	
+	allow = {
+		religion = jotnar_reformed
+		num_of_holy_sites = 3
+		piety = 500
+	}
+	
+	short_name = yes
+	
+	dignity = 100 # Counted as having this many more counties than it does
+	
+	# Controls a religion
+	controls_religion = jotnar_reformed
+	
+	religion = jotnar_reformed
+	
+	dynasty_title_names = no 	# Will not be named "Seljuk", etc.
+	
+	#male_names = {
+	#	Ægir Aurgelmir Baugi Beli Bergelmir Billingr Bláinn Bölþorn Brimir Býleistr Eggthér Eldir Fárbauti Fimafeng Fornjót
+	#	Gangloti Gangr Geirröd Gilling Gymir Hálogi Helblindi Helreginn Hlér Hræsvelgr Hrímgrímnir Hrímnir Hróðvitnir Hrungnir
+	#	Hveðrungr Hymir Idi Im Kári Litr Logi Mögþrasir Naglfari Narfi Ölvaldi Räsvelg Skrýmir Sökkmímir Suttungr Þjazi Þrívaldi
+	#	Þrúðgelmir Þrymr Útgarða-Loki Vánagandr Vafþrúðnir Váli Vasad Víðblindi Vörnir
+	#}
+		
+	#female_names = {
+	#	Angeyja Atla Bára Blóðughadda Bylgja Dröfn Dúfa Elli Fenja Ganglat Gerðr Gjálp Greip Gríðr Grýla Grytha Gunnlöð Harðgreipr
+	#	Hefring Himinglæva Hroðr Hrönn Hyrrokkin Imd Járnsaxa Kólga Laufey Leikn Menja Móðguðr Nal Nótt Skaði Uðr
+	#}
+}
+d_kemetic_pagan_reformed = {
+	color={ 200 200 200 }
+	color2={ 220 20 20 }
+		
+	capital = 791 # Quena, roughly the location of the Temple of Amun at Karnak
+	
+	title = "HIGH_PRIEST_KEMETIC"
+	title_female = "HIGH_PRIESTESS_KEMETIC"
+	foa = "HEAD_PRIEST_FOA"
+	
+	creation_requires_capital = no
+	
+	allow = {
+		religion = kemetic_pagan_reformed
+		num_of_holy_sites = 3
+		piety = 500
+	}
+	
+	short_name = yes
+	
+	dignity = 100 # Counted as having this many more counties than it does
+	
+	# Controls a religion
+	controls_religion = kemetic_pagan_reformed
+	
+	religion = kemetic_pagan_reformed
+	
+	dynasty_title_names = no 	# Will not be named "Seljuk", etc.
+	
+}
+d_druidic_reformed = {
+	color={ 122 165 70 }
+	color2={ 220 220 0 }
+		
+	capital = 64 # Gwynedd
+	
+	title = "ARCH_DRUID"
+	title_female = "ARCH_DRUIDESS"
+	foa = "ARCH_DRUID_FOA"
+	
+	short_name = yes
+	
+	# Always exists
+	landless = yes
+	
+	# Controls a religion
+	controls_religion = druidic_reformed
+	
+	religion = druidic_reformed
+	
+	# Cannot be held as a secondary title
+	primary = yes
+	
+	dynasty_title_names = no 	# Will not be named "Seljuk", etc.
+}
+d_solomon_legion = {
+	color={ 180 100 100 }
+	color2={ 255 155 155 }
+	
+	capital = 774 # Jerusalem
+	
+	short_name = yes
+	
+	religion = sunni
+	
+	culture = djinni
+	
+	mercenary = yes
+	
+	dynasty_title_names = no
+
+	title = "CAPTAIN"
+	foa = "CAPTAIN_FOA"
+	
+	# Cannot be held as a secondary title
+	primary = yes
+	
+	strength_growth_per_century = 0.10
+	
+	modifier = d_solomon_legion_modifier
+}
+k_draconic_pagan_reformed = {
+	color={ 100 255 255 }
+	color2={ 0 0 200 }
+	
+	capital = 18
+	
+	primary = yes
+	landless = yes
+	
+	title = FLAME
+	foa = "SAPPHIRE_FLAME_FOA"
+	
+	creation_requires_capital = no
+	
+	short_name = yes
+	
+	dignity = 100 # Counted as having this many more counties than it does
+	modifier = sapphire_flame_modifier
+	
+	# Controls a religion
+	controls_religion = draconic_pagan_reformed
+	
+	religion = draconic_pagan_reformed
+	graphical_culture = dragongfx
+	
+	dynasty_title_names = no 	# Will not be named "Seljuk", etc.
+	used_for_dynasty_names = no
+	
+}
+e_djinn = {
+	color={ 210 5 5 }
+	color2={ 255 255 255 }
+	
+	capital = 728
+	
+	creation_requires_capital = no
+	
+	short_name = yes
+
+	title = "CALIPH"
+	foa = "CALIPH_FOA"
+
+	caliphate = yes
+
+	dynasty_title_names = no
+	
+	allow = {
+		trait = djinn
+	}
+	
+	modifier = e_djinn_modifier
+}
+e_vampire = {
+	color={ 120 20 35 }
+	color2={ 255 255 255 }
+		
+	capital = 515
+	
+	creation_requires_capital = no
+	
+	short_name = yes
+	
+	christian = 50
+	muslim = 50
+	
+	title = "Archsire"
+	
+	religion = satanist
+	
+	allow = {
+		trait = vampire
+	}
+	
+	modifier = e_vampire_modifier
+}
+e_werewolf = {
+	color={ 75 50 50 }
+	color2={ 255 255 255 }
+	
+	capital = 420
+	
+	creation_requires_capital = no
+
+	christian = 50
+	muslim = 50
+	
+	short_name = yes
+	
+	allow = {
+		trait = werewolf
+	}
+	
+	modifier = e_werewolf_modifier
+}
+e_olympus = {
+	color={ 155 150 170 }
+	color2={ 255 255 255 }
+	
+	landless = yes
+
+	title = "GODKING"
+	foa = "GOD"
+	
+	allow = {
+		trait = god
+	}
+	
+	#male_names = {
+	#	Adonis Aegaeon Aeolus Aether Agon Alastor Anteros Apollo Ares Aristaeus Asclepius Attis Boreus Charon Comus Corymbus Deimos Dionysus
+	#	Eosphorus Erebos Eros Eurus Hades Harpocrates Hedylogos Hephaestus Hermaphroditus Hermes Hespherus Himeros Hymen Gelos Geras Glaucus
+	#	Hypnos Krotos Matton Moros Morpheus Nereus Nilus Notus Palaemon Pan Phaethon Phaenon Philomelus Phobos Phorcys Plutus Pontos
+	#	Poseidon Pothos Priapus Proteus Pyroeis Sangarius Silenus Stilbon Tartarus Thanatos Thaumas Triptolemus Triton Zephyrus Zeus
+	#}
+	
+	#female_names = {
+	#	Aceso Achlys Achos Adephagia Aello Aidos Aisa Alala Alecto Alectrona Alke Amphitrite Angelia Angelos Ania Apheleia Aphrodite Arete
+	#	Arethusa Artemes Atë Athena Atropos Benthesikyme Brizo Ceto Celaeno Chione Clothio Demeter Desponia Dysnomia Eirene Eris Ersa Eucleia
+	#	Eunomia Eupheme Eupraxia Euryale Eusebeia Euthenia Galene Harmonia Hebe Hecate Hera Hestia Iris Lachesis Leucothea Lupe Macaria
+	#	Medusa Megaera Melinoe Nemesis Nicothoe Nike Nyx Ocypete Palaestra Pandia Persephone Podarge Psamathe Rhapso Rhea Roma Selene
+	#	Stheno Telete Tethys Thalassa Thetis Thoosa Tisiphone Triteia
+	#}
+	
+}
+e_asgard = {
+	color={ 115 110 220 }
+	color2={ 255 255 255 }
+		
+	landless = yes
+
+	title = "KING"
+	foa = "king_foa"
+	
+	allow = {
+		trait = god
+	}
+	
+	#male_names = {
+	#	Baldr Bragi Dellingr ðunor Forseti Gullintanni Hallinskiði Heimdallr Hermóðr Höðr Hœnir Hveðrungr Lóðurr Loki Loptr Máni Meili Njörðr Odin Óðinn 
+	#	Óðr Rig Saxnot Þórr Thor Týr Ullr Váli Viðarr Vé Vili Vindhlér Vindlér  
+	#}
+	
+	#female_names = {
+	#	Baduhenna Bil Beyla Eir Eostre Freyja Frigg Fulla Gefjun Gersemi Gerðr Gná Gullveig Hariasa Hel Hlin Hretha Hnoss Ilmr Iðunn Irpa Lofn Nanna 
+	#	Nerthus Njorun Nótt Rán Rindr Sága Sandraudiga Sif Sigyn Sinthgunt Sjöfn Snotra Sól Syn Tanfana Þrúðr Vár Vör Zisa
+	#}
+}
+e_zombie = {
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+	
+	capital = 925 # Mali
+	
+	creation_requires_capital = no
+	
+	short_name = yes
+	
+	christian = 1000
+	muslim = 1000
+	
+	title = ZOMBIE
+	foa = ZOMBIE
+	
+	culture = undead_revenant
+	religion = the_damned
+	
+	allow = {
+		trait = zombie
+		culture_group = undead_culture_group
+	}
+	location_ruler_title = yes
+	
+	modifier = e_zombie_modifier
+}
+k_avalon = {
+	color={ 155 25 100 }
+	color2={ 255 255 255 }
+	
+		
+	capital = 28 # Somerset
+		
+	culture = welsh
+		
+	catholic = 300 # Crusade target weight
+	druidic_reformed = 200
+
+	creation_requires_capital = yes
+		
+	allow = {
+		culture_group = celtic
+		OR = {
+			trait = novice_mage
+			trait = eldritch_scholar
+			trait = veteran_wizard
+			trait = arcane_master
+		}
+	}
+}
+d_helsing = {
+	color={ 55 15 50 }
+	color2={ 0 0 0 }
+	
+	capital = 80 # Holland
+	
+	creation_requires_capital = no
+	
+	short_name = yes
+	
+	holy_order = yes
+	
+	title = "CAPTAIN"
+	foa = "CAPTAIN_FOA"
+	
+	culture = dutch
+	religion = catholic
+	
+	allow = {
+		trait = monster_hunter
+		culture = dutch
+	}
+	location_ruler_title = yes
+	
+	modifier = d_helsing_modifier
+	
+	monthly_income = 10
+}
+
+# Holy orders
+d_golden_order = {
+	color = { 255 215 0 }
+	color2 = { 200 150 0 }
+	
+	graphical_culture = dragongfx
+	
+	capital = 267 # Jylland
+	
+	title = "GRANDMASTER"
+	foa = "GRANDMASTER_FOA"
+	
+	# Always exists
+	landless = yes
+	
+	holy_order = yes
+	mercenary_type = golden_order_composition
+	
+	# Parent Religion
+	religion = draconic_pagan_reformed
+	
+	culture = draconic
+	
+	# Cannot be held as a secondary title
+	primary = yes
+	
+	# Extra income due to donations, etc
+	monthly_income = 7 # (Must be an integer between 1 and 512)
+}
+
+d_army_baal = {
+	color = { 200 20 20 }
+	color2 = { 100 0 0 }
+	
+	graphical_culture = westernslavicgfx
+	
+	capital = 540 # Szekelyföld
+	
+	title = "GRANDMASTER"
+	foa = "GRANDMASTER_FOA"
+	
+	# Always exists
+	landless = yes
+	
+	holy_order = yes
+	
+	culture = vampire_culture
+	
+	# Parent Religion
+	religion = satanist
+	
+	# Cannot be held as a secondary title
+	primary = yes
+	
+	# Extra income due to donations, etc
+	monthly_income = 6 # (Must be an integer between 1 and 512)
+
+	mercenary_type = knights_hospitaler_composition
+}
+
+d_ddraig_goch = {
+	color = { 250 100 100 }
+	color2 = { 100 100 100 }
+	
+	graphical_culture = westerngfx
+	
+	capital = 9 # Connacht
+	
+	title = "GRANDMASTER"
+	foa = "GRANDMASTER_FOA"
+
+	# Always exists
+	landless = yes
+	
+	holy_order = yes
+	
+	culture = irish
+	
+	# Parent Religion
+	religion = druidic_reformed
+	
+	# Cannot be held as a secondary title
+	primary = yes
+	
+	# Extra income due to donations, etc
+	monthly_income = 6 # (Must be an integer between 1 and 512)
+
+	mercenary_type = breton_company_composition
+}
+
+d_soldiers_horus = {
+	color = { 200 100 200 }
+	color2 = { 100 100 100 }
+	
+	graphical_culture = arabicgfx
+	
+	capital = 787 # El-Arish
+	
+	title = "GRANDMASTER"
+	foa = "GRANDMASTER_FOA"
+
+	# Always exists
+	landless = yes
+	
+	holy_order = yes
+	
+	culture = egyptian_arabic
+	
+	# Parent Religion
+	religion = kemetic_pagan_reformed
+	
+	# Cannot be held as a secondary title
+	primary = yes
+	
+	# Extra income due to donations, etc
+	monthly_income = 6 # (Must be an integer between 1 and 512)
+
+	mercenary_type = bedouin_company_composition
+}
+
+d_servants_anubis = {
+	color = { 100 100 100 }
+	color2 = { 50 100 50 }
+	
+	graphical_culture = arabicgfx
+	
+	capital = 793 # Makuria
+	
+	title = "GRANDMASTER"
+	foa = "GRANDMASTER_FOA"
+
+	# Always exists
+	landless = yes
+	
+	holy_order = yes
+	
+	culture = egyptian_arabic
+	
+	# Parent Religion
+	religion = kemetic_pagan_reformed
+	
+	# Cannot be held as a secondary title
+	primary = yes
+	
+	# Extra income due to donations, etc
+	monthly_income = 6 # (Must be an integer between 1 and 512)
+
+	mercenary_type = bedouin_company_composition
+}
+d_ares_phalanx = {
+	color = { 230 230 250 }
+	color2 = { 200 170 200 }
+	
+	graphical_culture = byzantinegfx
+	
+	capital = 482 # Atheniai
+	
+	title = "GRANDMASTER"
+	foa = "GRANDMASTER_FOA"
+
+	# Always exists
+	landless = yes
+	
+	holy_order = yes
+	
+	culture = greek
+	
+	# Parent Religion 
+	religion = hellenic_pagan_reformed
+	
+	# Cannot be held as a secondary title
+	primary = yes
+	
+	# Extra income due to donations, etc
+	monthly_income = 6 # (Must be an integer between 1 and 512)
+
+	mercenary_type = spirit_guardians_composition
+}
+#d_sons_mars = {
+#	color = { 250 230 250 }
+#	color2 = { 150 170 150 }
+#	
+#	graphical_culture = southerngfx
+#	
+#	capital = 333 # Rome
+#	
+#	title = "GRANDMASTER"
+#	foa = "GRANDMASTER_FOA"
+#
+#	# Always exists
+#	landless = yes
+#	
+#	holy_order = yes
+#	
+#	culture = roman
+#	
+#	# Parent Religion 
+#	religion = roman_pagan
+#	
+#	# Cannot be held as a secondary title
+#	primary = yes
+#	
+#	# Extra income due to donations, etc
+#	monthly_income = 6 # (Must be an integer between 1 and 512)
+#
+#	mercenary_type = teutonic_order_composition
+#}
+
+d_champion_vigrithr = {
+	color = { 150 20 20 }
+	color2 = { 100 10 10 }
+	
+	graphical_culture = southerngfx
+	
+	capital = 262 # Lubeck
+	
+	title = "GRANDMASTER"
+	foa = "GRANDMASTER_FOA"
+
+	# Always exists
+	landless = yes
+	
+	holy_order = yes
+	
+	culture = norse
+	
+	# Parent Religion 
+	religion = jotnar_reformed
+	
+	# Cannot be held as a secondary title
+	primary = yes
+	
+	# Extra income due to donations, etc
+	monthly_income = 6 # (Must be an integer between 1 and 512)
+
+	mercenary_type = vigrithr_composition
+}
+
+d_galatian_company = {
+	color = { 50 150 50 }
+	color2 = { 120 200 120 }
+	
+	capital = 4 # Tyronne
+	
+	# Parent Religion
+	religion = druidic
+	culture = irish
+	
+	mercenary = yes
+	
+	title = "CAPTAIN"
+	foa = "CAPTAIN_FOA"
+
+	# Always exists
+	landless = yes
+	
+	# Cannot be held as a secondary title
+	primary = yes
+	
+	# Cannot be vassalized
+	independent = yes
+	
+	strength_growth_per_century = 1.00
+	
+	mercenary_type = irish_band_composition
+}
+
+d_helvetic_company = {
+	color = { 220 220 220 }
+	color2 = { 180 220 180 }
+	
+	capital = 65 # Powys
+	
+	# Parent Religion
+	religion = druidic
+	culture = welsh
+	
+	mercenary = yes
+	
+	title = "CAPTAIN"
+	foa = "CAPTAIN_FOA"
+
+	# Always exists
+	landless = yes
+	
+	# Cannot be held as a secondary title
+	primary = yes
+	
+	# Cannot be vassalized
+	independent = yes
+	
+	strength_growth_per_century = 1.10
+	
+	mercenary_type = breton_company_composition
+}
+
+d_brennus_ambaxtoi = {
+	color = { 180 80 80 }
+	color2 = { 220 200 200  }
+	
+	capital = 93 # Gent
+	
+	# Parent Religion
+	religion = druidic
+	culture = frankish
+	
+	mercenary = yes
+	
+	title = "CAPTAIN"
+	foa = "CAPTAIN_FOA"
+
+	# Always exists
+	landless = yes
+	
+	# Cannot be held as a secondary title
+	primary = yes
+	
+	# Cannot be vassalized
+	independent = yes
+	
+	strength_growth_per_century = 1.00
+	
+	mercenary_type = rose_company_composition
+}

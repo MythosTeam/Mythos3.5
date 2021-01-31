@@ -1,0 +1,18 @@
+spriteTypes = {
+	spriteType = {
+		name = "GFX_bloodlines_symbol_asclepius"
+		texturefile = "gfx\\interface\\bloodlines\\bloodlines_symbol_asclepius.dds"
+	}
+	spriteType = {
+		name = "GFX_bloodlines_symbol_eternal_flame"
+		texturefile = "gfx\\interface\\bloodlines\\bloodlines_symbol_eternal_flame.dds"
+	}
+	spriteType = {
+		name = "GFX_bloodlines_symbol_eternal_flame_blue"
+		texturefile = "gfx\\interface\\bloodlines\\bloodlines_symbol_eternal_flame_blue.dds"
+	}
+	spriteType = {
+		name = "GFX_bloodlines_symbol_eternal_flame_bluecenter"
+		texturefile = "gfx\\interface\\bloodlines\\bloodlines_symbol_eternal_flame_bluecenter.dds"
+	}
+}

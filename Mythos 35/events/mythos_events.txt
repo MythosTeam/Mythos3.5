@@ -1,0 +1,4865 @@
+namespace = MYTH
+#
+
+# Alchemy Success
+character_event = {
+	id = MYTH.1
+	desc = "EVTDESCMYTH.1"
+	picture = GFX_evt_crusaders
+	border = GFX_event_normal_frame_war
+	is_triggered_only = yes
+	
+	immediate = {
+		export_to_variable = { which = temp_gold value = yearly_income }
+		multiply_variable = { which = temp_gold value = 2 }
+		if = {
+			limit = { NOT = { check_variable = { which = temp_gold value = 110 } } }
+			set_variable = { which = temp_gold value = 110 }
+		}
+		else_if = {
+			limit = { check_variable = { which = temp_gold value = 600 } }
+			set_variable = { which = temp_gold value = 600 }
+		}
+		if = {
+			limit = { learning = 12 }
+			multiply_variable = { which = temp_gold value = 11 }
+			divide_variable = { which = temp_gold value = 10 }
+		}
+		if = {
+			limit = { learning = 15 }
+			multiply_variable = { which = temp_gold value = 11 }
+			divide_variable = { which = temp_gold value = 10 }
+		}
+		if = {
+			limit = { learning = 18 }
+			multiply_variable = { which = temp_gold value = 11 }
+			divide_variable = { which = temp_gold value = 10 }
+		}
+		if = {
+			limit = { learning = 21 }
+			multiply_variable = { which = temp_gold value = 11 }
+			divide_variable = { which = temp_gold value = 10 }
+		}
+		if = {
+			limit = { learning = 24 }
+			multiply_variable = { which = temp_gold value = 11 }
+			divide_variable = { which = temp_gold value = 10 }
+		}
+		if = {
+			limit = { learning = 27 }
+			multiply_variable = { which = temp_gold value = 11 }
+			divide_variable = { which = temp_gold value = 10 }
+		}
+		if = {
+			limit = { learning = 30 }
+			multiply_variable = { which = temp_gold value = 11 }
+			divide_variable = { which = temp_gold value = 10 }
+		}
+		if = {
+			limit = { trait = novice_mage }
+			multiply_variable = { which = temp_gold value = 11 }
+			divide_variable = { which = temp_gold value = 10 }
+		}
+		if = {
+			limit = { trait = eldritch_scholar }
+			multiply_variable = { which = temp_gold value = 12 }
+			divide_variable = { which = temp_gold value = 10 }
+		}
+		if = {
+			limit = { trait = veteran_wizard }
+			multiply_variable = { which = temp_gold value = 13 }
+			divide_variable = { which = temp_gold value = 10 }
+		}
+		if = {
+			limit = { trait = arcane_master }
+			multiply_variable = { which = temp_gold value = 14 }
+			divide_variable = { which = temp_gold value = 10 }
+		}
+		if = {
+			limit = { has_artifact = lesser_key_of_solomon }
+			multiply_variable = { which = temp_gold value = 12 }
+			divide_variable = { which = temp_gold value = 10 }
+		}
+		if = {
+			limit = {
+				is_in_society = hermetics
+			}
+			multiply_variable = { which = temp_gold value = 11 }
+			divide_variable = { which = temp_gold value = 10 }
+		}
+		if = {
+			limit = {
+				is_in_society = hermetics
+				society_rank = 2
+			}
+			multiply_variable = { which = temp_gold value = 11 }
+			divide_variable = { which = temp_gold value = 10 }
+		}
+		if = {
+			limit = {
+				is_in_society = hermetics
+				society_rank = 3
+			}
+			multiply_variable = { which = temp_gold value = 11 }
+			divide_variable = { which = temp_gold value = 10 }
+		}
+		if = {
+			limit = {
+				is_in_society = hermetics
+				society_rank = 4
+			}
+			multiply_variable = { which = temp_gold value = 11 }
+			divide_variable = { which = temp_gold value = 10 }
+		}
+		if = {
+			limit = {
+				is_in_society = hermetics
+				society_influence <= 25
+			}
+			multiply_variable = { which = temp_gold value = 8 }
+			divide_variable = { which = temp_gold value = 10 }
+		}
+		if = {
+			limit = {
+				is_in_society = hermetics
+				society_influence <= 50
+			}
+			multiply_variable = { which = temp_gold value = 8 }
+			divide_variable = { which = temp_gold value = 10 }
+		}
+		if = {
+			limit = {
+				is_in_society = hermetics
+				society_influence = 75
+			}
+			multiply_variable = { which = temp_gold value = 12 }
+			divide_variable = { which = temp_gold value = 10 }
+		}
+	}
+	
+	option = {
+		name = "EVTOPTAMYTH.1"
+		wealth = temp_gold
+	}
+}
+# Alchemy Failure
+character_event = {
+	id = MYTH.2
+	desc = "EVTDESCMYTH.2"
+	picture = GFX_evt_crusaders
+	border = GFX_event_normal_frame_war
+	is_triggered_only = yes
+	
+	option = {
+		name = "EVTOPTAMYTH.2"
+		scaled_wealth = { value = -2 min = -20 max = -500 }
+	}
+}
+# Summoning Success
+character_event = {
+	id = "MYTH.3"
+	desc = "EVTDESCMYTH.3"
+	picture = GFX_evt_crusaders
+	border = GFX_event_normal_frame_war
+	is_triggered_only = yes
+	
+	desc = {
+		text = EVTDESCAMYTH.3
+		trigger = {
+			true_religion_group = christian
+			NOT = { trait = necromancer }
+		}
+	}
+	desc = {
+		text = EVTDESCBMYTH.3
+		trigger = {
+			OR = {
+				true_religion = norse_pagan
+				true_religion = norse_pagan_reformed
+			}
+			NOT = { trait = necromancer }
+		}
+	}
+	desc = {
+		text = EVTDESCCMYTH.3
+		trigger = {
+			true_religion_group = muslim
+			NOT = { trait = necromancer }
+		}
+	}
+	desc = {
+		text = EVTDESCDMYTH.3
+		trigger = {
+			OR = {
+				true_religion = druidic_reformed
+				true_religion = druidic
+			}
+			NOT = { trait = necromancer }
+		}
+	}
+	desc = {
+		text = EVTDESCEMYTH.3
+		trigger = {
+			OR = {
+				true_religion = atenist
+				true_religion = kemetic_pagan
+				true_religion = kemetic_pagan_reformed
+			}
+			NOT = { trait = necromancer }
+		}
+	}
+	desc = {
+		text = EVTDESCFMYTH.3
+		trigger = {
+			OR = {
+				true_religion = jotnar_reformed
+				true_religion = jotnar
+			}
+			NOT = { trait = necromancer }
+		}
+	}
+	desc = {
+		text = EVTDESCGMYTH.3
+		trigger = {
+			OR = {
+				true_religion = hellenic_pagan
+				true_religion = hellenic_pagan_reformed
+			}
+			NOT = { trait = necromancer }
+		}
+	}
+	desc = {
+		text = EVTDESCHMYTH.3
+		trigger = {
+			true_religion = satanist
+			NOT = { trait = necromancer }
+		}
+	}
+	desc = {
+		text = EVTDESCIMYTH.3
+		trigger = {
+			OR = {
+				true_religion = finnish_pagan_reformed
+				true_religion = finnish_pagan
+			}
+			NOT = { trait = necromancer }
+		}
+	}
+	desc = {
+		text = EVTDESCJMYTH.3
+		trigger = {
+			OR = {
+				true_religion = aztec_reformed
+				true_religion = aztec
+			}
+			NOT = { trait = necromancer }
+		}
+	}
+	desc = {
+		text = EVTDESCKMYTH.3
+		trigger = {
+			true_religion_group = jewish_group
+			NOT = { trait = necromancer }
+		}
+	}
+	desc = {
+		text = EVTDESCLMYTH.3
+		trigger = {
+			true_religion_group = indian_group
+			NOT = { trait = necromancer }
+		}
+	}
+	desc = {
+		text = EVTDESCMMYTH.3
+		trigger = {
+			OR = {
+				true_religion = the_damned
+				trait = necromancer
+			}
+		}
+	}
+	# Misc - either generic groups, or ones where I can't find appropriate myths
+	desc = {
+		text = EVTDESCMYTH.3
+		trigger = {
+			NOT = { trait = necromancer }
+			OR = {
+				true_religion = tengri_pagan_reformed
+				true_religion = tengri_pagan
+				true_religion = baltic_pagan_reformed
+				true_religion = baltic_pagan
+				true_religion = slavic_pagan_reformed
+				true_religion = slavic_pagan
+				true_religion = west_african_pagan_reformed
+				true_religion = west_african_pagan
+				true_religion = zun_pagan_reformed
+				true_religion = zun_pagan
+				true_religion_group = zoroastrian_group
+				true_religion = pagan
+				true_religion = draconic_pagan
+				true_religion = draconic_pagan_reformed
+				true_religion = bon
+			}
+		}
+	}
+	
+	immediate = {
+		primary_title = { save_event_target_as = summoner_title }
+	}
+	
+	# Norse
+	option = {
+		name = EVTOPTAMYTH.3
+		trigger = {
+			OR = {
+				true_religion = norse_pagan
+				true_religion = norse_pagan_reformed
+			}
+			NOT = { trait = necromancer }
+		}
+		location = {
+			tooltip = {
+				ROOT = {
+					spawn_unit = {
+						province = PREV
+						owner = ROOT
+						troops = {
+							einherjar = { 1000 1000 }
+							light_infantry = { 500 500 }
+							light_cavalry = { 250 250 }
+						}
+						attrition = 0
+						disband_on_peace = yes
+						cannot_inherit = yes
+						merge = yes
+						maintenance = yes
+						maintenance_multiplier = 0.5
+					}
+				}
+			}
+			hidden_tooltip = {
+				if = {
+					limit = { any_owned_bloodline = { has_bloodline_flag = better_summons } }
+					create_character = {
+						random_traits = yes
+						dynasty = none
+						religion = ROOT
+						culture = ROOT
+						female = no
+						age = 172
+						employer = event_target:summoner_title
+						attributes = {
+							martial = 6
+						}
+						trait = ethereal_trait
+						trait = brave
+						trait = skilled_tactician
+						immortal_age = 23
+						flag = die_on_war_end
+					}
+					new_character = {
+						spawn_unit = {
+							province = PREV
+							owner = ROOT
+							troops = {
+								einherjar = { 1100 1100 }
+								light_infantry = { 550 550 }
+								light_cavalry = { 275 275 }
+							}
+							attrition = 0
+							disband_on_peace = yes
+							cannot_inherit = yes
+							merge = yes
+							maintenance = yes
+							maintenance_multiplier = 0.5
+							earmark = unit_summoned
+						}
+					}
+				}
+				else = {
+					create_character = {
+						random_traits = yes
+						dynasty = none
+						religion = ROOT
+						culture = ROOT
+						female = no
+						age = 172
+						employer = event_target:summoner_title
+						attributes = {
+							martial = 5
+						}
+						trait = ethereal_trait
+						trait = brave
+						trait = skilled_tactician
+						immortal_age = 23
+						flag = die_on_war_end
+					}
+					new_character = {
+						spawn_unit = {
+							province = PREV
+							owner = ROOT
+							troops = {
+								einherjar = { 1000 1000 }
+								light_infantry = { 500 500 }
+								light_cavalry = { 250 250 }
+							}
+							attrition = 0
+							disband_on_peace = yes
+							cannot_inherit = yes
+							merge = yes
+							maintenance = yes
+							maintenance_multiplier = 0.5
+							earmark = unit_summoned
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	# Christian and Muslim
+	option = {
+		name = EVTOPTAMYTH.3
+		trigger = {
+			OR = {
+				true_religion_group = christian
+				true_religion_group = muslim
+			}
+			NOT = { trait = necromancer }
+		}
+		location = {
+			tooltip = {
+				ROOT = {
+					spawn_unit = {
+						province = PREV
+						owner = ROOT
+						troops = {
+							angels = { 500 500 }
+							light_infantry = { 500 500 }
+							light_cavalry = { 250 250 }
+						}
+						attrition = 0
+						disband_on_peace = yes
+						cannot_inherit = yes
+						merge = yes
+						maintenance = yes
+						maintenance_multiplier = 0.5
+					}
+				}
+			}
+			hidden_tooltip = {
+				if = {
+					limit = { any_owned_bloodline = { has_bloodline_flag = better_summons } }
+					create_character = {
+						random_traits = yes
+						dynasty = none
+						religion = ROOT
+						culture = ROOT
+						female = no
+						age = 703
+						employer = event_target:summoner_title
+						attributes = {
+							martial = 6
+						}
+						# Add Angel trait once created
+						trait = immortal
+						trait = brave
+						trait = skilled_tactician
+						immortal_age = 23
+						flag = die_on_war_end
+					}
+					new_character = {
+						spawn_unit = {
+							province = PREV
+							owner = ROOT
+							troops = {
+								angels = { 550 550 }
+								light_infantry = { 550 550 }
+								light_cavalry = { 275 275 }
+							}
+							attrition = 0
+							disband_on_peace = yes
+							cannot_inherit = yes
+							merge = yes
+							maintenance = yes
+							maintenance_multiplier = 0.5
+							earmark = unit_summoned
+						}
+					}
+				}
+				else = {
+					create_character = {
+						random_traits = yes
+						dynasty = none
+						religion = ROOT
+						culture = ROOT
+						female = no
+						age = 703
+						employer = event_target:summoner_title
+						attributes = {
+							martial = 5
+						}
+						# Add Angel trait once created
+						trait = immortal
+						trait = brave
+						trait = skilled_tactician
+						immortal_age = 23
+						flag = die_on_war_end
+					}
+					new_character = {
+						spawn_unit = {
+							province = PREV
+							owner = ROOT
+							troops = {
+								angels = { 500 500 }
+								light_infantry = { 500 500 }
+								light_cavalry = { 250 250 }
+							}
+							attrition = 0
+							disband_on_peace = yes
+							cannot_inherit = yes
+							merge = yes
+							maintenance = yes
+							maintenance_multiplier = 0.5
+							earmark = unit_summoned
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	# Jotun
+	option = {
+		name = EVTOPTAMYTH.3
+		trigger = {
+			OR = {
+				true_religion = jotnar_reformed
+				true_religion = jotnar
+			}
+			NOT = { trait = necromancer }
+		}
+		location = {
+			tooltip = {
+				ROOT = {
+					spawn_unit = {
+						province = PREV
+						owner = ROOT
+						troops = {
+							frost_giants = { 900 900 }
+						}
+						attrition = 0
+						disband_on_peace = yes
+						cannot_inherit = yes
+						merge = yes
+						maintenance = yes
+						maintenance_multiplier = 0.5
+					}
+				}
+			}
+			hidden_tooltip = {
+				if = {
+					limit = { any_owned_bloodline = { has_bloodline_flag = better_summons } }
+					create_character = {
+						random_traits = yes
+						dynasty = none
+						religion = ROOT
+						culture = ROOT
+						female = no
+						age = 80
+						employer = event_target:summoner_title
+						attributes = {
+							martial = 6
+						}
+						trait = mythos_giant
+						trait = brave
+						trait = size_6
+						trait = skilled_tactician
+						flag = die_on_war_end
+					}
+					new_character = {
+						random_list = {
+							1 = {
+								spawn_unit = {
+									province = PREV
+									owner = ROOT
+									troops = {
+										fire_giants = { 990 990 }
+									}
+									attrition = 0
+									disband_on_peace = yes
+									cannot_inherit = yes
+									merge = yes
+									maintenance = yes
+									maintenance_multiplier = 0.5
+									earmark = unit_summoned
+								}
+							}
+							3 = {
+								spawn_unit = {
+									province = PREV
+									owner = ROOT
+									troops = {
+										frost_giants = { 990 990 }
+									}
+									attrition = 0
+									disband_on_peace = yes
+									cannot_inherit = yes
+									merge = yes
+									maintenance = yes
+									maintenance_multiplier = 0.5
+									earmark = unit_summoned
+								}
+							}
+						}
+					}
+				}
+				else = {
+					create_character = {
+						random_traits = yes
+						dynasty = none
+						religion = ROOT
+						culture = ROOT
+						female = no
+						age = 80
+						employer = event_target:summoner_title
+						attributes = {
+							martial = 5
+						}
+						trait = mythos_giant
+						trait = brave
+						trait = size_6
+						trait = skilled_tactician
+						flag = die_on_war_end
+					}
+					new_character = {
+						random_list = {
+							1 = {
+								spawn_unit = {
+									province = PREV
+									owner = ROOT
+									troops = {
+										fire_giants = { 900 900 }
+									}
+									attrition = 0
+									disband_on_peace = yes
+									cannot_inherit = yes
+									merge = yes
+									maintenance = yes
+									maintenance_multiplier = 0.5
+									earmark = unit_summoned
+								}
+							}
+							3 = {
+								spawn_unit = {
+									province = PREV
+									owner = ROOT
+									troops = {
+										frost_giants = { 900 900 }
+									}
+									attrition = 0
+									disband_on_peace = yes
+									cannot_inherit = yes
+									merge = yes
+									maintenance = yes
+									maintenance_multiplier = 0.5
+									earmark = unit_summoned
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	# Satanic
+	option = {
+		name = EVTOPTAMYTH.3
+		trigger = {
+			true_religion = satanist
+			NOT = { trait = necromancer }
+		}
+		location = {
+			tooltip = {
+				ROOT = {
+					spawn_unit = {
+						province = PREV
+						owner = ROOT
+						troops = {
+							demons = { 700 700 }
+							light_infantry = { 500 500 }
+						}
+						attrition = 0
+						disband_on_peace = yes
+						cannot_inherit = yes
+						merge = yes
+						maintenance = yes
+						maintenance_multiplier = 0.5
+					}
+				}
+			}
+			hidden_tooltip = {
+				if = {
+					limit = { any_owned_bloodline = { has_bloodline_flag = better_summons } }
+					create_character = {
+						random_traits = yes
+						dynasty = none
+						religion = ROOT
+						culture = ROOT
+						female = no
+						age = 703
+						employer = event_target:summoner_title
+						attributes = {
+							martial = 6
+						}
+						trait = demon_trait
+						trait = brave
+						trait = skilled_tactician
+						immortal_age = 23
+						flag = die_on_war_end
+					}
+					new_character = {
+						spawn_unit = {
+							province = PREV
+							owner = ROOT
+							troops = {
+								demons = { 770 770 }
+								light_infantry = { 550 550 }
+							}
+							attrition = 0
+							disband_on_peace = yes
+							cannot_inherit = yes
+							merge = yes
+							maintenance = yes
+							maintenance_multiplier = 0.5
+							earmark = unit_summoned
+						}
+					}
+				}
+				else = {
+					create_character = {
+						random_traits = yes
+						dynasty = none
+						religion = ROOT
+						culture = ROOT
+						female = no
+						age = 703
+						employer = event_target:summoner_title
+						attributes = {
+							martial = 5
+						}
+						trait = demon_trait
+						trait = brave
+						trait = skilled_tactician
+						immortal_age = 23
+						flag = die_on_war_end
+					}
+					new_character = {
+						spawn_unit = {
+							province = PREV
+							owner = ROOT
+							troops = {
+								demons = { 700 700 }
+								light_infantry = { 500 500 }
+							}
+							attrition = 0
+							disband_on_peace = yes
+							cannot_inherit = yes
+							merge = yes
+							maintenance = yes
+							maintenance_multiplier = 0.5
+							earmark = unit_summoned
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	# Jewish
+	option = {
+		name = EVTOPTAMYTH.3
+		trigger = {
+			true_religion_group = jewish_group
+			NOT = { trait = necromancer }
+		}
+		location = {
+			tooltip = {
+				ROOT = {
+					spawn_unit = {
+						province = PREV
+						owner = ROOT
+						troops = {
+							golems = { 800 800 }
+							light_infantry = { 500 500 }
+							light_cavalry = { 250 250 }
+						}
+						attrition = 0
+						disband_on_peace = yes
+						cannot_inherit = yes
+						merge = yes
+						maintenance = yes
+						maintenance_multiplier = 0.5
+					}
+				}
+			}
+			hidden_tooltip = {
+				if = {
+					limit = { any_owned_bloodline = { has_bloodline_flag = better_summons } }
+					create_character = {
+						random_traits = yes
+						dynasty = none
+						religion = ROOT
+						culture = ROOT
+						female = no
+						age = 23
+						employer = event_target:summoner_title
+						attributes = {
+							martial = 6
+						}
+						trait = immortal
+						trait = celibate
+						trait = slothful
+						trait = zealous
+						trait = temperate
+						trait = diligent
+						trait = patient
+						trait = content
+						trait = skilled_tactician
+						immortal_age = 23
+						flag = die_on_war_end
+					}
+					new_character = {
+						spawn_unit = {
+							province = PREV
+							owner = ROOT
+							troops = {
+								golems = { 880 880 }
+								light_infantry = { 550 550 }
+								light_cavalry = { 275 275 }
+							}
+							attrition = 0
+							disband_on_peace = yes
+							cannot_inherit = yes
+							merge = yes
+							maintenance = yes
+							maintenance_multiplier = 0.5
+							earmark = unit_summoned
+						}
+					}
+				}
+				else = {
+					create_character = {
+						random_traits = yes
+						dynasty = none
+						religion = ROOT
+						culture = ROOT
+						female = no
+						age = 23
+						employer = event_target:summoner_title
+						attributes = {
+							martial = 5
+						}
+						trait = immortal
+						trait = celibate
+						trait = slothful
+						trait = zealous
+						trait = temperate
+						trait = diligent
+						trait = patient
+						trait = content
+						trait = skilled_tactician
+						immortal_age = 23
+						flag = die_on_war_end
+					}
+					new_character = {
+						spawn_unit = {
+							province = PREV
+							owner = ROOT
+							troops = {
+								golems = { 800 800 }
+								light_infantry = { 500 500 }
+								light_cavalry = { 250 250 }
+							}
+							attrition = 0
+							disband_on_peace = yes
+							cannot_inherit = yes
+							merge = yes
+							maintenance = yes
+							maintenance_multiplier = 0.5
+							earmark = unit_summoned
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	# The Damned
+	option = {
+		name = EVTOPTAMYTH.3
+		trigger = {
+			OR = {
+				true_religion = the_damned
+				trait = necromancer
+			}
+		}
+		location = {
+			tooltip = {
+				ROOT = {
+					spawn_unit = {
+						province = PREV
+						owner = ROOT
+						troops = {
+							zombie_troops = { 1500 1500 }
+						}
+						attrition = 0
+						disband_on_peace = yes
+						cannot_inherit = yes
+						merge = yes
+						maintenance = yes
+						maintenance_multiplier = 0.5
+					}
+				}
+			}
+			hidden_tooltip = {
+				if = {
+					limit = { any_owned_bloodline = { has_bloodline_flag = better_summons } }
+					create_character = {
+						random_traits = yes
+						dynasty = none
+						religion = ROOT
+						culture = ROOT
+						female = no
+						age = 23
+						employer = event_target:summoner_title
+						attributes = {
+							martial = 6
+						}
+						trait = zombie
+						immortal_age = 23
+						flag = die_on_war_end
+					}
+					new_character = {
+						spawn_unit = {
+							province = PREV
+							owner = ROOT
+							troops = {
+								zombie_troops = { 1650 1650 }
+							}
+							attrition = 0
+							disband_on_peace = yes
+							cannot_inherit = yes
+							merge = yes
+							maintenance = yes
+							maintenance_multiplier = 0.5
+							earmark = unit_summoned_zombie
+						}
+					}
+				}
+				else = {
+					create_character = {
+						random_traits = yes
+						dynasty = none
+						religion = ROOT
+						culture = ROOT
+						female = no
+						age = 23
+						employer = event_target:summoner_title
+						attributes = {
+							martial = 5
+						}
+						trait = zombie
+						immortal_age = 23
+						flag = die_on_war_end
+					}
+					new_character = {
+						spawn_unit = {
+							province = PREV
+							owner = ROOT
+							troops = {
+								zombie_troops = { 1500 1500 }
+							}
+							attrition = 0
+							disband_on_peace = yes
+							cannot_inherit = yes
+							merge = yes
+							maintenance = yes
+							maintenance_multiplier = 0.5
+							earmark = unit_summoned_zombie
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	# others
+	option = {
+		name = EVTOPTAMYTH.3
+		trigger = {
+			NOR = {
+				true_religion = the_damned
+				true_religion_group = jewish_group
+				true_religion_group = christian
+				true_religion_group = muslim
+				true_religion = jotnar_reformed
+				true_religion = jotnar
+				true_religion = satanist
+				true_religion = norse_pagan_reformed
+				true_religion = norse_pagan
+			}
+			NOT = { trait = necromancer }
+		}
+		location = {
+			tooltip = {
+				ROOT = {
+					spawn_unit = {
+						province = PREV
+						owner = ROOT
+						troops = {
+							etherial_soldiers = { 1750 1750 }
+						}
+						attrition = 0
+						disband_on_peace = yes
+						cannot_inherit = yes
+						merge = yes
+						maintenance = yes
+						maintenance_multiplier = 0.5
+					}
+				}
+			}
+			hidden_tooltip = {
+				if = {
+					limit = { any_owned_bloodline = { has_bloodline_flag = better_summons } }
+					create_character = {
+						random_traits = yes
+						dynasty = none
+						religion = ROOT
+						culture = ROOT
+						female = no
+						age = 23
+						employer = event_target:summoner_title
+						attributes = {
+							martial = 6
+						}
+						trait = ethereal_trait
+						immortal_age = 23
+						flag = die_on_war_end
+					}
+					new_character = {
+						if = {
+							limit = { 
+								OR = {
+									religion = draconic_pagan
+									religion = draconic_pagan_reformed
+								}
+							}
+							add_trait = dragon
+							set_graphical_culture = draconic
+						}
+						spawn_unit = {
+							province = PREV
+							owner = PREV
+							troops = {
+								etherial_soldiers = { 1925 1925 }
+							}
+							attrition = 0
+							disband_on_peace = yes
+							cannot_inherit = yes
+							merge = yes
+							maintenance = yes
+							maintenance_multiplier = 0.5
+							earmark = unit_summoned
+						}
+					}
+				}
+				else = {
+					create_character = {
+						random_traits = yes
+						dynasty = none
+						religion = ROOT
+						culture = ROOT
+						female = no
+						age = 23
+						employer = event_target:summoner_title
+						attributes = {
+							martial = 5
+						}
+						trait = ethereal_trait
+						immortal_age = 23
+						flag = die_on_war_end
+					}
+					new_character = {
+						if = {
+							limit = { 
+								OR = {
+									religion = draconic_pagan
+									religion = draconic_pagan_reformed
+								}
+							}
+							add_trait = dragon
+							set_graphical_culture = draconic
+						}
+						spawn_unit = {
+							province = PREV
+							owner = PREV
+							troops = {
+								etherial_soldiers = { 1750 1750 }
+							}
+							attrition = 0
+							disband_on_peace = yes
+							cannot_inherit = yes
+							merge = yes
+							maintenance = yes
+							maintenance_multiplier = 0.5
+							earmark = unit_summoned
+						}
+					}
+				}
+			}
+		}
+	}
+}
+# Summoning Failure
+character_event = {
+	id = "MYTH.4"
+	desc = "EVTDESCMYTH.4"
+	picture = GFX_evt_crusaders
+	border = GFX_event_normal_frame_war
+	is_triggered_only = yes
+	
+	option = {
+		name = "EVTOPTAMYTH.4"
+		hidden_tooltip = {
+			random_playable_ruler = {
+				limit = { war_with = ROOT }
+				character_event = { id = MYTH.5 }
+			}
+		}
+	}
+}
+# Someone else's summoning failure
+character_event = {
+	id = "MYTH.5"
+	desc = "EVTDESCMYTH.5"
+	picture = GFX_evt_crusaders
+	border = GFX_event_normal_frame_war
+	is_triggered_only = yes
+	
+	option = {
+		name = "EVTOPTAMYTH.5"
+		capital_scope = {
+			tooltip = {
+				ROOT = {
+					spawn_unit = {
+						province = PREV
+						owner = ROOT
+						troops = {
+							etherial_soldiers = { 1000 1000 }
+							heavy_infantry = { 500 500 }
+							light_cavalry = { 250 250 }
+						}
+						attrition = 0.5
+						disband_on_peace = yes
+						cannot_inherit = yes
+						merge = yes
+						maintenance = yes
+						maintenance_multiplier = 0.5
+					}
+				}
+			}
+			hidden_tooltip = {
+				create_character = {
+					random_traits = yes
+					dynasty = none
+					religion = ROOT
+					culture = ROOT
+					female = no
+					age = 23
+					attributes = {
+						martial = 5
+					}
+					flag = die_on_war_end
+					trait = immortal
+				}
+				new_character = {
+					spawn_unit = {
+						province = PREV
+						owner = ROOT
+						troops = {
+							etherial_soldiers = { 1000 1000 }
+							heavy_infantry = { 500 500 }
+							light_cavalry = { 250 250 }
+						}
+						earmark = unit_summoned
+						attrition = 0.5
+						disband_on_peace = yes
+						cannot_inherit = yes
+						merge = yes
+						maintenance = yes
+						maintenance_multiplier = 0.5
+					}
+				}
+			}
+		}
+	}
+}
+
+# Search for Solomon
+character_event = {
+	id = "MYTH.6"
+	desc = "EVTDESCMYTH.6"
+	picture = GFX_evt_crusaders
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		true_religion_group = muslim
+		higher_tier_than = DUKE
+	}
+	
+	weight_multiplier = {
+		days = 1
+		modifier = {
+			factor = 2
+			OR = {
+				trait = erudite
+				trait = scholar
+				trait = faqih
+			}
+		}
+		modifier = {
+			factor = 1.4
+			trait = zealous
+		}
+		modifier = {
+			factor = 0
+			NOT = { religion_group = muslim }
+		}
+	}
+	
+	option = {
+		name ="EVTOPTAMYTH.6"
+		hidden_tooltip = {
+			random_list = {
+				50 = {
+					character_event = { 
+						id = MYTH.7
+						days = 45
+					}
+				}
+				50 = {
+					character_event = { 
+						id = MYTH.8
+						days = 30
+					}
+				}	
+			}
+		}
+		wealth = -50
+		custom_tooltip = { text = expedition_sent }
+	}
+	option = {
+		name ="EVTOPTBMYTH.6"
+	}
+}
+# Seal of Solomon not found
+character_event = {
+	id = "MYTH.7"
+	desc = "EVTDESCMYTH.7"
+	picture = GFX_evt_crusaders
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	option = {
+		name ="EVTOPTAMYTH.7"
+		hidden_tooltip = {
+			random_list = {
+				50 = {
+					character_event = { 
+						id = MYTH.7  
+						days = 45
+					}
+				}
+				50 = {
+					character_event = { 
+						id = MYTH.8 
+						days = 30
+					}
+				}
+			}
+		}
+		wealth = -50
+		custom_tooltip = { text = expedition_sent_2 }
+	}
+	option = {
+		name ="EVTOPTBMYTH.7"
+	}
+}
+character_event = {
+	id = "MYTH.8"
+	desc ="EVTDESCMYTH.8"
+	picture = GFX_evt_crusaders
+	border = GFX_event_normal_frame_war
+
+	is_triggered_only = yes
+	
+	option = {
+		name ="EVTOPTAMYTH.8"
+		activate_title = { title = d_solomon_legion status = yes }
+		prestige = 100
+		piety = 100
+		create_character = {
+			random_traits = yes
+			dynasty = random
+			name = "Sakhr"
+			culture = djinni
+			religion = sunni
+			age = 126
+			attributes = {
+				martial = 8
+				diplomacy = 4
+				stewardship = 5
+				intrigue = 4
+				learning = 8
+			}
+			health = 6
+			fertility = 0.7
+			trait = veteran_wizard
+			trait = djinn
+			trait = quick
+			trait = brave
+		}
+		new_character = {
+			d_solomon_legion = {
+				grant_title = PREV
+			}
+			set_defacto_liege = ROOT
+			hidden_tooltip = {
+				character_event = { id = MYTH.56 }
+			}
+		}
+	}
+}
+# Djinni automatically have magic training
+character_event = {
+	id = "MYTH.9"
+	desc = "EVTDESCMYTH.9"
+	picture = GFX_evt_crusaders
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		trait = djinn
+		NOT = { trait = novice_mage }
+		NOT = { trait = eldritch_scholar }
+		NOT = { trait = veteran_wizard }
+		NOT = { trait = arcane_master }
+	}
+	
+	option = {
+		name = "EVTOPTAMYTH.9"
+		random_list = {
+			40 = {
+				add_trait = novice_mage
+				update_natural_magic = yes
+			}
+			30 = {
+				add_trait = eldritch_scholar
+				update_natural_magic = yes
+			}
+			20 = {
+				add_trait = veteran_wizard
+				update_natural_magic = yes
+			}
+			10 = {
+				add_trait = arcane_master
+				update_natural_magic = yes
+			}
+		}
+		if = {
+			limit = { NOT = { trait = magic_heritage } }
+			add_trait = magic_heritage
+		}
+		hidden_tooltip = {
+			if = {
+				limit = {
+					OR = {
+						trait = amateurish_plotter
+						trait = flamboyant_schemer
+						trait = intricate_webweaver
+						trait = elusive_shadow
+						trait = naive_appeaser
+						trait = underhanded_rogue
+						trait = charismatic_negotiator
+						trait = grey_eminence
+						trait = indulgent_wastrel
+						trait = thrifty_clerk
+						trait = fortune_builder
+						trait = midas_touched
+						trait = misguided_warrior
+						trait = tough_soldier
+						trait = skilled_tactician
+						trait = brilliant_strategist
+						trait = detached_priest
+						trait = martial_cleric
+						trait = scholarly_theologian
+						trait = mastermind_theologian
+					}
+				}
+				remove_trait = amateurish_plotter
+				remove_trait = flamboyant_schemer
+				remove_trait = intricate_webweaver
+				remove_trait = elusive_shadow
+				remove_trait = naive_appeaser
+				remove_trait = underhanded_rogue
+				remove_trait = charismatic_negotiator
+				remove_trait = grey_eminence
+				remove_trait = indulgent_wastrel
+				remove_trait = thrifty_clerk
+				remove_trait = fortune_builder
+				remove_trait = midas_touched
+				remove_trait = misguided_warrior
+				remove_trait = tough_soldier
+				remove_trait = skilled_tactician
+				remove_trait = brilliant_strategist
+				remove_trait = detached_priest
+				remove_trait = martial_cleric
+				remove_trait = scholarly_theologian
+				remove_trait = mastermind_theologian
+			}
+		}
+	}
+}
+
+character_event = {
+	id = "MYTH.10"
+	desc = "EVTDESCMYTH.10"
+	picture = GFX_evt_crusaders
+	border = GFX_event_normal_frame_war
+	
+	trigger = {
+		NOT = { trait = son_of_solomon }
+		has_landed_title = d_solomon_legion
+	}
+	
+	mean_time_to_happen = { months = 1 }
+	
+	option = {
+		name ="EVTOPTAMYTH.10"
+		add_trait = son_of_solomon
+	}
+}
+# Lose Solomon's Legion
+character_event = {
+	id = "MYTH.11"
+	desc = "EVTDESCMYTH.11"
+	picture = GFX_evt_crusaders
+	border = GFX_event_normal_frame_war
+	
+	only_rulers = yes
+	
+	trigger = {
+		#is_ruler = yes
+		is_alive = yes
+		trait = son_of_solomon
+		NOT = { has_landed_title = d_solomon_legion }
+	}
+	
+	mean_time_to_happen = { months = 1 }
+	
+	option = {
+		name ="EVTOPTAMYTH.11"
+		remove_trait = son_of_solomon
+	}
+}
+# Rumors of Philosopher's Stone
+character_event = {
+	id = "MYTH.12"
+	desc = "EVTDESCMYTH.12"
+	picture = GFX_evt_crusaders
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	option = {
+		name ="EVTOPTAMYTH.12"
+		hidden_tooltip = {
+			random_list = {
+				50 = {
+					character_event = { 
+						id = MYTH.13 
+						days = 45
+					}
+				}
+				50 = {
+					character_event = { 
+						id = MYTH.14 
+						days = 30
+					}
+				}	
+			}
+		}
+		wealth = -50
+		custom_tooltip = { text = expedition_sent }
+	}
+	option = {
+		name ="EVTOPTBMYTH.12"
+		piety = 50
+	}
+}
+# Stone not Found
+character_event = {
+	id = "MYTH.13"
+	desc = "EVTDESCMYTH.13"
+	picture = GFX_evt_crusaders
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	option = {
+		name ="EVTOPTAMYTH.13"
+		hidden_tooltip = {
+			random_list = {
+				50 = {
+					character_event = { 
+						id = MYTH.13  
+						days = 45
+					}
+				}
+				50 = {
+					character_event = { 
+						id = MYTH.14  
+						days = 30
+					}
+				}
+			}
+		}
+		wealth = -50
+		custom_tooltip = { text = expedition_sent_2 }
+	}
+	option = {
+		name ="EVTOPTBMYTH.13"
+		piety = 50
+	}
+}
+character_event = {
+	id = "MYTH.14"
+	desc = "EVTDESCMYTH.14"
+	picture = GFX_evt_crusaders
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	option = {
+		name ="EVTOPTAMYTH.14"
+		add_artifact = philosopher_stone
+		add_trait = philosopher_stone_trait
+		prestige = 100
+	}
+}
+
+# Expel Satanists
+character_event = {
+	id = "MYTH.15"
+	desc = "EVTDESCMYTH.15"
+	picture = GFX_evt_jewish_market
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	hide_from = yes
+	
+	option = {
+		name ="EVTOPTAMYTH.15"
+		wealth = -50
+		piety = 50
+		banish_religion = satanist
+	}
+}
+# Knights of Helsing
+narrative_event = {
+	id = "MYTH.16"
+	title = "EVTNAMEMYTH.16"
+	desc = "EVTDESCMYTH.16"
+	major = yes
+	
+	picture = GFX_evt_shadow
+	
+	hide_from = yes
+	
+	is_triggered_only = yes
+	
+	only_playable = yes
+	only_men = yes
+	min_age = 16
+	
+	trigger = {
+		OR = {
+			e_vampire = { has_holder = yes }
+			e_werewolf = { has_holder = yes }
+		}
+		b_muiden = {
+			has_holder = no
+		}
+		80 = { # Holland
+			NOT = { num_of_settlements = 5 }
+		}
+	}
+	
+	#mean_time_to_happen = {
+	#	months = 12
+	#}
+	weight_multiplier = {
+		days = 1
+		modifier = {
+			factor = 4
+			e_vampire = { has_holder = yes }
+			e_werewolf = { has_holder = yes }
+		}
+	}
+	
+	immediate = {
+		activate_title = { title = d_helsing status = yes }
+		create_character = {
+			random_traits = no
+			name = "Abraham"
+			dynasty = 1049004
+			religion = catholic
+			culture = dutch
+			female = no
+			age = 32
+			attributes = {
+				martial = 6
+				diplomacy = 9
+				stewardship = 7
+				intrigue = 8
+				learning = 12
+			}
+			health = 6
+			fertility = 0.8
+			trait = mastermind_theologian
+			trait = patient
+			trait = zealous
+			trait = scholar
+			trait = temperate
+			trait = monster_hunter
+		}
+		new_character = {
+			wealth = 500
+			create_bloodline = {
+				type = BL_helsing
+			}
+			hidden_tooltip = {
+				character_event = { id = MYTH.56 }
+			}
+			d_helsing = {
+				grant_title = PREV
+			}
+			80 = { # Holland
+				build_holding = {
+					title = b_muiden
+					type = castle
+					holder = PREV
+				}
+			}
+			spawn_unit = {
+				#province = PREVPREV
+				province = 80
+				home = THIS
+				owner = THIS
+				leader = THIS
+				troops = {
+					archers = { 600 600 }
+					light_cavalry = { 500 500 }
+					knights = { 300 300 }
+					light_infantry = { 700 700 }
+					heavy_infantry = { 400 400 }
+				}
+				attrition = 0.5
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = catholic
+				culture = dutch
+				female = no
+				age = 16
+			}
+			new_character = {
+				hidden_tooltip = {
+					character_event = { id = MYTH.56 }
+				}
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = catholic
+				culture = dutch
+				female = no
+				age = 18
+			}
+			new_character = {
+				hidden_tooltip = {
+					character_event = { id = MYTH.56 }
+				}
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = catholic
+				culture = dutch
+				female = no
+				age = 18
+			}
+			new_character = {
+				hidden_tooltip = {
+					character_event = { id = MYTH.56 }
+				}
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = catholic
+				culture = dutch
+				female = no
+				age = 20
+			}
+			new_character = {
+				hidden_tooltip = {
+					character_event = { id = MYTH.56 }
+				}
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = catholic
+				culture = dutch
+				female = no
+				age = 25
+			}
+			new_character = {
+				hidden_tooltip = {
+					character_event = { id = MYTH.56 }
+				}
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = catholic
+				culture = dutch
+				female = no
+				age = 26
+			}
+			new_character = {
+				hidden_tooltip = {
+					character_event = { id = MYTH.56 }
+				}
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = catholic
+				culture = dutch
+				female = no
+				age = 28
+			}
+			new_character = {
+				hidden_tooltip = {
+					character_event = { id = MYTH.56 }
+				}
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = catholic
+				culture = dutch
+				female = yes
+				age = 16
+			}
+			new_character = {
+				hidden_tooltip = {
+					character_event = { id = MYTH.56 }
+				}
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = catholic
+				culture = dutch
+				female = yes
+				age = 17
+			}
+			new_character = {
+				hidden_tooltip = {
+					character_event = { id = MYTH.56 }
+				}
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = catholic
+				culture = dutch
+				female = yes
+				age = 18
+			}
+			new_character = {
+				hidden_tooltip = {
+					character_event = { id = MYTH.56 }
+				}
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = catholic
+				culture = dutch
+				female = yes
+				age = 18
+			}
+			new_character = {
+				hidden_tooltip = {
+					character_event = { id = MYTH.56 }
+				}
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = catholic
+				culture = dutch
+				female = yes
+				age = 20
+			}
+			new_character = {
+				hidden_tooltip = {
+					character_event = { id = MYTH.56 }
+				}
+			}
+		}
+	}
+	
+
+	option = {
+		name = "EVTOPTAMYTH.16"
+	}
+}
+# Monster Hunter gain
+character_event = {
+	id = "MYTH.17"
+	desc = "EVTDESCMYTH.17"
+	picture = GFX_evt_throne_room
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		top_liege = { has_landed_title = d_helsing }
+		NOR = { 
+			trait = monster_hunter
+			trait = vampire
+			trait = werewolf
+			trait = zombie
+		}
+	}
+	
+	#mean_time_to_happen = { months = 12 }
+	weight_multiplier = {
+		days = 1
+		modifier = {
+			factor = 4
+			trait = zealous
+		}
+		modifier = {
+			factor = 0.1
+			OR = {
+				trait = dragon
+				trait = giant
+				trait = half_giant
+				trait = mummy
+			}
+		}
+		modifier = {
+			factor = 0
+			NOT = { top_liege = { has_landed_title = d_helsing } }
+		}
+		modifier = {
+			factor = 0
+			OR = {
+				trait = monster_hunter
+				trait = vampire
+				trait = werewolf
+				trait = zombie
+			}
+		}
+	}
+	
+	option = {
+		name = "EVTOPTAMYTH.17"
+		add_trait = monster_hunter
+	}
+}
+
+# Wife impregnated by Zeus
+character_event = {
+	id = "MYTH.18"
+	desc = "EVTDESCMYTH.18"
+	picture = GFX_evt_crusaders
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	option = {
+		name ="EVTOPTAMYTH.18"
+	}
+}
+# Impregnated by Zeus
+character_event = {
+	id = "MYTH.19"
+	desc = "EVTDESCMYTH.19"
+	picture = GFX_evt_crusaders
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	option = {
+		name ="EVTOPTAMYTH.19"
+		FROM = {
+			character_event = { id = MYTH.32 }
+		}
+		spouse = {
+			character_event = { id = MYTH.18 }
+		}
+	}
+}
+# Hellenic quest begins - Golden Fleece
+character_event = {
+	id = "MYTH.20"
+	desc = "EVTDESCMYTH.20"
+	picture = GFX_evt_crusaders
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	option = {
+		name ="EVTOPTAMYTH.20"
+		character_event = {
+			id = MYTH.21
+			days = 7
+		}
+	}
+	option = {
+		name ="EVTOPTBMYTH.20"
+		character_event = {
+			id = MYTH.28
+			days = 7
+		}
+	}
+	option = {
+		name ="EVTOPTCMYTH.20"
+		prestige = -50
+	}
+}
+# Follow rumors of fleece
+character_event = {
+	id = "MYTH.21"
+	desc = "EVTDESCMYTH.21"
+	picture = GFX_evt_crusaders
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	option = {
+		name ="EVTOPTAMYTH.21"
+		character_event = {
+			id = MYTH.22
+		}
+	}
+	option = {
+		name ="EVTOPTBMYTH.21"
+		prestige = -50
+		add_trait = craven
+	}
+	
+	after = {
+		hidden_tooltip = {
+			character_event = { id = MYTH.56 }
+		}
+	}
+}
+character_event = {
+	id = "MYTH.22"
+	desc = "EVTDESCMYTH.22"
+	picture = GFX_evt_crusaders
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	option = {
+		name ="EVTOPTAMYTH.22"
+		hidden_tooltip = {
+			random_list = {
+				50 = {
+					character_event = { id = MYTH.23 }
+				}
+				30 = {
+					character_event = { id = MYTH.23 }
+					add_wounded_effect = yes
+				}
+				10 = {
+					character_event = { id = MYTH.23 }
+					add_maimed_trait_effect = yes
+				}
+				10 = {
+					death = { death_reason = death_oxen }
+				}
+			}
+		}			
+	}
+}
+character_event = {
+	id = "MYTH.23"
+	desc = "EVTDESCMYTH.23"
+	picture = GFX_evt_crusaders
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	option = {
+		name ="EVTOPTAMYTH.23"
+		hidden_tooltip = {
+			random_list = {
+				50 = {
+					character_event = { id = MYTH.24 }
+				}
+				30 = {
+					character_event = { id = MYTH.24 }
+					add_wounded_effect = yes
+				}
+				10 = {
+					character_event = { id = MYTH.24 }
+					add_maimed_trait_effect = yes
+				}
+				10 = {
+					death = { death_reason = death_battle }
+				}
+			}
+		}			
+	}
+	option = {
+		name ="EVTOPTBMYTH.23"
+		tooltip_info = intrigue
+		trigger = { intrigue = 10 }
+		character_event = { id = MYTH.25 }
+	}
+}
+character_event = {
+	id = "MYTH.24"
+	desc = "EVTDESCMYTH.24"
+	picture = GFX_evt_crusaders
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	option = {
+		name ="EVTOPTAMYTH.24"
+		hidden_tooltip = {
+			random_list = {
+				50 = {
+					character_event = { id = MYTH.26 }
+				}
+				30 = {
+					character_event = { id = MYTH.26 }
+					add_wounded_effect = yes
+				}
+				10 = {
+					character_event = { id = MYTH.26 }
+					add_maimed_trait_effect = yes
+				}
+				10 = {
+					death = { death_reason = death_dragon }
+				}
+			}
+		}			
+	}
+	option = {
+		name ="EVTOPTBMYTH.24"
+		tooltip_info = diplomacy
+		trigger = { diplomacy = 10 }
+		character_event = { id = MYTH.27 }
+	}
+}
+character_event = {
+	id = "MYTH.25"
+	desc = "EVTDESCMYTH.25"
+	picture = GFX_evt_crusaders
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	option = {
+		name ="EVTOPTAMYTH.25"
+		hidden_tooltip = {
+			random_list = {
+				50 = {
+					character_event = { id = MYTH.26 }
+				}
+				30 = {
+					character_event = { id = MYTH.26 }
+					add_wounded_effect = yes
+				}
+				10 = {
+					character_event = { id = MYTH.26 }
+					add_maimed_trait_effect = yes
+				}
+				10 = {
+					death = { death_reason = death_dragon }
+				}
+			}
+		}			
+	}
+	option = {
+		name ="EVTOPTBMYTH.25"
+		tooltip_info = diplomacy
+		trigger = { diplomacy = 10 }
+		character_event = { id = MYTH.27 }
+	}
+}
+
+character_event = {
+	id = "MYTH.26"
+	desc = "EVTDESCMYTH.26"
+	picture = GFX_evt_crusaders
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	option = {
+		name ="EVTOPTAMYTH.26"
+		add_artifact = golden_fleece
+		new_artifact = {
+			set_creation_date = 1.1.1
+		}
+		prestige = 100
+	}
+}
+character_event = {
+	id = "MYTH.27"
+	desc = "EVTDESCMYTH.27"
+	picture = GFX_evt_crusaders
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	option = {
+		name ="EVTOPTAMYTH.27"
+		add_artifact = golden_fleece
+		new_artifact = {
+			set_creation_date = 1.1.1
+		}
+		prestige = 100
+	}
+}
+# Medusa
+character_event = {
+	id = "MYTH.28"
+	desc = "EVTDESCMYTH.28"
+	picture = GFX_evt_crusaders
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	option = {
+		name ="EVTOPTAMYTH.28"
+		character_event = {
+			id = MYTH.29
+		}
+	}
+	option = {
+		name ="EVTOPTBMYTH.28"
+		prestige = -50
+		add_trait = craven
+	}
+	
+	after = {
+		hidden_tooltip = {
+			character_event = { id = MYTH.56 }
+		}
+	}
+}
+character_event = {
+	id = "MYTH.29"
+	desc = "EVTDESCMYTH.29"
+	picture = GFX_evt_crusaders
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	option = {
+		name ="EVTOPTAMYTH.29"
+		hidden_tooltip = {
+			random_list = {
+				30 = {
+					character_event = { id = MYTH.30 }
+				}
+				30 = {
+					character_event = { id = MYTH.30 }
+					add_wounded_effect = yes
+				}
+				10 = {
+					character_event = { id = MYTH.30 }
+					add_maimed_trait_effect = yes
+				}
+				30 = {
+					death = { death_reason = death_gorgon }
+				}
+			}
+		}			
+	}
+	option = {
+		name ="EVTOPTBMYTH.29"
+		tooltip_info = learning
+		trigger = { learning = 10 }
+		character_event = { id = MYTH.31 }
+	}
+}
+character_event = {
+	id = "MYTH.30"
+	desc = "EVTDESCMYTH.30"
+	picture = GFX_evt_crusaders
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	option = {
+		name ="EVTOPTAMYTH.30"
+		add_artifact = medusa_head
+		new_artifact = {
+			set_creation_date = 1.1.1
+		}
+		prestige = 100
+	}
+}
+character_event = {
+	id = "MYTH.31"
+	desc = "EVTDESCMYTH.31"
+	picture = GFX_evt_crusaders
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	option = {
+		name ="EVTOPTAMYTH.31"
+		add_artifact = medusa_head
+		new_artifact = {
+			set_creation_date = 1.1.1
+		}
+		prestige = 100
+	}
+}
+character_event = {
+	id = "MYTH.32"
+	desc = "EVTDESCMYTH.32"
+	picture = GFX_evt_crusaders
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	option = {
+		name ="EVTOPTAMYTH.32"
+		impregnate = FROM
+		prestige = 10
+	}
+}
+character_event = {
+	id = "MYTH.33"
+	desc = "EVTDESCMYTH.33"
+	picture = GFX_evt_crusaders
+	border = GFX_event_normal_frame_war
+	
+	trigger = { has_landed_title = e_olympus }
+	
+	mean_time_to_happen = { years = 300 }
+	
+	option = {
+		name ="EVTOPTAMYTH.33"
+		random_playable_ruler = {
+			limit = {
+				is_female = no
+				is_married = yes
+				religion = hellenic_pagan
+			}
+			spouse = { character_event = { id = MYTH.19 } }
+		}
+	}
+}
+
+# MYTH.34 - Force Zeus to use seduction
+character_event = {
+	id = "MYTH.34"
+	desc = "EVTDESCMYTH.34"
+	picture = GFX_evt_throne_room
+	border = GFX_event_normal_frame_war
+	
+	has_character_flag = greek_god_zeus
+	religion = hellenic_pagan
+	has_dlc = "Way of Life"
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		has_landed_title = e_olympus
+		NOT = { has_focus = focus_seduction }
+	}
+	weight_multiplier = { days = 100 }
+	option = {
+		name = "EVTOPTAMYTH.34"
+		# Remove anything blocking seduction
+		remove_trait = celibate
+		remove_trait = eunuch
+		remove_trait = chaste
+		
+		set_focus = focus_seduction
+	}
+}
+
+### Bad Priest events ###
+
+# Draconic becoming a wicked priest
+character_event = {
+	id = MYTH.35
+	is_triggered_only = yes
+	
+	picture = GFX_evt_scandal
+	border = GFX_event_normal_frame_religion
+	title = EVTWICKEDPRIEST
+	
+	desc = {
+		picture = GFX_evt_scandal
+		text = EVTDESCMYTH.35a
+		trigger = { NOT = { wealth = 100 } }
+	}
+	desc = {
+		picture = GFX_evt_scandal
+		text = EVTDESCMYTH.35b
+		trigger = { wealth = 100 }
+	}
+	
+	
+	min_age = 16
+	only_capable = yes
+	prisoner = no	
+	religion_group = pagan_group
+	has_dlc = "Sons of Abraham"
+	
+	trigger = {
+		NOR = {
+			stewardship = 3
+			intrigue = 3
+			diplomacy = 3
+			trait = bad_priest_draconic
+		}
+		is_priest = yes
+		OR = {
+			religion = draconic_pagan_reformed
+			religion = draconic_pagan
+		}
+		OR = {
+			trait = charitable
+			trait = cynical
+			trait = lunatic
+			trait = possessed
+			trait = weak
+			NOR = { 
+				trait = dragonborn
+				trait = dragon
+				wealth = 100
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTMYTH.35
+		add_trait = bad_priest_draconic
+		if = {
+			limit = {
+				is_ruler = yes
+				has_nickname = no
+				wealth = 100
+				NOT = { trait = lunatic }
+			}
+			random_list = {
+				70 = {
+					give_nickname = nick_the_wicked
+				}
+				10 = {
+					give_nickname = nick_the_black
+				}
+			}
+		}
+		if = {
+			limit = {
+				is_ruler = yes
+				has_nickname = no
+				NOT = { wealth = 100 }
+			}
+			give_nickname = nick_the_poor
+		}
+		if = {
+			limit = {
+				is_ruler = yes
+				has_nickname = no
+				trait = lunatic
+			}
+			give_nickname = nick_the_mad
+		}
+	}
+}
+
+# MYTH.36 - removed
+
+# Druid becoming a wicked priest
+character_event = {
+	id = MYTH.37
+	desc = EVTDESCMYTH.37
+	picture = GFX_evt_scandal
+	border = GFX_event_normal_frame_religion
+	title = EVTWICKEDPRIEST
+	
+	is_triggered_only = yes
+	min_age = 16
+	only_capable = yes
+	prisoner = no	
+	religion_group = pagan_group
+	has_dlc = "Sons of Abraham"
+	
+	trigger = {
+		NOR = {
+			intrigue = 3
+			diplomacy = 3
+			trait = bad_priest_druidic
+		}
+		is_priest = yes
+		OR = {
+			religion = druidic_reformed
+			religion = druidic
+		}
+		OR = {
+			trait = cynical
+			trait = slow
+			trait = dull
+			trait = arbitrary
+			trait = lunatic
+			trait = possessed
+		}
+	}
+	
+	option = {
+		name = EVTOPTMYTH.37
+		add_trait = bad_priest_druidic
+		if = {
+			limit = {
+				is_ruler = yes
+				has_nickname = no
+				NOR = {
+					trait = lunatic
+					trait = slow
+					trait = dull
+				}
+			}
+			random_list = {
+				70 = {
+					give_nickname = nick_the_wicked
+				}
+				10 = {
+					give_nickname = nick_the_black
+				}
+			}
+		}
+		if = {
+			limit = {
+				is_ruler = yes
+				has_nickname = no
+				OR = {
+					trait = dull
+					trait = slow
+				}
+			}
+			give_nickname = nick_the_slow
+		}
+		if = {
+			limit = {
+				is_ruler = yes
+				has_nickname = no
+				trait = lunatic
+			}
+			give_nickname = nick_the_mad
+		}
+	}
+}
+# Kemetic becoming a wicked priest
+character_event = {
+	id = MYTH.38
+	desc = EVTDESCMYTH.38
+	picture = GFX_evt_scandal
+	border = GFX_event_normal_frame_religion
+	title = EVTWICKEDPRIEST
+	
+	is_triggered_only = yes
+	min_age = 16
+	only_capable = yes
+	prisoner = no	
+	religion_group = pagan_group
+	has_dlc = "Sons of Abraham"
+	
+	trigger = {
+		NOR = {
+			intrigue = 3
+			diplomacy = 3
+			trait = bad_priest_kemetic
+		}
+		is_priest = yes
+		OR = {
+			religion = atenist
+			religion = kemetic_pagan
+			religion = kemetic_pagan_reformed
+		}
+		OR = {
+			trait = cynical
+			trait = lustful
+			trait = greedy
+			trait = deceitful
+			trait = cruel
+			trait = lunatic
+		}
+	}
+	
+	option = {
+	name = "EVTOPTMYTH.38"
+		add_trait = bad_priest_kemetic
+		if = {
+			limit = {
+				is_ruler = yes
+				has_nickname = no
+				NOR = {
+					trait = lunatic
+					trait = cruel
+				}
+			}
+			random_list = {
+				70 = {
+					give_nickname = nick_the_wicked
+				}
+				10 = {
+					give_nickname = nick_the_black
+				}
+			}
+		}
+		if = {
+			limit = {
+				is_ruler = yes
+				has_nickname = no
+				trait = cruel
+			}
+			give_nickname = nick_the_cruel
+		}
+		if = {
+			limit = {
+				is_ruler = yes
+				has_nickname = no
+				trait = lunatic
+			}
+			give_nickname = nick_the_mad
+		}
+	}
+}
+# Jotnar becoming a wicked priest
+character_event = {
+	id = MYTH.39
+	desc = EVTDESCMYTH.39
+	picture = GFX_evt_scandal
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+
+	min_age = 16
+	only_capable = yes
+	prisoner = no	
+	religion_group = pagan_group
+	has_dlc = "Sons of Abraham"
+	
+	trigger = {
+		NOR = {
+			intrigue = 3
+			diplomacy = 3
+			trait = bad_priest_jotnar
+		}
+		OR = {
+			religion = jotnar
+			religion = jotnar_reformed
+		}
+		OR = {
+			is_priest = yes
+			has_landed_title = d_jotnar_reformed
+		}
+		OR = {
+			trait = cynical
+			trait = gluttonous
+			trait = greedy
+			trait = slothful
+			trait = envious
+			trait = wroth
+			trait = craven
+			trait = lunatic
+			trait = possessed
+			trait = hedonist
+			trait = arbitrary
+		}
+	}
+
+	option = {
+		name = EVTOPTMYTH.39
+		add_trait = bad_priest_jotnar
+		if = {
+			limit = {
+				is_ruler = yes
+				has_nickname = no
+				NOT = { trait = possessed }
+				NOT = { trait = lunatic }
+			}
+			give_nickname = nick_the_unready
+		}
+		if = {
+			limit = {
+				is_ruler = yes
+				has_nickname = no
+				trait = possessed
+			}
+			give_nickname = nick_the_bewitched
+		}
+		if = {
+			limit = {
+				is_ruler = yes
+				has_nickname = no
+				trait = lunatic
+			}
+			give_nickname = nick_the_mad
+		}
+	}
+}
+# Hellenic becoming a wicked priest
+character_event = {
+	id = MYTH.40
+	desc = EVTDESCMYTH.40
+	picture = GFX_evt_scandal
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+
+	min_age = 16
+	only_capable = yes
+	prisoner = no	
+	religion_group = pagan_group
+	has_dlc = "Sons of Abraham"
+	
+	trigger = {
+		OR = {
+			religion = hellenic_pagan
+			religion = hellenic_pagan_reformed
+		}
+		NOR = {
+			intrigue = 3
+			diplomacy = 3
+			trait = bad_priest_hellenic
+		}
+		is_priest = yes
+		trait = cynical
+	}
+
+	option = {
+		name = EVTOPTMYTH.39
+		add_trait = bad_priest_hellenic
+		if = {
+			limit = {
+				is_ruler = yes
+				has_nickname = no
+			}
+			give_nickname = nick_the_wicked
+		}
+	}
+}
+
+# MYTH.41 - Clean up summoned characters at end of war
+character_event = {
+	id = MYTH.41
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		if = {
+			limit = { war = no }
+			any_realm_character = {
+				limit = {
+					has_character_flag = die_on_war_end
+				}
+				death = {
+					death_reason = death_battle
+				}
+			}
+			disband_event_forces = unit_summoned
+			disband_event_forces = unit_summoned_zombie
+		}
+		FROM = {
+			if = {
+				limit = { war = no }
+				any_realm_character = {
+					limit = {
+						has_character_flag = die_on_war_end
+					}
+					death = {
+						death_reason = death_battle
+					}
+				}
+				disband_event_forces = unit_summoned
+				disband_event_forces = unit_summoned_zombie
+			}
+		}
+	}
+}
+
+# MYTH.42 - Divine healing
+character_event = {
+	id = MYTH.42
+	desc = EVTDESCMYTH.42
+	picture = GFX_evt_religious_exultation
+	border = GFX_event_normal_frame_religion
+	
+	trigger = {
+		OR = {
+			trait = god
+			trait = demi_god
+			trait = blood_of_the_gods
+			any_owned_bloodline = { has_bloodline_flag = BOTG }
+		}
+		OR = {
+			trait = infirm
+			trait = incapable
+			trait = ill
+			trait = pneumonic
+			trait = syphilitic
+			trait = leper
+			trait = has_tuberculosis
+			trait = has_typhoid_fever
+			trait = has_typhus
+			trait = has_bubonic_plague
+			trait = has_measles
+			trait = has_small_pox
+			trait = has_aztec_disease
+			trait = flu
+			trait = dysentery
+			trait = gout
+			trait = food_poisoning
+			trait = rabies
+			trait = cancer
+			trait = dancing_plague
+			trait = scurvy
+			trait = lovers_pox
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 40
+		modifier = {
+			factor = 0.5
+			trait = god
+		}
+		modifier = {
+			factor = 10
+			NOT = {
+				trait = god
+				trait = demi_god
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTAMYTH.42
+		remove_disease_trait_effect = yes
+		if = { limit = { trait = infirm } remove_trait = infirm }
+		if = { limit = { trait = incapable } remove_trait = incapable }
+		if = { limit = { trait = lovers_pox } remove_trait = lovers_pox }
+		hidden_tooltip = {
+			clear_disease_level_effect = yes
+			remove_disease_flags_effect = yes
+			remove_treatment_modifiers_effect = yes
+			remove_disease_flags_effect = yes
+			remove_character_modifier = dancing_queen
+			remove_character_modifier = dancing_king
+			remove_character_modifier = cant_stop_dancing
+			clr_character_flag = wounded_incapable
+			remove_trait = sick_incapable
+			remove_character_modifier = mild_illness
+			remove_character_modifier = severe_illness
+			remove_character_modifier = bedridden_illness
+		}
+	}
+}
+
+# MYTH.43 - Divine regeneration
+character_event = {
+	id = MYTH.43
+	desc = EVTDESCMYTH.43
+	picture = GFX_evt_religious_exultation
+	border = GFX_event_normal_frame_religion
+	
+	trigger = {
+		OR = {
+			trait = god
+			trait = demi_god
+			trait = blood_of_the_gods
+			any_owned_bloodline = { has_bloodline_flag = BOTG }
+		}
+		OR = {
+			trait = wounded
+			trait = maimed
+			AND = {
+				trait = one_eyed
+				NOT = { any_owned_bloodline = { has_bloodline_flag = no_eye_healing } }
+			}
+			AND = {
+				trait = one_handed
+				NOT = { any_owned_bloodline = { has_bloodline_flag = no_hand_healing } }
+			}
+			trait = one_legged
+			trait = disfigured
+			trait = mangled
+			trait = eunuch
+			trait = blinded
+			trait = severely_injured
+			has_scarred_trait_trigger = yes
+			has_character_modifier = black_eye
+			has_character_modifier = swollen_wrist
+			has_character_modifier = swollen_ankle
+			has_character_modifier = concussion
+			has_character_modifier = cracked_ribs
+			has_character_modifier = badly_bruised
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 360
+		modifier = {
+			factor = 0.1
+			trait = god
+		}
+		modifier = {
+			factor = 10
+			NOR = {
+				trait = god
+				trait = demi_god
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTAMYTH.43
+		if = { limit = { trait = wounded } remove_trait = wounded }
+		if = { limit = { trait = maimed } remove_trait = maimed }
+		if = {
+			limit = {
+				AND = {
+					trait = one_eyed
+					NOT = { has_character_flag = norse_god_odin }
+				} 
+			}
+			remove_trait = one_eyed
+		}
+		if = { 
+			limit = { 
+				AND = {
+					trait = one_handed
+					NOT = { has_character_flag = norse_god_tyr }
+				}
+			}
+			remove_trait = one_handed 
+		}
+		if = { limit = { trait = one_legged } remove_trait = one_legged }
+		if = { limit = { trait = disfigured } remove_trait = disfigured }
+		if = { limit = { trait = mangled } remove_trait = mangled }
+		if = { limit = { trait = eunuch } remove_trait = eunuch }
+		if = { limit = { trait = blinded } remove_trait = blinded }
+		hidden_tooltip = { remove_scarred = yes }
+		if = { limit = { has_character_modifier = black_eye } remove_character_modifier = black_eye }
+		if = { limit = { has_character_modifier = swollen_wrist } remove_character_modifier = swollen_wrist }
+		if = { limit = { has_character_modifier = swollen_ankle } remove_character_modifier = swollen_ankle }
+		if = { limit = { has_character_modifier = concussion } remove_character_modifier = concussion }
+		if = { limit = { has_character_modifier = cracked_ribs } remove_character_modifier = cracked_ribs }
+		if = { limit = { has_character_modifier = badly_bruised } remove_character_modifier = badly_bruised }
+		if = { limit = { trait = severely_injured } remove_trait = severely_injured clear_delayed_event = { id = RIP.11000 } }
+	}
+}
+
+# MYTH.44 - Panacea
+character_event = {
+	id = MYTH.44
+	desc = EVTDESCMYTH.44
+	picture = GFX_evt_recovery
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAMYTH.44
+		remove_disease_trait_effect = yes
+		if = { limit = { trait = infirm } remove_trait = infirm }
+		if = { limit = { trait = incapable } remove_trait = incapable }
+		if = { limit = { trait = severely_injured } remove_trait = severely_injured clear_delayed_event = { id = RIP.11000 } }
+		if = { limit = { trait = lovers_pox } remove_trait = lovers_pox }
+		hidden_tooltip = {
+			clear_disease_level_effect = yes
+			remove_treatment_modifiers_effect = yes
+			remove_disease_flags_effect = yes
+			remove_character_modifier = dancing_queen
+			remove_character_modifier = dancing_king
+			remove_character_modifier = cant_stop_dancing
+			clr_character_flag = wounded_incapable
+			remove_trait = sick_incapable
+		}
+		if = {
+			limit = {
+				FROMFROM = { always = yes }
+			}
+			FROMFROM = { destroy_artifact = panacea }
+		}
+		else = {
+			destroy_artifact = panacea
+		}
+	}
+}
+
+# MYTH.45 - Offered Panacea
+character_event = {
+	id = MYTH.45
+	desc = EVTDESCMYTH.45
+	picture = GFX_evt_illness
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAMYTH.45
+		hidden_tooltip = {
+			character_event = { id = MYTH.44 }
+		}
+	}
+	option = {
+		name = EVTOPTBMYTH.45
+		trigger = { ai = no }
+	}
+	option = {
+		name = EVTOPTCMYTH.45
+		tooltip_info = paranoid
+		FROM = { imprison = ROOT }
+		trigger = {
+			trait = paranoid
+			FROM = { ai = yes }
+		}
+	}
+}
+
+# MYTH.46 - Ethereal musicians
+character_event = {
+	id = MYTH.46
+	desc = "EVTDESCMYTH.46"
+	picture = GFX_evt_feast
+	border = GFX_event_normal_frame_diplomacy
+
+	only_rulers = yes
+	capable_only = yes
+	prisoner = no
+	war = no
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_character_modifier = holding_large_feast
+		OR = {
+			trait = summoner
+			AND = {
+				has_focus = focus_magic
+				has_character_modifier = studying_conjuration
+			}
+		}
+		NOT = {
+			has_character_flag = feast_musicians
+		}
+	}
+
+	option = {
+		name = "EVTOPTAMYTH.46"
+		ai_chance = {
+			factor = 5
+
+			modifier = {
+				factor = 0.1
+				NOT = {
+					piety = 30
+				}
+			}
+			modifier = {
+				factor = 30
+				piety = 30
+			}
+		}
+		set_character_flag = feast_musicians
+		piety = -10
+		prestige = 20
+		hidden_tooltip = {
+			if = {
+				limit = { has_focus = focus_magic }
+				character_event = { id = MYTH_WoL.40 days = 1 }
+			}
+		}
+	}
+	option = {
+		name = "EVTOPTBMYTH.46"
+		ai_chance = {
+			factor = 5
+
+			modifier = {
+				factor = 30
+				NOT = {
+					piety = 30
+				}
+			}
+			modifier = {
+				factor = 0.1
+				piety = 30
+			}
+			modifier = {
+				factor = 0.2
+				NOT = { wealth = 5 }
+			}
+		}
+		wealth = -5
+		prestige = -5
+	}
+}
+# MYTH.47 - Enchanted instruments
+character_event = {
+	id = MYTH.47
+	desc = "EVTDESCMYTH.47"
+	picture = GFX_evt_feast
+	border = GFX_event_normal_frame_diplomacy
+
+	prisoner = no
+	only_rulers = yes
+	capable_only = yes
+	war = no
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_character_modifier = holding_large_feast
+		OR = {
+			trait = enchanter
+			AND = {
+				has_focus = focus_magic
+				has_character_modifier = studying_sorcery
+			}
+		}
+		NOT = {
+			has_character_flag = feast_minstrel
+		}
+	}
+
+	option = {
+		name = "EVTOPTAMYTH.47"
+		ai_chance = {
+			factor = 5
+
+			modifier = {
+				factor = 0.1
+				NOT = {
+					treasury = 30
+				}
+			}
+			modifier = {
+				factor = 30
+				treasury = 30
+			}
+		}
+		set_character_flag = feast_minstrel
+		treasury = -5
+		prestige = 10
+		hidden_tooltip = {
+			if = {
+				limit = { has_focus = focus_magic }
+				character_event = { id = MYTH_WoL.40 days = 1 }
+			}
+		}
+	}
+	option = {
+		name = "EVTOPTBMYTH.47"
+		ai_chance = {
+			factor = 5
+
+			modifier = {
+				factor = 30
+				NOT = {
+					treasury = 30
+				}
+			}
+			modifier = {
+				factor = 0.1
+				treasury = 30
+			}
+		}
+		prestige = -10
+	}
+}
+
+# MYTH.48 - Plaguebearer spreads plague
+character_event = {
+	id = MYTH.48
+	hide_window = yes
+	is_triggered_only = yes
+	
+	ai = yes
+	has_character_flag = plague_bearer
+	
+	trigger = {
+		OR = {
+			has_character_flag = got_pneumonia
+			has_character_flag = got_tuberculosis
+			has_character_flag = got_measles
+			has_character_flag = got_flu
+			has_character_flag = got_typhoid_fever
+			has_character_flag = got_typhus
+			has_character_flag = got_bubonic_plague
+			has_character_flag = got_smallpox
+			has_character_flag = got_aztec_disease
+			has_character_flag = got_dysentery
+			has_character_flag = got_rabies
+			trait = ill
+			trait = pneumonic
+			trait = has_tuberculosis
+			trait = has_typhoid_fever
+			trait = has_typhus
+			trait = has_bubonic_plague
+			trait = has_measles
+			trait = has_small_pox
+			trait = has_aztec_disease
+			trait = flu
+			trait = dysentery
+		}
+	}
+	immediate = {
+		if = {
+			limit = { trait = ill }
+			location = {
+				random_province_character = { add_trait = ill }
+				random_province_character = { add_trait = ill }
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					has_character_flag = got_pneumonia
+					trait = pneumonic
+				}
+			}
+			location = {
+				random_province_character = {
+					limit = {
+						OR = {
+							AND = {
+								in_seclusion = no
+								ROOT = { in_seclusion = no }
+							}
+							AND = {
+								in_seclusion = yes
+								ROOT = { in_seclusion = yes }
+							}
+						}
+					}
+					give_pneumonic_effect = yes
+				}
+				random_province_character = {
+					limit = {
+						OR = {
+							AND = {
+								in_seclusion = no
+								ROOT = { in_seclusion = no }
+							}
+							AND = {
+								in_seclusion = yes
+								ROOT = { in_seclusion = yes }
+							}
+						}
+					}
+					give_pneumonic_effect = yes
+				}
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					has_character_flag = got_tuberculosis
+					trait = has_tuberculosis
+				}
+			}
+			location = {
+				random_province_character = {
+					limit = {
+						NOT = { has_character_flag = immune_tuberculosis }
+						OR = {
+							AND = {
+								in_seclusion = no
+								ROOT = { in_seclusion = no }
+							}
+							AND = {
+								in_seclusion = yes
+								ROOT = { in_seclusion = yes }
+							}
+						}
+					}
+					give_has_tuberculosis_effect = yes
+				}
+				random_province_character = {
+					limit = {
+						NOT = { has_character_flag = immune_tuberculosis }
+						OR = {
+							AND = {
+								in_seclusion = no
+								ROOT = { in_seclusion = no }
+							}
+							AND = {
+								in_seclusion = yes
+								ROOT = { in_seclusion = yes }
+							}
+						}
+					}
+					give_has_tuberculosis_effect = yes
+				}
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					has_character_flag = got_measles
+					trait = has_measles
+				}
+			}
+			location = {
+				random_province_character = {
+					limit = {
+						NOT = { has_character_flag = immune_measles }
+						OR = {
+							AND = {
+								in_seclusion = no
+								ROOT = { in_seclusion = no }
+							}
+							AND = {
+								in_seclusion = yes
+								ROOT = { in_seclusion = yes }
+							}
+						}
+					}
+					give_has_measles_effect = yes
+				}
+				random_province_character = {
+					limit = {
+						NOT = { has_character_flag = immune_measles }
+						OR = {
+							AND = {
+								in_seclusion = no
+								ROOT = { in_seclusion = no }
+							}
+							AND = {
+								in_seclusion = yes
+								ROOT = { in_seclusion = yes }
+							}
+						}
+					}
+					give_has_measles_effect = yes
+				}
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					has_character_flag = got_flu
+					trait = flu
+				}
+			}
+			location = {
+				random_province_character = {
+					limit = {
+						OR = {
+							AND = {
+								in_seclusion = no
+								ROOT = { in_seclusion = no }
+							}
+							AND = {
+								in_seclusion = yes
+								ROOT = { in_seclusion = yes }
+							}
+						}
+					}
+					give_flu_effect = yes
+				}
+				random_province_character = {
+					limit = {
+						OR = {
+							AND = {
+								in_seclusion = no
+								ROOT = { in_seclusion = no }
+							}
+							AND = {
+								in_seclusion = yes
+								ROOT = { in_seclusion = yes }
+							}
+						}
+					}
+					give_flu_effect = yes
+				}
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					has_character_flag = got_typhoid_fever
+					trait = has_typhoid_fever
+				}
+			}
+			location = {
+				random_province_character = {
+					limit = {
+						NOT = { has_character_flag = immune_typhoid_fever }
+						OR = {
+							AND = {
+								in_seclusion = no
+								ROOT = { in_seclusion = no }
+							}
+							AND = {
+								in_seclusion = yes
+								ROOT = { in_seclusion = yes }
+							}
+						}
+					}
+					give_has_typhoid_fever_effect = yes
+				}
+				random_province_character = {
+					limit = {
+						NOT = { has_character_flag = immune_typhoid_fever }
+						OR = {
+							AND = {
+								in_seclusion = no
+								ROOT = { in_seclusion = no }
+							}
+							AND = {
+								in_seclusion = yes
+								ROOT = { in_seclusion = yes }
+							}
+						}
+					}
+					give_has_typhoid_fever_effect = yes
+				}
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					has_character_flag = got_typhus
+					trait = has_typhus
+				}
+			}
+			location = {
+				random_province_character = {
+					limit = {
+						OR = {
+							AND = {
+								in_seclusion = no
+								ROOT = { in_seclusion = no }
+							}
+							AND = {
+								in_seclusion = yes
+								ROOT = { in_seclusion = yes }
+							}
+						}
+					}
+					set_character_flag = got_typhus
+					set_character_flag = developing_illness
+					add_typhus_symptom_effect = yes
+				}
+				random_province_character = {
+					limit = {
+						OR = {
+							AND = {
+								in_seclusion = no
+								ROOT = { in_seclusion = no }
+							}
+							AND = {
+								in_seclusion = yes
+								ROOT = { in_seclusion = yes }
+							}
+						}
+					}
+					set_character_flag = got_typhus
+					set_character_flag = developing_illness
+					add_typhus_symptom_effect = yes
+				}
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					has_character_flag = got_bubonic_plague
+					trait = has_bubonic_plague
+				}
+			}
+			location = {
+				random_province_character = {
+					limit = {
+						NOT = { has_character_flag = immune_bubonic_plague }
+						OR = {
+							AND = {
+								in_seclusion = no
+								ROOT = { in_seclusion = no }
+							}
+							AND = {
+								in_seclusion = yes
+								ROOT = { in_seclusion = yes }
+							}
+						}
+					}
+					give_has_bubonic_plague_effect = yes
+				}
+				random_province_character = {
+					limit = {
+						NOT = { has_character_flag = immune_bubonic_plague }
+						OR = {
+							AND = {
+								in_seclusion = no
+								ROOT = { in_seclusion = no }
+							}
+							AND = {
+								in_seclusion = yes
+								ROOT = { in_seclusion = yes }
+							}
+						}
+					}
+					give_has_bubonic_plague_effect = yes
+				}
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					has_character_flag = got_smallpox
+					trait = has_small_pox
+				}
+			}
+			location = {
+				random_province_character = {
+					limit = {
+						NOT = { has_character_flag = immune_smallpox }
+						OR = {
+							AND = {
+								in_seclusion = no
+								ROOT = { in_seclusion = no }
+							}
+							AND = {
+								in_seclusion = yes
+								ROOT = { in_seclusion = yes }
+							}
+						}
+					}
+					give_has_small_pox_effect = yes
+				}
+				random_province_character = {
+					limit = {
+						NOT = { has_character_flag = immune_smallpox }
+						OR = {
+							AND = {
+								in_seclusion = no
+								ROOT = { in_seclusion = no }
+							}
+							AND = {
+								in_seclusion = yes
+								ROOT = { in_seclusion = yes }
+							}
+						}
+					}
+					give_has_small_pox_effect = yes
+				}
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					has_character_flag = got_aztec_disease
+					trait = has_aztec_disease
+				}
+			}
+			location = {
+				random_province_character = {
+					limit = {
+						NOT = { has_character_flag = immune_aztec_disease }
+						OR = {
+							AND = {
+								in_seclusion = no
+								ROOT = { in_seclusion = no }
+							}
+							AND = {
+								in_seclusion = yes
+								ROOT = { in_seclusion = yes }
+							}
+						}
+					}
+					give_has_aztec_disease_effect = yes
+				}
+				random_province_character = {
+					limit = {
+						NOT = { has_character_flag = immune_aztec_disease }
+						OR = {
+							AND = {
+								in_seclusion = no
+								ROOT = { in_seclusion = no }
+							}
+							AND = {
+								in_seclusion = yes
+								ROOT = { in_seclusion = yes }
+							}
+						}
+					}
+					give_has_aztec_disease_effect = yes
+				}
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					has_character_flag = got_dysentery
+					trait = dysentery
+				}
+			}
+			location = {
+				random_province_character = {
+					limit = {
+						OR = {
+							AND = {
+								in_seclusion = no
+								ROOT = { in_seclusion = no }
+							}
+							AND = {
+								in_seclusion = yes
+								ROOT = { in_seclusion = yes }
+							}
+						}
+					}
+					give_dysentery_effect = yes
+				}
+				random_province_character = {
+					limit = {
+						OR = {
+							AND = {
+								in_seclusion = no
+								ROOT = { in_seclusion = no }
+							}
+							AND = {
+								in_seclusion = yes
+								ROOT = { in_seclusion = yes }
+							}
+						}
+					}
+					give_dysentery_effect = yes
+				}
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					has_character_flag = got_rabies
+					trait = rabies
+				}
+			}
+			location = {
+				random_province_character = {
+					limit = {
+						OR = {
+							AND = {
+								in_seclusion = no
+								ROOT = { in_seclusion = no }
+							}
+							AND = {
+								in_seclusion = yes
+								ROOT = { in_seclusion = yes }
+							}
+						}
+					}
+					give_rabies_effect = yes
+				}
+			}
+		}
+	}
+}
+
+# MYTH.49 - Reveal yourself as a werewolf
+character_event = {
+	id = MYTH.49
+	desc = EVTDESCMYTH.49
+	picture = GFX_evt_emissary
+	border = GFX_event_normal_frame_war
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAMYTH.49
+		prestige = 100
+		add_trait = known_werewolf
+		hidden_tooltip = { remove_character_modifier = known_monster }
+		increase_control = yes
+	}
+}
+
+# MYTH.50 - Set up the gods
+character_event = {
+	id = MYTH.50
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		# Sanity - Don't fire if Chronos is, for some reason, not the god of Olympus
+		# Can happen with custom characters, and possibly in multiplayer, where this script tries to run multiple times
+		if = { 
+			limit = {
+				e_olympus = {
+					owner = {
+						has_character_flag = greek_god_chronos
+					}
+				}
+			}
+			c_268400 = { save_event_target_as = god_uranus }
+			c_268401 = { 
+				save_event_target_as = god_chronos
+			}
+			e_olympus = {
+				owner = {
+					character_event = { id = MYTH.52 }
+				}
+			}
+		}
+		# Create the gods of Asgard
+		# Sanity - don't run if Ymir no longer rules Asgard
+		if = {
+			limit = {
+				e_asgard = {
+					owner = {
+						has_character_flag = norse_god_ymir
+					}
+				}
+			}
+			e_asgard = {
+				owner = {
+					character_event = { id = MYTH.53 }
+				}
+			}
+		}
+	}
+}
+
+# MYTH.51 - Rename Greek gods on religion change - not currently used
+# To do - add a reform option that does this
+character_event = {
+	id = MYTH.51
+	hide_window = yes
+	is_triggered_only = yes
+	
+	min_age = 100
+	
+	immediate = {
+		if = {
+			limit = { has_character_flag = greek_god_rhea }
+			if = {
+				limit = { religion = hellenic_pagan_reformed }
+				set_name = "Magna Mater"
+			}
+			if = {
+				limit = { religion = hellenic_pagan }
+				set_name = "Rhea"
+			}
+		}
+		else_if = {
+			limit = { has_character_flag = greek_god_hades }
+			if = {
+				limit = { religion = hellenic_pagan_reformed }
+				set_name = "Pluto"
+			}
+			if = {
+				limit = { religion = hellenic_pagan }
+				set_name = "Hades"
+			}
+		}
+		else_if = {
+			limit = { has_character_flag = greek_god_poseidon }
+			if = {
+				limit = { religion = hellenic_pagan_reformed }
+				set_name = "Neptune"
+			}
+			if = {
+				limit = { religion = hellenic_pagan }
+				set_name = "Poseidon"
+			}
+		}
+		else_if = {
+			limit = { has_character_flag = greek_god_aphrodite }
+			if = {
+				limit = { religion = hellenic_pagan_reformed }
+				set_name = "Venus"
+			}
+			if = {
+				limit = { religion = hellenic_pagan }
+				set_name = "Aphrodite"
+			}
+		}
+		else_if = {
+			limit = { has_character_flag = greek_god_zeus }
+			if = {
+				limit = { religion = hellenic_pagan_reformed }
+				set_name = "Jupiter"
+			}
+			if = {
+				limit = { religion = hellenic_pagan }
+				set_name = "GOD_JUPITER" # Zeus gets localized to "Conclave"
+			}
+		}
+		else_if = {
+			limit = { has_character_flag = greek_god_hera }
+			if = {
+				limit = { religion = hellenic_pagan_reformed }
+				set_name = "Juno"
+			}
+			if = {
+				limit = { religion = hellenic_pagan }
+				set_name = "Hera"
+			}
+		}
+		else_if = {
+			limit = { has_character_flag = greek_god_athena }
+			if = {
+				limit = { religion = hellenic_pagan_reformed }
+				set_name = "Minerva"
+			}
+			if = {
+				limit = { religion = hellenic_pagan }
+				set_name = "Athena"
+			}
+		}
+		else_if = {
+			limit = { has_character_flag = greek_god_ares }
+			if = {
+				limit = { religion = hellenic_pagan_reformed }
+				set_name = "Mars"
+			}
+			if = {
+				limit = { religion = hellenic_pagan }
+				set_name = "Ares"
+			}
+		}
+		else_if = {
+			limit = { has_character_flag = greek_god_hermes }
+			if = {
+				limit = { religion = hellenic_pagan_reformed }
+				set_name = "Mercury"
+			}
+			if = {
+				limit = { religion = hellenic_pagan }
+				set_name = "Hermes"
+			}
+		}
+		else_if = {
+			limit = { has_character_flag = greek_god_pan }
+			if = {
+				limit = { religion = hellenic_pagan_reformed }
+				set_name = "Faunus"
+			}
+			if = {
+				limit = { religion = hellenic_pagan }
+				set_name = "Pan"
+			}
+		}
+		# Apollo is unchanged
+		else_if = {
+			limit = { has_character_flag = greek_god_artemis }
+			if = {
+				limit = { religion = hellenic_pagan_reformed }
+				set_name = "Diana"
+			}
+			if = {
+				limit = { religion = hellenic_pagan }
+				set_name = "Artemis"
+			}
+		}
+	}
+}
+
+# MYTH.52 - Create Greek gods
+character_event = {
+	id = MYTH.52
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		NOT = { has_global_flag = olympus_created }
+	}
+	
+	immediate = {
+		set_global_flag = olympus_created
+		# Create Chrono's wife, Rhea
+		create_character = {
+			age = 900
+			name = "Rhea"
+			trait = god
+			trait = intricate_webweaver
+			trait = charitable
+			trait = kind
+			female = yes
+			employer = e_olympus
+			religion = hellenic_pagan
+			culture = greek
+			dynasty = event_target:god_chronos
+			genetic_father = event_target:god_uranus
+			flag = greek_god_rhea
+			race = event_target:god_chronos
+			historical = yes
+			immortal_age = 40
+			flag = ai_flag_refuse_conversion
+			flag = checked_race
+		}
+		new_character = {
+			dynasty = 1049005
+			set_graphical_culture = greek
+			set_father = event_target:god_uranus
+			add_spouse = event_target:god_chronos
+			save_event_target_as = god_rhea
+			hidden_tooltip = {
+				character_event = { id = MYTH.56 }
+			}
+		}
+		# Create Hades
+		create_character = {
+			age = 830
+			name = "Hades"
+			trait = just
+			trait = god
+			trait = quick
+			trait = wroth
+			trait = midas_touched
+			female = no
+			employer = e_olympus
+			religion = hellenic_pagan
+			culture = greek
+			dynasty = event_target:god_chronos
+			flag = greek_god_hades
+			genetic_father = event_target:god_chronos
+			genetic_mother = event_target:god_rhea
+			race = event_target:god_chronos
+			historical = yes
+			immortal_age = 30
+			flag = ai_flag_refuse_conversion
+			flag = checked_race
+		}
+		new_character = {
+			dynasty = 1049005
+			set_graphical_culture = greek
+			set_father = event_target:god_chronos
+			set_mother = event_target:god_rhea
+			save_event_target_as = god_hades
+			hidden_tooltip = {
+				character_event = { id = MYTH.56 }
+			}
+		}
+		# Create Poseidon
+		create_character = {
+			age = 800
+			name = "Poseidon"
+			trait = brave
+			trait = envious
+			trait = proud
+			trait = patient
+			trait = quick
+			trait = god
+			trait = midas_touched
+			female = no
+			employer = e_olympus
+			religion = hellenic_pagan
+			culture = greek
+			dynasty = event_target:god_chronos
+			flag = greek_god_poseidon
+			genetic_father = event_target:god_chronos
+			genetic_mother = event_target:god_rhea
+			race = event_target:god_chronos
+			historical = yes
+			immortal_age = 40
+			flag = ai_flag_refuse_conversion
+			flag = checked_race
+		}
+		new_character = {
+			dynasty = 1049005
+			set_graphical_culture = greek
+			set_father = ROOT
+			set_mother = event_target:god_rhea
+			save_event_target_as = god_poseidon
+			hidden_tooltip = {
+				character_event = { id = MYTH.56 }
+			}
+		}
+		# Create Aphrodite
+		create_character = {
+			age = 900
+			name = "Aphrodite"
+			trait = fair
+			trait = seductress
+			trait = kind
+			trait = just
+			trait = lustful
+			trait = gregarious
+			trait = god
+			trait = elusive_shadow
+			female = yes
+			employer = e_olympus
+			religion = hellenic_pagan
+			culture = greek
+			dynasty = event_target:god_uranus
+			flag = greek_god_aphrodite
+			genetic_father = event_target:god_uranus
+			race = event_target:god_uranus
+			historical = yes
+			immortal_age = 20
+			flag = ai_flag_refuse_conversion
+			flag = checked_race
+		}
+		new_character = {
+			dynasty = 1049005
+			set_graphical_culture = greek
+			set_father = event_target:god_uranus
+			save_event_target_as = god_aphrodite
+			hidden_tooltip = {
+				character_event = { id = MYTH.56 }
+			}
+		}
+		# Create Hera
+		create_character = {
+			age = 800
+			name = "Hera"
+			trait = elusive_shadow
+			trait = god
+			trait = envious
+			trait = diligent
+			female = yes
+			employer = e_olympus
+			religion = hellenic_pagan
+			culture = greek
+			dynasty = event_target:god_chronos
+			flag = greek_god_hera
+			genetic_father = event_target:god_chronos
+			genetic_mother = event_target:god_rhea
+			race = event_target:god_chronos
+			historical = yes
+			immortal_age = 30
+			flag = ai_flag_refuse_conversion
+			flag = checked_race
+		}
+		new_character = {
+			dynasty = 1049005
+			set_graphical_culture = greek
+			save_event_target_as = god_hera
+			set_father = event_target:god_chronos
+			set_mother = event_target:god_rhea
+			hidden_tooltip = {
+				character_event = { id = MYTH.56 }
+			}
+		}
+		# Create Zeus
+		create_character = {
+			age = 800
+			name = "GOD_JUPITER" # Zeus gets localized to Conclave
+			trait = god
+			trait = brave
+			trait = just
+			trait = proud
+			trait = lustful
+			trait = genius
+			trait = seducer
+			trait = brilliant_strategist
+			female = no
+			employer = e_olympus
+			religion = hellenic_pagan
+			culture = greek
+			dynasty = event_target:god_chronos
+			flag = greek_god_zeus
+			genetic_father = event_target:god_chronos
+			genetic_mother = event_target:god_rhea
+			race = event_target:god_chronos
+			historical = yes
+			immortal_age = 50
+			flag = ai_flag_refuse_conversion
+			flag = checked_race
+		}
+		new_character = {
+			dynasty = 1049005
+			set_graphical_culture = greek
+			set_father = event_target:god_chronos
+			set_mother = event_target:god_rhea
+			add_spouse = event_target:god_hera
+			move_character = event_target:god_chronos
+			e_olympus = { usurp_title = PREV }
+			save_event_target_as = god_zeus
+			set_name = "Zeus"
+			hidden_tooltip = {
+				character_event = { id = MYTH.56 }
+			}
+			
+			# Create Athena
+			create_character = {
+				age = 700
+				name = "Athena"
+				trait = god
+				trait = kind
+				trait = temperate
+				trait = just
+				trait = chaste
+				trait = honest
+				trait = genius
+				trait = grey_eminence
+				female = yes
+				employer = e_olympus
+				religion = hellenic_pagan
+				culture = greek
+				dynasty = event_target:god_zeus
+				flag = greek_god_athena
+				genetic_father = event_target:god_zeus
+				race = event_target:god_zeus
+				historical = yes
+				immortal_age = 25
+				flag = ai_flag_refuse_conversion
+				flag = checked_race
+			}
+			new_character = {
+				dynasty = 1049005
+				set_graphical_culture = greek
+				set_father = event_target:god_zeus
+				hidden_tooltip = {
+					character_event = { id = MYTH.56 }
+				}
+			}
+			# Create Ares
+			create_character = {
+				age = 700
+				name = "Ares"
+				trait = god
+				trait = brave
+				trait = stubborn
+				trait = wroth
+				trait = proud
+				trait = diligent
+				trait = strong
+				trait = brilliant_strategist
+				trait = ares_own
+				female = no
+				employer = e_olympus
+				religion = hellenic_pagan
+				culture = greek
+				dynasty = event_target:god_zeus
+				flag = greek_god_ares
+				genetic_father = event_target:god_zeus
+				genetic_mother = event_target:god_hera
+				race = event_target:god_zeus
+				historical = yes
+				immortal_age = 30
+				flag = ai_flag_refuse_conversion
+				flag = checked_race
+			}
+			new_character = {
+				dynasty = 1049005
+				set_graphical_culture = greek
+				set_father = event_target:god_zeus
+				set_mother = event_target:god_hera
+				hidden_tooltip = {
+					character_event = { id = MYTH.56 }
+				}
+			}
+			# Create Hermes
+			create_character = {
+				age = 700
+				name = "Hermes"
+				trait = god
+				trait = flamboyant_schemer
+				trait = fair
+				trait = quick
+				trait = feeble
+				trait = socializer
+				trait = charitable
+				trait = kind
+				trait = deceitful
+				trait = arbitrary
+				trait = gregarious
+				trait = organizer
+				female = no
+				employer = e_olympus
+				religion = hellenic_pagan
+				culture = greek
+				dynasty = event_target:god_zeus
+				flag = greek_god_hermes
+				genetic_father = event_target:god_zeus
+				race = event_target:god_zeus
+				historical = yes
+				immortal_age = 20
+				flag = ai_flag_refuse_conversion
+				flag = checked_race
+			}
+			new_character = {
+				dynasty = 1049005
+				set_graphical_culture = greek
+				set_father = event_target:god_zeus
+				save_event_target_as = god_hermes
+				hidden_tooltip = {
+					character_event = { id = MYTH.56 }
+				}
+				
+				# Create Pan.  Sometimes listed as a son of Zeus, Cronos, or Aegipan instead
+				create_character = {
+					age = 600
+					name = "Pan"
+					trait = god
+					trait = hedonist
+					trait = charismatic_negotiator
+					trait = seducer # Yes, two lifestyles.  Busy guy.
+					trait = lustful
+					trait = gluttonous
+					trait = greedy
+					trait = gregarious
+					trait = content
+					female = no
+					employer = e_olympus
+					religion = hellenic_pagan
+					culture = greek
+					dynasty = event_target:god_hermes
+					flag = greek_god_pan
+					genetic_father = event_target:god_hermes
+					race = event_target:god_hermes
+					historical = yes
+					immortal_age = 20
+					flag = ai_flag_refuse_conversion
+					flag = checked_race
+				}
+				new_character = {
+					dynasty = 1049005
+					set_graphical_culture = greek
+					set_father = event_target:god_hermes
+					hidden_tooltip = {
+						character_event = { id = MYTH.56 }
+					}
+				}
+			}
+			# Create Apollo
+			create_character = {
+				age = 700
+				name = "Apollo"
+				trait = charismatic_negotiator
+				trait = god
+				trait = physician
+				trait = mystic
+				trait = poet
+				trait = honest
+				trait = twin
+				trait = diligent
+				trait = patient
+				female = no
+				employer = e_olympus
+				religion = hellenic_pagan
+				culture = greek
+				dynasty = event_target:god_zeus
+				flag = greek_god_apollo
+				genetic_father = event_target:god_zeus
+				race = event_target:god_zeus
+				historical = yes
+				immortal_age = 20
+				flag = ai_flag_refuse_conversion
+				flag = checked_race
+			}
+			new_character = {
+				dynasty = 1049005
+				set_graphical_culture = greek
+				set_father = event_target:god_zeus
+				hidden_tooltip = {
+					character_event = { id = MYTH.56 }
+				}
+			}
+			# Create Artemis
+			create_character = {
+				age = 700
+				name = "Artemis"
+				trait = god
+				trait = chaste
+				trait = hunter
+				trait = twin
+				trait = skilled_tactician
+				trait = fair
+				trait = strong
+				trait = celibate
+				trait = falconer
+				trait = proud
+				trait = envious
+				trait = patient
+				trait = rough_terrain_leader
+				female = yes
+				employer = e_olympus
+				religion = hellenic_pagan
+				culture = greek
+				dynasty = event_target:god_zeus
+				flag = greek_god_artemis
+				genetic_father = event_target:god_zeus
+				race = event_target:god_zeus
+				historical = yes
+				immortal_age = 20
+				flag = ai_flag_refuse_conversion
+				flag = checked_race
+			}
+			new_character = {
+				dynasty = 1049005
+				set_graphical_culture = greek
+				set_father = event_target:god_zeus
+				hidden_tooltip = {
+					character_event = { id = MYTH.56 }
+				}
+			}
+			c_268401 = {
+				death = { death_reason = death_murder killer = event_target:god_zeus }
+			}
+		}
+		event_target:god_rhea = { move_character = event_target:god_zeus }
+		event_target:god_hades = { move_character = event_target:god_zeus }
+		event_target:god_poseidon = { move_character = event_target:god_zeus }
+		event_target:god_hera = { move_character = event_target:god_zeus }
+		event_target:god_aphrodite = { move_character = event_target:god_zeus }
+	}
+}
+
+# MYTH.53 - Create the gods of Asgard
+character_event = {
+	id = MYTH.53
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		NOT = { has_global_flag = asgard_created }
+	}
+	
+	immediate = {
+		set_global_flag = asgard_created
+		# Create Odin
+		create_character = {
+			age = 400
+			name = "Óðinn"
+			trait = god
+			trait = genius
+			trait = brave
+			trait = just
+			trait = patient
+			trait = diligent
+			trait = erudite
+			trait = midas_touched
+			trait = one_eyed
+			female = no
+			employer = e_asgard
+			religion = norse_pagan
+			culture = norse
+			dynasty = 1049006
+			flag = norse_god_odin
+			historical = yes
+			immortal_age = 50
+			flag = ai_flag_refuse_conversion
+			flag = checked_race
+		}
+		new_character = {
+			dynasty = 1049006
+			set_graphical_culture = norse
+			save_event_target_as = god_odin
+			e_asgard = { usurp_title = PREV }
+			set_name = "Óðinn"
+			hidden_tooltip = {
+				character_event = { id = MYTH.56 }
+			}
+		}
+		# Create Thor
+		create_character = {
+			age = 350
+			name = "Þórr"
+			trait = god
+			trait = brave
+			trait = just
+			trait = trusting
+			trait = honest
+			trait = proud
+			trait = zealous
+			trait = strong
+			female = no
+			employer = e_asgard
+			religion = norse_pagan
+			culture = norse
+			dynasty = 1049006
+			flag = norse_god_thor
+			genetic_father = event_target:god_odin
+			historical = yes
+			immortal_age = 30
+			flag = ai_flag_refuse_conversion
+			flag = checked_race
+		}
+		new_character = {
+			dynasty = 1049006
+			set_graphical_culture = norse
+			set_father = event_target:god_odin
+			save_event_target_as = god_thor
+			hidden_tooltip = {
+				character_event = { id = MYTH.56 }
+			}
+		}
+		# Create Loki
+		create_character = {
+			age = 350
+			name = "Loki"
+			trait = god
+			trait = mythos_giant
+			trait = cynical
+			trait = deceitful
+			trait = envious
+			trait = quick
+			trait = schemer
+			trait = elusive_shadow
+			trait = size_10
+			female = no
+			employer = e_asgard
+			religion = norse_pagan # Might convert to Jotun later by event or through his wife
+			culture = norse
+			dynasty = 1049009
+			flag = norse_god_loki
+			historical = yes
+			immortal_age = 20
+			flag = ai_flag_refuse_conversion
+			flag = checked_race
+		}
+		new_character = {
+			dynasty = 1049009
+			set_graphical_culture = norse
+			save_event_target_as = god_loki
+			hidden_tooltip = {
+				character_event = { id = MYTH.56 }
+			}
+		}
+		# Create Sleipnir
+		create_character = {
+			age = 300
+			name = "Sleipnir"
+			trait = demi_god
+			trait = horse
+			trait = immortal
+			trait = tough_soldier
+			trait = half_giant
+			trait = strong
+			trait = content
+			trait = cavalry_leader
+			trait = size_5
+			female = no
+			employer = e_asgard
+			religion = norse_pagan
+			culture = horse
+			dynasty = 1049009
+			genetic_mother = event_target:god_loki
+			historical = yes
+			immortal_age = 20
+			flag = ai_flag_refuse_conversion
+			flag = checked_race
+		}
+		new_character = {
+			dynasty = 1049009
+			set_graphical_culture = horse
+			culture = norse
+			set_mother = event_target:god_loki # Yes, mother
+			hidden_tooltip = {
+				character_event = { id = MYTH.56 }
+			}
+		}
+		# Create Frigg
+		create_character = {
+			age = 400
+			name = "Frigg"
+			trait = god
+			trait = mystic
+			trait = mastermind_theologian
+			trait = shrewd
+			female = yes
+			employer = e_asgard
+			religion = norse_pagan
+			culture = norse
+			dynasty = 1049006
+			flag = norse_god_frigg
+			historical = yes
+			immortal_age = 25
+			flag = ai_flag_refuse_conversion
+			flag = checked_race
+		}
+		new_character = {
+			dynasty = 1049006
+			set_graphical_culture = norse
+			save_event_target_as = god_frigg
+			add_spouse = event_target:god_odin
+			hidden_tooltip = {
+				character_event = { id = MYTH.56 }
+			}
+		}
+		# Create Freyja
+		create_character = {
+			age = 300
+			name = "Freyja"
+			trait = god
+			trait = seductress
+			trait = fair
+			trait = lustful
+			trait = greedy
+			trait = grey_eminence
+			female = yes
+			employer = e_asgard
+			religion = norse_pagan
+			culture = norse
+			dynasty = 1049008
+			flag = norse_god_freyja
+			historical = yes
+			immortal_age = 20
+			flag = ai_flag_refuse_conversion
+			flag = checked_race
+		}
+		new_character = {
+			dynasty = 1049008
+			set_graphical_culture = norse
+			hidden_tooltip = {
+				character_event = { id = MYTH.56 }
+			}
+		}
+		# Create Heimdallr
+		create_character = {
+			age = 440
+			name = "Heimdallr"
+			trait = god
+			trait = midas_touched
+			trait = patient
+			trait = fair
+			trait = diligent
+			trait = humble
+			trait = brave
+			trait = content
+			female = no
+			employer = e_asgard
+			religion = norse_pagan
+			culture = norse
+			dynasty = 1049006
+			flag = norse_god_heimdallr
+			historical = yes
+			immortal_age = 35
+			flag = ai_flag_refuse_conversion
+			flag = checked_race
+		}
+		new_character = {
+			dynasty = 1049006
+			set_graphical_culture = norse
+			hidden_tooltip = {
+				character_event = { id = MYTH.56 }
+			}
+		}
+		# Create Baldr
+		create_character = {
+			age = 300
+			name = "Baldr"
+			trait = god
+			trait = fair
+			trait = quick
+			trait = strong
+			trait = mystic
+			trait = just
+			trait = grey_eminence
+			female = no
+			employer = e_asgard
+			religion = norse_pagan
+			culture = norse
+			dynasty = 1049006
+			flag = norse_god_baldr
+			genetic_father = event_target:god_odin
+			genetic_mother = event_target:god_frigg
+			historical = yes
+			immortal_age = 25
+			flag = ai_flag_refuse_conversion
+			flag = checked_race
+		}
+		new_character = {
+			dynasty = 1049006
+			set_graphical_culture = norse
+			set_father = event_target:god_odin
+			set_mother = event_target:god_frigg
+			save_event_target_as = god_baldr
+			hidden_tooltip = {
+				character_event = { id = MYTH.56 }
+			}
+		}
+		# Create Nanna
+		create_character = {
+			age = 300
+			name = "Nanna"
+			trait = god
+			trait = temperate
+			trait = just
+			random_traits = yes
+			female = yes
+			employer = e_asgard
+			religion = norse_pagan
+			culture = norse
+			flag = norse_god_nonna
+			dynasty = 1049010
+			historical = yes
+			immortal_age = 30
+			flag = ai_flag_refuse_conversion
+			flag = checked_race
+		}
+		new_character = {
+			dynasty = 1049010
+			set_graphical_culture = norse
+			add_spouse = event_target:god_baldr
+			add_lover = event_target:god_baldr
+			hidden_tooltip = {
+				character_event = { id = MYTH.56 }
+			}
+		}
+		# Create Bragi
+		create_character = {
+			age = 300
+			name = "Bragi"
+			trait = god
+			trait = poet
+			trait = grey_eminence
+			trait = socializer
+			trait = half_giant
+			trait = size_5
+			random_traits = yes
+			female = no
+			employer = e_asgard
+			religion = norse_pagan
+			culture = norse
+			dynasty = 1049006
+			flag = norse_god_bragi
+			genetic_father = event_target:god_odin
+			historical = yes
+			immortal_age = 30
+			flag = ai_flag_refuse_conversion
+			flag = checked_race
+		}
+		new_character = {
+			dynasty = 1049006
+			set_graphical_culture = norse
+			set_father = event_target:god_odin
+			hidden_tooltip = {
+				character_event = { id = MYTH.56 }
+			}
+		}
+		# Create Sif
+		create_character = {
+			age = 300
+			name = "Sif"
+			trait = god
+			random_traits = yes
+			female = yes
+			employer = e_asgard
+			religion = norse_pagan
+			culture = norse
+			dynasty = 1049006
+			flag = norse_god_sif
+			historical = yes
+			immortal_age = 25
+			flag = ai_flag_refuse_conversion
+			flag = checked_race
+		}
+		new_character = {
+			dynasty = 1049006
+			set_graphical_culture = norse
+			add_spouse = event_target:god_thor
+			add_lover = event_target:god_thor
+			hidden_tooltip = {
+				character_event = { id = MYTH.56 }
+			}
+		}
+		# Create Tyr
+		create_character = {
+			age = 300
+			name = "Týr"
+			trait = god
+			trait = just
+			trait = brave
+			trait = deceitful
+			trait = brilliant_strategist
+			trait = one_handed # Flagged to not heal via divine regeneration
+			trait = strong
+			trait = temperate
+			trait = diligent
+			trait = kind
+			female = no
+			employer = e_asgard
+			religion = norse_pagan
+			culture = norse
+			genetic_father = event_target:god_odin
+			dynasty = 1049006
+			flag = norse_god_tyr
+			historical = yes
+			immortal_age = 28
+			flag = ai_flag_refuse_conversion
+			flag = checked_race
+		}
+		new_character = {
+			# Debated, but I'm including it
+			set_father = event_target:god_odin
+			set_graphical_culture = norse
+			dynasty = 1049006
+			hidden_tooltip = {
+				character_event = { id = MYTH.56 }
+			}
+		}
+		# Create Angrboða
+		create_character = {
+			age = 100
+			name = "Angrboða"
+			trait = demi_god
+			trait = strong
+			trait = skilled_tactician
+			trait = mythos_giant
+			trait = wroth
+			trait = cruel
+			trait = deceitful
+			trait = size_10
+			female = yes
+			employer = e_asgard
+			religion = jotnar
+			culture = norse
+			dynasty = random
+			historical = yes
+			flag = ai_flag_refuse_conversion
+			flag = checked_race
+		}
+		new_character = {
+			set_graphical_culture = norse
+			add_spouse = event_target:god_loki
+			save_event_target_as = god_angrboda
+			hidden_tooltip = {
+				character_event = { id = MYTH.56 }
+			}
+		}
+		# Create Hel
+		create_character = {
+			age = 80
+			name = "Hel"
+			trait = god
+			trait = mythos_giant
+			trait = intricate_webweaver
+			trait = greedy
+			trait = ambitious
+			trait = envious
+			trait = patient
+			trait = deceitful
+			trait = cynical
+			trait = size_10
+			female = yes
+			employer = e_asgard
+			religion = norse_pagan
+			culture = norse
+			dynasty = 1049009
+			flag = norse_god_hel
+			genetic_father = event_target:god_loki
+			genetic_mother = event_target:god_angrboda
+			historical = yes
+			immortal_age = 35
+			flag = ai_flag_refuse_conversion
+			flag = checked_race
+		}
+		new_character = {
+			dynasty = 1049009
+			set_graphical_culture = norse
+			set_father = event_target:god_loki
+			set_mother = event_target:god_angrboda
+			hidden_tooltip = {
+				character_event = { id = MYTH.56 }
+			}
+		}
+		
+		c_268305 = { death = { death_reason = death_battle killer = event_target:god_odin } }
+	}
+}
+
+# Gain Philosopher's Stone through inheritance
+character_event = {
+	id = MYTH.54
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		FROM = {
+			artifact_type = philosopher_stone
+		}
+	}
+	
+	immediate = {
+		add_trait = philosopher_stone_trait
+	}
+}
+
+# Clear Philosopher's Stone trait
+character_event = {
+	id = MYTH.55
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		if = {
+			limit = { 
+				has_artifact = philosopher_stone
+				NOT = { trait = philosopher_stone_trait }
+			}
+			add_trait = philosopher_stone_trait
+		}
+		else_if = {
+			limit = { 
+				NOT = { has_artifact = philosopher_stone }
+				trait = philosopher_stone_trait
+			}
+			remove_trait = philosopher_stone_trait
+		}
+	}
+}
+
+# Recalculate Virtues count
+character_event = {
+	id = MYTH.56
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		count_personal_virtues = yes
+		count_personal_vices = yes
+		set_variable = { which = virtue_vice_difference which = num_virtues }
+		subtract_variable = { which = virtue_vice_difference which = num_vices }
+		
+		if = {
+			limit = { is_variable_equal = { which = virtue_vice_difference value = 0 } }
+			clear_vice_virtue_modifiers = yes
+		}
+		else_if = {
+			limit = {
+				is_variable_equal = { which = virtue_vice_difference value = 1 }
+			}
+			clear_vice_virtue_modifiers = yes
+			add_character_modifier = { name = virtuous_1 duration = -1 }
+		}
+		else_if = {
+			limit = {
+				is_variable_equal = { which = virtue_vice_difference value = 2 }
+			}
+			clear_vice_virtue_modifiers = yes
+			add_character_modifier = { name = virtuous_2 duration = -1 }
+		}
+		else_if = {
+			limit = {
+				is_variable_equal = { which = virtue_vice_difference value = 3 }
+			}
+			clear_vice_virtue_modifiers = yes
+			add_character_modifier = { name = virtuous_3 duration = -1 }
+		}
+		else_if = {
+			limit = {
+				is_variable_equal = { which = virtue_vice_difference value = 4 }
+			}
+			clear_vice_virtue_modifiers = yes
+			add_character_modifier = { name = virtuous_4 duration = -1 }
+		}
+		else_if = {
+			limit = {
+				is_variable_equal = { which = virtue_vice_difference value = 5 }
+			}
+			clear_vice_virtue_modifiers = yes
+			add_character_modifier = { name = virtuous_5 duration = -1 }
+		}
+		else_if = {
+			limit = {
+				is_variable_equal = { which = virtue_vice_difference value = 6 }
+			}
+			clear_vice_virtue_modifiers = yes
+			add_character_modifier = { name = virtuous_6 duration = -1 }
+		}
+		else_if = {
+			limit = {
+				check_variable = { which = virtue_vice_difference value = 7 }
+			}
+			clear_vice_virtue_modifiers = yes
+			add_character_modifier = { name = virtuous_7 duration = -1 }
+		}
+		else_if = {
+			limit = {
+				is_variable_equal = { which = virtue_vice_difference value = -1 }
+			}
+			clear_vice_virtue_modifiers = yes
+			add_character_modifier = { name = wicked_1 duration = -1 }
+		}
+		else_if = {
+			limit = {
+				is_variable_equal = { which = virtue_vice_difference value = -2 }
+			}
+			clear_vice_virtue_modifiers = yes
+			add_character_modifier = { name = wicked_2 duration = -1 }
+		}
+		else_if = {
+			limit = {
+				is_variable_equal = { which = virtue_vice_difference value = -3 }
+			}
+			clear_vice_virtue_modifiers = yes
+			add_character_modifier = { name = wicked_3 duration = -1 }
+		}
+		else_if = {
+			limit = {
+				is_variable_equal = { which = virtue_vice_difference value = -4 }
+			}
+			clear_vice_virtue_modifiers = yes
+			add_character_modifier = { name = wicked_4 duration = -1 }
+		}
+		else_if = {
+			limit = {
+				is_variable_equal = { which = virtue_vice_difference value = -5 }
+			}
+			clear_vice_virtue_modifiers = yes
+			add_character_modifier = { name = wicked_5 duration = -1 }
+		}
+		else_if = {
+			limit = {
+				is_variable_equal = { which = virtue_vice_difference value = -6 }
+			}
+			clear_vice_virtue_modifiers = yes
+			add_character_modifier = { name = wicked_6 duration = -1 }
+		}
+		else = {
+			clear_vice_virtue_modifiers = yes
+			add_character_modifier = { name = wicked_7 duration = -1 }
+		}
+	}
+}
+
+# MYTH.57 - Revive Roman Paganism - Removed - exists in vanilla
+
+# Either this file or the MYTH namespace is cursed.  Put anything else in MYTHMORE.
+# Don't ask.

@@ -1,0 +1,23 @@
+750.1.1 = {
+	holder = 268441
+}
+943.1.1={
+	holder=268442
+}
+936.1.1 = {
+	holder = 260571
+	liege = d_pomeralia
+}
+1066.1.1=
+{
+	holder=268443 
+	liege = d_pomerania
+}
+1278.2.14=
+{
+holder=268444
+}
+1310.1.1=
+{
+holder=268445 
+}

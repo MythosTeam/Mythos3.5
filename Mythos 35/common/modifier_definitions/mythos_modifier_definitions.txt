@@ -1,0 +1,818 @@
+dragon_cavalry = {
+	show_as_percent = no
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 0
+}
+
+dragon_cavalry_offensive = {
+	show_as_percent = yes
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 2
+}
+
+dragon_cavalry_defensive = {
+	show_as_percent = yes
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 2
+}
+
+dragon_cavalry_morale = {
+	show_as_percent = yes
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 2
+}
+
+lycan_berzerkers = {
+	show_as_percent = no
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 0
+}
+
+lycan_berzerkers_offensive = {
+	show_as_percent = yes
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 2
+}
+
+lycan_berzerkers_defensive = {
+	show_as_percent = yes
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 2
+}
+
+lycan_berzerkers_morale = {
+	show_as_percent = yes
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 2
+}
+
+vampires = {
+	show_as_percent = no
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 0
+}
+
+vampires_offensive = {
+	show_as_percent = yes
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 2
+}
+
+vampires_defensive = {
+	show_as_percent = yes
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 2
+}
+
+vampires_morale = {
+	show_as_percent = yes
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 2
+}
+
+zombie_troops = {
+	show_as_percent = no
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 0
+}
+
+zombie_troops_offensive = {
+	show_as_percent = yes
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 2
+}
+
+zombie_troops_defensive = {
+	show_as_percent = yes
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 2
+}
+
+zombie_troops_morale = {
+	show_as_percent = yes
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 2
+}
+
+einherjar = {
+	show_as_percent = no
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 0
+}
+
+einherjar_offensive = {
+	show_as_percent = yes
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 2
+}
+
+einherjar_defensive = {
+	show_as_percent = yes
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 2
+}
+
+einherjar_morale = {
+	show_as_percent = yes
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 2
+}
+
+angels = {
+	show_as_percent = no
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 0
+}
+
+angels_offensive = {
+	show_as_percent = yes
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 2
+}
+
+angels_defensive = {
+	show_as_percent = yes
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 2
+}
+
+angels_morale = {
+	show_as_percent = yes
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 2
+}
+
+fire_giants = {
+	show_as_percent = no
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 0
+}
+
+fire_giants_offensive = {
+	show_as_percent = yes
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 2
+}
+
+fire_giants_defensive = {
+	show_as_percent = yes
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 2
+}
+
+fire_giants_morale = {
+	show_as_percent = yes
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 2
+}
+
+frost_giants = {
+	show_as_percent = no
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 0
+}
+
+frost_giants_offensive = {
+	show_as_percent = yes
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 2
+}
+
+frost_giants_defensive = {
+	show_as_percent = yes
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 2
+}
+
+frost_giants_morale = {
+	show_as_percent = yes
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 2
+}
+
+demons = {
+	show_as_percent = no
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 0
+}
+
+demons_offensive = {
+	show_as_percent = yes
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 2
+}
+
+demons_defensive = {
+	show_as_percent = yes
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 2
+}
+
+demons_morale = {
+	show_as_percent = yes
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 2
+}
+
+golems = {
+	show_as_percent = no
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 0
+}
+
+golems_offensive = {
+	show_as_percent = yes
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 2
+}
+
+golems_defensive = {
+	show_as_percent = yes
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 2
+}
+
+golems_morale = {
+	show_as_percent = yes
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 2
+}
+
+etherial_soldiers = {
+	show_as_percent = no
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 0
+}
+
+etherial_soldiers_offensive = {
+	show_as_percent = yes
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 2
+}
+
+etherial_soldiers_defensive = {
+	show_as_percent = yes
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 2
+}
+
+etherial_soldiers_morale = {
+	show_as_percent = yes
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 2
+}
+
+draconic_pagan_opinion = {
+	show_as_percent = no
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 0
+}
+
+draconic_pagan_reformed_opinion = {
+	show_as_percent = no
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 0
+}
+
+werewolf_culture_opinion = {
+	show_as_percent = no
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 0
+}
+
+vampire_culture_opinion = {
+	show_as_percent = no
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 0
+}
+
+satanist_opinion = {
+	show_as_percent = no
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 0
+}
+the_damned_opinion = {
+	show_as_percent = no
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 0
+}
+jotnar_opinion = {
+	show_as_percent = no
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 0
+}
+jotnar_reformed_opinion = {
+	show_as_percent = no
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 0
+}
+known_werewolf_opinion = {
+	show_as_percent = no
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 0
+}
+
+bloodline_effect_no_menopause = {
+	show_as_percent = no
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 0
+	show_value = no
+}
+
+bloodline_effect_strategist = {
+	show_as_percent = no
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 0
+	show_value = no
+}
+
+bloodline_effect_better_physicians = {
+	show_as_percent = no
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 0
+	show_value = no
+}
+
+temple_opinion = {
+	show_as_percent = no
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 0
+}
+
+temple_all_opinion = {
+	show_as_percent = no
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 0
+}
+
+vampire_opinion = {
+	show_as_percent = no
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 0
+}
+
+necromancer_opinion = {
+	show_as_percent = no
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 0
+}
+
+alchemist_opinion = {
+	show_as_percent = no
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 0
+}
+
+herbalist_opinion = {
+	show_as_percent = no
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 0
+}
+
+enchanter_opinion = {
+	show_as_percent = no
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 0
+}
+
+summoner_opinion = {
+	show_as_percent = no
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 0
+}
+
+immortal_opinion = {
+	show_as_percent = no
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 0
+}
+
+bloodline_effect_better_herbs = {
+	show_as_percent = no
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 0
+	show_value = no
+}
+
+bloodline_effect_necromancer_study = {
+	show_as_percent = no
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 0
+	show_value = no
+}
+
+bloodline_effect_magic_heritage = {
+	show_as_percent = no
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 0
+	show_value = no
+}
+
+bloodline_effect_magic_education = {
+	show_as_percent = no
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 0
+	show_value = no
+}
+
+bloodline_effect_magic_tower = {
+	show_as_percent = no
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 0
+	show_value = no
+}
+
+magic_heritage_opinion = {
+	show_as_percent = no
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 0
+}
+
+monster_hunter_opinion = {
+	show_as_percent = no
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 0
+}
+
+dragon_opinion = {
+	show_as_percent = no
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 0
+}
+
+bloodline_effect_duel_advantage_monster = {
+	show_as_percent = no
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 0
+	show_value = no
+}
+
+bloodline_effect_gain_monster_hunter = { # Not yet implemented
+	show_as_percent = no
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 0
+	show_value = no
+}
+
+bloodline_effect_duel_advantage_werewolf_vampire = {
+	show_as_percent = no
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 0
+	show_value = no
+}
+
+bloodline_effect_duel_advantage_dragon = {
+	show_as_percent = no
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 0
+	show_value = no
+}
+
+bloodline_effect_better_summons = {
+	show_as_percent = no
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 0
+	show_value = no
+}
+
+bloodline_effect_bank_interest = {
+	show_as_percent = no
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 0
+	show_value = no
+}
+
+kemetic_pagan_opinion = {
+	show_as_percent = no
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 0
+}
+
+kemetic_pagan_reformed_opinion = {
+	show_as_percent = no
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 0
+}
+
+bloodline_inheritance_genetic = {
+	show_as_percent = no
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 0
+	show_value = no
+}
+
+bloodline_inheritance_vampiric = {
+	show_as_percent = no
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 0
+	show_value = no
+}
+
+bloodline_inheritance_high_vampiric = {
+	show_as_percent = no
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 0
+	show_value = no
+}
+
+bloodline_effect_vampiric_support = { # Not yet implemented
+	show_as_percent = no
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 0
+	show_value = no
+}
+
+bloodline_effect_known_sired_vampires = {
+	show_as_percent = no
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 0
+	show_value = no
+}
+
+bloodline_effect_restricted_feeding = {
+	show_as_percent = no
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 0
+	show_value = no
+}
+
+bloodline_effect_weaken_vampire_victim = {
+	show_as_percent = no
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 0
+	show_value = no
+}
+
+greedy_opinion = {
+	show_as_percent = no
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 0
+}
+
+bloodline_effect_known_sired_ugly_vampires = {
+	show_as_percent = no
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 0
+	show_value = no
+}
+
+bloodline_effect_vampire_feed_genetic_bonus = {
+	show_as_percent = no
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 0
+	show_value = no
+}
+
+bloodline_effect_slow_disease_recovery = {
+	show_as_percent = no
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 0
+	show_value = no
+}
+
+bloodline_effect_disease_hunger = {
+	show_as_percent = no
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 0
+	show_value = no
+}
+
+bloodline_effect_no_tainted_blood = {
+	show_as_percent = no
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 0
+	show_value = no
+}
+
+bloodline_effect_feed_on_anyone = {
+	show_as_percent = no
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 0
+	show_value = no
+}
+
+bloodline_effect_attribute_treatment = {
+	show_as_percent = no
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 0
+	show_value = no
+}
+
+bloodline_effect_werewolf_support = { # Not yet implemented
+	show_as_percent = no
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 0
+	show_value = no
+}
+
+bloodline_effect_werewolf_challenge_morale = {
+	show_as_percent = no
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 0
+	show_value = no
+}
+
+bloodline_effect_child_werewolves = {
+	show_as_percent = no
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 0
+	show_value = no
+}

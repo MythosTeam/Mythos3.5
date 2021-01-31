@@ -1,0 +1,315 @@
+namespace = MUMMY
+### Events for Mummies and Ozymandias
+
+# MUMMY.1 - was MYTH.20 - Search Egyptian Tombs
+character_event = {
+	id = MUMMY.1
+	title = EVTNAME_MUMMY.1
+	desc ="EVTDESC_MUMMY.1"
+	picture = GFX_evt_crusaders
+	border = GFX_event_normal_frame_war
+	
+	only_rulers = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		NOT = { has_global_flag = ramesses_reborn }
+		NOT = { culture = egyptian }
+		NOT = { culture = egyptian_arabic }
+		location = { culture = egyptian_arabic }
+	}
+	
+	weight_multiplier = {
+		days = 1
+		modifier = {
+			factor = 1.2
+			OR = {
+				trait = scholar
+				trait = erudite
+			}
+		}
+		modifier = {
+			factor = 0
+			OR = {
+				culture = egyptian
+				culture = egyptian_arabic
+				NOT = { location = { culture = egyptian_arabic } }
+			}
+		}
+	}
+	
+	option = {
+		name ="EVTOPTA_MUMMY.1"
+		wealth = -10
+		custom_tooltip = { text = expedition_sent }
+		hidden_tooltip = {
+			random_list = {
+				50 = {
+					character_event = {
+						id = MUMMY.2
+						days = 40
+					}
+				}
+				50 = {
+					character_event = {
+						id = MUMMY.3
+						days = 30
+					}
+				}
+			}
+		}
+	}	
+	option = {
+		name ="EVTOPTB_MUMMY.1"
+		piety = 10
+	}
+}
+
+# MUMMY.2 - was MYTH.21 - Expedition Lost
+character_event = {
+	id = MUMMY.2
+	title = EVTNAME_MUMMY.2
+	desc ="EVTDESC_MUMMY.2"
+	picture = GFX_evt_crusaders
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	option = {
+		name ="EVTOPTA_MUMMY.2"
+		wealth = -10
+		custom_tooltip = { text = expedition_sent_2 }
+		ai_chance = { factor = 50 }
+		hidden_tooltip = {
+			location = {
+				province_event = {
+					id = MUMMY.4
+					days = 14
+				}
+			}	
+		}
+	}
+	option = {
+		name ="EVTOPTB_MUMMY.2"
+		piety = 10
+		ai_chance = { factor = 50 }
+	}
+}
+
+# MUMMY.3 - was MYTH.22 - Expedition success
+character_event = {
+	id = MUMMY.3
+	title = EVTNAME_MUMMY.3
+	desc ="EVTDESC_MUMMY.3"
+	picture = GFX_evt_crusaders
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	option = {
+		name ="EVTOPTA_MUMMY.3"
+		wealth = 300
+	}		
+}
+
+# MUMMY.4 - was MYTH.23 - Mummy Rising
+province_event = {
+	id = MUMMY.4
+	title = EVTNAME_MUMMY.4
+	desc ="EVTDESC_MUMMY.4"
+	picture = GFX_evt_crusaders
+	border = GFX_event_normal_frame_war
+
+	is_triggered_only = yes
+	
+	immediate = {
+		set_global_flag = ramesses_reborn
+		create_character = {
+			random_traits = no
+			dynasty = 1043002
+			name = "Ramesses"
+			culture = egyptian
+			religion = kemetic_pagan
+			age = 2072
+			attributes = {
+				martial = 8
+				diplomacy = 4
+				stewardship = 5
+				intrigue = 4
+				learning = 6
+			}
+			health = 6
+			fertility = 0.7
+			trait = brilliant_strategist
+			trait = mummy
+			trait = quick
+			trait = proud
+			trait = zealous
+			trait = brave
+			flag = checked_race
+		}
+		
+		new_character = {
+			give_nickname = nick_ozymandias
+			create_bloodline = {
+				type = BL_ramesis
+			}
+			hidden_tooltip = {
+				character_event = { id = MYTH.56 }
+			}
+			create_title = {
+				tier = DUKE
+				landless = yes
+				temporary = yes
+				rebel = yes
+				culture = THIS
+				name = "Mummy Host"
+				holder = THIS
+			}
+			
+			spawn_unit = {
+				province = ROOT
+				home = ROOT
+				owner = THIS
+				leader = THIS
+				match_character = THIS
+				match_mult = 0.6
+				troops = {
+					archers = { 6 6 }
+					light_cavalry = { 3 3 }
+					knights = { 1 1 }
+					light_infantry = { 7 7 }
+					heavy_infantry = { 3 3 }
+				}
+				attrition = 1.0
+			}
+			
+			create_character = {
+				random_traits = yes
+				dynasty = none
+				religion = THIS
+				culture = THIS
+				female = no
+				age = 34
+				attributes = {
+					martial = 7
+				}
+				trait = skilled_tactician
+				trait = mummy
+				flag = checked_race
+			}
+			new_character = {
+				spawn_unit = {
+					province = ROOT
+					home = ROOT
+					owner = PREV
+					leader = THIS
+					match_character = PREV
+					match_mult = 0.6
+					troops = {
+						archers = { 6 6 }
+						light_cavalry = { 3 3 }
+						knights = { 1 1 }
+						light_infantry = { 7 7 }
+						heavy_infantry = { 3 3 }
+					}
+				}
+				hidden_tooltip = {
+					character_event = { id = MYTH.56 }
+				}
+			}
+			
+			create_character = {
+				random_traits = yes
+				dynasty = none
+				religion = THIS
+				culture = THIS
+				female = no
+				age = 23
+				attributes = {
+					martial = 7
+				}
+				trait = skilled_tactician
+				trait = mummy
+				flag = checked_race
+			}
+			new_character = {
+				spawn_unit = {
+					province = ROOT
+					home = ROOT
+					owner = PREV
+					leader = THIS
+					match_character = PREV
+					match_mult = 0.6
+					troops = {
+						archers = { 6 6 }
+						light_cavalry = { 3 3 }
+						knights = { 1 1 }
+						light_infantry = { 7 7 }
+						heavy_infantry = { 3 3 }
+					}
+				}
+				hidden_tooltip = {
+					character_event = { id = MYTH.56 }
+				}
+			}
+			
+			# DoW on the province top liege
+			ROOT = {
+				owner = {
+					top_liege = {
+						reverse_war = {
+							target = PREVPREVPREV
+							casus_belli = invasion
+							thirdparty_title = ROOT # The county...
+							tier = KING # ... but really the de jure kingdom
+						}
+						reverse_opinion = {
+							who = PREVPREVPREV
+							modifier = opinion_evil_tyrant
+						}
+					}
+				}
+			}
+		}
+		
+		owner = {
+			any_liege = { # Inform the lieges
+				character_event = {
+					id = TOG.1041
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = "EVTOPTA_MUMMY.4"
+	}
+}
+
+# MUMMY.5 - was MYTH.24 - Ramesis Reborn
+character_event = {
+	id = "MUMMY.5"
+	title = EVTNAME_MUMMY.5
+	desc ="EVTDESC_MUMMY.5"
+	picture = GFX_evt_crusaders
+	border = GFX_event_normal_frame_war
+	
+	only_rulers = yes
+	is_triggered_only = yes
+	min_age = 1000
+	
+	trigger = {
+		trait = mummy 
+		has_landed_title = k_egypt
+		#age = 1000
+		NOT = {
+			has_nickname = nick_ozymandias
+		}
+	}
+	
+	option = {
+		name ="EVTOPTA_MUMMY.5"
+		give_nickname = nick_ozymandias
+	}
+}

@@ -1,0 +1,40 @@
+##########################################################
+##########################2.1.6###########################
+##########################################################
+
+##########
+# Vampires
+##########
+-
+
+#########
+# Dragons
+#########
+- Various tweaks to the dragons in Malta. 
+- Custom localization for dragonlaw rulers.
+
+############
+# Werewolves
+############
+- 
+
+########
+# Giants
+########
+- 
+
+#######
+# Other
+#######
+- Mystic character added in Bulgaria.
+- Design document written. Progress should go faster.
+
+##########
+# Database
+##########
+- New trait, "Heldragon", used for the dragons in malta.
+
+##########
+# Bugfixes
+##########
+- Event was missing a option

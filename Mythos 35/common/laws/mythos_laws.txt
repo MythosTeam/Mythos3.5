@@ -1,0 +1,1461 @@
+law_groups = {
+	werewolf_law = {
+		law_type = realm
+	}
+	werewolf_wait_law = {
+		law_type = realm
+	}
+}
+
+de_jure_laws = {
+	zombie_law = {
+		show_as_title = no
+		group = crown_authority
+		
+		allow = {
+			owner = { has_landed_title = e_zombie }
+		}
+		potential = {
+			owner = { trait = zombie }
+		}
+		revoke_allowed = {
+			always = no
+		}			
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				NOT = {
+					OR = {
+						AND = {
+							has_law = centralization_0
+							over_vassal_limit = -16
+							over_max_demesne_size = 4
+						}
+						AND = {
+							has_law = centralization_1
+							over_vassal_limit = -11
+							over_max_demesne_size = 3
+						}
+						AND = {
+							has_law = centralization_2
+							over_vassal_limit = -6
+							over_max_demesne_size = 2
+						}
+						AND = {
+							has_law = centralization_3
+							over_vassal_limit = -1
+							over_max_demesne_size = 1
+						}					
+					}
+				}
+			}
+		}
+		ai_will_revoke = {
+			factor = 0
+		}
+		effect = {
+			hidden_tooltip = {
+				revoke_law = centralization_0
+				revoke_law = centralization_1
+				revoke_law = centralization_2
+				revoke_law = centralization_3
+				revoke_law = centralization_4
+			}
+#			set_appoint_generals = yes
+#			set_appoint_regents = yes
+			set_the_kings_peace = yes
+			set_the_kings_full_peace = yes
+			set_protected_inheritance = yes
+			set_allow_title_revokation = yes
+#			set_allow_free_infidel_revokation = yes
+			set_allow_free_revokation = yes
+		}
+		
+		vassal_limit = 100
+		demesne_size = 100
+	}
+}
+
+laws = {
+	
+	# WEREWOLF CHALLENGE LAWS
+	#########################
+	
+	werewolf_law_0 = {
+		# Allows all challenges
+		group = werewolf_law
+		default = yes
+		
+		potential = {
+			holder_scope = {
+				culture = werewolf_culture
+				independent = yes
+				OR = {
+					is_feudal = yes
+					is_tribal = yes
+				}
+			}
+		}
+		allow = {
+			OR ={
+				has_law = werewolf_law_2
+				NOR = {
+					has_law = werewolf_law_0
+					has_law = werewolf_law_1
+					has_law = werewolf_law_2
+					has_law = werewolf_law_3
+					has_law = werewolf_law_4
+				}
+			}
+			conditional_tooltip = {
+				trigger = {
+					holder_scope = {
+						NOT = {
+							higher_tier_than = COUNT
+						}
+					}
+				}
+				holder_scope = {
+					higher_tier_than = COUNT
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 0.01
+			modifier = {
+				factor = 2
+				holder_scope = { trait = brave }
+			}
+			modifier = {
+				factor = 2
+				holder_scope = { trait = strong }
+			}
+			modifier = {
+				factor = 0.2
+				holder_scope = { NOT = { prestige = 0 } }
+			}
+		}
+		pass_effect = {
+			
+		}
+		effect = {
+			if = {
+				limit = {
+					has_law = werewolf_law_1
+				}
+				custom_tooltip = {
+					text = TOOLTIP_ALLOW_CHALLENGE_INFAMOUS
+				}
+			}
+			if = {
+				limit = {
+					has_law = werewolf_law_2
+				}
+				custom_tooltip = {
+					text = TOOLTIP_ALLOW_CHALLENGE_INFAMOUS
+				}
+				custom_tooltip = {
+					text = TOOLTIP_ALLOW_CHALLENGE_CHILD
+				}
+				custom_tooltip = {
+					text = TOOLTIP_SHORT_REIGN_5
+				}
+			}
+			if = {
+				limit = {
+					has_law = werewolf_law_3
+				}
+				custom_tooltip = {
+					text = TOOLTIP_ALLOW_CHALLENGE_INFAMOUS
+				}
+				custom_tooltip = {
+					text = TOOLTIP_ALLOW_CHALLENGE_CHILD
+				}
+				custom_tooltip = {
+					text = TOOLTIP_ALLOW_CHALLENGE_DEFORMED
+				}
+				custom_tooltip = {
+					text = TOOLTIP_SHORT_REIGN_5
+				}
+			}
+			if = {
+				limit = {
+					has_law = werewolf_law_4
+				}
+				custom_tooltip = {
+					text = TOOLTIP_ALLOW_CHALLENGE_INFAMOUS
+				}
+				custom_tooltip = {
+					text = TOOLTIP_ALLOW_CHALLENGE_CHILD
+				}
+				custom_tooltip = {
+					text = TOOLTIP_ALLOW_CHALLENGE_DEFORMED
+				}
+				custom_tooltip = {
+					text = TOOLTIP_ALLOW_CHALLENGE_WEAK
+				}
+				custom_tooltip = {
+					text = TOOLTIP_SHORT_REIGN_5
+				}
+			}
+			hidden_tooltip = {
+				revoke_law = werewolf_law_1
+				revoke_law = werewolf_law_2
+				revoke_law = werewolf_law_3
+				revoke_law = werewolf_law_4
+			}
+		}
+	}
+	werewolf_law_1 = {
+		# Disallows Infamy-based challenges
+		group = werewolf_law
+		feudal_opinion = -5
+		tribal_opinion = -5
+		
+		potential = {
+			holder_scope = {
+				culture = werewolf_culture
+				independent = yes
+				OR = {
+					is_feudal = yes
+					is_tribal = yes
+				}
+			}
+		}
+		allow = {
+			OR = {
+				AND = {
+					has_law = werewolf_law_0
+					holder_scope = { prestige = 0 }
+				}
+				has_law = werewolf_law_2
+			}
+			conditional_tooltip = {
+				trigger = {
+					holder_scope = {
+						NOT = {
+							higher_tier_than = COUNT
+						}
+					}
+				}
+				holder_scope = {
+					higher_tier_than = COUNT
+				}
+			}
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0.01
+			modifier = {
+				factor = 2
+				has_law = werewolf_law_2
+				holder_scope = { trait = brave }
+			}
+			modifier = {
+				factor = 2
+				has_law = werewolf_law_2
+				holder_scope = { trait = strong }
+			}
+			modifier = {
+				factor = 0.2
+				has_law = werewolf_law_2
+				holder_scope = { NOT = { age = 16 } }
+			}
+			modifier = {
+				factor = 4
+				has_law = werewolf_law_0
+				current_heir = { NOT = { prestige = 0 } }
+			}
+			modifier = {
+				factor = 2
+				has_law = werewolf_law_0
+				current_heir = { NOT = { prestige = -100 } }
+			}
+			modifier = {
+				factor = 2
+				has_law = werewolf_law_0
+				current_heir = { NOT = { prestige = -300 } }
+			}
+		}
+		ai_will_revoke = {
+			factor = 0
+		}
+		pass_effect = {
+			
+		}
+		effect = {
+			if = {
+				limit = {
+					has_law = werewolf_law_0
+				}
+				custom_tooltip = {
+					text = TOOLTIP_DISALLOW_CHALLENGE_INFAMOUS
+				}
+			}
+			if = {
+				limit = {
+					has_law = werewolf_law_2
+				}
+				custom_tooltip = {
+					text = TOOLTIP_ALLOW_CHALLENGE_CHILD
+				}
+				custom_tooltip = {
+					text = TOOLTIP_SHORT_REIGN_5
+				}
+			}
+			if = {
+				limit = {
+					has_law = werewolf_law_3
+				}
+				custom_tooltip = {
+					text = TOOLTIP_ALLOW_CHALLENGE_CHILD
+				}
+				custom_tooltip = {
+					text = TOOLTIP_ALLOW_CHALLENGE_DEFORMED
+				}
+				custom_tooltip = {
+					text = TOOLTIP_SHORT_REIGN_5
+				}
+			}
+			if = {
+				limit = {
+					has_law = werewolf_law_4
+				}
+				custom_tooltip = {
+					text = TOOLTIP_ALLOW_CHALLENGE_CHILD
+				}
+				custom_tooltip = {
+					text = TOOLTIP_ALLOW_CHALLENGE_DEFORMED
+				}
+				custom_tooltip = {
+					text = TOOLTIP_ALLOW_CHALLENGE_WEAK
+				}
+				custom_tooltip = {
+					text = TOOLTIP_SHORT_REIGN_5
+				}
+			}
+			hidden_tooltip = {
+				revoke_law = werewolf_law_0
+				revoke_law = werewolf_law_2
+				revoke_law = werewolf_law_3
+				revoke_law = werewolf_law_4
+			}
+		}
+	}
+	werewolf_law_2 = {
+		# Disallows Challenges against. Reduces short reign challenges to 4 years
+		group = werewolf_law
+		feudal_opinion = -10
+		tribal_opinion = -10
+		
+		potential = {
+			holder_scope = {
+				culture = werewolf_culture
+				independent = yes
+				OR = {
+					is_feudal = yes
+					is_tribal = yes
+				}
+			}
+		}
+		allow = {
+			OR = {
+				AND = {
+					has_law = werewolf_law_1
+					holder_scope = { age = 16 }
+				}
+				has_law = werewolf_law_3
+			}
+			conditional_tooltip = {
+				trigger = {
+					holder_scope = {
+						NOT = {
+							higher_tier_than = COUNT
+						}
+					}
+				}
+				holder_scope = {
+					higher_tier_than = COUNT
+				}
+			}
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0.01
+			modifier = {
+				factor = 2
+				has_law = werewolf_law_3
+				holder_scope = { trait = brave }
+			}
+			modifier = {
+				factor = 2
+				has_law = werewolf_law_3
+				holder_scope = { trait = strong }
+			}
+			modifier = {
+				factor = 0.2
+				has_law = werewolf_law_3
+				holder_scope = { OR = { trait = clubfooted trait = quailfooted } }
+			}
+			modifier = {
+				factor = 0.2
+				has_law = werewolf_law_3
+				holder_scope = { OR = { trait = harelip trait = cleft_lip } }
+			}
+			modifier = {
+				factor = 0.2
+				has_law = werewolf_law_3
+				holder_scope = { OR = { trait = hunchback trait = twisted } }
+			}
+			modifier = {
+				factor = 0.2
+				has_law = werewolf_law_3
+				holder_scope = { trait = dwarf }
+			}
+			modifier = {
+				factor = 0.2
+				has_law = werewolf_law_3
+				holder_scope = { trait = inbred }
+			}
+			modifier = {
+				factor = 4
+				has_law = werewolf_law_1
+				current_heir = { NOT = { age = 16 } }
+			}
+		}
+		ai_will_revoke = {
+			factor = 0
+		}
+		pass_effect = {
+			
+		}
+		effect = {
+			if = {
+				limit = {
+					has_law = werewolf_law_0
+				}
+				custom_tooltip = {
+					text = TOOLTIP_DISALLOW_CHALLENGE_INFAMOUS
+				}
+				custom_tooltip = {
+					text = TOOLTIP_DISALLOW_CHALLENGE_CHILD
+				}
+				custom_tooltip = {
+					text = TOOLTIP_SHORT_REIGN_4
+				}
+			}
+			if = {
+				limit = {
+					has_law = werewolf_law_1
+				}
+				custom_tooltip = {
+					text = TOOLTIP_DISALLOW_CHALLENGE_CHILD
+				}
+				custom_tooltip = {
+					text = TOOLTIP_SHORT_REIGN_4
+				}
+			}
+			if = {
+				limit = {
+					has_law = werewolf_law_3
+				}
+				custom_tooltip = {
+					text = TOOLTIP_ALLOW_CHALLENGE_DEFORMED
+				}
+				custom_tooltip = {
+					text = TOOLTIP_SHORT_REIGN_4
+				}
+			}
+			if = {
+				limit = {
+					has_law = werewolf_law_4
+				}
+				custom_tooltip = {
+					text = TOOLTIP_ALLOW_CHALLENGE_DEFORMED
+				}
+				custom_tooltip = {
+					text = TOOLTIP_ALLOW_CHALLENGE_WEAK
+				}
+				custom_tooltip = {
+					text = TOOLTIP_SHORT_REIGN_4
+				}
+			}
+			hidden_tooltip = {
+				revoke_law = werewolf_law_0
+				revoke_law = werewolf_law_1
+				revoke_law = werewolf_law_3
+				revoke_law = werewolf_law_4
+			}
+		}
+	}
+	werewolf_law_3 = {
+		# Disallows challenges based off negative genetic traits
+		group = werewolf_law
+		feudal_opinion = -15
+		tribal_opinion = -15
+		
+		potential = {
+			holder_scope = {
+				culture = werewolf_culture
+				independent = yes
+				OR = {
+					is_feudal = yes
+					is_tribal = yes
+				}
+			}
+		}
+		allow = {
+			OR = {
+				AND = {
+					has_law = werewolf_law_2
+					holder_scope = {
+						NOR = {
+							trait = clubfooted
+							trait = quailfooted
+							trait = harelip
+							trait = cleft_lip
+							trait = hunchback
+							trait = twisted
+							trait = dwarf
+							trait = inbred
+						}
+					}
+				}
+				has_law = werewolf_law_4
+			}
+			conditional_tooltip = {
+				trigger = {
+					holder_scope = {
+						NOT = {
+							higher_tier_than = COUNT
+						}
+					}
+				}
+				holder_scope = {
+					higher_tier_than = COUNT
+				}
+			}
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0.01
+			modifier = {
+				factor = 2
+				has_law = werewolf_law_4
+				holder_scope = { trait = brave }
+			}
+			modifier = {
+				factor = 2
+				has_law = werewolf_law_4
+				holder_scope = { trait = strong }
+			}
+			modifier = {
+				factor = 0.2
+				has_law = werewolf_law_4
+				holder_scope = { trait = weak }
+			}
+			modifier = {
+				factor = 0.2
+				has_law = werewolf_law_4
+				holder_scope = { trait = feeble }
+			}
+			modifier = {
+				factor = 4
+				has_law = werewolf_law_3
+				current_heir = { OR = { trait = clubfooted trait = quailfooted } }
+			}
+			modifier = {
+				factor = 4
+				has_law = werewolf_law_3
+				current_heir = { OR = { trait = harelip trait = cleft_lip } }
+			}
+			modifier = {
+				factor = 4
+				has_law = werewolf_law_3
+				current_heir = { OR = { trait = hunchback trait = twisted } }
+			}
+			modifier = {
+				factor = 4
+				has_law = werewolf_law_3
+				current_heir = { trait = dwarf }
+			}
+			modifier = {
+				factor = 4
+				has_law = werewolf_law_3
+				current_heir = { trait = inbred }
+			}
+		}
+		ai_will_revoke = {
+			factor = 0
+		}
+		pass_effect = {
+			
+		}
+		effect = {
+			if = {
+				limit = {
+					has_law = werewolf_law_0
+				}
+				custom_tooltip = {
+					text = TOOLTIP_DISALLOW_CHALLENGE_INFAMOUS
+				}
+				custom_tooltip = {
+					text = TOOLTIP_DISALLOW_CHALLENGE_CHILD
+				}
+				custom_tooltip = {
+					text = TOOLTIP_DISALLOW_CHALLENGE_DEFORMED
+				}
+				custom_tooltip = {
+					text = TOOLTIP_SHORT_REIGN_4
+				}
+			}
+			if = {
+				limit = {
+					has_law = werewolf_law_1
+				}
+				custom_tooltip = {
+					text = TOOLTIP_DISALLOW_CHALLENGE_CHILD
+				}
+				custom_tooltip = {
+					text = TOOLTIP_DISALLOW_CHALLENGE_DEFORMED
+				}
+				custom_tooltip = {
+					text = TOOLTIP_SHORT_REIGN_4
+				}
+			}
+			if = {
+				limit = {
+					has_law = werewolf_law_2
+				}
+				custom_tooltip = {
+					text = TOOLTIP_DISALLOW_CHALLENGE_DEFORMED
+				}
+				custom_tooltip = {
+					text = TOOLTIP_SHORT_REIGN_4
+				}
+			}
+			if = {
+				limit = {
+					has_law = werewolf_law_4
+				}
+				custom_tooltip = {
+					text = TOOLTIP_ALLOW_CHALLENGE_WEAK
+				}
+				custom_tooltip = {
+					text = TOOLTIP_SHORT_REIGN_4
+				}
+			}
+			hidden_tooltip = {
+				revoke_law = werewolf_law_0
+				revoke_law = werewolf_law_1
+				revoke_law = werewolf_law_2
+				revoke_law = werewolf_law_4
+			}
+		}
+	}
+	werewolf_law_4 = {
+		# Disallows challenges physical weakness and reduces short reign challenges to 3 years
+		group = werewolf_law
+		feudal_opinion = -20
+		tribal_opinion = -20
+		
+		potential = {
+			holder_scope = {
+				culture = werewolf_culture
+				independent = yes
+				OR = {
+					is_feudal = yes
+					is_tribal = yes
+				}
+			}
+		}
+		allow = {
+			has_law = werewolf_law_3
+			holder_scope = {
+				NOR = {
+					trait = weak
+					trait = feeble
+				}
+			}
+			conditional_tooltip = {
+				trigger = {
+					holder_scope = {
+						NOT = {
+							higher_tier_than = COUNT
+						}
+					}
+				}
+				holder_scope = {
+					higher_tier_than = COUNT
+				}
+			}
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0.01
+			modifier = {
+				factor = 4
+				has_law = werewolf_law_3
+				current_heir = { trait = weak }
+			}
+			modifier = {
+				factor = 4
+				has_law = werewolf_law_3
+				current_heir = { trait = feeble }
+			}
+		}
+		ai_will_revoke = {
+			factor = 0
+		}
+		pass_effect = {
+			
+		}
+		effect = {
+			if = {
+				limit = {
+					has_law = werewolf_law_0
+				}
+				custom_tooltip = {
+					text = TOOLTIP_DISALLOW_CHALLENGE_INFAMOUS
+				}
+				custom_tooltip = {
+					text = TOOLTIP_DISALLOW_CHALLENGE_CHILD
+				}
+				custom_tooltip = {
+					text = TOOLTIP_DISALLOW_CHALLENGE_DEFORMED
+				}
+				custom_tooltip = {
+					text = TOOLTIP_DISALLOW_CHALLENGE_WEAK
+				}
+				custom_tooltip = {
+					text = TOOLTIP_SHORT_REIGN_3
+				}
+			}
+			if = {
+				limit = {
+					has_law = werewolf_law_1
+				}
+				custom_tooltip = {
+					text = TOOLTIP_DISALLOW_CHALLENGE_CHILD
+				}
+				custom_tooltip = {
+					text = TOOLTIP_DISALLOW_CHALLENGE_DEFORMED
+				}
+				custom_tooltip = {
+					text = TOOLTIP_DISALLOW_CHALLENGE_WEAK
+				}
+				custom_tooltip = {
+					text = TOOLTIP_SHORT_REIGN_3
+				}
+			}
+			if = {
+				limit = {
+					has_law = werewolf_law_2
+				}
+				custom_tooltip = {
+					text = TOOLTIP_DISALLOW_CHALLENGE_DEFORMED
+				}
+				custom_tooltip = {
+					text = TOOLTIP_DISALLOW_CHALLENGE_WEAK
+				}
+				custom_tooltip = {
+					text = TOOLTIP_SHORT_REIGN_3
+				}
+			}
+			if = {
+				limit = {
+					has_law = werewolf_law_3
+				}
+				custom_tooltip = {
+					text = TOOLTIP_DISALLOW_CHALLENGE_WEAK
+				}
+				custom_tooltip = {
+					text = TOOLTIP_SHORT_REIGN_3
+				}
+			}
+			hidden_tooltip = {
+				revoke_law = werewolf_law_0
+				revoke_law = werewolf_law_1
+				revoke_law = werewolf_law_2
+				revoke_law = werewolf_law_3
+			}
+		}
+	}
+	
+	# WEREWOLF CHALLENGE TIME RESTRICTIONS
+	######################################
+	
+	werewolf_wait_law_0 = {
+		# Can only challenge once per lifetime.
+		# Being challenged does not prevent other challenges
+		group = werewolf_wait_law
+		
+		potential = {
+			holder_scope = {
+				culture = werewolf_culture
+				independent = yes
+				OR = {
+					is_feudal = yes
+					is_tribal = yes
+				}
+			}
+		}
+		allow = {
+			NOR = {
+				has_law = werewolf_wait_law_2
+				has_law = werewolf_wait_law_3
+				has_law = werewolf_wait_law_4
+			}
+			conditional_tooltip = {
+				trigger = {
+					holder_scope = {
+						NOT = {
+							higher_tier_than = COUNT
+						}
+					}
+				}
+				holder_scope = {
+					higher_tier_than = COUNT
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 0.01
+			modifier = {
+				factor = 0 # Don't bother changing this law without vassals
+				holder_scope = {
+					NOT = {
+						any_vassal = {
+							higher_tier_than = BARON
+							count = 1
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 1.5
+				holder_scope = {
+					NOT = {
+						any_vassal = {
+							higher_tier_than = BARON
+							count = 30
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 1.5
+				holder_scope = {
+					NOT = {
+						any_vassal = {
+							higher_tier_than = BARON
+							count = 20
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 1.5
+				holder_scope = {
+					NOT = {
+						any_vassal = {
+							higher_tier_than = BARON
+							count = 10
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 1.5
+				holder_scope = {
+					NOT = {
+						any_vassal = {
+							higher_tier_than = BARON
+							count = 5
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 0.2
+				independent = no
+			}
+		}
+		ai_will_revoke = {
+			factor = 0
+		}
+		pass_effect = {
+			
+		}
+		effect = {
+			if = {
+				limit = {
+					NOT = { has_law = werewolf_wait_law_0 }
+				}
+				custom_tooltip = {
+					text = TOOLTIP_CHALLENGE_WAIT_LIFE
+				}
+				custom_tooltip = {
+					text = TOOLTIP_PROTECTION_NONE
+				}
+			}
+			hidden_tooltip = {
+				revoke_law = werewolf_wait_law_1
+				revoke_law = werewolf_wait_law_2
+				revoke_law = werewolf_wait_law_3
+				revoke_law = werewolf_wait_law_4
+			}
+		}
+	}
+	werewolf_wait_law_1 = {
+		# A given character can only issue a challenge every 10 years
+		# Being challenged prevents all challenges for 3 months
+		group = werewolf_wait_law
+		
+		potential = {
+			holder_scope = {
+				culture = werewolf_culture
+				independent = yes
+				OR = {
+					is_feudal = yes
+					is_tribal = yes
+				}
+			}
+		}
+		allow = {
+			NOR = {
+				has_law = werewolf_wait_law_3
+				has_law = werewolf_wait_law_4
+			}
+			conditional_tooltip = {
+				trigger = {
+					holder_scope = {
+						NOT = {
+							higher_tier_than = COUNT
+						}
+					}
+				}
+				holder_scope = {
+					higher_tier_than = COUNT
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 0.01
+			modifier = {
+				factor = 0 # Don't bother changing this law without vassals
+				holder_scope = {
+					NOT = {
+						any_vassal = {
+							higher_tier_than = BARON
+							count = 1
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 1.5
+				has_law = werewolf_wait_law_2
+				holder_scope = {
+					NOT = {
+						any_vassal = {
+							higher_tier_than = BARON
+							count = 15
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 1.5
+				has_law = werewolf_wait_law_2
+				holder_scope = {
+					NOT = {
+						any_vassal = {
+							higher_tier_than = BARON
+							count = 10
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 1.5
+				has_law = werewolf_wait_law_2
+				holder_scope = {
+					NOT = {
+						any_vassal = {
+							higher_tier_than = BARON
+							count = 5
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 1.5
+				has_law = werewolf_wait_law_2
+				holder_scope = {
+					NOT = {
+						any_vassal = {
+							higher_tier_than = BARON
+							count = 3
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 0.2
+				has_law = werewolf_wait_law_2
+				independent = no
+			}
+			modifier = {
+				factor = 1.5
+				has_law = werewolf_wait_law_0
+				holder_scope = {
+					any_vassal = {
+						higher_tier_than = BARON
+						count = 50
+					}
+				}
+			}
+			modifier = {
+				factor = 1.5
+				has_law = werewolf_wait_law_0
+				holder_scope = {
+					any_vassal = {
+						higher_tier_than = BARON
+						count = 60
+					}
+				}
+			}
+		}
+		pass_effect = {
+			
+		}
+		effect = {
+			if = {
+				limit = {
+					NOT = { has_law = werewolf_wait_law_1 }
+				}
+				custom_tooltip = {
+					text = TOOLTIP_CHALLENGE_WAIT_10
+				}
+				custom_tooltip = {
+					text = TOOLTIP_PROTECTION_3_MONTH
+				}
+			}
+			hidden_tooltip = {
+				revoke_law = werewolf_wait_law_0
+				revoke_law = werewolf_wait_law_2
+				revoke_law = werewolf_wait_law_3
+				revoke_law = werewolf_wait_law_4
+			}
+		}
+	}
+	werewolf_wait_law_2 = {
+		# A given character can only issue a challenge every 5 years
+		# Being challenged blocks other challenges for 6 months
+		group = werewolf_wait_law
+		default = yes
+		
+		potential = {
+			holder_scope = {
+				culture = werewolf_culture
+				independent = yes
+				OR = {
+					is_feudal = yes
+					is_tribal = yes
+				}
+			}
+		}
+		allow = {
+			OR = {
+				has_law = werewolf_wait_law_1
+				has_law = werewolf_wait_law_3
+				NOR = {
+					has_law = werewolf_wait_law_0
+					has_law = werewolf_wait_law_1
+					has_law = werewolf_wait_law_2
+					has_law = werewolf_wait_law_3
+					has_law = werewolf_wait_law_4
+				}
+			}
+			conditional_tooltip = {
+				trigger = {
+					holder_scope = {
+						NOT = {
+							higher_tier_than = COUNT
+						}
+					}
+				}
+				holder_scope = {
+					higher_tier_than = COUNT
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 0.01
+			#modifier = {
+			#	factor = 0 # Don't bother changing this law without vassals
+			#	NOT = {
+			#		any_vassal = {
+			#			higher_tier_than = BARON
+			#			count = 1
+			#		}
+			#	}
+			#}
+			modifier = {
+				factor = 1.5
+				has_law = werewolf_wait_law_3
+				holder_scope = {
+					NOT = {
+						any_vassal = {
+							higher_tier_than = BARON
+							count = 7
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 1.5
+				has_law = werewolf_wait_law_3
+				holder_scope = {
+					NOT = {
+						any_vassal = {
+							higher_tier_than = BARON
+							count = 5
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 1.5
+				has_law = werewolf_wait_law_3
+				holder_scope = {
+					NOT = {
+						any_vassal = {
+							higher_tier_than = BARON
+							count = 4
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 1.5
+				has_law = werewolf_wait_law_3
+				holder_scope = {
+					NOT = {
+						any_vassal = {
+							higher_tier_than = BARON
+							count = 3
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 1.5
+				has_law = werewolf_wait_law_1
+				holder_scope = {
+					any_vassal = {
+						higher_tier_than = BARON
+						count = 20
+					}
+				}
+			}
+			modifier = {
+				factor = 1.5
+				has_law = werewolf_wait_law_1
+				holder_scope = {
+					any_vassal = {
+						higher_tier_than = BARON
+						count = 25
+					}
+				}
+			}
+			modifier = {
+				factor = 1.5
+				has_law = werewolf_wait_law_1
+				holder_scope = {
+					any_vassal = {
+						higher_tier_than = BARON
+						count = 30
+					}
+				}
+			}
+		}
+		pass_effect = {
+			
+		}
+		effect = {
+			if = {
+				limit = {
+					NOT = { has_law = werewolf_wait_law_2 }
+				}
+				custom_tooltip = {
+					text = TOOLTIP_CHALLENGE_WAIT_5
+				}
+				custom_tooltip = {
+					text = TOOLTIP_PROTECTION_6_MONTH
+				}
+			}
+			hidden_tooltip = {
+				revoke_law = werewolf_wait_law_0
+				revoke_law = werewolf_wait_law_1
+				revoke_law = werewolf_wait_law_3
+				revoke_law = werewolf_wait_law_4
+			}
+		}
+	}
+	werewolf_wait_law_3 = {
+		# A given character can only challenge every 3 years
+		# Being challenged blocks all challenges for 9 months
+		group = werewolf_wait_law
+		
+		potential = {
+			holder_scope = {
+				culture = werewolf_culture
+				independent = yes
+				OR = {
+					is_feudal = yes
+					is_tribal = yes
+				}
+			}
+		}
+		allow = {
+			NOR = {
+				has_law = werewolf_wait_law_0
+				has_law = werewolf_wait_law_1
+			}
+			conditional_tooltip = {
+				trigger = {
+					holder_scope = {
+						NOT = {
+							higher_tier_than = COUNT
+						}
+					}
+				}
+				holder_scope = {
+					higher_tier_than = COUNT
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 0.01
+			modifier = {
+				factor = 0 # Don't bother changing this law without vassals
+				holder_scope = {
+					NOT = {
+						any_vassal = {
+							higher_tier_than = BARON
+							count = 1
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 1.5
+				has_law = werewolf_wait_law_4
+				holder_scope = {
+					NOT = {
+						any_vassal = {
+							higher_tier_than = BARON
+							count = 3
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 1.5
+				has_law = werewolf_wait_law_4
+				holder_scope = {
+					NOT = {
+						any_vassal = {
+							higher_tier_than = BARON
+							count = 2
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 1.5
+				has_law = werewolf_wait_law_4
+				holder_scope = {
+					NOT = {
+						any_vassal = {
+							higher_tier_than = BARON
+							count = 1
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 1.5
+				independent = yes
+			}
+			modifier = {
+				factor = 1.5
+				has_law = werewolf_wait_law_2
+				holder_scope = {
+					any_vassal = {
+						higher_tier_than = BARON
+						count = 8
+					}
+				}
+			}
+			modifier = {
+				factor = 1.5
+				has_law = werewolf_wait_law_2
+				holder_scope = {
+					any_vassal = {
+						higher_tier_than = BARON
+						count = 10
+					}
+				}
+			}
+			modifier = {
+				factor = 1.5
+				has_law = werewolf_wait_law_2
+				holder_scope = {
+					any_vassal = {
+						higher_tier_than = BARON
+						count = 15
+					}
+				}
+			}
+		}
+		pass_effect = {
+			
+		}
+		effect = {
+			if = {
+				limit = {
+					NOT = { has_law = werewolf_wait_law_3 }
+				}
+				custom_tooltip = {
+					text = TOOLTIP_CHALLENGE_WAIT_3
+				}
+				custom_tooltip = {
+					text = TOOLTIP_PROTECTION_9_MONTH
+				}
+			}
+			hidden_tooltip = {
+				revoke_law = werewolf_wait_law_0
+				revoke_law = werewolf_wait_law_1
+				revoke_law = werewolf_wait_law_2
+				revoke_law = werewolf_wait_law_4
+			}
+		}
+	}
+	werewolf_wait_law_4 = {
+		# A given character has no limit on issuing challenges
+		# Being challenged blocks all challenges for 1 year
+		group = werewolf_wait_law
+		
+		potential = {
+			holder_scope = {
+				culture = werewolf_culture
+				independent = yes
+				OR = {
+					is_feudal = yes
+					is_tribal = yes
+				}
+			}
+		}
+		allow = {
+			NOR = {
+				has_law = werewolf_wait_law_0
+				has_law = werewolf_wait_law_1
+				has_law = werewolf_wait_law_2
+			}
+			conditional_tooltip = {
+				trigger = {
+					holder_scope = {
+						NOT = {
+							higher_tier_than = COUNT
+						}
+					}
+				}
+				holder_scope = {
+					higher_tier_than = COUNT
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 0.01
+			modifier = {
+				factor = 0 # Don't bother changing this law without vassals
+				holder_scope = {
+					NOT = {
+						any_vassal = {
+							higher_tier_than = BARON
+							count = 1
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 1.5
+				independent = yes
+			}
+			modifier = {
+				factor = 1.5
+				has_law = werewolf_wait_law_3
+				holder_scope = {
+					any_vassal = {
+						higher_tier_than = BARON
+						count = 4
+					}
+				}
+			}
+			modifier = {
+				factor = 1.5
+				has_law = werewolf_wait_law_2
+				holder_scope = {
+					any_vassal = {
+						higher_tier_than = BARON
+						count = 8
+					}
+				}
+			}
+			modifier = {
+				factor = 1.5
+				has_law = werewolf_wait_law_2
+				holder_scope = {
+					any_vassal = {
+						higher_tier_than = BARON
+						count = 12
+					}
+				}
+			}
+		}
+		pass_effect = {
+			
+		}
+		effect = {
+			if = {
+				limit = {
+					NOT = { has_law = werewolf_wait_law_4 }
+				}
+				custom_tooltip = {
+					text = TOOLTIP_CHALLENGE_WAIT_NONE
+				}
+				custom_tooltip = {
+					text = TOOLTIP_PROTECTION_YEAR
+				}
+			}
+			hidden_tooltip = {
+				revoke_law = werewolf_wait_law_0
+				revoke_law = werewolf_wait_law_1
+				revoke_law = werewolf_wait_law_2
+				revoke_law = werewolf_wait_law_3
+			}
+		}
+	}
+}

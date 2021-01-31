@@ -1,0 +1,38 @@
+secrecy = {
+	name = "RULE_DISCOVERY"
+	group = "RULE_GROUP_MYTHOS"
+	option = {
+		name = default
+		text = "RULE_DISCOVERY_DEFAULT"
+		desc = "RULE_DISCOVERY_DEFAULT_DESC"
+	}
+	option = {
+		name = more
+		text = "RULE_DISCOVERY_MORE"
+		desc = "RULE_DISCOVERY_MORE_DESC"
+	}
+	option = {
+		name = fewer
+		text = "RULE_DISCOVERY_FEWER"
+		desc = "RULE_DISCOVERY_FEWER_DESC"
+	}
+}
+breeding = {
+	name = "RULE_BREEDING"
+	group = "RULE_GROUP_MYTHOS"
+	option = {
+		name = default
+		text = "RULE_BREEDING_DEFAULT"
+		desc = "RULE_BREEDING_DEFAULT_DESC"
+	}
+	option = {
+		name = strong
+		text = "RULE_BREEDING_MORE"
+		desc = "RULE_BREEDING_MORE_DESC"
+	}
+	option = {
+		name = weak
+		text = "RULE_BREEDING_FEWER"
+		desc = "RULE_BREEDING_FEWER_DESC"
+	}
+}

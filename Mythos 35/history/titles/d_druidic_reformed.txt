@@ -1,0 +1,6 @@
+1.1.1 = {
+	law = cognatic_succession
+	law = succ_open_elective
+	holder = 0
+	active = no
+}

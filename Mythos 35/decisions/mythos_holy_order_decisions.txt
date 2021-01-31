@@ -1,0 +1,1790 @@
+# Holy Order Decisions
+
+decisions = {
+	
+	borrow_money_golden_order = {
+		only_playable = yes
+		ai_check_interval = 120
+		potential = {
+			is_playable = yes
+			is_nomadic = no
+			OR = {
+				religion = draconic_pagan
+				religion = draconic_pagan_reformed
+			}
+			is_heretic = no
+			is_title_active = d_golden_order
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					higher_tier_than = COUNT
+					independent = yes
+				}
+			}
+			NOT = { has_character_modifier = borrowed_from_golden_order }
+			NOT = { has_character_modifier = expelled_d_golden_order }
+			NOT = { government = order_government }
+			
+			has_dlc = "Sons of Abraham"
+			
+			d_golden_order = {
+				holder_scope = {
+					liege = {
+						NOT = { character = ROOT }
+					}
+				}
+			}
+		}
+		
+		allow = {
+			d_golden_order = {
+				holder_scope = {
+					wealth = 300
+					ROOT = {
+						NOT = { excommunicated_for = PREV }
+					}
+				}
+			}
+			piety = 100
+		}
+		
+		effect = {
+			add_character_modifier = {
+				name = borrowed_from_golden_order
+				duration = -1
+				inherit = yes
+			}
+			
+			hidden_tooltip = {
+				d_golden_order = {
+					holder_scope = {
+						character_event = {
+							id = MythosHolyOrders.1
+						}
+					}
+				}
+			}
+			
+			wealth = 300
+			piety = -100
+		}
+		
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				wealth = 0
+			}
+			modifier = {
+				factor = 5
+				trait = greedy
+			}
+			modifier = {
+				factor = 3
+				ai_greed = 20
+			}
+			modifier = {
+				factor = 0.01 # Slow it down
+			}
+		}
+	}
+	
+	expel_the_golden_order = {
+		only_independent = yes
+		ai = no
+		potential = {
+			OR = {
+				religion = draconic_pagan
+				religion = draconic_pagan_reformed
+			}
+			is_heretic = no
+			higher_tier_than = DUKE
+			independent = yes
+			is_title_active = d_golden_order
+			NOT = { has_character_modifier = expelled_d_golden_order }
+			
+			any_realm_province = {
+				any_province_lord = {
+					d_golden_order = {
+						holder_scope = {
+							OR = {
+								character = PREVPREV
+								is_vassal_or_below = PREVPREV
+							}
+						}
+					}
+				}
+			}
+			
+			has_dlc = "Sons of Abraham"
+		}
+		
+		allow = {
+			piety = 1000
+			custom_tooltip = {
+				text = expelling_holy_order_decision_tooltip_b
+				hidden_tooltip = {
+					NOT = { has_character_flag = expel_the_golden_order_check }
+				}
+			}
+		}
+		
+		effect = {
+			set_character_flag = expel_the_golden_order_check
+			custom_tooltip = {
+				text = expelling_holy_order_decision_tooltip_b
+				hidden_tooltip = {
+					character_event = { id = MythosHolyOrders.2 }
+				}
+			}
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	borrow_money_army_baal = {
+		only_playable = yes
+		ai_check_interval = 120
+		potential = {
+			is_playable = yes
+			is_nomadic = no
+			religion = satanist
+			is_heretic = no
+			is_title_active = d_army_baal
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					higher_tier_than = COUNT
+					independent = yes
+				}
+			}
+			NOT = { has_character_modifier = borrowed_from_army_of_baal }
+			NOT = { has_character_modifier = expelled_d_army_baal }
+			NOT = { government = order_government }
+			
+			has_dlc = "Sons of Abraham"
+			
+			d_army_baal = {
+				holder_scope = {
+					liege = {
+						NOT = { character = ROOT }
+					}
+				}
+			}
+		}
+		
+		allow = {
+			d_army_baal = {
+				holder_scope = {
+					wealth = 300
+					ROOT = {
+						NOT = { excommunicated_for = PREV }
+					}
+				}
+			}
+			piety = 100
+		}
+		
+		effect = {
+			add_character_modifier = {
+				name = borrowed_from_army_of_baal
+				duration = -1
+				inherit = yes
+			}
+			
+			hidden_tooltip = {
+				d_army_baal = {
+					holder_scope = {
+						character_event = {
+							id = MythosHolyOrders.3
+						}
+					}
+				}
+			}
+			
+			wealth = 300
+			piety = -100
+		}
+		
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				wealth = 0
+			}
+			modifier = {
+				factor = 0.01 # Slow it down
+			}
+		}
+	}
+	
+	expel_the_army_of_baal = {
+		only_independent = yes
+		ai = no
+		potential = {
+			religion = satanist
+			is_heretic = no
+			higher_tier_than = DUKE
+			independent = yes
+			is_title_active = d_army_baal
+			NOT = { has_character_modifier = expelled_d_army_baal }
+			
+			any_realm_province = {
+				any_province_lord = {
+					d_army_baal = {
+						holder_scope = {
+							OR = {
+								character = PREVPREV
+								is_vassal_or_below = PREVPREV
+							}
+						}
+					}
+				}
+			}
+			
+			has_dlc = "Sons of Abraham"
+		}
+		
+		allow = {
+			piety = 1000
+			custom_tooltip = {
+				text = expelling_holy_order_decision_tooltip_b
+				hidden_tooltip = {
+					NOT = { has_character_flag = expel_the_army_of_baal_check }
+				}
+			}
+		}
+		
+		effect = {
+			set_character_flag = expel_the_army_of_baal_check
+			custom_tooltip = {
+				text = expelling_holy_order_decision_tooltip_b
+				hidden_tooltip = {
+					character_event = { id = MythosHolyOrders.2 }
+				}
+			}
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	borrow_money_y_ddraig_goch = {
+		only_playable = yes
+		ai_check_interval = 120
+		potential = {
+			is_playable = yes
+			is_nomadic = no
+			OR = {
+				religion = druidic_reformed
+				religion = druidic
+			}
+			is_heretic = no
+			is_title_active = d_ddraig_goch
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					higher_tier_than = COUNT
+					independent = yes
+				}
+			}
+			NOT = { has_character_modifier = borrowed_from_y_ddraig_goch }
+			NOT = { has_character_modifier = expelled_d_ddraig_goch }
+			NOT = { government = order_government }
+			
+			has_dlc = "Sons of Abraham"
+			
+			d_ddraig_goch = {
+				holder_scope = {
+					liege = {
+						NOT = { character = ROOT }
+					}
+				}
+			}
+		}
+		
+		allow = {
+			d_ddraig_goch = {
+				holder_scope = {
+					wealth = 300
+					ROOT = {
+						NOT = { excommunicated_for = PREV }
+					}
+				}
+			}
+			piety = 100
+		}
+		
+		effect = {
+			add_character_modifier = {
+				name = borrowed_from_y_ddraig_goch
+				duration = -1
+				inherit = yes
+			}
+			
+			hidden_tooltip = {
+				d_ddraig_goch = {
+					holder_scope = {
+						character_event = {
+							id = MythosHolyOrders.4
+						}
+					}
+				}
+			}
+			
+			wealth = 300
+			piety = -100
+		}
+		
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				wealth = 0
+			}
+			modifier = {
+				factor = 0.01 # Slow it down
+			}
+		}
+	}
+	
+	expel_y_ddraig_goch = {
+		only_independent = yes
+		ai = no
+		potential = {
+			OR = {
+				religion = druidic_reformed
+				religion = druidic
+			}
+			is_heretic = no
+			higher_tier_than = DUKE
+			independent = yes
+			is_title_active = d_ddraig_goch
+			NOT = { has_character_modifier = expelled_d_ddraig_goch }
+			
+			any_realm_province = {
+				any_province_lord = {
+					d_ddraig_goch = {
+						holder_scope = {
+							OR = {
+								character = PREVPREV
+								is_vassal_or_below = PREVPREV
+							}
+						}
+					}
+				}
+			}
+			
+			has_dlc = "Sons of Abraham"
+		}
+		
+		allow = {
+			piety = 1000
+			custom_tooltip = {
+				text = expelling_holy_order_decision_tooltip_b
+				hidden_tooltip = {
+					NOT = { has_character_flag = expel_y_ddraig_goch_check }
+				}
+			}
+		}
+		
+		effect = {
+			set_character_flag = expel_y_ddraig_goch_check
+			custom_tooltip = {
+				text = expelling_holy_order_decision_tooltip_b
+				hidden_tooltip = {
+					character_event = { id = MythosHolyOrders.2 }
+				}
+			}
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	borrow_money_soldiers_horus = {
+		only_playable = yes
+		ai_check_interval = 120
+		potential = {
+			is_playable = yes
+			is_nomadic = no
+			OR = {
+				religion = atenist
+				religion = kemetic_pagan
+			}
+			is_heretic = no
+			is_title_active = d_soldiers_horus
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					higher_tier_than = COUNT
+					independent = yes
+				}
+			}
+			NOT = { has_character_modifier = borrowed_from_soldiers_of_horus }
+			NOT = { has_character_modifier = expelled_d_soldiers_horus }
+			NOT = { government = order_government }
+			
+			has_dlc = "Sons of Abraham"
+			
+			d_soldiers_horus = {
+				holder_scope = {
+					liege = {
+						NOT = { character = ROOT }
+					}
+				}
+			}
+		}
+		
+		allow = {
+			d_soldiers_horus = {
+				holder_scope = {
+					wealth = 300
+					ROOT = {
+						NOT = { excommunicated_for = PREV }
+					}
+				}
+			}
+			piety = 100
+		}
+		
+		effect = {
+			add_character_modifier = {
+				name = borrowed_from_soldiers_of_horus
+				duration = -1
+				inherit = yes
+			}
+			
+			hidden_tooltip = {
+				d_soldiers_horus = {
+					holder_scope = {
+						character_event = {
+							id = MythosHolyOrders.5
+						}
+					}
+				}
+			}
+			
+			wealth = 300
+			piety = -100
+		}
+		
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				wealth = 0
+			}
+			modifier = {
+				factor = 0.01 # Slow it down
+			}
+		}
+	}
+	
+	expel_soldiers_horus = {
+		only_independent = yes
+		potential = {
+			ai = no
+			OR = {
+				religion = atenist
+				religion = kemetic_pagan
+			}
+			is_heretic = no
+			higher_tier_than = DUKE
+			independent = yes
+			is_title_active = d_soldiers_horus
+			NOT = { has_character_modifier = expelled_d_soldiers_horus }
+			
+			any_realm_province = {
+				any_province_lord = {
+					d_soldiers_horus = {
+						holder_scope = {
+							OR = {
+								character = PREVPREV
+								is_vassal_or_below = PREVPREV
+							}
+						}
+					}
+				}
+			}
+			
+			has_dlc = "Sons of Abraham"
+		}
+		
+		allow = {
+			piety = 1000
+			custom_tooltip = {
+				text = expelling_holy_order_decision_tooltip_b
+				hidden_tooltip = {
+					NOT = { has_character_flag = expel_soldiers_horus_check }
+				}
+			}
+		}
+		
+		effect = {
+			set_character_flag = expel_soldiers_horus_check
+			custom_tooltip = {
+				text = expelling_holy_order_decision_tooltip_b
+				hidden_tooltip = {
+					character_event = { id = MythosHolyOrders.2 }
+				}
+			}
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	borrow_money_servants_anubis = {
+		only_playable = yes
+		ai_check_interval = 120
+		potential = {
+			is_playable = yes
+			is_nomadic = no
+			OR = {
+				religion = atenist
+				religion = kemetic_pagan
+			}
+			is_heretic = no
+			is_title_active = d_servants_anubis
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					higher_tier_than = COUNT
+					independent = yes
+				}
+			}
+			NOT = { has_character_modifier = borrowed_from_servants_of_anubis }
+			NOT = { has_character_modifier = expelled_d_servants_anubis }
+			NOT = { government = order_government }
+			
+			has_dlc = "Sons of Abraham"
+			
+			d_servants_anubis = {
+				holder_scope = {
+					liege = {
+						NOT = { character = ROOT }
+					}
+				}
+			}
+		}
+		
+		allow = {
+			d_servants_anubis = {
+				holder_scope = {
+					wealth = 300
+					ROOT = {
+						NOT = { excommunicated_for = PREV }
+					}
+				}
+			}
+			piety = 100
+		}
+		
+		effect = {
+			add_character_modifier = {
+				name = borrowed_from_servants_of_anubis
+				duration = -1
+				inherit = yes
+			}
+			
+			hidden_tooltip = {
+				d_servants_anubis = {
+					holder_scope = {
+						character_event = {
+							id = MythosHolyOrders.6
+						}
+					}
+				}
+			}
+			
+			wealth = 300
+			piety = -100
+		}
+		
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				wealth = 0
+			}
+			modifier = {
+				factor = 0.01 # Slow it down
+			}
+		}
+	}
+	
+	expel_servants_anubis = {
+		only_independent = yes
+		potential = {
+			ai = no
+			OR = {
+				religion = atenist
+				religion = kemetic_pagan
+			}
+			is_heretic = no
+			higher_tier_than = DUKE
+			independent = yes
+			is_title_active = d_servants_anubis
+			NOT = { has_character_modifier = expelled_d_servants_anubis }
+			
+			any_realm_province = {
+				any_province_lord = {
+					d_servants_anubis = {
+						holder_scope = {
+							OR = {
+								character = PREVPREV
+								is_vassal_or_below = PREVPREV
+							}
+						}
+					}
+				}
+			}
+			
+			has_dlc = "Sons of Abraham"
+		}
+		
+		allow = {
+			piety = 1000
+			custom_tooltip = {
+				text = expelling_holy_order_decision_tooltip_b
+				hidden_tooltip = {
+					NOT = { has_character_flag = expel_servants_anubis_check }
+				}
+			}
+		}
+		
+		effect = {
+			set_character_flag = expel_servants_anubis_check
+			custom_tooltip = {
+				text = expelling_holy_order_decision_tooltip_b
+				hidden_tooltip = {
+					character_event = { id = MythosHolyOrders.2 }
+				}
+			}
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	borrow_money_ares_phananx = {
+		only_playable = yes
+		ai_check_interval = 120
+		potential = {
+			is_playable = yes
+			is_nomadic = no
+			religion = hellenic_pagan
+			is_heretic = no
+			is_title_active = d_ares_phalanx
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					higher_tier_than = COUNT
+					independent = yes
+				}
+			}
+			NOT = { has_character_modifier = borrowed_from_ares_phalanx }
+			NOT = { has_character_modifier = expelled_d_ares_phalanx}
+			NOT = { government = order_government }
+			
+			has_dlc = "Sons of Abraham"
+			
+			d_ares_phalanx = {
+				holder_scope = {
+					liege = {
+						NOT = { character = ROOT }
+					}
+				}
+			}
+		}
+		
+		allow = {
+			d_ares_phalanx = {
+				holder_scope = {
+					wealth = 300
+					ROOT = {
+						NOT = { excommunicated_for = PREV }
+					}
+				}
+			}
+			piety = 100
+		}
+		
+		effect = {
+			add_character_modifier = {
+				name = borrowed_from_ares_phalanx
+				duration = -1
+				inherit = yes
+			}
+			
+			hidden_tooltip = {
+				d_ares_phalanx = {
+					holder_scope = {
+						character_event = {
+							id = MythosHolyOrders.7
+						}
+					}
+				}
+			}
+			
+			wealth = 300
+			piety = -100
+		}
+		
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				wealth = 0
+			}
+			modifier = {
+				factor = 0.01 # Slow it down
+			}
+		}
+	}
+	
+	expel_ares_phalanx = {
+		only_independent = yes
+		potential = {
+			ai = no
+			religion = hellenic_pagan
+			is_heretic = no
+			higher_tier_than = DUKE
+			independent = yes
+			is_title_active = d_ares_phalanx
+			NOT = { has_character_modifier = expelled_d_ares_phalanx }
+			
+			any_realm_province = {
+				any_province_lord = {
+					d_ares_phalanx = {
+						holder_scope = {
+							OR = {
+								character = PREVPREV
+								is_vassal_or_below = PREVPREV
+							}
+						}
+					}
+				}
+			}
+			
+			has_dlc = "Sons of Abraham"
+		}
+		
+		allow = {
+			piety = 1000
+			custom_tooltip = {
+				text = expelling_holy_order_decision_tooltip_b
+				hidden_tooltip = {
+					NOT = { has_character_flag = expel_ares_phalanx_check }
+				}
+			}
+		}
+		
+		effect = {
+			set_character_flag = expel_ares_phalanx_check
+			custom_tooltip = {
+				text = expelling_holy_order_decision_tooltip_b
+				hidden_tooltip = {
+					character_event = { id = MythosHolyOrders.2 }
+				}
+			}
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	#borrow_money_sons_mars = {
+	#	only_playable = yes
+	#	ai_check_interval = 120
+	#	potential = {
+	#		is_playable = yes
+	#		is_nomadic = no
+	#		religion = roman_pagan
+	#		is_heretic = no
+	#		is_title_active = d_sons_mars
+	#		OR = {
+	#			ai = no
+	#			AND = {
+	#				ai = yes
+	#				higher_tier_than = COUNT
+	#				independent = yes
+	#			}
+	#		}
+	#		NOT = { has_character_modifier = borrowed_from_sons_of_mars }
+	#		NOT = { has_character_modifier = expelled_d_sons_mars }
+	#		NOT = { government = order_government }
+	#		
+	#		has_dlc = "Sons of Abraham"
+	#		
+	#		d_sons_mars = {
+	#			holder_scope = {
+	#				liege = {
+	#					NOT = { character = ROOT }
+	#				}
+	#			}
+	#		}
+	#	}
+	#	
+	#	allow = {
+	#		d_sons_mars = {
+	#			holder_scope = {
+	#				wealth = 300
+	#				ROOT = {
+	#					NOT = { excommunicated_for = PREV }
+	#				}
+	#			}
+	#		}
+	#		piety = 100
+	#	}
+	#	
+	#	effect = {
+	#		add_character_modifier = {
+	#			name = borrowed_from_sons_of_mars
+	#			duration = -1
+	#			inherit = yes
+	#		}
+	#		
+	#		hidden_tooltip = {
+	#			d_sons_mars = {
+	#				holder_scope = {
+	#					character_event = {
+	#						id = MythosHolyOrders.8
+	#					}
+	#				}
+	#			}
+	#		}
+	#		
+	#		wealth = 300
+	#		piety = -100
+	#	}
+	#	
+	#	ai_will_do = {
+	#		factor = 1
+	#		modifier = {
+	#			factor = 0
+	#			wealth = 0
+	#		}
+	#		modifier = {
+	#			factor = 0.01 # Slow it down
+	#		}
+	#	}
+	#}
+	#
+	#expel_sons_mars = {
+	#	only_independent = yes
+	#	potential = {
+	#		ai = no
+	#		religion = roman_pagan
+	#		is_heretic = no
+	#		higher_tier_than = DUKE
+	#		independent = yes
+	#		is_title_active = d_sons_mars
+	#		NOT = { has_character_modifier = expelled_d_sons_mars }
+	#		
+	#		any_realm_province = {
+	#			any_province_lord = {
+	#				d_sons_mars = {
+	#					holder_scope = {
+	#						OR = {
+	#							character = PREVPREV
+	#							is_vassal_or_below = PREVPREV
+	#						}
+	#					}
+	#				}
+	#			}
+	#		}
+	#		
+	#		has_dlc = "Sons of Abraham"
+	#	}
+	#	
+	#	allow = {
+	#		piety = 1000
+	#		custom_tooltip = {
+	#			text = expelling_holy_order_decision_tooltip_b
+	#			hidden_tooltip = {
+	#				NOT = { has_character_flag = expel_sons_mars_check }
+	#			}
+	#		}
+	#	}
+	#	
+	#	effect = {
+	#		set_character_flag = expel_sons_mars_check
+	#		custom_tooltip = {
+	#			text = expelling_holy_order_decision_tooltip_b
+	#			hidden_tooltip = {
+	#				character_event = { id = MythosHolyOrders.2 }
+	#			}
+	#		}
+	#	}
+	#	
+	#	ai_will_do = {
+	#		factor = 0
+	#	}
+	#}
+	
+	borrow_money_vigrithr = {
+		only_playable = yes
+		ai_check_interval = 120
+		potential = {
+			is_playable = yes
+			is_nomadic = no
+			OR = {
+				religion = jotnar
+				religion = jotnar_reformed
+			}
+			is_heretic = no
+			is_title_active = d_champion_vigrithr
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					higher_tier_than = COUNT
+					independent = yes
+				}
+			}
+			NOT = { has_character_modifier = borrowed_from_champions_of_vigrithr }
+			NOT = { has_character_modifier = expelled_d_champion_vigrithr }
+			NOT = { government = order_government }
+			
+			has_dlc = "Sons of Abraham"
+			
+			d_champion_vigrithr = {
+				holder_scope = {
+					liege = {
+						NOT = { character = ROOT }
+					}
+				}
+			}
+		}
+		
+		allow = {
+			d_champion_vigrithr = {
+				holder_scope = {
+					wealth = 300
+					ROOT = {
+						NOT = { excommunicated_for = PREV }
+					}
+				}
+			}
+			piety = 100
+		}
+		
+		effect = {
+			add_character_modifier = {
+				name = borrowed_from_champions_of_vigrithr
+				duration = -1
+				inherit = yes
+			}
+			
+			hidden_tooltip = {
+				d_champion_vigrithr = {
+					holder_scope = {
+						character_event = {
+							id = MythosHolyOrders.9
+						}
+					}
+				}
+			}
+			
+			wealth = 300
+			piety = -100
+		}
+		
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				wealth = 0
+			}
+			modifier = {
+				factor = 0.01 # Slow it down
+			}
+		}
+	}
+	
+	expel_vigrithr = {
+		only_independent = yes
+		potential = {
+			ai = no
+			OR = {
+				religion = jotnar
+				religion = jotnar_reformed
+			}
+			is_heretic = no
+			higher_tier_than = DUKE
+			independent = yes
+			is_title_active = d_champion_vigrithr
+			NOT = { has_character_modifier = expelled_d_champion_vigrithr }
+			
+			any_realm_province = {
+				any_province_lord = {
+					d_champion_vigrithr = {
+						holder_scope = {
+							OR = {
+								character = PREVPREV
+								is_vassal_or_below = PREVPREV
+							}
+						}
+					}
+				}
+			}
+			
+			has_dlc = "Sons of Abraham"
+		}
+		
+		allow = {
+			piety = 1000
+			custom_tooltip = {
+				text = expelling_holy_order_decision_tooltip_b
+				hidden_tooltip = {
+					NOT = { has_character_flag = expel_vigrithr_check }
+				}
+			}
+		}
+		
+		effect = {
+			set_character_flag = expel_vigrithr_check
+			custom_tooltip = {
+				text = expelling_holy_order_decision_tooltip_b
+				hidden_tooltip = {
+					character_event = { id = MythosHolyOrders.2 }
+				}
+			}
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	vassalize_golden_order = {
+		only_playable = yes
+		is_high_prio = yes
+		ai_check_interval = 60
+		
+		potential = {
+			is_playable = yes
+			
+			OR = {
+				religion = draconic_pagan
+				religion = draconic_pagan_reformed
+			}
+			is_heretic = no
+			
+			NOT = { has_character_modifier = expelled_d_golden_order }
+
+			NOT = {
+				d_golden_order = {
+					owner = {
+						has_opinion_modifier = {
+							who = ROOT
+							modifier = opinion_unfit_ruler
+						}
+					}
+				}
+			}
+			
+			is_title_active = d_golden_order
+			
+			has_landed_title = k_denmark
+			
+			has_dlc = "Sons of Abraham"
+			
+			d_golden_order = {
+				holder_scope = {
+					NOT = { has_truce = ROOT }
+					ROOT = { NOT = { has_truce = PREV } }
+					liege = {
+						NOT = { character = ROOT }
+					}
+					NOT = { num_of_count_titles = 3 }
+					independent = yes
+					primary_title = { title = d_golden_order }
+				}
+			}
+
+			NOT = {
+				has_alternate_start_parameter = { key = religion_names value = random }
+			}
+		}
+		
+		allow = {
+			wealth = 750
+			is_heretic = no
+			independent = yes
+			NOT = {
+				trait = excommunicated
+			}
+			custom_tooltip = {
+				text = only_one_vassalized_holy_order_TT
+
+				NOT = {
+					any_realm_lord = {
+						holy_order = yes
+					}
+				}
+			}
+		}
+		
+		effect = {
+			wealth = -750
+			
+			hidden_tooltip = {
+				d_golden_order = {
+					holder_scope = {
+						wealth = 750
+						character_event = {
+							id = MythosHolyOrders.27
+						}
+					}
+				}
+			}
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	vassalize_army_baal = {
+		only_playable = yes
+		is_high_prio = yes
+		ai_check_interval = 60
+		
+		potential = {
+			is_playable = yes
+			
+			religion = satanist
+			is_heretic = no
+			
+			NOT = { has_character_modifier = expelled_d_army_baal }
+
+			NOT = {
+				d_army_baal = {
+					owner = {
+						has_opinion_modifier = {
+							who = ROOT
+							modifier = opinion_unfit_ruler
+						}
+					}
+				}
+			}
+			
+			is_title_active = d_army_baal
+			
+			has_landed_title = k_hungary
+			
+			has_dlc = "Sons of Abraham"
+			
+			NOT = {
+				has_alternate_start_parameter = { key = religion_names value = random }
+			}
+			
+			d_army_baal = {
+				holder_scope = {
+					NOT = { has_truce = ROOT }
+					ROOT = { NOT = { has_truce = PREV } }
+					liege = {
+						NOT = { character = ROOT }
+					}
+					NOT = { num_of_count_titles = 3 }
+					independent = yes
+					primary_title = { title = d_army_baal }
+				}
+			}
+		}
+		
+		allow = {
+			wealth = 500
+			is_heretic = no
+			independent = yes
+			NOT = {
+				trait = excommunicated
+			}
+
+			custom_tooltip = {
+				text = only_one_vassalized_holy_order_TT
+
+				NOT = {
+					any_realm_lord = {
+						holy_order = yes
+					}
+				}
+			}
+		}
+		
+		effect = {
+			wealth = -500
+			
+			hidden_tooltip = {
+				d_army_baal = {
+					holder_scope = {
+						wealth = 500
+						character_event = {
+							id = MythosHolyOrders.45
+						}
+					}
+				}
+			}
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	vassalize_ddraig_goch = {
+		only_playable = yes
+		is_high_prio = yes
+		ai_check_interval = 60
+		
+		potential = {
+			is_playable = yes
+			
+			OR = {
+				religion = druidic
+				religion = druidic_reformed
+			}
+			is_heretic = no
+			
+			NOT = { has_character_modifier = expelled_d_ddraig_goch }
+
+			NOT = {
+				d_ddraig_goch = {
+					owner = {
+						has_opinion_modifier = {
+							who = ROOT
+							modifier = opinion_unfit_ruler
+						}
+					}
+				}
+			}
+			
+			is_title_active = d_ddraig_goch
+			
+			has_landed_title = k_wales
+			
+			has_dlc = "Sons of Abraham"
+			
+			NOT = {
+				has_alternate_start_parameter = { key = religion_names value = random }
+			}
+			
+			d_ddraig_goch = {
+				holder_scope = {
+					NOT = { has_truce = ROOT }
+					ROOT = { NOT = { has_truce = PREV } }
+					liege = {
+						NOT = { character = ROOT }
+					}
+					NOT = { num_of_count_titles = 3 }
+					independent = yes
+					primary_title = { title = d_ddraig_goch }
+				}
+			}
+		}
+		
+		allow = {
+			wealth = 500
+			is_heretic = no
+			independent = yes
+			NOT = {
+				trait = excommunicated
+			}
+
+			custom_tooltip = {
+				text = only_one_vassalized_holy_order_TT
+
+				NOT = {
+					any_realm_lord = {
+						holy_order = yes
+					}
+				}
+			}
+		}
+		
+		effect = {
+			wealth = -500
+			
+			hidden_tooltip = {
+				d_ddraig_goch = {
+					holder_scope = {
+						wealth = 500
+						character_event = {
+							id = MythosHolyOrders.63
+						}
+					}
+				}
+			}
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	vassalize_soldiers_horus = {
+		only_playable = yes
+		is_high_prio = yes
+		ai_check_interval = 60
+		
+		potential = {
+			is_playable = yes
+			
+			OR = {
+				religion = kemetic_pagan
+				religion = atenist
+			}
+			is_heretic = no
+			
+			NOT = { has_character_modifier = expelled_d_soldiers_horus }
+
+			NOT = {
+				d_soldiers_horus = {
+					owner = {
+						has_opinion_modifier = {
+							who = ROOT
+							modifier = opinion_unfit_ruler
+						}
+					}
+				}
+			}
+			
+			is_title_active = d_soldiers_horus
+			
+			has_landed_title = k_egypt
+			
+			has_dlc = "Sons of Abraham"
+			
+			NOT = {
+				has_alternate_start_parameter = { key = religion_names value = random }
+			}
+			
+			d_soldiers_horus = {
+				holder_scope = {
+					NOT = { has_truce = ROOT }
+					ROOT = { NOT = { has_truce = PREV } }
+					liege = {
+						NOT = { character = ROOT }
+					}
+					NOT = { num_of_count_titles = 3 }
+					independent = yes
+					primary_title = { title = d_soldiers_horus }
+				}
+			}
+		}
+		
+		allow = {
+			wealth = 500
+			is_heretic = no
+			independent = yes
+
+			NOT = {
+				trait = excommunicated
+			}
+
+			custom_tooltip = {
+				text = only_one_vassalized_holy_order_TT
+
+				NOT = {
+					any_realm_lord = {
+						holy_order = yes
+					}
+				}
+			}
+		}
+		
+		effect = {
+			wealth = -500
+			
+			hidden_tooltip = {
+				d_soldiers_horus = {
+					holder_scope = {
+						wealth = 500
+						character_event = {
+							id = MythosHolyOrders.81
+						}
+					}
+				}
+			}
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	vassalize_servants_anubis = {
+		only_playable = yes
+		is_high_prio = yes
+		
+		potential = {
+			is_playable = yes
+			
+			OR = {
+				religion = kemetic_pagan
+				religion = atenist
+			}
+			is_heretic = no
+			
+			NOT = { has_character_modifier = expelled_d_servants_anubis }
+
+			NOT = {
+				d_servants_anubis = {
+					owner = {
+						has_opinion_modifier = {
+							who = ROOT
+							modifier = opinion_unfit_ruler
+						}
+					}
+				}
+			}
+			
+			is_title_active = d_servants_anubis
+			
+			has_landed_title = k_nubia
+			
+			has_dlc = "Sons of Abraham"
+			
+			NOT = {
+				has_alternate_start_parameter = { key = religion_names value = random }
+			}
+			
+			d_servants_anubis = {
+				holder_scope = {
+					NOT = { has_truce = ROOT }
+					ROOT = { NOT = { has_truce = PREV } }
+					liege = {
+						NOT = { character = ROOT }
+					}
+					NOT = { num_of_count_titles = 3 }
+					independent = yes
+					primary_title = { title = d_servants_anubis }
+				}
+			}
+		}
+		
+		allow = {
+			wealth = 500
+			is_heretic = no
+			independent = yes
+
+			NOT = {
+				trait = excommunicated
+			}
+
+			custom_tooltip = {
+				text = only_one_vassalized_holy_order_TT
+
+				NOT = {
+					any_realm_lord = {
+						holy_order = yes
+					}
+				}
+			}
+		}
+		
+		effect = {
+			wealth = -500
+			
+			hidden_tooltip = {
+				d_servants_anubis = {
+					holder_scope = {
+						wealth = 500
+						character_event = {
+							id = MythosHolyOrders.100
+						}
+					}
+				}
+			}
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	vassalize_ares_phalanx = {
+		only_playable = yes
+		is_high_prio = yes
+		ai_check_interval = 60
+		
+		potential = {
+			is_playable = yes
+			
+			religion = hellenic_pagan
+			is_heretic = no
+			
+			NOT = { has_character_modifier = expelled_d_ares_phalanx }
+
+			NOT = {
+				d_ares_phalanx = {
+					owner = {
+						has_opinion_modifier = {
+							who = ROOT
+							modifier = opinion_unfit_ruler
+						}
+					}
+				}
+			}
+			
+			is_title_active = d_ares_phalanx
+			
+			has_landed_title = k_byzantium
+			
+			has_dlc = "Sons of Abraham"
+			
+			NOT = {
+				has_alternate_start_parameter = { key = religion_names value = random }
+			}
+			
+			d_ares_phalanx = {
+				holder_scope = {
+					NOT = { has_truce = ROOT }
+					ROOT = { NOT = { has_truce = PREV } }
+					liege = {
+						NOT = { character = ROOT }
+					}
+					NOT = { num_of_count_titles = 3 }
+					independent = yes
+					primary_title = { title = d_ares_phalanx }
+				}
+			}
+		}
+		
+		allow = {
+			wealth = 500
+			is_heretic = no
+			independent = yes
+			NOT = {
+				trait = excommunicated
+			}
+
+			custom_tooltip = {
+				text = only_one_vassalized_holy_order_TT
+
+				NOT = {
+					any_realm_lord = {
+						holy_order = yes
+					}
+				}
+			}
+		}
+		
+		effect = {
+			wealth = -500
+			
+			hidden_tooltip = {
+				d_ares_phalanx = {
+					holder_scope = {
+						wealth = 500
+						character_event = {
+							id = MythosHolyOrders.118
+						}
+					}
+				}
+			}
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	#vassalize_sons_mars = {
+	#	only_playable = yes
+	#	is_high_prio = yes
+	#	ai_check_interval = 60
+	#	
+	#	potential = {
+	#		is_playable = yes
+	#		
+	#		religion = hellenic_pagan_reformed
+	#		is_heretic = no
+	#		
+	#		NOT = { has_character_modifier = expelled_d_sons_mars }
+    #
+	#		NOT = {
+	#			d_sons_mars = {
+	#				owner = {
+	#					has_opinion_modifier = {
+	#						who = ROOT
+	#						modifier = opinion_unfit_ruler
+	#					}
+	#				}
+	#			}
+	#		}
+	#		
+	#		is_title_active = d_sons_mars
+	#		
+	#		OR = {
+	#			has_landed_title = e_roman_empire
+	#			has_landed_title = e_byzantium
+	#		}
+	#		
+	#		has_dlc = "Sons of Abraham"
+	#		
+	#		NOT = {
+	#			has_alternate_start_parameter = { key = religion_names value = random }
+	#		}
+	#		
+	#		d_sons_mars = {
+	#			holder_scope = {
+	#				NOT = { has_truce = ROOT }
+	#				ROOT = { NOT = { has_truce = PREV } }
+	#				liege = {
+	#					NOT = { character = ROOT }
+	#				}
+	#				NOT = { num_of_count_titles = 3 }
+	#				independent = yes
+	#				primary_title = { title = d_sons_mars }
+	#			}
+	#		}
+	#	}
+	#	
+	#	allow = {
+	#		wealth = 500
+	#		is_heretic = no
+	#		independent = yes
+    #
+	#		NOT = {
+	#			trait = excommunicated
+	#		}
+    #
+	#		custom_tooltip = {
+	#			text = only_one_vassalized_holy_order_TT
+    #
+	#			NOT = {
+	#				any_realm_lord = {
+	#					holy_order = yes
+	#				}
+	#			}
+	#		}
+	#	}
+	#	
+	#	effect = {
+	#		wealth = -500
+	#		
+	#		hidden_tooltip = {
+	#			d_sons_mars = {
+	#				holder_scope = {
+	#					wealth = 500
+	#					character_event = {
+	#						id = MythosHolyOrders.136
+	#					}
+	#				}
+	#			}
+	#		}
+	#	}
+	#	
+	#	ai_will_do = {
+	#		factor = 1
+	#	}
+	#}
+	
+	vassalize_champion_vigrithr = {
+		only_playable = yes
+		is_high_prio = yes
+		ai_check_interval = 60
+		
+		potential = {
+			is_playable = yes
+			
+			OR = {
+				religion = jotnar
+				religion = jotnar_reformed
+			}
+			is_heretic = no
+			
+			NOT = { has_character_modifier = expelled_d_champion_vigrithr }
+
+			NOT = {
+				d_champion_vigrithr = {
+					owner = {
+						has_opinion_modifier = {
+							who = ROOT
+							modifier = opinion_unfit_ruler
+						}
+					}
+				}
+			}
+			
+			is_title_active = d_champion_vigrithr
+			
+			has_landed_title = k_saxony
+			
+			has_dlc = "Sons of Abraham"
+			
+			NOT = {
+				has_alternate_start_parameter = { key = religion_names value = random }
+			}
+			
+			d_champion_vigrithr = {
+				holder_scope = {
+					NOT = { has_truce = ROOT }
+					ROOT = { NOT = { has_truce = PREV } }
+					liege = {
+						NOT = { character = ROOT }
+					}
+					NOT = { num_of_count_titles = 3 }
+					independent = yes
+					primary_title = { title = d_champion_vigrithr }
+				}
+			}
+		}
+		
+		allow = {
+			wealth = 500
+			is_heretic = no
+			independent = yes
+
+			NOT = {
+				trait = excommunicated
+			}
+
+			custom_tooltip = {
+				text = only_one_vassalized_holy_order_TT
+
+				NOT = {
+					any_realm_lord = {
+						holy_order = yes
+					}
+				}
+			}
+		}
+		
+		effect = {
+			wealth = -500
+			
+			hidden_tooltip = {
+				d_champion_vigrithr = {
+					holder_scope = {
+						wealth = 500
+						character_event = {
+							id = MythosHolyOrders.154
+						}
+					}
+				}
+			}
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}

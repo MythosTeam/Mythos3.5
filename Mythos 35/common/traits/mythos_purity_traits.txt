@@ -1,0 +1,2246 @@
+# Purity - Draconic special trait.  Re-evaluated periodically
+# Reflects the purity of a dragon's soul, based off wealth, power, and religious ritual. Hindered by "impure mixing" with non-dragons
+# In reformed religion, non-dragons have different criteria. In unreformed, they are just penalized for not being dragons
+purity_0x0 = {
+	# Just for letting the player track their progress
+	random = no
+	customizer = no
+}
+
+purity_0x1 = {
+	# Just for letting the player track their progress
+	random = no
+	customizer = no
+}
+
+purity_0x2 = {
+	# Just for letting the player track their progress
+	random = no
+	customizer = no
+}
+
+purity_0x3 = {
+	# Just for letting the player track their progress
+	random = no
+	customizer = no
+}
+
+purity_0x4 = {
+	# Just for letting the player track their progress
+	random = no
+	customizer = no
+}
+
+purity_0x5 = {
+	# Just for letting the player track their progress
+	random = no
+	customizer = no
+}
+
+purity_0x6 = {
+	# Just for letting the player track their progress
+	random = no
+	customizer = no
+}
+
+purity_0x7 = {
+	# Just for letting the player track their progress
+	random = no
+	customizer = no
+}
+
+purity_0x8 = {
+	# Just for letting the player track their progress
+	random = no
+	customizer = no
+}
+
+purity_0x9 = {
+	# Just for letting the player track their progress
+	random = no
+	customizer = no
+}
+
+purity_1x0 = {
+	monthly_character_prestige = 0.1
+	monthly_character_piety = 0.1
+	same_religion_opinion = 1
+	global_tax_modifier = 0.01
+	ai_greed = 5
+	ai_zeal = 5
+	
+	random = no
+	customizer = no
+}
+
+purity_1x1 = {
+	monthly_character_prestige = 0.1
+	monthly_character_piety = 0.1
+	same_religion_opinion = 1
+	global_tax_modifier = 0.01
+	ai_greed = 5
+	ai_zeal = 5
+	
+	random = no
+	customizer = no
+}
+
+purity_1x2 = {
+	monthly_character_prestige = 0.1
+	monthly_character_piety = 0.1
+	same_religion_opinion = 1
+	global_tax_modifier = 0.01
+	ai_greed = 5
+	ai_zeal = 5
+	
+	random = no
+	customizer = no
+}
+
+purity_1x3 = {
+	monthly_character_prestige = 0.1
+	monthly_character_piety = 0.1
+	same_religion_opinion = 1
+	global_tax_modifier = 0.01
+	ai_greed = 5
+	ai_zeal = 5
+	
+	random = no
+	customizer = no
+}
+
+purity_1x4 = {
+	monthly_character_prestige = 0.1
+	monthly_character_piety = 0.1
+	same_religion_opinion = 1
+	global_tax_modifier = 0.01
+	ai_greed = 5
+	ai_zeal = 5
+	
+	random = no
+	customizer = no
+}
+
+purity_1x5 = {
+	monthly_character_prestige = 0.1
+	monthly_character_piety = 0.1
+	same_religion_opinion = 1
+	global_tax_modifier = 0.01
+	ai_greed = 5
+	ai_zeal = 5
+	
+	random = no
+	customizer = no
+}
+
+purity_1x6 = {
+	monthly_character_prestige = 0.1
+	monthly_character_piety = 0.1
+	same_religion_opinion = 1
+	global_tax_modifier = 0.01
+	ai_greed = 5
+	ai_zeal = 5
+	
+	random = no
+	customizer = no
+}
+
+purity_1x7 = {
+	monthly_character_prestige = 0.1
+	monthly_character_piety = 0.1
+	same_religion_opinion = 1
+	global_tax_modifier = 0.01
+	ai_greed = 5
+	ai_zeal = 5
+	
+	random = no
+	customizer = no
+}
+
+purity_1x8 = {
+	monthly_character_prestige = 0.1
+	monthly_character_piety = 0.1
+	same_religion_opinion = 1
+	global_tax_modifier = 0.01
+	ai_greed = 5
+	ai_zeal = 5
+	
+	random = no
+	customizer = no
+}
+
+purity_1x9 = {
+	monthly_character_prestige = 0.1
+	monthly_character_piety = 0.1
+	same_religion_opinion = 1
+	global_tax_modifier = 0.01
+	ai_greed = 5
+	ai_zeal = 5
+	
+	random = no
+	customizer = no
+}
+
+purity_2x0 = {
+	monthly_character_prestige = 0.2
+	monthly_character_piety = 0.2
+	same_religion_opinion = 2
+	global_tax_modifier = 0.02
+	ai_greed = 10
+	ai_zeal = 10
+	
+	random = no
+	customizer = no
+}
+
+purity_2x1 = {
+	monthly_character_prestige = 0.2
+	monthly_character_piety = 0.2
+	same_religion_opinion = 2
+	global_tax_modifier = 0.02
+	ai_greed = 10
+	ai_zeal = 10
+	
+	random = no
+	customizer = no
+}
+
+purity_2x2 = {
+	monthly_character_prestige = 0.2
+	monthly_character_piety = 0.2
+	same_religion_opinion = 2
+	global_tax_modifier = 0.02
+	ai_greed = 10
+	ai_zeal = 10
+	
+	random = no
+	customizer = no
+}
+
+purity_2x3 = {
+	monthly_character_prestige = 0.2
+	monthly_character_piety = 0.2
+	same_religion_opinion = 2
+	global_tax_modifier = 0.02
+	ai_greed = 10
+	ai_zeal = 10
+	
+	random = no
+	customizer = no
+}
+
+purity_2x4 = {
+	monthly_character_prestige = 0.2
+	monthly_character_piety = 0.2
+	same_religion_opinion = 2
+	global_tax_modifier = 0.02
+	ai_greed = 10
+	ai_zeal = 10
+	
+	random = no
+	customizer = no
+}
+
+purity_2x5 = {
+	monthly_character_prestige = 0.2
+	monthly_character_piety = 0.2
+	same_religion_opinion = 2
+	global_tax_modifier = 0.02
+	ai_greed = 10
+	ai_zeal = 10
+	
+	random = no
+	customizer = no
+}
+
+purity_2x6 = {
+	monthly_character_prestige = 0.2
+	monthly_character_piety = 0.2
+	same_religion_opinion = 2
+	global_tax_modifier = 0.02
+	ai_greed = 10
+	ai_zeal = 10
+	
+	random = no
+	customizer = no
+}
+
+purity_2x7 = {
+	monthly_character_prestige = 0.2
+	monthly_character_piety = 0.2
+	same_religion_opinion = 2
+	global_tax_modifier = 0.02
+	ai_greed = 10
+	ai_zeal = 10
+	
+	random = no
+	customizer = no
+}
+
+purity_2x8 = {
+	monthly_character_prestige = 0.2
+	monthly_character_piety = 0.2
+	same_religion_opinion = 2
+	global_tax_modifier = 0.02
+	ai_greed = 10
+	ai_zeal = 10
+	
+	random = no
+	customizer = no
+}
+
+purity_2x9 = {
+	monthly_character_prestige = 0.2
+	monthly_character_piety = 0.2
+	same_religion_opinion = 2
+	global_tax_modifier = 0.02
+	ai_greed = 10
+	ai_zeal = 10
+	
+	random = no
+	customizer = no
+}
+
+purity_3x0 = {
+	monthly_character_prestige = 0.3
+	monthly_character_piety = 0.3
+	same_religion_opinion = 3
+	global_tax_modifier = 0.03
+	ai_greed = 15
+	ai_zeal = 15
+	
+	random = no
+	customizer = no
+}
+
+purity_3x1 = {
+	monthly_character_prestige = 0.3
+	monthly_character_piety = 0.3
+	same_religion_opinion = 3
+	global_tax_modifier = 0.03
+	ai_greed = 15
+	ai_zeal = 15
+	
+	random = no
+	customizer = no
+}
+
+purity_3x2 = {
+	monthly_character_prestige = 0.3
+	monthly_character_piety = 0.3
+	same_religion_opinion = 3
+	global_tax_modifier = 0.03
+	ai_greed = 15
+	ai_zeal = 15
+	
+	random = no
+	customizer = no
+}
+
+purity_3x3 = {
+	monthly_character_prestige = 0.3
+	monthly_character_piety = 0.3
+	same_religion_opinion = 3
+	global_tax_modifier = 0.03
+	ai_greed = 15
+	ai_zeal = 15
+	
+	random = no
+	customizer = no
+}
+
+purity_3x4 = {
+	monthly_character_prestige = 0.3
+	monthly_character_piety = 0.3
+	same_religion_opinion = 3
+	global_tax_modifier = 0.03
+	ai_greed = 15
+	ai_zeal = 15
+	
+	random = no
+	customizer = no
+}
+
+purity_3x5 = {
+	monthly_character_prestige = 0.3
+	monthly_character_piety = 0.3
+	same_religion_opinion = 3
+	global_tax_modifier = 0.03
+	ai_greed = 15
+	ai_zeal = 15
+	
+	random = no
+	customizer = no
+}
+
+purity_3x6 = {
+	monthly_character_prestige = 0.3
+	monthly_character_piety = 0.3
+	same_religion_opinion = 3
+	global_tax_modifier = 0.03
+	ai_greed = 15
+	ai_zeal = 15
+	
+	random = no
+	customizer = no
+}
+
+purity_3x7 = {
+	monthly_character_prestige = 0.3
+	monthly_character_piety = 0.3
+	same_religion_opinion = 3
+	global_tax_modifier = 0.03
+	ai_greed = 15
+	ai_zeal = 15
+	
+	random = no
+	customizer = no
+}
+
+purity_3x8 = {
+	monthly_character_prestige = 0.3
+	monthly_character_piety = 0.3
+	same_religion_opinion = 3
+	global_tax_modifier = 0.03
+	ai_greed = 15
+	ai_zeal = 15
+	
+	random = no
+	customizer = no
+}
+
+purity_3x9 = {
+	monthly_character_prestige = 0.3
+	monthly_character_piety = 0.3
+	same_religion_opinion = 3
+	global_tax_modifier = 0.03
+	ai_greed = 15
+	ai_zeal = 15
+	
+	random = no
+	customizer = no
+}
+
+purity_4x0 = {
+	monthly_character_prestige = 0.5
+	monthly_character_piety = 0.4
+	same_religion_opinion = 4
+	global_tax_modifier = 0.04
+	ai_greed = 20
+	ai_zeal = 20
+	
+	random = no
+	customizer = no
+}
+
+purity_4x1 = {
+	monthly_character_prestige = 0.5
+	monthly_character_piety = 0.4
+	same_religion_opinion = 4
+	global_tax_modifier = 0.04
+	ai_greed = 20
+	ai_zeal = 20
+	
+	random = no
+	customizer = no
+}
+
+purity_4x2 = {
+	monthly_character_prestige = 0.5
+	monthly_character_piety = 0.4
+	same_religion_opinion = 4
+	global_tax_modifier = 0.04
+	ai_greed = 20
+	ai_zeal = 20
+	
+	random = no
+	customizer = no
+}
+
+purity_4x3 = {
+	monthly_character_prestige = 0.5
+	monthly_character_piety = 0.4
+	same_religion_opinion = 4
+	global_tax_modifier = 0.04
+	ai_greed = 20
+	ai_zeal = 20
+	
+	random = no
+	customizer = no
+}
+
+purity_4x4 = {
+	monthly_character_prestige = 0.5
+	monthly_character_piety = 0.4
+	same_religion_opinion = 4
+	global_tax_modifier = 0.04
+	ai_greed = 20
+	ai_zeal = 20
+	
+	random = no
+	customizer = no
+}
+
+purity_4x5 = {
+	monthly_character_prestige = 0.5
+	monthly_character_piety = 0.4
+	same_religion_opinion = 4
+	global_tax_modifier = 0.04
+	ai_greed = 20
+	ai_zeal = 20
+	
+	random = no
+	customizer = no
+}
+
+purity_4x6 = {
+	monthly_character_prestige = 0.5
+	monthly_character_piety = 0.4
+	same_religion_opinion = 4
+	global_tax_modifier = 0.04
+	ai_greed = 20
+	ai_zeal = 20
+	
+	random = no
+	customizer = no
+}
+
+purity_4x7 = {
+	monthly_character_prestige = 0.5
+	monthly_character_piety = 0.4
+	same_religion_opinion = 4
+	global_tax_modifier = 0.04
+	ai_greed = 20
+	ai_zeal = 20
+	
+	random = no
+	customizer = no
+}
+
+purity_4x8 = {
+	monthly_character_prestige = 0.5
+	monthly_character_piety = 0.4
+	same_religion_opinion = 4
+	global_tax_modifier = 0.04
+	ai_greed = 20
+	ai_zeal = 20
+	
+	random = no
+	customizer = no
+}
+
+purity_4x9 = {
+	monthly_character_prestige = 0.5
+	monthly_character_piety = 0.4
+	same_religion_opinion = 4
+	global_tax_modifier = 0.04
+	ai_greed = 20
+	ai_zeal = 20
+	
+	random = no
+	customizer = no
+}
+
+purity_5x0 = {
+	monthly_character_prestige = 0.7
+	monthly_character_piety = 0.5
+	same_religion_opinion = 5
+	global_tax_modifier = 0.06
+	ai_greed = 25
+	ai_zeal = 25
+	
+	random = no
+	customizer = no
+}
+
+purity_5x1 = {
+	monthly_character_prestige = 0.7
+	monthly_character_piety = 0.5
+	same_religion_opinion = 5
+	global_tax_modifier = 0.06
+	ai_greed = 25
+	ai_zeal = 25
+	
+	random = no
+	customizer = no
+}
+
+purity_5x2 = {
+	monthly_character_prestige = 0.7
+	monthly_character_piety = 0.5
+	same_religion_opinion = 5
+	global_tax_modifier = 0.06
+	ai_greed = 25
+	ai_zeal = 25
+	
+	random = no
+	customizer = no
+}
+
+purity_5x3 = {
+	monthly_character_prestige = 0.7
+	monthly_character_piety = 0.5
+	same_religion_opinion = 5
+	global_tax_modifier = 0.06
+	ai_greed = 25
+	ai_zeal = 25
+	
+	random = no
+	customizer = no
+}
+
+purity_5x4 = {
+	monthly_character_prestige = 0.7
+	monthly_character_piety = 0.5
+	same_religion_opinion = 5
+	global_tax_modifier = 0.06
+	ai_greed = 25
+	ai_zeal = 25
+	
+	random = no
+	customizer = no
+}
+
+purity_5x5 = {
+	monthly_character_prestige = 0.7
+	monthly_character_piety = 0.5
+	same_religion_opinion = 5
+	global_tax_modifier = 0.06
+	ai_greed = 25
+	ai_zeal = 25
+	
+	random = no
+	customizer = no
+}
+
+purity_5x6 = {
+	monthly_character_prestige = 0.7
+	monthly_character_piety = 0.5
+	same_religion_opinion = 5
+	global_tax_modifier = 0.06
+	ai_greed = 25
+	ai_zeal = 25
+	
+	random = no
+	customizer = no
+}
+
+purity_5x7 = {
+	monthly_character_prestige = 0.7
+	monthly_character_piety = 0.5
+	same_religion_opinion = 5
+	global_tax_modifier = 0.06
+	ai_greed = 25
+	ai_zeal = 25
+	
+	random = no
+	customizer = no
+}
+
+purity_5x8 = {
+	monthly_character_prestige = 0.7
+	monthly_character_piety = 0.5
+	same_religion_opinion = 5
+	global_tax_modifier = 0.06
+	ai_greed = 25
+	ai_zeal = 25
+	
+	random = no
+	customizer = no
+}
+
+purity_5x9 = {
+	monthly_character_prestige = 0.7
+	monthly_character_piety = 0.5
+	same_religion_opinion = 5
+	global_tax_modifier = 0.06
+	ai_greed = 25
+	ai_zeal = 25
+	
+	random = no
+	customizer = no
+}
+
+purity_6x0 = {
+	monthly_character_prestige = 0.9
+	monthly_character_piety = 0.6
+	same_religion_opinion = 6
+	global_tax_modifier = 0.08
+	ai_greed = 30
+	ai_zeal = 30
+	
+	random = no
+	customizer = no
+}
+
+purity_6x1 = {
+	monthly_character_prestige = 0.9
+	monthly_character_piety = 0.6
+	same_religion_opinion = 6
+	global_tax_modifier = 0.08
+	ai_greed = 30
+	ai_zeal = 30
+	
+	random = no
+	customizer = no
+}
+
+purity_6x2 = {
+	monthly_character_prestige = 0.9
+	monthly_character_piety = 0.6
+	same_religion_opinion = 6
+	global_tax_modifier = 0.08
+	ai_greed = 30
+	ai_zeal = 30
+	
+	random = no
+	customizer = no
+}
+
+purity_6x3 = {
+	monthly_character_prestige = 0.9
+	monthly_character_piety = 0.6
+	same_religion_opinion = 6
+	global_tax_modifier = 0.08
+	ai_greed = 30
+	ai_zeal = 30
+	
+	random = no
+	customizer = no
+}
+
+purity_6x4 = {
+	monthly_character_prestige = 0.9
+	monthly_character_piety = 0.6
+	same_religion_opinion = 6
+	global_tax_modifier = 0.08
+	ai_greed = 30
+	ai_zeal = 30
+	
+	random = no
+	customizer = no
+}
+
+purity_6x5 = {
+	monthly_character_prestige = 0.9
+	monthly_character_piety = 0.6
+	same_religion_opinion = 6
+	global_tax_modifier = 0.08
+	ai_greed = 30
+	ai_zeal = 30
+	
+	random = no
+	customizer = no
+}
+
+purity_6x6 = {
+	monthly_character_prestige = 0.9
+	monthly_character_piety = 0.6
+	same_religion_opinion = 6
+	global_tax_modifier = 0.08
+	ai_greed = 30
+	ai_zeal = 30
+	
+	random = no
+	customizer = no
+}
+
+purity_6x7 = {
+	monthly_character_prestige = 0.9
+	monthly_character_piety = 0.6
+	same_religion_opinion = 6
+	global_tax_modifier = 0.08
+	ai_greed = 30
+	ai_zeal = 30
+	
+	random = no
+	customizer = no
+}
+
+purity_6x8 = {
+	monthly_character_prestige = 0.9
+	monthly_character_piety = 0.6
+	same_religion_opinion = 6
+	global_tax_modifier = 0.08
+	ai_greed = 30
+	ai_zeal = 30
+	
+	random = no
+	customizer = no
+}
+
+purity_6x9 = {
+	monthly_character_prestige = 0.9
+	monthly_character_piety = 0.6
+	same_religion_opinion = 6
+	global_tax_modifier = 0.08
+	ai_greed = 30
+	ai_zeal = 30
+	
+	random = no
+	customizer = no
+}
+
+purity_7x0 = {
+	monthly_character_prestige = 1.2
+	monthly_character_piety = 0.7
+	same_religion_opinion = 7
+	global_tax_modifier = 0.1
+	ai_greed = 35
+	ai_zeal = 35
+	
+	random = no
+	customizer = no
+}
+
+purity_7x1 = {
+	monthly_character_prestige = 1.2
+	monthly_character_piety = 0.7
+	same_religion_opinion = 7
+	global_tax_modifier = 0.1
+	ai_greed = 35
+	ai_zeal = 35
+	
+	random = no
+	customizer = no
+}
+
+purity_7x2 = {
+	monthly_character_prestige = 1.2
+	monthly_character_piety = 0.7
+	same_religion_opinion = 7
+	global_tax_modifier = 0.1
+	ai_greed = 35
+	ai_zeal = 35
+	
+	random = no
+	customizer = no
+}
+
+purity_7x3 = {
+	monthly_character_prestige = 1.2
+	monthly_character_piety = 0.7
+	same_religion_opinion = 7
+	global_tax_modifier = 0.1
+	ai_greed = 35
+	ai_zeal = 35
+	
+	random = no
+	customizer = no
+}
+
+purity_7x4 = {
+	monthly_character_prestige = 1.2
+	monthly_character_piety = 0.7
+	same_religion_opinion = 7
+	global_tax_modifier = 0.1
+	ai_greed = 35
+	ai_zeal = 35
+	
+	random = no
+	customizer = no
+}
+
+purity_7x5 = {
+	monthly_character_prestige = 1.2
+	monthly_character_piety = 0.7
+	same_religion_opinion = 7
+	global_tax_modifier = 0.1
+	ai_greed = 35
+	ai_zeal = 35
+	
+	random = no
+	customizer = no
+}
+
+purity_7x6 = {
+	monthly_character_prestige = 1.2
+	monthly_character_piety = 0.7
+	same_religion_opinion = 7
+	global_tax_modifier = 0.1
+	ai_greed = 35
+	ai_zeal = 35
+	
+	random = no
+	customizer = no
+}
+
+purity_7x7 = {
+	monthly_character_prestige = 1.2
+	monthly_character_piety = 0.7
+	same_religion_opinion = 7
+	global_tax_modifier = 0.1
+	ai_greed = 35
+	ai_zeal = 35
+	
+	random = no
+	customizer = no
+}
+
+purity_7x8 = {
+	monthly_character_prestige = 1.2
+	monthly_character_piety = 0.7
+	same_religion_opinion = 7
+	global_tax_modifier = 0.1
+	ai_greed = 35
+	ai_zeal = 35
+	
+	random = no
+	customizer = no
+}
+
+purity_7x9 = {
+	monthly_character_prestige = 1.2
+	monthly_character_piety = 0.7
+	same_religion_opinion = 7
+	global_tax_modifier = 0.1
+	ai_greed = 35
+	ai_zeal = 35
+	
+	random = no
+	customizer = no
+}
+
+purity_8x0 = {
+	monthly_character_prestige = 1.6
+	monthly_character_piety = 0.8
+	same_religion_opinion = 8
+	global_tax_modifier = 0.13
+	ai_greed = 40
+	ai_zeal = 40
+	
+	random = no
+	customizer = no
+}
+
+purity_8x1 = {
+	monthly_character_prestige = 1.6
+	monthly_character_piety = 0.8
+	same_religion_opinion = 8
+	global_tax_modifier = 0.13
+	ai_greed = 40
+	ai_zeal = 40
+	
+	random = no
+	customizer = no
+}
+
+purity_8x2 = {
+	monthly_character_prestige = 1.6
+	monthly_character_piety = 0.8
+	same_religion_opinion = 8
+	global_tax_modifier = 0.13
+	ai_greed = 40
+	ai_zeal = 40
+	
+	random = no
+	customizer = no
+}
+
+purity_8x3 = {
+	monthly_character_prestige = 1.6
+	monthly_character_piety = 0.8
+	same_religion_opinion = 8
+	global_tax_modifier = 0.13
+	ai_greed = 40
+	ai_zeal = 40
+	
+	random = no
+	customizer = no
+}
+
+purity_8x4 = {
+	monthly_character_prestige = 1.6
+	monthly_character_piety = 0.8
+	same_religion_opinion = 8
+	global_tax_modifier = 0.13
+	ai_greed = 40
+	ai_zeal = 40
+	
+	random = no
+	customizer = no
+}
+
+purity_8x5 = {
+	monthly_character_prestige = 1.6
+	monthly_character_piety = 0.8
+	same_religion_opinion = 8
+	global_tax_modifier = 0.13
+	ai_greed = 40
+	ai_zeal = 40
+	
+	random = no
+	customizer = no
+}
+
+purity_8x6 = {
+	monthly_character_prestige = 1.6
+	monthly_character_piety = 0.8
+	same_religion_opinion = 8
+	global_tax_modifier = 0.13
+	ai_greed = 40
+	ai_zeal = 40
+	
+	random = no
+	customizer = no
+}
+
+purity_8x7 = {
+	monthly_character_prestige = 1.6
+	monthly_character_piety = 0.8
+	same_religion_opinion = 8
+	global_tax_modifier = 0.13
+	ai_greed = 40
+	ai_zeal = 40
+	
+	random = no
+	customizer = no
+}
+
+purity_8x8 = {
+	monthly_character_prestige = 1.6
+	monthly_character_piety = 0.8
+	same_religion_opinion = 8
+	global_tax_modifier = 0.13
+	ai_greed = 40
+	ai_zeal = 40
+	
+	random = no
+	customizer = no
+}
+
+purity_8x9 = {
+	monthly_character_prestige = 1.6
+	monthly_character_piety = 0.8
+	same_religion_opinion = 8
+	global_tax_modifier = 0.13
+	ai_greed = 40
+	ai_zeal = 40
+	
+	random = no
+	customizer = no
+}
+
+purity_9x0 = {
+	monthly_character_prestige = 2
+	monthly_character_piety = 0.9
+	same_religion_opinion = 9
+	global_tax_modifier = 0.16
+	ai_greed = 45
+	ai_zeal = 45
+	
+	random = no
+	customizer = no
+}
+
+purity_9x1 = {
+	monthly_character_prestige = 2
+	monthly_character_piety = 0.9
+	same_religion_opinion = 9
+	global_tax_modifier = 0.16
+	ai_greed = 45
+	ai_zeal = 45
+	
+	random = no
+	customizer = no
+}
+
+purity_9x2 = {
+	monthly_character_prestige = 2
+	monthly_character_piety = 0.9
+	same_religion_opinion = 9
+	global_tax_modifier = 0.16
+	ai_greed = 45
+	ai_zeal = 45
+	
+	random = no
+	customizer = no
+}
+
+purity_9x3 = {
+	monthly_character_prestige = 2
+	monthly_character_piety = 0.9
+	same_religion_opinion = 9
+	global_tax_modifier = 0.16
+	ai_greed = 45
+	ai_zeal = 45
+	
+	random = no
+	customizer = no
+}
+
+purity_9x4 = {
+	monthly_character_prestige = 2
+	monthly_character_piety = 0.9
+	same_religion_opinion = 9
+	global_tax_modifier = 0.16
+	ai_greed = 45
+	ai_zeal = 45
+	
+	random = no
+	customizer = no
+}
+
+purity_9x5 = {
+	monthly_character_prestige = 2
+	monthly_character_piety = 0.9
+	same_religion_opinion = 9
+	global_tax_modifier = 0.16
+	ai_greed = 45
+	ai_zeal = 45
+	
+	random = no
+	customizer = no
+}
+
+purity_9x6 = {
+	monthly_character_prestige = 2
+	monthly_character_piety = 0.9
+	same_religion_opinion = 9
+	global_tax_modifier = 0.16
+	ai_greed = 45
+	ai_zeal = 45
+	
+	random = no
+	customizer = no
+}
+
+purity_9x7 = {
+	monthly_character_prestige = 2
+	monthly_character_piety = 0.9
+	same_religion_opinion = 9
+	global_tax_modifier = 0.16
+	ai_greed = 45
+	ai_zeal = 45
+	
+	random = no
+	customizer = no
+}
+
+purity_9x8 = {
+	monthly_character_prestige = 2
+	monthly_character_piety = 0.9
+	same_religion_opinion = 9
+	global_tax_modifier = 0.16
+	ai_greed = 45
+	ai_zeal = 45
+	
+	random = no
+	customizer = no
+}
+
+purity_9x9 = {
+	monthly_character_prestige = 2
+	monthly_character_piety = 0.9
+	same_religion_opinion = 9
+	global_tax_modifier = 0.16
+	ai_greed = 45
+	ai_zeal = 45
+	
+	random = no
+	customizer = no
+}
+
+purity_10 = {
+	monthly_character_prestige = 2.5
+	monthly_character_piety = 1
+	same_religion_opinion = 10
+	global_tax_modifier = 0.2
+	ai_greed = 50
+	ai_zeal = 50
+	
+	random = no
+	customizer = no
+}
+
+purity_minus1x0 = {
+	monthly_character_prestige = -0.1
+	monthly_character_piety = -0.1
+	same_religion_opinion = -1
+	global_tax_modifier = -0.01
+	ai_greed = -5
+	ai_zeal = -5
+	
+	random = no
+	customizer = no
+}
+
+purity_minus1x1 = {
+	monthly_character_prestige = -0.1
+	monthly_character_piety = -0.1
+	same_religion_opinion = -1
+	global_tax_modifier = -0.01
+	ai_greed = -5
+	ai_zeal = -5
+	
+	random = no
+	customizer = no
+}
+
+purity_minus1x2 = {
+	monthly_character_prestige = -0.1
+	monthly_character_piety = -0.1
+	same_religion_opinion = -1
+	global_tax_modifier = -0.01
+	ai_greed = -5
+	ai_zeal = -5
+	
+	random = no
+	customizer = no
+}
+
+purity_minus1x3 = {
+	monthly_character_prestige = -0.1
+	monthly_character_piety = -0.1
+	same_religion_opinion = -1
+	global_tax_modifier = -0.01
+	ai_greed = -5
+	ai_zeal = -5
+	
+	random = no
+	customizer = no
+}
+
+purity_minus1x4 = {
+	monthly_character_prestige = -0.1
+	monthly_character_piety = -0.1
+	same_religion_opinion = -1
+	global_tax_modifier = -0.01
+	ai_greed = -5
+	ai_zeal = -5
+	
+	random = no
+	customizer = no
+}
+
+purity_minus1x5 = {
+	monthly_character_prestige = -0.1
+	monthly_character_piety = -0.1
+	same_religion_opinion = -1
+	global_tax_modifier = -0.01
+	ai_greed = -5
+	ai_zeal = -5
+	
+	random = no
+	customizer = no
+}
+
+purity_minus1x6 = {
+	monthly_character_prestige = -0.1
+	monthly_character_piety = -0.1
+	same_religion_opinion = -1
+	global_tax_modifier = -0.01
+	ai_greed = -5
+	ai_zeal = -5
+	
+	random = no
+	customizer = no
+}
+
+purity_minus1x7 = {
+	monthly_character_prestige = -0.1
+	monthly_character_piety = -0.1
+	same_religion_opinion = -1
+	global_tax_modifier = -0.01
+	ai_greed = -5
+	ai_zeal = -5
+	
+	random = no
+	customizer = no
+}
+
+purity_minus1x8 = {
+	monthly_character_prestige = -0.1
+	monthly_character_piety = -0.1
+	same_religion_opinion = -1
+	global_tax_modifier = -0.01
+	ai_greed = -5
+	ai_zeal = -5
+	
+	random = no
+	customizer = no
+}
+
+purity_minus1x9 = {
+	monthly_character_prestige = -0.1
+	monthly_character_piety = -0.1
+	same_religion_opinion = -1
+	global_tax_modifier = -0.01
+	ai_greed = -5
+	ai_zeal = -5
+	
+	random = no
+	customizer = no
+}
+
+purity_minus2x0 = {
+	monthly_character_prestige = -0.2
+	monthly_character_piety = -0.2
+	same_religion_opinion = -2
+	global_tax_modifier = -0.02
+	ai_greed = -10
+	ai_zeal = -10
+	
+	random = no
+	customizer = no
+}
+
+purity_minus2x1 = {
+	monthly_character_prestige = -0.2
+	monthly_character_piety = -0.2
+	same_religion_opinion = -2
+	global_tax_modifier = -0.02
+	ai_greed = -10
+	ai_zeal = -10
+	
+	random = no
+	customizer = no
+}
+
+purity_minus2x2 = {
+	monthly_character_prestige = -0.2
+	monthly_character_piety = -0.2
+	same_religion_opinion = -2
+	global_tax_modifier = -0.02
+	ai_greed = -10
+	ai_zeal = -10
+	
+	random = no
+	customizer = no
+}
+
+purity_minus2x3 = {
+	monthly_character_prestige = -0.2
+	monthly_character_piety = -0.2
+	same_religion_opinion = -2
+	global_tax_modifier = -0.02
+	ai_greed = -10
+	ai_zeal = -10
+	
+	random = no
+	customizer = no
+}
+
+purity_minus2x4 = {
+	monthly_character_prestige = -0.2
+	monthly_character_piety = -0.2
+	same_religion_opinion = -2
+	global_tax_modifier = -0.02
+	ai_greed = -10
+	ai_zeal = -10
+	
+	random = no
+	customizer = no
+}
+
+purity_minus2x5 = {
+	monthly_character_prestige = -0.2
+	monthly_character_piety = -0.2
+	same_religion_opinion = -2
+	global_tax_modifier = -0.02
+	ai_greed = -10
+	ai_zeal = -10
+	
+	random = no
+	customizer = no
+}
+
+purity_minus2x6 = {
+	monthly_character_prestige = -0.2
+	monthly_character_piety = -0.2
+	same_religion_opinion = -2
+	global_tax_modifier = -0.02
+	ai_greed = -10
+	ai_zeal = -10
+	
+	random = no
+	customizer = no
+}
+
+purity_minus2x7 = {
+	monthly_character_prestige = -0.2
+	monthly_character_piety = -0.2
+	same_religion_opinion = -2
+	global_tax_modifier = -0.02
+	ai_greed = -10
+	ai_zeal = -10
+	
+	random = no
+	customizer = no
+}
+
+purity_minus2x8 = {
+	monthly_character_prestige = -0.2
+	monthly_character_piety = -0.2
+	same_religion_opinion = -2
+	global_tax_modifier = -0.02
+	ai_greed = -10
+	ai_zeal = -10
+	
+	random = no
+	customizer = no
+}
+
+purity_minus2x9 = {
+	monthly_character_prestige = -0.2
+	monthly_character_piety = -0.2
+	same_religion_opinion = -2
+	global_tax_modifier = -0.02
+	ai_greed = -10
+	ai_zeal = -10
+	
+	random = no
+	customizer = no
+}
+
+purity_minus3x0 = {
+	monthly_character_prestige = -0.3
+	monthly_character_piety = -0.3
+	same_religion_opinion = -3
+	global_tax_modifier = -0.03
+	ai_greed = -15
+	ai_zeal = -15
+	
+	random = no
+	customizer = no
+}
+
+purity_minus3x1 = {
+	monthly_character_prestige = -0.3
+	monthly_character_piety = -0.3
+	same_religion_opinion = -3
+	global_tax_modifier = -0.03
+	ai_greed = -15
+	ai_zeal = -15
+	
+	random = no
+	customizer = no
+}
+
+purity_minus3x2 = {
+	monthly_character_prestige = -0.3
+	monthly_character_piety = -0.3
+	same_religion_opinion = -3
+	global_tax_modifier = -0.03
+	ai_greed = -15
+	ai_zeal = -15
+	
+	random = no
+	customizer = no
+}
+
+purity_minus3x3 = {
+	monthly_character_prestige = -0.3
+	monthly_character_piety = -0.3
+	same_religion_opinion = -3
+	global_tax_modifier = -0.03
+	ai_greed = -15
+	ai_zeal = -15
+	
+	random = no
+	customizer = no
+}
+
+purity_minus3x4 = {
+	monthly_character_prestige = -0.3
+	monthly_character_piety = -0.3
+	same_religion_opinion = -3
+	global_tax_modifier = -0.03
+	ai_greed = -15
+	ai_zeal = -15
+	
+	random = no
+	customizer = no
+}
+
+purity_minus3x5 = {
+	monthly_character_prestige = -0.3
+	monthly_character_piety = -0.3
+	same_religion_opinion = -3
+	global_tax_modifier = -0.03
+	ai_greed = -15
+	ai_zeal = -15
+	
+	random = no
+	customizer = no
+}
+
+purity_minus3x6 = {
+	monthly_character_prestige = -0.3
+	monthly_character_piety = -0.3
+	same_religion_opinion = -3
+	global_tax_modifier = -0.03
+	ai_greed = -15
+	ai_zeal = -15
+	
+	random = no
+	customizer = no
+}
+
+purity_minus3x7 = {
+	monthly_character_prestige = -0.3
+	monthly_character_piety = -0.3
+	same_religion_opinion = -3
+	global_tax_modifier = -0.03
+	ai_greed = -15
+	ai_zeal = -15
+	
+	random = no
+	customizer = no
+}
+
+purity_minus3x8 = {
+	monthly_character_prestige = -0.3
+	monthly_character_piety = -0.3
+	same_religion_opinion = -3
+	global_tax_modifier = -0.03
+	ai_greed = -15
+	ai_zeal = -15
+	
+	random = no
+	customizer = no
+}
+
+purity_minus3x9 = {
+	monthly_character_prestige = -0.3
+	monthly_character_piety = -0.3
+	same_religion_opinion = -3
+	global_tax_modifier = -0.03
+	ai_greed = -15
+	ai_zeal = -15
+	
+	random = no
+	customizer = no
+}
+
+purity_minus4x0 = {
+	monthly_character_prestige = -0.4
+	monthly_character_piety = -0.4
+	same_religion_opinion = -4
+	global_tax_modifier = -0.04
+	ai_greed = -20
+	ai_zeal = -20
+	
+	random = no
+	customizer = no
+}
+
+purity_minus4x1 = {
+	monthly_character_prestige = -0.5
+	monthly_character_piety = -0.4
+	same_religion_opinion = -4
+	global_tax_modifier = -0.04
+	ai_greed = -20
+	ai_zeal = -20
+	
+	random = no
+	customizer = no
+}
+
+purity_minus4x2 = {
+	monthly_character_prestige = -0.5
+	monthly_character_piety = -0.4
+	same_religion_opinion = -4
+	global_tax_modifier = -0.04
+	ai_greed = -20
+	ai_zeal = -20
+	
+	random = no
+	customizer = no
+}
+
+purity_minus4x3 = {
+	monthly_character_prestige = -0.5
+	monthly_character_piety = -0.4
+	same_religion_opinion = -4
+	global_tax_modifier = -0.04
+	ai_greed = -20
+	ai_zeal = -20
+	
+	random = no
+	customizer = no
+}
+
+purity_minus4x4 = {
+	monthly_character_prestige = -0.5
+	monthly_character_piety = -0.4
+	same_religion_opinion = -4
+	global_tax_modifier = -0.04
+	ai_greed = -20
+	ai_zeal = -20
+	
+	random = no
+	customizer = no
+}
+
+purity_minus4x5 = {
+	monthly_character_prestige = -0.5
+	monthly_character_piety = -0.4
+	same_religion_opinion = -4
+	global_tax_modifier = -0.04
+	ai_greed = -20
+	ai_zeal = -20
+	
+	random = no
+	customizer = no
+}
+
+purity_minus4x6 = {
+	monthly_character_prestige = -0.5
+	monthly_character_piety = -0.4
+	same_religion_opinion = -4
+	global_tax_modifier = -0.04
+	ai_greed = -20
+	ai_zeal = -20
+	
+	random = no
+	customizer = no
+}
+
+purity_minus4x7 = {
+	monthly_character_prestige = -0.5
+	monthly_character_piety = -0.4
+	same_religion_opinion = -4
+	global_tax_modifier = -0.04
+	ai_greed = -20
+	ai_zeal = -20
+	
+	random = no
+	customizer = no
+}
+
+purity_minus4x8 = {
+	monthly_character_prestige = -0.5
+	monthly_character_piety = -0.4
+	same_religion_opinion = -4
+	global_tax_modifier = -0.04
+	ai_greed = -20
+	ai_zeal = -20
+	
+	random = no
+	customizer = no
+}
+
+purity_minus4x9 = {
+	monthly_character_prestige = -0.5
+	monthly_character_piety = -0.4
+	same_religion_opinion = -4
+	global_tax_modifier = -0.04
+	ai_greed = -20
+	ai_zeal = -20
+	
+	random = no
+	customizer = no
+}
+
+purity_minus5x0 = {
+	monthly_character_prestige = -0.7
+	monthly_character_piety = -0.5
+	same_religion_opinion = -5
+	global_tax_modifier = -0.06
+	ai_greed = -25
+	ai_zeal = -25
+	
+	random = no
+	customizer = no
+}
+
+purity_minus5x1 = {
+	monthly_character_prestige = -0.7
+	monthly_character_piety = -0.5
+	same_religion_opinion = -5
+	global_tax_modifier = -0.06
+	ai_greed = -25
+	ai_zeal = -25
+	
+	random = no
+	customizer = no
+}
+
+purity_minus5x2 = {
+	monthly_character_prestige = -0.7
+	monthly_character_piety = -0.5
+	same_religion_opinion = -5
+	global_tax_modifier = -0.06
+	ai_greed = -25
+	ai_zeal = -25
+	
+	random = no
+	customizer = no
+}
+
+purity_minus5x3 = {
+	monthly_character_prestige = -0.7
+	monthly_character_piety = -0.5
+	same_religion_opinion = -5
+	global_tax_modifier = -0.06
+	ai_greed = -25
+	ai_zeal = -25
+	
+	random = no
+	customizer = no
+}
+
+purity_minus5x4 = {
+	monthly_character_prestige = -0.7
+	monthly_character_piety = -0.5
+	same_religion_opinion = -5
+	global_tax_modifier = -0.06
+	ai_greed = -25
+	ai_zeal = -25
+	
+	random = no
+	customizer = no
+}
+
+purity_minus5x5 = {
+	monthly_character_prestige = -0.7
+	monthly_character_piety = -0.5
+	same_religion_opinion = -5
+	global_tax_modifier = -0.06
+	ai_greed = -25
+	ai_zeal = -25
+	
+	random = no
+	customizer = no
+}
+
+purity_minus5x6 = {
+	monthly_character_prestige = -0.7
+	monthly_character_piety = -0.5
+	same_religion_opinion = -5
+	global_tax_modifier = -0.06
+	ai_greed = -25
+	ai_zeal = -25
+	
+	random = no
+	customizer = no
+}
+
+purity_minus5x7 = {
+	monthly_character_prestige = -0.7
+	monthly_character_piety = -0.5
+	same_religion_opinion = -5
+	global_tax_modifier = -0.06
+	ai_greed = -25
+	ai_zeal = -25
+	
+	random = no
+	customizer = no
+}
+
+purity_minus5x8 = {
+	monthly_character_prestige = -0.7
+	monthly_character_piety = -0.5
+	same_religion_opinion = -5
+	global_tax_modifier = -0.06
+	ai_greed = -25
+	ai_zeal = -25
+	
+	random = no
+	customizer = no
+}
+
+purity_minus5x9 = {
+	monthly_character_prestige = -0.7
+	monthly_character_piety = -0.5
+	same_religion_opinion = -5
+	global_tax_modifier = -0.06
+	ai_greed = -25
+	ai_zeal = -25
+	
+	random = no
+	customizer = no
+}
+
+purity_minus6x0 = {
+	monthly_character_prestige = -0.9
+	monthly_character_piety = -0.6
+	same_religion_opinion = -6
+	global_tax_modifier = -0.08
+	ai_greed = -30
+	ai_zeal = -30
+	
+	random = no
+	customizer = no
+}
+
+purity_minus6x1 = {
+	monthly_character_prestige = -0.9
+	monthly_character_piety = -0.6
+	same_religion_opinion = -6
+	global_tax_modifier = -0.08
+	ai_greed = -30
+	ai_zeal = -30
+	
+	random = no
+	customizer = no
+}
+
+purity_minus6x2 = {
+	monthly_character_prestige = -0.9
+	monthly_character_piety = -0.6
+	same_religion_opinion = -6
+	global_tax_modifier = -0.08
+	ai_greed = -30
+	ai_zeal = -30
+	
+	random = no
+	customizer = no
+}
+
+purity_minus6x3 = {
+	monthly_character_prestige = -0.9
+	monthly_character_piety = -0.6
+	same_religion_opinion = -6
+	global_tax_modifier = -0.08
+	ai_greed = -30
+	ai_zeal = -30
+	
+	random = no
+	customizer = no
+}
+
+purity_minus6x4 = {
+	monthly_character_prestige = -0.9
+	monthly_character_piety = -0.6
+	same_religion_opinion = -6
+	global_tax_modifier = -0.08
+	ai_greed = -30
+	ai_zeal = -30
+	
+	random = no
+	customizer = no
+}
+
+purity_minus6x5 = {
+	monthly_character_prestige = -0.9
+	monthly_character_piety = -0.6
+	same_religion_opinion = -6
+	global_tax_modifier = -0.08
+	ai_greed = -30
+	ai_zeal = -30
+	
+	random = no
+	customizer = no
+}
+
+purity_minus6x6 = {
+	monthly_character_prestige = -0.9
+	monthly_character_piety = -0.6
+	same_religion_opinion = -6
+	global_tax_modifier = -0.08
+	ai_greed = -30
+	ai_zeal = -30
+	
+	random = no
+	customizer = no
+}
+
+purity_minus6x7 = {
+	monthly_character_prestige = -0.9
+	monthly_character_piety = -0.6
+	same_religion_opinion = -6
+	global_tax_modifier = -0.08
+	ai_greed = -30
+	ai_zeal = -30
+	
+	random = no
+	customizer = no
+}
+
+purity_minus6x8 = {
+	monthly_character_prestige = -0.9
+	monthly_character_piety = -0.6
+	same_religion_opinion = -6
+	global_tax_modifier = -0.08
+	ai_greed = -30
+	ai_zeal = -30
+	
+	random = no
+	customizer = no
+}
+
+purity_minus6x9 = {
+	monthly_character_prestige = -0.9
+	monthly_character_piety = -0.6
+	same_religion_opinion = -6
+	global_tax_modifier = -0.08
+	ai_greed = -30
+	ai_zeal = -30
+	
+	random = no
+	customizer = no
+}
+
+purity_minus7x0 = {
+	monthly_character_prestige = -1.2
+	monthly_character_piety = -0.7
+	same_religion_opinion = -7
+	global_tax_modifier = -0.1
+	ai_greed = -35
+	ai_zeal = -35
+	
+	random = no
+	customizer = no
+}
+
+purity_minus7x1 = {
+	monthly_character_prestige = -1.2
+	monthly_character_piety = -0.7
+	same_religion_opinion = -7
+	global_tax_modifier = -0.1
+	ai_greed = -35
+	ai_zeal = -35
+	
+	random = no
+	customizer = no
+}
+
+purity_minus7x2 = {
+	monthly_character_prestige = -1.2
+	monthly_character_piety = -0.7
+	same_religion_opinion = -7
+	global_tax_modifier = -0.1
+	ai_greed = -35
+	ai_zeal = -35
+	
+	random = no
+	customizer = no
+}
+
+purity_minus7x3 = {
+	monthly_character_prestige = -1.2
+	monthly_character_piety = -0.7
+	same_religion_opinion = -7
+	global_tax_modifier = -0.1
+	ai_greed = -35
+	ai_zeal = -35
+	
+	random = no
+	customizer = no
+}
+
+purity_minus7x4 = {
+	monthly_character_prestige = -1.2
+	monthly_character_piety = -0.7
+	same_religion_opinion = -7
+	global_tax_modifier = -0.1
+	ai_greed = -35
+	ai_zeal = -35
+	
+	random = no
+	customizer = no
+}
+
+purity_minus7x5 = {
+	monthly_character_prestige = -1.2
+	monthly_character_piety = -0.7
+	same_religion_opinion = -7
+	global_tax_modifier = -0.1
+	ai_greed = -35
+	ai_zeal = -35
+	
+	random = no
+	customizer = no
+}
+
+purity_minus7x6 = {
+	monthly_character_prestige = -1.2
+	monthly_character_piety = -0.7
+	same_religion_opinion = -7
+	global_tax_modifier = -0.1
+	ai_greed = -35
+	ai_zeal = -35
+	
+	random = no
+	customizer = no
+}
+
+purity_minus7x7 = {
+	monthly_character_prestige = -1.2
+	monthly_character_piety = -0.7
+	same_religion_opinion = -7
+	global_tax_modifier = -0.1
+	ai_greed = -35
+	ai_zeal = -35
+	
+	random = no
+	customizer = no
+}
+
+purity_minus7x8 = {
+	monthly_character_prestige = -1.2
+	monthly_character_piety = -0.7
+	same_religion_opinion = -7
+	global_tax_modifier = -0.1
+	ai_greed = -35
+	ai_zeal = -35
+	
+	random = no
+	customizer = no
+}
+
+purity_minus7x9 = {
+	monthly_character_prestige = -1.2
+	monthly_character_piety = -0.7
+	same_religion_opinion = -7
+	global_tax_modifier = -0.1
+	ai_greed = -35
+	ai_zeal = -35
+	
+	random = no
+	customizer = no
+}
+
+purity_minus8x0 = {
+	monthly_character_prestige = -1.6
+	monthly_character_piety = -0.8
+	same_religion_opinion = -8
+	global_tax_modifier = -0.13
+	ai_greed = -40
+	ai_zeal = -40
+	
+	random = no
+	customizer = no
+}
+
+purity_minus8x1 = {
+	monthly_character_prestige = -1.6
+	monthly_character_piety = -0.8
+	same_religion_opinion = -8
+	global_tax_modifier = -0.13
+	ai_greed = -40
+	ai_zeal = -40
+	
+	random = no
+	customizer = no
+}
+
+purity_minus8x2 = {
+	monthly_character_prestige = -1.6
+	monthly_character_piety = -0.8
+	same_religion_opinion = -8
+	global_tax_modifier = -0.13
+	ai_greed = -40
+	ai_zeal = -40
+	
+	random = no
+	customizer = no
+}
+
+purity_minus8x3 = {
+	monthly_character_prestige = -1.6
+	monthly_character_piety = -0.8
+	same_religion_opinion = -8
+	global_tax_modifier = -0.13
+	ai_greed = -40
+	ai_zeal = -40
+	
+	random = no
+	customizer = no
+}
+
+purity_minus8x4 = {
+	monthly_character_prestige = -1.6
+	monthly_character_piety = -0.8
+	same_religion_opinion = -8
+	global_tax_modifier = -0.13
+	ai_greed = -40
+	ai_zeal = -40
+	
+	random = no
+	customizer = no
+}
+
+purity_minus8x5 = {
+	monthly_character_prestige = -1.6
+	monthly_character_piety = -0.8
+	same_religion_opinion = -8
+	global_tax_modifier = -0.13
+	ai_greed = -40
+	ai_zeal = -40
+	
+	random = no
+	customizer = no
+}
+
+purity_minus8x6 = {
+	monthly_character_prestige = -1.6
+	monthly_character_piety = -0.8
+	same_religion_opinion = -8
+	global_tax_modifier = -0.13
+	ai_greed = -40
+	ai_zeal = -40
+	
+	random = no
+	customizer = no
+}
+
+purity_minus8x7 = {
+	monthly_character_prestige = -1.6
+	monthly_character_piety = -0.8
+	same_religion_opinion = -8
+	global_tax_modifier = -0.13
+	ai_greed = -40
+	ai_zeal = -40
+	
+	random = no
+	customizer = no
+}
+
+purity_minus8x8 = {
+	monthly_character_prestige = -1.6
+	monthly_character_piety = -0.8
+	same_religion_opinion = -8
+	global_tax_modifier = -0.13
+	ai_greed = -40
+	ai_zeal = -40
+	
+	random = no
+	customizer = no
+}
+
+purity_minus8x9 = {
+	monthly_character_prestige = -1.6
+	monthly_character_piety = -0.8
+	same_religion_opinion = -8
+	global_tax_modifier = -0.13
+	ai_greed = -40
+	ai_zeal = -40
+	
+	random = no
+	customizer = no
+}
+
+purity_minus9x0 = {
+	monthly_character_prestige = -2
+	monthly_character_piety = -0.9
+	same_religion_opinion = -9
+	global_tax_modifier = -0.16
+	ai_greed = -45
+	ai_zeal = -45
+	
+	random = no
+	customizer = no
+}
+
+purity_minus9x1 = {
+	monthly_character_prestige = -2
+	monthly_character_piety = -0.9
+	same_religion_opinion = -9
+	global_tax_modifier = -0.16
+	ai_greed = -45
+	ai_zeal = -45
+	
+	random = no
+	customizer = no
+}
+
+purity_minus9x2 = {
+	monthly_character_prestige = -2
+	monthly_character_piety = -0.9
+	same_religion_opinion = -9
+	global_tax_modifier = -0.16
+	ai_greed = -45
+	ai_zeal = -45
+	
+	random = no
+	customizer = no
+}
+
+purity_minus9x3 = {
+	monthly_character_prestige = -2
+	monthly_character_piety = -0.9
+	same_religion_opinion = -9
+	global_tax_modifier = -0.16
+	ai_greed = -45
+	ai_zeal = -45
+	
+	random = no
+	customizer = no
+}
+
+purity_minus9x4 = {
+	monthly_character_prestige = -2
+	monthly_character_piety = -0.9
+	same_religion_opinion = -9
+	global_tax_modifier = -0.16
+	ai_greed = -45
+	ai_zeal = -45
+	
+	random = no
+	customizer = no
+}
+
+purity_minus9x5 = {
+	monthly_character_prestige = -2
+	monthly_character_piety = -0.9
+	same_religion_opinion = -9
+	global_tax_modifier = -0.16
+	ai_greed = -45
+	ai_zeal = -45
+	
+	random = no
+	customizer = no
+}
+
+purity_minus9x6 = {
+	monthly_character_prestige = -2
+	monthly_character_piety = -0.9
+	same_religion_opinion = -9
+	global_tax_modifier = -0.16
+	ai_greed = -45
+	ai_zeal = -45
+	
+	random = no
+	customizer = no
+}
+
+purity_minus9x7 = {
+	monthly_character_prestige = -2
+	monthly_character_piety = -0.9
+	same_religion_opinion = -9
+	global_tax_modifier = -0.16
+	ai_greed = -45
+	ai_zeal = -45
+	
+	random = no
+	customizer = no
+}
+
+purity_minus9x8 = {
+	monthly_character_prestige = -2
+	monthly_character_piety = -0.9
+	same_religion_opinion = -9
+	global_tax_modifier = -0.16
+	ai_greed = -45
+	ai_zeal = -45
+	
+	random = no
+	customizer = no
+}
+
+purity_minus9x9 = {
+	monthly_character_prestige = -2
+	monthly_character_piety = -0.9
+	same_religion_opinion = -9
+	global_tax_modifier = -0.16
+	ai_greed = -45
+	ai_zeal = -45
+	
+	random = no
+	customizer = no
+}
+
+purity_minus10 = {
+	monthly_character_prestige = -2.5
+	monthly_character_piety = -1
+	same_religion_opinion = -10
+	global_tax_modifier = -0.2
+	ai_greed = -50
+	ai_zeal = -50
+	
+	random = no
+	customizer = no
+}

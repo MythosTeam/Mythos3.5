@@ -1,0 +1,3884 @@
+namespace = MBLOODLINE
+
+### Herbalist bloodline event chain
+# Disease in your kingdom - should you try to fight it
+character_event = {
+	id = MBLOODLINE.1
+	desc = MBLOODLINE_EVTDESCA.1
+	picture = GFX_evt_bring_out_your_dead
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	only_playable = yes
+	min_age = 16
+	only_capable = yes
+	
+	trigger = {
+		trait = herbalist
+		NOT = {
+			any_owned_bloodline = {
+				has_bloodline_flag = magic_bloodline
+			}
+		}
+		any_realm_province = {
+			has_epidemic = yes
+			count = 3
+		}
+	}
+	
+	weight_multiplier = {
+		days = 1
+		modifier = {
+			factor = 1.2
+			trait = novice_mage
+		}
+		modifier = {
+			factor = 1.4
+			trait = eldritch_scholar
+		}
+		modifier = {
+			factor = 1.7
+			trait = veteran_wizard
+		}
+		modifier = {
+			factor = 2.1
+			trait = arcane_master
+		}
+		modifier = {
+			factor = 1.5
+			prestige = 2500
+		}
+		modifier = {
+			factor = 1.5
+			prestige = 5000
+		}
+		modifier = {
+			factor = 1.5
+			prestige = 7500
+		}
+		modifier = {
+			factor = 3
+			has_ambition = obj_forge_bloodline
+		}
+		modifier = {
+			factor = 1.5
+			capital_scope = { has_epidemic = yes }
+		}
+		modifier = {
+			factor = 1.5
+			capital_holding = {
+				OR = {
+					has_building = ca_mage_tower_herbalism
+					has_building = ct_mage_tower_herbalism
+				}
+			}
+		}
+	}
+	
+	immediate = {
+		# Save target provinces
+		capital_scope = { save_event_target_as = herbalist_capital }
+		random_province = {
+			limit = { has_epidemic = yes }
+			preferred_limit = { owner = { character = ROOT } }
+			save_event_target_as = herbalist_province_1
+		}
+		random_province = {
+			limit = {
+				has_epidemic = yes
+				event_target:herbalist_province_1 = { NOT = { province = PREV } }
+			}
+			preferred_limit = { owner = { character = ROOT } }
+			save_event_target_as = herbalist_province_2
+		}
+		set_variable = { which = herbalist_bloodline_chance value = 0 }
+	}
+	
+	# Determine effort to put in to fighting the disease
+	# Primary focus
+	option = {
+		name = MBLOODLINE_EVTOPTA.1
+		add_character_modifier = { modifier = focused_research duration = -1 }
+		change_variable = { which = herbalist_bloodline_chance value = 3 }
+		if = {
+			limit = {
+				OR = {
+					event_target:herbalist_capital = { has_hospital = no }
+					event_target:herbalist_province_1 = { has_hospital = no }
+					event_target:herbalist_province_2 = { has_hospital = no }
+				}
+			}
+			character_event = { id = MBLOODLINE.2 days = 10 random = 10 }
+		}
+		else = {
+			character_event = { id = MBLOODLINE.3 days = 10 random = 10 }
+		}
+		ai_chance = {
+			factor = 5
+		}
+	}
+	# Some focus
+	option = {
+		name = MBLOODLINE_EVTOPTB.1
+		add_character_modifier = { modifier = focused_research_minor duration = -1 }
+		change_variable = { which = herbalist_bloodline_chance value = 1 }
+		if = {
+			limit = {
+				OR = {
+					event_target:herbalist_capital = { has_hospital = no }
+					event_target:herbalist_province_1 = { has_hospital = no }
+					event_target:herbalist_province_2 = { has_hospital = no }
+				}
+			}
+			character_event = { id = MBLOODLINE.2 days = 20 random = 10 }
+		}
+		else = {
+			character_event = { id = MBLOODLINE.3 days = 20 random = 10 }
+		}
+		ai_chance = {
+			factor = 2
+		}
+	}
+	# No effort
+	option = {
+		name = MBLOODLINE_EVTOPTC.1
+		ai_chance = {
+			factor = 1
+		}
+	}
+}
+
+# Rush hospitals
+character_event = {
+	id = MBLOODLINE.2
+	desc = MBLOODLINE_EVTDESC.2
+	picture = GFX_evt_construction_site
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		set_variable = { which = num_missing_hospitals value = 0 }
+		if = {
+			limit = { event_target:herbalist_capital = { has_hospital = no } }
+			change_variable = { which = num_missing_hospitals value = 1 }
+		}
+		if = {
+			limit = { event_target:herbalist_province_1 = { has_hospital = no } }
+			change_variable = { which = num_missing_hospitals value = 1 }
+		}
+		if = {
+			limit = { event_target:herbalist_province_2 = { has_hospital = no } }
+			change_variable = { which = num_missing_hospitals value = 1 }
+		}
+	}
+	
+	# Add all 3
+	option = {
+		name = MBLOODLINE_EVTOPTA.2
+		trigger = {
+			is_variable_equal = { which = num_missing_hospitals value = 3 }
+		}
+		wealth = -600
+		create_hospital = event_target:herbalist_capital
+		create_hospital = event_target:herbalist_province_1
+		create_hospital = event_target:herbalist_province_2
+		change_variable = { which = herbalist_bloodline_chance value = 2 }
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 0.02
+				NOT = { wealth = 700 }
+			}
+		}
+	}
+	
+	# Add 2
+	option = {
+		name = MBLOODLINE_EVTOPTA.2
+		trigger = {
+			is_variable_equal = { which = num_missing_hospitals value = 2 }
+		}
+		wealth = -400
+		if = {
+			limit = { event_target:herbalist_capital = { has_hospital = no } }
+			create_hospital = event_target:herbalist_capital
+		}
+		if = {
+			limit = { event_target:herbalist_province_1 = { has_hospital = no } }
+			create_hospital = event_target:herbalist_province_1
+		}
+		if = {
+			limit = { event_target:herbalist_province_2 = { has_hospital = no } }
+			create_hospital = event_target:herbalist_province_2
+		}
+		change_variable = { which = herbalist_bloodline_chance value = 2 }
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 0.02
+				NOT = { wealth = 500 }
+			}
+		}
+	}
+	
+	# Add 1
+	option = {
+		name = MBLOODLINE_EVTOPTA.2
+		trigger = {
+			is_variable_equal = { which = num_missing_hospitals value = 1 }
+		}
+		wealth = -200
+		if = {
+			limit = { event_target:herbalist_capital = { has_hospital = no } }
+			create_hospital = event_target:herbalist_capital
+		}
+		if = {
+			limit = { event_target:herbalist_province_1 = { has_hospital = no } }
+			create_hospital = event_target:herbalist_province_1
+		}
+		if = {
+			limit = { event_target:herbalist_province_2 = { has_hospital = no } }
+			create_hospital = event_target:herbalist_province_2
+		}
+		change_variable = { which = herbalist_bloodline_chance value = 2 }
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 0.02
+				NOT = { wealth = 300 }
+			}
+		}
+	}
+	
+	# Add capital, not only possible province
+	option = {
+		name = MBLOODLINE_EVTOPTB.2
+		trigger = {
+			check_variable = { which = num_missing_hospitals value = 2 }
+			event_target:herbalist_capital = { has_hospital = no }
+		}
+		wealth = -200
+		create_hospital = event_target:herbalist_capital
+		change_variable = { which = herbalist_bloodline_chance value = 1 }
+		ai_chance = {
+			factor = 20
+			modifier = {
+				factor = 0.05
+				NOT = { wealth = 300 }
+			}
+		}
+	}
+	
+	# Can't afford
+	option = {
+		name = MBLOODLINE_EVTOPTC.2
+		ai_chance = {
+			factor = 5
+		}
+	}
+	
+	after = {
+		character_event = { id = MBLOODLINE.4 days = 10 random = 30 }
+	}
+}
+
+# Give your own lands to hold patients
+character_event = {
+	id = MBLOODLINE.3
+	desc = MBLOODLINE_EVTDESC.3
+	picture = GFX_evt_doctor_tending_to_sick
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = MBLOODLINE_EVTOPTA.3
+		prestige = -6000
+		event_target:herbalist_capital = { add_province_modifier = { name = donated_land duration = 365 } }
+		event_target:herbalist_province_1 = { add_province_modifier = { name = donated_land duration = 365 } }
+		event_target:herbalist_province_2 = { add_province_modifier = { name = donated_land duration = 365 } }
+		change_variable = { which = herbalist_bloodline_chance value = 2 }
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 0.02
+				NOT = { prestige = 6000 }
+			}
+		}
+	}
+	
+	option = {
+		name = MBLOODLINE_EVTOPTB.3
+		prestige = -2000
+		event_target:herbalist_capital = { add_province_modifier = { name = donated_land duration = 365 } }
+		change_variable = { which = herbalist_bloodline_chance value = 1 }
+		ai_chance = {
+			factor = 20
+			modifier = {
+				factor = 0.05
+				NOT = { prestige = 2000 }
+			}
+		}
+	}
+	
+	option = {
+		name = MBLOODLINE_EVTOPTC.3
+		ai_chance = {
+			factor = 5
+		}
+	}
+	
+	after = {
+		character_event = { id = MBLOODLINE.4 days = 10 random = 30 }
+	}
+}
+
+# Aid the church in helping the ill
+character_event = {
+	id = MBLOODLINE.4
+	desc = MBLOODLINE_EVTDESC.4
+	picture = GFX_evt_charity
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	# Provide relief funds to the church
+	option = {
+		name = MBLOODLINE_EVTOPTA.4
+		scaled_wealth = -0.4
+		add_character_modifier = { name = church_financial_aid years = 2 }
+		change_variable = { which = herbalist_bloodline_chance value = 2 }
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 0.02
+				NOT = { scaled_wealth = 0.4 }
+			}
+			modifier = {
+				factor = 1.2
+				trait = charitable
+			}
+		}
+	}
+	
+	# Help personally
+	option = {
+		name = MBLOODLINE_EVTOPTB.4
+		piety = 30
+		change_variable = { which = herbalist_bloodline_chance value = 1 }
+		ai_chance = {
+			factor = 10
+		}
+	}
+	
+	# Don't help
+	option = {
+		name = MBLOODLINE_EVTOPTC.4
+		ai_chance = {
+			factor = 2
+			modifier = {
+				factor = 8
+				trait = slothful
+			}
+		}
+	}
+	
+	after = {
+		character_event = { id = MBLOODLINE.5 days = 10 random = 20 }
+	}
+}
+
+# Found a cure
+character_event = {
+	id = MBLOODLINE.5
+	desc = MBLOODLINE_EVTDESC.5
+	picture = GFX_evt_performing_experiments
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = MBLOODLINE_EVTOPTA.5
+		wealth = -2
+		event_target:herbalist_capital = {
+			add_province_modifier = { name = diverted_troops years = 1 }
+			reduce_disease = 1
+			any_neighbor_province ={
+				reduce_disease = 0.5
+			}
+		}
+		event_target:herbalist_province_1 = {
+			add_province_modifier = { name = diverted_troops years = 1 }
+			reduce_disease = 1
+			any_neighbor_province ={
+				reduce_disease = 0.5
+			}
+		}
+		event_target:herbalist_province_2 = {
+			add_province_modifier = { name = diverted_troops years = 1 }
+			reduce_disease = 1
+			any_neighbor_province ={
+				reduce_disease = 0.5
+			}
+		}
+		change_variable = { which = herbalist_bloodline_chance value = 4 }
+		ai_chance = {
+			factor = 20
+			modifier = {
+				factor = 0.05
+				NOT = { scaled_wealth = 2 }
+			}
+		}
+	}
+	option = {
+		name = MBLOODLINE_EVTOPTB.5
+		wealth = -0.66
+		event_target:herbalist_capital = {
+			add_province_modifier = { name = diverted_troops years = 1 }
+			reduce_disease = 1
+			any_neighbor_province ={
+				reduce_disease = 0.5
+			}
+		}
+		change_variable = { which = herbalist_bloodline_chance value = 1 }
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 0.1
+				NOT = { scaled_wealth = 0.66 }
+			}
+		}
+	}
+	option = {
+		name = MBLOODLINE_EVTOPTC.5
+		wealth = 0.8
+		add_trait_greedy_effect = yes
+		change_variable = { which = herbalist_bloodline_chance value = -1 }
+		ai_chance = {
+			factor = 5
+			modifier = {
+				factor = 10
+				trait = greedy
+			}
+		}
+	}
+	option = {
+		name = MBLOODLINE_EVTOPTD.5
+		add_trait_proud_effect = yes
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 25
+				trait = slothful
+			}
+		}
+	}
+	after = {
+		if = {
+			limit = { check_variable = { which = herbalist_bloodline_chance value = 11 } }
+			character_event = { id = MBLOODLINE.6 days = 5 random = 4 }
+		}
+		else_if = {
+			limit = { check_variable = { which = herbalist_bloodline_chance value = 1 } }
+			random = {
+				chance = 100
+				modifier = {
+					factor = .053
+					is_variable_equal = { which = herbalist_bloodline_chance value = 1 }
+				}
+				modifier = {
+					factor = .084
+					is_variable_equal = { which = herbalist_bloodline_chance value = 2 }
+				}
+				modifier = {
+					factor = .146
+					is_variable_equal = { which = herbalist_bloodline_chance value = 3 }
+				}
+				modifier = {
+					factor = .276
+					is_variable_equal = { which = herbalist_bloodline_chance value = 4 }
+				}
+				modifier = {
+					factor = .5
+					is_variable_equal = { which = herbalist_bloodline_chance value = 5 }
+				}
+				modifier = {
+					factor = .724
+					is_variable_equal = { which = herbalist_bloodline_chance value = 6 }
+				}
+				modifier = {
+					factor = .854
+					is_variable_equal = { which = herbalist_bloodline_chance value = 7 }
+				}
+				modifier = {
+					factor = .916
+					is_variable_equal = { which = herbalist_bloodline_chance value = 8 }
+				}
+				modifier = {
+					factor = .947
+					is_variable_equal = { which = herbalist_bloodline_chance value = 9 }
+				}
+				modifier = {
+					factor = .964
+					is_variable_equal = { which = herbalist_bloodline_chance value = 10 }
+				}
+				character_event = { id = MBLOODLINE.6 days = 5 random = 4 }
+			}
+		}
+	}
+}
+
+character_event = {
+	id = MBLOODLINE.6
+	desc = MBLOODLINE_EVTDESC.6
+	picture = GFX_evt_experiment
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EXCELLENT
+		if = {
+			limit = {
+				has_religion_feature = religion_matriarchal
+			}
+			create_bloodline = {
+				type = BL_herbalist
+				inheritance = matrilineal
+			}
+		}
+		else_if = {
+			limit = {
+				OR = {
+					has_religion_feature = religion_equal
+					has_religion_feature = religion_feature_bon
+					culture = basque
+					culture = zhangzhung
+					culture = sumpa
+					religion = cathar
+					religion = messalian
+					religion = mazdaki
+				}
+			}
+			create_bloodline = {
+				type = BL_herbalist
+				inheritance = all_descendants
+			}
+		}
+		else = {
+			create_bloodline = {
+				type = BL_herbalist
+			}
+		}
+		if = {
+			limit = { can_apply_super_cool_nickname_trigger = yes }
+			random_list = {
+				1 = {
+					trigger = { can_apply_cool_nickname_trigger = yes }
+					give_nickname = nick_the_generous
+				}
+				1 = {
+					trigger = { can_apply_lame_nickname_trigger = yes }
+					give_nickname = nick_the_good
+				}
+				1 = {
+					trigger = { can_apply_lame_nickname_trigger = yes }
+					give_nickname = nick_the_magnanimous
+				}
+				1 = {
+					trigger = { can_apply_lame_nickname_trigger = yes }
+					give_nickname = nick_the_blessed
+				}
+				1 = {
+					trigger = { can_apply_lame_nickname_trigger = yes }
+					give_nickname = nick_the_healer
+				}
+				1 = {
+					trigger = { can_apply_lame_nickname_trigger = yes }
+					give_nickname = nick_the_unmercenary_healer
+				}
+				1 = {
+					trigger = { can_apply_lame_nickname_trigger = yes }
+					give_nickname = nick_the_understanding
+				}
+				1 = {
+					trigger = { can_apply_lame_nickname_trigger = yes }
+					give_nickname = nick_the_merciful
+				}
+				1 = {
+					trigger = { can_apply_super_cool_nickname_trigger = yes }
+					give_nickname = nick_the_compassionate
+				}
+				1 = {
+					trigger = { can_apply_super_cool_nickname_trigger = yes }
+					give_nickname = nick_the_benevolent
+				}
+			}
+		}
+	}
+}
+
+### Enchanter Bloodline
+character_event = {
+	id = MBLOODLINE.7
+	desc = MBLOODLINE_EVTDESCA.7
+	picture = GFX_evt_powerful_ruler
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	only_playable = yes
+	min_age = 16
+	only_capable = yes
+	
+	trigger = {
+		trait = enchanter
+		prestige = 5000
+		NOT = {
+			any_owned_bloodline = {
+				has_bloodline_flag = magic_bloodline
+			}
+		}
+		capital_scope = {
+			NOR = {
+				has_province_modifier = purified_water
+				has_province_modifier = shining_buildings
+				has_province_modifier = preserved_food
+				has_province_modifier = calming_music
+				has_province_modifier = idyllic_weather
+				has_province_modifier = parade_guards
+			}
+		}
+	}
+	
+	weight_multiplier = {
+		days = 1
+		modifier = {
+			factor = 1.3
+			trait = eldritch_scholar
+		}
+		modifier = {
+			factor = 1.6
+			trait = veteran_wizard
+		}
+		modifier = {
+			factor = 1.9
+			trait = arcane_master
+		}
+		modifier = {
+			factor = 1.5
+			prestige = 10000
+		}
+		modifier = {
+			factor = 1.5
+			prestige = 15000
+		}
+		modifier = {
+			factor = 1.5
+			prestige = 20000
+		}
+		modifier = {
+			factor = 3
+			has_ambition = obj_forge_bloodline
+		}
+		modifier = {
+			factor = 1.5
+			capital_scope = { has_epidemic = yes }
+		}
+		modifier = {
+			factor = 1.5
+			capital_holding = {
+				OR = {
+					has_building = ca_mage_tower_enchantment
+					has_building = ct_mage_tower_enchantment
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = MBLOODLINE_OPTA.7
+		character_event = { id = MBLOODLINE.8 days = 5 }
+		ai_chance = {
+			factor = 10
+		}
+	}
+	
+	option = {
+		name = MBLOODLINE_OPTB.7
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 2
+				NOT = { piety = 2000 }
+			}
+			modifier = {
+				factor = 2
+				NOT = { prestige = 15000 }
+			}
+			modifier = {
+				factor = 2
+				NOT = { prestige = 10000 }
+			}
+			modifier = {
+				factor = 2
+				NOT = { wealth = 3000 }
+			}
+			modifier = {
+				factor = 2
+				NOT = { wealth = 2000 }
+			}
+		}
+	}
+}
+
+character_event = {
+	id = MBLOODLINE.8
+	desc = MBLOODLINE_EVTDESC.8
+	picture = GFX_evt_prospering_province
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = MBLOODLINE_OPTA.8
+		piety = -2000
+		capital_scope = {
+			add_province_modifier ={
+				name = purified_water
+				years = 30
+			}
+		}
+		ai_chance = {
+			factor = 20
+			modifier = {
+				factor = 0.1
+				NOT = { piety = 2500 }
+			}
+			modifier = {
+				factor = 0.2
+				NOT = { piety = 2000 }
+			}
+		}
+	}
+	
+	option = {
+		name = MBLOODLINE_OPTB.8
+		piety = -1000
+		random = {
+			chance = 66
+			capital_scope = {
+				add_province_modifier ={
+					name = purified_water
+					years = 30
+				}
+			}
+		}
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 0.2
+				NOT = { piety = 1500 }
+			}
+			modifier = {
+				factor = 0.2
+				NOT = { piety = 1000 }
+			}
+		}
+	}
+	
+	option = {
+		name = MBLOODLINE_OPTC.8
+		piety = -500
+		random = {
+			chance = 33
+			capital_scope = {
+				add_province_modifier ={
+					name = purified_water
+					years = 30
+				}
+			}
+		}
+		ai_chance = {
+			factor = 5
+			modifier = {
+				factor = 0.2
+				NOT = { piety = 1000 }
+			}
+			modifier = {
+				factor = 0.2
+				NOT = { piety = 500 }
+			}
+		}
+	}
+	
+	option = {
+		name = MBLOODLINE_OPTD.8
+		ai_chance = { factor = 1 }
+	}
+	
+	after = {
+		character_event = { id = MBLOODLINE.9 days = 60 random = 90 }
+	}
+}
+
+character_event = {
+	id = MBLOODLINE.9
+	desc = MBLOODLINE_EVTDESC.9
+	picture = GFX_evt_castle_construction
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = MBLOODLINE_OPTA.9
+		wealth = -2000
+		capital_scope = {
+			add_province_modifier ={
+				name = shining_buildings
+				years = 30
+			}
+		}
+		ai_chance = {
+			factor = 20
+			modifier = {
+				factor = 0.1
+				NOT = { wealth = 2500 }
+			}
+			modifier = {
+				factor = 0.2
+				NOT = { wealth = 2000 }
+			}
+		}
+	}
+	
+	option = {
+		name = MBLOODLINE_OPTB.9
+		wealth = -1000
+		random = {
+			chance = 66
+			capital_scope = {
+				add_province_modifier ={
+					name = shining_buildings
+					years = 30
+				}
+			}
+		}
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 0.2
+				NOT = { wealth = 1500 }
+			}
+			modifier = {
+				factor = 0.2
+				NOT = { wealth = 1000 }
+			}
+		}
+	}
+	
+	option = {
+		name = MBLOODLINE_OPTC.9
+		wealth = -500
+		random = {
+			chance = 33
+			capital_scope = {
+				add_province_modifier ={
+					name = shining_buildings
+					years = 30
+				}
+			}
+		}
+		ai_chance = {
+			factor = 5
+			modifier = {
+				factor = 0.2
+				NOT = { wealth = 1000 }
+			}
+			modifier = {
+				factor = 0.2
+				NOT = { wealth = 500 }
+			}
+		}
+	}
+	
+	option = {
+		name = MBLOODLINE_OPTD.9
+		ai_chance = { factor = 1 }
+	}
+	
+	after = {
+		character_event = { id = MBLOODLINE.10 days = 60 random = 90 }
+	}
+}
+
+character_event = {
+	id = MBLOODLINE.10
+	desc = MBLOODLINE_EVTDESC.10
+	picture = GFX_evt_feast
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = MBLOODLINE_OPTA.10
+		prestige = -10000
+		capital_scope = {
+			add_province_modifier ={
+				name = preserved_food
+				years = 30
+			}
+		}
+		ai_chance = {
+			factor = 20
+			modifier = {
+				factor = 0.1
+				NOT = { prestige = 15000 }
+			}
+			modifier = {
+				factor = 0.2
+				NOT = { prestige = 10000 }
+			}
+		}
+	}
+	
+	option = {
+		name = MBLOODLINE_OPTB.10
+		prestige = -5000
+		random = {
+			chance = 66
+			capital_scope = {
+				add_province_modifier ={
+					name = preserved_food
+					years = 30
+				}
+			}
+		}
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 0.2
+				NOT = { prestige = 7500 }
+			}
+			modifier = {
+				factor = 0.2
+				NOT = { prestige = 5000 }
+			}
+		}
+	}
+	
+	option = {
+		name = MBLOODLINE_OPTC.10
+		prestige = -2500
+		random = {
+			chance = 33
+			capital_scope = {
+				add_province_modifier ={
+					name = preserved_food
+					years = 30
+				}
+			}
+		}
+		ai_chance = {
+			factor = 5
+			modifier = {
+				factor = 0.2
+				NOT = { prestige = 3750 }
+			}
+			modifier = {
+				factor = 0.2
+				NOT = { prestige = 2500 }
+			}
+		}
+	}
+	
+	option = {
+		name = MBLOODLINE_OPTD.10
+		ai_chance = { factor = 1 }
+	}
+	
+	after = {
+		character_event = { id = MBLOODLINE.11 days = 60 random = 90 }
+	}
+}
+
+character_event = {
+	id = MBLOODLINE.11
+	desc = MBLOODLINE_EVTDESC.11
+	picture = GFX_evt_dancing
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = MBLOODLINE_OPTA.11
+		capital_scope = {
+			add_province_modifier ={
+				name = calming_music
+				years = 30
+			}
+		}
+		custom_tooltip = {
+			text = tt_enchant_music_long
+			hidden_tooltip = {
+				character_event = { id = MBLOODLINE.12 days = 720 random = 360 }
+			}
+		}
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 2
+				trait = patient
+			}
+			modifier = {
+				factor = 0.2
+				trait = wroth
+			}
+		}
+	}
+	
+	option = {
+		name = MBLOODLINE_OPTB.11
+		random = {
+			chance = 66
+			capital_scope = {
+				add_province_modifier ={
+					name = calming_music
+					years = 30
+				}
+			}
+		}
+		custom_tooltip = {
+			text = tt_enchant_music_medium
+			hidden_tooltip = {
+				character_event = { id = MBLOODLINE.12 days = 100 random = 300 }
+			}
+		}
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 2
+				trait = patient
+			}
+			modifier = {
+				factor = 0.2
+				trait = wroth
+			}
+		}
+	}
+	
+	option = {
+		name = MBLOODLINE_OPTC.11
+		random = {
+			chance = 33
+			capital_scope = {
+				add_province_modifier ={
+					name = calming_music
+					years = 30
+				}
+			}
+		}
+		custom_tooltip = {
+			text = tt_enchant_music_short
+			hidden_tooltip = {
+				character_event = { id = MBLOODLINE.12 days = 60 random = 60 }
+			}
+		}
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 2
+				trait = patient
+			}
+			modifier = {
+				factor = 0.2
+				trait = wroth
+			}
+		}
+	}
+	
+	option = {
+		name = MBLOODLINE_OPTD.11
+		ai_chance = { factor = 1 }
+		character_event = { id = MBLOODLINE.12 days = 30 random = 20 }
+	}
+}
+
+character_event = {
+	id = MBLOODLINE.12
+	desc = MBLOODLINE_EVTDESC.12
+	picture = GFX_evt_fishing
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = MBLOODLINE_OPTA.12
+		prestige = -5000
+		capital_scope = {
+			add_province_modifier ={
+				name = idyllic_weather
+				years = 30
+			}
+		}
+		ai_chance = {
+			factor = 20
+			modifier = {
+				factor = 0.1
+				NOT = { prestige = 7500 }
+			}
+			modifier = {
+				factor = 0.2
+				NOT = { prestige = 5000 }
+			}
+		}
+	}
+	
+	option = {
+		name = MBLOODLINE_OPTB.12
+		prestige = -2500
+		random = {
+			chance = 66
+			capital_scope = {
+				add_province_modifier ={
+					name = idyllic_weather
+					years = 30
+				}
+			}
+		}
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 0.2
+				NOT = { prestige = 3700 }
+			}
+			modifier = {
+				factor = 0.2
+				NOT = { prestige = 2500 }
+			}
+		}
+	}
+	
+	option = {
+		name = MBLOODLINE_OPTC.12
+		prestige = -1250
+		random = {
+			chance = 33
+			capital_scope = {
+				add_province_modifier ={
+					name = idyllic_weather
+					years = 30
+				}
+			}
+		}
+		ai_chance = {
+			factor = 5
+			modifier = {
+				factor = 0.2
+				NOT = { prestige = 1900 }
+			}
+			modifier = {
+				factor = 0.2
+				NOT = { prestige = 1250 }
+			}
+		}
+	}
+	
+	option = {
+		name = MBLOODLINE_OPTD.12
+		ai_chance = { factor = 1 }
+	}
+	
+	after = {
+		character_event = { id = MBLOODLINE.13 days = 60 random = 90 }
+	}
+}
+
+character_event = {
+	id = MBLOODLINE.13
+	desc = MBLOODLINE_EVTDESC.13
+	picture = GFX_evt_victory_arch_byzantine
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = MBLOODLINE_OPTA.13
+		wealth = -1000
+		capital_scope = {
+			add_province_modifier ={
+				name = parade_guards
+				years = 30
+			}
+		}
+		ai_chance = {
+			factor = 20
+			modifier = {
+				factor = 0.1
+				NOT = { wealth = 1500 }
+			}
+			modifier = {
+				factor = 0.2
+				NOT = { wealth = 1000 }
+			}
+		}
+	}
+	
+	option = {
+		name = MBLOODLINE_OPTB.13
+		wealth = -500
+		random = {
+			chance = 66
+			capital_scope = {
+				add_province_modifier ={
+					name = parade_guards
+					years = 30
+				}
+			}
+		}
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 0.2
+				NOT = { wealth = 750 }
+			}
+			modifier = {
+				factor = 0.2
+				NOT = { wealth = 500 }
+			}
+		}
+	}
+	
+	option = {
+		name = MBLOODLINE_OPTC.13
+		prestige = -250
+		random = {
+			chance = 33
+			capital_scope = {
+				add_province_modifier ={
+					name = parade_guards
+					years = 30
+				}
+			}
+		}
+		ai_chance = {
+			factor = 5
+			modifier = {
+				factor = 0.2
+				NOT = { wealth = 400 }
+			}
+			modifier = {
+				factor = 0.2
+				NOT = { wealth = 250 }
+			}
+		}
+	}
+	
+	option = {
+		name = MBLOODLINE_OPTD.13
+		ai_chance = { factor = 1 }
+	}
+	
+	after = {
+		character_event = { id = MBLOODLINE.14 days = 60 random = 90 }
+	}
+}
+
+# Count number of upgrades and see if they get the reward
+character_event = {
+	id = MBLOODLINE.14
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		# Count modifiers
+		set_variable = { which = count_modifiers value = 0 }
+		if = {
+			limit = { capital_scope = { has_province_modifier = purified_water } }
+			change_variable = { which = count_modifiers value = 1 }
+		}
+		if = {
+			limit = { capital_scope = { has_province_modifier = shining_buildings } }
+			change_variable = { which = count_modifiers value = 1 }
+		}
+		if = {
+			limit = { capital_scope = { has_province_modifier = preserved_food } }
+			change_variable = { which = count_modifiers value = 1 }
+		}
+		if = {
+			limit = { capital_scope = { has_province_modifier = calming_music } }
+			change_variable = { which = count_modifiers value = 1 }
+		}
+		if = {
+			limit = { capital_scope = { has_province_modifier = idyllic_weather } }
+			change_variable = { which = count_modifiers value = 1 }
+		}
+		if = {
+			limit = { capital_scope = { has_province_modifier = parade_guards } }
+			change_variable = { which = count_modifiers value = 1 }
+		}
+		
+		# Determine result
+		if = {
+			limit = { check_variable = { which = count_modifiers value = 6 } }
+			# Success
+			character_event = { id = MBLOODLINE.15 }
+		}
+		else_if = {
+			limit = { check_variable = { which = count_modifiers value = 5 } }
+			random_list = {
+				9 = {
+					character_event = { id = MBLOODLINE.15 }
+				}
+				1 = {
+					character_event = { id = MBLOODLINE.16 }
+				}
+			}
+		}
+		else_if = {
+			limit = { check_variable = { which = count_modifiers value = 4 } }
+			random_list = {
+				7 = {
+					character_event = { id = MBLOODLINE.15 }
+				}
+				3 = {
+					character_event = { id = MBLOODLINE.16 }
+				}
+			}
+		}
+		else_if = {
+			limit = { check_variable = { which = count_modifiers value = 3 } }
+			random_list = {
+				5 = {
+					character_event = { id = MBLOODLINE.15 }
+				}
+				5 = {
+					character_event = { id = MBLOODLINE.16 }
+				}
+			}
+		}
+		else_if = {
+			limit = { check_variable = { which = count_modifiers value = 2 } }
+			random_list = {
+				3 = {
+					character_event = { id = MBLOODLINE.15 }
+				}
+				7 = {
+					character_event = { id = MBLOODLINE.16 }
+				}
+			}
+		}
+		else_if = {
+			limit = { check_variable = { which = count_modifiers value = 1 } }
+			random_list = {
+				1 = {
+					character_event = { id = MBLOODLINE.15 }
+				}
+				9 = {
+					character_event = { id = MBLOODLINE.16 }
+				}
+			}
+		}
+		else = {
+			character_event = { id = MBLOODLINE.16 }
+		}
+	}
+}
+
+character_event = {
+	id = MBLOODLINE.15
+	desc = {
+		trigger = { check_variable = { which = check_modifiers value = 3 } }
+		text = MBLOODLINE_EVTDESCA.15
+	}
+	desc = {
+		trigger = { NOT = { check_variable = { which = check_modifiers value = 3 } } }
+		text = MBLOODLINE_EVTDESCB.15
+	}
+	picture = {
+		trigger = { is_republic = no }
+		picture = GFX_evt_magnificent_castle
+	}
+	picture = {
+		trigger = { is_republic = yes }
+		picture = GFX_evt_busy_trading_dock_republic
+	}
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = MBLOODLINE_EVTOPTA.15
+		if = {
+			limit = {
+				has_religion_feature = religion_matriarchal
+			}
+			create_bloodline = {
+				type = BL_enchanter
+				inheritance = matrilineal
+			}
+		}
+		else_if = {
+			limit = {
+				OR = {
+					has_religion_feature = religion_equal
+					has_religion_feature = religion_feature_bon
+					culture = basque
+					culture = zhangzhung
+					culture = sumpa
+					religion = cathar
+					religion = messalian
+					religion = mazdaki
+				}
+			}
+			create_bloodline = {
+				type = BL_enchanter
+				inheritance = all_descendants
+			}
+		}
+		else = {
+			create_bloodline = {
+				type = BL_enchanter
+			}
+		}
+		if = {
+			limit = { can_apply_super_cool_nickname_trigger = yes }
+			random_list = {
+				1 = {
+					trigger = { can_apply_super_cool_nickname_trigger = yes }
+					give_nickname = nick_the_exalted
+				}
+				1 = {
+					trigger = {
+						can_apply_cool_nickname_trigger = yes
+						NOT = { trait = content }
+					}
+					give_nickname = nick_the_ambitious
+				}
+				1 = {
+					trigger = { can_apply_cool_nickname_trigger = yes }
+					give_nickname = nick_the_generous
+				}
+				1 = {
+					trigger = { can_apply_cool_nickname_trigger = yes }
+					give_nickname = the_wizard
+				}
+				1 = {
+					trigger = { can_apply_average_nickname_trigger = yes }
+					give_nickname = nick_the_lord_of_realm
+				}
+				1 = {
+					trigger = { can_apply_lame_nickname_trigger = yes }
+					give_nickname = nick_the_good
+				}
+				1 = {
+					trigger = { can_apply_lame_nickname_trigger = yes }
+					give_nickname = nick_the_magnanimous
+				}
+				1 = {
+					trigger = { can_apply_lame_nickname_trigger = yes }
+					give_nickname = nick_the_noble
+				}
+				1 = {
+					trigger = { can_apply_lame_nickname_trigger = yes }
+					give_nickname = nick_the_magnificent
+				}
+			}
+		}
+	}
+}
+
+character_event = {
+	id = MBLOODLINE.16
+	desc = {
+		trigger = { check_variable = { which = check_modifiers value = 4 } }
+		text = MBLOODLINE_EVTDESCA.15
+	}
+	desc = {
+		trigger = { NOT = { check_variable = { which = check_modifiers value = 4 } } }
+		text = MBLOODLINE_EVTDESCB.15
+	}
+	picture = GFX_evt_stressed_ruler
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = MBLOODLINE_EVTOPTA.16
+		random = {
+			chance = 10
+			add_trait = depressed
+		}
+	}
+}
+
+# Summoner Bloodline
+character_event = {
+	id = MBLOODLINE.17
+	desc = MBLOODLINE_EVTDESC.17
+	picture = GFX_evt_ritual_scroll
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	only_playable = yes
+	min_age = 16
+	
+	trigger = {
+		job_chancellor = { has_character_flag = summoned_creature }
+		job_marshal = { has_character_flag = summoned_creature }
+		job_treasurer = { has_character_flag = summoned_creature }
+		job_spymaster = { has_character_flag = summoned_creature }
+		job_spiritual = { has_character_flag = summoned_creature }
+		OR = {
+			NOT = { has_assigned_minor_title = title_councilmember_king }
+			any_courtier_or_vassal = { has_minor_title = title_councilmember_king }
+		}
+		OR = {
+			NOT = { has_assigned_minor_title = title_councilmember_emperor }
+			any_courtier_or_vassal = { has_minor_title = title_councilmember_emperor }
+		}
+		# Not including blood court titles since they are hard to get summoned characters in to
+	}
+	
+	weight_multiplier = {
+		days = 1
+		modifier = {
+			factor = 1.5
+			capital_holding = {
+				OR = {
+					has_building = ca_mage_tower_conjuration
+					has_building = ct_mage_tower_conjuration
+				}
+			}
+		}
+		modifier = {
+			factor = 1.2
+			trait = novice_mage
+		}
+		modifier = {
+			factor = 1.4
+			trait = eldritch_scholar
+		}
+		modifier = {
+			factor = 1.7
+			trait = veteran_wizard
+		}
+		modifier = {
+			factor = 2.1
+			trait = arcane_master
+		}
+		modifier = {
+			factor = 1.5
+			prestige = 2500
+		}
+		modifier = {
+			factor = 1.5
+			prestige = 5000
+		}
+		modifier = {
+			factor = 1.5
+			prestige = 7500
+		}
+		modifier = {
+			factor = 3
+			has_ambition = obj_forge_bloodline
+		}
+	}
+	
+	option = {
+		name = MBLOODLINE_EVTOPTA.17
+		character_event = { id = MBLOODLINE.18 days = 40 random = 15 }
+	}
+	
+	option = {
+		trigger = { ai = no }
+		name = MBLOODLINE_EVTOPTB.17
+	}
+}
+
+character_event = {
+	id = MBLOODLINE.18
+	desc = MBLOODLINE_DESCA.18
+	picture = GFX_evt_squaring_the_circle
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		set_variable = { which = ritual_strength value = 0 }
+	}
+	
+	option = {
+		name = MBLOODLINE_EVTOPTA.18
+		scaled_wealth = -1
+		change_variable = { which = ritual_strength value = 3 }
+	}
+	
+	option = {
+		name = MBLOODLINE_EVTOPTB.18
+		scaled_wealth = -0.5
+		change_variable = { which = ritual_strength value = 1 }
+	}
+	
+	option = {
+		name = MBLOODLINE_EVTOPTC.18
+	}
+	
+	after = {
+		character_event = { id = MBLOODLINE.19 days = 20 random = 10 }
+	}
+}
+
+character_event = {
+	id = MBLOODLINE.19
+	desc = MBLOODLINE_DESCA.19
+	picture = GFX_evt_gathering_of_minds
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		# Determine which stat to skip
+		random_list = {
+			1 = { set_character_flag = skip_diplomacy }
+			1 = { set_character_flag = skip_martial }
+			1 = { set_character_flag = skip_stewardship }
+			1 = { set_character_flag = skip_intrigue }
+			1 = { set_character_flag = skip_learning }
+		}
+		# Diplomacy
+		random_courtier_or_vassal = {
+			preferred_limit = { diplomacy = 40 }
+			preferred_limit = { diplomacy = 35 }
+			preferred_limit = { diplomacy = 30 }
+			preferred_limit = { diplomacy = 25 }
+			preferred_limit = { diplomacy = 20 }
+			preferred_limit = { diplomacy = 15 }
+			preferred_limit = { diplomacy = 10 }
+			preferred_limit = { diplomacy = 5 }
+			save_event_target_as = possible_ritual_leader_diplomacy
+		}
+		# Martial
+		random_courtier_or_vassal = {
+			preferred_limit = { martial = 40 }
+			preferred_limit = { martial = 35 }
+			preferred_limit = { martial = 30 }
+			preferred_limit = { martial = 25 }
+			preferred_limit = { martial = 20 }
+			preferred_limit = { martial = 15 }
+			preferred_limit = { martial = 10 }
+			preferred_limit = { martial = 5 }
+			save_event_target_as = possible_ritual_leader_martial
+		}
+		# Stewardship
+		random_courtier_or_vassal = {
+			preferred_limit = { stewardship = 40 }
+			preferred_limit = { stewardship = 35 }
+			preferred_limit = { stewardship = 30 }
+			preferred_limit = { stewardship = 25 }
+			preferred_limit = { stewardship = 20 }
+			preferred_limit = { stewardship = 15 }
+			preferred_limit = { stewardship = 10 }
+			preferred_limit = { stewardship = 5 }
+			save_event_target_as = possible_ritual_leader_stewardship
+		}
+		# Intrigue
+		random_courtier_or_vassal = {
+			preferred_limit = { intrigue = 40 }
+			preferred_limit = { intrigue = 35 }
+			preferred_limit = { intrigue = 30 }
+			preferred_limit = { intrigue = 25 }
+			preferred_limit = { intrigue = 20 }
+			preferred_limit = { intrigue = 15 }
+			preferred_limit = { intrigue = 10 }
+			preferred_limit = { intrigue = 5 }
+			save_event_target_as = possible_ritual_leader_intrigue
+		}
+		# Learning
+		random_courtier_or_vassal = {
+			preferred_limit = { learning = 40 }
+			preferred_limit = { learning = 35 }
+			preferred_limit = { learning = 30 }
+			preferred_limit = { learning = 25 }
+			preferred_limit = { learning = 20 }
+			preferred_limit = { learning = 15 }
+			preferred_limit = { learning = 10 }
+			preferred_limit = { learning = 5 }
+			save_event_target_as = possible_ritual_leader_learning
+		}
+	}
+	
+	option = {
+		name = MBLOODLINE_EVTOPTA.19
+		trigger = { NOT = { has_character_flag = skip_diplomacy } }
+		event_target:possible_ritual_leader_diplomacy = { save_event_target_as = ritual_leader }
+		set_character_flag = ritual_diplomacy
+	}
+	
+	option = {
+		name = MBLOODLINE_EVTOPTB.19
+		trigger = { NOT = { has_character_flag = skip_martial } }
+		event_target:possible_ritual_leader_martial = { save_event_target_as = ritual_leader }
+		set_character_flag = ritual_martial
+	}
+	
+	option = {
+		name = MBLOODLINE_EVTOPTC.19
+		trigger = { NOT = { has_character_flag = skip_stewardship } }
+		event_target:possible_ritual_leader_stewardship = { save_event_target_as = ritual_leader }
+		set_character_flag = ritual_stewardship
+	}
+	
+	option = {
+		name = MBLOODLINE_EVTOPTD.19
+		trigger = { NOT = { has_character_flag = skip_intrigue } }
+		event_target:possible_ritual_leader_intrigue = { save_event_target_as = ritual_leader }
+		set_character_flag = ritual_intrigue
+	}
+	
+	option = {
+		name = MBLOODLINE_EVTOPTE.19
+		trigger = { NOT = { has_character_flag = skip_learning } }
+		event_target:possible_ritual_leader_learning = { save_event_target_as = ritual_leader }
+		set_character_flag = ritual_learning
+	}
+	
+	after = {
+		clr_character_flag = skip_diplomacy
+		clr_character_flag = skip_martial
+		clr_character_flag = skip_stewardship
+		clr_character_flag = skip_intrigue
+		clr_character_flag = skip_learning
+		character_event = { id = MBLOODLINE.20 days = 30 random = 15 }
+	}
+}
+
+character_event = {
+	id = MBLOODLINE.20
+	desc = MBLOODLINE_EVTDESC.20
+	picture = GFX_evt_elder_council
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = MBLOODLINE_EVTOPTA.20
+		trigger = { is_tribal = no }
+		add_character_modifier = { name = favored_nobles years = 5 }
+		scaled_prestige = -0.5
+	}
+	option = {
+		name = MBLOODLINE_EVTOPTB.20
+		trigger = { is_tribal = yes }
+		add_character_modifier = { name = favored_tribesmen years = 5 }
+		scaled_prestige = -0.5
+	}
+	option = {
+		name = MBLOODLINE_EVTOPTC.20
+		add_character_modifier = { name = favored_clergy years = 5 }
+		scaled_piety = -0.5
+	}
+	option = {
+		name = MBLOODLINE_EVTOPTD.20
+		trigger = { is_tribal = no }
+		add_character_modifier = { name = favored_burghers years = 5 }
+		scaled_wealth = -0.1
+	}
+	
+	after = {
+		if = {
+			limit = {
+				NOR = {
+					has_religion_feature = religion_ritual_sacrifice
+					has_religion_feature = religion_feature_aztec 
+					religion = aztec
+				}
+			}
+			character_event = { id = MBLOODLINE.21 days = 20 random = 20 }
+		}
+		else = {
+			character_event = { id = MBLOODLINE.22 days = 20 random = 20 }
+		}
+	}
+}
+
+character_event = {
+	id = MBLOODLINE.21
+	desc = MBLOODLINE_EVTDESC.21
+	picture = GFX_evt_magic_ritual
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = MBLOODLINE_EVTOPTA.21
+		wealth = -5000
+		change_variable = { which = ritual_strength value = 4 }
+		ai_chance = {
+			factor = 40
+			modifier = {
+				factor = 0.25
+				NOT = { wealth = 7500 }
+			}
+			modifier = {
+				factor = 0.1
+				NOT = { wealth = 5000 }
+			}
+		}
+	}
+	option = {
+		name = MBLOODLINE_EVTOPTB.21
+		wealth = -2500
+		change_variable = { which = ritual_strength value = 2 }
+		ai_chance = {
+			factor = 30
+			modifier = {
+				factor = 0.3
+				NOT = { wealth = 4000 }
+			}
+			modifier = {
+				factor = 0.1
+				NOT = { wealth = 2500 }
+			}
+		}
+	}
+	option = {
+		name = MBLOODLINE_EVTOPTC.21
+		wealth = -1000
+		change_variable = { which = ritual_strength value = 1 }
+		ai_chance = {
+			factor = 20
+			modifier = {
+				factor = 0.4
+				NOT = { wealth = 1500 }
+			}
+			modifier = {
+				factor = 0.1
+				NOT = { wealth = 1000 }
+			}
+		}
+	}
+	option = {
+		name = MBLOODLINE_EVTOPTD.21
+		ai_chance = {
+			factor = 10
+		}
+	}
+	after = {
+		character_event = { id = MBLOODLINE.24 days = 10 random = 5 }
+	}
+}
+
+character_event = {
+	id = MBLOODLINE.22
+	desc = MBLOODLINE_EVTDESC.21
+	picture = GFX_evt_magic_ritual
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		random_courtier = {
+			limit = {
+				OR = {
+					dynasty = ROOT
+					is_close_relative = ROOT
+				}
+			}
+			preferred_limit = { ai = yes }
+			save_event_target_as = selected_family
+		}
+		any_courtier = {
+			limit = { NOT = { character = event_target:selected_family } }
+			score_value = {
+				value = 10
+				additive_modifier = {
+					ai = yes
+					value = 30
+				}
+				interesting_courtier_selection_score = yes
+			}
+			save_event_target_as = selected_courtier
+		}
+		random_courtier = {
+			limit = {
+				prisoner = yes
+				NOR = {
+					character = event_target:selected_family
+					character = event_target:selected_courtier
+				}
+			}
+			score_value = {
+				value = 10
+				interesting_courtier_selection_score = yes
+			}
+			# Okay to use this on players who are prisoners
+			save_event_target_as = selected_prisoner
+		}
+	}
+	
+	option = {
+		name = MBLOODLINE_EVTOPTA.22
+		tooltip = {
+			event_target:selected_family = { death = { death_reason = death_sacrificed killer = ROOT } }
+		}
+		hidden_tooltip = {
+			event_target:selected_family = { character_event = { id = MBLOODLINE.23 } }
+		}
+		change_variable = { which = ritual_strength value = 4 }
+		ai_chance = {
+			factor = 0
+			additive_opinion_modifier = {
+				factor = -1
+				who = ROOT
+				this = event_target:selected_family
+			}
+			modifier = {
+				factor = 1.25
+				is_any_kinslayer_trigger = yes
+			}
+			modifier = {
+				factor = 1.25
+				OR = {
+					trait = bloodthirsty_gods_1
+					trait = bloodthirsty_gods_2
+					trait = bloodthirsty_gods_3
+				}
+			}
+			modifier = {
+				factor = 0.25
+				current_heir = { character = event_target:selected_family }
+			}
+		}
+	}
+	option = {
+		name = MBLOODLINE_EVTOPTB.22
+		tooltip = {
+			event_target:selected_courtier = { death = { death_reason = death_sacrificed killer = ROOT } }
+		}
+		hidden_tooltip = {
+			event_target:selected_courtier = { character_event = { id = MBLOODLINE.23 } }
+		}
+		change_variable = { which = ritual_strength value = 2 }
+		ai_chance = {
+			factor = 20
+			additive_opinion_modifier = {
+				factor = -1
+				who = ROOT
+				this = event_target:selected_courtier
+			}
+			modifier = {
+				factor = 0.25
+				current_heir = { character = event_target:selected_courtier }
+			}
+		}
+	}
+	option = {
+		name = MBLOODLINE_EVTOPTC.22
+		tooltip = {
+			event_target:selected_prisoner = { death = { death_reason = death_sacrificed killer = ROOT } }
+		}
+		hidden_tooltip = {
+			event_target:selected_prisoner = { character_event = { id = MBLOODLINE.23 } }
+		}
+		change_variable = { which = ritual_strength value = 1 }
+		ai_chance = {
+			factor = 20
+			additive_opinion_modifier = {
+				factor = -1
+				who = ROOT
+				this = event_target:selected_prisoner
+			}
+			modifier = {
+				factor = 0.25
+				current_heir = { character = event_target:selected_prisoner }
+			}
+		}
+	}
+	option = {
+		name = MBLOODLINE_EVTOPTD.21
+		ai_chance = {
+			factor = 10
+		}
+	}
+	after = {
+		character_event = { id = MBLOODLINE.24 days = 10 random = 5 }
+	}
+}
+
+character_event = {
+	id = MBLOODLINE.23
+	desc = MBLOODLINE_EVTDESC.23
+	picture = GFX_evt_magic_ritual
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = MBLOODLINE_EVTOPTA.23
+		death = { death_reason = death_sacrificed killer = FROM  }
+	}
+}
+
+character_event = {
+	id = MBLOODLINE.24
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		# Adjust for your learning
+		if = {
+			limit = { learning = 10 }
+			change_variable = { which = ritual_strength value = 1 }
+		}
+		if = {
+			limit = { learning = 15 }
+			change_variable = { which = ritual_strength value = 1 }
+		}
+		if = {
+			limit = { learning = 20 }
+			change_variable = { which = ritual_strength value = 1 }
+		}
+		if = {
+			limit = { learning = 30 }
+			change_variable = { which = ritual_strength value = 1 }
+		}
+		if = {
+			limit = { learning = 40 }
+			change_variable = { which = ritual_strength value = 1 }
+		}
+		# Adjust for ritual leader's stats
+		if = {
+			limit = {
+				has_character_flag = ritual_diplomacy
+				event_target:ritual_leader = { diplomacy = 10 }
+			}
+			change_variable = { which = ritual_strength value = 1 }
+		}
+		if = {
+			limit = {
+				has_character_flag = ritual_diplomacy
+				event_target:ritual_leader = { diplomacy = 15 }
+			}
+			change_variable = { which = ritual_strength value = 1 }
+		}
+		if = {
+			limit = {
+				has_character_flag = ritual_diplomacy
+				event_target:ritual_leader = { diplomacy = 20 }
+			}
+			change_variable = { which = ritual_strength value = 1 }
+		}
+		if = {
+			limit = {
+				has_character_flag = ritual_diplomacy
+				event_target:ritual_leader = { diplomacy = 30 }
+			}
+			change_variable = { which = ritual_strength value = 1 }
+		}
+		if = {
+			limit = {
+				has_character_flag = ritual_diplomacy
+				event_target:ritual_leader = { diplomacy = 40 }
+			}
+			change_variable = { which = ritual_strength value = 1 }
+		}
+		if = {
+			limit = {
+				has_character_flag = ritual_martial
+				event_target:ritual_leader = { martial = 10 }
+			}
+			change_variable = { which = ritual_strength value = 1 }
+		}
+		if = {
+			limit = {
+				has_character_flag = ritual_martial
+				event_target:ritual_leader = { martial = 15 }
+			}
+			change_variable = { which = ritual_strength value = 1 }
+		}
+		if = {
+			limit = {
+				has_character_flag = ritual_martial
+				event_target:ritual_leader = { martial = 20 }
+			}
+			change_variable = { which = ritual_strength value = 1 }
+		}
+		if = {
+			limit = {
+				has_character_flag = ritual_martial
+				event_target:ritual_leader = { martial = 30 }
+			}
+			change_variable = { which = ritual_strength value = 1 }
+		}
+		if = {
+			limit = {
+				has_character_flag = ritual_martial
+				event_target:ritual_leader = { martial = 40 }
+			}
+			change_variable = { which = ritual_strength value = 1 }
+		}
+		if = {
+			limit = {
+				has_character_flag = ritual_stewardship
+				event_target:ritual_leader = { stewardship = 10 }
+			}
+			change_variable = { which = ritual_strength value = 1 }
+		}
+		if = {
+			limit = {
+				has_character_flag = ritual_stewardship
+				event_target:ritual_leader = { stewardship = 15 }
+			}
+			change_variable = { which = ritual_strength value = 1 }
+		}
+		if = {
+			limit = {
+				has_character_flag = ritual_stewardship
+				event_target:ritual_leader = { stewardship = 20 }
+			}
+			change_variable = { which = ritual_strength value = 1 }
+		}
+		if = {
+			limit = {
+				has_character_flag = ritual_stewardship
+				event_target:ritual_leader = { stewardship = 30 }
+			}
+			change_variable = { which = ritual_strength value = 1 }
+		}
+		if = {
+			limit = {
+				has_character_flag = ritual_stewardship
+				event_target:ritual_leader = { stewardship = 40 }
+			}
+			change_variable = { which = ritual_strength value = 1 }
+		}
+		if = {
+			limit = {
+				has_character_flag = ritual_intrigue
+				event_target:ritual_leader = { intrigue = 10 }
+			}
+			change_variable = { which = ritual_strength value = 1 }
+		}
+		if = {
+			limit = {
+				has_character_flag = ritual_intrigue
+				event_target:ritual_leader = { intrigue = 15 }
+			}
+			change_variable = { which = ritual_strength value = 1 }
+		}
+		if = {
+			limit = {
+				has_character_flag = ritual_intrigue
+				event_target:ritual_leader = { intrigue = 20 }
+			}
+			change_variable = { which = ritual_strength value = 1 }
+		}
+		if = {
+			limit = {
+				has_character_flag = ritual_intrigue
+				event_target:ritual_leader = { intrigue = 30 }
+			}
+			change_variable = { which = ritual_strength value = 1 }
+		}
+		if = {
+			limit = {
+				has_character_flag = ritual_intrigue
+				event_target:ritual_leader = { intrigue = 40 }
+			}
+			change_variable = { which = ritual_strength value = 1 }
+		}
+		if = {
+			limit = {
+				has_character_flag = ritual_learning
+				event_target:ritual_leader = { learning = 10 }
+			}
+			change_variable = { which = ritual_strength value = 1 }
+		}
+		if = {
+			limit = {
+				has_character_flag = ritual_learning
+				event_target:ritual_leader = { learning = 15 }
+			}
+			change_variable = { which = ritual_strength value = 1 }
+		}
+		if = {
+			limit = {
+				has_character_flag = ritual_learning
+				event_target:ritual_leader = { learning = 20 }
+			}
+			change_variable = { which = ritual_strength value = 1 }
+		}
+		if = {
+			limit = {
+				has_character_flag = ritual_learning
+				event_target:ritual_leader = { learning = 30 }
+			}
+			change_variable = { which = ritual_strength value = 1 }
+		}
+		if = {
+			limit = {
+				has_character_flag = ritual_learning
+				event_target:ritual_leader = { learning = 40 }
+			}
+			change_variable = { which = ritual_strength value = 1 }
+		}
+		
+		# Determine result. Scores range from 0-17
+		random = {
+			chance = 2
+			additive_modifier = {
+				value = 5.88
+				check_variable = { which = ritual_strength value = 1 }
+			}
+			additive_modifier = {
+				value = 5.88
+				check_variable = { which = ritual_strength value = 2 }
+			}
+			additive_modifier = {
+				value = 5.88
+				check_variable = { which = ritual_strength value = 3 }
+			}
+			additive_modifier = {
+				value = 5.88
+				check_variable = { which = ritual_strength value = 4 }
+			}
+			additive_modifier = {
+				value = 5.88
+				check_variable = { which = ritual_strength value = 5 }
+			}
+			additive_modifier = {
+				value = 5.88
+				check_variable = { which = ritual_strength value = 6 }
+			}
+			additive_modifier = {
+				value = 5.88
+				check_variable = { which = ritual_strength value = 7 }
+			}
+			additive_modifier = {
+				value = 5.88
+				check_variable = { which = ritual_strength value = 8 }
+			}
+			additive_modifier = {
+				value = 5.88
+				check_variable = { which = ritual_strength value = 9 }
+			}
+			additive_modifier = {
+				value = 5.88
+				check_variable = { which = ritual_strength value = 10 }
+			}
+			additive_modifier = {
+				value = 5.88
+				check_variable = { which = ritual_strength value = 11 }
+			}
+			additive_modifier = {
+				value = 5.88
+				check_variable = { which = ritual_strength value = 12 }
+			}
+			additive_modifier = {
+				value = 5.88
+				check_variable = { which = ritual_strength value = 13 }
+			}
+			additive_modifier = {
+				value = 5.88
+				check_variable = { which = ritual_strength value = 14 }
+			}
+			additive_modifier = {
+				value = 5.88
+				check_variable = { which = ritual_strength value = 15 }
+			}
+			additive_modifier = {
+				value = 5.88
+				check_variable = { which = ritual_strength value = 16 }
+			}
+			additive_modifier = {
+				value = 5.88
+				check_variable = { which = ritual_strength value = 17 }
+			}
+			set_character_flag = successful_summon
+		}
+		if = {
+			limit = {
+				has_character_flag = successful_summon
+			}
+			character_event = { id = MBLOODLINE.25 }
+		}
+		else = {
+			character_event = { id = MBLOODLINE.26 }
+		}
+	}
+}
+
+character_event = {
+	id = MBLOODLINE.25
+	desc = MBLOODLINE_EVTDESC.25
+	picture = GFX_evt_magic_ritual
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = MBLOODLINE_EVTOPTA.25
+		trigger = { has_character_flag = ritual_diplomacy }
+		create_character = {
+			age = 637
+			attributes = {
+				diplomacy = 20
+				martial = 5
+				stewardship = 5
+				intrigue = 5
+				learning = 5
+			}
+			trait = giant
+			trait = size_10
+			trait = immortal
+			trait = demi_god
+			trait = grey_eminence
+			trait = socializer
+			trait = poet
+			trait = charitable
+			trait = kind
+			trait = honest
+			trait = gregarious
+			trait = trusting
+			trait = cannot_marry
+			trait = infertile
+			fertility = -10
+			female = random
+			religion = ROOT
+			culture = ROOT
+			dynasty = none
+			flag = summoned_creature
+			flag = checked_race
+			flag = ai_flag_refuse_concubinage
+			flag = ai_flag_refuse_marriage
+			flag = no_court_invites
+			flag = cannot_marry
+			immortal_age = 40
+		}
+		new_character = {
+			reverse_opinion = { who = ROOT modifier = bound_by_magic years = 100 }
+			if = {
+				limit = { culture = draconic }
+				set_graphical_culture = frankish
+			}
+		}
+	}
+	option = {
+		name = MBLOODLINE_EVTOPTA.25
+		trigger = { has_character_flag = ritual_martial }
+		create_character = {
+			age = 637
+			attributes = {
+				diplomacy = 5
+				martial = 20
+				stewardship = 5
+				intrigue = 5
+				learning = 5
+			}
+			trait = giant
+			trait = size_10
+			trait = immortal
+			trait = demi_god
+			trait = brilliant_strategist
+			trait = duelist
+			trait = strong
+			trait = wroth
+			trait = brave
+			trait = berserker
+			trait = cannot_marry
+			trait = infertile
+			fertility = -10
+			female = random
+			religion = ROOT
+			culture = ROOT
+			dynasty = none
+			flag = summoned_creature
+			flag = checked_race
+			flag = ai_flag_refuse_concubinage
+			flag = ai_flag_refuse_marriage
+			flag = no_court_invites
+			flag = cannot_marry
+			immortal_age = 40
+		}
+		new_character = {
+			reverse_opinion = { who = ROOT modifier = bound_by_magic years = 100 }
+			if = {
+				limit = { culture = draconic }
+				set_graphical_culture = frankish
+			}
+		}
+	}
+	option = {
+		name = MBLOODLINE_EVTOPTA.25
+		trigger = { has_character_flag = ritual_stewardship }
+		create_character = {
+			age = 637
+			attributes = {
+				diplomacy = 5
+				martial = 5
+				stewardship = 20
+				intrigue = 5
+				learning = 5
+			}
+			trait = giant
+			trait = size_10
+			trait = immortal
+			trait = demi_god
+			trait = midas_touched
+			trait = architect
+			trait = temperate
+			trait = just
+			trait = stubborn
+			trait = cannot_marry
+			trait = infertile
+			fertility = -10
+			female = random
+			religion = ROOT
+			culture = ROOT
+			dynasty = none
+			flag = summoned_creature
+			flag = checked_race
+			flag = ai_flag_refuse_concubinage
+			flag = ai_flag_refuse_marriage
+			flag = no_court_invites
+			flag = cannot_marry
+			immortal_age = 40
+		}
+		new_character = {
+			reverse_opinion = { who = ROOT modifier = bound_by_magic years = 100 }
+			if = {
+				limit = { culture = draconic }
+				set_graphical_culture = frankish
+			}
+		}
+	}
+	option = {
+		name = MBLOODLINE_EVTOPTA.25
+		trigger = { has_character_flag = ritual_intrigue }
+		create_character = {
+			age = 637
+			attributes = {
+				diplomacy = 5
+				martial = 5
+				stewardship = 5
+				intrigue = 20
+				learning = 5
+			}
+			trait = giant
+			trait = size_10
+			trait = immortal
+			trait = demi_god
+			trait = elusive_shadow
+			trait = schemer
+			trait = envious
+			trait = deceitful
+			trait = arbitrary
+			trait = paranoid
+			trait = cruel
+			trait = cannot_marry
+			trait = infertile
+			fertility = -10
+			female = random
+			religion = ROOT
+			culture = ROOT
+			dynasty = none
+			flag = summoned_creature
+			flag = checked_race
+			flag = ai_flag_refuse_concubinage
+			flag = ai_flag_refuse_marriage
+			flag = no_court_invites
+			flag = cannot_marry
+			immortal_age = 40
+		}
+		new_character = {
+			reverse_opinion = { who = ROOT modifier = bound_by_magic years = 100 }
+			if = {
+				limit = { culture = draconic }
+				set_graphical_culture = frankish
+			}
+		}
+	}
+	option = {
+		name = MBLOODLINE_EVTOPTA.25
+		trigger = { has_character_flag = ritual_learning }
+		create_character = {
+			age = 637
+			attributes = {
+				diplomacy = 5
+				martial = 5
+				stewardship = 5
+				intrigue = 5
+				learning = 20
+			}
+			trait = giant
+			trait = size_10
+			trait = immortal
+			trait = demi_god
+			trait = mastermind_theologian
+			trait = scholar
+			trait = chaste
+			trait = erudite
+			trait = just
+			trait = cannot_marry
+			trait = infertile
+			fertility = -10
+			female = random
+			religion = ROOT
+			culture = ROOT
+			dynasty = none
+			flag = summoned_creature
+			flag = checked_race
+			flag = ai_flag_refuse_concubinage
+			flag = ai_flag_refuse_marriage
+			flag = no_court_invites
+			flag = cannot_marry
+			immortal_age = 40
+		}
+		new_character = {
+			reverse_opinion = { who = ROOT modifier = bound_by_magic years = 100 }
+			if = {
+				limit = { culture = draconic }
+				set_graphical_culture = frankish
+			}
+		}
+	}
+	
+	after = {
+		if = {
+			limit = {
+				has_religion_feature = religion_matriarchal
+			}
+			create_bloodline = {
+				type = BL_summoner
+				inheritance = matrilineal
+			}
+		}
+		else_if = {
+			limit = {
+				OR = {
+					has_religion_feature = religion_equal
+					has_religion_feature = religion_feature_bon
+					culture = basque
+					culture = zhangzhung
+					culture = sumpa
+					religion = cathar
+					religion = messalian
+					religion = mazdaki
+				}
+			}
+			create_bloodline = {
+				type = BL_summoner
+				inheritance = all_descendants
+			}
+		}
+		else = {
+			create_bloodline = {
+				type = BL_summoner
+			}
+		}
+		if = {
+			limit = { can_apply_super_cool_nickname_trigger = yes }
+			random_list = {
+				1 = {
+					trigger = { can_apply_super_cool_nickname_trigger = yes }
+					give_nickname = nick_the_awoken
+				}
+				1 = {
+					trigger = { can_apply_lame_nickname_trigger = yes }
+					give_nickname = nick_the_wise
+				}
+				1 = {
+					trigger = { can_apply_lame_nickname_trigger = yes }
+					give_nickname = nick_the_scholar
+				}
+				1 = {
+					trigger = { can_apply_cool_nickname_trigger = yes }
+					give_nickname = the_wizard
+				}
+				1 = {
+					trigger = { can_apply_super_cool_nickname_trigger = yes }
+					give_nickname = nick_the_spirit_stalker
+				}
+				1 = {
+					trigger = { can_apply_super_cool_nickname_trigger = yes }
+					give_nickname = nick_the_celestial
+				}
+			}
+		}
+		clr_character_flag = ritual_diplomacy
+		clr_character_flag = ritual_martial
+		clr_character_flag = ritual_stewardship
+		clr_character_flag = ritual_intrigue
+		clr_character_flag = ritual_learning
+		clr_character_flag = successful_summon
+		set_variable = { which = ritual_strength value = 0 }
+	}
+}
+
+character_event = {
+	id = MBLOODLINE.26
+	desc = MBLOODLINE_EVTDESC.26
+	picture = GFX_evt_bad_news
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = MBLOODLINE_EVTOPTA.26
+		clr_character_flag = ritual_diplomacy
+		clr_character_flag = ritual_martial
+		clr_character_flag = ritual_stewardship
+		clr_character_flag = ritual_intrigue
+		clr_character_flag = ritual_learning
+		clr_character_flag = successful_summon
+		set_variable = { which = ritual_strength value = 0 }
+	}
+}
+
+# Necromancy bloodline chain
+# Rarely triggers after winning an offensive  war against the same or higher tier with the necromancer trait
+character_event = {
+	id = MBLOODLINE.27
+	desc = MBLOODLINE_EVTDESC.27
+	picture = GFX_evt_depopulated_town
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	only_playable = yes
+	trigger = {
+		NOT = { lower_real_tier_than = FROM }
+		FROM = {
+			trait = necromancer
+			any_army = {
+				OR = {
+					has_earmarked_regiments = unit_summoned_zombie
+					has_earmarked_regiments = event_zombie
+				}
+			}
+			NOT = { any_owned_bloodline = { has_bloodline_flag = magic_bloodline } }
+			NOT = { has_character_flag = has_show_strength_necromancer_cb }
+		}
+	}
+	
+	weight_multiplier = {
+		days = 1
+		
+		modifier = {
+			factor = 1.2
+			trait = novice_mage
+		}
+		modifier = {
+			factor = 1.4
+			trait = eldritch_scholar
+		}
+		modifier = {
+			factor = 1.7
+			trait = veteran_wizard
+		}
+		modifier = {
+			factor = 2.1
+			trait = arcane_master
+		}
+		modifier = {
+			factor = 1.5
+			prestige = 2500
+		}
+		modifier = {
+			factor = 1.5
+			prestige = 5000
+		}
+		modifier = {
+			factor = 1.5
+			prestige = 7500
+		}
+		modifier = {
+			factor = 3
+			has_ambition = obj_forge_bloodline
+		}
+		modifier = {
+			factor = 1.5
+			capital_holding = {
+				OR = {
+					has_building = ca_mage_tower_necromancy
+					has_building = ct_mage_tower_necromancy
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = MBLOODLINE_EVTOPTA.27
+		set_variable = { which = necromancer_fear value = 0 }
+		character_event = { id = MBLOODLINE.28 days = 5 random = 5 }
+		ai_chance = {
+			factor = 5
+			modifier = {
+				factor = 2
+				trait = brave
+			}
+			modifier = {
+				factor = 2
+				trait = ambitious
+			}
+		}
+	}
+	
+	option = {
+		name = MBLOODLINE_EVTOPTB.27
+		ai_chance = {
+			factor = 1
+		}
+	}
+}
+
+character_event = {
+	id = MBLOODLINE.28
+	desc = MBLOODLINE_EVTDESC.28
+	picture = GFX_evt_plague_spreading
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	# Directly show your vassals your power
+	option = {
+		name = MBLOODLINE_EVTOPTB.28
+		any_realm_character = {
+			limit = {
+				NOR = {
+					trait = necromancer
+					trait = zombie
+					religion = the_damned
+					culture_group = undead_culture_group
+				}
+			}
+			opinion = { who = ROOT modifier = opinion_necromancer_large years = 20 }
+			if = {
+				limit = { NOT = { liege = { character = ROOT } } }
+				character_event = { id = MBLOODLINE.29 }
+			}
+		}
+		any_vassal = {
+			limit = {
+				NOR = {
+					trait = necromancer
+					trait = zombie
+					religion = the_damned
+					culture_group = undead_culture_group
+				}
+			}
+			opinion = { who = ROOT modifier = opinion_necromancer_fear years = 20 }
+		}
+		change_variable = { which = necromancer_fear value = 4 }
+	}
+	
+	# March into church and announce
+	option = {
+		name = MBLOODLINE_EVTOPTD.28
+		scaled_piety = -3
+		job_spiritual = { 
+			if = {
+				limit = {
+					NOR = {
+						trait = necromancer
+						trait = zombie
+						religion = the_damned
+						culture_group = undead_culture_group
+					}
+				}
+				opinion = { who = ROOT modifier = opinion_necromancer_large years = 20 }
+				character_event = { id = MBLOODLINE.30 }
+			}
+		}
+		any_realm_character = {
+			limit = {
+				NAND = {
+					has_job_title = job_spiritual
+					liege = { character = ROOT }
+				}
+				NOR = {
+					trait = necromancer
+					trait = zombie
+					religion = the_damned
+					culture_group = undead_culture_group
+				}
+			}
+			opinion = { who = ROOT modifier = opinion_necromancer_medium years = 20 }
+			character_event = { id = MBLOODLINE.30 }
+		}
+		change_variable = { which = necromancer_fear value = 3 }
+	}
+	
+	# Ransack towns to show your power
+	option = {
+		name = MBLOODLINE_EVTOPTC.28
+		trigger = {
+			capital_scope = { 
+				any_province_holding = {
+					holding_type = city
+					add_holding_modifier = { modifier = necromancer_event_looted months = 36 }
+					ROOT = { wealth = 150 }
+				}
+			}
+		}
+		any_realm_character = {
+			limit = {
+				NOR = {
+					trait = necromancer
+					trait = zombie
+					religion = the_damned
+					culture_group = undead_culture_group
+				}
+			}
+			opinion = { who = ROOT modifier = opinion_necromancer_medium years = 20 }
+			character_event = { id = MBLOODLINE.31 }
+		}
+		change_variable = { which = necromancer_fear value = 2 }
+	}
+	
+	# Send letters to all vassals. Lower opinion penalty, but impact is small
+	option = {
+		name = MBLOODLINE_EVTOPTA.28
+		any_realm_character = {
+			limit = {
+				NOR = {
+					trait = necromancer
+					trait = zombie
+					religion = the_damned
+					culture_group = undead_culture_group
+				}
+			}
+			opinion = { who = ROOT modifier = opinion_necromancer_small years = 20 }
+			letter_event = { id = MBLOODLINE.32 }
+		}
+		change_variable = { which = necromancer_fear value = 1 }
+	}
+	
+	after = {
+		character_event = { id = MBLOODLINE.33 days = 40 random = 25 }
+	}
+}
+
+character_event = {
+	id = MBLOODLINE.29
+	desc = MBLOODLINE_EVTDESC.29
+	picture = GFX_evt_siege
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = MBLOODLINE_EVTOPTA.29
+		tooltip = {
+			opinion = { who = FROM modifier = opinion_necromancer_large years = 20 }
+			if = {
+				limit = { liege = { character = FROM } }
+				opinion = { who = FROM modifier = opinion_necromancer_fear years = 20 }
+			}
+		}
+	}
+}
+
+character_event = {
+	id = MBLOODLINE.30
+	desc = MBLOODLINE_EVTDESC.30
+	picture = GFX_evt_bishop
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = MBLOODLINE_EVTOPTA.30
+		tooltip = {
+			opinion = { who = FROM modifier = opinion_necromancer_medium years = 20 }
+			if = {
+				limit = {
+					has_job_title = job_spiritual
+					liege = { character = ROOT }
+				}
+				opinion = { who = FROM modifier = opinion_necromancer_large years = 20 }
+			}
+		}
+	}
+}
+
+character_event = {
+	id = MBLOODLINE.31
+	desc = MBLOODLINE_EVTDESC.31
+	picture = GFX_evt_burning_house
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = MBLOODLINE_EVTOPTA.31
+		tooltip = {
+			opinion = { who = FROM modifier = opinion_necromancer_medium years = 20 }
+		}
+	}
+}
+
+letter_event = {
+	id = MBLOODLINE.32
+	desc = MBLOODLINE_EVTDESC.32
+	border = GFX_event_letter_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = MBLOODLINE_EVTOPTA.29
+		trigger = { NOT = { FROM = { trait = lunatic } } }
+		tooltip = {
+			opinion = { who = FROM modifier = opinion_necromancer_small years = 20 }
+		}
+	}
+	
+	option = {
+		name = MBLOODLINE_EVTOPTA.31
+		trigger = { FROM = { trait = lunatic } }
+		tooltip = {
+			opinion = { who = FROM modifier = opinion_necromancer_small years = 20 }
+		}
+	}
+}
+
+character_event = {
+	id = MBLOODLINE.33
+	desc = MBLOODLINE_EVTDESC.33
+	picture = GFX_evt_sickness_hf
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = MBLOODLINE_EVTOPTA.33
+		if = { 
+			limit = { is_nomadic = yes } 
+			population = -2000 
+		} 
+		if = { 
+			limit = { is_nomadic = no } 
+			custom_tooltip = { text = TOOLTIP_EVTOPTAHF23462 } 
+		}
+		change_variable = { which = necromancer_fear value = 4 }
+		hidden_tooltip = { 
+			any_demesne_province = { 
+				show_scope_change = no
+				if = { 
+					limit = { ROOT = { is_nomadic = no } } 
+					add_province_modifier = { name = bloodthirsty_mass_sacrifice_province_2 years = 10 stacking = yes }
+				} 
+				change_variable = { which = prosperity_value value = -40 }
+				if = { 
+					limit = { NOT = { check_variable = { which = prosperity_value value = 0 } } } 
+					set_variable = { which = prosperity_value value = 0 }
+				}
+				ROOT = {
+					spawn_unit = {
+						province = PREV
+						owner = ROOT
+						troops = {
+							zombie_troops = { 500 500 }
+						}
+						earmark = event_zombie
+						cannot_inherit = yes
+						attrition = 0.2
+						maintenance = no
+					}
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = MBLOODLINE_EVTOPTB.33
+		if = { 
+			limit = { is_nomadic = yes } 
+			population = -1000 
+		} 
+		if = { 
+			limit = { is_nomadic = no } 
+			custom_tooltip = { text = TOOLTIP_EVTOPTBHF23462 } 
+		}
+		change_variable = { which = necromancer_fear value = 3 }
+		hidden_tooltip = { 
+			any_demesne_province = { 
+				show_scope_change = no
+				if = { 
+					limit = { ROOT = { is_nomadic = no } } 
+					add_province_modifier = { name = bloodthirsty_mass_sacrifice_province_1 years = 10 stacking = yes }
+				} 
+				change_variable = { which = prosperity_value value = -20 }
+				if = { 
+					limit = { NOT = { check_variable = { which = prosperity_value value = 0 } } } 
+					set_variable = { which = prosperity_value value = 0 }
+				}
+				ROOT = {
+					spawn_unit = {
+						province = PREV
+						owner = ROOT
+						troops = {
+							zombie_troops = { 300 300 }
+						}
+						earmark = event_zombie
+						cannot_inherit = yes
+						attrition = 0.2
+						maintenance = no
+					}
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = MBLOODLINE_EVTOPTC.33
+		if = { 
+			limit = { is_nomadic = yes } 
+			population = -500 
+		} 
+		if = { 
+			limit = { is_nomadic = no } 
+			custom_tooltip = { text = TOOLTIP_EVTOPTBHF23462 } 
+		}
+		change_variable = { which = necromancer_fear value = 1 }
+		hidden_tooltip = { 
+			capital_scope = { 
+				show_scope_change = no
+				if = { 
+					limit = { ROOT = { is_nomadic = no } } 
+					add_province_modifier = { name = bloodthirsty_mass_sacrifice_province_1 years = 10 stacking = yes }
+				} 
+				change_variable = { which = prosperity_value value = -10 }
+				if = { 
+					limit = { NOT = { check_variable = { which = prosperity_value value = 0 } } } 
+					set_variable = { which = prosperity_value value = 0 }
+				}
+				ROOT = {
+					spawn_unit = {
+						province = PREV
+						owner = ROOT
+						troops = {
+							zombie_troops = { 300 300 }
+						}
+						earmark = event_zombie
+						cannot_inherit = yes
+						attrition = 0.2
+						maintenance = no
+					}
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = MBLOODLINE_EVTOPTD.33
+	}
+	
+	after = {
+		character_event = { id = MBLOODLINE.34 days = 3 }
+	}
+}
+
+character_event = {
+	id = MBLOODLINE.34
+	desc = MBLOODLINE_EVTDESC.34
+	picture = GFX_evt_powerful_ruler
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = MBLOODLINE_EVTOPTA.34
+		custom_tooltip = {
+			text = tt_gain_show_strength_necromancer_cb
+		}
+		set_character_flag = has_show_strength_necromancer_cb
+	}
+}
+
+# Lost a Show Profane Strength War against a weak opponent
+character_event = {
+	id = MBLOODLINE.35
+	desc = {
+		trigger = { check_variable = { which = necromancer_fear value = 1 } }
+		text = MBLOODLINE_EVTDESCA.35
+	}
+	desc = {
+		trigger = { NOT = { check_variable = { which = necromancer_fear value = 1 } } }
+		text = MBLOODLINE_EVTDESCB.35
+	}
+	picture = GFX_evt_bad_news
+	
+	is_triggered_only = yes
+	
+	option = {
+		trigger = {
+			check_variable = { which = necromancer_fear value = 1 }
+		}
+		name = MBLOODLINE_EVTOPTA.35
+		subtract_variable = { which = necromancer_fear value = 1 }
+		custom_tooltip = { text = tt_lose_necromancy_progress }
+		if = {
+			limit = { NOT = { trait = stressed } }
+			random = {
+				chance = 10
+				add_trait = stressed
+			}
+		}
+	}
+	option = {
+		trigger = { NOT = { check_variable = { which = necromancer_fear value = 1 } } }
+		name = MBLOODLINE_EVTOPTB.35
+		set_variable = { which = necromancer_fear value = 0 }
+		clr_character_flag = has_show_strength_necromancer_cb
+		custom_tooltip = { text = tt_lose_show_strength_necromancer_cb }
+		if = {
+			limit = { NOT = { trait = depressed } }
+			random = {
+				chance = 10
+				add_trait = depressed
+			}
+		}
+	}
+}
+
+# Won a Show Profane Strength war
+character_event = {
+	id = MBLOODLINE.36
+	is_triggered_only = yes
+	hide_window = yes
+	
+	immediate = {
+		set_variable = { which = local_war_value which = necromancer_fear }
+		change_variable = { which = local_war_value which = SPS_war_value }
+		random_list = {
+			7 = {}
+			4 = { change_variable = { which = local_war_value value = 1 } }
+			2 = { change_variable = { which = local_war_value value = 2 } }
+			1 = { change_variable = { which = local_war_value value = 3 } }
+		}
+		
+		# If combined war and event values, plus random chance >= 12, forge the bloodline
+		if = {
+			limit = { check_variable = { which = local_war_value value = 12 } }
+			# Clear variables
+			set_variable = { which = SPS_war_value value = 0 }
+			set_variable = { which = necromancer_fear value = 0 }
+			# Call bloodline event
+			character_event = { id = MBLOODLINE.39 }
+		}
+		# If war value was positive, improve progress
+		else_if = {
+			limit = { check_variable = { which = SPS_war_value value = 1 } }
+			character_event = { id = MBLOODLINE.38 }
+		}
+		# Otherwise, let the player know they need to fight stronger enemies.
+		else_if = {
+			limit = { ai = no }
+			character_event = { id = MBLOODLINE.37 }
+		}
+	}
+}
+
+character_event = {
+	id = MBLOODLINE.37
+	desc = MBLOODLINE_EVTDESC.37
+	picture = GFX_evt_suspicious_noble
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = MBLOODLINE_EVTOPTA.37
+	}
+}
+
+character_event = {
+	id = MBLOODLINE.38
+	desc = MBLOODLINE_EVTDESC.38
+	picture = GFX_evt_spymaster
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = MBLOODLINE_EVTOPTA.37
+		change_variable = { which = necromancer_fear value = 1 }
+		custom_tooltip = { text = tt_gain_necromancy_progress }
+	}
+}
+
+character_event = {
+	id = MBLOODLINE.39
+	desc = MBLOODLINE_EVTDESC.39
+	picture = GFX_evt_beheading
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = MBLOODLINE_EVTOPTA.39
+		if = {
+			limit = {
+				has_religion_feature = religion_matriarchal
+			}
+			create_bloodline = {
+				type = BL_necromancer
+				inheritance = matrilineal
+			}
+		}
+		else_if = {
+			limit = {
+				OR = {
+					has_religion_feature = religion_equal
+					has_religion_feature = religion_feature_bon
+					culture = basque
+					culture = zhangzhung
+					culture = sumpa
+					religion = cathar
+					religion = messalian
+					religion = mazdaki
+				}
+			}
+			create_bloodline = {
+				type = BL_necromancer
+				inheritance = all_descendants
+			}
+		}
+		else = {
+			create_bloodline = {
+				type = BL_necromancer
+			}
+		}
+		if = {
+			limit = { can_apply_super_cool_nickname_trigger = yes }
+			random_list = {
+				1 = {
+					trigger = { can_apply_lame_nickname_trigger = yes }
+					give_nickname = nick_the_cruel
+				}
+				1 = {
+					trigger = { can_apply_lame_nickname_trigger = yes }
+					give_nickname = nick_the_wicked
+				}
+				1 = {
+					trigger = { can_apply_lame_nickname_trigger = yes }
+					give_nickname = nick_the_bewitched
+				}
+				1 = {
+					trigger = { can_apply_lame_nickname_trigger = yes }
+					give_nickname = nick_the_oppressor
+				}
+				1 = {
+					trigger = { can_apply_lame_nickname_trigger = yes }
+					give_nickname = nick_the_witch
+				}
+				1 = {
+					trigger = { can_apply_lame_nickname_trigger = yes }
+					give_nickname = nick_the_evil
+				}
+				1 = {
+					trigger = { can_apply_lame_nickname_trigger = yes }
+					give_nickname = nick_the_black
+				}
+				1 = {
+					trigger = { can_apply_lame_nickname_trigger = yes }
+					give_nickname = nick_the_undead
+				}
+				1 = {
+					trigger = { can_apply_lame_nickname_trigger = yes }
+					give_nickname = nick_the_grim
+				}
+				1 = {
+					trigger = { can_apply_lame_nickname_trigger = yes }
+					give_nickname = nick_the_supicious
+				}
+				1 = {
+					trigger = { can_apply_lame_nickname_trigger = yes }
+					give_nickname = nick_the_distrustful
+				}
+				1 = {
+					trigger = { can_apply_average_nickname_trigger = yes }
+					give_nickname = nick_the_merciless
+				}
+				1 = {
+					trigger = { can_apply_average_nickname_trigger = yes }
+					give_nickname = nick_the_devil
+				}
+				1 = {
+					trigger = { can_apply_average_nickname_trigger = yes }
+					give_nickname = nick_the_gravelord
+				}
+				1 = {
+					trigger = { can_apply_cool_nickname_trigger = yes }
+					give_nickname = nick_the_shadow
+				}
+				1 = {
+					trigger = { can_apply_cool_nickname_trigger = yes }
+					give_nickname = nick_the_undying
+				}
+				1 = {
+					trigger = { can_apply_cool_nickname_trigger = yes }
+					give_nickname = the_wizard
+				}
+				1 = {
+					trigger = { can_apply_cool_nickname_trigger = yes }
+					give_nickname = nick_king_of_the_dead
+				}
+				1 = {
+					trigger = {
+						can_apply_cool_nickname_trigger = yes
+						NOT = { has_game_rule = { name = silly_events value = off } } # Due to Warcraft reference
+					}
+					give_nickname = nick_the_lich_king
+				}
+				1 = {
+					trigger = { can_apply_cool_nickname_trigger = yes }
+					give_nickname = nick_the_bone_king
+				}
+				1 = {
+					trigger = {
+						can_apply_super_cool_nickname_trigger = yes
+						NOR = {
+							religion = satanist
+							religion = the_damned
+						}
+					}
+					give_nickname = nick_the_apostate
+				}
+				1 = {
+					trigger = { can_apply_super_cool_nickname_trigger = yes }
+					give_nickname = nick_the_black_skull
+				}
+				1 = {
+					trigger = { can_apply_super_cool_nickname_trigger = yes }
+					give_nickname = nick_the_soul_flayer
+				}
+				1 = {
+					trigger = { can_apply_super_cool_nickname_trigger = yes }
+					give_nickname = nick_the_dreaded
+				}
+			}
+		}
+	}
+}
+
+# Magic heritage bloodline - No long event chain you need to work through, just a rare event
+character_event = {
+	id = MBLOODLINE.40
+	desc = MBLOODLINE_EVTDESC.40
+	picture = GFX_evt_open_book_hf
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		NOT = { has_character_flag = decline_wizard_bloodline }
+		trait = arcane_master
+		OR = {
+			trait = summoner
+			trait = enchanter
+			trait = alchemist
+			trait = herbalist
+			trait = necromancer
+		}
+		num_of_children = 2
+		NOT = {
+			any_child = {
+				NOT = { age = 16 }
+				NOR = {
+					trait = arcane_master
+					trait = veteran_wizard
+					trait = eldritch_scholar
+					trait = novice_mage
+				}
+			}
+		}
+		capital_holding = {
+			OR = {
+				has_building = ca_mage_tower_enchantment
+				has_building = ca_mage_tower_conjuration
+				has_building = ca_mage_tower_alchemy
+				has_building = ca_mage_tower_herbalism
+				has_building = ca_mage_tower_necromancy
+				has_building = ct_mage_tower_enchantment
+				has_building = ct_mage_tower_conjuration
+				has_building = ct_mage_tower_alchemy
+				has_building = ct_mage_tower_herbalism
+				has_building = ct_mage_tower_necromancy
+			}
+		}
+	}
+	
+	weight_multiplier = {
+		days = 1
+		modifier = {
+			factor = 2
+			NOT = {
+				any_child = {
+					trait = novice_mage
+				}
+			}
+		}
+		modifier = {
+			factor = 1.5
+			NOT = {
+				any_child = {
+					OR = {
+						trait = novice_mage
+						trait = eldritch_scholar
+					}
+				}
+			}
+		}
+		modifier = {
+			factor = 2
+			NOT = {
+				any_child = {
+					OR = {
+						trait = novice_mage
+						trait = eldritch_scholar
+						trait = veteran_wizard
+					}
+				}
+			}
+		}
+	}
+	
+	# Gain the lifestyle
+	option = {
+		name = MBLOODLINE_EVTOPTA.40
+		if = {
+			limit = {
+				has_religion_feature = religion_matriarchal
+			}
+			create_bloodline = {
+				type = BL_magic_heritage
+				inheritance = matrilineal
+			}
+		}
+		else_if = {
+			limit = {
+				OR = {
+					has_religion_feature = religion_equal
+					has_religion_feature = religion_feature_bon
+					culture = basque
+					culture = zhangzhung
+					culture = sumpa
+					religion = cathar
+					religion = messalian
+					religion = mazdaki
+				}
+			}
+			create_bloodline = {
+				type = BL_magic_heritage
+				inheritance = all_descendants
+			}
+		}
+		else = {
+			create_bloodline = {
+				type = BL_magic_heritage
+			}
+		}
+		if = {
+			limit = { can_apply_cool_nickname_trigger = yes }
+			random_list = {
+				1 = {
+					trigger = { can_apply_lame_nickname_trigger = yes }
+					give_nickname = nick_the_lucky
+				}
+				1 = {
+					trigger = { can_apply_lame_nickname_trigger = yes }
+					give_nickname = nick_the_wise
+				}
+				1 = {
+					trigger = { can_apply_lame_nickname_trigger = yes }
+					give_nickname = nick_the_witch
+				}
+				1 = {
+					trigger = { can_apply_lame_nickname_trigger = yes }
+					give_nickname = nick_the_scholar
+				}
+				1 = {
+					give_nickname = the_wizard
+				}
+			}
+		}
+	}
+	
+	# Decline
+	option = {
+		name = MBLOODLINE_EVTOPTB.40
+		set_character_flag = decline_wizard_bloodline
+	}
+}
+
+# Set initial variables used for gaining bloodlines
+character_event = {
+	id = MBLOODLINE.41
+	hide_window = yes
+	is_triggered_only = yes
+	
+	ai = no
+	only_playable = yes
+	
+	trigger = {
+		is_multiplayer_host_character = yes
+		is_save_game = no
+	}
+	
+	immediate = {
+		set_variable = { which = global_bloodline_monster_hunter_kills_needed value = 1 }
+		set_variable = { which = global_bloodline_sigurd_dragons_needed value = 10 }
+		set_variable = { which = global_bloodline_banking_profit_needed value = 2000 }
+		set_variable = { which = global_bloodline_vile_blood_needed value = 3 }
+	}
+}
+
+# Adjust killer counts and grant bloodlines.
+character_event = {
+	id = MBLOODLINE.42
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		killer = { always = yes }
+	}
+	
+	immediate = {
+		if = {
+			limit = { trait = dragon }
+			killer = { change_variable = { which = dragon_kills value = 1 } }
+		}
+		if = {
+			limit = { trait = known_vampire }
+			killer = { change_variable = { which = vampire_kills value = 1 } }
+		}
+		if = {
+			limit = { trait = known_werewolf }
+			killer = { change_variable = { which = werewolf_kills value = 1 } }
+		}
+		if = {
+			limit = { trait = zombie }
+			killer = { change_variable = { which = zombie_kills value = 1 } }
+		}
+		if = {
+			limit = { trait = mythos_giant }
+			killer = { change_variable = { which = giant_kills value = 1 } }
+		}
+		if = {
+			limit = { trait = mummy }
+			killer = { change_variable = { which = mummy_kills value = 1 } }
+		}
+		if = {
+			limit = { trait = djinn }
+			killer = { change_variable = { which = djinn_kills value = 1 } }
+		}
+		killer = {
+			# Check for monster hunter bloodline
+			if = {
+				limit = {
+					trait = monster_hunter
+					NOT = {
+						any_owned_bloodline = { has_bloodline_flag = bloodline_monster_hunter }
+					}
+					OR = {
+						trait = dragon
+						religion = draconic_pagan
+						religion = draconic_pagan_reformed
+						culture = draconic
+						trait = dragonborn
+						check_variable = { which = dragon_kills which = global_bloodline_monster_hunter_kills_needed }
+						any_character = {
+							is_within_diplo_range = PREV
+							trait = dragon
+							count < global_bloodline_monster_hunter_kills_needed
+						}
+					}
+					OR = {
+						trait = vampire
+						culture = vampire_culture
+						religion = satanist
+						check_variable = { which = vampire_kills which = global_bloodline_monster_hunter_kills_needed }
+						any_character = {
+							is_within_diplo_range = PREV
+							trait = known_vampire
+							count < global_bloodline_monster_hunter_kills_needed
+						}
+					}
+					OR = {
+						trait = werewolf
+						culture = werewolf_culture
+						check_variable = { which = werewolf_kills which = global_bloodline_monster_hunter_kills_needed }
+						any_character = {
+							is_within_diplo_range = PREV
+							trait = known_werewolf
+							count < global_bloodline_monster_hunter_kills_needed
+						}
+					}
+					OR = {
+						trait = zombie
+						religion = the_damned
+						culture_group = undead_culture_group
+						check_variable = { which = zombie_kills which = global_bloodline_monster_hunter_kills_needed }
+						any_character = {
+							is_within_diplo_range = PREV
+							trait = zombie
+							count < global_bloodline_monster_hunter_kills_needed
+						}
+					}
+					OR = {
+						trait = mythos_giant
+						trait = half_giant
+						religion = jotnar
+						religion = jotnar_reformed
+						culture = jotunn
+						check_variable = { which = giant_kills which = global_bloodline_monster_hunter_kills_needed }
+						any_character = {
+							is_within_diplo_range = PREV
+							trait = mythos_giant
+							count < global_bloodline_monster_hunter_kills_needed
+						}
+					}
+					OR = {
+						trait = mummy
+						religion = kemetic_pagan
+						religion = kemetic_pagan_reformed
+						religion = atenist
+						check_variable = { which = mummy_kills which = global_bloodline_monster_hunter_kills_needed }
+						any_character = {
+							is_within_diplo_range = PREV
+							trait = mummy
+							count < global_bloodline_monster_hunter_kills_needed
+						}
+					}
+					OR = {
+						trait = djinn
+						religion_group = muslim
+						check_variable = { which = djinn_kills which = global_bloodline_monster_hunter_kills_needed }
+						any_character = {
+							is_within_diplo_range = PREV
+							trait = djinn
+							count < global_bloodline_monster_hunter_kills_needed
+						}
+					}
+				}
+				multiply_variable = { which = global_bloodline_monster_hunter_kills_needed value = 2 }
+				character_event = { id = MBLOODLINE.43 }
+			}
+			# Check for Blood of Sigurd Bloodline
+			if = {
+				limit = {
+					check_variable = { which = dragon_kills which = global_bloodline_sigurd_dragons_needed }
+					NOR = {
+						trait = dragon
+						religion = draconic_pagan
+						religion = draconic_pagan_reformed
+						culture = draconic
+						any_owned_bloodline = { has_bloodline_flag = bloodline_monster_hunter }
+					}
+				}
+				multiply_variable = { which = global_bloodline_sigurd_dragons_needed value = 2 }
+				character_event = { id = MBLOODLINE.44 }
+			}
+		}
+	}
+}
+
+# Gain monster hunter bloodline
+character_event = {
+	id = MBLOODLINE.43
+	desc = MBLOODLINE_EVTDESC.43
+	picture = GFX_evt_bloody_knife_hf
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = MBLOODLINE_EVTOPTA.43
+		prestige = 1000
+		if = {
+			limit = {
+				has_religion_feature = religion_matriarchal
+			}
+			create_bloodline = {
+				type = BL_monster_hunter
+				inheritance = matrilineal
+			}
+		}
+		else_if = {
+			limit = {
+				OR = {
+					has_religion_feature = religion_equal
+					has_religion_feature = religion_feature_bon
+					culture = basque
+					culture = zhangzhung
+					culture = sumpa
+					religion = cathar
+					religion = messalian
+					religion = mazdaki
+				}
+			}
+			create_bloodline = {
+				type = BL_monster_hunter
+				inheritance = all_descendants
+			}
+		}
+		else = {
+			create_bloodline = {
+				type = BL_monster_hunter
+			}
+		}
+		if = {
+			limit = { can_apply_cool_nickname_trigger = yes }
+			random_list = {
+				1 = {
+					trigger = { can_apply_lame_nickname_trigger = yes }
+					give_nickname = nick_the_brave
+				}
+				1 = {
+					trigger = { can_apply_lame_nickname_trigger = yes }
+					give_nickname = nick_the_fearless
+				}
+				1 = {
+					trigger = { can_apply_lame_nickname_trigger = yes }
+					give_nickname = nick_the_hunter
+				}
+				1 = {
+					trigger = { can_apply_average_nickname_trigger = yes }
+					give_nickname = nick_the_defender
+				}
+				1 = {
+					give_nickname = nick_the_witch_hunter
+				}
+				1 = {
+					give_nickname = nick_dragonbane
+				}
+				1 = {
+					give_nickname = nick_wolf_bane
+				}
+			}
+		}
+	}
+}
+		
+# MBLOODLINE.44 - Gain blood of sigurd bloodline
+character_event = {
+	id = MBLOODLINE.44
+	desc = MBLOODLINE_EVTDESC.44
+	picture = GFX_evt_dragon_immolation
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = MBLOODLINE_EVTOPTA.44
+		prestige = 1000
+		if = {
+			limit = {
+				has_religion_feature = religion_matriarchal
+			}
+			create_bloodline = {
+				type = BL_blood_of_sigurd
+				inheritance = matrilineal
+			}
+		}
+		else_if = {
+			limit = {
+				OR = {
+					has_religion_feature = religion_equal
+					has_religion_feature = religion_feature_bon
+					culture = basque
+					culture = zhangzhung
+					culture = sumpa
+					religion = cathar
+					religion = messalian
+					religion = mazdaki
+				}
+			}
+			create_bloodline = {
+				type = BL_blood_of_sigurd
+				inheritance = all_descendants
+			}
+		}
+		else = {
+			create_bloodline = {
+				type = BL_blood_of_sigurd
+			}
+		}
+		if = {
+			limit = { can_apply_cool_nickname_trigger = yes }
+			random_list = {
+				1 = {
+					trigger = { can_apply_lame_nickname_trigger = yes }
+					give_nickname = nick_the_brave
+				}
+				1 = {
+					trigger = { can_apply_lame_nickname_trigger = yes }
+					give_nickname = nick_the_fearless
+				}
+				1 = {
+					trigger = { can_apply_lame_nickname_trigger = yes }
+					give_nickname = nick_the_hunter
+				}
+				1 = {
+					give_nickname = nick_dragonbane
+				}
+			}
+		}
+	}
+}
+
+# MBLOODLINE.45 - Gain Vile Blood
+character_event = {
+	id = MBLOODLINE.45
+	desc = MBLOODLINE_EVTDESC.45
+	picture = GFX_evt_lunatic
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = MBLOODLINE_EVTOPTA.45
+		create_bloodline = {
+			type = BL_vile_blood
+		}
+		hidden_tooltip = {
+			new_bloodline = {
+				ROOT = {
+					any_opinion_modifier_target = {
+						limit = {
+							reverse_has_opinion_modifier = { modifier = opinion_sire who = PREV }
+						}
+						add_bloodline_member = PREVPREV
+						character_event = { id = VAMPIRE.206 }
+					}
+				}
+			}
+			remove_character_modifier = plague_vampire
+			if = {
+				limit = { can_apply_cool_nickname_trigger = yes }
+				random_list = {
+					1 = {
+						trigger = { can_apply_average_nickname_trigger = yes }
+						give_nickname = nick_the_poison_tooth
+					}
+					1 = {
+						capital_scope = { save_event_target_as = nickname_target }
+						give_nickname = nick_the_terror_of_provincename
+					}
+					1 = {
+						give_nickname = nick_the_despoiler
+					}
+					1 = {
+						give_nickname = nick_the_plaguebearer
+					}
+				}
+			}
+			
+		}
+	}
+}

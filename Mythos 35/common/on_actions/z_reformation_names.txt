@@ -1,0 +1,24 @@
+#character
+on_startup = {
+	effect = {
+		if = {
+			limit = { ai = no }
+			check_all_religions_effect = yes
+		}
+	}
+}
+
+on_reform_religion = {
+	effect = {
+		if = {
+			limit = {
+				has_dlc = "Holy Fury" 
+				religion = hellenic_pagan_reformed
+				culture = greek
+			}
+			set_global_flag = flag_hellenic_greek_reformation
+		}
+		set_reformation_actors_names_effect = yes
+		reformation_god_names_changes_effect2 = yes
+	}
+}

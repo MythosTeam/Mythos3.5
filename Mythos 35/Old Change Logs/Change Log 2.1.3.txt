@@ -1,0 +1,98 @@
+##########################################################
+##########################2.1.3###########################
+##########################################################
+
+#################
+# Alternate Start
+#################
+- Alternate starts will no longer generate provinces with no religion. Generation may take longer than normal, though.
+- Eternal Flames do not exist initially, but can be built on draconic holy sites
+- Sinec wonders cannot be destroyed, no other wonders can be built on draconic holy sites
+- Draconic pilgrimages should funtion properly in random worlds
+- Relighting Eternal Flames should now work in random worlds
+
+############
+# Werewolves
+############
+- Changed text where a werewolf is challenged for their titles to clarify why they can be challenged.
+- Fixed an issue where characters could not set werewolf laws
+
+##########
+# Vampires
+##########
+- Diseased vampires now have a chance to lose one of their diseased when they infect someone
+- It is no longer possible for vampries to gain or spread cancer when feeding
+- Vampires can no longer spread food poisoning when feeding and can only gain it from feeding in certain, rare circumstances.
+- Vampires who feed on diseased or supernatural creatures will now gain a temporary health penalty.
+- Vampires who are caught spreading disease while feeding will suffer an additional opinion penalty
+- Characters killed while feeding should now show up in the kill list
+- Vampires can no longer offer to turn zombies
+- Removed the ability for force characters into a blood bond
+- Newly turned characters automatically have a 50 year bloodbond with the character that turned them
+- Blood bonded characters cannot take many hostile actions against their sire and cannot offer to turn other characters
+
+#########
+# Dragons
+#########
+- Eternal Flames are now wonders instead of temple buildings
+- Eternal Flames do not start out built in random worlds but can be built in draconic holy sites
+
+##########
+# Religion
+##########
+- Added Flykirate crowns for Mythos pagans. Current images are placeholders
+- Removed Regnal names from Jotnar Fylkirate
+- Added holy sites for reformed kemetic pagans
+- Reformed kemetic pagans now have a flag for their religious head
+- Added an inquisition chamber upgrade for some Great Temples
+- Satanists now have access to their own version of the Great Cathedral
+
+#########
+# Balance
+#########
+- Gods can no longer be sacrificed to themselves
+- Secret satanists and members of Lucifer's Own are more likely to accept offers to become vampires
+- Attempting to turn someone to a vampire or werewolf will now give tips for how likely they are to accept and warn if they might expose you
+- Added a settlement decision to destroy all buildings in the holding that produce special units
+- Pregnancy Strange Cravings event is now less common and gives non-congential versions of traits
+- Additional pregnancy events are available for characters with close ties to enchanters and herbalists
+- Monster revolts can now occur for any race that's considered a monster by it's populace
+- Gods will never be considered monsters by their worshipers
+- After monster rebellions, provinces may lose rebel modifiers or even convert to a non-rebelling culture. This is more likely if they are fully defeated
+
+##########
+# Bugfixes
+##########
+- Fixed an issue where the trait breeding game rule had no effect on trait inheritance
+- Fixed several cases where the game checked for the Gigantism trait instead of Mythos's Giant trait
+- Characters that resist or are immune to disease can no longer get rabies from an event
+- Fixed an issue where diplomacy didn't make characters more likely to accept requests to turn
+- Inappropriate characters can no longer become vampires simply due to being married to one
+- Fixed an issue where werewolf could challenge their liege despite being limited to one challenge per lifetime
+- Fixed an issue where werewolves could shapeshift multiple times in one fight
+- Fixed cases where humans could shapeshift in a werewolf challenge
+- Fixed Monster Hunter Revolts also triggering peasant revolts, forcing them to fight over who hates their liege more.
+- Implemented a new way of adding race traits, which should fix some corner cases of characters not getting their race trait right away
+- Fixed typo when having a disappointing pilgrimage
+- Mage Apprentices can no longer change their area of study
+- Fixed a minor display error in the conditions for Gift of Shemu
+- Fixed an incorrect description displaying for secret muslims visiting a house of worship
+- Corrected description errors in Kemetic and Druidic lodge abilities
+- Fixed an issue where a Flyting result would display incorrectly
+- Fixed several text errors in Flyting
+- Fixed a bug where Mercury wasn't checked when determining if a potion is healthy or unhealthy
+- Fixed a bug where the health levels of ingredients aren't calculated properly
+- Fixed an error where inheriting the philospher's stone would not grant immortality
+- Fixed some scope issues in weather control and illusionary defenders
+- Fixed an issue where opinion modifiers weren't applying in a random event
+- Fixed a Horse Lords werewolf hunting event not factoring in control
+- Vampire blood feast should now properly grant friends and rivals
+- Werewolves at blood feasts should now be exposed properly and not flag the host as a known werewolf
+- If a child's mother will not defend them in a werewolf challenge, the challenge will now be unopposed instead of endlessly spamming the mother until she agrees.
+- Prosperity gain now properly considers heavy rain
+- Hellenic pagans should once again be able to gain their crusader trait
+- Fixed description of The Damned
+- The draconic leader trait now properly gives an offensive bonus to dragon raiders
+- Fixed an issue which would allow plays who owned Holy Fury but not The Old Gods to try and convert to Zoroastrianism, giving themselves a game over
+- Not believing an accusation that someone is a werewolf or vampire no longer makes exposes the character as a werewolf or vampire
+- Fixed an issue where all voluntary loan payments were the same size

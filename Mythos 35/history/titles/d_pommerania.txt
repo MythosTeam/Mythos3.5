@@ -1,0 +1,28 @@
+750.1.1 = {
+	holder = 268441
+}
+943.1.1={
+	holder=268442
+}
+
+1066.1.1=
+{
+holder=268443
+#law = agnatic_succession
+#law = succ_seniority 
+}
+#battle of Bornhoved
+1227.7.22=
+{
+liege="e_hre"
+}
+1278.2.14=
+{
+holder=268444
+}
+1310.1.1=
+{
+holder=268445
+}
+
+

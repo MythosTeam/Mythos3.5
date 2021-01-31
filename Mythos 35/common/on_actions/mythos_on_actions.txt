@@ -1,0 +1,578 @@
+# character
+on_startup = {
+	events = {
+		MYTH.56			# Update Virtues/Vices
+		VAMPIRE.155		# Assign missing blood court titles
+		SPECIES.12		# Set Djinn natural magic
+		#ZOMBIE.10		# Zombie corpse gain control event
+		DRAGON.169		# Recalculate draconic tribute succession effect
+		SPECIES.15		# Set bloodlines for gods
+		ZOMBIE.37		# Force zombies to use zombie government
+	}
+}
+
+#character
+on_yearly_pulse = {
+	events = {
+		ZOMBIE.1		# Form the undead horde
+		ZOMBIE.2		# Zombie damned conversion
+		ZOMBIE.8		# Update devastation - living
+		ZOMBIE.9		# Update devastation - undead
+		#ZOMBIE.10		# Zombie corpse gain control event
+		ZOMBIE.19		# Building conversion event
+		ZOMBIE.22		# Living culture returns
+		ZOMBIE.24		# Living religion returns
+		ZOMBIE.26		# Undead religious county conversion
+		ZOMBIE.37		# Force zombie government
+		MUMMY.5			# Ramesis reborn
+		MYTH.34 		# Force Zeus to use seduction
+		SPECIES.4		# Species-based infertility
+		SPECIES.5		# Mark new event character for race checking
+		SPECIES.2		# Doublecheck anyone with an incorrect race
+		SPECIES.11		# Doublecheck for eligable giants with no subrace
+		#WEREWOLF.4		# Turn Pup into werewolf or remove.  Some have been bypassing the adulthood check
+		MAGIC.44		# Check for summoned characters with no living master. Freed if their summoner survives 100 years.
+		MYTH.48			# Plaguebearer spreads disease
+		MONSTER.10		# Remind demons of their true master
+		SPECIES.7		# Make sure heir modifiers aren't out of date
+		#DRAGON.20		# Make sure unfit flame controller isn't out of date
+		MYTH.56			# Update Virtues/Vices
+		MONSTER.20		# Chance for province modifiers for known monsters.
+		#MONSTER.25		# Remove inappropriate province modifiers
+		VAMPIRE.155		# Assign missing blood court titles
+		DRAGON.150		# Add dragon rivals
+		GIANT.1			# Handle giant size
+		SPECIES.12		# Set Djinn natural magic
+		DRAGON.169		# Recalculate draconic tribute succession effect
+		SPECIES.17		# Handle monthly events
+		SPECIES.19		# Lower health from Incapability
+	}
+	
+	random_events = {
+		# Dragon
+		80 = DRAGON.2	# Dragon with small horde
+		100 = DRAGON.4	# Dragon angers locals
+		50 = DRAGON.3 	# Grow Stronger
+		100 = DRAGON.58 # Dragon thinks of marriage
+		70 = DRAGON.61	# Dragon consulted about spouse
+		70 = DRAGON.64	# Dragon consulted about lover
+		50 = DRAGON.93	# Sapphire Flame can offer to build temple
+		30 = DRAGON.99	# Sapphire Flame can offer to buy a county
+		150 = DRAGON.178 # Landed AI dragon marries an AI dragon in their court
+		100 = DRAGON.179 # Landed AI dragon takes an AI dragon in their court as a concubine
+		
+		
+		# Werewolf
+		10 = WEREWOLF.1		# Injure lover
+		5 = WEREWOLF.3		# Werewolf eats courtier
+		20 = WEREWOLF.18	# Grow stronger
+		30 = WEREWOLF.40	# Werewolf gains gluttonous
+		35 = WEREWOLF.41	# Werewolf gains wroth
+		30 = WEREWOLF.42	# Werewolf becomes cheery
+		35 = WEREWOLF.43	# Wake up covered in blood
+		30 = WEREWOLF.44	# Lowered suspicion
+		50 = WEREWOLF.53	# Werewolf province events
+		40 = WEREWOLF.88	# Stressed werewolf loses control
+		40 = WEREWOLF.89	# Depressed werewolf loses control
+		40 = WEREWOLF.90	# Injured werewolf can lose control to speed healing
+		30 = WEREWOLF.91	# Wroth or berserker werewolf loses control
+		30 = WEREWOLF.93	# Mocked by peasants
+		40 = WEREWOLF.94	# Had a stressful day
+		20 = WEREWOLF.104	# Landed AI werewolf marries an AI werewolf in their court
+		10 = WEREWOLF.179	# Landed AI werewolf takes an AI werewolf in their court as a concubine
+		
+		# Vampire
+		20 = VAMPIRE.2		# Turn lover
+		30 = VAMPIRE.26 	# Discovered by age
+		30 = VAMPIRE.38		# Lose drunkard
+		40 = VAMPIRE.52		# Lunatics suspect a monster is stalking them
+		40 = VAMPIRE.53		# Non-voter becomes ambitious
+		30 = VAMPIRE.54		# Vampire becomes envious
+		50 = VAMPIRE.55		# Vampire council can try to gain power
+		100 = VAMPIRE.68	# Improve your control of the realm
+		70 = VAMPIRE.87		# Extend political influence
+		70 = VAMPIRE.88		# Extend military influence
+		70 = VAMPIRE.89		# Extend economic influence
+		25 = VAMPIRE.90		# Expand political control. Lower since it can trigger with no valid options in some cases.
+		100 = VAMPIRE.94	# Expand military control
+		100 = VAMPIRE.98	# Expand economic control
+		70 = VAMPIRE.118	# Take political control from an opponent
+		70 = VAMPIRE.119	# Take military control from an opponent
+		70 = VAMPIRE.120	# Take economic control from an opponent
+		80 = VAMPIRE.130	# Discover vassal control
+		70 = VAMPIRE.140	# Build a spy network
+		80 = VAMPIRE.157	# Rival another vampire
+		60 = VAMPIRE.192	# Mini-feed event
+		20 = VAMPIRE.200	# Nosferatu bloodline
+		
+		# Giant
+		50 = GIANT.15		# Landed AI giant marries an AI giant in their court
+		15 = GIANT.16		# Landed AI giant takes an AI giant in their court as a concubine
+		
+		# Suspected monster
+		
+		# Revenant
+		20 = ZOMBIE.28		# Spread plague
+		
+		# Misc
+		4 = MUMMY.1		# Explore tombs in Egypt
+		1 = MYTH.6		# Search for Solomon
+		100 = MYTH.16	# Form Helsing
+		40 = MYTH.17	# Helsing followers get monster hunter
+		
+		# Eternal Flame infidel events
+		150 = DRAGON.22		# Pilgrims rile up peasants
+		150 = DRAGON.23		# Priests upset by heather ritual site
+		100 = DRAGON.24		# Upset Zealous vassal
+		150 = DRAGON.25		# Courtier converter
+		150 = DRAGON.26		# Draconic preacher appears
+		100 = DRAGON.27		# Dragon blamed for disease
+		50 = DRAGON.28		# Accused of leading dragon rituals
+		70 = DRAGON.29		# Conflicts between pilgrims and locals
+		30 = DRAGON.30		# Religious unrest
+		
+		# Religious
+		#5 = MYTHMORE.22		# Revive Roman paganism by event
+		
+	}
+}
+
+#character
+on_bi_yearly_pulse = {
+	events = {
+		MYTH.35			# Draconic becoming a wicked priest
+		MYTH.37			# Druid becoming a wicked priest
+		MYTH.38			# Kemetic becoming a wicked priest
+		MYTH.39			# Jotnar becoming a wicked priest
+		MYTH.40			# Hellenic becoming a wicked priest
+		VAMPIRE.104		# Remove Blood Court voter effects if inappropriate
+		VAMPIRE.105		# Remove Blood Court effects if you lack appropriate control
+		VAMPIRE.106		# Remove penalties is no voter has appropriate bonuses
+	}
+}
+
+#character
+on_five_year_pulse = {
+	events = {
+		SPECIES.3		# Sanity check on known werewolf (and eventually known vampire)
+		MYTH_WoL.196	# Change Zeus' seduction
+	}
+}
+
+on_decade_pulse = {
+	random_events = {
+		forged_bloodlines = {
+			500 = MBLOODLINE.1 # Herbalist bloodline
+			100 = MBLOODLINE.7 # Enchanter bloodline
+			300 = MBLOODLINE.17 # Summoner bloodline
+			200 = MBLOODLINE.40 # Magic Heritage bloodline
+		}
+	}
+}
+
+# For characters older than AGE_CHILDHOOD_PULSE but not an adult as defined by ADULT_AGE_FEMALE and ADULT_AGE_MALE
+on_yearly_childhood_pulse = {
+	events = {
+		MYTHMORE.46
+	}
+	
+	random_events = {
+		# Werewolf Pup events
+		100 = WEREWOLF.60		# Child plays in the forest, talks to wolves.
+		150 = WEREWOLF.63		# Child behaves strangely
+		50 = WEREWOLF.66		# Child gets wolf pet
+		150 = WEREWOLF.101		# Pup Heritage event
+		
+		100 = DRAGON.155		# Dragon child culture event
+		80 = DRAGON.161			# Dragon child religion event
+		120 = GIANT.3			# Giant child culture event
+		90 = GIANT.9			# Giant child religion event
+		110 = MYTHMORE.40		# Djinn child religion event
+	}
+}
+on_focus_selected = {
+	events = {
+		MYTH_WoL.39				# Select inital specialty
+		MYTH_WoL.277			# Automatic specialty
+	}
+}
+
+# Yearly pulse (six months from on_yearly_pulse) intended for Focus events (only fires for characters with a Focus)
+on_focus_pulse = {
+	events = {
+		SPECIES.5			# Mark new event characters for race checking
+		SPECIES.2			# Doublecheck anyone with an incorrect race
+		SPECIES.11			# Doublecheck for eligable giants with no subrace
+		MYTH.56				# Update Virtues/Vices
+		MYTH_WoL.285		# Apprentice experience
+	}
+	
+	random_events = {
+		# Magic Focus
+		3000 = MYTH_WoL.39	# Select inital specialty
+		450 = MYTH_WoL.1	# Summon familiar
+		150 = MYTH_WoL.49	# Evade a rival
+		30 = MYTH_WoL.57	# Miracle Worker - may need to reduce if too common
+		130 = MYTH_WoL.58	# Books of Hermes start
+		250 = MYTH_WoL.60	# Increase learning while reading books of hermes
+		40 = MYTH_WoL.61	# Pagan conversion while reading books of hermes
+		200 = MYTH_WoL.62	# Increase learning - foreign texts
+		200 = MYTH_WoL.63	# Increase learning - elements
+		400 = MYTH_WoL.64	# Final Alchemy trial
+		300 = MYTH_WoL.75	# Alternate final alchemy trial for mages
+		100 = MYTH_WoL.78	# Create Aqua Regia
+		100 = MYTH_WoL.81	# Lunatic - spin straw into gold
+		280 = MYTH_WoL.84	# Illusionary garrison
+		280 = MYTH_WoL.85	# Practice shapeshifting
+		200 = MYTH_WoL.148	# Weather control
+		400 = MYTH_WoL.87	# Herbalism potion for sick courtier
+		10 = MYTH_WoL.101	# Create Philosopher's Stone
+		200 = MYTH_WoL.112	# Trouble with spells
+		120 = MYTH_WoL.113	# Healing of injuries
+		100 = MYTH_WoL.115	# Unintelligent characted frustrated.
+		100 = MYTH_WoL.116 	# Azoth creation
+		250 = MYTH_WoL.122	# Panacea creation
+		250 = MYTH_WoL.128	# Tower building
+		250 = MYTH_WoL.149	# Find new herb
+		#100 = MYTH_WoL.170	# Seidr
+		200 = MYTH_WoL.157  # Greater Key of Solomon
+		200 = MYTH_WoL.169	# Improve learning
+		150 = MYTH_WoL.171	# Lesser Key of Solomon
+		100 = MYTH_WoL.179	# Write about Alchemy
+		250 = MYTH_WoL.208	# Good summoning time
+		500 = MYTH_WoL.212	# Deal with spirits of disease
+		450 = MYTH_WoL.213	# Herbalism - potion vs Stressed/depressed
+		300 = MYTH_WoL.235	# Herbalism - potion from spare ingredients
+		100 = MYTH_WoL.261	# Magic or Scholarship Necromany event
+		250 = MYTH_WoL.278	# Necromancy divination
+		150 = MYTH_WoL.279	# Necromancy disease for rival
+		200 = MYTH_WoL.280	# Necromancy life drain
+		250 = MYTH_WoL.281	# Necromancy disease exposure
+		500 = MYTH_WoL.282	# Necromancy take advantage of depopulation
+		150 = MYTH_WoL.283	# Necromancy ressurect wise man
+		50 = MYTH_WoL.288	# Bad apprentice
+		150 = MYTH_WoL.290	# Focused teaching
+		150 = MYTH_WoL.292	# Task for apprentice
+		200 = MYTH_WoL.297	# Experimenting with potions
+		
+		# Stewardship Focus
+		100 = MYTH_WoL.36	# Werewolf peasant
+		10 = MYTH_WoL.37	# Wolf child
+		
+		# Scholarship Focus
+		250 = MYTH_WoL.236	# Necromancy event
+		
+		# Theology Focus
+		200 = MYTH_WoL.214	# Appeal of ancient religion
+		150 = MYTH_WoL.241	# Learn about Necromancy - Satanism
+		200 = MYTH_WoL.257	# Cold Ones necromancy
+	}
+}
+
+### on combat pulse
+#FROM is the character who is the commander of the opposing side
+#FROMFROM is the character who is the LIEGE of the commander of the opposing side
+on_combat_pulse = {
+	random_events = {
+		30 = WEREWOLF.92	# Werewolf focuses on command or personal combat
+	}
+}
+
+# character
+on_birth = {
+	events = {
+		SPECIES.5		# Character should already have race_placeholder. Calling to mark to prevent further checking
+		#SPECIES.2		# Handle race traits - now called from on_employer_change
+		SPECIES.11		# Set subrace on eligable giants
+		SPECIES.8		# Update heir modifiers
+	}
+}
+
+# character
+on_adulthood = {
+	events = {
+		MYTH.9			# Give Djinn random magic education
+		VAMPIRE.3		# Turn "Fledgling" to "Vampire"
+		WEREWOLF.4		# Turn "Pup" to "Werewolf"
+		MYTH_WoL.4		# Gain magic education
+		SPECIES.5		# Mark for race checking, if needed
+		SPECIES.2		# Doublecheck anyone with an incorrect race
+		SPECIES.11		# Set subrace on eligable giants
+		SPECIES.8		# Update heir modifiers
+		WEREWOLF.70		# Get rid of wolf pet
+		MYTH.56			# Update Virtues/Vices
+		SPECIES.9		# Remove and re-add God trait
+		MYTHMORE.50		# Childhood sweethearts become lovers
+	}
+}
+
+# Fires for the owner of the winning unit (ROOT). The taken Holding title is in FROM.
+on_siege_over_winner = {
+	events = {
+		MONSTER.3		# Monster hunters take county capital
+		ZOMBIE.16		# Undead take county capital
+	}
+}
+
+#character. Triggers when someone gets imprisoned for any reason. - ROOT is prisoner, FROM is imprisoner
+on_become_imprisoned_any_reason = {
+	events = {
+		VAMPIRE.116		# Remove Blood Court penalties
+	}
+}
+
+# Fires when the player changes character
+# FROM is the old character, ROOT is the new holder
+on_chronicle_owner_change = {
+	events = {
+		WEREWOLF.95		# Set initial werewolf control
+		MYTHMORE.39		# Fix Ruler Designer Immortality
+		SPECIES.14		# With Holy Fury, replace Blood of the Gods
+	}
+}
+
+# Fires when the game starts (not from saves)
+on_chronicle_start = {
+	events = {
+		#MYTH.50		# Create pagan pantheons
+		MUMMY.5			# Ramesis Reborn
+		#MYTH.34 		# Force Zeus to use seduction
+		SPECIES.6		# Mark all premade characters as already being the correct race
+		MYTH.56			# Set Virtues/Vices
+		WEREWOLF.95		# Set initial werewolf control
+		SPECIES.11		# Set subrace on eligable giants
+		MYTHMORE.39		# Fix Ruler Designer Immortality
+		ZOMBIE.37		# Force zombies to be Fuedal
+		SPECIES.14		# With Holy Fury, replace Blood of the Gods
+		SPECIES.15		# Set bloodlines for gods
+		MYTHMORE.61		# Set up eternal flames
+		MBLOODLINE.41	# Set variables for bloodlines
+	}
+}
+
+# any leader in battle on winning side (except the leader) is ROOT - opponent army leader is FROM
+on_battle_won = {
+	random_events = {
+		5 = WEREWOLF.39	# Werewolf revealed in battle
+		5 = WEREWOLF.46	# Werewolf gains berserker
+		5 = MONSTER.7	# Non-werewolf becomes suspected monster
+		300 = 0 # No event
+	}
+}
+
+#character
+on_assassination_disc = {
+	events = {
+		MYTHMORE.33
+		MYTHMORE.34
+	}
+}
+
+#character. Triggers if someone tries to imprison someone unlanded and fails. Character is exiled to another country
+on_avoided_imprison_fled_country = {
+	events = {
+		MYTHMORE.36
+	}
+}
+
+#character. Triggers if someone is executed, character not dead yet
+on_executed = {
+	events = {
+		MYTHMORE.33
+		MYTHMORE.34
+	}
+	random_events = {
+		1000 = 0		# None
+		50 = MONSTER.8	# People think character is a monster
+	}
+}
+
+# When a pagan ruler forces a prisoner to be his consort
+on_forced_consort = {
+	events = {
+		SPECIES.5		# Make sure race is correct before any children likely to be born
+		SPECIES.2		# Doublecheck anyone with an incorrect race
+	}
+}
+
+# From = Attacker, Root = Defender
+on_war_ended_victory = {
+	events = {
+		MYTH.41			# Remove battle-summoned characters
+		VAMPIRE.103		# Remove Blood Court vassal bonuses if independent
+		MONSTER.25		# Remove inappropriate modifiers
+		VAMPIRE.155		# Assign missing blood court titles
+		DRAGON.169		# Recalculate draconic tribute succession effect
+	}
+	random_events = {
+		100 = 0
+		1 = MBLOODLINE.27 # Necromancy bloodline
+	}
+}
+
+# From = Attacker, Root = Defender
+on_war_ended_invalid = {
+	events = {
+		MYTH.41			# Remove battle-summoned characters
+	}
+}
+
+# From = Attacker, Root = Defender
+on_war_ended_whitepeace = {
+	events = {
+		MYTH.41			# Remove battle-summoned characters
+	}
+}
+
+# From = Attacker, Root = Defender
+on_war_ended_defeat = {
+	events = {
+		MYTH.41			# Remove battle-summoned characters
+		VAMPIRE.155		# Assign missing blood court titles
+	}
+}
+
+on_death = {
+	events = {
+		MAGIC.51		# Remove any summoned characters
+		DRAGON.8		# Death of rulers with dragon suzerains
+		SPECIES.8		# Update heir modifiers
+		MONSTER.25		# Remove inappropriate modifiers
+		VAMPIRE.154		# Replace Blood Court
+		BANK.12			# Transfer loans to heir (Debter)
+		BANK.25			# Transfer loans to heir (Banker)
+		DRAGON.170		# Remove modifier from draconic tributes
+		ZOMBIE.40		# Kill some unneeded zombies
+		MBLOODLINE.42	# Killer may gain bloodline
+	}
+}
+
+# When rebels appear
+on_rebel_revolt = {
+	events = {
+		MONSTER.4		# Monster revels reinforce
+		MONSTER.1		# Monster rebels rise up
+		ZOMBIE.17		# Zombie uprising reinforces
+		ZOMBIE.15		# Zombie uprising
+	}
+}
+
+# Character converts religion, for whatever reason. ROOT is the character after conversion and the FROM scope has the old religion.
+on_character_convert_religion = {
+	events = {
+		#MYTH.51		# Rename Greek gods - disabled until new reform option added
+		DRAGON.20		# Update unfit flame controller
+		DRAGON.21		# Update Heathen Stronghold modifier
+		DRAGON.169		# Recalculate draconic tribute succession effect
+		DRAGON.177		# Remove purity
+	}
+}
+
+# Respond to a proposed change of law
+on_approve_law = {
+	events = {
+		SPECIES.7		# Update heir modifiers
+	}
+}
+
+# Respond to a proposed change of de jure law
+on_approve_de_jure_law = {
+	events = {
+		SPECIES.7		# Update heir modifiers
+	}
+}
+
+on_elective_gavelkind_succession = {
+	events = {
+		SPECIES.8		# Update heir modifiers
+		DRAGON.20		# Update flame controller modifiers
+		MONSTER.25		# Remove inappropriate modifiers
+	}
+}
+
+# ROOT is the creating character, FROM is the title
+on_create_title = {
+	events = {
+		SPECIES.7		# Update heir modifiers
+		VAMPIRE.155		# Assign missing blood court titles
+		DRAGON.169		# Recalculate draconic tribute succession effect
+	}
+}
+
+# ROOT is the character, FROM is the title, FROMFROM is the old holder
+on_new_holder = {
+	events = {
+		SPECIES.7		# Update heir modifiers
+		DRAGON.20		# Update flame controller modifiers
+		DRAGON.21		# Update Heathen Stronghold modifier
+		DRAGON.68		# Update Sapphire flame controller modifiers
+		VAMPIRE.103		# Remove Blood Court vassal bonuses if independent
+		MONSTER.25		# Remove inappropriate modifiers
+		VAMPIRE.155		# Assign missing blood court titles
+		MYTHMORE.37		# Nickname for undead gaining title
+		#ZOMBIE.10		# Zombie corpse gain control event
+		DRAGON.169		# Recalculate draconic tribute succession effect
+		MYTHMORE.62		# Add werewolf laws if appropriate
+	}
+}
+
+# Character converts culture, for whatever reason. ROOT is the character after conversion and the FROM scope has the old culture.
+on_character_convert_culture = {
+	events = {
+		SPECIES.7		# Update heir modifiers
+		VAMPIRE.155		# Assign missing blood court titles
+		DRAGON.169		# Recalculate draconic tribute succession effect
+		MYTHMORE.62		# Add missing werewolf laws
+	}
+}
+
+on_artifact_inheritance = {
+	events = {
+		MYTH.54			# Handle Philosopher's Stone
+	}
+}
+
+# When the religion changes in a county, ROOT is province. FROM has the old religion.
+on_county_religion_change = {
+	events = {
+		MONSTER.26		# Remove inappropriate modifiers
+	}
+}
+
+on_province_major_modifier = {
+	events = {
+		ZOMBIE.38		# Increase depopulation/devastation
+	}
+}
+
+#character (at 2 months)
+on_pregnancy = {
+	events = {
+		SPECIES.13		# Cancel vampire pregnancy
+	}
+}
+
+# From = Previous leader
+#on_society_failed_to_find_new_leader = {
+#	events = {
+#		MYTHMORE.56		# Assign grandmasters with appropriate traits
+#	}
+#}
+
+on_combat_starting = {
+	events = {
+		MYTHMORE.60		# Dragon Lodge Rank 2 Power: Flame Charge
+	}
+}
+
+on_employer_change = {
+	events = {
+		SPECIES.16		# Check species traits if this is a new character
+	}
+}
+
+on_wonder_stage_finish = {
+	events = {
+		DRAGON.175		# Add eternal flame upgrade
+	}
+}

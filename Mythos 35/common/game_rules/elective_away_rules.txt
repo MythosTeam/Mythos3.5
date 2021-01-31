@@ -1,0 +1,39 @@
+byzantine_faction = {
+	name = EW_RULE_NAME
+	group = EW_RULE_GROUP
+	option = {
+		name = on
+		text = EW_RULE_NAME_ON
+		desc = EW_RULE_NAME_ON_DESC
+	}
+	option = {
+		name = limited
+		text = EW_RULE_NAME_LIM
+		desc = EW_RULE_NAME_LIM_DESC
+	}
+	option = {
+		name = off
+		text = EW_RULE_NAME_OFF
+		desc = EW_RULE_NAME_OFF_DESC
+	}
+}
+
+byzantine_succ_centralisation = {
+	name = EW_RULE_NAME_CENTRAL
+	group = EW_RULE_GROUP
+	option = {
+		name = max
+		text = EW_RULE_NAME_MAX
+		desc = EW_RULE_NAME_MAX_DESC
+	}
+	option = {
+		name = high
+		text = EW_RULE_NAME_HIGH
+		desc = EW_RULE_NAME_HIGH_DESC
+	}
+	option = {
+		name = min
+		text = EW_RULE_NAME_MIN
+		desc = EW_RULE_NAME_MIN_DESC
+	}
+}

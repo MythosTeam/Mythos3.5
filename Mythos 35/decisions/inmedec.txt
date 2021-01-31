@@ -1,0 +1,316 @@
+decisions = {
+	#HRE
+	refuse_imperium = {
+		ai_check_interval = 24
+		ai = no
+		is_high_prio = yes
+		
+		
+		potential = {
+			OR = {
+				top_liege = {
+					has_landed_title = e_hre
+				}
+				e_hre = {
+				has_law = succ_hre_elective
+				OR = {
+					is_pretender = yes
+					ROOT = {
+						is_heir = yes
+					}
+				}
+			}
+			}
+			NOT = {
+				trait = refuses_imperium
+			}
+		}
+		
+		allow = {
+			e_hre = {
+				has_law = succ_hre_elective
+				OR = {
+					is_pretender = yes
+					ROOT = {
+						is_heir = yes
+					}
+				}
+			}
+			NOT = {
+				trait = ambitious
+				trait = proud
+			}
+		}
+		
+		effect = {
+			piety = 50
+			add_trait = refuses_imperium
+			set_character_flag = refused_imperium
+			if = {
+				limit = {
+					top_liege = {
+						ROOT = {
+							is_child_of = PREV
+						}
+					}
+				}
+				prestige = -1000
+			}
+			if = {
+				limit = {
+					tier = king
+				}
+				prestige = -250
+			}
+			if = {
+				limit = {
+					tier = duke
+				}
+				prestige = -100
+			}
+		}
+	}
+	
+	renounce_refusal = {
+		ai_check_interval = 24
+		is_high_prio = yes
+		ai = no
+		potential = {
+			trait = refuses_imperium
+			NOT = {
+				trait = content
+			}
+		}
+		allow = {
+			custom_tooltip = {
+				text = renounce_refusal_custom
+				had_flag = {
+					flag = refused_imperium
+					years = 5
+				}
+			}
+		}
+		effect = {
+			clr_character_flag = refused_imperium
+			remove_trait = refuses_imperium
+			piety = -50
+			prestige = 100
+		}
+	}
+	
+	#ERE
+	refuse_imperium_byz = {
+		ai_check_interval = 24
+		
+		is_high_prio = yes
+		ai = no
+		
+		potential = {
+			OR = {
+				top_liege = {
+					OR = {
+						has_landed_title = e_byzantium
+						has_landed_title = e_roman_empire
+					}
+				}
+				OR = {
+				e_byzantium = {
+					has_law = succ_byzantine_elective 
+					OR = {
+						is_pretender = yes
+						ROOT = {
+							is_heir = yes
+						}
+					}
+				}
+				e_roman_empire = {
+					has_law = succ_byzantine_elective 
+					OR = {
+						is_pretender = yes
+						ROOT = {
+							is_heir = yes
+						}
+					}
+				}
+
+			}
+			}
+			NOT = {
+				trait = refuses_imperium_byz
+			}
+		}
+		
+		allow = {
+			OR = {
+				e_byzantium = {
+					has_law = succ_byzantine_elective 
+					OR = {
+						is_pretender = yes
+						ROOT = {
+							is_heir = yes
+						}
+					}
+				}
+				e_roman_empire = {
+					has_law = succ_byzantine_elective 
+					OR = {
+						is_pretender = yes
+						ROOT = {
+							is_heir = yes
+						}
+					}
+				}
+
+			}
+			NOT = {
+				trait = ambitious
+				trait = proud
+			}
+		}
+		
+		effect = {
+			piety = 100
+			add_trait = refuses_imperium_byz
+			set_character_flag = refused_imperium_byz
+			if = {
+				limit = {
+					top_liege = {
+						ROOT = {
+							is_child_of = PREV
+						}
+					}
+				}
+				prestige = -1000
+			}
+			if = {
+				limit = {
+					tier = king
+				}
+				prestige = -500
+			}
+			if = {
+				limit = {
+					tier = duke
+				}
+				prestige = -250
+			}
+		}
+	}
+	renounce_refusal_byz = {
+		ai_check_interval = 24
+		is_high_prio = yes
+		ai = no
+		potential = {
+			trait = refuses_imperium_byz
+		}
+		allow = {
+			custom_tooltip = {
+				text = renounce_refusal_custom
+				had_flag = {
+					flag = refused_imperium_byz
+					years = 5
+				}
+			}
+			NOT = {
+				trait = content
+			}
+		}
+		effect = {
+			clr_character_flag = refused_imperium_byz
+			remove_trait = refuses_imperium_byz
+			piety = -100
+			prestige = 200
+		}
+	}
+	#Feudal elective
+	refuse_the_crown = {
+		ai_check_interval = 24
+		is_high_prio = yes
+		ai = no
+		potential = {
+			NOT = {
+				trait = refuses_the_crown
+			}
+			independent = no
+			top_liege = {
+				any_demesne_title = {
+					has_law = succ_feudal_elective
+					OR = {
+						tier = king
+						tier = emperor
+					}
+				}
+			}
+		}
+		allow = {
+			top_liege = {
+				any_demesne_title = {
+					has_law = succ_feudal_elective
+					OR = {
+						tier = king
+						tier = emperor
+					}
+					ROOT = {
+						OR = {
+							is_pretender = yes
+							is_heir = yes
+						}
+					}
+				}
+			}
+		}
+		effect = {
+			add_trait = refuses_the_crown
+			set_character_flag = refused_the_crown
+			piety = 50
+			if = {
+				limit = {
+					top_liege = {
+						ROOT = {
+							is_child_of = PREV
+						}
+					}
+				}
+				prestige = -1000
+			}
+			if = {
+				limit = {
+					tier = king
+				}
+				prestige = -250
+			}
+			if = {
+				limit = {
+					tier = duke
+				}
+				prestige = -100
+			}
+		}
+	}
+	renounce_refusal_crown = {
+		ai_check_interval = 24
+		is_high_prio = yes
+		ai = no
+		potential = {
+			trait = refuses_the_crown
+		}
+		allow = {
+			custom_tooltip = {
+				text = renounce_refusal_custom_crown
+				had_flag = {
+					flag = refused_the_crown
+					years = 5
+				}
+			}
+			NOT = {
+				trait = content
+			}
+		}
+		effect = {
+			clr_character_flag = refused_the_crown
+			remove_trait = refuses_the_crown
+			piety = -100
+			prestige = 200
+		}
+	}
+}

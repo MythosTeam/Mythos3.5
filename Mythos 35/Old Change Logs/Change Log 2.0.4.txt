@@ -1,0 +1,48 @@
+##########################################################
+##########################2.0.4###########################
+##########################################################
+
+#########
+# Balance
+#########
+- Werewolves and vampires now lose "Suspected Monster" upon being discovered
+- The wait after challenging your leading in werewolf culture is no longer controlled by the Challenge Condition law
+- A new werewolf law offers a sliding scale between slowing challengers from issuing new challenges and preventing all new challenges.
+- Werewolf-cultured characters can now grant the Champion title regardless of religion.
+- Reworked the Enchantment transformation event to have more of an effect
+- Added additional magic focus events for Conjuration and Herbalism
+- AI characters inheriting loans are less likely to demand immediate repayment or to entirely forgive debts.
+- The Found Lycan/Vampire Culture decision now converts your capital province, but cannot be used if your capital is already Lycan/Vampire culture
+- Heathen Eternal Flame events are now more likely if you control multiple eternal flames
+- Added Draconic Tribal start in Kola to the Viking Age extra bookmarks
+- In vampire feeding, bonuses from intrigue scale higher
+- High intrigue can help protect from being fed on by vampires
+- Vampires attempting to feed are now helped by the hunter, schemer, and duelist traits
+- Vampire feeding victims being paranoid or gregarious only make you more suspect if they survive
+- Diplomacy now helps vampires' "Offer to Turn"
+- Eternal Flames can now be reignited if the original holding is destroyed
+- Updated for 2.8.2 changes
+- Vampires being caught is now influenced by their apparent age
+- Combat health should be more accurate
+
+##########
+# Bugfixes
+##########
+- Werewolf building upgrades should now display properly
+- Tribal buildings should now care about demesne laws instead of duchy laws
+- Laws about werewolf challenges against children work properly
+- Fixed issue where Alchemy could fail due to being overqualified
+- Reduced the number of event targets in the werewolf challenge, which will hopefully make it more stable
+- Fixed a duplicate event ID stopping one event from running
+- Summoned armies are now removed on peace instead of the next time a war ends
+- Added missing concubinage on draconic, reformed draconic, reformed jotnar, kemetic, and atenist pagans
+- Corrected some incorrect religious icons
+- Atenists no longer consider heliocentrism heretical
+- Slight cleanup of werewolf challenge - should fix some incorrect scopes and avoid challengers receiving challenges of their own
+- Loan payments should now list the correct options
+- Vampire buildings are now only active for known vampires
+- Known vampires should no longer gain Suspected Monster from failed feedings, instead gaining suspected murderer (a larger penalty, but only to the victim)
+- Reformed Germanic should not longer appear as a Jotnar heresy if the Germanic religion hasn't reformed
+- Vampires should no longer claim to have fed on themself
+- Improved the code for assigning blood court titles. Hopefully this will be more stable and give fewer Paradox employees wearing gas masks.
+- Fixed a bug where draconic raid health was not set properly

@@ -1,0 +1,36 @@
+##########################################################
+##########################2.0.3###########################
+##########################################################
+
+#########
+# Balance
+#########
+- Dragons are less likely to die in rival raids
+- AI dragons are less likely to raid rivals, and less focused on finishing off injured rivals
+- Adjusted odds of dragons getting new rivals, especially in the same realm
+- Auras now last much longer
+- Slightly increased the maximum gold loss for failing performing alchemy
+- Increased the spell cooldown after performing alchemy
+- Magic education has slightly less of an impact on performing alchemy
+- Having the Philosopher's Stone now improves performing alchemy
+
+##########
+# Bugfixes
+##########
+- Werewolf challenge should be less prone to overflow the stack
+- Saved Chronos from the Lhurgoyf
+- Zeus should now seduce mortals
+- Zeus should now be named Zeus.
+- Fixed a bug where injured vampires couldn't gain stats if they killed their victim.
+- Fixed vampire feeding claiming to heal you when it didn't
+- Dragons and Vampires will only gain adults as rivals
+- Jotnar pagans can now use county conquests on ports, like Norse pagans
+- Giants now properly grow larger with age
+- Fixed some graphical issues on dragons
+- Fixed dragons not getting money after raiding rivals
+- Inheritance game rule now affects dragonborn + human offspring
+- Localized secret society currencies for Mythos religions
+- Added missing events for Mythos secret religions
+- Broke characters with tiny loans are no longer forced to steal the money
+- Special troops have lost the power of invisibility
+- Fixed missing special unit sprites

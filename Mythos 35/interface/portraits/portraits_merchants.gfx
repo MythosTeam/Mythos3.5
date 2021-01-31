@@ -1,0 +1,137 @@
+spriteTypes = {
+	### WESTERN MALE ####
+	spriteType = {
+		name = "GFX_merchant_male_clothes_behind"
+		texturefile = "gfx\\characters\\merchant_male\\merchant_male_clothes_behind.dds"
+		noOfFrames = 15
+		norefcount = yes
+	}
+	
+		spriteType = {
+		name = "GFX_merchant_male_headgear_behind"
+		texturefile = "gfx\\characters\\merchant_male\\merchant_male_headgear_behind.dds"
+		noOfFrames = 15
+		norefcount = yes
+	}
+	
+	spriteType = {
+		name = "GFX_merchant_male_clothes"
+		texturefile = "gfx\\characters\\merchant_male\\merchant_male_clothes.dds"
+		noOfFrames = 15
+		norefcount = yes
+	}
+
+	spriteType = {
+		name = "GFX_merchant_male_headgear"
+		texturefile = "gfx\\characters\\merchant_male\\merchant_male_headgear.dds"
+		noOfFrames = 15
+		norefcount = yes
+	}
+	
+	# Check if portraitType works with MRs
+	portraitType = {
+		effectFile = "gfx/FX/portrait.lua"
+		name = "PORTRAIT_merchant_clothing_male"
+		
+		weight = {
+			additive_modifier = {
+				value = 10000
+				has_dlc = "The Republic"
+				portrait_age > child
+				portrait_is_female = no
+				portrait_clothing = yes
+				OR = {
+					is_patrician = yes
+					portrait_government = merchant_republic_government
+					portrait_government = draconic_merchant_republic_government
+				}
+				NOT = { portrait_has_trait = dragon }
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					portrait_gfx_culture = dragongfx
+					portrait_gfx_culture = horsegfx
+				}
+			}
+		}
+		
+		layer = {
+			"GFX_merchant_male_clothes_behind:c0"
+			"GFX_merchant_male_headgear_behind:c1"
+			"GFX_merchant_male_clothes:c2"
+			"GFX_merchant_male_headgear:c5"
+			"GFX_empty:c3"
+			"GFX_empty:C4"
+		}
+	}
+	
+	### WESTERN FEMALE ####
+	
+	spriteType = {
+		name = "GFX_merchant_female_clothes_behind"
+		texturefile = "gfx\\characters\\merchant_female\\merchant_female_clothes_behind.dds"
+		noOfFrames = 15
+		norefcount = yes
+	}
+
+	spriteType = {
+		name = "GFX_merchant_female_headgear_behind"
+		texturefile = "gfx\\characters\\merchant_female\\merchant_female_headgear_behind.dds"
+		noOfFrames = 15
+		norefcount = yes
+	}
+	
+	spriteType = {
+		name = "GFX_merchant_female_headgear"
+		texturefile = "gfx\\characters\\merchant_female\\merchant_female_headgear.dds"
+		noOfFrames = 15
+		norefcount = yes
+	}
+
+	spriteType = {
+		name = "GFX_merchant_female_clothes"
+		texturefile = "gfx\\characters\\merchant_female\\merchant_female_clothes.dds"
+		noOfFrames = 15
+		norefcount = yes
+	}
+	
+	# Check if portraitType works with MRs
+	portraitType = {
+		effectFile = "gfx/FX/portrait.lua"
+		name = "PORTRAIT_merchant_clothing_female"
+		
+		weight = {
+			additive_modifier = {
+				value = 10000
+				has_dlc = "The Republic"
+				portrait_age > child
+				portrait_is_female = yes
+				portrait_clothing = yes
+				OR = {
+					is_patrician = yes
+					portrait_government = merchant_republic_government
+					portrait_government = draconic_merchant_republic_government
+				}
+				NOT = { portrait_has_trait = dragon }
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					portrait_gfx_culture = dragongfx
+					portrait_gfx_culture = horsegfx
+				}
+			}
+		}
+		
+		layer = {
+			"GFX_merchant_female_clothes_behind:c0"
+			"GFX_merchant_female_headgear_behind:c1"
+			"GFX_merchant_female_clothes:c2"
+			"GFX_merchant_female_headgear:c5"
+			"GFX_empty:c3"
+			"GFX_empty:C4"
+		}
+	}
+
+}

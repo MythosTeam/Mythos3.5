@@ -1,0 +1,8520 @@
+# MythosHolyOrders
+
+namespace = MythosHolyOrders
+
+# Ping event when borrowing money from Golden Order
+character_event = {
+	id = MythosHolyOrders.1
+	
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		wealth = -300
+		FROM = {
+			letter_event = {
+				id = MythosHolyOrders.10
+			}
+		}
+	}
+}
+
+# Expelling a Holy Order confirmation for new holy orders
+character_event = {
+	id = MythosHolyOrders.2
+	desc = EVTDESC_SOA_2990
+	picture = "GFX_evt_crusaders"
+	border = "GFX_event_normal_frame_religion"
+	
+	desc = {
+		trigger = {
+			OR = {
+				religion = the_damned
+				religion = kemetic_pagan
+				religion = kemetic_pagan_reformed
+				religion = atenist
+			}
+		}
+		text = EVTDESC_SOA_2990
+		picture = "GFX_evt_moors"
+	}
+	desc = {
+		trigger = {
+			OR = {
+				religion = draconic_pagan_reformed
+				religion = draconic_pagan
+				religion = druidic_reformed
+				religion = druidic
+				religion = jotnar_reformed
+				religion = jotnar
+			}
+		}
+		text = EVTDESC_SOA_2990
+		picture = "GFX_evt_vikings_arriving_oldgods"
+	}
+	desc = {
+		trigger = {
+			religion = satanist
+		}
+		text = EVTDESC_SOA_2990
+		picture = "GFX_evt_crusaders"
+	}
+	desc = {
+		trigger = {
+			OR = {
+				religion = hellenic_pagan
+				religion = hellenic_pagan_reformed
+			}
+		}
+		text = EVTDESC_SOA_2990
+		picture = GFX_evt_victory_arch_byzantine
+	}
+	
+	title = { # Golden Order
+		trigger = {
+			has_character_flag = expel_the_golden_order_check
+		}
+		text = expel_the_golden_order
+	}
+	title = { # Army of Baal
+		trigger = {
+			has_character_flag = expel_the_army_of_baal_check
+		}
+		text = expel_the_army_of_baal
+	}
+	title = { # Y Ddraig Goch
+		trigger = {
+			has_character_flag = expel_y_ddraig_goch_check
+		}
+		text = expel_y_ddraig_goch
+	}
+	title = { # Soldiers of Horus
+		trigger = {
+			has_character_flag = expel_soldiers_horus_check
+		}
+		text = expel_soldiers_horus
+	}
+	title = { # Servants of Anubis
+		trigger = {
+			has_character_flag = expel_servants_anubis_check
+		}
+		text = expel_servants_anubis
+	}
+	title = { # Ares' Phalanx
+		trigger = {
+			has_character_flag = expel_ares_phalanx_check
+		}
+		text = expel_ares_phalanx
+	}
+	title = { # Sons of Mars
+		trigger = {
+			has_character_flag = expel_sons_mars_check
+		}
+		text = expel_sons_of_mars
+	}
+	title = { # Champions of Vígríðr
+		trigger = {
+			has_character_flag = expel_vigrithr_check
+		}
+		text = expel_champions_vigrithr
+	}
+	
+	only_rulers = yes
+	
+	is_triggered_only = yes
+	
+	option = { # Golden Order
+		trigger = {
+			has_character_flag = expel_the_golden_order_check
+		}
+		name = EVTOPTA_SOA_2990
+		piety = -1000
+		
+		religion_authority = {
+			modifier = holy_order_expelled
+			years = 20
+		}
+		custom_tooltip = {
+			text = expelling_holy_order_event_tooltip_a
+		}
+		hidden_tooltip = {
+			d_golden_order = {
+				holder_scope = {
+					character_event = {
+						id = MythosHolyOrders.18
+					}
+				}
+			}
+			add_character_modifier = {
+				name = expelled_d_golden_order
+				duration = -1
+				inherit = yes
+			}
+			clr_character_flag = expel_the_golden_order_check
+		}
+	}
+	option = { # Army of Baal
+		trigger = {
+			has_character_flag = expel_the_army_of_baal_check
+		}
+		name = EVTOPTA_SOA_2990
+		piety = -1000
+		
+		religion_authority = {
+			modifier = holy_order_expelled
+			years = 20
+		}
+		custom_tooltip = {
+			text = expelling_holy_order_event_tooltip_a
+		}
+		hidden_tooltip = {
+			d_army_baal = {
+				holder_scope = {
+					character_event = {
+						id = MythosHolyOrders.19
+					}
+				}
+			}
+			add_character_modifier = {
+				name = expelled_d_army_baal
+				duration = -1
+				inherit = yes
+			}
+			clr_character_flag = expel_the_army_of_baal_check
+		}
+	}
+	option = { # Y Ddraig Goch
+		trigger = {
+			has_character_flag = expel_y_ddraig_goch_check
+		}
+		name = EVTOPTA_SOA_2990
+		piety = -1000
+		
+		religion_authority = {
+			modifier = holy_order_expelled
+			years = 20
+		}
+		custom_tooltip = {
+			text = expelling_holy_order_event_tooltip_a
+		}
+		hidden_tooltip = {
+			d_ddraig_goch = {
+				holder_scope = {
+					character_event = {
+						id = MythosHolyOrders.18
+					}
+				}
+			}
+			add_character_modifier = {
+				name = expelled_d_ddraig_goch
+				duration = -1
+				inherit = yes
+			}
+			clr_character_flag = expel_y_ddraig_goch_check
+		}
+	}
+	option = { # Soldiers of Horus
+		trigger = {
+			has_character_flag = expel_soldiers_horus_check
+		}
+		name = EVTOPTA_SOA_2990
+		piety = -1000
+		
+		religion_authority = {
+			modifier = holy_order_expelled
+			years = 20
+		}
+		custom_tooltip = {
+			text = expelling_holy_order_event_tooltip_a
+		}
+		hidden_tooltip = {
+			d_soldiers_horus = {
+				holder_scope = {
+					character_event = {
+						id = MythosHolyOrders.18
+					}
+				}
+			}
+			add_character_modifier = {
+				name = expelled_d_soldiers_horus
+				duration = -1
+				inherit = yes
+			}
+			clr_character_flag = expel_soldiers_horus_check
+		}
+	}
+	option = { # Servants of Anubis
+		trigger = {
+			has_character_flag = expel_servants_anubis_check
+		}
+		name = EVTOPTA_SOA_2990
+		piety = -1000
+		
+		religion_authority = {
+			modifier = holy_order_expelled
+			years = 20
+		}
+		custom_tooltip = {
+			text = expelling_holy_order_event_tooltip_a
+		}
+		hidden_tooltip = {
+			d_servants_anubis = {
+				holder_scope = {
+					character_event = {
+						id = MythosHolyOrders.18
+					}
+				}
+			}
+			add_character_modifier = {
+				name = expelled_d_servants_anubis
+				duration = -1
+				inherit = yes
+			}
+			clr_character_flag = expel_servants_anubis_check
+		}
+	}
+	option = { # Ares's Phalanx
+		trigger = {
+			has_character_flag = expel_ares_phalanx_check
+		}
+		name = EVTOPTA_SOA_2990
+		piety = -1000
+		
+		religion_authority = {
+			modifier = holy_order_expelled
+			years = 20
+		}
+		custom_tooltip = {
+			text = expelling_holy_order_event_tooltip_a
+		}
+		hidden_tooltip = {
+			d_ares_phalanx = {
+				holder_scope = {
+					character_event = {
+						id = MythosHolyOrders.18
+					}
+				}
+			}
+			add_character_modifier = {
+				name = expelled_d_ares_phalanx
+				duration = -1
+				inherit = yes
+			}
+			clr_character_flag = expel_ares_phalanx_check
+		}
+	}
+	option = { # Sons of Mars
+		trigger = {
+			has_character_flag = expel_sons_mars_check
+		}
+		name = EVTOPTA_SOA_2990
+		piety = -1000
+		
+		religion_authority = {
+			modifier = holy_order_expelled
+			years = 20
+		}
+		custom_tooltip = {
+			text = expelling_holy_order_event_tooltip_a
+		}
+		hidden_tooltip = {
+			d_sons_mars = {
+				holder_scope = {
+					character_event = {
+						id = MythosHolyOrders.18
+					}
+				}
+			}
+			add_character_modifier = {
+				name = expelled_d_sons_mars
+				duration = -1
+				inherit = yes
+			}
+			clr_character_flag = expel_sons_mars_check
+		}
+	}
+	option = { # Champions of Vígríðr
+		trigger = {
+			has_character_flag = expel_vigrithr_check
+		}
+		name = EVTOPTA_SOA_2990
+		piety = -1000
+		
+		religion_authority = {
+			modifier = holy_order_expelled
+			years = 20
+		}
+		custom_tooltip = {
+			text = expelling_holy_order_event_tooltip_a
+		}
+		hidden_tooltip = {
+			d_champion_vigrithr = {
+				holder_scope = {
+					character_event = {
+						id = MythosHolyOrders.20
+					}
+				}
+			}
+			add_character_modifier = {
+				name = expelled_d_champion_vigrithr
+				duration = -1
+				inherit = yes
+			}
+			clr_character_flag = expel_vigrithr_check
+		}
+	}
+	option = { # Allow them to stay
+		name = "EVTOPTB_SOA_2990"
+		custom_tooltip = {
+			text = expelling_holy_order_event_tooltip_b
+		}
+		hidden_tooltip = {
+			clr_character_flag = expel_the_golden_order_check
+			clr_character_flag = expel_the_army_of_baal_check
+			clr_character_flag = expel_y_ddraig_goch_check
+			clr_character_flag = expel_soldiers_horus_check
+			clr_character_flag = expel_servants_anubis_check
+			clr_character_flag = expel_ares_phalanx_check
+			clr_character_flag = expel_sons_mars_check
+			clr_character_flag = expel_vigrithr_check
+		}
+	}
+}
+
+# Ping event when borrowing money from the Army of Baal
+character_event = {
+	id = MythosHolyOrders.3
+	
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		wealth = -300
+		FROM = {
+			letter_event = {
+				id = MythosHolyOrders.11
+			}
+		}
+	}
+}
+
+# Ping event when borrowing money from Y Ddraig Goch
+character_event = {
+	id = MythosHolyOrders.4
+	
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		wealth = -300
+		FROM = {
+			letter_event = {
+				id = MythosHolyOrders.12
+			}
+		}
+	}
+}
+
+# Ping event when borrowing money from the Soldiers of Horus
+character_event = {
+	id = MythosHolyOrders.5
+	
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		wealth = -300
+		FROM = {
+			letter_event = {
+				id = MythosHolyOrders.13
+			}
+		}
+	}
+}
+
+# Ping event when borrowing money from the Servants of Anubis
+character_event = {
+	id = MythosHolyOrders.6
+	
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		wealth = -300
+		FROM = {
+			letter_event = {
+				id = MythosHolyOrders.14
+			}
+		}
+	}
+}
+
+# Ping event when borrowing money from Ares' Phalanx
+character_event = {
+	id = MythosHolyOrders.7
+	
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		wealth = -300
+		FROM = {
+			letter_event = {
+				id = MythosHolyOrders.15
+			}
+		}
+	}
+}
+
+# Ping event when borrowing money from the Sons of Mars
+character_event = {
+	id = MythosHolyOrders.8
+	
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		wealth = -300
+		FROM = {
+			letter_event = {
+				id = MythosHolyOrders.16
+			}
+		}
+	}
+}
+
+# Ping event when borrowing money from the Champions of Vígríðr
+character_event = {
+	id = MythosHolyOrders.9
+	
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		wealth = -300
+		FROM = {
+			letter_event = {
+				id = MythosHolyOrders.17
+			}
+		}
+	}
+}
+
+# Notification event when borrowing from the Golden Order
+letter_event = {
+	id = MythosHolyOrders.10
+	desc = EVTDESCMythosHolyOrders.10
+	border = GFX_event_letter_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EXCELLENT
+	}
+}
+
+# Notification event when borrowing from the Army of Baal
+letter_event = {
+	id = MythosHolyOrders.11
+	desc = EVTDESCMythosHolyOrders.11
+	border = GFX_event_letter_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EXCELLENT
+	}
+}
+
+# Notification event when borrowing from Y Ddraig Goch
+letter_event = {
+	id = MythosHolyOrders.12
+	desc = EVTDESCMythosHolyOrders.12
+	border = GFX_event_letter_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EXCELLENT
+	}
+}
+
+# Notification event when borrowing from the Soldiers of Horus
+letter_event = {
+	id = MythosHolyOrders.13
+	desc = EVTDESCMythosHolyOrders.13
+	border = GFX_event_letter_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EXCELLENT
+	}
+}
+
+# Notification event when borrowing from the Servants of Anubis
+letter_event = {
+	id = MythosHolyOrders.14
+	desc = EVTDESCMythosHolyOrders.14
+	border = GFX_event_letter_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EXCELLENT
+	}
+}
+
+# Notification event when borrowing from Ares's Phalanx
+letter_event = {
+	id = MythosHolyOrders.15
+	desc = EVTDESCMythosHolyOrders.15
+	border = GFX_event_letter_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EXCELLENT
+	}
+}
+
+# Notification event when borrowing from the Sons of Mars
+letter_event = {
+	id = MythosHolyOrders.16
+	desc = EVTDESCMythosHolyOrders.16
+	border = GFX_event_letter_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EXCELLENT
+	}
+}
+
+# Notification event when borrowing from the Champions of Vígríðr
+letter_event = {
+	id = MythosHolyOrders.17
+	desc = EVTDESCMythosHolyOrders.17
+	border = GFX_event_letter_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EXCELLENT
+	}
+}
+
+# Ping event when expelling polytheistic holy order
+character_event = {
+	id = MythosHolyOrders.18
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		any_title_under = {
+			limit = {
+				tier = BARON
+				location = {
+					owner = {
+						OR = {
+							character = FROM
+							is_liege_or_above = FROM
+						}
+					}
+				}
+			}
+			usurp_title = FROM
+		}
+		
+		if = {
+			limit = {
+				is_liege_or_above = FROM
+			}
+			set_defacto_liege = THIS
+		}
+		
+		FROM = {
+			letter_event = {
+				id = MythosHolyOrders.21
+			}
+		}
+		
+		opinion = {
+			who = FROM
+			modifier = opinion_expelled_from_realm
+		}
+	}
+}
+
+# Ping event when expelling army of baal
+character_event = {
+	id = MythosHolyOrders.19
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		any_title_under = {
+			limit = {
+				tier = BARON
+				location = {
+					owner = {
+						OR = {
+							character = FROM
+							is_liege_or_above = FROM
+						}
+					}
+				}
+			}
+			usurp_title = FROM
+		}
+		
+		if = {
+			limit = {
+				is_liege_or_above = FROM
+			}
+			set_defacto_liege = THIS
+		}
+		
+		FROM = {
+			letter_event = {
+				id = MythosHolyOrders.22
+			}
+		}
+		
+		opinion = {
+			who = FROM
+			modifier = opinion_expelled_from_realm
+		}
+	}
+}
+
+# Ping event when expelling Champions of Vígríðr
+character_event = {
+	id = MythosHolyOrders.20
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		any_title_under = {
+			limit = {
+				tier = BARON
+				location = {
+					owner = {
+						OR = {
+							character = FROM
+							is_liege_or_above = FROM
+						}
+					}
+				}
+			}
+			usurp_title = FROM
+		}
+		
+		if = {
+			limit = {
+				is_liege_or_above = FROM
+			}
+			set_defacto_liege = THIS
+		}
+		
+		FROM = {
+			letter_event = {
+				id = MythosHolyOrders.22
+			}
+		}
+		
+		opinion = {
+			who = FROM
+			modifier = opinion_expelled_from_realm
+		}
+	}
+}
+
+# Notification event when expelling a polytheistic holy order
+letter_event = {
+	id = MythosHolyOrders.21
+	desc = EVTDESCMythosHolyOrders.21
+	border = GFX_event_letter_frame_religion
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		remove_character_modifier = donated_to_holy_order
+	}
+	
+	option = {
+		name = EVTOPTB_SOA_1061
+	}
+}
+
+# Notification event when expelling left-handed religion
+letter_event = {
+	id = MythosHolyOrders.22
+	desc = EVTDESCMythosHolyOrders.22
+	border = GFX_event_letter_frame_religion
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		remove_character_modifier = donated_to_holy_order
+	}
+	
+	option = {
+		name = EVTOPTB_SOA_1061
+	}
+}
+
+####################
+# The Golden Order #
+####################
+
+# The Grand Master demands one of your sons due to a debt
+character_event = {
+	id = MythosHolyOrders.23
+	hide_window = yes
+	
+	min_age = 16
+	only_playable = yes
+	religion_group = pagan_group
+	
+	trigger = {
+		OR = {
+			religion = draconic_pagan_reformed
+			religion = draconic_pagan
+		}
+		is_heretic = no
+		has_character_modifier = borrowed_from_golden_order
+		NOT = { has_character_flag = sent_son_to_golden_order }
+		any_child = {
+			is_female = no
+			is_adult = yes
+			is_ruler = no
+			prisoner = no
+			NOT = { trait = incapable }
+			OR = { # Prefers dragons but will accept skilled humans
+				trait = dragon
+				trait = dragonborn
+				martial = 15
+			}
+			ROOT = {
+				NOT = {
+					current_heir = {
+						character = PREVPREV
+					}
+				}
+			}
+		}
+		has_dlc = "Sons of Abraham"
+	}
+	
+	mean_time_to_happen = {
+		months = 120
+	}
+	
+	immediate = {
+		random_child = {
+			limit = {
+				is_female = no
+				is_adult = yes
+				is_ruler = no
+				prisoner = no
+				NOT = { trait = incapable }
+				OR = { # Prefers dragons but will accept skilled humans
+					trait = dragon
+					trait = dragonborn
+					martial = 15
+				}
+				ROOT = {
+					NOT = {
+						current_heir = {
+							character = PREVPREV
+						}
+					}
+				}
+			}
+			character_event = {
+				id = MythosHolyOrders.24
+			}
+		}
+	}
+}
+
+character_event = {
+	id = MythosHolyOrders.24
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		d_golden_order = {
+			holder_scope = {
+				character_event = {
+					id = MythosHolyOrders.25
+				}
+			}
+		}
+	}
+}
+
+character_event = {
+	id = MythosHolyOrders.25
+	
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		FROMFROM = {
+			letter_event = {
+				id = MythosHolyOrders.26
+			}
+		}
+	}
+}
+
+letter_event = {
+	id = MythosHolyOrders.26
+	desc = EVTDESCMythosHolyOrders.26
+	border = GFX_event_letter_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAMythosHolyOrders.26 # Agree
+		ai_chance = {
+			factor = 100
+		}
+		
+		set_character_flag = sent_son_to_golden_order
+		
+		piety = 100
+		
+		d_golden_order = {
+			holder_scope = {
+				FROMFROM = {
+					hidden_tooltip = {
+						clear_wealth = PREV
+					}
+					spouse = {
+						remove_spouse = spouse
+						hidden_tooltip = { character_event = { id = SoA.2862 } }
+					}
+					move_character = PREV
+					add_trait = celibate
+					end_inaccessibility_effect = yes #removes in_hiding or in_seclusion
+
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTBMythosHolyOrders.26 # Pay them back
+		wealth = -300
+		hidden_tooltip = {
+			remove_character_modifier = borrowed_from_golden_order
+		}
+		FROM = {
+			wealth = 300
+		}
+	}
+	
+	option = {
+		name = EVTOPTCMythosHolyOrders.26 # Refuse
+		piety = -1000
+	}
+}
+
+# Ping when vassalizing the Golden Order
+character_event = {
+	id = MythosHolyOrders.27
+	
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		set_defacto_liege = FROM
+		FROM = {
+			letter_event = { id = MythosHolyOrders.177 }
+		}
+	}
+}
+
+# The Grand Master demands the right to build a castle in your demesne
+character_event = {
+	id = MythosHolyOrders.28
+	
+	hide_window = yes
+	
+	min_age = 16
+	only_playable = yes
+	religion_group = pagan_group
+	
+	trigger = {
+		OR = {
+			religion = draconic_pagan_reformed
+			religion = draconic_pagan
+		}
+		is_heretic = no
+		
+		has_character_modifier = borrowed_from_golden_order
+		NOT = { has_character_flag = sent_son_to_golden_order }
+		
+		any_demesne_province = {
+			has_empty_holding = yes
+		}
+		
+		d_golden_order = {
+			holder_scope = {
+				wealth = 300
+			}
+		}
+		has_dlc = "Sons of Abraham"
+		
+		NOT = { has_character_modifier = expelled_d_golden_order }
+		NOT = {
+			any_liege = {
+				has_character_modifier = expelled_d_golden_order
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 240
+		modifier = {
+			factor = 0.5
+			d_golden_order = {
+				holder_scope = {
+					NOT = { demesne_size = 1 }
+				}
+			}
+		}
+		modifier = {
+			factor = 0.5
+			d_golden_order = {
+				holder_scope = {
+					NOT = { demesne_size = 2 }
+				}
+			}
+		}
+		modifier = {
+			factor = 2.0
+			d_golden_order = {
+				holder_scope = {
+					realm_size = 5
+				}
+			}
+		}
+	}
+	
+	immediate = {
+		random_demesne_province = {
+			limit = {
+				has_empty_holding = yes
+			}
+			province_event = {
+				id = MythosHolyOrders.29
+			}
+		}
+	}
+}
+
+province_event = {
+	id = MythosHolyOrders.29
+	
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		d_golden_order = {
+			holder_scope = {
+				character_event = {
+					id = MythosHolyOrders.30
+				}
+			}
+		}
+	}
+}
+
+character_event = {
+	id = MythosHolyOrders.30
+	
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		FROMFROM = {
+			letter_event = {
+				id = MythosHolyOrders.31
+			}
+		}
+	}
+}
+
+letter_event = {
+	id = MythosHolyOrders.31
+	desc = EVTDESCMythosHolyOrders.31
+	border = GFX_event_letter_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAMythosHolyOrders.31 # Agree
+		ai_chance = {
+			factor = 100
+		}
+		
+		hidden_tooltip = {
+			remove_character_modifier = borrowed_from_golden_order
+			remove_character_modifier = expelled_d_golden_order
+			FROMFROM = {
+				province_event = { id = MythosHolyOrders.32 }
+			}
+		}
+		
+		piety = 100
+	}
+	
+	option = {
+		name = EVTOPTBMythosHolyOrders.26
+		wealth = -300
+		hidden_tooltip = {
+			remove_character_modifier = borrowed_from_golden_order
+		}
+		FROM = {
+			wealth = 300
+		}
+	}
+	
+	option = {
+		name = EVTOPTCMythosHolyOrders.26 # Refuse
+		piety = -1000
+	}
+}
+
+# Castle has been erected
+province_event = {
+	id = MythosHolyOrders.32
+	desc = EVTDESCMythosHolyOrders.32
+	picture = GFX_evt_castle_construction
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		FROMFROM = {
+			wealth = -300
+		}
+	}
+	
+	option = {
+		name = EVTOPTAMythosHolyOrders.32
+		build_holding = {
+		   type = castle
+		   holder = FROMFROM
+		}
+	}
+}
+
+# The son of a ruler volunteers to join the Golden Order
+character_event = {
+	id = MythosHolyOrders.33
+	hide_window = yes
+	
+	only_men = yes
+	min_age = 16
+	max_age = 45
+	only_capable = yes
+	prisoner = no
+	religion_group = pagan_group
+	
+	trigger = {
+		is_ruler = no
+		OR = {
+			religion = draconic_pagan_reformed
+			religion = draconic_pagan
+		}
+		is_heretic = no
+		
+		OR = {
+			AND = {
+				OR = {
+					trait = dragon
+					trait = dragonborn
+				}
+				martial = 5
+			}
+			martial = 15
+		}
+		
+		is_title_active = d_golden_order
+		
+		OR = {
+			father_even_if_dead = {
+				primary_title = { higher_tier_than = BARON }
+			}
+			mother_even_if_dead = {
+				primary_title = { higher_tier_than = BARON }
+			}
+		}
+		
+		liege = {
+			holy_order = no
+			liege = {
+				holy_order = no
+			}
+		}
+		
+		has_dlc = "Sons of Abraham"
+		
+		NOT = { has_character_modifier = expelled_d_golden_order }
+		NOT = {
+			any_liege = {
+				has_character_modifier = expelled_d_golden_order
+			}
+		}
+		
+		NOT = {
+			any_spouse = {
+				OR = {
+					is_landed = yes
+					AND = {
+						is_pregnant = yes
+					father_of_unborn = { character = ROOT } # Won't happen if spouse is pregnant with non-bastard child
+					}
+				}
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		years = 100
+		modifier = {
+			factor = 0.25
+			trait = zealous
+		}
+		modifier = {
+			factor = 0.5
+			trait = celibate
+		}
+		modifier = {
+			factor = 0.5
+			trait = homosexual
+		}
+		modifier = {
+			factor = 0.7
+			trait = content
+		}
+		modifier = {
+			factor = 0.75
+			trait = chaste
+		}
+		modifier = {
+			factor = 0.75
+			NOT = { age = 40 }
+		}
+		modifier = {
+			factor = 1.5
+			trait = slothful
+		}
+		modifier = {
+			factor = 2.0
+			trait = lustful
+		}
+		modifier = {
+			factor = 2.0
+			trait = cynical
+		}
+		modifier = {
+			factor = 2.0
+			trait = hedonist
+		}
+		modifier = {
+			factor = 2.0
+			trait = ambitious
+		}
+		modifier = {
+			factor = 2.0
+			any_heir_title = {
+				always = yes
+			}
+		}
+		modifier = {
+			factor = 2.0
+			is_primary_heir = yes
+		}
+		modifier = {
+			factor = 2
+			any_spouse = {
+				reverse_opinion = { who = ROOT value = 100 }
+			}
+		}
+	}
+	
+	immediate = {
+		liege = {
+			character_event = {
+				id = MythosHolyOrders.34
+			}
+		}
+	}
+}
+
+# Son or brother asks to join the Golden Order
+character_event = {
+	id = MythosHolyOrders.34
+	desc = EVTDESCMythosHolyOrders.34
+	picture = GFX_evt_crusaders
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAMythosHolyOrders.34
+		ai_chance = {
+			factor = 100
+		}
+		
+		if = {
+			limit = {
+				religion = FROM
+			}
+			piety = 100
+		}
+		
+		FROM = {
+			character_event = {
+				id = MythosHolyOrders.35
+				tooltip = EVTTOOLTIPAMythosHolyOrders.34
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTBMythosHolyOrders.34 # Refuse
+		
+		if = {
+			limit = {
+				religion = FROM
+			}
+			piety = -100
+		}
+		
+		FROM = {
+			character_event = {
+				id = MythosHolyOrders.36
+				tooltip = EVTTOOLTIPBMythosHolyOrders.34
+			}
+		}
+	}
+}
+
+# Son or brother joins the golden order
+character_event = {
+	id = MythosHolyOrders.35
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		d_golden_order = {
+			holder_scope = {
+				save_event_target_as = order_target
+				ROOT = {
+					character_event = { id = SoA.2864 }
+				}
+			}
+		}
+	}
+}
+
+# Liege refuses request to join the Golden Order
+character_event = {
+	id = MythosHolyOrders.36
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		opinion = {
+			who = FROM
+			modifier = opinion_refused_request_holy_order
+		}
+	}
+}
+
+# The Grand Master humbly requests the right to build a castle in your demesne
+character_event = {
+	id = MythosHolyOrders.37
+	hide_window = yes
+	
+	min_age = 16
+	only_playable = yes
+	religion_group = pagan_group
+	
+	trigger = {
+		OR = {
+			religion = draconic_pagan_reformed
+			religion = draconic_pagan
+		}
+		is_heretic = no
+		
+		d_golden_order = {
+			holder_scope = {
+				wealth = 300
+				NOT = {
+					realm_size = 10
+				}
+				NOT = {
+					num_of_count_titles = 1
+				}
+			}
+		}
+		
+		any_demesne_province = {
+			has_empty_holding = yes
+			OR = {
+				region = world_europe_north
+				region = world_middle_east
+				region = world_asia_minor
+				region = world_africa_north
+				region = world_europe_south
+				region = world_europe_west
+			}
+		}
+		
+		has_dlc = "Sons of Abraham"
+		
+		NOT = { has_character_modifier = expelled_d_golden_order }
+		NOT = {
+			any_liege = {
+				has_character_modifier = expelled_d_golden_order
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 240
+		modifier = {
+			factor = 0.5
+			d_golden_order = {
+				holder_scope = {
+					NOT = { demesne_size = 1 }
+				}
+			}
+		}
+		modifier = {
+			factor = 0.5
+			d_golden_order = {
+				holder_scope = {
+					NOT = { demesne_size = 2 }
+				}
+			}
+		}
+		modifier = {
+			factor = 2.0
+			d_golden_order = {
+				holder_scope = {
+					realm_size = 5
+				}
+			}
+		}
+	}
+	
+	immediate = {
+		random_demesne_province = {
+			limit = {
+				has_empty_holding = yes
+				OR = {
+					region = world_europe_north
+					region = world_middle_east
+					region = world_asia_minor
+					region = world_africa_north
+					region = world_europe_south
+					region = world_europe_west
+				}
+			}
+			province_event = {
+				id = MythosHolyOrders.38
+			}
+		}
+	}
+}
+
+province_event = {
+	id = MythosHolyOrders.38
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		d_golden_order = {
+			holder_scope = {
+				character_event = {
+					id = MythosHolyOrders.39
+				}
+			}
+		}
+	}
+}
+
+character_event = {
+	id = MythosHolyOrders.39
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		FROMFROM = {
+			letter_event = {
+				id = MythosHolyOrders.40
+			}
+		}
+	}
+}
+
+letter_event = {
+	id = MythosHolyOrders.40
+	desc = EVTDESCMythosHolyOrders.40
+	border = GFX_event_letter_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAMythosHolyOrders.40
+		ai_chance = {
+			factor = 80
+			modifier = {
+				factor = 0
+				has_character_modifier = expelled_d_golden_order
+			}
+		}
+		
+		hidden_tooltip = {
+			FROMFROM = {
+				province_event = { id = MythosHolyOrders.32 }
+			}
+			remove_character_modifier = expelled_d_golden_order
+		}
+		
+		piety = 200
+		wealth = 100
+	}
+	
+	option = {
+		name = EVTOPTB_SOA_1031 # Refuse
+		ai_chance = {
+			factor = 20
+		}
+		
+		piety = -100
+	}
+}
+
+
+####################
+# The Army of Baal #
+####################
+
+# The Grand Master demands one of your sons due to a debt
+character_event = {
+	id = MythosHolyOrders.41
+	hide_window = yes
+	
+	min_age = 16
+	only_playable = yes
+	religion = satanist
+	
+	trigger = {
+		religion = satanist
+		is_heretic = no
+		has_character_modifier = borrowed_from_army_of_baal
+		NOT = { has_character_flag = sent_son_to_army_baal }
+		any_child = {
+			is_female = no
+			is_adult = yes
+			is_ruler = no
+			prisoner = no
+			NOT = { trait = incapable }
+			has_vice_trigger = yes
+			ROOT = {
+				NOT = {
+					current_heir = {
+						character = PREVPREV
+					}
+				}
+			}
+		}
+		has_dlc = "Sons of Abraham"
+	}
+	
+	mean_time_to_happen = {
+		months = 120
+	}
+	
+	immediate = {
+		random_child = {
+			limit = {
+				is_female = no
+				is_adult = yes
+				is_ruler = no
+				prisoner = no
+				NOT = { trait = incapable }
+				has_vice_trigger = yes
+				ROOT = {
+					NOT = {
+						current_heir = {
+							character = PREVPREV
+						}
+					}
+				}
+			}
+			character_event = {
+				id = MythosHolyOrders.42
+			}
+		}
+	}
+}
+
+character_event = {
+	id = MythosHolyOrders.42
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		d_army_baal = {
+			holder_scope = {
+				character_event = {
+					id = MythosHolyOrders.43
+				}
+			}
+		}
+	}
+}
+
+character_event = {
+	id = MythosHolyOrders.43
+	
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		FROMFROM = {
+			letter_event = {
+				id = MythosHolyOrders.44
+			}
+		}
+	}
+}
+
+letter_event = {
+	id = MythosHolyOrders.44
+	desc = EVTDESCMythosHolyOrders.44
+	border = GFX_event_letter_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAMythosHolyOrders.26 # Agree
+		ai_chance = {
+			factor = 100
+		}
+		
+		set_character_flag = sent_son_to_army_baal
+		
+		piety = 100
+		
+		d_army_baal = {
+			holder_scope = {
+				FROMFROM = {
+					hidden_tooltip = {
+						clear_wealth = PREV
+					}
+					spouse = {
+						remove_spouse = spouse
+						hidden_tooltip = { character_event = { id = SoA.2862 } }
+					}
+					move_character = PREV
+					end_inaccessibility_effect = yes #removes in_hiding or in_seclusion
+
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTBMythosHolyOrders.26 # Pay them back
+		wealth = -300
+		hidden_tooltip = {
+			remove_character_modifier = borrowed_from_army_of_baal
+		}
+		FROM = {
+			wealth = 300
+		}
+	}
+	
+	option = {
+		name = EVTOPTCMythosHolyOrders.26 # Refuse
+		piety = -1000
+	}
+}
+
+# Ping when vassalizing the Army of Baal
+character_event = {
+	id = MythosHolyOrders.45
+	
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		set_defacto_liege = FROM
+		FROM = {
+			letter_event = { id = MythosHolyOrders.178 }
+		}
+	}
+}
+
+# The Grand Master demands the right to build a castle in your demesne
+character_event = {
+	id = MythosHolyOrders.46
+	
+	hide_window = yes
+	
+	min_age = 16
+	only_playable = yes
+	religion = satanist
+	
+	trigger = {
+		religion = satanist
+		is_heretic = no
+		
+		has_character_modifier = borrowed_from_army_of_baal
+		NOT = { has_character_flag = sent_son_to_army_baal }
+		
+		any_demesne_province = {
+			has_empty_holding = yes
+		}
+		
+		d_army_baal = {
+			holder_scope = {
+				wealth = 300
+			}
+		}
+		has_dlc = "Sons of Abraham"
+		
+		NOT = { has_character_modifier = expelled_d_army_baal }
+		NOT = {
+			any_liege = {
+				has_character_modifier = expelled_d_army_baal
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 240
+		modifier = {
+			factor = 0.5
+			d_army_baal = {
+				holder_scope = {
+					NOT = { demesne_size = 1 }
+				}
+			}
+		}
+		modifier = {
+			factor = 0.5
+			d_army_baal = {
+				holder_scope = {
+					NOT = { demesne_size = 2 }
+				}
+			}
+		}
+		modifier = {
+			factor = 2.0
+			d_army_baal = {
+				holder_scope = {
+					realm_size = 5
+				}
+			}
+		}
+	}
+	
+	immediate = {
+		random_demesne_province = {
+			limit = {
+				has_empty_holding = yes
+			}
+			province_event = {
+				id = MythosHolyOrders.47
+			}
+		}
+	}
+}
+
+province_event = {
+	id = MythosHolyOrders.47
+	
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		d_army_baal = {
+			holder_scope = {
+				character_event = {
+					id = MythosHolyOrders.48
+				}
+			}
+		}
+	}
+}
+
+character_event = {
+	id = MythosHolyOrders.48
+	
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		FROMFROM = {
+			letter_event = {
+				id = MythosHolyOrders.49
+			}
+		}
+	}
+}
+
+letter_event = {
+	id = MythosHolyOrders.49
+	desc = EVTDESCMythosHolyOrders.49
+	border = GFX_event_letter_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAMythosHolyOrders.31 # Agree
+		ai_chance = {
+			factor = 100
+		}
+		
+		hidden_tooltip = {
+			remove_character_modifier = borrowed_from_army_of_baal
+			remove_character_modifier = expelled_d_army_baal
+			FROMFROM = {
+				province_event = { id = MythosHolyOrders.32 }
+			}
+		}
+		
+		piety = 100
+	}
+	
+	option = {
+		name = EVTOPTBMythosHolyOrders.31
+		wealth = -300
+		hidden_tooltip = {
+			remove_character_modifier = borrowed_from_army_of_baal
+		}
+		FROM = {
+			wealth = 300
+		}
+	}
+	
+	option = {
+		name = EVTOPTCMythosHolyOrders.31 # Refuse
+		piety = -1000
+	}
+}
+
+# Castle has been erected
+province_event = {
+	id = MythosHolyOrders.50
+	desc = EVTDESCMythosHolyOrders.50
+	picture = GFX_evt_castle_construction
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		FROMFROM = {
+			wealth = -300
+		}
+	}
+	
+	option = {
+		name = EVTOPTAMythosHolyOrders.32
+		build_holding = {
+		   type = castle
+		   holder = FROMFROM
+		}
+	}
+}
+
+# The son of a ruler volunteers to join the Army of Baal
+character_event = {
+	id = MythosHolyOrders.51
+	hide_window = yes
+	
+	only_men = yes
+	min_age = 16
+	max_age = 45
+	only_capable = yes
+	prisoner = no
+	religion = satanist
+	
+	trigger = {
+		is_ruler = no
+		religion = satanist
+		is_heretic = no
+		
+		martial = 5
+		
+		is_title_active = d_army_baal
+		
+		OR = {
+			father_even_if_dead = {
+				primary_title = { higher_tier_than = BARON }
+			}
+			mother_even_if_dead = {
+				primary_title = { higher_tier_than = BARON }
+			}
+		}
+		
+		liege = {
+			holy_order = no
+			liege = {
+				holy_order = no
+			}
+		}
+		
+		has_dlc = "Sons of Abraham"
+		
+		NOT = { has_character_modifier = expelled_d_army_baal }
+		NOT = {
+			any_liege = {
+				has_character_modifier = expelled_d_army_baal
+			}
+		}
+		
+		NOT = {
+			any_spouse = {
+				OR = {
+					is_landed = yes
+					AND = {
+						is_pregnant = yes
+					father_of_unborn = { character = ROOT } # Won't happen if spouse is pregnant with non-bastard child
+					}
+				}
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		years = 100
+		modifier = {
+			factor = 0.25
+			trait = zealous
+		}
+		modifier = {
+			factor = 0.5
+			trait = celibate
+		}
+		modifier = {
+			factor = 0.5
+			trait = homosexual
+		}
+		modifier = {
+			factor = 0.7
+			trait = content
+		}
+		modifier = {
+			factor = 0.75
+			trait = chaste
+		}
+		modifier = {
+			factor = 0.75
+			NOT = { age = 40 }
+		}
+		modifier = {
+			factor = 1.5
+			trait = slothful
+		}
+		modifier = {
+			factor = 2.0
+			trait = lustful
+		}
+		modifier = {
+			factor = 2.0
+			trait = cynical
+		}
+		modifier = {
+			factor = 2.0
+			trait = hedonist
+		}
+		modifier = {
+			factor = 2.0
+			trait = ambitious
+		}
+		modifier = {
+			factor = 2.0
+			any_heir_title = {
+				always = yes
+			}
+		}
+		modifier = {
+			factor = 2.0
+			is_primary_heir = yes
+		}
+		modifier = {
+			factor = 2
+			any_spouse = {
+				reverse_opinion = { who = ROOT value = 100 }
+			}
+		}
+	}
+	
+	immediate = {
+		liege = {
+			character_event = {
+				id = MythosHolyOrders.52
+			}
+		}
+	}
+}
+
+# Son or brother asks to join the Golden Order
+character_event = {
+	id = MythosHolyOrders.52
+	desc = EVTDESCMythosHolyOrders.52
+	picture = GFX_evt_crusaders
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAMythosHolyOrders.34
+		ai_chance = {
+			factor = 100
+		}
+		
+		if = {
+			limit = {
+				religion = FROM
+			}
+			piety = 100
+		}
+		
+		FROM = {
+			character_event = {
+				id = MythosHolyOrders.53
+				tooltip = EVTTOOLTIPAMythosHolyOrders.52
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTBMythosHolyOrders.34 # Refuse
+		
+		if = {
+			limit = {
+				religion = FROM
+			}
+			piety = -100
+		}
+		
+		FROM = {
+			character_event = {
+				id = MythosHolyOrders.54
+				tooltip = EVTTOOLTIPBMythosHolyOrders.34
+			}
+		}
+	}
+}
+
+# Son or brother joins the golden order
+character_event = {
+	id = MythosHolyOrders.53
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		d_army_baal = {
+			holder_scope = {
+				save_event_target_as = order_target
+				ROOT = {
+					character_event = { id = SoA.2864 }
+				}
+			}
+		}
+	}
+}
+
+# Liege refuses request to join the Army of Baal
+character_event = {
+	id = MythosHolyOrders.54
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		opinion = {
+			who = FROM
+			modifier = opinion_refused_request_holy_order
+		}
+	}
+}
+
+# The Grand Master humbly requests the right to build a castle in your demesne
+character_event = {
+	id = MythosHolyOrders.55
+	hide_window = yes
+	
+	min_age = 16
+	only_playable = yes
+	religion = satanist
+	
+	trigger = {
+		religion = satanist
+		is_heretic = no
+		
+		d_army_baal = {
+			holder_scope = {
+				wealth = 300
+				NOT = {
+					realm_size = 10
+				}
+				NOT = {
+					num_of_count_titles = 1
+				}
+			}
+		}
+		
+		any_demesne_province = {
+			has_empty_holding = yes
+			region = world_europe
+		}
+		
+		has_dlc = "Sons of Abraham"
+		
+		NOT = { has_character_modifier = expelled_d_army_baal }
+		NOT = {
+			any_liege = {
+				has_character_modifier = expelled_d_army_baal
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 240
+		modifier = {
+			factor = 0.5
+			d_army_baal = {
+				holder_scope = {
+					NOT = { demesne_size = 1 }
+				}
+			}
+		}
+		modifier = {
+			factor = 0.5
+			d_army_baal = {
+				holder_scope = {
+					NOT = { demesne_size = 2 }
+				}
+			}
+		}
+		modifier = {
+			factor = 2.0
+			d_army_baal = {
+				holder_scope = {
+					realm_size = 5
+				}
+			}
+		}
+	}
+	
+	immediate = {
+		random_demesne_province = {
+			limit = {
+				has_empty_holding = yes
+				region = world_europe
+			}
+			province_event = {
+				id = MythosHolyOrders.56
+			}
+		}
+	}
+}
+
+province_event = {
+	id = MythosHolyOrders.56
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		d_army_baal = {
+			holder_scope = {
+				character_event = {
+					id = MythosHolyOrders.57
+				}
+			}
+		}
+	}
+}
+
+character_event = {
+	id = MythosHolyOrders.57
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		FROMFROM = {
+			letter_event = {
+				id = MythosHolyOrders.58
+			}
+		}
+	}
+}
+
+letter_event = {
+	id = MythosHolyOrders.58
+	desc = EVTDESCMythosHolyOrders.58
+	border = GFX_event_letter_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAMythosHolyOrders.40
+		ai_chance = {
+			factor = 80
+			modifier = {
+				factor = 0
+				has_character_modifier = expelled_d_army_baal
+			}
+		}
+		
+		hidden_tooltip = {
+			FROMFROM = {
+				province_event = { id = MythosHolyOrders.50 }
+			}
+			remove_character_modifier = expelled_d_army_baal
+		}
+		
+		piety = 200
+		wealth = 100
+	}
+	
+	option = {
+		name = EVTOPTB_SOA_1031 # Refuse
+		ai_chance = {
+			factor = 20
+		}
+		
+		piety = -100
+	}
+}
+
+#################
+# Y Ddraig Goch #
+#################
+
+# The Grand Master demands one of your sons due to a debt
+character_event = {
+	id = MythosHolyOrders.59
+	hide_window = yes
+	
+	min_age = 16
+	only_playable = yes
+	religion_group = pagan_group
+	
+	trigger = {
+		OR = {
+			religion = druidic
+			religion = druidic_reformed
+		}
+		is_heretic = no
+		has_character_modifier = borrowed_from_y_ddraig_goch
+		NOT = { has_character_flag = sent_son_to_ddraig_goch }
+		any_child = {
+			is_female = no
+			is_adult = yes
+			is_ruler = no
+			prisoner = no
+			NOT = { trait = incapable }
+			ROOT = {
+				NOT = {
+					current_heir = {
+						character = PREVPREV
+					}
+				}
+			}
+		}
+		
+		has_dlc = "Sons of Abraham"
+	}
+	
+	mean_time_to_happen = {
+		months = 120
+	}
+	
+	immediate = {
+		random_child = {
+			limit = {
+				is_female = no
+				is_adult = yes
+				is_ruler = no
+				prisoner = no
+				NOT = { trait = incapable }
+				ROOT = {
+					NOT = {
+						current_heir = {
+							character = PREVPREV
+						}
+					}
+				}
+			}
+			character_event = {
+				id = MythosHolyOrders.60
+			}
+		}
+	}
+}
+
+character_event = {
+	id = MythosHolyOrders.60
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		d_ddraig_goch = {
+			holder_scope = {
+				character_event = {
+					id = MythosHolyOrders.61
+				}
+			}
+		}
+	}
+}
+
+character_event = {
+	id = MythosHolyOrders.61
+	
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		FROMFROM = {
+			letter_event = {
+				id = MythosHolyOrders.62
+			}
+		}
+	}
+}
+
+letter_event = {
+	id = MythosHolyOrders.62
+	desc = EVTDESCMythosHolyOrders.62
+	border = GFX_event_letter_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAMythosHolyOrders.26 # Agree
+		ai_chance = {
+			factor = 100
+		}
+		
+		set_character_flag = sent_son_to_ddraig_goch
+		
+		piety = 100
+		
+		d_ddraig_goch = {
+			holder_scope = {
+				FROMFROM = {
+					hidden_tooltip = {
+						clear_wealth = PREV
+					}
+					spouse = {
+						remove_spouse = spouse
+						hidden_tooltip = { character_event = { id = SoA.2862 } }
+					}
+					move_character = PREV
+					add_trait = celibate
+					end_inaccessibility_effect = yes #removes in_hiding or in_seclusion
+
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTBMythosHolyOrders.26 # Pay them back
+		wealth = -300
+		hidden_tooltip = {
+			remove_character_modifier = borrowed_from_y_ddraig_goch
+		}
+		FROM = {
+			wealth = 300
+		}
+	}
+	
+	option = {
+		name = EVTOPTCMythosHolyOrders.26 # Refuse
+		piety = -1000
+	}
+}
+
+# Ping when vassalizing Y Ddraig Goch
+character_event = {
+	id = MythosHolyOrders.63
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		set_defacto_liege = FROM
+		FROM = {
+			letter_event = { id = MythosHolyOrders.179 }
+		}
+	}
+}
+
+# The Grand Master demands the right to build a castle in your demesne
+character_event = {
+	id = MythosHolyOrders.64
+	
+	hide_window = yes
+	
+	min_age = 16
+	only_playable = yes
+	religion_group = pagan_group
+	
+	trigger = {
+		OR = {
+			religion = druidic
+			religion = druidic_reformed
+		}
+		is_heretic = no
+		
+		has_character_modifier = borrowed_from_y_ddraig_goch
+		NOT = { has_character_flag = sent_son_to_ddraig_goch }
+		
+		any_demesne_province = {
+			has_empty_holding = yes
+		}
+		
+		d_ddraig_goch = {
+			holder_scope = {
+				wealth = 300
+			}
+		}
+		has_dlc = "Sons of Abraham"
+		
+		NOT = { has_character_modifier = expelled_d_ddraig_goch }
+		NOT = {
+			any_liege = {
+				has_character_modifier = expelled_d_ddraig_goch
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 240
+		modifier = {
+			factor = 0.5
+			d_ddraig_goch = {
+				holder_scope = {
+					NOT = { demesne_size = 1 }
+				}
+			}
+		}
+		modifier = {
+			factor = 0.5
+			d_ddraig_goch = {
+				holder_scope = {
+					NOT = { demesne_size = 2 }
+				}
+			}
+		}
+		modifier = {
+			factor = 2.0
+			d_ddraig_goch = {
+				holder_scope = {
+					realm_size = 5
+				}
+			}
+		}
+	}
+	
+	immediate = {
+		random_demesne_province = {
+			limit = {
+				has_empty_holding = yes
+			}
+			province_event = {
+				id = MythosHolyOrders.65
+			}
+		}
+	}
+}
+
+province_event = {
+	id = MythosHolyOrders.65
+	
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		d_ddraig_goch = {
+			holder_scope = {
+				character_event = {
+					id = MythosHolyOrders.66
+				}
+			}
+		}
+	}
+}
+
+character_event = {
+	id = MythosHolyOrders.66
+	
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		FROMFROM = {
+			letter_event = {
+				id = MythosHolyOrders.67
+			}
+		}
+	}
+}
+
+letter_event = {
+	id = MythosHolyOrders.67
+	desc = EVTDESCMythosHolyOrders.67
+	border = GFX_event_letter_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAMythosHolyOrders.31 # Agree
+		ai_chance = {
+			factor = 100
+		}
+		
+		hidden_tooltip = {
+			remove_character_modifier = borrowed_from_y_ddraig_goch
+			remove_character_modifier = expelled_d_ddraig_goch
+			FROMFROM = {
+				province_event = { id = MythosHolyOrders.32 }
+			}
+		}
+		
+		piety = 100
+	}
+	
+	option = {
+		name = EVTOPTBMythosHolyOrders.31
+		wealth = -300
+		hidden_tooltip = {
+			remove_character_modifier = borrowed_from_y_ddraig_goch
+		}
+		FROM = {
+			wealth = 300
+		}
+	}
+	
+	option = {
+		name = EVTOPTCMythosHolyOrders.31 # Refuse
+		piety = -1000
+	}
+}
+
+# Castle has been erected
+province_event = {
+	id = MythosHolyOrders.68
+	desc = EVTDESCMythosHolyOrders.68
+	picture = GFX_evt_castle_construction
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		FROMFROM = {
+			wealth = -300
+		}
+	}
+	
+	option = {
+		name = EVTOPTAMythosHolyOrders.32
+		build_holding = {
+		   type = castle
+		   holder = FROMFROM
+		}
+	}
+}
+
+# The son of a ruler volunteers to join Y Ddraig Goch
+character_event = {
+	id = MythosHolyOrders.69
+	hide_window = yes
+	
+	only_men = yes
+	min_age = 16
+	max_age = 45
+	only_capable = yes
+	prisoner = no
+	religion_group = pagan_group
+	
+	trigger = {
+		is_ruler = no
+		OR = {
+			religion = druidic
+			religion = druidic_reformed
+		}
+		is_heretic = no
+		
+		martial = 5
+		
+		is_title_active = d_ddraig_goch
+		
+		OR = {
+			father_even_if_dead = {
+				primary_title = { higher_tier_than = BARON }
+			}
+			mother_even_if_dead = {
+				primary_title = { higher_tier_than = BARON }
+			}
+		}
+		
+		liege = {
+			holy_order = no
+			liege = {
+				holy_order = no
+			}
+		}
+		
+		has_dlc = "Sons of Abraham"
+		
+		NOT = { has_character_modifier = expelled_d_ddraig_goch }
+		NOT = {
+			any_liege = {
+				has_character_modifier = expelled_d_ddraig_goch
+			}
+		}
+		
+		NOT = {
+			any_spouse = {
+				OR = {
+					is_landed = yes
+					AND = {
+						is_pregnant = yes
+					father_of_unborn = { character = ROOT } # Won't happen if spouse is pregnant with non-bastard child
+					}
+				}
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		years = 100
+		modifier = {
+			factor = 0.25
+			trait = zealous
+		}
+		modifier = {
+			factor = 0.5
+			trait = celibate
+		}
+		modifier = {
+			factor = 0.5
+			trait = homosexual
+		}
+		modifier = {
+			factor = 0.7
+			trait = content
+		}
+		modifier = {
+			factor = 0.75
+			trait = chaste
+		}
+		modifier = {
+			factor = 0.75
+			NOT = { age = 40 }
+		}
+		modifier = {
+			factor = 1.5
+			trait = slothful
+		}
+		modifier = {
+			factor = 2.0
+			trait = lustful
+		}
+		modifier = {
+			factor = 2.0
+			trait = cynical
+		}
+		modifier = {
+			factor = 2.0
+			trait = hedonist
+		}
+		modifier = {
+			factor = 2.0
+			trait = ambitious
+		}
+		modifier = {
+			factor = 2.0
+			any_heir_title = {
+				always = yes
+			}
+		}
+		modifier = {
+			factor = 2.0
+			is_primary_heir = yes
+		}
+		modifier = {
+			factor = 2
+			any_spouse = {
+				reverse_opinion = { who = ROOT value = 100 }
+			}
+		}
+	}
+	
+	immediate = {
+		liege = {
+			character_event = {
+				id = MythosHolyOrders.70
+			}
+		}
+	}
+}
+
+# Son or brother asks to join Y Ddraig Goch
+character_event = {
+	id = MythosHolyOrders.70
+	desc = EVTDESCMythosHolyOrders.70
+	picture = GFX_evt_crusaders
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAMythosHolyOrders.34
+		ai_chance = {
+			factor = 100
+		}
+		
+		if = {
+			limit = {
+				religion = FROM
+			}
+			piety = 100
+		}
+		
+		FROM = {
+			character_event = {
+				id = MythosHolyOrders.71
+				tooltip = EVTTOOLTIPAMythosHolyOrders.70
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTBMythosHolyOrders.34 # Refuse
+		
+		if = {
+			limit = {
+				religion = FROM
+			}
+			piety = -100
+		}
+		
+		FROM = {
+			character_event = {
+				id = MythosHolyOrders.72
+				tooltip = EVTTOOLTIPBMythosHolyOrders.34
+			}
+		}
+	}
+}
+
+# Son or brother joins Y Ddraig Goch
+character_event = {
+	id = MythosHolyOrders.71
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		d_ddraig_goch = {
+			holder_scope = {
+				save_event_target_as = order_target
+				ROOT = {
+					character_event = { id = SoA.2864 }
+				}
+			}
+		}
+	}
+}
+
+# Liege refuses request to join the Y Ddraig Goch
+character_event = {
+	id = MythosHolyOrders.72
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		opinion = {
+			who = FROM
+			modifier = opinion_refused_request_holy_order
+		}
+	}
+}
+
+# The Grand Master humbly requests the right to build a castle in your demesne
+character_event = {
+	id = MythosHolyOrders.73
+	hide_window = yes
+	
+	min_age = 16
+	only_playable = yes
+	religion_group = pagan_group
+	
+	trigger = {
+		OR = {
+			religion = druidic
+			religion = druidic_reformed
+		}
+		is_heretic = no
+		
+		d_ddraig_goch = {
+			holder_scope = {
+				wealth = 300
+				NOT = {
+					realm_size = 10
+				}
+				NOT = {
+					num_of_count_titles = 1
+				}
+			}
+		}
+		
+		any_demesne_province = {
+			has_empty_holding = yes
+			region = world_europe_west
+		}
+		
+		has_dlc = "Sons of Abraham"
+		
+		NOT = { has_character_modifier = expelled_d_ddraig_goch }
+		NOT = {
+			any_liege = {
+				has_character_modifier = expelled_d_ddraig_goch
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 240
+		modifier = {
+			factor = 0.5
+			d_ddraig_goch = {
+				holder_scope = {
+					NOT = { demesne_size = 1 }
+				}
+			}
+		}
+		modifier = {
+			factor = 0.5
+			d_ddraig_goch = {
+				holder_scope = {
+					NOT = { demesne_size = 2 }
+				}
+			}
+		}
+		modifier = {
+			factor = 2.0
+			d_ddraig_goch = {
+				holder_scope = {
+					realm_size = 5
+				}
+			}
+		}
+	}
+	
+	immediate = {
+		random_demesne_province = {
+			limit = {
+				has_empty_holding = yes
+				region = world_europe_west
+			}
+			province_event = {
+				id = MythosHolyOrders.74
+			}
+		}
+	}
+}
+
+province_event = {
+	id = MythosHolyOrders.74
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		d_ddraig_goch = {
+			holder_scope = {
+				character_event = {
+					id = MythosHolyOrders.75
+				}
+			}
+		}
+	}
+}
+
+character_event = {
+	id = MythosHolyOrders.75
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		FROMFROM = {
+			letter_event = {
+				id = MythosHolyOrders.76
+			}
+		}
+	}
+}
+
+letter_event = {
+	id = MythosHolyOrders.76
+	desc = EVTDESCMythosHolyOrders.76
+	border = GFX_event_letter_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAMythosHolyOrders.40
+		ai_chance = {
+			factor = 80
+			modifier = {
+				factor = 0
+				has_character_modifier = expelled_d_ddraig_goch
+			}
+		}
+		
+		hidden_tooltip = {
+			FROMFROM = {
+				province_event = { id = MythosHolyOrders.68 }
+			}
+			remove_character_modifier = expelled_d_ddraig_goch
+		}
+		
+		piety = 200
+		wealth = 100
+	}
+	
+	option = {
+		name = EVTOPTB_SOA_1031 # Refuse
+		ai_chance = {
+			factor = 20
+		}
+		
+		piety = -100
+	}
+}
+
+#####################
+# Soldiers of Horus #
+#####################
+
+# The Grand Master demands one of your sons due to a debt
+character_event = {
+	id = MythosHolyOrders.77
+	hide_window = yes
+	
+	min_age = 16
+	only_playable = yes
+	religion_group = pagan_group
+	
+	trigger = {
+		OR = {
+			religion = kemetic_pagan
+			religion = kemetic_pagan_reformed
+			religion = atenist
+		}
+		is_heretic = no
+		has_character_modifier = borrowed_from_soldiers_of_horus
+		NOT = { has_character_flag = sent_son_to_soldiers_horus }
+		any_child = {
+			is_female = no
+			is_adult = yes
+			is_ruler = no
+			prisoner = no
+			NOT = { trait = incapable }
+			ROOT = {
+				NOT = {
+					current_heir = {
+						character = PREVPREV
+					}
+				}
+			}
+		}
+		has_dlc = "Sons of Abraham"
+	}
+	
+	mean_time_to_happen = {
+		months = 120
+	}
+	
+	immediate = {
+		random_child = {
+			limit = {
+				is_female = no
+				is_adult = yes
+				is_ruler = no
+				prisoner = no
+				NOT = { trait = incapable }
+				ROOT = {
+					NOT = {
+						current_heir = {
+							character = PREVPREV
+						}
+					}
+				}
+			}
+			character_event = {
+				id = MythosHolyOrders.78
+			}
+		}
+	}
+}
+
+character_event = {
+	id = MythosHolyOrders.78
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		d_soldiers_horus = {
+			holder_scope = {
+				character_event = {
+					id = MythosHolyOrders.79
+				}
+			}
+		}
+	}
+}
+
+character_event = {
+	id = MythosHolyOrders.79
+	
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		FROMFROM = {
+			letter_event = {
+				id = MythosHolyOrders.80
+			}
+		}
+	}
+}
+
+letter_event = {
+	id = MythosHolyOrders.80
+	desc = EVTDESCMythosHolyOrders.80
+	border = GFX_event_letter_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAMythosHolyOrders.26 # Agree
+		ai_chance = {
+			factor = 100
+		}
+		
+		set_character_flag = sent_son_to_soldiers_horus
+		
+		piety = 100
+		
+		d_soldiers_horus = {
+			holder_scope = {
+				FROMFROM = {
+					hidden_tooltip = {
+						clear_wealth = PREV
+					}
+					spouse = {
+						remove_spouse = spouse
+						hidden_tooltip = { character_event = { id = SoA.2862 } }
+					}
+					move_character = PREV
+					add_trait = celibate
+					end_inaccessibility_effect = yes #removes in_hiding or in_seclusion
+
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTBMythosHolyOrders.26 # Pay them back
+		wealth = -300
+		hidden_tooltip = {
+			remove_character_modifier = borrowed_from_soldiers_of_horus
+		}
+		FROM = {
+			wealth = 300
+		}
+	}
+	
+	option = {
+		name = EVTOPTCMythosHolyOrders.26 # Refuse
+		piety = -1000
+	}
+}
+
+# Ping when vassalizing the Soldiers of Horus
+character_event = {
+	id = MythosHolyOrders.81
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		set_defacto_liege = FROM
+		FROM = {
+			letter_event = { id = MythosHolyOrders.180 }
+		}
+	}
+}
+
+# The Grand Master demands the right to build a castle in your demesne
+character_event = {
+	id = MythosHolyOrders.82
+	
+	hide_window = yes
+	
+	min_age = 16
+	only_playable = yes
+	religion_group = pagan_group
+	
+	trigger = {
+		OR = {
+			religion = kemetic_pagan
+			religion = kemetic_pagan_reformed
+			religion = atenist
+		}
+		is_heretic = no
+		
+		has_character_modifier = borrowed_from_soldiers_of_horus
+		NOT = { has_character_flag = sent_son_to_soldiers_horus }
+		
+		any_demesne_province = {
+			has_empty_holding = yes
+		}
+		
+		d_soldiers_horus = {
+			holder_scope = {
+				wealth = 300
+			}
+		}
+		has_dlc = "Sons of Abraham"
+		
+		NOT = { has_character_modifier = expelled_d_soldiers_horus }
+		NOT = {
+			any_liege = {
+				has_character_modifier = expelled_d_soldiers_horus
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 240
+		modifier = {
+			factor = 0.5
+			d_soldiers_horus = {
+				holder_scope = {
+					NOT = { demesne_size = 1 }
+				}
+			}
+		}
+		modifier = {
+			factor = 0.5
+			d_soldiers_horus = {
+				holder_scope = {
+					NOT = { demesne_size = 2 }
+				}
+			}
+		}
+		modifier = {
+			factor = 2.0
+			d_soldiers_horus = {
+				holder_scope = {
+					realm_size = 5
+				}
+			}
+		}
+	}
+	
+	immediate = {
+		random_demesne_province = {
+			limit = {
+				has_empty_holding = yes
+			}
+			province_event = {
+				id = MythosHolyOrders.83
+			}
+		}
+	}
+}
+
+province_event = {
+	id = MythosHolyOrders.83
+	
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		d_soldiers_horus = {
+			holder_scope = {
+				character_event = {
+					id = MythosHolyOrders.84
+				}
+			}
+		}
+	}
+}
+
+character_event = {
+	id = MythosHolyOrders.84
+	
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		FROMFROM = {
+			letter_event = {
+				id = MythosHolyOrders.85
+			}
+		}
+	}
+}
+
+letter_event = {
+	id = MythosHolyOrders.85
+	desc = EVTDESCMythosHolyOrders.85
+	border = GFX_event_letter_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAMythosHolyOrders.31 # Agree
+		ai_chance = {
+			factor = 100
+		}
+		
+		hidden_tooltip = {
+			remove_character_modifier = borrowed_from_soldiers_of_horus
+			remove_character_modifier = expelled_d_soldiers_horus
+			FROMFROM = {
+				province_event = { id = MythosHolyOrders.86 }
+			}
+		}
+		
+		piety = 100
+	}
+	
+	option = {
+		name = EVTOPTBMythosHolyOrders.31
+		wealth = -300
+		hidden_tooltip = {
+			remove_character_modifier = borrowed_from_soldiers_of_horus
+		}
+		FROM = {
+			wealth = 300
+		}
+	}
+	
+	option = {
+		name = EVTOPTCMythosHolyOrders.31 # Refuse
+		piety = -1000
+	}
+}
+
+# Castle has been erected
+province_event = {
+	id = MythosHolyOrders.86
+	desc = EVTDESCMythosHolyOrders.86
+	picture = GFX_evt_castle_construction
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		FROMFROM = {
+			wealth = -300
+		}
+	}
+	
+	option = {
+		name = EVTOPTAMythosHolyOrders.32
+		build_holding = {
+		   type = castle
+		   holder = FROMFROM
+		}
+	}
+}
+
+# The son of a ruler volunteers to join the Soldiers of Horus
+character_event = {
+	id = MythosHolyOrders.87
+	hide_window = yes
+	
+	only_men = yes
+	min_age = 16
+	max_age = 45
+	only_capable = yes
+	prisoner = no
+	religion_group = pagan_group
+	
+	trigger = {
+		is_ruler = no
+		OR = {
+			religion = kemetic_pagan
+			religion = kemetic_pagan_reformed
+			religion = atenist
+		}
+		is_heretic = no
+		
+		martial = 5
+		
+		is_title_active = d_soldiers_horus
+		
+		OR = {
+			father_even_if_dead = {
+				primary_title = { higher_tier_than = BARON }
+			}
+			mother_even_if_dead = {
+				primary_title = { higher_tier_than = BARON }
+			}
+		}
+		
+		liege = {
+			holy_order = no
+			liege = {
+				holy_order = no
+			}
+		}
+		
+		has_dlc = "Sons of Abraham"
+		
+		NOT = { has_character_modifier = expelled_d_soldiers_horus }
+		NOT = {
+			any_liege = {
+				has_character_modifier = expelled_d_soldiers_horus
+			}
+		}
+		
+		NOT = {
+			any_spouse = {
+				OR = {
+					is_landed = yes
+					AND = {
+						is_pregnant = yes
+					father_of_unborn = { character = ROOT } # Won't happen if spouse is pregnant with non-bastard child
+					}
+				}
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		years = 100
+		modifier = {
+			factor = 0.25
+			trait = zealous
+		}
+		modifier = {
+			factor = 0.5
+			trait = celibate
+		}
+		modifier = {
+			factor = 0.5
+			trait = homosexual
+		}
+		modifier = {
+			factor = 0.7
+			trait = content
+		}
+		modifier = {
+			factor = 0.75
+			trait = chaste
+		}
+		modifier = {
+			factor = 0.75
+			NOT = { age = 40 }
+		}
+		modifier = {
+			factor = 1.5
+			trait = slothful
+		}
+		modifier = {
+			factor = 2.0
+			trait = lustful
+		}
+		modifier = {
+			factor = 2.0
+			trait = cynical
+		}
+		modifier = {
+			factor = 2.0
+			trait = hedonist
+		}
+		modifier = {
+			factor = 2.0
+			trait = ambitious
+		}
+		modifier = {
+			factor = 2.0
+			any_heir_title = {
+				always = yes
+			}
+		}
+		modifier = {
+			factor = 2.0
+			is_primary_heir = yes
+		}
+		modifier = {
+			factor = 2
+			any_spouse = {
+				reverse_opinion = { who = ROOT value = 100 }
+			}
+		}
+	}
+	
+	immediate = {
+		liege = {
+			character_event = {
+				id = MythosHolyOrders.88
+			}
+		}
+	}
+}
+
+# Son or brother asks to join the Soldiers of Horus
+character_event = {
+	id = MythosHolyOrders.88
+	desc = EVTDESCMythosHolyOrders.88
+	picture = GFX_evt_crusaders
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAMythosHolyOrders.34
+		ai_chance = {
+			factor = 100
+		}
+		
+		if = {
+			limit = {
+				religion = FROM
+			}
+			piety = 100
+		}
+		
+		FROM = {
+			character_event = {
+				id = MythosHolyOrders.89
+				tooltip = EVTTOOLTIPAMythosHolyOrders.88
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTBMythosHolyOrders.34 # Refuse
+		
+		if = {
+			limit = {
+				religion = FROM
+			}
+			piety = -100
+		}
+		
+		FROM = {
+			character_event = {
+				id = MythosHolyOrders.90
+				tooltip = EVTTOOLTIPBMythosHolyOrders.34
+			}
+		}
+	}
+}
+
+# Son or brother joins the Soldiers of Horus
+character_event = {
+	id = MythosHolyOrders.89
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		d_soldiers_horus = {
+			holder_scope = {
+				save_event_target_as = order_target
+				ROOT = {
+					character_event = { id = SoA.2864 }
+				}
+			}
+		}
+	}
+}
+
+# Liege refuses request to join the Soldiers of Horus
+character_event = {
+	id = MythosHolyOrders.90
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		opinion = {
+			who = FROM
+			modifier = opinion_refused_request_holy_order
+		}
+	}
+}
+
+# The Grand Master humbly requests the right to build a castle in your demesne
+character_event = {
+	id = MythosHolyOrders.91
+	hide_window = yes
+	
+	min_age = 16
+	only_playable = yes
+	religion_group = pagan_group
+	
+	trigger = {
+		OR = {
+			religion = kemetic_pagan
+			religion = kemetic_pagan_reformed
+			religion = atenist
+		}
+		is_heretic = no
+		
+		d_soldiers_horus = {
+			holder_scope = {
+				wealth = 300
+				NOT = {
+					realm_size = 10
+				}
+				NOT = {
+					num_of_count_titles = 1
+				}
+			}
+		}
+		
+		any_demesne_province = {
+			has_empty_holding = yes
+			OR = {
+				region = world_africa_west
+				region = world_africa_east
+				region = world_middle_east
+			}
+		}
+		
+		has_dlc = "Sons of Abraham"
+		
+		NOT = { has_character_modifier = expelled_d_soldiers_horus }
+		NOT = {
+			any_liege = {
+				has_character_modifier = expelled_d_soldiers_horus
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 240
+		modifier = {
+			factor = 0.5
+			d_soldiers_horus = {
+				holder_scope = {
+					NOT = { demesne_size = 1 }
+				}
+			}
+		}
+		modifier = {
+			factor = 0.5
+			d_soldiers_horus = {
+				holder_scope = {
+					NOT = { demesne_size = 2 }
+				}
+			}
+		}
+		modifier = {
+			factor = 2.0
+			d_soldiers_horus = {
+				holder_scope = {
+					realm_size = 5
+				}
+			}
+		}
+	}
+	
+	immediate = {
+		random_demesne_province = {
+			limit = {
+				has_empty_holding = yes
+				OR = {
+					region = world_africa_west
+					region = world_africa_east
+					region = world_middle_east
+				}
+			}
+			province_event = {
+				id = MythosHolyOrders.92
+			}
+		}
+	}
+}
+
+province_event = {
+	id = MythosHolyOrders.92
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		d_soldiers_horus = {
+			holder_scope = {
+				character_event = {
+					id = MythosHolyOrders.93
+				}
+			}
+		}
+	}
+}
+
+character_event = {
+	id = MythosHolyOrders.93
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		FROMFROM = {
+			letter_event = {
+				id = MythosHolyOrders.94
+			}
+		}
+	}
+}
+
+letter_event = {
+	id = MythosHolyOrders.94
+	desc = EVTDESCMythosHolyOrders.94
+	border = GFX_event_letter_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAMythosHolyOrders.40
+		ai_chance = {
+			factor = 80
+			modifier = {
+				factor = 0
+				has_character_modifier = expelled_d_soldiers_horus
+			}
+		}
+		
+		hidden_tooltip = {
+			FROMFROM = {
+				province_event = { id = MythosHolyOrders.50 }
+			}
+			remove_character_modifier = expelled_d_soldiers_horus
+		}
+		
+		piety = 200
+		wealth = 100
+	}
+	
+	option = {
+		name = EVTOPTB_SOA_1031 # Refuse
+		ai_chance = {
+			factor = 20
+		}
+		
+		piety = -100
+	}
+}
+
+######################
+# Servants of Anubis #
+######################
+
+# The Grand Master demands one of your sons due to a debt
+character_event = {
+	id = MythosHolyOrders.95
+	hide_window = yes
+	
+	min_age = 16
+	only_playable = yes
+	religion_group = pagan_group
+	
+	trigger = {
+		OR = {
+			religion = kemetic_pagan
+			religion = kemetic_pagan_reformed
+			religion = atenist
+		}
+		is_heretic = no
+		has_character_modifier = borrowed_from_servants_of_anubis
+		NOT = { has_character_flag = sent_son_to_servants_anubis }
+		any_child = {
+			is_female = no
+			is_adult = yes
+			is_ruler = no
+			prisoner = no
+			NOT = { trait = incapable }
+			ROOT = {
+				NOT = {
+					current_heir = {
+						character = PREVPREV
+					}
+				}
+			}
+		}
+		has_dlc = "Sons of Abraham"
+	}
+	
+	mean_time_to_happen = {
+		months = 120
+	}
+	
+	immediate = {
+		random_child = {
+			limit = {
+				is_female = no
+				is_adult = yes
+				is_ruler = no
+				prisoner = no
+				NOT = { trait = incapable }
+				ROOT = {
+					NOT = {
+						current_heir = {
+							character = PREVPREV
+						}
+					}
+				}
+			}
+			character_event = {
+				id = MythosHolyOrders.96
+			}
+		}
+	}
+}
+
+character_event = {
+	id = MythosHolyOrders.96
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		d_servants_anubis = {
+			holder_scope = {
+				character_event = {
+					id = MythosHolyOrders.97
+				}
+			}
+		}
+	}
+}
+
+character_event = {
+	id = MythosHolyOrders.97
+	
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		FROMFROM = {
+			letter_event = {
+				id = MythosHolyOrders.99
+			}
+		}
+	}
+}
+
+# Apparently event 98 doesn't exist
+
+letter_event = {
+	id = MythosHolyOrders.99
+	desc = EVTDESCMythosHolyOrders.99
+	border = GFX_event_letter_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAMythosHolyOrders.26 # Agree
+		ai_chance = {
+			factor = 100
+		}
+		
+		set_character_flag = sent_son_to_servants_anubis
+		
+		piety = 100
+		
+		d_servants_anubis = {
+			holder_scope = {
+				FROMFROM = {
+					hidden_tooltip = {
+						clear_wealth = PREV
+					}
+					spouse = {
+						remove_spouse = spouse
+						hidden_tooltip = { character_event = { id = SoA.2862 } }
+					}
+					move_character = PREV
+					add_trait = celibate
+					end_inaccessibility_effect = yes #removes in_hiding or in_seclusion
+
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTBMythosHolyOrders.26 # Pay them back
+		wealth = -300
+		hidden_tooltip = {
+			remove_character_modifier = borrowed_from_servants_of_anubis
+		}
+		FROM = {
+			wealth = 300
+		}
+	}
+	
+	option = {
+		name = EVTOPTCMythosHolyOrders.26 # Refuse
+		piety = -1000
+	}
+}
+
+# Ping when vassalizing the Servants of Anubis
+character_event = {
+	id = MythosHolyOrders.100
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		set_defacto_liege = FROM
+		FROM = {
+			letter_event = { id = MythosHolyOrders.181 }
+		}
+	}
+}
+
+# The Grand Master demands the right to build a castle in your demesne
+character_event = {
+	id = MythosHolyOrders.101
+	
+	hide_window = yes
+	
+	min_age = 16
+	only_playable = yes
+	religion_group = pagan_group
+	
+	trigger = {
+		OR = {
+			religion = kemetic_pagan
+			religion = kemetic_pagan_reformed
+			religion = atenist
+		}
+		is_heretic = no
+		
+		has_character_modifier = borrowed_from_servants_of_anubis
+		NOT = { has_character_flag = sent_son_to_servants_anubis }
+		
+		any_demesne_province = {
+			has_empty_holding = yes
+		}
+		
+		d_servants_anubis = {
+			holder_scope = {
+				wealth = 300
+			}
+		}
+		has_dlc = "Sons of Abraham"
+		
+		NOT = { has_character_modifier = expelled_d_servants_anubis }
+		NOT = {
+			any_liege = {
+				has_character_modifier = expelled_d_servants_anubis
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 240
+		modifier = {
+			factor = 0.5
+			d_servants_anubis = {
+				holder_scope = {
+					NOT = { demesne_size = 1 }
+				}
+			}
+		}
+		modifier = {
+			factor = 0.5
+			d_servants_anubis = {
+				holder_scope = {
+					NOT = { demesne_size = 2 }
+				}
+			}
+		}
+		modifier = {
+			factor = 2.0
+			d_servants_anubis = {
+				holder_scope = {
+					realm_size = 5
+				}
+			}
+		}
+	}
+	
+	immediate = {
+		random_demesne_province = {
+			limit = {
+				has_empty_holding = yes
+			}
+			province_event = {
+				id = MythosHolyOrders.102
+			}
+		}
+	}
+}
+
+province_event = {
+	id = MythosHolyOrders.102
+	
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		d_army_baal = {
+			holder_scope = {
+				character_event = {
+					id = MythosHolyOrders.103
+				}
+			}
+		}
+	}
+}
+
+character_event = {
+	id = MythosHolyOrders.103
+	
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		FROMFROM = {
+			letter_event = {
+				id = MythosHolyOrders.104
+			}
+		}
+	}
+}
+
+letter_event = {
+	id = MythosHolyOrders.104
+	desc = EVTDESCMythosHolyOrders.104
+	border = GFX_event_letter_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAMythosHolyOrders.31 # Agree
+		ai_chance = {
+			factor = 100
+		}
+		
+		hidden_tooltip = {
+			remove_character_modifier = borrowed_from_servants_of_anubis
+			remove_character_modifier = expelled_d_servants_anubis
+			FROMFROM = {
+				province_event = { id = MythosHolyOrders.32 }
+			}
+		}
+		
+		piety = 100
+	}
+	
+	option = {
+		name = EVTOPTBMythosHolyOrders.31
+		wealth = -300
+		hidden_tooltip = {
+			remove_character_modifier = borrowed_from_servants_of_anubis
+		}
+		FROM = {
+			wealth = 300
+		}
+	}
+	
+	option = {
+		name = EVTOPTCMythosHolyOrders.31 # Refuse
+		piety = -1000
+	}
+}
+
+# Castle has been erected
+province_event = {
+	id = MythosHolyOrders.105
+	desc = EVTDESCMythosHolyOrders.105
+	picture = GFX_evt_castle_construction
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		FROMFROM = {
+			wealth = -300
+		}
+	}
+	
+	option = {
+		name = EVTOPTAMythosHolyOrders.32
+		build_holding = {
+		   type = castle
+		   holder = FROMFROM
+		}
+	}
+}
+
+# The son of a ruler volunteers to join the Servants of Anubis
+character_event = {
+	id = MythosHolyOrders.106
+	hide_window = yes
+	
+	only_men = yes
+	min_age = 16
+	max_age = 45
+	only_capable = yes
+	prisoner = no
+	religion_group = pagan_group
+	
+	trigger = {
+		is_ruler = no
+		OR = {
+			religion = kemetic_pagan
+			religion = kemetic_pagan_reformed
+			religion = atenist
+		}
+		is_heretic = no
+		
+		martial = 5
+		
+		is_title_active = d_servants_anubis
+		
+		OR = {
+			father_even_if_dead = {
+				primary_title = { higher_tier_than = BARON }
+			}
+			mother_even_if_dead = {
+				primary_title = { higher_tier_than = BARON }
+			}
+		}
+		
+		liege = {
+			holy_order = no
+			liege = {
+				holy_order = no
+			}
+		}
+		
+		has_dlc = "Sons of Abraham"
+		
+		NOT = { has_character_modifier = expelled_d_servants_anubis }
+		NOT = {
+			any_liege = {
+				has_character_modifier = expelled_d_servants_anubis
+			}
+		}
+		
+		NOT = {
+			any_spouse = {
+				OR = {
+					is_landed = yes
+					AND = {
+						is_pregnant = yes
+					father_of_unborn = { character = ROOT } # Won't happen if spouse is pregnant with non-bastard child
+					}
+				}
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		years = 100
+		modifier = {
+			factor = 0.25
+			trait = zealous
+		}
+		modifier = {
+			factor = 0.5
+			trait = celibate
+		}
+		modifier = {
+			factor = 0.5
+			trait = homosexual
+		}
+		modifier = {
+			factor = 0.7
+			trait = content
+		}
+		modifier = {
+			factor = 0.75
+			trait = chaste
+		}
+		modifier = {
+			factor = 0.75
+			NOT = { age = 40 }
+		}
+		modifier = {
+			factor = 1.5
+			trait = slothful
+		}
+		modifier = {
+			factor = 2.0
+			trait = lustful
+		}
+		modifier = {
+			factor = 2.0
+			trait = cynical
+		}
+		modifier = {
+			factor = 2.0
+			trait = hedonist
+		}
+		modifier = {
+			factor = 2.0
+			trait = ambitious
+		}
+		modifier = {
+			factor = 2.0
+			any_heir_title = {
+				always = yes
+			}
+		}
+		modifier = {
+			factor = 2.0
+			is_primary_heir = yes
+		}
+		modifier = {
+			factor = 2
+			any_spouse = {
+				reverse_opinion = { who = ROOT value = 100 }
+			}
+		}
+	}
+	
+	immediate = {
+		liege = {
+			character_event = {
+				id = MythosHolyOrders.107
+			}
+		}
+	}
+}
+
+# Son or brother asks to join the Servants of Anubis
+character_event = {
+	id = MythosHolyOrders.107
+	desc = EVTDESCMythosHolyOrders.107
+	picture = GFX_evt_crusaders
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAMythosHolyOrders.34
+		ai_chance = {
+			factor = 100
+		}
+		
+		if = {
+			limit = {
+				religion = FROM
+			}
+			piety = 100
+		}
+		
+		FROM = {
+			character_event = {
+				id = MythosHolyOrders.108
+				tooltip = EVTTOOLTIPAMythosHolyOrders.107
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTBMythosHolyOrders.34 # Refuse
+		
+		if = {
+			limit = {
+				religion = FROM
+			}
+			piety = -100
+		}
+		
+		FROM = {
+			character_event = {
+				id = MythosHolyOrders.109
+				tooltip = EVTTOOLTIPBMythosHolyOrders.34
+			}
+		}
+	}
+}
+
+# Son or brother joins the servants of anubis
+character_event = {
+	id = MythosHolyOrders.108
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		d_servants_anubis = {
+			holder_scope = {
+				save_event_target_as = order_target
+				ROOT = {
+					character_event = { id = SoA.2864 }
+				}
+			}
+		}
+	}
+}
+
+# Liege refuses request to join the Servants of Anubis
+character_event = {
+	id = MythosHolyOrders.109
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		opinion = {
+			who = FROM
+			modifier = opinion_refused_request_holy_order
+		}
+	}
+}
+
+# The Grand Master humbly requests the right to build a castle in your demesne
+character_event = {
+	id = MythosHolyOrders.110
+	hide_window = yes
+	
+	min_age = 16
+	only_playable = yes
+	religion_group = pagan_group
+	
+	trigger = {
+		OR = {
+			religion = kemetic_pagan
+			religion = kemetic_pagan_reformed
+			religion = atenist
+		}
+		is_heretic = no
+		
+		d_servants_anubis = {
+			holder_scope = {
+				wealth = 300
+				NOT = {
+					realm_size = 10
+				}
+				NOT = {
+					num_of_count_titles = 1
+				}
+			}
+		}
+		
+		any_demesne_province = {
+			has_empty_holding = yes
+			OR = {
+				region = world_africa_west
+				region = world_africa_east
+				region = world_middle_east
+			}
+		}
+		
+		has_dlc = "Sons of Abraham"
+		
+		NOT = { has_character_modifier = expelled_d_servants_anubis }
+		NOT = {
+			any_liege = {
+				has_character_modifier = expelled_d_servants_anubis
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 240
+		modifier = {
+			factor = 0.5
+			d_servants_anubis = {
+				holder_scope = {
+					NOT = { demesne_size = 1 }
+				}
+			}
+		}
+		modifier = {
+			factor = 0.5
+			d_servants_anubis = {
+				holder_scope = {
+					NOT = { demesne_size = 2 }
+				}
+			}
+		}
+		modifier = {
+			factor = 2.0
+			d_servants_anubis = {
+				holder_scope = {
+					realm_size = 5
+				}
+			}
+		}
+	}
+	
+	immediate = {
+		random_demesne_province = {
+			limit = {
+				has_empty_holding = yes
+				OR = {
+					region = world_africa_west
+					region = world_africa_east
+					region = world_middle_east
+				}
+			}
+			province_event = {
+				id = MythosHolyOrders.111
+			}
+		}
+	}
+}
+
+province_event = {
+	id = MythosHolyOrders.111
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		d_servants_anubis = {
+			holder_scope = {
+				character_event = {
+					id = MythosHolyOrders.112
+				}
+			}
+		}
+	}
+}
+
+character_event = {
+	id = MythosHolyOrders.112
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		FROMFROM = {
+			letter_event = {
+				id = MythosHolyOrders.113
+			}
+		}
+	}
+}
+
+letter_event = {
+	id = MythosHolyOrders.113
+	desc = EVTDESCMythosHolyOrders.113
+	border = GFX_event_letter_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAMythosHolyOrders.40
+		ai_chance = {
+			factor = 80
+			modifier = {
+				factor = 0
+				has_character_modifier = expelled_d_servants_anubis
+			}
+		}
+		
+		hidden_tooltip = {
+			FROMFROM = {
+				province_event = { id = MythosHolyOrders.105 }
+			}
+			remove_character_modifier = expelled_d_army_baal
+		}
+		
+		piety = 200
+		wealth = 100
+	}
+	
+	option = {
+		name = EVTOPTB_SOA_1031 # Refuse
+		ai_chance = {
+			factor = 20
+		}
+		
+		piety = -100
+	}
+}
+
+#################
+# Ares' Phalanx #
+#################
+
+# The Grand Master demands one of your sons due to a debt
+character_event = {
+	id = MythosHolyOrders.114
+	hide_window = yes
+	
+	min_age = 16
+	only_playable = yes
+	religion = hellenic_pagan
+	
+	trigger = {
+		religion = hellenic_pagan
+		is_heretic = no
+		has_character_modifier = borrowed_from_ares_phalanx
+		NOT = { has_character_flag = sent_son_to_ares_phalanx }
+		any_child = {
+			is_female = no
+			is_adult = yes
+			is_ruler = no
+			prisoner = no
+			NOT = { trait = incapable }
+			ROOT = {
+				NOT = {
+					current_heir = {
+						character = PREVPREV
+					}
+				}
+			}
+		}
+		has_dlc = "Sons of Abraham"
+	}
+	
+	mean_time_to_happen = {
+		months = 120
+	}
+	
+	immediate = {
+		random_child = {
+			limit = {
+				is_female = no
+				is_adult = yes
+				is_ruler = no
+				prisoner = no
+				NOT = { trait = incapable }
+				ROOT = {
+					NOT = {
+						current_heir = {
+							character = PREVPREV
+						}
+					}
+				}
+			}
+			character_event = {
+				id = MythosHolyOrders.115
+			}
+		}
+	}
+}
+
+character_event = {
+	id = MythosHolyOrders.115
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		d_ares_phalanx = {
+			holder_scope = {
+				character_event = {
+					id = MythosHolyOrders.116
+				}
+			}
+		}
+	}
+}
+
+character_event = {
+	id = MythosHolyOrders.116
+	
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		FROMFROM = {
+			letter_event = {
+				id = MythosHolyOrders.117
+			}
+		}
+	}
+}
+
+letter_event = {
+	id = MythosHolyOrders.117
+	desc = EVTDESCMythosHolyOrders.117
+	border = GFX_event_letter_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAMythosHolyOrders.26 # Agree
+		ai_chance = {
+			factor = 100
+		}
+		
+		set_character_flag = sent_son_to_ares_phalanx
+		
+		piety = 100
+		
+		d_ares_phalanx = {
+			holder_scope = {
+				FROMFROM = {
+					hidden_tooltip = {
+						clear_wealth = PREV
+					}
+					spouse = {
+						remove_spouse = spouse
+						hidden_tooltip = { character_event = { id = SoA.2862 } }
+					}
+					move_character = PREV
+					add_trait = celibate
+					end_inaccessibility_effect = yes #removes in_hiding or in_seclusion
+
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTBMythosHolyOrders.26 # Pay them back
+		wealth = -300
+		hidden_tooltip = {
+			remove_character_modifier = borrowed_from_ares_phalanx
+		}
+		FROM = {
+			wealth = 300
+		}
+	}
+	
+	option = {
+		name = EVTOPTCMythosHolyOrders.26 # Refuse
+		piety = -1000
+	}
+}
+
+# Ping when vassalizing Ares' Phalanx
+character_event = {
+	id = MythosHolyOrders.118
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		set_defacto_liege = FROM
+		FROM = {
+			letter_event = { id = MythosHolyOrders.182 }
+		}
+	}
+}
+
+# The Grand Master demands the right to build a castle in your demesne
+character_event = {
+	id = MythosHolyOrders.119
+	
+	hide_window = yes
+	
+	min_age = 16
+	only_playable = yes
+	religion = hellenic_pagan
+	
+	trigger = {
+		religion = hellenic_pagan
+		is_heretic = no
+		
+		has_character_modifier = borrowed_from_ares_phalanx
+		NOT = { has_character_flag = sent_son_to_ares_phalanx }
+		
+		any_demesne_province = {
+			has_empty_holding = yes
+		}
+		
+		d_ares_phalanx = {
+			holder_scope = {
+				wealth = 300
+			}
+		}
+		has_dlc = "Sons of Abraham"
+		
+		NOT = { has_character_modifier = expelled_d_ares_phalanx }
+		NOT = {
+			any_liege = {
+				has_character_modifier = expelled_d_ares_phalanx
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 240
+		modifier = {
+			factor = 0.5
+			d_ares_phalanx = {
+				holder_scope = {
+					NOT = { demesne_size = 1 }
+				}
+			}
+		}
+		modifier = {
+			factor = 0.5
+			d_ares_phalanx = {
+				holder_scope = {
+					NOT = { demesne_size = 2 }
+				}
+			}
+		}
+		modifier = {
+			factor = 2.0
+			d_ares_phalanx = {
+				holder_scope = {
+					realm_size = 5
+				}
+			}
+		}
+	}
+	
+	immediate = {
+		random_demesne_province = {
+			limit = {
+				has_empty_holding = yes
+			}
+			province_event = {
+				id = MythosHolyOrders.120
+			}
+		}
+	}
+}
+
+province_event = {
+	id = MythosHolyOrders.120
+	
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		d_ares_phalanx = {
+			holder_scope = {
+				character_event = {
+					id = MythosHolyOrders.121
+				}
+			}
+		}
+	}
+}
+
+character_event = {
+	id = MythosHolyOrders.121
+	
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		FROMFROM = {
+			letter_event = {
+				id = MythosHolyOrders.122
+			}
+		}
+	}
+}
+
+letter_event = {
+	id = MythosHolyOrders.122
+	desc = EVTDESCMythosHolyOrders.122
+	border = GFX_event_letter_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAMythosHolyOrders.31 # Agree
+		ai_chance = {
+			factor = 100
+		}
+		
+		hidden_tooltip = {
+			remove_character_modifier = borrowed_from_ares_phalanx
+			remove_character_modifier = expelled_d_ares_phalanx
+			FROMFROM = {
+				province_event = { id = MythosHolyOrders.32 }
+			}
+		}
+		
+		piety = 100
+	}
+	
+	option = {
+		name = EVTOPTBMythosHolyOrders.31
+		wealth = -300
+		hidden_tooltip = {
+			remove_character_modifier = borrowed_from_ares_phalanx
+		}
+		FROM = {
+			wealth = 300
+		}
+	}
+	
+	option = {
+		name = EVTOPTCMythosHolyOrders.31 # Refuse
+		piety = -1000
+	}
+}
+
+# Castle has been erected
+province_event = {
+	id = MythosHolyOrders.123
+	desc = EVTDESCMythosHolyOrders.123
+	picture = GFX_evt_castle_construction
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		FROMFROM = {
+			wealth = -300
+		}
+	}
+	
+	option = {
+		name = EVTOPTAMythosHolyOrders.32
+		build_holding = {
+		   type = castle
+		   holder = FROMFROM
+		}
+	}
+}
+
+# The son of a ruler volunteers to join Ares' Phalanx
+character_event = {
+	id = MythosHolyOrders.124
+	hide_window = yes
+	
+	only_men = yes
+	min_age = 16
+	max_age = 45
+	only_capable = yes
+	prisoner = no
+	religion = hellenic_pagan
+	
+	trigger = {
+		is_ruler = no
+		religion = hellenic_pagan
+		is_heretic = no
+		
+		martial = 5
+		
+		is_title_active = d_ares_phalanx
+		
+		OR = {
+			father_even_if_dead = {
+				primary_title = { higher_tier_than = BARON }
+			}
+			mother_even_if_dead = {
+				primary_title = { higher_tier_than = BARON }
+			}
+		}
+		
+		liege = {
+			holy_order = no
+			liege = {
+				holy_order = no
+			}
+		}
+		
+		has_dlc = "Sons of Abraham"
+		
+		NOT = { has_character_modifier = expelled_d_ares_phalanx }
+		NOT = {
+			any_liege = {
+				has_character_modifier = expelled_d_ares_phalanx
+			}
+		}
+		
+		NOT = {
+			any_spouse = {
+				OR = {
+					is_landed = yes
+					AND = {
+						is_pregnant = yes
+					father_of_unborn = { character = ROOT } # Won't happen if spouse is pregnant with non-bastard child
+					}
+				}
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		years = 100
+		modifier = {
+			factor = 0.25
+			trait = zealous
+		}
+		modifier = {
+			factor = 0.5
+			trait = celibate
+		}
+		modifier = {
+			factor = 0.5
+			trait = homosexual
+		}
+		modifier = {
+			factor = 0.7
+			trait = content
+		}
+		modifier = {
+			factor = 0.75
+			trait = chaste
+		}
+		modifier = {
+			factor = 0.75
+			NOT = { age = 40 }
+		}
+		modifier = {
+			factor = 1.5
+			trait = slothful
+		}
+		modifier = {
+			factor = 2.0
+			trait = lustful
+		}
+		modifier = {
+			factor = 2.0
+			trait = cynical
+		}
+		modifier = {
+			factor = 2.0
+			trait = hedonist
+		}
+		modifier = {
+			factor = 2.0
+			trait = ambitious
+		}
+		modifier = {
+			factor = 2.0
+			any_heir_title = {
+				always = yes
+			}
+		}
+		modifier = {
+			factor = 2.0
+			is_primary_heir = yes
+		}
+		modifier = {
+			factor = 2
+			any_spouse = {
+				reverse_opinion = { who = ROOT value = 100 }
+			}
+		}
+	}
+	
+	immediate = {
+		liege = {
+			character_event = {
+				id = MythosHolyOrders.125
+			}
+		}
+	}
+}
+
+# Son or brother asks to join Ares' Phalanx
+character_event = {
+	id = MythosHolyOrders.125
+	desc = EVTDESCMythosHolyOrders.125
+	picture = GFX_evt_crusaders
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAMythosHolyOrders.34
+		ai_chance = {
+			factor = 100
+		}
+		
+		if = {
+			limit = {
+				religion = FROM
+			}
+			piety = 100
+		}
+		
+		FROM = {
+			character_event = {
+				id = MythosHolyOrders.126
+				tooltip = EVTTOOLTIPAMythosHolyOrders.125
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTBMythosHolyOrders.34 # Refuse
+		
+		if = {
+			limit = {
+				religion = FROM
+			}
+			piety = -100
+		}
+		
+		FROM = {
+			character_event = {
+				id = MythosHolyOrders.127
+				tooltip = EVTTOOLTIPBMythosHolyOrders.34
+			}
+		}
+	}
+}
+
+# Son or brother joins Ares' Phalanx
+character_event = {
+	id = MythosHolyOrders.126
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		d_ares_phalanx = {
+			holder_scope = {
+				save_event_target_as = order_target
+				ROOT = {
+					character_event = { id = SoA.2864 }
+				}
+			}
+		}
+	}
+}
+
+# Liege refuses request to join Ares' Phalanx
+character_event = {
+	id = MythosHolyOrders.127
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		opinion = {
+			who = FROM
+			modifier = opinion_refused_request_holy_order
+		}
+	}
+}
+
+# The Grand Master humbly requests the right to build a castle in your demesne
+character_event = {
+	id = MythosHolyOrders.128
+	hide_window = yes
+	
+	min_age = 16
+	only_playable = yes
+	religion = hellenic_pagan
+	
+	trigger = {
+		religion = hellenic_pagan
+		is_heretic = no
+		
+		d_ares_phalanx = {
+			holder_scope = {
+				wealth = 300
+				NOT = {
+					realm_size = 10
+				}
+				NOT = {
+					num_of_count_titles = 1
+				}
+			}
+		}
+		
+		any_demesne_province = {
+			has_empty_holding = yes
+			OR = {
+				region = world_asia_minor
+				region = world_persia
+				region = world_middle_east_jerusalem
+				region = world_africa_east
+				region = world_europe_south_east
+			}
+		}
+		
+		has_dlc = "Sons of Abraham"
+		
+		NOT = { has_character_modifier = expelled_d_ares_phalanx }
+		NOT = {
+			any_liege = {
+				has_character_modifier = expelled_d_ares_phalanx
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 240
+		modifier = {
+			factor = 0.5
+			d_ares_phalanx = {
+				holder_scope = {
+					NOT = { demesne_size = 1 }
+				}
+			}
+		}
+		modifier = {
+			factor = 0.5
+			d_ares_phalanx = {
+				holder_scope = {
+					NOT = { demesne_size = 2 }
+				}
+			}
+		}
+		modifier = {
+			factor = 2.0
+			d_ares_phalanx = {
+				holder_scope = {
+					realm_size = 5
+				}
+			}
+		}
+	}
+	
+	immediate = {
+		random_demesne_province = {
+			limit = {
+				has_empty_holding = yes
+				OR = {
+					region = world_asia_minor
+					region = world_persia
+					region = world_middle_east_jerusalem
+					region = world_africa_east
+					region = world_europe_south_east
+				}
+			}
+			province_event = {
+				id = MythosHolyOrders.129
+			}
+		}
+	}
+}
+
+province_event = {
+	id = MythosHolyOrders.129
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		d_ares_phalanx = {
+			holder_scope = {
+				character_event = {
+					id = MythosHolyOrders.130
+				}
+			}
+		}
+	}
+}
+
+character_event = {
+	id = MythosHolyOrders.130
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		FROMFROM = {
+			letter_event = {
+				id = MythosHolyOrders.131
+			}
+		}
+	}
+}
+
+letter_event = {
+	id = MythosHolyOrders.131
+	desc = EVTDESCMythosHolyOrders.131
+	border = GFX_event_letter_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAMythosHolyOrders.40
+		ai_chance = {
+			factor = 80
+			modifier = {
+				factor = 0
+				has_character_modifier = expelled_d_ares_phalanx
+			}
+		}
+		
+		hidden_tooltip = {
+			FROMFROM = {
+				province_event = { id = MythosHolyOrders.123 }
+			}
+			remove_character_modifier = expelled_d_ares_phalanx
+		}
+		
+		piety = 200
+		wealth = 100
+	}
+	
+	option = {
+		name = EVTOPTB_SOA_1031 # Refuse
+		ai_chance = {
+			factor = 20
+		}
+		
+		piety = -100
+	}
+}
+
+################
+# Sons of Mars #
+################
+
+# The Grand Master demands one of your sons due to a debt
+#character_event = {
+#	id = MythosHolyOrders.132
+#	hide_window = yes
+#	
+#	min_age = 16
+#	only_playable = yes
+#	religion = hellenic_pagan_reformed
+#	
+#	trigger = {
+#		religion = hellenic_pagan_reformed
+#		# Also needs an upcoming 
+#		is_heretic = no
+#		has_character_modifier = borrowed_from_sons_of_mars
+#		NOT = { has_character_flag = sent_son_to_sons_mars }
+#		any_child = {
+#			is_female = no
+#			is_adult = yes
+#			is_ruler = no
+#			prisoner = no
+#			NOT = { trait = incapable }
+#			ROOT = {
+#				NOT = {
+#					current_heir = {
+#						character = PREVPREV
+#					}
+#				}
+#			}
+#		}
+#		has_dlc = "Sons of Abraham"
+#	}
+#	
+#	mean_time_to_happen = {
+#		months = 120
+#	}
+#	
+#	immediate = {
+#		random_child = {
+#			limit = {
+#				is_female = no
+#				is_adult = yes
+#				is_ruler = no
+#				prisoner = no
+#				NOT = { trait = incapable }
+#				ROOT = {
+#					NOT = {
+#						current_heir = {
+#							character = PREVPREV
+#						}
+#					}
+#				}
+#			}
+#			character_event = {
+#				id = MythosHolyOrders.133
+#			}
+#		}
+#	}
+#}
+
+character_event = {
+	id = MythosHolyOrders.133
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		d_sons_mars = {
+			holder_scope = {
+				character_event = {
+					id = MythosHolyOrders.134
+				}
+			}
+		}
+	}
+}
+
+character_event = {
+	id = MythosHolyOrders.134
+	
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		FROMFROM = {
+			letter_event = {
+				id = MythosHolyOrders.135
+			}
+		}
+	}
+}
+
+letter_event = {
+	id = MythosHolyOrders.135
+	desc = EVTDESCMythosHolyOrders.135
+	border = GFX_event_letter_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAMythosHolyOrders.26 # Agree
+		ai_chance = {
+			factor = 100
+		}
+		
+		set_character_flag = sent_son_to_sons_mars
+		
+		piety = 100
+		
+		d_sons_mars = {
+			holder_scope = {
+				FROMFROM = {
+					hidden_tooltip = {
+						clear_wealth = PREV
+					}
+					spouse = {
+						remove_spouse = spouse
+						hidden_tooltip = { character_event = { id = SoA.2862 } }
+					}
+					move_character = PREV
+					add_trait = celibate
+					end_inaccessibility_effect = yes #removes in_hiding or in_seclusion
+
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTBMythosHolyOrders.26 # Pay them back
+		wealth = -300
+		hidden_tooltip = {
+			remove_character_modifier = borrowed_from_sons_of_mars
+		}
+		FROM = {
+			wealth = 300
+		}
+	}
+	
+	option = {
+		name = EVTOPTCMythosHolyOrders.26 # Refuse
+		piety = -1000
+	}
+}
+
+# Ping when vassalizing the Sons of Mars
+character_event = {
+	id = MythosHolyOrders.136
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		set_defacto_liege = FROM
+		FROM = {
+			letter_event = { id = MythosHolyOrders.183 }
+		}
+	}
+}
+
+# The Grand Master demands the right to build a castle in your demesne
+#character_event = {
+#	id = MythosHolyOrders.137
+#	
+#	hide_window = yes
+#	
+#	min_age = 16
+#	only_playable = yes
+#	religion = hellenic_pagan_reformed
+#	
+#	trigger = {
+#		religion = hellenic_pagan_reformed
+#		# Plus a feature that's not in yet
+#		is_heretic = no
+#		
+#		has_character_modifier = borrowed_from_sons_of_mars
+#		NOT = { has_character_flag = sent_son_to_sons_mars }
+#		
+#		any_demesne_province = {
+#			has_empty_holding = yes
+#		}
+#		
+#		d_sons_mars = {
+#			holder_scope = {
+#				wealth = 300
+#			}
+#		}
+#		has_dlc = "Sons of Abraham"
+#		
+#		NOT = { has_character_modifier = expelled_d_sons_mars }
+#		NOT = {
+#			any_liege = {
+#				has_character_modifier = expelled_d_sons_mars
+#			}
+#		}
+#	}
+#	
+#	mean_time_to_happen = {
+#		months = 240
+#		modifier = {
+#			factor = 0.5
+#			d_sons_mars = {
+#				holder_scope = {
+#					NOT = { demesne_size = 1 }
+#				}
+#			}
+#		}
+#		modifier = {
+#			factor = 0.5
+#			d_sons_mars = {
+#				holder_scope = {
+#					NOT = { demesne_size = 2 }
+#				}
+#			}
+#		}
+#		modifier = {
+#			factor = 2.0
+#			d_sons_mars = {
+#				holder_scope = {
+#					realm_size = 5
+#				}
+#			}
+#		}
+#	}
+#	
+#	immediate = {
+#		random_demesne_province = {
+#			limit = {
+#				has_empty_holding = yes
+#			}
+#			province_event = {
+#				id = MythosHolyOrders.138
+#			}
+#		}
+#	}
+#}
+
+province_event = {
+	id = MythosHolyOrders.138
+	
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		d_sons_mars = {
+			holder_scope = {
+				character_event = {
+					id = MythosHolyOrders.139
+				}
+			}
+		}
+	}
+}
+
+character_event = {
+	id = MythosHolyOrders.139
+	
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		FROMFROM = {
+			letter_event = {
+				id = MythosHolyOrders.140
+			}
+		}
+	}
+}
+
+letter_event = {
+	id = MythosHolyOrders.140
+	desc = EVTDESCMythosHolyOrders.140
+	border = GFX_event_letter_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAMythosHolyOrders.31 # Agree
+		ai_chance = {
+			factor = 100
+		}
+		
+		hidden_tooltip = {
+			remove_character_modifier = borrowed_from_sons_of_mars
+			remove_character_modifier = expelled_d_sons_mars
+			FROMFROM = {
+				province_event = { id = MythosHolyOrders.32 }
+			}
+		}
+		
+		piety = 100
+	}
+	
+	option = {
+		name = EVTOPTBMythosHolyOrders.31
+		wealth = -300
+		hidden_tooltip = {
+			remove_character_modifier = borrowed_from_sons_of_mars
+		}
+		FROM = {
+			wealth = 300
+		}
+	}
+	
+	option = {
+		name = EVTOPTCMythosHolyOrders.31 # Refuse
+		piety = -1000
+	}
+}
+
+# Castle has been erected
+province_event = {
+	id = MythosHolyOrders.141
+	desc = EVTDESCMythosHolyOrders.141
+	picture = GFX_evt_castle_construction
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		FROMFROM = {
+			wealth = -300
+		}
+	}
+	
+	option = {
+		name = EVTOPTAMythosHolyOrders.32
+		build_holding = {
+		   type = castle
+		   holder = FROMFROM
+		}
+	}
+}
+
+# The son of a ruler volunteers to join the Sons of Mars
+#character_event = {
+#	id = MythosHolyOrders.142
+#	hide_window = yes
+#	
+#	only_men = yes
+#	min_age = 16
+#	max_age = 45
+#	only_capable = yes
+#	prisoner = no
+#	religion = roman_pagan
+#	
+#	trigger = {
+#		is_ruler = no
+#		religion = roman_pagan
+#		is_heretic = no
+#		
+#		martial = 5
+#		
+#		is_title_active = d_sons_mars
+#		
+#		OR = {
+#			father_even_if_dead = {
+#				primary_title = { higher_tier_than = BARON }
+#			}
+#			mother_even_if_dead = {
+#				primary_title = { higher_tier_than = BARON }
+#			}
+#		}
+#		
+#		liege = {
+#			holy_order = no
+#			liege = {
+#				holy_order = no
+#			}
+#		}
+#		
+#		has_dlc = "Sons of Abraham"
+#		
+#		NOT = { has_character_modifier = expelled_d_sons_mars }
+#		NOT = {
+#			any_liege = {
+#				has_character_modifier = expelled_d_sons_mars
+#			}
+#		}
+#		
+#		NOT = {
+#			any_spouse = {
+#				OR = {
+#					is_landed = yes
+#					AND = {
+#						is_pregnant = yes
+#					father_of_unborn = { character = ROOT } # Won't happen if spouse is pregnant with non-bastard child
+#					}
+#				}
+#			}
+#		}
+#	}
+#	
+#	mean_time_to_happen = {
+#		years = 100
+#		modifier = {
+#			factor = 0.25
+#			trait = zealous
+#		}
+#		modifier = {
+#			factor = 0.5
+#			trait = celibate
+#		}
+#		modifier = {
+#			factor = 0.5
+#			trait = homosexual
+#		}
+#		modifier = {
+#			factor = 0.7
+#			trait = content
+#		}
+#		modifier = {
+#			factor = 0.75
+#			trait = chaste
+#		}
+#		modifier = {
+#			factor = 0.75
+#			NOT = { age = 40 }
+#		}
+#		modifier = {
+#			factor = 1.5
+#			trait = slothful
+#		}
+#		modifier = {
+#			factor = 2.0
+#			trait = lustful
+#		}
+#		modifier = {
+#			factor = 2.0
+#			trait = cynical
+#		}
+#		modifier = {
+#			factor = 2.0
+#			trait = hedonist
+#		}
+#		modifier = {
+#			factor = 2.0
+#			trait = ambitious
+#		}
+#		modifier = {
+#			factor = 2.0
+#			any_heir_title = {
+#				always = yes
+#			}
+#		}
+#		modifier = {
+#			factor = 2.0
+#			is_primary_heir = yes
+#		}
+#		modifier = {
+#			factor = 2
+#			any_spouse = {
+#				reverse_opinion = { who = ROOT value = 100 }
+#			}
+#		}
+#	}
+#	
+#	immediate = {
+#		liege = {
+#			character_event = {
+#				id = MythosHolyOrders.143
+#			}
+#		}
+#	}
+#}
+#
+## Son or brother asks to join the Sons of Mars
+#character_event = {
+#	id = MythosHolyOrders.143
+#	desc = EVTDESCMythosHolyOrders.143
+#	picture = GFX_evt_crusaders
+#	border = GFX_event_normal_frame_religion
+#	
+#	is_triggered_only = yes
+#	
+#	option = {
+#		name = EVTOPTAMythosHolyOrders.34
+#		ai_chance = {
+#			factor = 100
+#		}
+#		
+#		if = {
+#			limit = {
+#				religion = FROM
+#			}
+#			piety = 100
+#		}
+#		
+#		FROM = {
+#			character_event = {
+#				id = MythosHolyOrders.144
+#				tooltip = EVTTOOLTIPAMythosHolyOrders.143
+#			}
+#		}
+#	}
+#	
+#	option = {
+#		name = EVTOPTBMythosHolyOrders.34 # Refuse
+#		
+#		if = {
+#			limit = {
+#				religion = FROM
+#			}
+#			piety = -100
+#		}
+#		
+#		FROM = {
+#			character_event = {
+#				id = MythosHolyOrders.145
+#				tooltip = EVTTOOLTIPBMythosHolyOrders.34
+#			}
+#		}
+#	}
+#}
+#
+## Son or brother joins the Sons of Mars
+#character_event = {
+#	id = MythosHolyOrders.144
+#	hide_window = yes
+#	
+#	is_triggered_only = yes
+#	
+#	immediate = {
+#		d_sons_mars = {
+#			holder_scope = {
+#				save_event_target_as = order_target
+#				ROOT = {
+#					character_event = { id = SoA.2864 }
+#				}
+#			}
+#		}
+#	}
+#}
+#
+## Liege refuses request to join the Sons of Mars
+#character_event = {
+#	id = MythosHolyOrders.145
+#	hide_window = yes
+#	
+#	is_triggered_only = yes
+#	
+#	immediate = {
+#		opinion = {
+#			who = FROM
+#			modifier = opinion_refused_request_holy_order
+#		}
+#	}
+#}
+#
+## The Grand Master humbly requests the right to build a castle in your demesne
+#character_event = {
+#	id = MythosHolyOrders.146
+#	hide_window = yes
+#	
+#	min_age = 16
+#	only_playable = yes
+#	religion = roman_pagan
+#	
+#	trigger = {
+#		religion = roman_pagan
+#		is_heretic = no
+#		
+#		d_sons_mars = {
+#			holder_scope = {
+#				wealth = 300
+#				NOT = {
+#					realm_size = 10
+#				}
+#				NOT = {
+#					num_of_count_titles = 1
+#				}
+#			}
+#		}
+#		
+#		any_demesne_province = {
+#			has_empty_holding = yes
+#			OR = {
+#				region = world_europe_west_brittania
+#				region = world_europe_west_francia
+#				region = world_europe_west_iberia
+#				region = world_europe_south
+#				region = world_asia_minor
+#				region = world_middle_east_jerusalem
+#				region = world_africa_north
+#			}
+#		}
+#		
+#		has_dlc = "Sons of Abraham"
+#		
+#		NOT = { has_character_modifier = expelled_d_sons_mars }
+#		NOT = {
+#			any_liege = {
+#				has_character_modifier = expelled_d_sons_mars
+#			}
+#		}
+#	}
+#	
+#	mean_time_to_happen = {
+#		months = 240
+#		modifier = {
+#			factor = 0.5
+#			d_sons_mars = {
+#				holder_scope = {
+#					NOT = { demesne_size = 1 }
+#				}
+#			}
+#		}
+#		modifier = {
+#			factor = 0.5
+#			d_sons_mars = {
+#				holder_scope = {
+#					NOT = { demesne_size = 2 }
+#				}
+#			}
+#		}
+#		modifier = {
+#			factor = 2.0
+#			d_sons_mars = {
+#				holder_scope = {
+#					realm_size = 5
+#				}
+#			}
+#		}
+#	}
+#	
+#	immediate = {
+#		random_demesne_province = {
+#			limit = {
+#				has_empty_holding = yes
+#				OR = {
+#					region = world_europe_west_brittania
+#					region = world_europe_west_francia
+#					region = world_europe_west_iberia
+#					region = world_europe_south
+#					region = world_asia_minor
+#					region = world_middle_east_jerusalem
+#					region = world_africa_north
+#				}
+#			}
+#			province_event = {
+#				id = MythosHolyOrders.147
+#			}
+#		}
+#	}
+#}
+#
+#province_event = {
+#	id = MythosHolyOrders.147
+#	hide_window = yes
+#	
+#	is_triggered_only = yes
+#	
+#	immediate = {
+#		d_sons_mars = {
+#			holder_scope = {
+#				character_event = {
+#					id = MythosHolyOrders.148
+#				}
+#			}
+#		}
+#	}
+#}
+#
+#character_event = {
+#	id = MythosHolyOrders.148
+#	hide_window = yes
+#	
+#	is_triggered_only = yes
+#	
+#	immediate = {
+#		FROMFROM = {
+#			letter_event = {
+#				id = MythosHolyOrders.149
+#			}
+#		}
+#	}
+#}
+#
+#letter_event = {
+#	id = MythosHolyOrders.149
+#	desc = EVTDESCMythosHolyOrders.149
+#	border = GFX_event_letter_frame_religion
+#	
+#	is_triggered_only = yes
+#	
+#	option = {
+#		name = EVTOPTAMythosHolyOrders.40
+#		ai_chance = {
+#			factor = 80
+#			modifier = {
+#				factor = 0
+#				has_character_modifier = expelled_d_sons_mars
+#			}
+#		}
+#		
+#		hidden_tooltip = {
+#			FROMFROM = {
+#				province_event = { id = MythosHolyOrders.141 }
+#			}
+#			remove_character_modifier = expelled_d_sons_mars
+#		}
+#		
+#		piety = 200
+#		wealth = 100
+#	}
+#	
+#	option = {
+#		name = EVTOPTB_SOA_1031 # Refuse
+#		ai_chance = {
+#			factor = 20
+#		}
+#		
+#		piety = -100
+#	}
+#}
+
+########################
+# Champions of Vígríðr #
+########################
+
+# The Grand Master demands one of your sons due to a debt
+character_event = {
+	id = MythosHolyOrders.150
+	hide_window = yes
+	
+	min_age = 16
+	only_playable = yes
+	
+	trigger = {
+		OR = {
+			religion = jotnar
+			religion = jotnar_reformed
+		}
+		is_heretic = no
+		has_character_modifier = borrowed_from_champions_of_vigrithr
+		NOT = { has_character_flag = expelled_d_champion_vigrithr }
+		any_child = {
+			is_female = no
+			is_adult = yes
+			is_ruler = no
+			prisoner = no
+			NOT = { trait = incapable }
+			ROOT = {
+				NOT = {
+					current_heir = {
+						character = PREVPREV
+					}
+				}
+			}
+		}
+		has_dlc = "Sons of Abraham"
+	}
+	
+	mean_time_to_happen = {
+		months = 120
+	}
+	
+	immediate = {
+		random_child = {
+			limit = {
+				is_female = no
+				is_adult = yes
+				is_ruler = no
+				prisoner = no
+				NOT = { trait = incapable }
+				ROOT = {
+					NOT = {
+						current_heir = {
+							character = PREVPREV
+						}
+					}
+				}
+			}
+			character_event = {
+				id = MythosHolyOrders.151
+			}
+		}
+	}
+}
+
+character_event = {
+	id = MythosHolyOrders.151
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		d_champion_vigrithr = {
+			holder_scope = {
+				character_event = {
+					id = MythosHolyOrders.152
+				}
+			}
+		}
+	}
+}
+
+character_event = {
+	id = MythosHolyOrders.152
+	
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		FROMFROM = {
+			letter_event = {
+				id = MythosHolyOrders.153
+			}
+		}
+	}
+}
+
+letter_event = {
+	id = MythosHolyOrders.153
+	desc = EVTDESCMythosHolyOrders.153
+	border = GFX_event_letter_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAMythosHolyOrders.26 # Agree
+		ai_chance = {
+			factor = 100
+		}
+		
+		set_character_flag = sent_son_to_vigrithr
+		
+		piety = 100
+		
+		d_champion_vigrithr = {
+			holder_scope = {
+				FROMFROM = {
+					hidden_tooltip = {
+						clear_wealth = PREV
+					}
+					spouse = {
+						remove_spouse = spouse
+						hidden_tooltip = { character_event = { id = SoA.2862 } }
+					}
+					move_character = PREV
+					add_trait = celibate
+					end_inaccessibility_effect = yes #removes in_hiding or in_seclusion
+
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTBMythosHolyOrders.26 # Pay them back
+		wealth = -300
+		hidden_tooltip = {
+			remove_character_modifier = borrowed_from_champions_of_vigrithr
+		}
+		FROM = {
+			wealth = 300
+		}
+	}
+	
+	option = {
+		name = EVTOPTCMythosHolyOrders.26 # Refuse
+		piety = -1000
+	}
+}
+
+# Ping when vassalizing the Champions of Vígríðr
+character_event = {
+	id = MythosHolyOrders.154
+	
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		set_defacto_liege = FROM
+		FROM = {
+			letter_event = { id = MythosHolyOrders.176 }
+		}
+	}
+}
+
+# The Grand Master demands the right to build a castle in your demesne
+character_event = {
+	id = MythosHolyOrders.155
+	
+	hide_window = yes
+	
+	min_age = 16
+	only_playable = yes
+	religion_group = pagan_group
+	trigger = {
+		OR = {
+			religion = jotnar
+			religion = jotnar_reformed
+		}
+		is_heretic = no
+		
+		has_character_modifier = borrowed_from_champions_of_vigrithr
+		NOT = { has_character_flag = expelled_d_champion_vigrithr }
+		
+		any_demesne_province = {
+			has_empty_holding = yes
+		}
+		
+		d_champion_vigrithr = {
+			holder_scope = {
+				wealth = 300
+			}
+		}
+		has_dlc = "Sons of Abraham"
+		
+		NOT = { has_character_modifier = expelled_d_champion_vigrithr }
+		NOT = {
+			any_liege = {
+				has_character_modifier = expelled_d_champion_vigrithr
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 240
+		modifier = {
+			factor = 0.5
+			d_champion_vigrithr = {
+				holder_scope = {
+					NOT = { demesne_size = 1 }
+				}
+			}
+		}
+		modifier = {
+			factor = 0.5
+			d_champion_vigrithr = {
+				holder_scope = {
+					NOT = { demesne_size = 2 }
+				}
+			}
+		}
+		modifier = {
+			factor = 2.0
+			d_champion_vigrithr = {
+				holder_scope = {
+					realm_size = 5
+				}
+			}
+		}
+	}
+	
+	immediate = {
+		random_demesne_province = {
+			limit = {
+				has_empty_holding = yes
+			}
+			province_event = {
+				id = MythosHolyOrders.156
+			}
+		}
+	}
+}
+
+province_event = {
+	id = MythosHolyOrders.156
+	
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		d_champion_vigrithr = {
+			holder_scope = {
+				character_event = {
+					id = MythosHolyOrders.157
+				}
+			}
+		}
+	}
+}
+
+character_event = {
+	id = MythosHolyOrders.157
+	
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		FROMFROM = {
+			letter_event = {
+				id = MythosHolyOrders.158
+			}
+		}
+	}
+}
+
+letter_event = {
+	id = MythosHolyOrders.158
+	desc = EVTDESCMythosHolyOrders.158
+	border = GFX_event_letter_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAMythosHolyOrders.31 # Agree
+		ai_chance = {
+			factor = 100
+		}
+		
+		hidden_tooltip = {
+			remove_character_modifier = borrowed_from_champions_of_vigrithr
+			remove_character_modifier = expelled_d_champion_vigrithr
+			FROMFROM = {
+				province_event = { id = MythosHolyOrders.32 }
+			}
+		}
+		
+		piety = 100
+	}
+	
+	option = {
+		name = EVTOPTBMythosHolyOrders.31
+		wealth = -300
+		hidden_tooltip = {
+			remove_character_modifier = borrowed_from_champions_of_vigrithr
+		}
+		FROM = {
+			wealth = 300
+		}
+	}
+	
+	option = {
+		name = EVTOPTCMythosHolyOrders.31 # Refuse
+		piety = -1000
+	}
+}
+
+# Castle has been erected
+province_event = {
+	id = MythosHolyOrders.159
+	desc = EVTDESCMythosHolyOrders.159
+	picture = GFX_evt_castle_construction
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		FROMFROM = {
+			wealth = -300
+		}
+	}
+	
+	option = {
+		name = EVTOPTAMythosHolyOrders.32
+		build_holding = {
+		   type = castle
+		   holder = FROMFROM
+		}
+	}
+}
+
+# The son of a ruler volunteers to join the Champions of Vigrithr
+character_event = {
+	id = MythosHolyOrders.160
+	hide_window = yes
+	
+	only_men = yes
+	min_age = 16
+	max_age = 45
+	only_capable = yes
+	prisoner = no
+	religion_group = pagan_group
+	
+	trigger = {
+		is_ruler = no
+		OR = {
+			religion = jotnar
+			religion = jotnar_reformed
+		}
+		is_heretic = no
+		
+		martial = 5
+		
+		is_title_active = d_champion_vigrithr
+		
+		OR = {
+			father_even_if_dead = {
+				primary_title = { higher_tier_than = BARON }
+			}
+			mother_even_if_dead = {
+				primary_title = { higher_tier_than = BARON }
+			}
+		}
+		
+		liege = {
+			holy_order = no
+			liege = {
+				holy_order = no
+			}
+		}
+		
+		has_dlc = "Sons of Abraham"
+		
+		NOT = { has_character_modifier = expelled_d_champion_vigrithr }
+		NOT = {
+			any_liege = {
+				has_character_modifier = expelled_d_champion_vigrithr
+			}
+		}
+		
+		NOT = {
+			any_spouse = {
+				OR = {
+					is_landed = yes
+					AND = {
+						is_pregnant = yes
+					father_of_unborn = { character = ROOT } # Won't happen if spouse is pregnant with non-bastard child
+					}
+				}
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		years = 100
+		modifier = {
+			factor = 0.25
+			trait = zealous
+		}
+		modifier = {
+			factor = 0.5
+			trait = celibate
+		}
+		modifier = {
+			factor = 0.5
+			trait = homosexual
+		}
+		modifier = {
+			factor = 0.7
+			trait = content
+		}
+		modifier = {
+			factor = 0.75
+			trait = chaste
+		}
+		modifier = {
+			factor = 0.75
+			NOT = { age = 40 }
+		}
+		modifier = {
+			factor = 1.5
+			trait = slothful
+		}
+		modifier = {
+			factor = 2.0
+			trait = lustful
+		}
+		modifier = {
+			factor = 2.0
+			trait = cynical
+		}
+		modifier = {
+			factor = 2.0
+			trait = hedonist
+		}
+		modifier = {
+			factor = 2.0
+			trait = ambitious
+		}
+		modifier = {
+			factor = 2.0
+			any_heir_title = {
+				always = yes
+			}
+		}
+		modifier = {
+			factor = 2.0
+			is_primary_heir = yes
+		}
+		modifier = {
+			factor = 2
+			any_spouse = {
+				reverse_opinion = { who = ROOT value = 100 }
+			}
+		}
+	}
+	
+	immediate = {
+		liege = {
+			character_event = {
+				id = MythosHolyOrders.161
+			}
+		}
+	}
+}
+
+# Son or brother asks to join the Champions of Vigrithr
+character_event = {
+	id = MythosHolyOrders.161
+	desc = EVTDESCMythosHolyOrders.161
+	picture = GFX_evt_crusaders
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAMythosHolyOrders.34
+		ai_chance = {
+			factor = 100
+		}
+		
+		if = {
+			limit = {
+				religion = FROM
+			}
+			piety = 100
+		}
+		
+		FROM = {
+			character_event = {
+				id = MythosHolyOrders.162
+				tooltip = EVTTOOLTIPAMythosHolyOrders.161
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTBMythosHolyOrders.34 # Refuse
+		
+		if = {
+			limit = {
+				religion = FROM
+			}
+			piety = -100
+		}
+		
+		FROM = {
+			character_event = {
+				id = MythosHolyOrders.163
+				tooltip = EVTTOOLTIPBMythosHolyOrders.34
+			}
+		}
+	}
+}
+
+# Son or brother joins the Champions of Vígríðr
+character_event = {
+	id = MythosHolyOrders.162
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		d_champion_vigrithr = {
+			holder_scope = {
+				save_event_target_as = order_target
+				ROOT = {
+					character_event = { id = SoA.2864 }
+				}
+			}
+		}
+	}
+}
+
+# Liege refuses request to join the Champions of Vígríðr
+character_event = {
+	id = MythosHolyOrders.163
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		opinion = {
+			who = FROM
+			modifier = opinion_refused_request_holy_order
+		}
+	}
+}
+
+# The Grand Master humbly requests the right to build a castle in your demesne
+character_event = {
+	id = MythosHolyOrders.164
+	hide_window = yes
+	
+	min_age = 16
+	only_playable = yes
+	religion_group = pagan_group
+	
+	trigger = {
+		OR = {
+			religion = jotnar
+			religion = jotnar_reformed
+		}
+		is_heretic = no
+		
+		d_champion_vigrithr = {
+			holder_scope = {
+				wealth = 300
+				NOT = {
+					realm_size = 10
+				}
+				NOT = {
+					num_of_count_titles = 1
+				}
+			}
+		}
+		
+		any_demesne_province = {
+			has_empty_holding = yes
+			region = world_europe_north
+		}
+		
+		has_dlc = "Sons of Abraham"
+		
+		NOT = { has_character_modifier = expelled_d_champion_vigrithr }
+		NOT = {
+			any_liege = {
+				has_character_modifier = expelled_d_champion_vigrithr
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 240
+		modifier = {
+			factor = 0.5
+			d_champion_vigrithr = {
+				holder_scope = {
+					NOT = { demesne_size = 1 }
+				}
+			}
+		}
+		modifier = {
+			factor = 0.5
+			d_champion_vigrithr = {
+				holder_scope = {
+					NOT = { demesne_size = 2 }
+				}
+			}
+		}
+		modifier = {
+			factor = 2.0
+			d_champion_vigrithr = {
+				holder_scope = {
+					realm_size = 5
+				}
+			}
+		}
+	}
+	
+	immediate = {
+		random_demesne_province = {
+			limit = {
+				has_empty_holding = yes
+				region = world_europe_north
+			}
+			province_event = {
+				id = MythosHolyOrders.165
+			}
+		}
+	}
+}
+
+province_event = {
+	id = MythosHolyOrders.165
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		d_champion_vigrithr = {
+			holder_scope = {
+				character_event = {
+					id = MythosHolyOrders.166
+				}
+			}
+		}
+	}
+}
+
+character_event = {
+	id = MythosHolyOrders.166
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		FROMFROM = {
+			letter_event = {
+				id = MythosHolyOrders.167
+			}
+		}
+	}
+}
+
+letter_event = {
+	id = MythosHolyOrders.167
+	desc = EVTDESCMythosHolyOrders.167
+	border = GFX_event_letter_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAMythosHolyOrders.40
+		ai_chance = {
+			factor = 80
+			modifier = {
+				factor = 0
+				has_character_modifier = expelled_d_champion_vigrithr
+			}
+		}
+		
+		hidden_tooltip = {
+			FROMFROM = {
+				province_event = { id = MythosHolyOrders.159 }
+			}
+			remove_character_modifier = expelled_d_champion_vigrithr
+		}
+		
+		piety = 200
+		wealth = 100
+	}
+	
+	option = {
+		name = EVTOPTB_SOA_1031 # Refuse
+		ai_chance = {
+			factor = 20
+		}
+		
+		piety = -100
+	}
+}
+
+# Birth of the Golden Order
+narrative_event = {
+	id = MythosHolyOrders.168
+	title = EVTNAMEMythosHolyOrders.168
+	desc = EVTDESCMythosHolyOrders.168
+	picture = GFX_evt_crusaders
+	
+	major = yes
+	hide_from = yes
+	
+	only_playable = yes
+	only_men = yes
+	religion_group = pagan_group
+	has_global_flag = pagan_ghws_unlocked
+	has_dlc = "Sons of Abraham"
+	
+	trigger = {
+		OR = {
+			religion = draconic_pagan
+			religion = draconic_pagan_reformed
+		}
+		is_heretic = no
+		NOT = { is_title_active = d_golden_order }
+		
+		OR = {
+			year = 1111
+			AND = {
+				NOT = { num_of_holy_sites = 3 }
+				is_reformed_religion = yes
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 6
+	}
+	
+	immediate = {
+		activate_title = { title = d_golden_order status = yes }
+		create_character = {
+			random_traits = no
+			name = Bisterne
+			dynasty = random
+			religion = ROOT
+			culture = draconic
+			female = no
+			age = 45
+			attributes = {
+				martial = 11
+				diplomacy = 8
+				stewardship = 10
+				intrigue = 7
+				learning = 8
+			}
+			health = 6
+			fertility = 0.5
+			trait = brilliant_strategist
+			trait = greedy
+			trait = patient
+			trait = zealous
+			trait = strategist
+			trait = robust
+			trait = dragon
+			trait = flametender
+			flag = checked_race
+		}
+		new_character = {
+			wealth = 2000
+			d_golden_order = {
+				grant_title = PREV
+			}
+			set_government_type = feudal_government
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = ROOT
+				culture = draconic
+				female = no
+				age = 22
+				trait = dragon
+				flag = checked_race
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = ROOT
+				culture = draconic
+				female = no
+				age = 24
+				trait = dragon
+				flag = checked_race
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = ROOT
+				culture = draconic
+				female = no
+				age = 21
+				trait = dragon
+				flag = checked_race
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = ROOT
+				culture = draconic
+				female = no
+				age = 30
+				trait = dragon
+				flag = checked_race
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = ROOT
+				culture = draconic
+				female = no
+				age = 17
+				trait = dragon
+				flag = checked_race
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = ROOT
+				culture = draconic
+				female = no
+				age = 25
+				trait = dragon
+				flag = checked_race
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = ROOT
+				culture = draconic
+				female = no
+				age = 40
+				trait = dragon
+				flag = checked_race
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = ROOT
+				culture = draconic
+				female = no
+				age = 37
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = ROOT
+				culture = draconic
+				female = no
+				age = 31
+				trait = dragon
+				flag = checked_race
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTAMythosHolyOrders.168
+		trigger = { religion = ROOT }
+	}
+	option = {
+		name = EVTOPTBMythosHolyOrders.168
+		trigger = { NOT = { religion = ROOT } }
+	}
+}
+
+# Birth of the Army of Baal
+narrative_event = {
+	id = MythosHolyOrders.169
+	title = EVTNAMEMythosHolyOrders.169
+	desc = EVTDESCMythosHolyOrders.169
+	picture = GFX_evt_crusaders
+	
+	major = yes
+	hide_from = yes
+	
+	only_playable = yes
+	only_men = yes
+	religion = satanist
+	has_global_flag = satanist_crusades_unlocked
+	has_dlc = "Sons of Abraham"
+	
+	trigger = {
+		religion = satanist
+		is_heretic = no
+		NOT = {
+			is_title_active = d_army_baal
+		}
+		
+		OR = {
+			year = 1300
+			AND = {
+				religion_authority = 0.8
+				OR = {
+					has_global_flag = christian_crusades_unlocked
+					has_global_flag = muslim_crusaders_unlocked
+				}
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 6
+	}
+	
+	immediate = {
+		activate_title = { title = d_army_baal status = yes }
+		create_character = {
+			random_traits = no
+			name = Barrett
+			dynasty = random
+			religion = satanist
+			culture = ROOT
+			female = no
+			age = 25
+			attributes = {
+				martial = 10
+				diplomacy = 9
+				stewardship = 9
+				intrigue = 9
+				learning = 7
+			}
+			health = 6
+			fertility = 0.5
+			trait = brilliant_strategist
+			trait = wroth
+			trait = zealous
+			trait = mystic
+			trait = impaler
+			trait = proud
+			trait = lustful
+		}
+		new_character = {
+			random = {
+				chance = 10
+				add_trait = demon_trait
+				set_graphical_culture = demon_culture
+				culture = demon_culture
+				set_character_flag = checked_race
+			}
+			wealth = 500
+			d_army_baal = {
+				grant_title = PREV
+			}
+			set_government_type = feudal_government
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = satanist
+				culture = ROOT
+				female = no
+				age = 16
+			}
+			new_character = {
+				random = {
+					chance = 2
+					add_trait = demon_trait
+					set_graphical_culture = demon_culture
+					culture = demon_culture
+					set_character_flag = checked_race
+				}
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = satanist
+				culture = ROOT
+				female = no
+				age = 18
+			}
+			new_character = {
+				random = {
+					chance = 2
+					add_trait = demon_trait
+					set_graphical_culture = demon_culture
+					culture = demon_culture
+					set_character_flag = checked_race
+				}
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = satanist
+				culture = ROOT
+				female = no
+				age = 21
+			}
+			new_character = {
+				random = {
+					chance = 2
+					add_trait = demon_trait
+					set_graphical_culture = demon_culture
+					culture = demon_culture
+					set_character_flag = checked_race
+				}
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = satanist
+				culture = ROOT
+				female = no
+				age = 21
+			}
+			new_character = {
+				random = {
+					chance = 2
+					add_trait = demon_trait
+					set_graphical_culture = demon_culture
+					culture = demon_culture
+					set_character_flag = checked_race
+				}
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = satanist
+				culture = ROOT
+				female = no
+				age = 22
+			}
+			new_character = {
+				random = {
+					chance = 2
+					add_trait = demon_trait
+					set_graphical_culture = demon_culture
+					culture = demon_culture
+					set_character_flag = checked_race
+				}
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = satanist
+				culture = ROOT
+				female = no
+				age = 24
+			}
+			new_character = {
+				random = {
+					chance = 2
+					add_trait = demon_trait
+					set_graphical_culture = demon_culture
+					culture = demon_culture
+					set_character_flag = checked_race
+				}
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = satanist
+				culture = ROOT
+				female = no
+				age = 29
+			}
+			new_character = {
+				random = {
+					chance = 2
+					add_trait = demon_trait
+					set_graphical_culture = demon_culture
+					culture = demon_culture
+					set_character_flag = checked_race
+				}
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = satanist
+				culture = ROOT
+				female = no
+				age = 33
+			}
+			new_character = {
+				random = {
+					chance = 2
+					add_trait = demon_trait
+					set_graphical_culture = demon_culture
+					culture = demon_culture
+					set_character_flag = checked_race
+				}
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = satanist
+				culture = ROOT
+				female = no
+				age = 34
+			}
+			new_character = {
+				random = {
+					chance = 2
+					add_trait = demon_trait
+					set_graphical_culture = demon_culture
+					culture = demon_culture
+					set_character_flag = checked_race
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTAMythosHolyOrders.169
+		trigger = {
+			religion = ROOT
+		}
+	}
+	option = {
+		name = EVTOPTBMythosHolyOrders.169
+		trigger = {
+			NOT = { religion = ROOT }
+		}
+	}
+}
+
+#################
+# Y Ddraig Goch #
+#################
+narrative_event = {
+	id = MythosHolyOrders.170
+	title = EVTNAMEMythosHolyOrders.170
+	desc = EVTDESCMythosHolyOrders.170
+	picture = GFX_evt_vikings_arriving_oldgods
+	
+	major = yes
+	hide_from = yes
+	
+	only_playable = yes
+	only_men = yes
+	religion_group = pagan_group
+	has_global_flag = pagan_ghws_unlocked
+	has_dlc = "Sons of Abraham"
+	
+	trigger = {
+		OR = {
+			religion = druidic
+			religion = druidic_reformed
+		}
+		is_heretic = no
+		NOT = {
+			is_title_active = d_ddraig_goch
+		}
+		
+		has_global_flag = christian_crusade_unlocked
+		# Druidic holy sites in Britain control by pagans - most likely Druidic, Draconic, or Norse
+		50 = { # Galloway
+			owner = { religion_group = pagan_group }
+		}
+		64 = { # Gwynned
+			owner = { religion_group = pagan_group }
+		}
+		72 = { # Essex
+			owner = { religion_group = pagan_group }
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 6
+	}
+	
+	immediate = {
+		activate_title = { title = d_ddraig_goch status = yes }
+		create_character = {
+			random_traits = no
+			dynasty = random
+			religion = ROOT
+			culture = ROOT
+			female = no
+			age = 25
+			attributes = {
+				martial = 10
+				diplomacy = 10
+				stewardship = 8
+				intrigue = 7
+				learning = 9
+			}
+			health = 6
+			fertility = 0.5
+			trait = brilliant_strategist
+			trait = hunter
+			trait = zealous
+			trait = falconer
+			trait = proud
+			trait = diligent
+			trait = brave
+			trait = inspiring_leader
+		}
+		new_character = {
+			random_list = {
+				48 = {}
+				1 = {
+					add_trait = dragon
+					set_graphical_culture = draconic
+					set_character_flag = checked_race
+				}
+				1 = {
+					add_trait = dragonborn
+					set_character_flag = checked_race
+					if = {
+						limit = { graphical_culture = dragongfx }
+						set_graphical_culture = italian
+					}
+				}
+			}
+			wealth = 500
+			d_bektashi = {
+				grant_title = PREV
+			}
+			set_government_type = feudal_government
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = ROOT
+				culture = ROOT
+				female = no
+				age = 16
+			}
+			new_character = {
+				random_list = {
+					98 = {}
+					1 = {
+						add_trait = dragon
+						set_graphical_culture = draconic
+						set_character_flag = checked_race
+					}
+					1 = {
+						add_trait = dragonborn
+						set_character_flag = checked_race
+						if = {
+							limit = { graphical_culture = dragongfx }
+							set_graphical_culture = italian
+						}
+					}
+				}
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = ROOT
+				culture = ROOT
+				female = no
+				age = 17
+			}
+			new_character = {
+				random_list = {
+					98 = {}
+					1 = {
+						add_trait = dragon
+						set_graphical_culture = draconic
+						set_character_flag = checked_race
+					}
+					1 = {
+						add_trait = dragonborn
+						set_character_flag = checked_race
+						if = {
+							limit = { graphical_culture = dragongfx }
+							set_graphical_culture = italian
+						}
+					}
+				}
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = ROOT
+				culture = ROOT
+				female = no
+				age = 16
+			}
+			new_character = {
+				random_list = {
+					98 = {}
+					1 = {
+						add_trait = dragon
+						set_graphical_culture = draconic
+						set_character_flag = checked_race
+					}
+					1 = {
+						add_trait = dragonborn
+						set_character_flag = checked_race
+						if = {
+							limit = { graphical_culture = dragongfx }
+							set_graphical_culture = italian
+						}
+					}
+				}
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = ROOT
+				culture = ROOT
+				female = no
+				age = 18
+			}
+			new_character = {
+				random_list = {
+					98 = {}
+					1 = {
+						add_trait = dragon
+						set_graphical_culture = draconic
+						set_character_flag = checked_race
+					}
+					1 = {
+						add_trait = dragonborn
+						set_character_flag = checked_race
+						if = {
+							limit = { graphical_culture = dragongfx }
+							set_graphical_culture = italian
+						}
+					}
+				}
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = ROOT
+				culture = ROOT
+				female = no
+				age = 20
+			}
+			new_character = {
+				random_list = {
+					98 = {}
+					1 = {
+						add_trait = dragon
+						set_graphical_culture = draconic
+						set_character_flag = checked_race
+					}
+					1 = {
+						add_trait = dragonborn
+						set_character_flag = checked_race
+						if = {
+							limit = { graphical_culture = dragongfx }
+							set_graphical_culture = italian
+						}
+					}
+				}
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = ROOT
+				culture = ROOT
+				female = no
+				age = 23
+			}
+			new_character = {
+				random_list = {
+					98 = {}
+					1 = {
+						add_trait = dragon
+						set_graphical_culture = draconic
+						set_character_flag = checked_race
+					}
+					1 = {
+						add_trait = dragonborn
+						set_character_flag = checked_race
+						if = {
+							limit = { graphical_culture = dragongfx }
+							set_graphical_culture = italian
+						}
+					}
+				}
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = ROOT
+				culture = ROOT
+				female = no
+				age = 24
+			}
+			new_character = {
+				random_list = {
+					98 = {}
+					1 = {
+						add_trait = dragon
+						set_graphical_culture = draconic
+						set_character_flag = checked_race
+					}
+					1 = {
+						add_trait = dragonborn
+						set_character_flag = checked_race
+						if = {
+							limit = { graphical_culture = dragongfx }
+							set_graphical_culture = italian
+						}
+					}
+				}
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = ROOT
+				culture = ROOT
+				female = no
+				age = 26
+			}
+			new_character = {
+				random_list = {
+					98 = {}
+					1 = {
+						add_trait = dragon
+						set_graphical_culture = draconic
+						set_character_flag = checked_race
+					}
+					1 = {
+						add_trait = dragonborn
+						set_character_flag = checked_race
+						if = {
+							limit = { graphical_culture = dragongfx }
+							set_graphical_culture = italian
+						}
+					}
+				}
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = ROOT
+				culture = ROOT
+				female = no
+				age = 29
+			}
+			new_character = {
+				random_list = {
+					98 = {}
+					1 = {
+						add_trait = dragon
+						set_graphical_culture = draconic
+						set_character_flag = checked_race
+					}
+					1 = {
+						add_trait = dragonborn
+						set_character_flag = checked_race
+						if = {
+							limit = { graphical_culture = dragongfx }
+							set_graphical_culture = italian
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTAMythosHolyOrders.170
+		trigger = {
+			religion = ROOT
+		}
+	}
+	option = {
+		name = EVTOPTBMythosHolyOrders.170
+		trigger = {
+			NOT = { religion = ROOT }
+		}
+	}
+}
+
+#####################
+# Soldiers of Horus #
+#####################
+narrative_event = {
+	id = MythosHolyOrders.171
+	title = EVTTITLEMythosHolyOrders.171
+	desc = EVTDESCMythosHolyOrders.171
+	picture = GFX_evt_moors
+	
+	major = yes
+	hide_from = yes
+	
+	only_playable = yes
+	only_men = yes
+	religion_group = pagan_group
+	has_global_flag = pagan_ghws_unlocked
+	has_dlc = "Sons of Abraham"
+	
+	trigger = {
+		OR = {
+			religion = kemetic_pagan
+			religion = kemetic_pagan_reformed
+			religion = atenist
+		}
+		is_heretic = no
+		NOT = {
+			is_title_active = d_soldiers_horus
+		}
+		
+		OR = {
+			year = 1228
+			AND = {
+				religion_authority = 0.5
+				OR = {
+					802 = {
+						NOT = {
+							owner = {
+								OR = {
+									religion = kemetic_pagan
+									religion = kemetic_pagan_reformed
+									religion = atenist
+								}
+							}
+						}
+					}
+					796 = {
+						NOT = {
+							owner = {
+								OR = {
+									religion = kemetic_pagan
+									religion = kemetic_pagan_reformed
+									religion = atenist
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 6
+	}
+	
+	immediate = {
+		activate_title = { title = d_soldiers_horus status = yes }
+		create_character = {
+			random_traits = no
+			name = Amenemhat
+			dynasty = random
+			religion = ROOT
+			culture = egyptian_arabic
+			female = no
+			age = 25
+			attributes = {
+				martial = 11
+				diplomacy = 9
+				stewardship = 10
+				intrigue = 6
+				learning = 8
+			}
+			health = 6
+			fertility = 0.5
+			trait = brilliant_strategist
+			trait = diligent
+			trait = patient
+			trait = zealous
+			trait = temperate
+			trait = humble
+			trait = brave
+		}
+		new_character = {
+			wealth = 500
+			d_soldiers_horus = {
+				grant_title = PREV
+			}
+			set_government_type = feudal_government
+			create_character = {
+				random_traits = yes
+				name = Djau
+				religion = ROOT
+				culture = egyptian_arabic
+				female = no
+				age = 16
+				trait = zealous
+			}
+			create_character = {
+				random_traits = yes
+				name = Hannu
+				religion = ROOT
+				culture = egyptian_arabic
+				female = no
+				age = 18
+				trait = zealous
+			}
+			create_character = {
+				random_traits = yes
+				name = Intef
+				religion = ROOT
+				culture = egyptian_arabic
+				female = no
+				age = 18
+				trait = zealous
+			}
+			create_character = {
+				random_traits = yes
+				name = Kawab
+				religion = ROOT
+				culture = egyptian_arabic
+				female = no
+				age = 20
+				trait = zealous
+			}
+			create_character = {
+				random_traits = yes
+				name = Masaharta
+				religion = ROOT
+				culture = egyptian_arabic
+				female = no
+				age = 25
+				trait = zealous
+			}
+			create_character = {
+				random_traits = yes
+				name = Nebemakhet
+				religion = ROOT
+				culture = egyptian_arabic
+				female = no
+				age = 26
+			}
+			create_character = {
+				random_traits = yes
+				name = Pahamnetjer
+				religion = ROOT
+				culture = egyptian_arabic
+				female = no
+				age = 28
+				trait = zealous
+			}
+			create_character = {
+				random_traits = yes
+				name = Pedubast
+				religion = ROOT
+				culture = egyptian_arabic
+				female = no
+				age = 16
+			}
+			create_character = {
+				random_traits = yes
+				religion = ROOT
+				culture = ROOT
+				female = no
+				age = 16
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTAMythosHolyOrders.171
+		trigger = {
+			religion = ROOT
+		}
+	}
+	option = {
+		name = EVTOPTBMythosHolyOrders.171
+		trigger = {
+			NOT = { religion = ROOT }
+		}
+	}
+}
+
+######################
+# Servants of Anubis #
+######################
+narrative_event = {
+	id = MythosHolyOrders.172
+	title = EVTTITLEMythosHolyOrders.172
+	desc = EVTDESCMythosHolyOrders.172
+	picture = GFX_evt_moors
+	
+	major = yes
+	hide_from = yes
+	
+	only_playable = yes
+	only_men = yes
+	religion_group = pagan_group
+	has_global_flag = pagan_ghws_unlocked
+	has_dlc = "Sons of Abraham"
+	
+	trigger = {
+		OR = {
+			religion = kemetic_pagan
+			religion = kemetic_pagan_reformed
+			religion = atenist
+		}
+		is_heretic = no
+		NOT = {
+			is_title_active = d_servants_anubis
+		}
+		
+		OR = {
+			year = 1400
+			has_global_flag = black_death_broadcasted
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 6
+	}
+	
+	immediate = {
+		activate_title = { title = d_servants_anubis status = yes }
+		create_character = {
+			random_traits = no
+			name = Amenemhat
+			dynasty = random
+			religion = ROOT
+			culture = egyptian_arabic
+			female = no
+			age = 25
+			attributes = {
+				martial = 11
+				diplomacy = 8
+				stewardship = 9
+				intrigue = 6
+				learning = 8
+			}
+			health = 8
+			fertility = 0.5
+			trait = brilliant_strategist
+			trait = diligent
+			trait = theologian
+			trait = zealous
+			trait = temperate
+			trait = humble
+			trait = brave
+			trait = holy_warrior
+		}
+		new_character = {
+			wealth = 500
+			set_character_flag = immune_bubonic_plague
+			d_soldiers_horus = {
+				grant_title = PREV
+			}
+			set_government_type = feudal_government
+			create_character = {
+				random_traits = yes
+				name = Khufu
+				religion = ROOT
+				culture = egyptian_arabic
+				female = no
+				age = 16
+				trait = zealous
+			}
+			create_character = {
+				random_traits = yes
+				name = Nakht
+				religion = ROOT
+				culture = egyptian_arabic
+				female = no
+				age = 18
+				trait = zealous
+			}
+			create_character = {
+				random_traits = yes
+				name = Nebet
+				religion = ROOT
+				culture = egyptian_arabic
+				female = no
+				age = 18
+				trait = zealous
+			}
+			create_character = {
+				random_traits = yes
+				name = Pawura
+				religion = ROOT
+				culture = egyptian_arabic
+				female = no
+				age = 20
+				trait = zealous
+			}
+			create_character = {
+				random_traits = yes
+				name = Rahotep
+				religion = ROOT
+				culture = egyptian_arabic
+				female = no
+				age = 25
+				trait = zealous
+			}
+			create_character = {
+				random_traits = yes
+				name = Sehetepre
+				religion = ROOT
+				culture = egyptian_arabic
+				female = no
+				age = 26
+			}
+			create_character = {
+				random_traits = yes
+				name = Teos
+				religion = ROOT
+				culture = egyptian_arabic
+				female = no
+				age = 28
+				trait = zealous
+			}
+			create_character = {
+				random_traits = yes
+				name = Wadjmose
+				religion = ROOT
+				culture = egyptian_arabic
+				female = no
+				age = 16
+			}
+			create_character = {
+				random_traits = yes
+				religion = ROOT
+				culture = ROOT
+				female = no
+				age = 16
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTAMythosHolyOrders.172
+		trigger = {
+			religion = ROOT
+		}
+	}
+	option = {
+		name = EVTOPTBMythosHolyOrders.172
+		trigger = {
+			NOT = { religion = ROOT }
+		}
+	}
+}
+
+#################
+# Ares' Phalanx #
+#################
+narrative_event = {
+	id = MythosHolyOrders.173
+	title = EVTTITLEMythosHolyOrders.173
+	desc = EVTDESCMythosHolyOrders.173
+	picture = GFX_evt_victory_arch_byzantine
+	
+	major = yes
+	hide_from = yes
+	
+	only_playable = yes
+	only_men = yes
+	religion = hellenic_pagan
+	has_global_flag = pagan_ghws_unlocked
+	has_dlc = "Sons of Abraham"
+	
+	trigger = {
+		religion = hellenic_pagan_reformed
+		has_global_flag = hellenic_pagan_reformation
+		is_heretic = no
+		NOT = {
+			is_title_active = d_ares_phalanx
+		}
+		
+		religion_authority = 0.5
+	}
+	
+	mean_time_to_happen = {
+		months = 6
+	}
+	
+	immediate = {
+		activate_title = { title = d_ares_phalanx status = yes }
+		create_character = {
+			random_traits = no
+			name = Alexander
+			dynasty = random
+			religion = hellenic_pagan
+			culture = greek
+			female = no
+			age = 25
+			attributes = {
+				martial = 10
+				diplomacy = 8
+				stewardship = 9
+				intrigue = 6
+				learning = 11
+			}
+			health = 6
+			fertility = 0.5
+			trait = brilliant_strategist
+			trait = patient
+			trait = zealous
+			trait = scholar
+			trait = temperate
+			trait = brave
+			trait = wroth
+			trait = inspiring_leader
+			trait = adventurer
+		}
+		new_character = {
+			random = {
+				chance = 5
+				add_trait = demi_god
+				set_character_flag = checked_race
+			}
+			wealth = 500
+			d_ares_phalanx = {
+				grant_title = PREV
+			}
+			set_government_type = feudal_government
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = hellenic_pagan
+				culture = greek
+				female = no
+				age = 16
+			}
+			new_character = {
+				random = {
+					chance = 1
+					add_trait = demi_god
+					set_character_flag = checked_race
+				}
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = hellenic_pagan
+				culture = greek
+				female = no
+				age = 18
+			}
+			new_character = {
+				random = {
+					chance = 1
+					add_trait = demi_god
+					set_character_flag = checked_race
+				}
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = hellenic_pagan
+				culture = greek
+				female = no
+				age = 18
+			}
+			new_character = {
+				random = {
+					chance = 1
+					add_trait = demi_god
+					set_character_flag = checked_race
+				}
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = hellenic_pagan
+				culture = greek
+				female = no
+				age = 20
+			}
+			new_character = {
+				random = {
+					chance = 1
+					add_trait = demi_god
+					set_character_flag = checked_race
+				}
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = hellenic_pagan
+				culture = greek
+				female = no
+				age = 25
+			}
+			new_character = {
+				random = {
+					chance = 1
+					add_trait = demi_god
+					set_character_flag = checked_race
+				}
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = hellenic_pagan
+				culture = greek
+				female = no
+				age = 26
+			}
+			new_character = {
+				random = {
+					chance = 1
+					add_trait = demi_god
+					set_character_flag = checked_race
+				}
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = hellenic_pagan
+				culture = greek
+				female = no
+				age = 28
+			}
+			new_character = {
+				random = {
+					chance = 1
+					add_trait = demi_god
+					set_character_flag = checked_race
+				}
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = hellenic_pagan
+				culture = greek
+				female = no
+				age = 16
+			}
+			new_character = {
+				random = {
+					chance = 1
+					add_trait = demi_god
+					set_character_flag = checked_race
+				}
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = hellenic_pagan
+				culture = greek
+				female = no
+				age = 17
+			}
+			new_character = {
+				random = {
+					chance = 1
+					add_trait = demi_god
+					set_character_flag = checked_race
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTAMythosHolyOrders.173
+		trigger = {
+			religion = ROOT
+		}
+	}
+	option = {
+		name = EVTOPTBMythosHolyOrders.173
+		trigger = {
+			NOT = { religion = ROOT }
+		}
+	}
+}
+
+################
+# Sons of Mars #
+################
+#narrative_event = {
+#	id = MythosHolyOrders.174
+#	title = EVTTITLEMythosHolyOrders.174
+#	desc = EVTDESCMythosHolyOrders.174
+#	picture = GFX_evt_rome_restored_byzantine
+#	
+#	major = yes
+#	hide_from = yes
+#	
+#	only_playable = yes
+#	only_men = yes
+#	religion = roman_pagan
+#	has_global_flag = pagan_ghws_unlocked
+#	has_dlc = "Sons of Abraham"
+#	
+#	trigger = {
+#		religion = hellenic_pagan_reformed
+#		always = no
+#		is_heretic = no
+#		NOT = {
+#			is_title_active = d_sons_mars
+#		}
+#		
+#		333 = { # Rome
+#			owner = { religion = roman_pagan }
+#		}
+#	}
+#	
+#	mean_time_to_happen = {
+#		months = 6
+#	}
+#	
+#	immediate = {
+#		activate_title = { title = d_sons_mars status = yes }
+#		create_character = {
+#			random_traits = no
+#			name = Gaius
+#			dynasty = random
+#			religion = ROOT
+#			culture = roman
+#			female = no
+#			age = 25
+#			attributes = {
+#				martial = 12
+#				diplomacy = 8
+#				stewardship = 9
+#				intrigue = 6
+#				learning = 9
+#			}
+#			health = 6
+#			fertility = 0.5
+#			trait = brilliant_strategist
+#			trait = patient
+#			trait = zealous
+#			trait = temperate
+#			trait = administrator
+#			trait = diligent
+#			trait = brave
+#		}
+#		new_character = {
+#			random = {
+#				chance = 5
+#				add_trait = demi_god
+#				set_character_flag = checked_race
+#			}
+#			wealth = 500
+#			d_sons_mars = {
+#				grant_title = PREV
+#			}
+#			set_government_type = feudal_government
+#			create_character = {
+#				random_traits = yes
+#				dynasty = random
+#				religion = ROOT
+#				culture = roman
+#				female = no
+#				age = 16
+#			}
+#			new_character = {
+#				random = {
+#					chance = 1
+#					add_trait = demi_god
+#					set_character_flag = checked_race
+#				}
+#			}
+#			create_character = {
+#				random_traits = yes
+#				dynasty = random
+#				religion = ROOT
+#				culture = roman
+#				female = no
+#				age = 18
+#			}
+#			new_character = {
+#				random = {
+#					chance = 1
+#					add_trait = demi_god
+#					set_character_flag = checked_race
+#				}
+#			}
+#			create_character = {
+#				random_traits = yes
+#				dynasty = random
+#				religion = ROOT
+#				culture = roman
+#				female = no
+#				age = 18
+#			}
+#			new_character = {
+#				random = {
+#					chance = 1
+#					add_trait = demi_god
+#					set_character_flag = checked_race
+#				}
+#			}
+#			create_character = {
+#				random_traits = yes
+#				dynasty = random
+#				religion = ROOT
+#				culture = roman
+#				female = no
+#				age = 20
+#			}
+#			new_character = {
+#				random = {
+#					chance = 1
+#					add_trait = demi_god
+#					set_character_flag = checked_race
+#				}
+#			}
+#			create_character = {
+#				random_traits = yes
+#				dynasty = random
+#				religion = ROOT
+#				culture = roman
+#				female = no
+#				age = 25
+#			}
+#			new_character = {
+#				random = {
+#					chance = 1
+#					add_trait = demi_god
+#					set_character_flag = checked_race
+#				}
+#			}
+#			create_character = {
+#				random_traits = yes
+#				dynasty = random
+#				religion = ROOT
+#				culture = roman
+#				female = no
+#				age = 26
+#			}
+#			new_character = {
+#				random = {
+#					chance = 1
+#					add_trait = demi_god
+#					set_character_flag = checked_race
+#				}
+#			}
+#			create_character = {
+#				random_traits = yes
+#				dynasty = random
+#				religion = ROOT
+#				culture = roman
+#				female = no
+#				age = 28
+#			}
+#			new_character = {
+#				random = {
+#					chance = 1
+#					add_trait = demi_god
+#					set_character_flag = checked_race
+#				}
+#			}
+#			create_character = {
+#				random_traits = yes
+#				dynasty = random
+#				religion = ROOT
+#				culture = roman
+#				female = no
+#				age = 16
+#			}
+#			new_character = {
+#				random = {
+#					chance = 1
+#					add_trait = demi_god
+#					set_character_flag = checked_race
+#				}
+#			}
+#			create_character = {
+#				random_traits = yes
+#				dynasty = random
+#				religion = ROOT
+#				culture = roman
+#				female = no
+#				age = 167
+#			}
+#			new_character = {
+#				random = {
+#					chance = 1
+#					add_trait = demi_god
+#					set_character_flag = checked_race
+#				}
+#			}
+#		}
+#	}
+#	
+#	option = {
+#		name = EVTOPTAMythosHolyOrders.174
+#		trigger = {
+#			religion = ROOT
+#		}
+#	}
+#	option = {
+#		name = EVTOPTBMythosHolyOrders.174
+#		trigger = {
+#			NOT = { religion = ROOT }
+#		}
+#	}
+#}
+
+########################
+# Champions of Vígríðr #
+########################
+narrative_event = {
+	id = MythosHolyOrders.175
+	title = EVTTITLEMythosHolyOrders.175
+	desc = EVTDESCMythosHolyOrders.175
+	picture = GFX_evt_rome_restored_byzantine
+	
+	major = yes
+	hide_from = yes
+	religion_group = pagan_group
+	
+	trigger = {
+		OR = {
+			religion = jotnar
+			religion = jotnar_reformed
+		}
+		is_heretic = no
+		NOT = {
+			is_title_active = d_champion_vigrithr
+		}
+		
+		religion_authority = 0.5
+		OR = {
+			NOT = { is_title_active = d_norse_pagan_reformed }
+			d_norse_pagan_reformed = {
+				owner = {
+					NOT = { religion_authority = 0.5 }
+				}
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 6
+	}
+	
+	immediate = {
+		activate_title = { title = d_champion_vigrithr status = yes }
+		create_character = {
+			random_traits = no
+			name = Bektash
+			dynasty = random
+			religion = ROOT
+			culture = norse
+			female = no
+			age = 25
+			attributes = {
+				martial = 10
+				diplomacy = 9
+				stewardship = 9
+				intrigue = 7
+				learning = 9
+			}
+			health = 6
+			fertility = 0.5
+			trait = brilliant_strategist
+			trait = giant
+			trait = zealous
+			trait = brave
+			trait = ambitious
+			trait = cruel
+			trait = ravager
+			flag = checked_race
+		}
+		new_character = {
+			wealth = 500
+			d_champion_vigrithr = {
+				grant_title = PREV
+			}
+			set_government_type = feudal_government
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = ROOT
+				culture = ROOT
+				female = no
+				age = 16
+			}
+			new_character = {
+				random_list = {
+					2 = {}
+					1 = {
+						add_trait = giant
+						set_character_flag = checked_race
+					}
+					1 = {
+						add_trait = half_giant
+						set_character_flag = checked_race
+					}
+				}
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = ROOT
+				culture = norse
+				female = no
+				age = 18
+			}
+			new_character = {
+				random_list = {
+					2 = {}
+					1 = {
+						add_trait = giant
+						set_character_flag = checked_race
+					}
+					1 = {
+						add_trait = half_giant
+						set_character_flag = checked_race
+					}
+				}
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = ROOT
+				culture = ROOT
+				female = no
+				age = 18
+			}
+			new_character = {
+				random_list = {
+					2 = {}
+					1 = {
+						add_trait = giant
+						set_character_flag = checked_race
+					}
+					1 = {
+						add_trait = half_giant
+						set_character_flag = checked_race
+					}
+				}
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = ROOT
+				culture = saxon
+				female = no
+				age = 20
+			}
+			new_character = {
+				random_list = {
+					2 = {}
+					1 = {
+						add_trait = giant
+						set_character_flag = checked_race
+					}
+					1 = {
+						add_trait = half_giant
+						set_character_flag = checked_race
+					}
+				}
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = ROOT
+				culture = ROOT
+				female = no
+				age = 25
+			}
+			new_character = {
+				random_list = {
+					2 = {}
+					1 = {
+						add_trait = giant
+						set_character_flag = checked_race
+					}
+					1 = {
+						add_trait = half_giant
+						set_character_flag = checked_race
+					}
+				}
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = ROOT
+				culture = norse
+				female = no
+				age = 26
+			}
+			new_character = {
+				random_list = {
+					2 = {}
+					1 = {
+						add_trait = giant
+						set_character_flag = checked_race
+					}
+					1 = {
+						add_trait = half_giant
+						set_character_flag = checked_race
+					}
+				}
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = ROOT
+				culture = ROOT
+				female = no
+				age = 28
+			}
+			new_character = {
+				random_list = {
+					2 = {}
+					1 = {
+						add_trait = giant
+						set_character_flag = checked_race
+					}
+					1 = {
+						add_trait = half_giant
+						set_character_flag = checked_race
+					}
+				}
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = ROOT
+				culture = norse
+				female = no
+				age = 16
+			}
+			new_character = {
+				random_list = {
+					2 = {}
+					1 = {
+						add_trait = giant
+						set_character_flag = checked_race
+					}
+					1 = {
+						add_trait = half_giant
+						set_character_flag = checked_race
+					}
+				}
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = ROOT
+				culture = norse
+				female = no
+				age = 17
+			}
+			new_character = {
+				random_list = {
+					2 = {}
+					1 = {
+						add_trait = giant
+						set_character_flag = checked_race
+					}
+					1 = {
+						add_trait = half_giant
+						set_character_flag = checked_race
+					}
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTAMythosHolyOrders.175
+		trigger = {
+			religion = ROOT
+		}
+	}
+	option = {
+		name = EVTOPTBMythosHolyOrders.175
+		trigger = {
+			NOT = { religion = ROOT }
+		}
+	}
+}
+
+# Notification event when vassalizing Champions of Vígríðr
+letter_event = {
+	id = MythosHolyOrders.176
+	desc = EVTDESCMythosHolyOrders.154
+	border = GFX_event_letter_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EXCELLENT
+	}
+}
+
+# Notification event when vassalizing the Golden Order
+letter_event = {
+	id = MythosHolyOrders.177
+	desc = EVTDESCMythosHolyOrders.27
+	border = GFX_event_letter_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EXCELLENT
+	}
+}
+
+# Notification event when vassalizing the Army of Baal
+letter_event = {
+	id = MythosHolyOrders.178
+	desc = EVTDESCMythosHolyOrders.45
+	border = GFX_event_letter_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EXCELLENT
+	}
+}
+
+# Notification event when vassalizing Y Ddraig Goch
+letter_event = {
+	id = MythosHolyOrders.179
+	desc = EVTDESCMythosHolyOrders.63
+	border = GFX_event_letter_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EXCELLENT
+	}
+}
+
+# Notification event when vassalizing Soldiers of Horus
+letter_event = {
+	id = MythosHolyOrders.180
+	desc = EVTDESCMythosHolyOrders.81
+	border = GFX_event_letter_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EXCELLENT
+	}
+}
+
+# Notification event when vassalizing Servants of Anubis
+letter_event = {
+	id = MythosHolyOrders.181
+	desc = EVTDESCMythosHolyOrders.100
+	border = GFX_event_letter_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EXCELLENT
+	}
+}
+
+# Notification event when vassalizing Ares' Phalanx
+letter_event = {
+	id = MythosHolyOrders.182
+	desc = EVTDESCMythosHolyOrders.118
+	border = GFX_event_letter_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EXCELLENT
+	}
+}
+
+# Notification event when vassalizing Sons of Mars
+letter_event = {
+	id = MythosHolyOrders.183
+	desc = EVTDESCMythosHolyOrders.136
+	border = GFX_event_letter_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EXCELLENT
+	}
+}

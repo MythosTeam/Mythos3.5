@@ -1,0 +1,3 @@
+undeadgfx = {
+	skin_tone = 0
+}

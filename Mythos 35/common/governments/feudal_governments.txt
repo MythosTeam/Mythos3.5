@@ -1,0 +1,738 @@
+feudal_governments = {
+
+	feudal_government = {
+		preferred_holdings = { CASTLE }
+		allowed_holdings = { 
+			CASTLE 
+			FORT
+			HOSPITAL
+		}
+		allowed_holdings_culture = { # Will not get the wrong government type penalty for tribes of the same culture
+			TRIBAL
+		}
+		accepts_liege_governments = { # Gets the wrong religion modifier instead
+			muslim_government
+			draconic_feudal_government
+			theocratic_feudal_government
+			chinese_imperial_government
+			blood_court_government
+		}
+		free_revoke_on_governments_religion = { # Tribal vassals of other religions can have their titles revoked for free
+			tribal_government
+			draconic_tribal_government
+		}
+		potential = {
+			
+			OR = {
+				controls_religion = no
+				religion_group = muslim
+				has_religion_feature = religion_temporal_head
+				AND = {
+					OR = {
+						religion = norse_pagan_reformed
+						religion = jotnar_reformed
+						religion = satanist
+					}
+					has_religion_features = no # Old saves, and campaigns without HF, need the Fylkirate to continue working
+				}
+			}
+			NAND = {
+				culture = vampire_culture
+				has_dlc = "Zeus"
+				higher_tier_than = BARON
+			}
+			NAND = {
+				culture = draconic
+				OR = {
+					trait = dragon
+					trait = dragonborn
+				}
+				religion_group = pagan_group
+			}
+			NOT = {	religion_group = muslim	}
+			NOT = { is_government_potential = roman_imperial_government }
+			NOT = { is_government_potential = order_government }
+			NAND = { 
+				culture_group = tibetan_group
+				OR = {
+					religion = bon
+					religion = bon_reformed
+					religion = buddhist
+				}
+				higher_tier_than = BARON
+			}
+			NAND = { 
+				tier = EMPEROR
+				primary_title = { has_title_flag = pretender_chinese_empire }
+				OR = {
+					culture_group = chinese_group
+					culture = khitan
+					culture = tangut
+					culture = jurchen
+					has_character_flag = chinese_imperial_government_preserve
+				}
+			}
+			OR = {
+				NOT = { trait = zombie }
+				liege = { government = feudal_government }
+				liege = { government = blood_court_government }
+				liege = { government = draconic_feudal_government }
+			}
+			is_patrician = no
+		}
+		
+		color = { 91 133 207 }
+		
+		dukes_called_kings = yes
+		barons_need_dynasty = yes
+
+		can_build_tribal = no
+		
+		ignore_in_vassal_limit_calculation = {
+			tribal_government
+			draconic_tribal_government
+		}
+		capital_move_delay = 600
+
+		## Modifiers
+		court_size_modifier = 10
+	}
+	
+	muslim_government = {
+		preferred_holdings = { CASTLE }
+		allowed_holdings = { 
+			CASTLE
+			TEMPLE
+			FORT
+			HOSPITAL
+		}
+		allowed_holdings_culture = { # Will not get the wrong government type penalty for tribes of the same culture
+			TRIBAL
+		}
+		accepts_liege_governments = { # Gets the wrong religion modifier instead
+			feudal_government
+			blood_court_government
+			draconic_feudal_government
+			theocratic_feudal_government
+			chinese_imperial_government
+		}
+		free_revoke_on_tiers = {
+			duke
+		}
+		free_revoke_on_governments_religion = { # Tribal vassals of other religions can have their titles revoked for free
+			tribal_government
+			draconic_tribal_government
+		}
+		frame_suffix = "_iqta"
+		potential = {
+			OR = {
+				controls_religion = no
+				religion_group = muslim
+				has_religion_feature = religion_temporal_head
+				AND = {
+					OR = {
+						religion = norse_pagan_reformed
+						religion = jotnar_reformed
+						religion = satanist
+					}
+					has_religion_features = no # Old saves, and campaigns without HF, need the Fylkirate to continue working
+				}
+			}
+			NOT = { culture = vampire_culture }
+			religion_group = muslim
+			NOT = { is_government_potential = roman_imperial_government }
+			NOT = { is_government_potential = order_government }
+			NAND = { 
+				tier = EMPEROR
+				primary_title = { has_title_flag = pretender_chinese_empire }
+				OR = {
+					culture_group = chinese_group
+					culture = khitan
+					culture = tangut
+					culture = jurchen
+					has_character_flag = chinese_imperial_government_preserve
+				}
+			}
+			OR = {
+				NOT = { trait = zombie }
+				liege = { government = muslim_government }
+			}
+			is_patrician = no
+		}
+		
+		color = { 10 138 57 }
+		
+		uses_decadence = yes
+		uses_piety_for_law_change = yes
+		
+		dukes_called_kings = yes
+		barons_need_dynasty = yes
+		have_gender_laws = no
+		allows_matrilineal_marriage = no
+		free_retract_vassalage = yes
+
+		free_levies_in_offensive_war = yes # Took away the hardcoded stuff for muslims where they could raise levies without pissing off vassals if in an offensive war.
+
+		can_build_tribal = no
+		
+		ignore_in_vassal_limit_calculation = {
+			tribal_government
+			draconic_tribal_government
+		}
+		capital_move_delay = 600
+
+		## Modifiers
+		court_size_modifier = 10
+	}
+	
+	blood_court_government = {
+		preferred_holdings = { CASTLE }
+		allowed_holdings = { 
+			CASTLE 
+			FORT
+			HOSPITAL
+		}
+		allowed_holdings_culture = { # Will not get the wrong government type penalty for tribes of the same culture
+			TRIBAL
+		}
+		accepts_liege_governments = { # Gets the wrong religion modifier instead
+			feudal_government
+			muslim_government
+			draconic_feudal_government
+			theocratic_feudal_government
+			chinese_imperial_government
+			blood_court_government
+		}
+		free_revoke_on_governments_religion = { # Tribal vassals of other religions can have their titles revoked for free
+			tribal_government
+			draconic_tribal_government
+		}
+		potential = {
+			has_dlc = "Zeus"
+			higher_tier_than = BARON
+			culture = vampire_culture
+			OR = {
+				controls_religion = no
+				religion_group = muslim
+				has_religion_feature = religion_temporal_head
+				AND = {
+					OR = {
+						religion = norse_pagan_reformed
+						religion = jotnar_reformed
+						religion = satanist
+					}
+					has_religion_features = no # Old saves, and campaigns without HF, need the Fylkirate to continue working
+				}
+			}
+			NAND = {
+				culture = draconic
+				OR = {
+					trait = dragon
+					trait = dragonborn
+				}
+				religion_group = pagan_group
+			}
+			NAND = { 
+				culture_group = tibetan_group
+				OR = {
+					religion = bon
+					religion = bon_reformed
+					religion = buddhist
+				}
+				higher_tier_than = BARON
+			}
+			NAND = { 
+				tier = EMPEROR
+				primary_title = { has_title_flag = pretender_chinese_empire }
+				OR = {
+					culture_group = chinese_group
+					culture = khitan
+					culture = tangut
+					culture = jurchen
+					has_character_flag = chinese_imperial_government_preserve
+				}
+			}
+			OR = {
+				NOT = { trait = zombie }
+				liege = { government = blood_court_government }
+			}
+			is_patrician = no
+		}
+		
+		color = { 201 65 87 }
+		
+		dukes_called_kings = yes
+		barons_need_dynasty = yes
+
+		can_build_tribal = no
+		
+		ignore_in_vassal_limit_calculation = {
+			tribal_government
+			draconic_tribal_government
+		}
+		capital_move_delay = 600
+
+		## Modifiers
+		court_size_modifier = 10
+	}
+	
+	draconic_feudal_government = {
+		preferred_holdings = { CASTLE }
+		allowed_holdings = { 
+			CASTLE 
+			FORT
+			HOSPITAL
+		}
+		allowed_holdings_culture = { # Will not get the wrong government type penalty for tribes of the same culture
+			TRIBAL
+		}
+		accepts_liege_governments = { # Gets the wrong religion modifier instead
+			muslim_government
+			draconic_feudal_government
+			theocratic_feudal_government
+			chinese_imperial_government
+			blood_court_government
+		}
+		free_revoke_on_governments_religion = { # Tribal vassals of other religions can have their titles revoked for free
+			tribal_government
+			draconic_tribal_government
+		}
+		title_prefix = "tyrant_"
+		potential = {
+			culture = draconic
+			OR = {
+				trait = dragon
+				trait = dragonborn
+				religion = draconic_pagan
+				religion = draconic_pagan_reformed
+			}
+			OR = {
+				controls_religion = no
+				has_religion_feature = religion_temporal_head
+				AND = {
+					religion = draconic_pagan_reformed
+					has_religion_features = no # Old saves, and campaigns without HF, need the Fylkirate to continue working
+				}
+			}
+			religion_group = pagan_group
+			OR = {
+				NOT = { trait = zombie }
+				liege = { government = draconic_feudal_government }
+			}
+			is_patrician = no
+		}
+		color = { 249 230 127 }
+		
+		allow_looting = yes
+		uses_prestige_for_law_change = yes
+		dukes_called_kings = yes
+		barons_need_dynasty = yes
+
+		can_build_tribal = no
+		
+		ignore_in_vassal_limit_calculation = {
+			tribal_government
+			draconic_tribal_government
+		}
+		capital_move_delay = 600
+
+		## Modifiers
+		court_size_modifier = 10
+	}
+	
+	theocratic_feudal_government = {
+		preferred_holdings = { CASTLE TEMPLE }
+		allowed_holdings = { 
+			CASTLE 
+			TEMPLE
+			FORT
+			HOSPITAL
+		}
+		allowed_holdings_culture = { # Will not get the wrong government type penalty for tribes of the same culture
+			TRIBAL
+		}
+		accepts_liege_governments = { # Gets the wrong religion modifier instead
+			muslim_government
+			theocracy_government
+			feudal_government
+			blood_court_government
+			chinese_imperial_government
+			draconic_feudal_government
+		}
+		free_revoke_on_governments_religion = { # Tribal vassals of other religions can have their titles revoked for free
+			tribal_government
+			draconic_tribal_government
+		}
+		frame_suffix = "_theocraticfeudal"
+		potential = {
+			OR = {
+				controls_religion = no
+				religion_group = muslim
+				has_religion_feature = religion_temporal_head
+				AND = {
+					OR = {
+						religion = norse_pagan_reformed
+						religion = jotnar_reformed
+						religion = satanist
+					}
+					has_religion_features = no # Old saves, and campaigns without HF, need the Fylkirate to continue working
+				}
+			}
+			NOT = { culture = vampire_culture }
+			NOT = {	religion_group = muslim	}
+			NOT = { is_government_potential = roman_imperial_government }
+			NOT = { is_government_potential = order_government }
+			AND = { 
+				culture_group = tibetan_group
+				OR = {
+					religion = bon
+					religion = bon_reformed
+					religion = buddhist
+				}
+				higher_tier_than = BARON
+			}
+			NAND = { 
+				tier = EMPEROR
+				primary_title = { has_title_flag = pretender_chinese_empire }
+				OR = {
+					culture_group = chinese_group
+					culture = khitan
+					culture = tangut
+					culture = jurchen
+					has_character_flag = chinese_imperial_government_preserve
+				}
+			}
+			NAND = {
+				culture = draconic
+				OR = {
+					trait = dragon
+					trait = dragonborn
+					religion = draconic_pagan
+					religion = draconic_pagan_reformed
+				}
+				controls_religion = no
+				religion_group = pagan_group
+			}
+			OR = {
+				NOT = { trait = zombie }
+				liege = { government = theocratic_feudal_government }
+			}
+			is_patrician = no
+		}
+		
+		color = { 207 145 90 }
+		
+		uses_piety_for_law_change = yes
+		dukes_called_kings = yes
+		barons_need_dynasty = yes
+
+		can_build_tribal = no
+		
+		ignore_in_vassal_limit_calculation = {
+			tribal_government
+		}
+		capital_move_delay = 600
+
+		## Modifiers
+		court_size_modifier = 10
+	}
+	
+	chinese_imperial_government = {
+		preferred_holdings = { CASTLE CITY }
+		allowed_holdings = {
+			CASTLE
+			CITY
+			FORT
+			HOSPITAL
+		}
+		allowed_holdings_culture = { # Will not get the wrong government type penalty for tribes of the same culture
+			TRIBAL
+		}
+		accepts_liege_governments = { # Gets the wrong religion modifier instead
+			feudal_government
+			muslim_government
+			blood_court_government
+			theocratic_feudal_government
+			draconic_feudal_government
+		}
+		free_revoke_on_tiers = {
+			duke
+		}
+		free_revoke_on_governments_religion = { # Tribal vassals of other religions can have their titles revoked for free
+			tribal_government
+			draconic_tribal_government
+		}
+		frame_suffix = "_chineseimperial"
+		potential = {
+			tier = EMPEROR
+			primary_title = { has_title_flag = pretender_chinese_empire }
+			OR = {
+				culture_group = chinese_group
+				culture = khitan
+				culture = tangut
+				culture = jurchen
+				has_character_flag = chinese_imperial_government_preserve #keeps government when player is given culture change opton
+			}
+			NOT = { trait = zombie }
+			is_patrician = no
+		}
+		
+		color = { 118 255 163 }
+
+		barons_need_dynasty = yes
+
+		can_build_tribal = no
+		
+		ignore_in_vassal_limit_calculation = {
+			tribal_government
+		}
+		capital_move_delay = 200
+		
+		can_usurp_kingdoms_and_empires = no
+		can_create_empires = no
+		can_demand_religious_conversion = no
+		gets_religion_opinion_penalties = no
+		gives_religion_opinion_penalties = no
+		vassal_government_opinion_penalties = no
+		can_grant_kingdoms_and_empires_to_other_government_group = yes
+		free_retract_vassalage = yes
+		marriage_ignore_religion = yes
+		
+		vassal_limit = 10
+		
+		character_modifier = {
+			monthly_character_piety = 1
+		}
+
+		## Modifiers
+		court_size_modifier = 15
+	}
+	
+	order_government = {
+		preferred_holdings = { CASTLE }
+		allowed_holdings = {
+			CASTLE
+			TEMPLE
+			TRIBAL
+			FORT
+			HOSPITAL
+		}
+		accepts_liege_governments = {
+			feudal_government
+			muslim_government
+			theocracy_government
+			theocratic_feudal_government
+			chinese_imperial_government
+		}
+		free_revoke_on_governments = {
+			order_government
+		}
+		free_revoke_on_tiers = {
+			BARON
+		}
+
+		forced_contract = {
+			order_government
+		}
+
+		frame_suffix = "_order"
+		title_prefix = "order_"
+
+		potential = {
+			OR = {
+				holy_order = yes
+				AND = {
+					any_liege = {
+						holy_order = yes
+						religion = ROOT
+					}
+					ai = yes
+					NAND = { 
+						is_government_potential = merchant_republic_government 
+						OR = {
+							tier = DUKE
+							is_patrician = yes
+						}
+						any_demesne_province = {
+							any_province_holding = {
+								OR = {
+									AND = {
+										tier = BARON
+										holding_type = family_palace
+									}
+									AND = {
+										NOT = {
+											tier = BARON
+										}
+										holding_type = city
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		color = { 169 169 169 }
+
+		have_gender_laws = no
+		can_create_kingdoms = no
+		can_create_empires = no
+		can_imprison_without_reason = no
+		can_revoke_without_reason = no
+		dukes_called_kings = yes
+		barons_need_dynasty = yes
+		can_usurp_kingdoms_and_empires = no
+		can_grant_kingdoms_and_empires_to_other_government = no
+		can_be_granted_kingdoms_and_empires_by_other_government = no
+		can_inherit = no
+		free_retract_vassalage = yes
+	}
+	roman_imperial_government = {
+		preferred_holdings = { CASTLE CITY }
+		allowed_holdings = {
+			CASTLE
+			CITY
+			FORT
+			HOSPITAL
+		}
+		allowed_holdings_culture = { # Will not get the wrong government type penalty for tribes of the same culture
+			TRIBAL
+			CITY
+		}
+		accepts_liege_governments = { # Gets the wrong religion modifier instead
+			feudal_government
+			republic_government
+			merchant_republic_government
+		}
+		free_revoke_on_governments_religion = { # Tribal vassals of other religions can have their titles revoked for free
+			tribal_government
+		}
+		frame_suffix = "_romanimperial"
+		potential = {
+			OR = { 
+				AND = { 
+					is_save_game = no
+					has_game_started = no
+					primary_title = { 
+						OR = { 
+							title = e_byzantium
+							title = e_roman_empire
+						}
+					}
+				}
+				AND = { 
+					primary_title = { 
+						OR = { 
+							title = e_byzantium
+							title = e_roman_empire
+						}
+						OR={
+							has_law = succ_byzantine_elective
+							has_law = succ_imperial_primogenure
+							has_law = succ_imperial_seniority
+							has_law = succ_imperial_ultimogeniture
+						}
+					}
+				}
+			}
+			is_patrician = no
+			NOT = { culture = vampire_culture }
+		}
+		
+		color = { 143 12 125 }
+
+		barons_need_dynasty = yes
+
+		can_build_tribal = no
+		
+		ignore_in_vassal_limit_calculation = {
+			tribal_government
+		}
+		capital_move_delay = 2000
+		
+		can_usurp_kingdoms_and_empires = no
+		can_imprison_without_reason = no
+		can_create_empires = no
+		vassal_government_opinion_penalties = no
+		can_grant_kingdoms_and_empires_to_other_government_group = yes
+		can_be_granted_kingdoms_and_empires_by_other_government = no
+		free_retract_vassalage = yes
+
+		## Modifiers
+		court_size_modifier = 15
+	}
+	
+	zombie_horde = {
+		# Now feudal to avoid bugs they had with their nomad implementation
+		preferred_holdings = { CITY }
+		allowed_holdings = {
+			CASTLE
+			CITY
+			TEMPLE
+			TRIBAL
+			FORT
+		}
+		accepts_liege_governments  = {
+			zombie_horde
+		}
+		no_vassal_tax = {
+			zombie_horde
+		}
+		forced_contract = {
+			feudal_government
+			muslim_government
+			theocracy_government
+			merchant_republic_government
+			draconic_merchant_republic_government
+			republic_government
+			tribal_government
+			draconic_governorship
+			draconic_theocracy_government
+			draconic_feudal_government
+			draconic_tribal_government
+			blood_court_government
+			theocratic_feudal_government
+			chinese_imperial_government
+		}
+		ignore_in_vassal_limit_calculation = {
+			zombie_horde
+			# zombie_horde_no_HL
+		}
+		vassal_call_to_arms = {
+			zombie_horde
+		}
+		potential = {
+			trait = zombie
+			OR = {
+				independent = yes
+				liege = { government = zombie_horde }
+			}
+		}
+		
+		unit_home_modifier = {
+			supply_limit = 5 # Supply limit modifier for Nomads in Nomad lands
+		}
+		
+		color = { 20 20 20 }
+		
+		uses_piety_for_law_change = yes
+		allow_title_revokation = yes
+		ignores_de_jure_laws = yes
+		can_build_holdings = no
+		can_build_forts = no
+		can_build_hospitals = no
+		can_build_temple = no
+		can_demand_religious_conversion = no
+		can_imprison_without_reason = yes
+		can_revoke_without_reason = yes
+		free_retract_vassalage = yes
+		free_levies_in_offensive_war = yes
+		can_be_granted_kingdoms_and_empires_by_other_government = no
+		
+		vassal_limit = -10
+		commander_limit = -4
+		capital_move_delay = 120
+	}
+}

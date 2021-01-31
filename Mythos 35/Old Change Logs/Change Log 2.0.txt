@@ -1,0 +1,115 @@
+##########################################################
+##########################2.0#############################
+##########################################################
+
+#######
+# Magic
+#######
+- The Magic focus has been fleshed out
+- Trait inheritance for Mythos races has been reworked
+- Magic now has 4 associates lifestyles, each given new options
+- Mages can build a unqiue Magic Tower building through an Magic focus event
+- Summoning grants different unit types depending on religion
+
+#########
+# Dragons
+#########
+- Followers of the draconic religion have a Purity trait affecting their prestige, piety, opinion, and income
+- Followers of the draconic religion can consult the elders to learn how to improve their piety and unlock new ambitions
+- The head of the reformed draconic pagan religion, the Sapphire Flame, is now an independant pope-like ruler formed in one of the holy sites who cannot be vassalized.
+- The Sapphire Flame can grant favors, including lending gold, disinheriting bad heirs, granting divorces, and giving claims.
+- Dragons have unique forms of governments available.  These governments cannot levy-shift their vassal obligations
+- Draconic tribes can't use most conquest CBs, but get a stronger Tribute CB
+- Draconic tribes can declare war to forcefully vassalize one of their tributes
+- Draconic tribes can form merchant republics without reforming by holding 4 tributes
+- Draconic tribes can adopt feudalism without reforming by tributising all their neighbors
+- Draconic pagans have access to a new pilgrimage
+- Draconic holy sites contain a unqiue building called the Eternal Flame.  This grants bonuses to Draconic holders and negative events for other holders
+- A non-Draconic holder of an Eternal Flame may try to destroy the flame to stop the events
+- If a flame is destoryed but later taken by a dragon, they may try to relight it by decision, at the cost of their life.
+- Draconic Theocracies will only appear if they hold a holy site.  They have extra buildings and can charge Jizya taxes
+
+##########
+# Vampires
+##########
+- Vampires are now hidden from the world at large, but can become "Known Vampires" if discovered
+- Vampires have a hunger mechanic, increasing both their stats and chance to be caught if they don't feed
+- Vampires whose hunger goes too high will feed automatically, with a very high change to be caught.
+- Vampires can now only feed when hungry
+- When feeding, a vampire may heal wounds or, if the target has good stats, increase their attributes
+- Vampires can feed without killing at a lower chance of being caught, but it won't heal wounds or raise attributes
+- Vampires have access to the Blood Court government, adding additional voting positions automatically filled you your oldest courtiers or vassals
+- Blood Court voters can gain access to events and decisions to secretly steal political, military, and economic power from their liege
+- With enough power, Blood Court voters can forge a claim on their liege or reduce them to a figurehead
+
+############
+# Werewolves
+############
+- Werewolves are now hidden from the world at large, but can become "Known Werewolves" if discovered
+- Werewolves may challenge their liege to combat for the throne
+- Werewolf rulers may pass new laws to change when challenges may be issued
+- Werewolves can receive Horse Lords werewolf events if the DLC in enabled
+- Werewolves have a control mechanic. Characters with high control are better at big-picture control and avoiding detection. Characters with low control are better at personal combat and get more frequent werewolf events, but are more likely to be caught.
+
+################
+# Minor Features
+################
+- Different religions can have a different set of virtues and vices, granting bonuses or penalties via the Virtuous and Wicked modifiers
+- Christians are now able to receive religious icons as artifacts
+- Iconoclast characters may destroy religious icons for bonuses
+- Waldensians and Lollard priests may reject materialism and become ascetics
+- Fratecelli and ascetics can sell valuable artifacts and give the money to the poor for bonuses
+- Mythos cultures and races have been given new buildings and retinues
+- Monster hunters can use a new CB to declare war on and kill monsterous rulers.
+- Revolts against monster lieges are now proper revolts.
+- Combat tactics have been updated to account for new troop types
+- Different religions have different death texts to reflect their differing beliefs
+- Different religions have different vices and virtues, which change piety and opinion
+- Intrigue Focus, Hunt Apostates, and (non-monks and mystics) Build Spy Network can find secret werewolves and vampires
+- New religions now have holy orders and mercenary companies
+- New religions have additional minor titles to hand out
+- Brythonic Pagans are now known as Celtic Pagans
+- Reformed Brythonic Pagans are now known as Druidic Pagans
+- Instead of reforming, Kemetic Pagans have an Atenist heresy that can arise if they control 3 holy sites and Asyut (The locations of the old Atenist site of Amarna)
+- The Jotnar heresy will only appear where giants or jotunn culture are present
+- Instead of reforming, Hellenic Pagans who control rome and the roman empire can revive Roman Paganism
+- Mythos religions now have "Bad Preist" traits
+- Mythos religions now have crusader traits
+- Mythos races now become infertile at different ages
+- Hellenic Pagans can now restore the roman empire
+- Satanists and Draconic Pagans can now hold feasts
+- Brewing a love potion can now be used on characters other than your spouse.  The potion now works in incremental stages
+- The religious conversion spell now targets a province
+- Gods and the undead are mostly immune to disease
+- Gods and Werewolves heal quickly from injuries
+- Chance of dying or getting injured in battle scales with personal combat rating
+
+#########
+# Balance
+#########
+- Scorch Province has been weakened to not rapidly spawn thousands of revolters
+- Magic familiars have been reworked to operate similar to and overlap with the Monks and Mystics familiars
+- Horse Archers no longer trigger light cavalry tactics
+
+###########
+# Interface
+###########
+- Reworked education Focus interface to reflect the addition of magic education
+- Added icons for new units
+- Added 10 new event pictures
+- Added new graphics for Vampire, God, Demigod, and magic education traits
+
+##########
+# Database
+##########
+- The Greek and Norse pantheons have been fleshed out more
+- Some members of the Greek pantheon will change their names upon adopting roman paganism
+- New court physicians have been added
+- Added starts for several new races
+
+##########
+# Bugfixes
+##########
+- Gods can no longer convert to non-theistic religions
+- Many old events were changed from MTTH to on_action, reducing the performance impact of those events
+- Fixed many cases where characters would not gain the correct race trait

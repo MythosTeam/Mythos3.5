@@ -1,0 +1,3808 @@
+convert_city_building_to_undead = {
+	random_list = {
+		# City Walls
+		1 = {
+			trigger = {
+				OR = {
+					has_building = ct_wall_1
+					has_building = ct_wall_2
+					has_building = ct_wall_3
+					has_building = ct_wall_4
+					has_building = ct_wall_5
+				}
+			}
+			if = {
+				limit = { has_building = ct_wall_1 }
+				remove_building = ct_wall_1
+				add_building = ct_wall_of_corpses_1
+			}
+			if = {
+				limit = { has_building = ct_wall_2 }
+				remove_building = ct_wall_2
+				add_building = ct_wall_of_corpses_2
+			}
+			if = {
+				limit = { has_building = ct_wall_3 }
+				remove_building = ct_wall_3
+				add_building = ct_wall_of_corpses_3
+			}
+			if = {
+				limit = { has_building = ct_wall_4 }
+				remove_building = ct_wall_4
+				add_building = ct_wall_of_corpses_4
+			}
+			if = {
+				limit = { has_building = ct_wall_5 }
+				remove_building = ct_wall_5
+				add_building = ct_wall_of_corpses_5
+			}
+		}
+		# City Training Grounds
+		1 = {
+			trigger = {
+				OR = {
+					has_building = ct_training_grounds_1
+					has_building = ct_training_grounds_2
+					has_building = ct_training_grounds_3
+					has_building = ct_training_grounds_4
+					has_building = ct_training_grounds_5
+					has_building = ct_training_grounds_6
+				}
+			}
+			if = {
+				limit = { has_building = ct_training_grounds_1 }
+				remove_building = ct_training_grounds_1
+				add_building = ct_charnel_grounds_1
+			}
+			if = {
+				limit = { has_building = ct_training_grounds_2 }
+				remove_building = ct_training_grounds_2
+				add_building = ct_charnel_grounds_2
+			}
+			if = {
+				limit = { has_building = ct_training_grounds_3 }
+				remove_building = ct_training_grounds_3
+				add_building = ct_charnel_grounds_3
+			}
+			if = {
+				limit = { has_building = ct_training_grounds_4 }
+				remove_building = ct_training_grounds_4
+				add_building = ct_charnel_grounds_4
+			}
+			if = {
+				limit = { has_building = ct_training_grounds_5 }
+				remove_building = ct_training_grounds_5
+				add_building = ct_charnel_grounds_5
+			}
+			if = {
+				limit = { has_building = ct_training_grounds_6 }
+				remove_building = ct_training_grounds_6
+				add_building = ct_charnel_grounds_6
+			}
+		}
+		# City Barracks
+		1 = {
+			trigger = {
+				OR = {
+					has_building = ct_barracks_1
+					has_building = ct_barracks_2
+					has_building = ct_barracks_3
+					has_building = ct_barracks_4
+					has_building = ct_barracks_5
+					has_building = ct_barracks_6
+				}
+			}
+			if = {
+				limit = { has_building = ct_barracks_1 }
+				remove_building = ct_barracks_1
+				add_building = ct_graveyard_1
+			}
+			if = {
+				limit = { has_building = ct_barracks_2 }
+				remove_building = ct_barracks_2
+				add_building = ct_graveyard_2
+			}
+			if = {
+				limit = { has_building = ct_barracks_3 }
+				remove_building = ct_barracks_3
+				add_building = ct_graveyard_3
+			}
+			if = {
+				limit = { has_building = ct_barracks_4 }
+				remove_building = ct_barracks_4
+				add_building = ct_graveyard_4
+			}
+			if = {
+				limit = { has_building = ct_barracks_5 }
+				remove_building = ct_barracks_5
+				add_building = ct_graveyard_5
+			}
+			if = {
+				limit = { has_building = ct_barracks_6 }
+				remove_building = ct_barracks_6
+				add_building = ct_graveyard_6
+			}
+		}
+		# City Guard
+		1 = {
+			trigger = {
+				OR = {
+					has_building = ct_guard_1
+					has_building = ct_guard_2
+					has_building = ct_guard_3
+					has_building = ct_guard_4
+					has_building = ct_guard_5
+				}
+			}
+			if = {
+				limit = { has_building = ct_guard_1 }
+				remove_building = ct_guard_1
+				add_building = ct_catacomb_1
+			}
+			if = {
+				limit = { has_building = ct_guard_2 }
+				remove_building = ct_guard_2
+				add_building = ct_catacomb_2
+			}
+			if = {
+				limit = { has_building = ct_guard_3 }
+				remove_building = ct_guard_3
+				add_building = ct_catacomb_3
+			}
+			if = {
+				limit = { has_building = ct_guard_4 }
+				remove_building = ct_guard_4
+				add_building = ct_catacomb_4
+			}
+			if = {
+				limit = { has_building = ct_guard_5 }
+				remove_building = ct_guard_5
+				add_building = ct_catacomb_5
+			}
+		}
+		# City Marketplace
+		1 = {
+			trigger = {
+				OR = {
+					has_building = ct_marketplace_1
+					has_building = ct_marketplace_2
+					has_building = ct_marketplace_3
+					has_building = ct_marketplace_4
+					has_building = ct_marketplace_5
+					has_building = ct_marketplace_6
+				}
+			}
+			if = {
+				limit = { has_building = ct_marketplace_1 }
+				remove_building = ct_marketplace_1
+				add_building = ct_abandoned_homes_1
+			}
+			if = {
+				limit = { has_building = ct_marketplace_2 }
+				remove_building = ct_marketplace_2
+				add_building = ct_abandoned_homes_2
+			}
+			if = {
+				limit = { has_building = ct_marketplace_3 }
+				remove_building = ct_marketplace_3
+				add_building = ct_abandoned_homes_3
+			}
+			if = {
+				limit = { has_building = ct_marketplace_4 }
+				remove_building = ct_marketplace_4
+				add_building = ct_abandoned_homes_4
+			}
+			if = {
+				limit = { has_building = ct_marketplace_5 }
+				remove_building = ct_marketplace_5
+				add_building = ct_abandoned_homes_5
+			}
+			if = {
+				limit = { has_building = ct_marketplace_6 }
+				remove_building = ct_marketplace_6
+				add_building = ct_abandoned_homes_6
+			}
+		}
+		# City Port
+		1 = {
+			trigger = {
+				OR = {
+					has_building = ct_port_1
+					has_building = ct_port_2
+					has_building = ct_port_3
+					has_building = ct_port_4
+					has_building = ct_port_5
+				}
+			}
+			if = {
+				limit = { has_building = ct_port_1 }
+				remove_building = ct_port_1
+				add_building = ct_drowned_dead_1
+			}
+			if = {
+				limit = { has_building = ct_port_2 }
+				remove_building = ct_port_2
+				add_building = ct_drowned_dead_2
+			}
+			if = {
+				limit = { has_building = ct_port_3 }
+				remove_building = ct_port_3
+				add_building = ct_drowned_dead_3
+			}
+			if = {
+				limit = { has_building = ct_port_4 }
+				remove_building = ct_port_4
+				add_building = ct_drowned_dead_4
+			}
+			if = {
+				limit = { has_building = ct_port_5 }
+				remove_building = ct_port_5
+				add_building = ct_drowned_dead_5
+			}
+		}
+		# City Shipyard
+		1 = {
+			trigger = {
+				OR = {
+					has_building = ct_shipyard_1
+					has_building = ct_shipyard_2
+					has_building = ct_shipyard_3
+					has_building = ct_shipyard_4
+				}
+			}
+			if = {
+				limit = { has_building = ct_shipyard_1 }
+				remove_building = ct_shipyard_1
+				add_building = ct_ghost_ships_1
+			}
+			if = {
+				limit = { has_building = ct_shipyard_2 }
+				remove_building = ct_shipyard_2
+				add_building = ct_ghost_ships_2
+			}
+			if = {
+				limit = { has_building = ct_shipyard_3 }
+				remove_building = ct_shipyard_3
+				add_building = ct_ghost_ships_3
+			}
+			if = {
+				limit = { has_building = ct_shipyard_4 }
+				remove_building = ct_shipyard_4
+				add_building = ct_ghost_ships_4
+			}
+		}
+		# City University
+		1 = {
+			trigger = {
+				OR = {
+					has_building = ct_university_1
+					has_building = ct_university_2
+					has_building = ct_university_3
+				}
+			}
+			if = {
+				limit = { has_building = ct_university_1 }
+				remove_building = ct_university_1
+				add_building = ct_abandoned_university_1
+			}
+			if = {
+				limit = { has_building = ct_university_2 }
+				remove_building = ct_university_2
+				add_building = ct_abandoned_university_2
+			}
+			if = {
+				limit = { has_building = ct_university_3 }
+				remove_building = ct_university_3
+				add_building = ct_abandoned_university_3
+			}
+		}
+	}
+}
+
+convert_temple_building_to_undead = {
+	random_list = {
+		# Temple Wall
+		1 = {
+			trigger = {
+				OR = {
+					has_building = tp_wall_1
+					has_building = tp_wall_2
+					has_building = tp_wall_3
+					has_building = tp_wall_4
+					has_building = tp_wall_5
+				}
+			}
+			if = {
+				limit = { has_building = tp_wall_1 }
+				remove_building = tp_wall_1
+				add_building = tp_wall_of_corpses_1
+			}
+			if = {
+				limit = { has_building = tp_wall_2 }
+				remove_building = tp_wall_2
+				add_building = tp_wall_of_corpses_2
+			}
+			if = {
+				limit = { has_building = tp_wall_3 }
+				remove_building = tp_wall_3
+				add_building = tp_wall_of_corpses_3
+			}
+			if = {
+				limit = { has_building = tp_wall_4 }
+				remove_building = tp_wall_4
+				add_building = tp_wall_of_corpses_4
+			}
+			if = {
+				limit = { has_building = tp_wall_5 }
+				remove_building = tp_wall_5
+				add_building = tp_wall_of_corpses_5
+			}
+		}
+		# Temple Monstery
+		1 = {
+			trigger = {
+				OR = {
+					has_building = tp_monastery_1
+					has_building = tp_monastery_2
+					has_building = tp_monastery_3
+					has_building = tp_monastery_4
+					has_building = tp_monastery_5
+					has_building = tp_monastery_6
+				}
+			}
+			if = {
+				limit = { has_building = tp_monastery_1 }
+				remove_building = tp_monastery_1
+				add_building = tp_halls_of_the_damned_1
+			}
+			if = {
+				limit = { has_building = tp_monastery_2 }
+				remove_building = tp_monastery_2
+				add_building = tp_halls_of_the_damned_2
+			}
+			if = {
+				limit = { has_building = tp_monastery_3 }
+				remove_building = tp_monastery_3
+				add_building = tp_halls_of_the_damned_3
+			}
+			if = {
+				limit = { has_building = tp_monastery_4 }
+				remove_building = tp_monastery_4
+				add_building = tp_halls_of_the_damned_4
+			}
+			if = {
+				limit = { has_building = tp_monastery_5 }
+				remove_building = tp_monastery_5
+				add_building = tp_halls_of_the_damned_5
+			}
+			if = {
+				limit = { has_building = tp_monastery_6 }
+				remove_building = tp_monastery_6
+				add_building = tp_halls_of_the_damned_6
+			}
+		}
+		# Temple Barracks
+		1 = {
+			trigger = {
+				OR = {
+					has_building = tp_barracks_1
+					has_building = tp_barracks_2
+					has_building = tp_barracks_3
+					has_building = tp_barracks_4
+					has_building = tp_barracks_5
+					has_building = tp_barracks_6
+				}
+			}
+			if = {
+				limit = { has_building = tp_barracks_1 }
+				remove_building = tp_barracks_1
+				add_building = tp_cemetary_1
+			}
+			if = {
+				limit = { has_building = tp_barracks_2 }
+				remove_building = tp_barracks_2
+				add_building = tp_cemetary_2
+			}
+			if = {
+				limit = { has_building = tp_barracks_3 }
+				remove_building = tp_barracks_3
+				add_building = tp_cemetary_3
+			}
+			if = {
+				limit = { has_building = tp_barracks_4 }
+				remove_building = tp_barracks_4
+				add_building = tp_cemetary_4
+			}
+			if = {
+				limit = { has_building = tp_barracks_5 }
+				remove_building = tp_barracks_5
+				add_building = tp_cemetary_5
+			}
+			if = {
+				limit = { has_building = tp_barracks_6 }
+				remove_building = tp_barracks_6
+				add_building = tp_cemetary_6
+			}
+		}
+		# Temple Elite Barracks
+		1 = {
+			trigger = {
+				OR = {
+					has_building = tp_elite_barracks_1
+					has_building = tp_elite_barracks_2
+					has_building = tp_elite_barracks_3
+					has_building = tp_elite_barracks_4
+					has_building = tp_elite_barracks_5
+					has_building = tp_elite_barracks_6
+				}
+			}
+			if = {
+				limit = { has_building = tp_elite_barracks_1 }
+				remove_building = tp_elite_barracks_1
+				add_building = tp_crypt_1
+			}
+			if = {
+				limit = { has_building = tp_elite_barracks_2 }
+				remove_building = tp_elite_barracks_2
+				add_building = tp_crypt_2
+			}
+			if = {
+				limit = { has_building = tp_elite_barracks_3 }
+				remove_building = tp_elite_barracks_3
+				add_building = tp_crypt_3
+			}
+			if = {
+				limit = { has_building = tp_elite_barracks_4 }
+				remove_building = tp_elite_barracks_4
+				add_building = tp_crypt_4
+			}
+			if = {
+				limit = { has_building = tp_elite_barracks_5 }
+				remove_building = tp_elite_barracks_5
+				add_building = tp_crypt_5
+			}
+			if = {
+				limit = { has_building = tp_elite_barracks_6 }
+				remove_building = tp_elite_barracks_6
+				add_building = tp_crypt_6
+			}
+		}
+		# Temple Town
+		1 = {
+			trigger = {
+				OR = {
+					has_building = tp_town_1
+					has_building = tp_town_2
+					has_building = tp_town_3
+					has_building = tp_town_4
+					has_building = tp_town_5
+					has_building = tp_town_6
+				}
+			}
+			if = {
+				limit = { has_building = tp_town_1 }
+				remove_building = tp_town_1
+				add_building = tp_ghost_town_1
+			}
+			if = {
+				limit = { has_building = tp_town_2 }
+				remove_building = tp_town_2
+				add_building = tp_ghost_town_2
+			}
+			if = {
+				limit = { has_building = tp_town_3 }
+				remove_building = tp_town_3
+				add_building = tp_ghost_town_3
+			}
+			if = {
+				limit = { has_building = tp_town_4 }
+				remove_building = tp_town_4
+				add_building = tp_ghost_town_4
+			}
+			if = {
+				limit = { has_building = tp_town_5 }
+				remove_building = tp_town_5
+				add_building = tp_ghost_town_5
+			}
+			if = {
+				limit = { has_building = tp_town_6 }
+				remove_building = tp_town_6
+				add_building = tp_ghost_town_6
+			}
+		}
+		# Temple Shipyard
+		1 = {
+			trigger = {
+				OR = {
+					has_building = tp_shipyard_1
+					has_building = tp_shipyard_2
+					has_building = tp_shipyard_3
+					has_building = tp_shipyard_4
+				}
+			}
+			if = {
+				limit = { has_building = tp_shipyard_1 }
+				remove_building = tp_shipyard_1
+				add_building = tp_abandoned_ships_1
+			}
+			if = {
+				limit = { has_building = tp_shipyard_2 }
+				remove_building = tp_shipyard_2
+				add_building = tp_abandoned_ships_2
+			}
+			if = {
+				limit = { has_building = tp_shipyard_3 }
+				remove_building = tp_shipyard_3
+				add_building = tp_abandoned_ships_3
+			}
+			if = {
+				limit = { has_building = tp_shipyard_4 }
+				remove_building = tp_shipyard_4
+				add_building = tp_abandoned_ships_4
+			}
+		}
+		# Temple School
+		1 = {
+			trigger = {
+				OR = {
+					has_building = tp_school_1
+					has_building = tp_school_2
+				}
+			}
+			if = {
+				limit = { has_building = tp_school_1 }
+				remove_building = tp_school_1
+				add_building = tp_ritual_chamber_1
+			}
+			if = {
+				limit = { has_building = tp_school_2 }
+				remove_building = tp_school_2
+				add_building = tp_ritual_chamber_2
+			}
+		}
+	}
+}
+
+convert_castle_building_to_undead = {
+	random_list = {
+		# Castle Wall
+		1 = {
+			trigger = {
+				OR = {
+					has_building = ca_wall_1
+					has_building = ca_wall_2
+					has_building = ca_wall_3
+					has_building = ca_wall_4
+					has_building = ca_wall_5
+					has_building = ca_con_wall_6
+				}
+			}
+			if = {
+				limit = { has_building = ca_wall_1 }
+				remove_building = ca_wall_1
+				add_building = ca_wall_of_corpses_1
+			}
+			if = {
+				limit = { has_building = ca_wall_2 }
+				remove_building = ca_wall_2
+				add_building = ca_wall_of_corpses_2
+			}
+			if = {
+				limit = { has_building = ca_wall_3 }
+				remove_building = ca_wall_3
+				add_building = ca_wall_of_corpses_3
+			}
+			if = {
+				limit = { has_building = ca_wall_4 }
+				remove_building = ca_wall_4
+				add_building = ca_wall_of_corpses_4
+			}
+			if = {
+				limit = { has_building = ca_wall_5 }
+				remove_building = ca_wall_5
+				add_building = ca_wall_of_corpses_5
+			}
+			if = {
+				limit = { has_building = ca_con_wall_6 }
+				remove_building = ca_con_wall_6
+				add_building = ca_wall_of_corpses_6
+			}
+		}
+		# Castle Keep
+		1 = {
+			trigger = {
+				OR = {
+					has_building = ca_keep_1
+					has_building = ca_keep_2
+					has_building = ca_keep_3
+					has_building = ca_keep_4
+					has_building = ca_keep_5
+					has_building = ca_keep_6
+				}
+			}
+			if = {
+				limit = { has_building = ca_keep_1 }
+				remove_building = ca_keep_1
+				add_building = ca_abandoned_keep_1
+			}
+			if = {
+				limit = { has_building = ca_keep_2 }
+				remove_building = ca_keep_2
+				add_building = ca_abandoned_keep_2
+			}
+			if = {
+				limit = { has_building = ca_keep_3 }
+				remove_building = ca_keep_3
+				add_building = ca_abandoned_keep_3
+			}
+			if = {
+				limit = { has_building = ca_keep_4 }
+				remove_building = ca_keep_4
+				add_building = ca_abandoned_keep_4
+			}
+			if = {
+				limit = { has_building = ca_keep_5 }
+				remove_building = ca_keep_5
+				add_building = ca_abandoned_keep_5
+			}
+			if = {
+				limit = { has_building = ca_keep_6 }
+				remove_building = ca_keep_6
+				add_building = ca_abandoned_keep_6
+			}
+		}
+		# Militia Barracks
+		1 = {
+			trigger = {
+				OR = {
+					has_building = ca_militia_barracks_1
+					has_building = ca_militia_barracks_2
+					has_building = ca_militia_barracks_3
+					has_building = ca_militia_barracks_4
+				}
+			}
+			if = {
+				limit = { has_building = ca_militia_barracks_1 }
+				remove_building = ca_militia_barracks_1
+				add_building = ca_graveyard_1
+			}
+			if = {
+				limit = { has_building = ca_militia_barracks_2 }
+				remove_building = ca_militia_barracks_2
+				add_building = ca_graveyard_2
+			}
+			if = {
+				limit = { has_building = ca_militia_barracks_3 }
+				remove_building = ca_militia_barracks_3
+				add_building = ca_graveyard_3
+			}
+			if = {
+				limit = { has_building = ca_militia_barracks_4 }
+				remove_building = ca_militia_barracks_4
+				add_building = ca_graveyard_4
+			}
+		}
+		# Training Grounds
+		1 = {
+			trigger = {
+				OR = {
+					has_building = ca_training_grounds_1
+					has_building = ca_training_grounds_2
+					has_building = ca_training_grounds_3
+				}
+			}
+			if = {
+				limit = { has_building = ca_training_grounds_1 }
+				remove_building = ca_training_grounds_1
+				add_building = ca_executioners_block_1
+			}
+			if = {
+				limit = { has_building = ca_training_grounds_2 }
+				remove_building = ca_training_grounds_2
+				add_building = ca_executioners_block_2
+			}
+			if = {
+				limit = { has_building = ca_training_grounds_3 }
+				remove_building = ca_training_grounds_3
+				add_building = ca_executioners_block_3
+			}
+		}
+		# Castle Barracks
+		1 = {
+			trigger = {
+				OR = {
+					has_building = ca_barracks_1
+					has_building = ca_barracks_2
+					has_building = ca_barracks_3
+					has_building = ca_barracks_4
+					has_building = ca_barracks_5
+					has_building = ca_barracks_6
+				}
+			}
+			if = {
+				limit = { has_building = ca_barracks_1 }
+				remove_building = ca_barracks_1
+				add_building = ca_noble_crypts_1
+			}
+			if = {
+				limit = { has_building = ca_barracks_2 }
+				remove_building = ca_barracks_2
+				add_building = ca_noble_crypts_2
+			}
+			if = {
+				limit = { has_building = ca_barracks_3 }
+				remove_building = ca_barracks_3
+				add_building = ca_noble_crypts_3
+			}
+			if = {
+				limit = { has_building = ca_barracks_4 }
+				remove_building = ca_barracks_4
+				add_building = ca_noble_crypts_4
+			}
+			if = {
+				limit = { has_building = ca_barracks_5 }
+				remove_building = ca_barracks_5
+				add_building = ca_noble_crypts_5
+			}
+			if = {
+				limit = { has_building = ca_barracks_6 }
+				remove_building = ca_barracks_6
+				add_building = ca_noble_crypts_6
+			}
+		}
+		# Castle Stables 
+		1 = {
+			trigger = {
+				OR = {
+					has_building = ca_stable_1
+					has_building = ca_stable_2
+					has_building = ca_stable_3
+					has_building = ca_stable_4
+					has_building = ca_stable_5
+					has_building = ca_stable_6
+				}
+			}
+			if = {
+				limit = { has_building = ca_stable_1 }
+				remove_building = ca_stable_1
+				add_building = ca_butcher_1
+			}
+			if = {
+				limit = { has_building = ca_stable_2 }
+				remove_building = ca_stable_2
+				add_building = ca_butcher_2
+			}
+			if = {
+				limit = { has_building = ca_stable_3 }
+				remove_building = ca_stable_3
+				add_building = ca_butcher_3
+			}
+			if = {
+				limit = { has_building = ca_stable_4 }
+				remove_building = ca_stable_4
+				add_building = ca_butcher_4
+			}
+			if = {
+				limit = { has_building = ca_stable_5 }
+				remove_building = ca_stable_5
+				add_building = ca_butcher_5
+			}
+			if = {
+				limit = { has_building = ca_stable_6 }
+				remove_building = ca_stable_6
+				add_building = ca_butcher_6
+			}
+		}
+		# Castle Town
+		1 = {
+			trigger = {
+				OR = {
+					has_building = ca_town_1
+					has_building = ca_town_2
+					has_building = ca_town_3
+					has_building = ca_town_4
+					has_building = ca_town_5
+					has_building = ca_town_6
+				}
+			}
+			if = {
+				limit = { has_building = ca_town_1 }
+				remove_building = ca_town_1
+				add_building = ca_ruined_homes_1
+			}
+			if = {
+				limit = { has_building = ca_town_2 }
+				remove_building = ca_town_2
+				add_building = ca_ruined_homes_2
+			}
+			if = {
+				limit = { has_building = ca_town_3 }
+				remove_building = ca_town_3
+				add_building = ca_ruined_homes_3
+			}
+			if = {
+				limit = { has_building = ca_town_4 }
+				remove_building = ca_town_4
+				add_building = ca_ruined_homes_4
+			}
+			if = {
+				limit = { has_building = ca_town_5 }
+				remove_building = ca_town_5
+				add_building = ca_ruined_homes_5
+			}
+			if = {
+				limit = { has_building = ca_town_6 }
+				remove_building = ca_town_6
+				add_building = ca_ruined_homes_6
+			}
+		}
+		# Castle Shipyard
+		1 = {
+			trigger = {
+				OR = {
+					has_building = ca_shipyard_1
+					has_building = ca_shipyard_2
+					has_building = ca_shipyard_3
+					has_building = ca_shipyard_4
+				}
+			}
+			if = {
+				limit = { has_building = ca_shipyard_1 }
+				remove_building = ca_shipyard_1
+				add_building = ca_wrecked_ships_1
+			}
+			if = {
+				limit = { has_building = ca_shipyard_2 }
+				remove_building = ca_shipyard_2
+				add_building = ca_wrecked_ships_2
+			}
+			if = {
+				limit = { has_building = ca_shipyard_3 }
+				remove_building = ca_shipyard_3
+				add_building = ca_wrecked_ships_3
+			}
+			if = {
+				limit = { has_building = ca_shipyard_4 }
+				remove_building = ca_shipyard_4
+				add_building = ca_wrecked_ships_4
+			}
+		}
+		# Steppe Barracks
+		1 = {
+			trigger = {
+				OR = {
+					has_building = ca_steppe_barracks_1
+					has_building = ca_steppe_barracks_2
+					has_building = ca_steppe_barracks_3
+					has_building = ca_steppe_barracks_4
+					has_building = ca_steppe_barracks_5
+					has_building = ca_steppe_barracks_6
+				}
+			}
+			if = {
+				limit = { has_building = ca_steppe_barracks_1 }
+				remove_building = ca_steppe_barracks_1
+				add_building = ca_noble_crypts_1
+			}
+			if = {
+				limit = { has_building = ca_steppe_barracks_2 }
+				remove_building = ca_steppe_barracks_2
+				add_building = ca_noble_crypts_2
+			}
+			if = {
+				limit = { has_building = ca_steppe_barracks_3 }
+				remove_building = ca_steppe_barracks_3
+				add_building = ca_noble_crypts_3
+			}
+			if = {
+				limit = { has_building = ca_steppe_barracks_4 }
+				remove_building = ca_steppe_barracks_4
+				add_building = ca_noble_crypts_4
+			}
+			if = {
+				limit = { has_building = ca_steppe_barracks_5 }
+				remove_building = ca_steppe_barracks_5
+				add_building = ca_noble_crypts_5
+			}
+			if = {
+				limit = { has_building = ca_steppe_barracks_6 }
+				remove_building = ca_steppe_barracks_6
+				add_building = ca_noble_crypts_6
+			}
+		}
+		# Steppe Stables
+		1 = {
+			trigger = {
+				OR = {
+					has_building = ca_steppe_stable_1
+					has_building = ca_steppe_stable_2
+					has_building = ca_steppe_stable_3
+					has_building = ca_steppe_stable_4
+					has_building = ca_steppe_stable_5
+					has_building = ca_steppe_stable_6
+				}
+			}
+			if = {
+				limit = { has_building = ca_steppe_stable_1 }
+				remove_building = ca_steppe_stable_1
+				add_building = ca_butcher_1
+			}
+			if = {
+				limit = { has_building = ca_steppe_stable_2 }
+				remove_building = ca_steppe_stable_2
+				add_building = ca_butcher_2
+			}
+			if = {
+				limit = { has_building = ca_steppe_stable_3 }
+				remove_building = ca_steppe_stable_3
+				add_building = ca_butcher_3
+			}
+			if = {
+				limit = { has_building = ca_steppe_stable_4 }
+				remove_building = ca_steppe_stable_4
+				add_building = ca_butcher_4
+			}
+			if = {
+				limit = { has_building = ca_steppe_stable_5 }
+				remove_building = ca_steppe_stable_5
+				add_building = ca_butcher_5
+			}
+			if = {
+				limit = { has_building = ca_steppe_stable_6 }
+				remove_building = ca_steppe_stable_6
+				add_building = ca_butcher_6
+			}
+		}
+		# Desert Stable
+		1 = {
+			trigger = {
+				OR = {
+					has_building = ca_desert_stable_1
+					has_building = ca_desert_stable_2
+					has_building = ca_desert_stable_3
+					has_building = ca_desert_stable_4
+					has_building = ca_desert_stable_5
+					has_building = ca_desert_stable_6
+				}
+			}
+			if = {
+				limit = { has_building = ca_desert_stable_1 }
+				remove_building = ca_desert_stable_1
+				add_building = ca_butcher_1
+			}
+			if = {
+				limit = { has_building = ca_desert_stable_2 }
+				remove_building = ca_desert_stable_2
+				add_building = ca_butcher_2
+			}
+			if = {
+				limit = { has_building = ca_desert_stable_3 }
+				remove_building = ca_desert_stable_3
+				add_building = ca_butcher_3
+			}
+			if = {
+				limit = { has_building = ca_desert_stable_4 }
+				remove_building = ca_desert_stable_4
+				add_building = ca_butcher_4
+			}
+			if = {
+				limit = { has_building = ca_desert_stable_5 }
+				remove_building = ca_desert_stable_5
+				add_building = ca_butcher_5
+			}
+			if = {
+				limit = { has_building = ca_desert_stable_6 }
+				remove_building = ca_desert_stable_6
+				add_building = ca_butcher_6
+			}
+		}
+		# Cultural Building
+		1 = {
+			trigger = {
+				OR = {
+					has_building = ca_culture_saxon_english_1
+					has_building = ca_culture_scottish_1
+					has_building = ca_culture_group_baltic_1
+					has_building = ca_culture_group_altaic_1
+					has_building = ca_culture_frank_norman_german_1
+					has_building = ca_culture_group_iberian_1
+					has_building = ca_culture_italian_1
+					has_building = ca_culture_russian_1
+					has_building = ca_culture_group_north_germanic_1
+					has_building = ca_culture_hungarian_1
+					has_building = ca_culture_group_arabic_1
+					has_building = ca_culture_group_byzantine_1
+					has_building = ca_culture_irish_1
+					has_building = ca_culture_ethiopian_1
+					has_building = ca_culture_somali_1
+					has_building = ca_culture_west_african_1
+					has_building = ca_culture_group_south_slavic_1
+					has_building = ca_culture_dutch_1
+					has_building = ca_culture_nahuatl_1
+					has_building = ca_culture_jewish_1
+					has_building = ca_culture_indian_1
+					has_building = ca_culture_nubian_1
+					has_building = ca_culture_germanic_1
+					has_building = ca_culture_pictish_1
+					has_building = ca_culture_suebi_1
+					has_building = ca_culture_moors_1
+					has_building = ca_culture_chinese_han_1
+					has_building = ca_culture_altaic_jurchen_1
+					has_building = ca_culture_tibetan_1
+					has_building = ca_dragon_militia_1
+					has_building = ca_werewolf_soldiers_1
+					has_building = ca_vampire_catacomb_1
+					has_building = ca_giant_arena_1
+				}
+			}
+			remove_building = ca_culture_saxon_english_1
+			remove_building = ca_culture_scottish_1
+			remove_building = ca_culture_group_baltic_1
+			remove_building = ca_culture_group_altaic_1
+			remove_building = ca_culture_frank_norman_german_1
+			remove_building = ca_culture_group_iberian_1
+			remove_building = ca_culture_italian_1
+			remove_building = ca_culture_russian_1
+			remove_building = ca_culture_group_north_germanic_1
+			remove_building = ca_culture_hungarian_1
+			remove_building = ca_culture_group_arabic_1
+			remove_building = ca_culture_group_byzantine_1
+			remove_building = ca_culture_irish_1
+			remove_building = ca_culture_ethiopian_1
+			remove_building = ca_culture_somali_1
+			remove_building = ca_culture_west_african_1
+			remove_building = ca_culture_group_south_slavic_1
+			remove_building = ca_culture_dutch_1
+			remove_building = ca_culture_nahuatl_1
+			remove_building = ca_culture_jewish_1
+			remove_building = ca_culture_indian_1
+			remove_building = ca_culture_nubian_1
+			remove_building = ca_culture_germanic_1
+			remove_building = ca_culture_pictish_1
+			remove_building = ca_culture_suebi_1
+			remove_building = ca_culture_moors_1
+			remove_building = ca_culture_chinese_han_1
+			remove_building = ca_culture_altaic_jurchen_1
+			remove_building = ca_culture_tibetan_1
+			remove_building = ca_dragon_militia_1
+			remove_building = ca_werewolf_soldiers_1
+			remove_building = ca_vampire_catacomb_1
+			remove_building = ca_giant_arena_1
+			add_building = ca_mass_grave_1
+			if = {
+				limit = {
+					has_building = ca_culture_saxon_english_2
+					has_building = ca_culture_scottish_2
+					has_building = ca_culture_group_baltic_2
+					has_building = ca_culture_group_altaic_2
+					has_building = ca_culture_frank_norman_german_2
+					has_building = ca_culture_group_iberian_2
+					has_building = ca_culture_italian_2
+					has_building = ca_culture_russian_2
+					has_building = ca_culture_group_north_germanic_2
+					has_building = ca_culture_hungarian_2
+					has_building = ca_culture_group_arabic_2
+					has_building = ca_culture_group_byzantine_2
+					has_building = ca_culture_irish_2
+					has_building = ca_culture_ethiopian_2
+					has_building = ca_culture_somali_2
+					has_building = ca_culture_west_african_2
+					has_building = ca_culture_group_south_slavic_2
+					has_building = ca_culture_dutch_2
+					has_building = ca_culture_nahuatl_2
+					has_building = ca_culture_jewish_2
+					has_building = ca_culture_indian_2
+					has_building = ca_culture_nubian_2
+					has_building = ca_culture_germanic_2
+					has_building = ca_culture_pictish_2
+					has_building = ca_culture_suebi_2
+					has_building = ca_culture_moors_2
+					has_building = ca_culture_chinese_han_2
+					has_building = ca_culture_altaic_jurchen_2
+					has_building = ca_culture_tibetan_2
+					has_building = ca_dragon_militia_2
+					has_building = ca_werewolf_soldiers_2
+					has_building = ca_vampire_catacomb_2
+					has_building = ca_giant_arena_2
+				}
+				remove_building = ca_culture_saxon_english_2
+				remove_building = ca_culture_scottish_2
+				remove_building = ca_culture_group_baltic_2
+				remove_building = ca_culture_group_altaic_2
+				remove_building = ca_culture_frank_norman_german_2
+				remove_building = ca_culture_group_iberian_2
+				remove_building = ca_culture_italian_2
+				remove_building = ca_culture_russian_2
+				remove_building = ca_culture_group_north_germanic_2
+				remove_building = ca_culture_hungarian_2
+				remove_building = ca_culture_group_arabic_2
+				remove_building = ca_culture_group_byzantine_2
+				remove_building = ca_culture_irish_2
+				remove_building = ca_culture_ethiopian_2
+				remove_building = ca_culture_somali_2
+				remove_building = ca_culture_west_african_2
+				remove_building = ca_culture_group_south_slavic_2
+				remove_building = ca_culture_dutch_2
+				remove_building = ca_culture_nahuatl_2
+				remove_building = ca_culture_jewish_2
+				remove_building = ca_culture_indian_2
+				remove_building = ca_culture_nubian_2
+				remove_building = ca_culture_germanic_2
+				remove_building = ca_culture_pictish_2
+				remove_building = ca_culture_suebi_2
+				remove_building = ca_culture_moors_2
+				remove_building = ca_culture_chinese_han_2
+				remove_building = ca_culture_altaic_jurchen_2
+				remove_building = ca_culture_tibetan_2
+				remove_building = ca_dragon_militia_2
+				remove_building = ca_werewolf_soldiers_2
+				remove_building = ca_vampire_catacomb_2
+				remove_building = ca_giant_arena_2
+				add_building = ca_mass_grave_2
+			}
+			if = {
+				limit = {
+					has_building = ca_culture_saxon_english_3
+					has_building = ca_culture_scottish_3
+					has_building = ca_culture_group_baltic_3
+					has_building = ca_culture_group_altaic_3
+					has_building = ca_culture_frank_norman_german_3
+					has_building = ca_culture_group_iberian_3
+					has_building = ca_culture_italian_3
+					has_building = ca_culture_russian_3
+					has_building = ca_culture_group_north_germanic_3
+					has_building = ca_culture_hungarian_3
+					has_building = ca_culture_group_arabic_3
+					has_building = ca_culture_group_byzantine_3
+					has_building = ca_culture_irish_3
+					has_building = ca_culture_ethiopian_3
+					has_building = ca_culture_somali_3
+					has_building = ca_culture_west_african_3
+					has_building = ca_culture_group_south_slavic_3
+					has_building = ca_culture_dutch_3
+					has_building = ca_culture_nahuatl_3
+					has_building = ca_culture_jewish_3
+					has_building = ca_culture_indian_3
+					has_building = ca_culture_nubian_3
+					has_building = ca_culture_germanic_3
+					has_building = ca_culture_pictish_3
+					has_building = ca_culture_suebi_3
+					has_building = ca_culture_moors_3
+					has_building = ca_culture_chinese_han_3
+					has_building = ca_culture_altaic_jurchen_3
+					has_building = ca_culture_tibetan_3
+					has_building = ca_dragon_militia_3
+					has_building = ca_werewolf_soldiers_3
+					has_building = ca_vampire_catacomb_3
+					has_building = ca_giant_arena_3
+				}
+				remove_building = ca_culture_saxon_english_3
+				remove_building = ca_culture_scottish_3
+				remove_building = ca_culture_group_baltic_3
+				remove_building = ca_culture_group_altaic_3
+				remove_building = ca_culture_frank_norman_german_3
+				remove_building = ca_culture_group_iberian_3
+				remove_building = ca_culture_italian_3
+				remove_building = ca_culture_russian_3
+				remove_building = ca_culture_group_north_germanic_3
+				remove_building = ca_culture_hungarian_3
+				remove_building = ca_culture_group_arabic_3
+				remove_building = ca_culture_group_byzantine_3
+				remove_building = ca_culture_irish_3
+				remove_building = ca_culture_ethiopian_3
+				remove_building = ca_culture_somali_3
+				remove_building = ca_culture_west_african_3
+				remove_building = ca_culture_group_south_slavic_3
+				remove_building = ca_culture_dutch_3
+				remove_building = ca_culture_nahuatl_3
+				remove_building = ca_culture_jewish_3
+				remove_building = ca_culture_indian_3
+				remove_building = ca_culture_nubian_3
+				remove_building = ca_culture_germanic_3
+				remove_building = ca_culture_pictish_3
+				remove_building = ca_culture_suebi_3
+				remove_building = ca_culture_moors_3
+				remove_building = ca_culture_chinese_han_3
+				remove_building = ca_culture_altaic_jurchen_3
+				remove_building = ca_culture_tibetan_3
+				remove_building = ca_dragon_militia_3
+				remove_building = ca_werewolf_soldiers_3
+				remove_building = ca_vampire_catacomb_3
+				remove_building = ca_giant_arena_3
+				add_building = ca_mass_grave_3
+			}
+			if = {
+				limit = {
+					has_building = ca_culture_saxon_english_4
+					has_building = ca_culture_scottish_4
+					has_building = ca_culture_group_baltic_4
+					has_building = ca_culture_group_altaic_4
+					has_building = ca_culture_frank_norman_german_4
+					has_building = ca_culture_group_iberian_4
+					has_building = ca_culture_italian_4
+					has_building = ca_culture_russian_4
+					has_building = ca_culture_group_north_germanic_4
+					has_building = ca_culture_hungarian_4
+					has_building = ca_culture_group_arabic_4
+					has_building = ca_culture_group_byzantine_4
+					has_building = ca_culture_irish_4
+					has_building = ca_culture_ethiopian_4
+					has_building = ca_culture_somali_4
+					has_building = ca_culture_west_african_4
+					has_building = ca_culture_group_south_slavic_4
+					has_building = ca_culture_dutch_4
+					has_building = ca_culture_nahuatl_4
+					has_building = ca_culture_jewish_4
+					has_building = ca_culture_indian_4
+					has_building = ca_culture_nubian_4
+					has_building = ca_culture_germanic_4
+					has_building = ca_culture_pictish_4
+					has_building = ca_culture_suebi_4
+					has_building = ca_culture_moors_4
+					has_building = ca_culture_chinese_han_4
+					has_building = ca_culture_altaic_jurchen_4
+					has_building = ca_culture_tibetan_4
+					has_building = ca_dragon_militia_4
+					has_building = ca_werewolf_soldiers_4
+					has_building = ca_vampire_catacomb_4
+					has_building = ca_giant_arena_4
+				}
+				remove_building = ca_culture_saxon_english_4
+				remove_building = ca_culture_scottish_4
+				remove_building = ca_culture_group_baltic_4
+				remove_building = ca_culture_group_altaic_4
+				remove_building = ca_culture_frank_norman_german_4
+				remove_building = ca_culture_group_iberian_4
+				remove_building = ca_culture_italian_4
+				remove_building = ca_culture_russian_4
+				remove_building = ca_culture_group_north_germanic_4
+				remove_building = ca_culture_hungarian_4
+				remove_building = ca_culture_group_arabic_4
+				remove_building = ca_culture_group_byzantine_4
+				remove_building = ca_culture_irish_4
+				remove_building = ca_culture_ethiopian_4
+				remove_building = ca_culture_somali_4
+				remove_building = ca_culture_west_african_4
+				remove_building = ca_culture_group_south_slavic_4
+				remove_building = ca_culture_dutch_4
+				remove_building = ca_culture_nahuatl_4
+				remove_building = ca_culture_jewish_4
+				remove_building = ca_culture_indian_4
+				remove_building = ca_culture_nubian_4
+				remove_building = ca_culture_germanic_4
+				remove_building = ca_culture_pictish_4
+				remove_building = ca_culture_suebi_4
+				remove_building = ca_culture_moors_4
+				remove_building = ca_culture_chinese_han_4
+				remove_building = ca_culture_altaic_jurchen_4
+				remove_building = ca_culture_tibetan_4
+				remove_building = ca_dragon_militia_4
+				remove_building = ca_werewolf_soldiers_4
+				remove_building = ca_vampire_catacomb_4
+				remove_building = ca_giant_arena_4
+				add_building = ca_mass_grave_4
+			}
+		}
+	}
+}
+
+convert_tribal_building_to_undead = {
+	random_list = {
+		# Tribal Hillfort
+		1 = {
+			trigger = {
+				OR = {
+					has_building = tb_hillfort_1
+					has_building = tb_hillfort_2
+					has_building = tb_hillfort_3
+					has_building = tb_hillfort_4
+				}
+			}
+			if = {
+				limit = { has_building = tb_hillfort_1 }
+				remove_building = tb_hillfort_1
+				add_building = tb_barrow_1
+			}
+			if = {
+				limit = { has_building = tb_hillfort_2 }
+				remove_building = tb_hillfort_2
+				add_building = tb_barrow_2
+			}
+			if = {
+				limit = { has_building = tb_hillfort_3 }
+				remove_building = tb_hillfort_3
+				add_building = tb_barrow_3
+			}
+			if = {
+				limit = { has_building = tb_hillfort_4 }
+				remove_building = tb_hillfort_4
+				add_building = tb_barrow_4
+			}
+		}
+		# Tribal Marketplace
+		1 = {
+			trigger = {
+				OR = {
+					has_building = tb_market_town_1
+					has_building = tb_market_town_2
+					has_building = tb_market_town_3
+					has_building = tb_market_town_4
+				}
+			}
+			if = {
+				limit = { has_building = tb_market_town_1 }
+				remove_building = tb_market_town_1
+				add_building = tb_crossroads_1
+			}
+			if = {
+				limit = { has_building = tb_market_town_2 }
+				remove_building = tb_market_town_2
+				add_building = tb_crossroads_2
+			}
+			if = {
+				limit = { has_building = tb_market_town_3 }
+				remove_building = tb_market_town_3
+				add_building = tb_crossroads_3
+			}
+			if = {
+				limit = { has_building = tb_market_town_4 }
+				remove_building = tb_market_town_4
+				add_building = tb_crossroads_4
+			}
+		}
+		# Tribal Shipyard
+		1 = {
+			trigger = {
+				OR = {
+					has_building = tb_shipyard_1
+					has_building = tb_shipyard_2
+					has_building = tb_shipyard_3
+					has_building = tb_shipyard_4
+				}
+			}
+			if = {
+				limit = { has_building = tb_shipyard_1 }
+				remove_building = tb_shipyard_1
+				add_building = tb_burial_ship_1
+			}
+			if = {
+				limit = { has_building = tb_shipyard_2 }
+				remove_building = tb_shipyard_2
+				add_building = tb_burial_ship_2
+			}
+			if = {
+				limit = { has_building = tb_shipyard_3 }
+				remove_building = tb_shipyard_3
+				add_building = tb_burial_ship_3
+			}
+			if = {
+				limit = { has_building = tb_shipyard_4 }
+				remove_building = tb_shipyard_4
+				add_building = tb_burial_ship_4
+			}
+		}
+		# Tribal Training Grounds
+		1 = {
+			trigger = {
+				OR = {
+					has_building = tb_training_grounds_1
+					has_building = tb_training_grounds_2
+					has_building = tb_training_grounds_3
+					has_building = tb_training_grounds_4
+				}
+			}
+			if = {
+				limit = { has_building = tb_training_grounds_1 }
+				remove_building = tb_training_grounds_1
+				add_building = tb_destroyed_homes_1
+			}
+			if = {
+				limit = { has_building = tb_training_grounds_2 }
+				remove_building = tb_training_grounds_2
+				add_building = tb_destroyed_homes_2
+			}
+			if = {
+				limit = { has_building = tb_training_grounds_3 }
+				remove_building = tb_training_grounds_3
+				add_building = tb_destroyed_homes_3
+			}
+			if = {
+				limit = { has_building = tb_training_grounds_4 }
+				remove_building = tb_training_grounds_4
+				add_building = tb_destroyed_homes_4
+			}
+		}
+		# War Camp
+		1 = {
+			trigger = {
+				OR = {
+					has_building = tb_war_camp_1
+					has_building = tb_war_camp_2
+					has_building = tb_war_camp_3
+					has_building = tb_war_camp_4
+				}
+			}
+			if = {
+				limit = { has_building = tb_war_camp_1 }
+				remove_building = tb_war_camp_1
+				add_building = tb_ancient_battlefield_1
+			}
+			if = {
+				limit = { has_building = tb_war_camp_2 }
+				remove_building = tb_war_camp_2
+				add_building = tb_ancient_battlefield_2
+			}
+			if = {
+				limit = { has_building = tb_war_camp_3 }
+				remove_building = tb_war_camp_3
+				add_building = tb_ancient_battlefield_3
+			}
+			if = {
+				limit = { has_building = tb_war_camp_4 }
+				remove_building = tb_war_camp_4
+				add_building = tb_ancient_battlefield_4
+			}
+		}
+		# Practice Range
+		1 = {
+			trigger = {
+				OR = {
+					has_building = tb_practice_range_1
+					has_building = tb_practice_range_2
+					has_building = tb_practice_range_3
+					has_building = tb_practice_range_4
+				}
+			}
+			if = {
+				limit = { has_building = tb_practice_range_1 }
+				remove_building = tb_practice_range_1
+				add_building = tb_burial_mounds_1
+			}
+			if = {
+				limit = { has_building = tb_practice_range_2 }
+				remove_building = tb_practice_range_2
+				add_building = tb_burial_mounds_2
+			}
+			if = {
+				limit = { has_building = tb_practice_range_3 }
+				remove_building = tb_practice_range_3
+				add_building = tb_burial_mounds_3
+			}
+			if = {
+				limit = { has_building = tb_practice_range_4 }
+				remove_building = tb_practice_range_4
+				add_building = tb_burial_mounds_4
+			}
+		}
+		# Steppe Barracks
+		1 = {
+			trigger = {
+				OR = {
+					has_building = tb_steppe_barracks_1
+					has_building = tb_steppe_barracks_2
+					has_building = tb_steppe_barracks_3
+					has_building = tb_steppe_barracks_4
+				}
+			}
+			if = {
+				limit = { has_building = tb_steppe_barracks_1 }
+				remove_building = tb_steppe_barracks_1
+				add_building = tb_horse_burial_1
+			}
+			if = {
+				limit = { has_building = tb_steppe_barracks_2 }
+				remove_building = tb_steppe_barracks_2
+				add_building = tb_horse_burial_2
+			}
+			if = {
+				limit = { has_building = tb_steppe_barracks_3 }
+				remove_building = tb_steppe_barracks_3
+				add_building = tb_horse_burial_3
+			}
+			if = {
+				limit = { has_building = tb_steppe_barracks_4 }
+				remove_building = tb_steppe_barracks_4
+				add_building = tb_horse_burial_4
+			}
+		}
+		# Steppe Stable
+		1 = {
+			trigger = {
+				OR = {
+					has_building = tb_steppe_stable_1
+					has_building = tb_steppe_stable_2
+					has_building = tb_steppe_stable_3
+					has_building = tb_steppe_stable_4
+				}
+			}
+			if = {
+				limit = { has_building = tb_steppe_stable_1 }
+				remove_building = tb_steppe_stable_1
+				add_building = tb_horse_butchery_1
+			}
+			if = {
+				limit = { has_building = tb_steppe_stable_2 }
+				remove_building = tb_steppe_stable_2
+				add_building = tb_horse_butchery_2
+			}
+			if = {
+				limit = { has_building = tb_steppe_stable_3 }
+				remove_building = tb_steppe_stable_3
+				add_building = tb_horse_butchery_3
+			}
+			if = {
+				limit = { has_building = tb_steppe_stable_4 }
+				remove_building = tb_steppe_stable_4
+				add_building = tb_horse_butchery_4
+			}
+		}
+		# Arsenal
+		1 = {
+			trigger = {
+				OR = {
+					has_building = tb_arsenal_1
+					has_building = tb_arsenal_2
+					has_building = tb_arsenal_3
+					has_building = tb_arsenal_4
+				}
+			}
+			if = {
+				limit = { has_building = tb_arsenal_1 }
+				remove_building = tb_arsenal_1
+				add_building = tb_grave_goods_1
+			}
+			if = {
+				limit = { has_building = tb_arsenal_2 }
+				remove_building = tb_arsenal_2
+				add_building = tb_grave_goods_2
+			}
+			if = {
+				limit = { has_building = tb_arsenal_3 }
+				remove_building = tb_arsenal_3
+				add_building = tb_grave_goods_3
+			}
+			if = {
+				limit = { has_building = tb_arsenal_4 }
+				remove_building = tb_arsenal_4
+				add_building = tb_grave_goods_4
+			}
+		}
+		# Desert Stable
+		1 = {
+			trigger = {
+				OR = {
+					has_building = tb_desert_stable_1
+					has_building = tb_desert_stable_2
+					has_building = tb_desert_stable_3
+					has_building = tb_desert_stable_4
+				}
+			}
+			if = {
+				limit = { has_building = tb_desert_stable_1 }
+				remove_building = tb_desert_stable_1
+				add_building = tb_horse_burial_1
+			}
+			if = {
+				limit = { has_building = tb_desert_stable_2 }
+				remove_building = tb_desert_stable_2
+				add_building = tb_horse_burial_2
+			}
+			if = {
+				limit = { has_building = tb_desert_stable_3 }
+				remove_building = tb_desert_stable_3
+				add_building = tb_horse_burial_3
+			}
+			if = {
+				limit = { has_building = tb_desert_stable_4 }
+				remove_building = tb_desert_stable_4
+				add_building = tb_horse_burial_4
+			}
+		}
+	}
+}
+
+convert_city_building_to_living = {
+	random_list = {
+		# Wall of Corpses
+		1 = {
+			trigger = {
+				OR = {
+					has_building = ct_wall_of_corpses_1
+					has_building = ct_wall_of_corpses_2
+					has_building = ct_wall_of_corpses_3
+					has_building = ct_wall_of_corpses_4
+					has_building = ct_wall_of_corpses_5
+				}
+			}
+			if = {
+				limit = { has_building = ct_wall_of_corpses_1 }
+				remove_building = ct_wall_of_corpses_1
+				add_building = ct_wall_1
+			}
+			if = {
+				limit = { has_building = ct_wall_of_corpses_2 }
+				remove_building = ct_wall_of_corpses_2
+				add_building = ct_wall_2
+			}
+			if = {
+				limit = { has_building = ct_wall_of_corpses_3 }
+				remove_building = ct_wall_of_corpses_3
+				add_building = ct_wall_3
+			}
+			if = {
+				limit = { has_building = ct_wall_of_corpses_4 }
+				remove_building = ct_wall_of_corpses_4
+				add_building = ct_wall_4
+			}
+			if = {
+				limit = { has_building = ct_wall_of_corpses_5 }
+				remove_building = ct_wall_of_corpses_5
+				add_building = ct_wall_5
+			}
+		}
+		# Charnal Grounds
+		1 = {
+			trigger = {
+				OR = {
+					has_building = ct_charnel_grounds_1
+					has_building = ct_charnel_grounds_2
+					has_building = ct_charnel_grounds_3
+					has_building = ct_charnel_grounds_4
+					has_building = ct_charnel_grounds_5
+					has_building = ct_charnel_grounds_6
+				}
+			}
+			if = {
+				limit = { has_building = ct_charnel_grounds_1 }
+				remove_building = ct_charnel_grounds_1
+				add_building = ct_training_grounds_1
+			}
+			if = {
+				limit = { has_building = ct_charnel_grounds_2 }
+				remove_building = ct_charnel_grounds_2
+				add_building = ct_training_grounds_2
+			}
+			if = {
+				limit = { has_building = ct_charnel_grounds_3 }
+				remove_building = ct_charnel_grounds_3
+				add_building = ct_training_grounds_3
+			}
+			if = {
+				limit = { has_building = ct_charnel_grounds_4 }
+				remove_building = ct_charnel_grounds_4
+				add_building = ct_training_grounds_4
+			}
+			if = {
+				limit = { has_building = ct_charnel_grounds_5 }
+				remove_building = ct_charnel_grounds_5
+				add_building = ct_training_grounds_5
+			}
+			if = {
+				limit = { has_building = ct_charnel_grounds_6 }
+				remove_building = ct_charnel_grounds_6
+				add_building = ct_training_grounds_6
+			}
+		}
+		# City Graveyard
+		1 = {
+			trigger = {
+				OR = {
+					has_building = ct_graveyard_1
+					has_building = ct_graveyard_2
+					has_building = ct_graveyard_3
+					has_building = ct_graveyard_4
+					has_building = ct_graveyard_5
+					has_building = ct_graveyard_6
+				}
+			}
+			if = {
+				limit = { has_building = ct_graveyard_1 }
+				remove_building = ct_graveyard_1
+				add_building = ct_barracks_1
+			}
+			if = {
+				limit = { has_building = ct_graveyard_2 }
+				remove_building = ct_graveyard_2
+				add_building = ct_barracks_2
+			}
+			if = {
+				limit = { has_building = ct_graveyard_3 }
+				remove_building = ct_graveyard_3
+				add_building = ct_barracks_3
+			}
+			if = {
+				limit = { has_building = ct_graveyard_4 }
+				remove_building = ct_graveyard_4
+				add_building = ct_barracks_4
+			}
+			if = {
+				limit = { has_building = ct_graveyard_5 }
+				remove_building = ct_graveyard_5
+				add_building = ct_barracks_5
+			}
+			if = {
+				limit = { has_building = ct_graveyard_6 }
+				remove_building = ct_graveyard_6
+				add_building = ct_barracks_6
+			}
+		}
+		# City Catacombs
+		1 = {
+			trigger = {
+				OR = {
+					has_building = ct_catacomb_1
+					has_building = ct_catacomb_2
+					has_building = ct_catacomb_3
+					has_building = ct_catacomb_4
+					has_building = ct_catacomb_5
+				}
+			}
+			if = {
+				limit = { has_building = ct_catacomb_1 }
+				remove_building = ct_catacomb_1
+				add_building = ct_guard_1
+			}
+			if = {
+				limit = { has_building = ct_catacomb_2 }
+				remove_building = ct_catacomb_2
+				add_building = ct_guard_2
+			}
+			if = {
+				limit = { has_building = ct_catacomb_3 }
+				remove_building = ct_catacomb_3
+				add_building = ct_guard_3
+			}
+			if = {
+				limit = { has_building = ct_catacomb_4 }
+				remove_building = ct_catacomb_4
+				add_building = ct_guard_4
+			}
+			if = {
+				limit = { has_building = ct_catacomb_5 }
+				remove_building = ct_catacomb_5
+				add_building = ct_guard_5
+			}
+		}
+		# Abandoned Homes
+		1 = {
+			trigger = {
+				OR = {
+					has_building = ct_abandoned_homes_1
+					has_building = ct_abandoned_homes_2
+					has_building = ct_abandoned_homes_3
+					has_building = ct_abandoned_homes_4
+					has_building = ct_abandoned_homes_5
+					has_building = ct_abandoned_homes_6
+				}
+			}
+			if = {
+				limit = { has_building = ct_abandoned_homes_1 }
+				remove_building = ct_abandoned_homes_1
+				add_building = ct_marketplace_1
+			}
+			if = {
+				limit = { has_building = ct_abandoned_homes_2 }
+				remove_building = ct_abandoned_homes_2
+				add_building = ct_marketplace_2
+			}
+			if = {
+				limit = { has_building = ct_abandoned_homes_3 }
+				remove_building = ct_abandoned_homes_3
+				add_building = ct_marketplace_3
+			}
+			if = {
+				limit = { has_building = ct_abandoned_homes_4 }
+				remove_building = ct_abandoned_homes_4
+				add_building = ct_marketplace_4
+			}
+			if = {
+				limit = { has_building = ct_abandoned_homes_5 }
+				remove_building = ct_abandoned_homes_5
+				add_building = ct_marketplace_5
+			}
+			if = {
+				limit = { has_building = ct_abandoned_homes_6 }
+				remove_building = ct_abandoned_homes_6
+				add_building = ct_marketplace_6
+			}
+		}
+		# Drowned Dead
+		1 = {
+			trigger = {
+				OR = {
+					has_building = ct_drowned_dead_1
+					has_building = ct_drowned_dead_2
+					has_building = ct_drowned_dead_3
+					has_building = ct_drowned_dead_4
+					has_building = ct_drowned_dead_5
+				}
+			}
+			if = {
+				limit = { has_building = ct_drowned_dead_1 }
+				remove_building = ct_drowned_dead_1
+				add_building = ct_port_1
+			}
+			if = {
+				limit = { has_building = ct_drowned_dead_2 }
+				remove_building = ct_drowned_dead_2
+				add_building = ct_port_2
+			}
+			if = {
+				limit = { has_building = ct_drowned_dead_3 }
+				remove_building = ct_drowned_dead_3
+				add_building = ct_port_3
+			}
+			if = {
+				limit = { has_building = ct_drowned_dead_4 }
+				remove_building = ct_drowned_dead_4
+				add_building = ct_port_4
+			}
+			if = {
+				limit = { has_building = ct_drowned_dead_5 }
+				remove_building = ct_drowned_dead_5
+				add_building = ct_port_5
+			}
+		}
+		# Ghost Ships
+		1 = {
+			trigger = {
+				OR = {
+					has_building = ct_ghost_ships_1
+					has_building = ct_ghost_ships_2
+					has_building = ct_ghost_ships_3
+					has_building = ct_ghost_ships_4
+				}
+			}
+			if = {
+				limit = { has_building = ct_ghost_ships_1 }
+				remove_building = ct_ghost_ships_1
+				add_building = ct_shipyard_1
+			}
+			if = {
+				limit = { has_building = ct_ghost_ships_2 }
+				remove_building = ct_ghost_ships_2
+				add_building = ct_shipyard_2
+			}
+			if = {
+				limit = { has_building = ct_ghost_ships_3 }
+				remove_building = ct_ghost_ships_3
+				add_building = ct_shipyard_3
+			}
+			if = {
+				limit = { has_building = ct_ghost_ships_4 }
+				remove_building = ct_ghost_ships_4
+				add_building = ct_shipyard_4
+			}
+		}
+		# Abandoned University
+		1 = {
+			trigger = {
+				OR = {
+					has_building = ct_abandoned_university_1
+					has_building = ct_abandoned_university_2
+					has_building = ct_abandoned_university_3
+				}
+			}
+			if = {
+				limit = { has_building = ct_abandoned_university_1 }
+				remove_building = ct_abandoned_university_1
+				add_building = ct_university_1
+			}
+			if = {
+				limit = { has_building = ct_abandoned_university_2 }
+				remove_building = ct_abandoned_university_2
+				add_building = ct_university_2
+			}
+			if = {
+				limit = { has_building = ct_abandoned_university_3 }
+				remove_building = ct_abandoned_university_3
+				add_building = ct_university_3
+			}
+		}
+	}
+}
+
+convert_temple_building_to_living = {
+	random_list = {
+		# Wall of Corpses
+		1 = {
+			trigger = {
+				OR = {
+					has_building = tp_wall_of_corpses_1
+					has_building = tp_wall_of_corpses_2
+					has_building = tp_wall_of_corpses_3
+					has_building = tp_wall_of_corpses_4
+					has_building = tp_wall_of_corpses_5
+				}
+			}
+			if = {
+				limit = { has_building = tp_wall_of_corpses_1 }
+				remove_building = tp_wall_of_corpses_1
+				add_building = tp_wall_1
+			}
+			if = {
+				limit = { has_building = tp_wall_of_corpses_2 }
+				remove_building = tp_wall_of_corpses_2
+				add_building = tp_wall_2
+			}
+			if = {
+				limit = { has_building = tp_wall_of_corpses_3 }
+				remove_building = tp_wall_of_corpses_3
+				add_building = tp_wall_3
+			}
+			if = {
+				limit = { has_building = tp_wall_of_corpses_4 }
+				remove_building = tp_wall_of_corpses_4
+				add_building = tp_wall_4
+			}
+			if = {
+				limit = { has_building = tp_wall_of_corpses_5 }
+				remove_building = tp_wall_of_corpses_5
+				add_building = tp_wall_5
+			}
+		}
+		# Halls of the Damned
+		1 = {
+			trigger = {
+				OR = {
+					has_building = tp_halls_of_the_damned_1
+					has_building = tp_halls_of_the_damned_2
+					has_building = tp_halls_of_the_damned_3
+					has_building = tp_halls_of_the_damned_4
+					has_building = tp_halls_of_the_damned_5
+					has_building = tp_halls_of_the_damned_6
+				}
+			}
+			if = {
+				limit = { has_building = tp_halls_of_the_damned_1 }
+				remove_building = tp_halls_of_the_damned_1
+				add_building = tp_monastery_1
+			}
+			if = {
+				limit = { has_building = tp_halls_of_the_damned_2 }
+				remove_building = tp_halls_of_the_damned_2
+				add_building = tp_monastery_2
+			}
+			if = {
+				limit = { has_building = tp_halls_of_the_damned_3 }
+				remove_building = tp_halls_of_the_damned_3
+				add_building = tp_monastery_3
+			}
+			if = {
+				limit = { has_building = tp_halls_of_the_damned_4 }
+				remove_building = tp_halls_of_the_damned_4
+				add_building = tp_monastery_4
+			}
+			if = {
+				limit = { has_building = tp_halls_of_the_damned_5 }
+				remove_building = tp_halls_of_the_damned_5
+				add_building = tp_monastery_5
+			}
+			if = {
+				limit = { has_building = tp_halls_of_the_damned_6 }
+				remove_building = tp_halls_of_the_damned_6
+				add_building = tp_monastery_6
+			}
+		}
+		# Cemetery
+		1 = {
+			trigger = {
+				OR = {
+					has_building = tp_cemetary_1
+					has_building = tp_cemetary_2
+					has_building = tp_cemetary_3
+					has_building = tp_cemetary_4
+					has_building = tp_cemetary_5
+					has_building = tp_cemetary_6
+				}
+			}
+			if = {
+				limit = { has_building = tp_cemetary_1 }
+				remove_building = tp_cemetary_1
+				add_building = tp_barracks_1
+			}
+			if = {
+				limit = { has_building = tp_cemetary_2 }
+				remove_building = tp_cemetary_2
+				add_building = tp_barracks_2
+			}
+			if = {
+				limit = { has_building = tp_cemetary_3 }
+				remove_building = tp_cemetary_3
+				add_building = tp_barracks_3
+			}
+			if = {
+				limit = { has_building = tp_cemetary_4 }
+				remove_building = tp_cemetary_4
+				add_building = tp_barracks_4
+			}
+			if = {
+				limit = { has_building = tp_cemetary_5 }
+				remove_building = tp_cemetary_5
+				add_building = tp_barracks_5
+			}
+			if = {
+				limit = { has_building = tp_cemetary_6 }
+				remove_building = tp_cemetary_6
+				add_building = tp_barracks_6
+			}
+		}
+		# Crypt
+		1 = {
+			trigger = {
+				OR = {
+					has_building = tp_crypt_1
+					has_building = tp_crypt_2
+					has_building = tp_crypt_3
+					has_building = tp_crypt_4
+					has_building = tp_crypt_5
+					has_building = tp_crypt_6
+				}
+			}
+			if = {
+				limit = { has_building = tp_crypt_1 }
+				remove_building = tp_crypt_1
+				add_building = tp_elite_barracks_1
+			}
+			if = {
+				limit = { has_building = tp_crypt_2 }
+				remove_building = tp_crypt_2
+				add_building = tp_elite_barracks_2
+			}
+			if = {
+				limit = { has_building = tp_crypt_3 }
+				remove_building = tp_crypt_3
+				add_building = tp_elite_barracks_3
+			}
+			if = {
+				limit = { has_building = tp_crypt_4 }
+				remove_building = tp_crypt_4
+				add_building = tp_elite_barracks_4
+			}
+			if = {
+				limit = { has_building = tp_crypt_5 }
+				remove_building = tp_crypt_5
+				add_building = tp_elite_barracks_5
+			}
+			if = {
+				limit = { has_building = tp_crypt_6 }
+				remove_building = tp_crypt_6
+				add_building = tp_elite_barracks_6
+			}
+		}
+		# Ghost Town
+		1 = {
+			trigger = {
+				OR = {
+					has_building = tp_ghost_town_1
+					has_building = tp_ghost_town_2
+					has_building = tp_ghost_town_3
+					has_building = tp_ghost_town_4
+					has_building = tp_ghost_town_5
+					has_building = tp_ghost_town_6
+				}
+			}
+			if = {
+				limit = { has_building = tp_ghost_town_1 }
+				remove_building = tp_ghost_town_1
+				add_building = tp_town_1
+			}
+			if = {
+				limit = { has_building = tp_ghost_town_2 }
+				remove_building = tp_ghost_town_2
+				add_building = tp_town_2
+			}
+			if = {
+				limit = { has_building = tp_ghost_town_3 }
+				remove_building = tp_ghost_town_3
+				add_building = tp_town_3
+			}
+			if = {
+				limit = { has_building = tp_ghost_town_4 }
+				remove_building = tp_ghost_town_4
+				add_building = tp_town_4
+			}
+			if = {
+				limit = { has_building = tp_ghost_town_5 }
+				remove_building = tp_ghost_town_5
+				add_building = tp_town_5
+			}
+			if = {
+				limit = { has_building = tp_ghost_town_6 }
+				remove_building = tp_ghost_town_6
+				add_building = tp_town_6
+			}
+		}
+		# Abandoned Ships
+		1 = {
+			trigger = {
+				OR = {
+					has_building = tp_abandoned_ships_1
+					has_building = tp_abandoned_ships_2
+					has_building = tp_abandoned_ships_3
+					has_building = tp_abandoned_ships_4
+				}
+			}
+			if = {
+				limit = { has_building = tp_abandoned_ships_1 }
+				remove_building = tp_abandoned_ships_1
+				add_building = tp_shipyard_1
+			}
+			if = {
+				limit = { has_building = tp_abandoned_ships_2 }
+				remove_building = tp_abandoned_ships_2
+				add_building = tp_shipyard_2
+			}
+			if = {
+				limit = { has_building = tp_abandoned_ships_3 }
+				remove_building = tp_abandoned_ships_3
+				add_building = tp_shipyard_3
+			}
+			if = {
+				limit = { has_building = tp_abandoned_ships_4 }
+				remove_building = tp_abandoned_ships_4
+				add_building = tp_shipyard_4
+			}
+		}
+		# Ritual Chamber
+		1 = {
+			trigger = {
+				OR = {
+					has_building = tp_ritual_chamber_1
+					has_building = tp_ritual_chamber_2
+				}
+			}
+			if = {
+				limit = { has_building = tp_ritual_chamber_1 }
+				remove_building = tp_ritual_chamber_1
+				add_building = tp_school_1
+			}
+			if = {
+				limit = { has_building = tp_ritual_chamber_2 }
+				remove_building = tp_ritual_chamber_2
+				add_building = tp_school_2
+			}
+		}
+	}
+}
+
+convert_castle_building_to_living = {
+	random_list = {
+		# Wall of Corpses
+		1 = {
+			trigger = {
+				OR = {
+					has_building = ca_wall_of_corpses_1
+					has_building = ca_wall_of_corpses_2
+					has_building = ca_wall_of_corpses_3
+					has_building = ca_wall_of_corpses_4
+					has_building = ca_wall_of_corpses_5
+					has_building = ca_wall_of_corpses_6
+				}
+			}
+			if = {
+				limit = { has_building = ca_wall_of_corpses_1 }
+				remove_building = ca_wall_of_corpses_1
+				add_building = ca_wall_1
+			}
+			if = {
+				limit = { has_building = ca_wall_of_corpses_2 }
+				remove_building = ca_wall_of_corpses_2
+				add_building = ca_wall_2
+			}
+			if = {
+				limit = { has_building = ca_wall_of_corpses_3 }
+				remove_building = ca_wall_of_corpses_3
+				add_building = ca_wall_3
+			}
+			if = {
+				limit = { has_building = ca_wall_of_corpses_4 }
+				remove_building = ca_wall_of_corpses_4
+				add_building = ca_wall_4
+			}
+			if = {
+				limit = { has_building = ca_wall_of_corpses_5 }
+				remove_building = ca_wall_of_corpses_5
+				add_building = ca_wall_5
+			}
+			if = {
+				limit = { has_building = ca_wall_of_corpses_6 }
+				remove_building = ca_wall_of_corpses_6
+				add_building = ca_con_wall_6
+			}
+		}
+		# Abandoned Keep
+		1 = {
+			trigger = {
+				OR = {
+					has_building = ca_abandoned_keep_1
+					has_building = ca_abandoned_keep_2
+					has_building = ca_abandoned_keep_3
+					has_building = ca_abandoned_keep_4
+					has_building = ca_abandoned_keep_5
+					has_building = ca_abandoned_keep_6
+				}
+			}
+			if = {
+				limit = { has_building = ca_abandoned_keep_1 }
+				remove_building = ca_abandoned_keep_1
+				add_building = ca_keep_1
+			}
+			if = {
+				limit = { has_building = ca_abandoned_keep_2 }
+				remove_building = ca_abandoned_keep_2
+				add_building = ca_keep_2
+			}
+			if = {
+				limit = { has_building = ca_abandoned_keep_3 }
+				remove_building = ca_abandoned_keep_3
+				add_building = ca_keep_3
+			}
+			if = {
+				limit = { has_building = ca_abandoned_keep_4 }
+				remove_building = ca_abandoned_keep_4
+				add_building = ca_keep_4
+			}
+			if = {
+				limit = { has_building = ca_abandoned_keep_5 }
+				remove_building = ca_abandoned_keep_5
+				add_building = ca_keep_5
+			}
+			if = {
+				limit = { has_building = ca_abandoned_keep_6 }
+				remove_building = ca_abandoned_keep_6
+				add_building = ca_keep_6
+			}
+		}
+		# Castle Graveyard
+		1 = {
+			trigger = {
+				OR = {
+					has_building = ca_graveyard_1
+					has_building = ca_graveyard_2
+					has_building = ca_graveyard_3
+					has_building = ca_graveyard_4
+				}
+			}
+			if = {
+				limit = { has_building = ca_graveyard_1 }
+				remove_building = ca_graveyard_1
+				add_building = ca_militia_barracks_1
+			}
+			if = {
+				limit = { has_building = ca_graveyard_2 }
+				remove_building = ca_graveyard_2
+				add_building = ca_militia_barracks_2
+			}
+			if = {
+				limit = { has_building = ca_graveyard_3 }
+				remove_building = ca_graveyard_3
+				add_building = ca_militia_barracks_3
+			}
+			if = {
+				limit = { has_building = ca_graveyard_4 }
+				remove_building = ca_graveyard_4
+				add_building = ca_militia_barracks_4
+			}
+		}
+		# Executioner's Block
+		1 = {
+			trigger = {
+				OR = {
+					has_building = ca_executioners_block_1
+					has_building = ca_executioners_block_2
+					has_building = ca_executioners_block_3
+				}
+			}
+			if = {
+				limit = { has_building = ca_executioners_block_1 }
+				remove_building = ca_executioners_block_1
+				add_building = ca_training_grounds_1
+			}
+			if = {
+				limit = { has_building = ca_executioners_block_2 }
+				remove_building = ca_executioners_block_2
+				add_building = ca_training_grounds_2
+			}
+			if = {
+				limit = { has_building = ca_executioners_block_3 }
+				remove_building = ca_executioners_block_3
+				add_building = ca_training_grounds_3
+			}
+		}
+		# Noble Crypts
+		1 = {
+			trigger = {
+				OR = {
+					has_building = ca_noble_crypts_1
+					has_building = ca_noble_crypts_2
+					has_building = ca_noble_crypts_3
+					has_building = ca_noble_crypts_4
+					has_building = ca_noble_crypts_5
+					has_building = ca_noble_crypts_6
+				}
+			}
+			if = {
+				limit = {
+					location = { terrain = steppe }
+					ROOT = {
+						OR = {
+							culture_group = altaic
+							culture_group = magyar
+							culture = alan
+							culture_group = iranian
+						}
+					}
+				}
+				if = {
+					limit = { has_building = ca_noble_crypts_1 }
+					remove_building = ca_noble_crypts_1
+					add_building = ca_steppe_barracks_1
+				}
+				if = {
+					limit = { has_building = ca_noble_crypts_2 }
+					remove_building = ca_noble_crypts_2
+					add_building = ca_steppe_barracks_2
+				}
+				if = {
+					limit = { has_building = ca_noble_crypts_3 }
+					remove_building = ca_noble_crypts_3
+					add_building = ca_steppe_barracks_3
+				}
+				if = {
+					limit = { has_building = ca_noble_crypts_4 }
+					remove_building = ca_noble_crypts_4
+					add_building = ca_steppe_barracks_4
+				}
+				if = {
+					limit = { has_building = ca_noble_crypts_5 }
+					remove_building = ca_noble_crypts_5
+					add_building = ca_steppe_barracks_5
+				}
+				if = {
+					limit = { has_building = ca_noble_crypts_6 }
+					remove_building = ca_noble_crypts_6
+					add_building = ca_steppe_barracks_6
+				}
+			}
+			else = {
+				if = {
+					limit = { has_building = ca_noble_crypts_1 }
+					remove_building = ca_noble_crypts_1
+					add_building = ca_barracks_1
+				}
+				if = {
+					limit = { has_building = ca_noble_crypts_2 }
+					remove_building = ca_noble_crypts_2
+					add_building = ca_barracks_2
+				}
+				if = {
+					limit = { has_building = ca_noble_crypts_3 }
+					remove_building = ca_noble_crypts_3
+					add_building = ca_barracks_3
+				}
+				if = {
+					limit = { has_building = ca_noble_crypts_4 }
+					remove_building = ca_noble_crypts_4
+					add_building = ca_barracks_4
+				}
+				if = {
+					limit = { has_building = ca_noble_crypts_5 }
+					remove_building = ca_noble_crypts_5
+					add_building = ca_barracks_5
+				}
+				if = {
+					limit = { has_building = ca_noble_crypts_6 }
+					remove_building = ca_noble_crypts_6
+					add_building = ca_barracks_6
+				}
+			}
+		}
+		# Butcher
+		1 = {
+			trigger = {
+				OR = {
+					has_building = ca_butcher_1
+					has_building = ca_butcher_2
+					has_building = ca_butcher_3
+					has_building = ca_butcher_4
+					has_building = ca_butcher_5
+					has_building = ca_butcher_6
+				}
+			}
+			if = {
+				limit = {
+					location = { terrain = steppe }
+					ROOT = {
+						OR = {
+							culture_group = altaic
+							culture_group = magyar
+							culture = alan
+							culture_group = iranian
+						}
+					}
+				}
+				if = {
+					limit = { has_building = ca_butcher_1 }
+					remove_building = ca_butcher_1
+					add_building = ca_steppe_stable_1
+				}
+				if = {
+					limit = { has_building = ca_butcher_2 }
+					remove_building = ca_butcher_2
+					add_building = ca_steppe_stable_2
+				}
+				if = {
+					limit = { has_building = ca_butcher_3 }
+					remove_building = ca_butcher_3
+					add_building = ca_steppe_stable_3
+				}
+				if = {
+					limit = { has_building = ca_butcher_4 }
+					remove_building = ca_butcher_4
+					add_building = ca_steppe_stable_4
+				}
+				if = {
+					limit = { has_building = ca_butcher_5 }
+					remove_building = ca_butcher_5
+					add_building = ca_steppe_stable_5
+				}
+				if = {
+					limit = { has_building = ca_butcher_6 }
+					remove_building = ca_butcher_6
+					add_building = ca_steppe_stable_6
+				}
+			}
+			else_if = {
+				limit = {
+					location = { terrain = desert }
+					ROOT = {
+						OR = {
+							culture_group = east_african
+							culture_group = west_african
+							culture_group = arabic
+						}
+					}
+				}
+				if = {
+					limit = { has_building = ca_butcher_1 }
+					remove_building = ca_butcher_1
+					add_building = ca_desert_stable_1
+				}
+				if = {
+					limit = { has_building = ca_butcher_2 }
+					remove_building = ca_butcher_2
+					add_building = ca_desert_stable_2
+				}
+				if = {
+					limit = { has_building = ca_butcher_3 }
+					remove_building = ca_butcher_3
+					add_building = ca_desert_stable_3
+				}
+				if = {
+					limit = { has_building = ca_butcher_4 }
+					remove_building = ca_butcher_4
+					add_building = ca_desert_stable_4
+				}
+				if = {
+					limit = { has_building = ca_butcher_5 }
+					remove_building = ca_butcher_5
+					add_building = ca_desert_stable_5
+				}
+				if = {
+					limit = { has_building = ca_butcher_6 }
+					remove_building = ca_butcher_6
+					add_building = ca_desert_stable_6
+				}
+			}
+			else = {
+				if = {
+					limit = { has_building = ca_butcher_1 }
+					remove_building = ca_butcher_1
+					add_building = ca_stable_1
+				}
+				if = {
+					limit = { has_building = ca_butcher_2 }
+					remove_building = ca_butcher_2
+					add_building = ca_stable_2
+				}
+				if = {
+					limit = { has_building = ca_butcher_3 }
+					remove_building = ca_butcher_3
+					add_building = ca_stable_3
+				}
+				if = {
+					limit = { has_building = ca_butcher_4 }
+					remove_building = ca_butcher_4
+					add_building = ca_stable_4
+				}
+				if = {
+					limit = { has_building = ca_butcher_5 }
+					remove_building = ca_butcher_5
+					add_building = ca_stable_5
+				}
+				if = {
+					limit = { has_building = ca_butcher_6 }
+					remove_building = ca_butcher_6
+					add_building = ca_stable_6
+				}
+			}
+		}
+		# Ruined Homes
+		1 = {
+			trigger = {
+				OR = {
+					has_building = ca_ruined_homes_1
+					has_building = ca_ruined_homes_2
+					has_building = ca_ruined_homes_3
+					has_building = ca_ruined_homes_4
+					has_building = ca_ruined_homes_5
+					has_building = ca_ruined_homes_6
+				}
+			}
+			if = {
+				limit = { has_building = ca_ruined_homes_1 }
+				remove_building = ca_ruined_homes_1
+				add_building = ca_town_1
+			}
+			if = {
+				limit = { has_building = ca_ruined_homes_2 }
+				remove_building = ca_ruined_homes_2
+				add_building = ca_town_2
+			}
+			if = {
+				limit = { has_building = ca_ruined_homes_3 }
+				remove_building = ca_ruined_homes_3
+				add_building = ca_town_3
+			}
+			if = {
+				limit = { has_building = ca_ruined_homes_4 }
+				remove_building = ca_ruined_homes_4
+				add_building = ca_town_4
+			}
+			if = {
+				limit = { has_building = ca_ruined_homes_5 }
+				remove_building = ca_ruined_homes_5
+				add_building = ca_town_5
+			}
+			if = {
+				limit = { has_building = ca_ruined_homes_6 }
+				remove_building = ca_ruined_homes_6
+				add_building = ca_town_6
+			}
+		}
+		# Wrecked Ships
+		1 = {
+			trigger = {
+				OR = {
+					has_building = ca_wrecked_ships_1
+					has_building = ca_wrecked_ships_2
+					has_building = ca_wrecked_ships_3
+					has_building = ca_wrecked_ships_4
+				}
+			}
+			if = {
+				limit = { has_building = ca_wrecked_ships_1 }
+				remove_building = ca_wrecked_ships_1
+				add_building = ca_shipyard_1
+			}
+			if = {
+				limit = { has_building = ca_wrecked_ships_2 }
+				remove_building = ca_wrecked_ships_2
+				add_building = ca_shipyard_2
+			}
+			if = {
+				limit = { has_building = ca_wrecked_ships_3 }
+				remove_building = ca_wrecked_ships_3
+				add_building = ca_shipyard_3
+			}
+			if = {
+				limit = { has_building = ca_wrecked_ships_4 }
+				remove_building = ca_wrecked_ships_4
+				add_building = ca_shipyard_4
+			}
+		}
+		# Mass Grave
+		1 = {
+			trigger = {
+				OR = {
+					has_building = ca_mass_grave_1
+					has_building = ca_mass_grave_2
+					has_building = ca_mass_grave_3
+					has_building = ca_mass_grave_4
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						culture = english
+						culture = welsh
+					}
+				}
+				if = {
+					limit = { has_building = ca_mass_grave_1 }
+					remove_building = ca_mass_grave_1
+					add_building = ca_culture_saxon_english_1
+				}
+				if = {
+					limit = { has_building = ca_mass_grave_2 }
+					remove_building = ca_mass_grave_2
+					add_building = ca_culture_saxon_english_2
+				}
+				if = {
+					limit = { has_building = ca_mass_grave_3 }
+					remove_building = ca_mass_grave_3
+					add_building = ca_culture_saxon_english_3
+				}
+				if = {
+					limit = { has_building = ca_mass_grave_4 }
+					remove_building = ca_mass_grave_4
+					add_building = ca_culture_saxon_english_4
+				}
+			}
+			else_if = {
+				limit = {
+					culture = scottish
+				}
+				if = {
+					limit = { has_building = ca_mass_grave_1 }
+					remove_building = ca_mass_grave_1
+					add_building = ca_culture_scottish_1
+				}
+				if = {
+					limit = { has_building = ca_mass_grave_2 }
+					remove_building = ca_mass_grave_2
+					add_building = ca_culture_scottish_2
+				}
+				if = {
+					limit = { has_building = ca_mass_grave_3 }
+					remove_building = ca_mass_grave_3
+					add_building = ca_culture_scottish_3
+				}
+				if = {
+					limit = { has_building = ca_mass_grave_4 }
+					remove_building = ca_mass_grave_4
+					add_building = ca_culture_scottish_4
+				}
+			}
+			else_if = {
+				limit = {
+					OR = {
+						culture_group = baltic
+						culture_group = finno_ugric
+					}
+				}
+				if = {
+					limit = { has_building = ca_mass_grave_1 }
+					remove_building = ca_mass_grave_1
+					add_building = ca_culture_group_baltic_1
+				}
+				if = {
+					limit = { has_building = ca_mass_grave_2 }
+					remove_building = ca_mass_grave_2
+					add_building = ca_culture_group_baltic_2
+				}
+				if = {
+					limit = { has_building = ca_mass_grave_3 }
+					remove_building = ca_mass_grave_3
+					add_building = ca_culture_group_baltic_3
+				}
+				if = {
+					limit = { has_building = ca_mass_grave_4 }
+					remove_building = ca_mass_grave_4
+					add_building = ca_culture_group_baltic_4
+				}
+			}
+			else_if = {
+				limit = {
+					OR = { 
+						custom_tooltip = {
+							OR = {
+								culture = turkish
+								culture = pecheneg
+								culture = cuman
+								culture = khazar
+								culture = bolghar
+								culture = avar
+								culture = karluk
+								culture = kirghiz
+								culture = uyghur
+								culture = mongol
+								culture = khitan
+							}
+							text = ALTAIC_BUT_NOT_JURCHEN_TT
+						}
+						culture_group = iranian
+					}
+				}
+				if = {
+					limit = { has_building = ca_mass_grave_1 }
+					remove_building = ca_mass_grave_1
+					add_building = ca_culture_group_altaic_1
+				}
+				if = {
+					limit = { has_building = ca_mass_grave_2 }
+					remove_building = ca_mass_grave_2
+					add_building = ca_culture_group_altaic_2
+				}
+				if = {
+					limit = { has_building = ca_mass_grave_3 }
+					remove_building = ca_mass_grave_3
+					add_building = ca_culture_group_altaic_3
+				}
+				if = {
+					limit = { has_building = ca_mass_grave_4 }
+					remove_building = ca_mass_grave_4
+					add_building = ca_culture_group_altaic_4
+				}
+			}
+			else_if = {
+				limit = {
+					OR = {
+						culture = frankish
+						culture = occitan
+						culture = norman
+						culture = german
+						culture = breton
+					}
+				}
+				if = {
+					limit = { has_building = ca_mass_grave_1 }
+					remove_building = ca_mass_grave_1
+					add_building = ca_culture_frank_norman_german_1
+				}
+				if = {
+					limit = { has_building = ca_mass_grave_2 }
+					remove_building = ca_mass_grave_2
+					add_building = ca_culture_frank_norman_german_2
+				}
+				if = {
+					limit = { has_building = ca_mass_grave_3 }
+					remove_building = ca_mass_grave_3
+					add_building = ca_culture_frank_norman_german_3
+				}
+				if = {
+					limit = { has_building = ca_mass_grave_4 }
+					remove_building = ca_mass_grave_4
+					add_building = ca_culture_frank_norman_german_4
+				}
+			}
+			else_if = {
+				limit = {
+					culture_group = iberian 
+				}
+				if = {
+					limit = { has_building = ca_mass_grave_1 }
+					remove_building = ca_mass_grave_1
+					add_building = ca_culture_group_iberian_1
+				}
+				if = {
+					limit = { has_building = ca_mass_grave_2 }
+					remove_building = ca_mass_grave_2
+					add_building = ca_culture_group_iberian_2
+				}
+				if = {
+					limit = { has_building = ca_mass_grave_3 }
+					remove_building = ca_mass_grave_3
+					add_building = ca_culture_group_iberian_3
+				}
+				if = {
+					limit = { has_building = ca_mass_grave_4 }
+					remove_building = ca_mass_grave_4
+					add_building = ca_culture_group_iberian_4
+				}
+			}
+			else_if = {
+				limit = {
+					culture = italian 
+				}
+				if = {
+					limit = { has_building = ca_mass_grave_1 }
+					remove_building = ca_mass_grave_1
+					add_building = ca_culture_italian_1
+				}
+				if = {
+					limit = { has_building = ca_mass_grave_2 }
+					remove_building = ca_mass_grave_2
+					add_building = ca_culture_italian_2
+				}
+				if = {
+					limit = { has_building = ca_mass_grave_3 }
+					remove_building = ca_mass_grave_3
+					add_building = ca_culture_italian_3
+				}
+				if = {
+					limit = { has_building = ca_mass_grave_4 }
+					remove_building = ca_mass_grave_4
+					add_building = ca_culture_italian_4
+				}
+			}
+			else_if = {
+				limit = {
+					culture_group = east_slavic 
+				}
+				if = {
+					limit = { has_building = ca_mass_grave_1 }
+					remove_building = ca_mass_grave_1
+					add_building = ca_culture_russian_1
+				}
+				if = {
+					limit = { has_building = ca_mass_grave_2 }
+					remove_building = ca_mass_grave_2
+					add_building = ca_culture_russian_2
+				}
+				if = {
+					limit = { has_building = ca_mass_grave_3 }
+					remove_building = ca_mass_grave_3
+					add_building = ca_culture_russian_3
+				}
+				if = {
+					limit = { has_building = ca_mass_grave_4 }
+					remove_building = ca_mass_grave_4
+					add_building = ca_culture_russian_4
+				}
+			}
+			else_if = {
+				limit = {
+					OR = {
+						culture_group = north_germanic
+						culture = saxon
+						culture = old_saxon
+						culture = frisian
+					}
+				}
+				if = {
+					limit = { has_building = ca_mass_grave_1 }
+					remove_building = ca_mass_grave_1
+					add_building = ca_culture_group_north_germanic_1
+				}
+				if = {
+					limit = { has_building = ca_mass_grave_2 }
+					remove_building = ca_mass_grave_2
+					add_building = ca_culture_group_north_germanic_2
+				}
+				if = {
+					limit = { has_building = ca_mass_grave_3 }
+					remove_building = ca_mass_grave_3
+					add_building = ca_culture_group_north_germanic_3
+				}
+				if = {
+					limit = { has_building = ca_mass_grave_4 }
+					remove_building = ca_mass_grave_4
+					add_building = ca_culture_group_north_germanic_4
+				}
+			}
+			else_if = {
+				limit = {
+					OR = {
+						culture = hungarian
+						culture_group = west_slavic
+					}
+				}
+				if = {
+					limit = { has_building = ca_mass_grave_1 }
+					remove_building = ca_mass_grave_1
+					add_building = ca_culture_hungarian_1
+				}
+				if = {
+					limit = { has_building = ca_mass_grave_2 }
+					remove_building = ca_mass_grave_2
+					add_building = ca_culture_hungarian_2
+				}
+				if = {
+					limit = { has_building = ca_mass_grave_3 }
+					remove_building = ca_mass_grave_3
+					add_building = ca_culture_hungarian_3
+				}
+				if = {
+					limit = { has_building = ca_mass_grave_4 }
+					remove_building = ca_mass_grave_4
+					add_building = ca_culture_hungarian_4
+				}
+			}
+			else_if = {
+				limit = {
+					OR = {
+						culture = bedouin_arabic
+						culture = levantine_arabic
+						culture = egyptian_arabic
+					}
+				}
+				if = {
+					limit = { has_building = ca_mass_grave_1 }
+					remove_building = ca_mass_grave_1
+					add_building = ca_culture_group_arabic_1
+				}
+				if = {
+					limit = { has_building = ca_mass_grave_2 }
+					remove_building = ca_mass_grave_2
+					add_building = ca_culture_group_arabic_2
+				}
+				if = {
+					limit = { has_building = ca_mass_grave_3 }
+					remove_building = ca_mass_grave_3
+					add_building = ca_culture_group_arabic_3
+				}
+				if = {
+					limit = { has_building = ca_mass_grave_4 }
+					remove_building = ca_mass_grave_4
+					add_building = ca_culture_group_arabic_4
+				}
+			}
+			else_if = {
+				limit = {
+					culture_group = byzantine 
+				}
+				if = {
+					limit = { has_building = ca_mass_grave_1 }
+					remove_building = ca_mass_grave_1
+					add_building = ca_culture_group_byzantine_1
+				}
+				if = {
+					limit = { has_building = ca_mass_grave_2 }
+					remove_building = ca_mass_grave_2
+					add_building = ca_culture_group_byzantine_2
+				}
+				if = {
+					limit = { has_building = ca_mass_grave_3 }
+					remove_building = ca_mass_grave_3
+					add_building = ca_culture_group_byzantine_3
+				}
+				if = {
+					limit = { has_building = ca_mass_grave_4 }
+					remove_building = ca_mass_grave_4
+					add_building = ca_culture_group_byzantine_4
+				}
+			}
+			else_if = {
+				limit = {
+					culture = irish  
+				}
+				if = {
+					limit = { has_building = ca_mass_grave_1 }
+					remove_building = ca_mass_grave_1
+					add_building = ca_culture_irish_1
+				}
+				if = {
+					limit = { has_building = ca_mass_grave_2 }
+					remove_building = ca_mass_grave_2
+					add_building = ca_culture_irish_2
+				}
+				if = {
+					limit = { has_building = ca_mass_grave_3 }
+					remove_building = ca_mass_grave_3
+					add_building = ca_culture_irish_3
+				}
+				if = {
+					limit = { has_building = ca_mass_grave_4 }
+					remove_building = ca_mass_grave_4
+					add_building = ca_culture_irish_4
+				}
+			}
+			else_if = {
+				limit = {
+					culture = ethiopian
+				}
+				if = {
+					limit = { has_building = ca_mass_grave_1 }
+					remove_building = ca_mass_grave_1
+					add_building = ca_culture_ethiopian_1
+				}
+				if = {
+					limit = { has_building = ca_mass_grave_2 }
+					remove_building = ca_mass_grave_2
+					add_building = ca_culture_ethiopian_2
+				}
+				if = {
+					limit = { has_building = ca_mass_grave_3 }
+					remove_building = ca_mass_grave_3
+					add_building = ca_culture_ethiopian_3
+				}
+				if = {
+					limit = { has_building = ca_mass_grave_4 }
+					remove_building = ca_mass_grave_4
+					add_building = ca_culture_ethiopian_4
+				}
+			}
+			else_if = {
+				limit = {
+					culture = somali
+				}
+				if = {
+					limit = { has_building = ca_mass_grave_1 }
+					remove_building = ca_mass_grave_1
+					add_building = ca_culture_somali_1
+				}
+				if = {
+					limit = { has_building = ca_mass_grave_2 }
+					remove_building = ca_mass_grave_2
+					add_building = ca_culture_somali_2
+				}
+				if = {
+					limit = { has_building = ca_mass_grave_3 }
+					remove_building = ca_mass_grave_3
+					add_building = ca_culture_somali_3
+				}
+				if = {
+					limit = { has_building = ca_mass_grave_4 }
+					remove_building = ca_mass_grave_4
+					add_building = ca_culture_somali_4
+				}
+			}
+			else_if = {
+				limit = {
+					culture_group = west_african 
+				}
+				if = {
+					limit = { has_building = ca_mass_grave_1 }
+					remove_building = ca_mass_grave_1
+					add_building = ca_culture_west_african_1
+				}
+				if = {
+					limit = { has_building = ca_mass_grave_2 }
+					remove_building = ca_mass_grave_2
+					add_building = ca_culture_west_african_2
+				}
+				if = {
+					limit = { has_building = ca_mass_grave_3 }
+					remove_building = ca_mass_grave_3
+					add_building = ca_culture_west_african_3
+				}
+				if = {
+					limit = { has_building = ca_mass_grave_4 }
+					remove_building = ca_mass_grave_4
+					add_building = ca_culture_west_african_4
+				}
+			}
+			else_if = {
+				limit = {
+					culture_group = south_slavic 
+				}
+				if = {
+					limit = { has_building = ca_mass_grave_1 }
+					remove_building = ca_mass_grave_1
+					add_building = ca_culture_group_south_slavic_1
+				}
+				if = {
+					limit = { has_building = ca_mass_grave_2 }
+					remove_building = ca_mass_grave_2
+					add_building = ca_culture_group_south_slavic_2
+				}
+				if = {
+					limit = { has_building = ca_mass_grave_3 }
+					remove_building = ca_mass_grave_3
+					add_building = ca_culture_group_south_slavic_3
+				}
+				if = {
+					limit = { has_building = ca_mass_grave_4 }
+					remove_building = ca_mass_grave_4
+					add_building = ca_culture_group_south_slavic_4
+				}
+			}
+			else_if = {
+				limit = {
+					culture = dutch 
+				}
+				if = {
+					limit = { has_building = ca_mass_grave_1 }
+					remove_building = ca_mass_grave_1
+					add_building = ca_culture_dutch_1
+				}
+				if = {
+					limit = { has_building = ca_mass_grave_2 }
+					remove_building = ca_mass_grave_2
+					add_building = ca_culture_dutch_2
+				}
+				if = {
+					limit = { has_building = ca_mass_grave_3 }
+					remove_building = ca_mass_grave_3
+					add_building = ca_culture_dutch_3
+				}
+				if = {
+					limit = { has_building = ca_mass_grave_4 }
+					remove_building = ca_mass_grave_4
+					add_building = ca_culture_dutch_4
+				}
+			}
+			else_if = {
+				limit = {
+					culture = nahuatl 
+				}
+				if = {
+					limit = { has_building = ca_mass_grave_1 }
+					remove_building = ca_mass_grave_1
+					add_building = ca_culture_nahuatl_1
+				}
+				if = {
+					limit = { has_building = ca_mass_grave_2 }
+					remove_building = ca_mass_grave_2
+					add_building = ca_culture_nahuatl_2
+				}
+				if = {
+					limit = { has_building = ca_mass_grave_3 }
+					remove_building = ca_mass_grave_3
+					add_building = ca_culture_nahuatl_3
+				}
+				if = {
+					limit = { has_building = ca_mass_grave_4 }
+					remove_building = ca_mass_grave_4
+					add_building = ca_culture_nahuatl_4
+				}
+			}
+			else_if = {
+				limit = {
+					culture_group = israelite
+				}
+				if = {
+					limit = { has_building = ca_mass_grave_1 }
+					remove_building = ca_mass_grave_1
+					add_building = ca_culture_jewish_1
+				}
+				if = {
+					limit = { has_building = ca_mass_grave_2 }
+					remove_building = ca_mass_grave_2
+					add_building = ca_culture_jewish_2
+				}
+				if = {
+					limit = { has_building = ca_mass_grave_3 }
+					remove_building = ca_mass_grave_3
+					add_building = ca_culture_jewish_3
+				}
+				if = {
+					limit = { has_building = ca_mass_grave_4 }
+					remove_building = ca_mass_grave_4
+					add_building = ca_culture_jewish_4
+				}
+			}
+			else_if = {
+				limit = {
+					OR = {
+						culture_group = indo_aryan_group
+						culture_group = dravidian_group
+					}
+				}
+				if = {
+					limit = { has_building = ca_mass_grave_1 }
+					remove_building = ca_mass_grave_1
+					add_building = ca_culture_indian_1
+				}
+				if = {
+					limit = { has_building = ca_mass_grave_2 }
+					remove_building = ca_mass_grave_2
+					add_building = ca_culture_indian_2
+				}
+				if = {
+					limit = { has_building = ca_mass_grave_3 }
+					remove_building = ca_mass_grave_3
+					add_building = ca_culture_indian_3
+				}
+				if = {
+					limit = { has_building = ca_mass_grave_4 }
+					remove_building = ca_mass_grave_4
+					add_building = ca_culture_indian_4
+				}
+			}
+			else_if = {
+				limit = {
+					culture = nubian
+				}
+				if = {
+					limit = { has_building = ca_mass_grave_1 }
+					remove_building = ca_mass_grave_1
+					add_building = ca_culture_nubian_1
+				}
+				if = {
+					limit = { has_building = ca_mass_grave_2 }
+					remove_building = ca_mass_grave_2
+					add_building = ca_culture_nubian_2
+				}
+				if = {
+					limit = { has_building = ca_mass_grave_3 }
+					remove_building = ca_mass_grave_3
+					add_building = ca_culture_nubian_3
+				}
+				if = {
+					limit = { has_building = ca_mass_grave_4 }
+					remove_building = ca_mass_grave_4
+					add_building = ca_culture_nubian_4
+				}
+			}
+			else_if = {
+				limit = {
+					OR = {
+						culture = lombard
+						culture = old_frankish
+					}
+				}
+				if = {
+					limit = { has_building = ca_mass_grave_1 }
+					remove_building = ca_mass_grave_1
+					add_building = ca_culture_germanic_1
+				}
+				if = {
+					limit = { has_building = ca_mass_grave_2 }
+					remove_building = ca_mass_grave_2
+					add_building = ca_culture_germanic_2
+				}
+				if = {
+					limit = { has_building = ca_mass_grave_3 }
+					remove_building = ca_mass_grave_3
+					add_building = ca_culture_germanic_3
+				}
+				if = {
+					limit = { has_building = ca_mass_grave_4 }
+					remove_building = ca_mass_grave_4
+					add_building = ca_culture_germanic_4
+				}
+			}
+			else_if = {
+				limit = {
+					culture = pictish 
+				}
+				if = {
+					limit = { has_building = ca_mass_grave_1 }
+					remove_building = ca_mass_grave_1
+					add_building = ca_culture_pictish_1
+				}
+				if = {
+					limit = { has_building = ca_mass_grave_2 }
+					remove_building = ca_mass_grave_2
+					add_building = ca_culture_pictish_2
+				}
+				if = {
+					limit = { has_building = ca_mass_grave_3 }
+					remove_building = ca_mass_grave_3
+					add_building = ca_culture_pictish_3
+				}
+				if = {
+					limit = { has_building = ca_mass_grave_4 }
+					remove_building = ca_mass_grave_4
+					add_building = ca_culture_pictish_4
+				}
+			}
+			else_if = {
+				limit = {
+					culture = suebi 
+				}
+				if = {
+					limit = { has_building = ca_mass_grave_1 }
+					remove_building = ca_mass_grave_1
+					add_building = ca_culture_suebi_1
+				}
+				if = {
+					limit = { has_building = ca_mass_grave_2 }
+					remove_building = ca_mass_grave_2
+					add_building = ca_culture_suebi_2
+				}
+				if = {
+					limit = { has_building = ca_mass_grave_3 }
+					remove_building = ca_mass_grave_3
+					add_building = ca_culture_suebi_3
+				}
+				if = {
+					limit = { has_building = ca_mass_grave_4 }
+					remove_building = ca_mass_grave_4
+					add_building = ca_culture_suebi_4
+				}
+			}
+			else_if = {
+				limit = {
+					OR = {
+						culture = andalusian_arabic
+						culture = maghreb_arabic
+					}
+				}
+				if = {
+					limit = { has_building = ca_mass_grave_1 }
+					remove_building = ca_mass_grave_1
+					add_building = ca_culture_moors_1
+				}
+				if = {
+					limit = { has_building = ca_mass_grave_2 }
+					remove_building = ca_mass_grave_2
+					add_building = ca_culture_moors_2
+				}
+				if = {
+					limit = { has_building = ca_mass_grave_3 }
+					remove_building = ca_mass_grave_3
+					add_building = ca_culture_moors_3
+				}
+				if = {
+					limit = { has_building = ca_mass_grave_4 }
+					remove_building = ca_mass_grave_4
+					add_building = ca_culture_moors_4
+				}
+			}
+			else_if = {
+				limit = {
+					culture = han
+				}
+				if = {
+					limit = { has_building = ca_mass_grave_1 }
+					remove_building = ca_mass_grave_1
+					add_building = ca_culture_chinese_han_1
+				}
+				if = {
+					limit = { has_building = ca_mass_grave_2 }
+					remove_building = ca_mass_grave_2
+					add_building = ca_culture_chinese_han_2
+				}
+				if = {
+					limit = { has_building = ca_mass_grave_3 }
+					remove_building = ca_mass_grave_3
+					add_building = ca_culture_chinese_han_3
+				}
+				if = {
+					limit = { has_building = ca_mass_grave_4 }
+					remove_building = ca_mass_grave_4
+					add_building = ca_culture_chinese_han_4
+				}
+			}
+			else_if = {
+				limit = {
+					culture = jurchen
+				}
+				if = {
+					limit = { has_building = ca_mass_grave_1 }
+					remove_building = ca_mass_grave_1
+					add_building = ca_culture_altaic_jurchen_1
+				}
+				if = {
+					limit = { has_building = ca_mass_grave_2 }
+					remove_building = ca_mass_grave_2
+					add_building = ca_culture_altaic_jurchen_2
+				}
+				if = {
+					limit = { has_building = ca_mass_grave_3 }
+					remove_building = ca_mass_grave_3
+					add_building = ca_culture_altaic_jurchen_3
+				}
+				if = {
+					limit = { has_building = ca_mass_grave_4 }
+					remove_building = ca_mass_grave_4
+					add_building = ca_culture_altaic_jurchen_4
+				}
+			}
+			else_if = {
+				limit = {
+					culture_group = tibetan_group
+				}
+				if = {
+					limit = { has_building = ca_mass_grave_1 }
+					remove_building = ca_mass_grave_1
+					add_building = ca_culture_tibetan_1
+				}
+				if = {
+					limit = { has_building = ca_mass_grave_2 }
+					remove_building = ca_mass_grave_2
+					add_building = ca_culture_tibetan_2
+				}
+				if = {
+					limit = { has_building = ca_mass_grave_3 }
+					remove_building = ca_mass_grave_3
+					add_building = ca_culture_tibetan_3
+				}
+				if = {
+					limit = { has_building = ca_mass_grave_4 }
+					remove_building = ca_mass_grave_4
+					add_building = ca_culture_tibetan_4
+				}
+			}
+			else_if = {
+				limit = {
+					holder_scope = { culture = draconic }
+				}
+				if = {
+					limit = { has_building = ca_mass_grave_1 }
+					remove_building = ca_mass_grave_1
+					add_building = ca_dragon_militia_1
+				}
+				if = {
+					limit = { has_building = ca_mass_grave_2 }
+					remove_building = ca_mass_grave_2
+					add_building = ca_dragon_militia_2
+				}
+				if = {
+					limit = { has_building = ca_mass_grave_3 }
+					remove_building = ca_mass_grave_3
+					add_building = ca_dragon_militia_3
+				}
+				if = {
+					limit = { has_building = ca_mass_grave_4 }
+					remove_building = ca_mass_grave_4
+					add_building = ca_dragon_militia_4
+				}
+			}
+			else_if = {
+				limit = {
+					holder_scope = { culture = werewolf_culture }
+				}
+				if = {
+					limit = { has_building = ca_mass_grave_1 }
+					remove_building = ca_mass_grave_1
+					add_building = ca_werewolf_soldiers_1
+				}
+				if = {
+					limit = { has_building = ca_mass_grave_2 }
+					remove_building = ca_mass_grave_2
+					add_building = ca_werewolf_soldiers_2
+				}
+				if = {
+					limit = { has_building = ca_mass_grave_3 }
+					remove_building = ca_mass_grave_3
+					add_building = ca_werewolf_soldiers_3
+				}
+				if = {
+					limit = { has_building = ca_mass_grave_4 }
+					remove_building = ca_mass_grave_4
+					add_building = ca_werewolf_soldiers_4
+				}
+			}
+			else_if = {
+				limit = {
+					holder_scope = { culture = vampire_culture }
+				}
+				if = {
+					limit = { has_building = ca_mass_grave_1 }
+					remove_building = ca_mass_grave_1
+					add_building = ca_vampire_catacomb_1
+				}
+				if = {
+					limit = { has_building = ca_mass_grave_2 }
+					remove_building = ca_mass_grave_2
+					add_building = ca_vampire_catacomb_2
+				}
+				if = {
+					limit = { has_building = ca_mass_grave_3 }
+					remove_building = ca_mass_grave_3
+					add_building = ca_vampire_catacomb_3
+				}
+				if = {
+					limit = { has_building = ca_mass_grave_4 }
+					remove_building = ca_mass_grave_4
+					add_building = ca_vampire_catacomb_4
+				}
+			}
+			else_if = {
+				limit = {
+					holder_scope = { culture = jotunn }
+				}
+				if = {
+					limit = { has_building = ca_mass_grave_1 }
+					remove_building = ca_mass_grave_1
+					add_building = ca_giant_arena_1
+				}
+				if = {
+					limit = { has_building = ca_mass_grave_2 }
+					remove_building = ca_mass_grave_2
+					add_building = ca_giant_arena_2
+				}
+				if = {
+					limit = { has_building = ca_mass_grave_3 }
+					remove_building = ca_mass_grave_3
+					add_building = ca_giant_arena_3
+				}
+				if = {
+					limit = { has_building = ca_mass_grave_4 }
+					remove_building = ca_mass_grave_4
+					add_building = ca_giant_arena_4
+				}
+			}
+		}
+	}
+}
+
+convert_tribal_building_to_living = {
+	random_list = {
+		# Barrow
+		1 = {
+			trigger = {
+				OR = {
+					has_building = tb_barrow_1
+					has_building = tb_barrow_2
+					has_building = tb_barrow_3
+					has_building = tb_barrow_4
+				}
+			}
+			if = {
+				limit = { has_building = tb_barrow_1 }
+				remove_building = tb_barrow_1
+				add_building = tb_hillfort_1
+			}
+			if = {
+				limit = { has_building = tb_barrow_2 }
+				remove_building = tb_barrow_2
+				add_building = tb_hillfort_2
+			}
+			if = {
+				limit = { has_building = tb_barrow_3 }
+				remove_building = tb_barrow_3
+				add_building = tb_hillfort_3
+			}
+			if = {
+				limit = { has_building = tb_barrow_4 }
+				remove_building = tb_barrow_4
+				add_building = tb_hillfort_4
+			}
+		}
+		# Crossroads
+		1 = {
+			trigger = {
+				OR = {
+					has_building = tb_crossroads_1
+					has_building = tb_crossroads_2
+					has_building = tb_crossroads_3
+					has_building = tb_crossroads_4
+				}
+			}
+			if = {
+				limit = { has_building = tb_crossroads_1 }
+				remove_building = tb_crossroads_1
+				add_building = tb_market_town_1
+			}
+			if = {
+				limit = { has_building = tb_crossroads_2 }
+				remove_building = tb_crossroads_2
+				add_building = tb_market_town_2
+			}
+			if = {
+				limit = { has_building = tb_crossroads_3 }
+				remove_building = tb_crossroads_3
+				add_building = tb_market_town_3
+			}
+			if = {
+				limit = { has_building = tb_crossroads_4 }
+				remove_building = tb_crossroads_4
+				add_building = tb_market_town_4
+			}
+		}
+		# Burial Ship
+		1 = {
+			trigger = {
+				OR = {
+					has_building = tb_burial_ship_1
+					has_building = tb_burial_ship_2
+					has_building = tb_burial_ship_3
+					has_building = tb_burial_ship_4
+				}
+			}
+			if = {
+				limit = { has_building = tb_burial_ship_1 }
+				remove_building = tb_burial_ship_1
+				add_building = tb_shipyard_1
+			}
+			if = {
+				limit = { has_building = tb_burial_ship_2 }
+				remove_building = tb_burial_ship_2
+				add_building = tb_shipyard_2
+			}
+			if = {
+				limit = { has_building = tb_burial_ship_3 }
+				remove_building = tb_burial_ship_3
+				add_building = tb_shipyard_3
+			}
+			if = {
+				limit = { has_building = tb_burial_ship_4 }
+				remove_building = tb_burial_ship_4
+				add_building = tb_shipyard_4
+			}
+		}
+		# Destroyed Homes
+		1 = {
+			trigger = {
+				OR = {
+					has_building = tb_destroyed_homes_1
+					has_building = tb_destroyed_homes_2
+					has_building = tb_destroyed_homes_3
+					has_building = tb_destroyed_homes_4
+				}
+			}
+			if = {
+				limit = { has_building = tb_destroyed_homes_1 }
+				remove_building = tb_destroyed_homes_1
+				add_building = tb_training_grounds_1
+			}
+			if = {
+				limit = { has_building = tb_destroyed_homes_2 }
+				remove_building = tb_destroyed_homes_2
+				add_building = tb_training_grounds_2
+			}
+			if = {
+				limit = { has_building = tb_destroyed_homes_3 }
+				remove_building = tb_destroyed_homes_3
+				add_building = tb_training_grounds_3
+			}
+			if = {
+				limit = { has_building = tb_destroyed_homes_4 }
+				remove_building = tb_destroyed_homes_4
+				add_building = tb_training_grounds_4
+			}
+		}
+		# Ancient Battlefield
+		1 = {
+			trigger = {
+				OR = {
+					has_building = tb_ancient_battlefield_1
+					has_building = tb_ancient_battlefield_2
+					has_building = tb_ancient_battlefield_3
+					has_building = tb_ancient_battlefield_4
+				}
+			}
+			if = {
+				limit = { has_building = tb_ancient_battlefield_1 }
+				remove_building = tb_ancient_battlefield_1
+				add_building = tb_war_camp_1
+			}
+			if = {
+				limit = { has_building = tb_ancient_battlefield_2 }
+				remove_building = tb_ancient_battlefield_2
+				add_building = tb_war_camp_2
+			}
+			if = {
+				limit = { has_building = tb_ancient_battlefield_3 }
+				remove_building = tb_ancient_battlefield_3
+				add_building = tb_war_camp_3
+			}
+			if = {
+				limit = { has_building = tb_ancient_battlefield_4 }
+				remove_building = tb_ancient_battlefield_4
+				add_building = tb_war_camp_4
+			}
+		}
+		# Burial Mounds
+		1 = {
+			trigger = {
+				OR = {
+					has_building = tb_burial_mounds_1
+					has_building = tb_burial_mounds_2
+					has_building = tb_burial_mounds_3
+					has_building = tb_burial_mounds_4
+				}
+			}
+			if = {
+				limit = { has_building = tb_burial_mounds_1 }
+				remove_building = tb_burial_mounds_1
+				add_building = tb_practice_range_1
+			}
+			if = {
+				limit = { has_building = tb_burial_mounds_2 }
+				remove_building = tb_burial_mounds_2
+				add_building = tb_practice_range_2
+			}
+			if = {
+				limit = { has_building = tb_burial_mounds_3 }
+				remove_building = tb_burial_mounds_3
+				add_building = tb_practice_range_3
+			}
+			if = {
+				limit = { has_building = tb_burial_mounds_4 }
+				remove_building = tb_burial_mounds_4
+				add_building = tb_practice_range_4
+			}
+		}
+		# Horse Burial Site
+		1 = {
+			trigger = {
+				has_building = tb_horse_burial_1
+				has_building = tb_horse_burial_2
+				has_building = tb_horse_burial_3
+				has_building = tb_horse_burial_4
+			}
+			if = {
+				limit = {
+					location = { terrain = steppe }
+					ROOT = {
+						OR = {
+							culture_group = altaic
+							culture_group = magyar
+						}
+					}
+				}
+				if = {
+					limit = { has_building = tb_horse_burial_1 }
+					remove_building = tb_horse_burial_1
+					add_building = tb_steppe_barracks_1
+				}
+				if = {
+					limit = { has_building = tb_horse_burial_2 }
+					remove_building = tb_horse_burial_2
+					add_building = tb_steppe_barracks_2
+				}
+				if = {
+					limit = { has_building = tb_horse_burial_3 }
+					remove_building = tb_horse_burial_3
+					add_building = tb_steppe_barracks_3
+				}
+				if = {
+					limit = { has_building = tb_horse_burial_4 }
+					remove_building = tb_horse_burial_4
+					add_building = tb_steppe_barracks_4
+				}
+			}
+			else = {
+				if = {
+					limit = { has_building = tb_horse_burial_1 }
+					remove_building = tb_horse_burial_1
+					add_building = tb_desert_stable_1
+				}
+				if = {
+					limit = { has_building = tb_horse_burial_2 }
+					remove_building = tb_horse_burial_2
+					add_building = tb_desert_stable_2
+				}
+				if = {
+					limit = { has_building = tb_horse_burial_3 }
+					remove_building = tb_horse_burial_3
+					add_building = tb_desert_stable_3
+				}
+				if = {
+					limit = { has_building = tb_horse_burial_4 }
+					remove_building = tb_horse_burial_4
+					add_building = tb_desert_stable_4
+				}
+			}
+		}
+		# Horse Butchery
+		1 = {
+			trigger = {
+				OR = {
+					has_building = tb_horse_butchery_1
+					has_building = tb_horse_butchery_2
+					has_building = tb_horse_butchery_3
+					has_building = tb_horse_butchery_4
+				}
+			}
+			if = {
+				limit = { has_building = tb_horse_butchery_1 }
+				remove_building = tb_horse_butchery_1
+				add_building = tb_steppe_stable_1
+			}
+			if = {
+				limit = { has_building = tb_horse_butchery_2 }
+				remove_building = tb_horse_butchery_2
+				add_building = tb_steppe_stable_2
+			}
+			if = {
+				limit = { has_building = tb_horse_butchery_3 }
+				remove_building = tb_horse_butchery_3
+				add_building = tb_steppe_stable_3
+			}
+			if = {
+				limit = { has_building = tb_horse_butchery_4 }
+				remove_building = tb_horse_butchery_4
+				add_building = tb_steppe_stable_4
+			}
+		}
+		# Grave Goods
+		1 = {
+			trigger = {
+				OR = {
+					has_building = tb_grave_goods_1
+					has_building = tb_grave_goods_2
+					has_building = tb_grave_goods_3
+					has_building = tb_grave_goods_4
+				}
+			}
+			if = {
+				limit = { has_building = tb_grave_goods_1 }
+				remove_building = tb_grave_goods_1
+				add_building = tb_arsenal_1
+			}
+			if = {
+				limit = { has_building = tb_grave_goods_2 }
+				remove_building = tb_grave_goods_2
+				add_building = tb_arsenal_2
+			}
+			if = {
+				limit = { has_building = tb_grave_goods_3 }
+				remove_building = tb_grave_goods_3
+				add_building = tb_arsenal_3
+			}
+			if = {
+				limit = { has_building = tb_grave_goods_4 }
+				remove_building = tb_grave_goods_4
+				add_building = tb_arsenal_4
+			}
+		}
+	}
+}

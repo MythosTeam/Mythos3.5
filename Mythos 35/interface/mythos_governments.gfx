@@ -1,0 +1,30 @@
+spriteTypes = {
+	spriteType = {
+		name = "GFX_icon_draconic_feudal_government"
+		texturefile = "gfx\\interface\\government_icon_draconic_fuedal.tga"
+	}
+	spriteType = {
+		name = "GFX_icon_marauding_dragon_government"
+		texturefile = "gfx\\interface\\government_icon_draconic_nomadic.dds"
+	}
+	spriteType = {
+		name = "GFX_icon_draconic_merchant_republic_government"
+		texturefile = "gfx\\interface\\government_icon_draconic_merchant_republic.dds"
+	}
+	spriteType = {
+		name = "GFX_icon_draconic_governorship"
+		texturefile = "gfx\\interface\\government_icon_draconic_republic.dds"
+	}
+	spriteType = {
+		name = "GFX_icon_draconic_tribal_government"
+		texturefile = "gfx\\interface\\government_icon_draconic_tribal.tga"
+	}
+	spriteType = {
+		name = "GFX_icon_draconic_theocracy_government"
+		texturefile = "gfx\\interface\\government_icon_draconic_theocracy.tga"
+	}
+	spriteType = {
+		name = "GFX_icon_zombie_horde"
+		texturefile = "gfx\\interface\\undead_horde_government_icon.tga"
+	}
+}

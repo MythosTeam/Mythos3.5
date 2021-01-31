@@ -1,0 +1,2094 @@
+#CONGENITAL TRAITS
+
+vampire = {
+	birth = 0
+	ruler_designer_cost = 5
+
+	opposites = {
+		werewolf
+		monster_hunter
+	}
+
+	immortal = yes
+	hidden_from_others = yes
+
+	same_opinion = 10
+	opposite_opinion = -30
+	
+	diplomacy = 2
+	martial = 1
+	intrigue = 4
+	health = 3
+	
+	combat_rating = 10
+	
+	ai_rationality = 20
+	ai_honor = -20
+	ai_ambition = 30
+}
+
+secret_vampire = {
+	opposites = {
+		known_vampire
+	}
+	potential = {
+		trait = vampire
+	}
+	
+	birth = 0
+	customizer = no
+	hidden_from_others = yes
+	is_visible = {
+		OR = {
+			character = FROM
+			trait = vampire
+			trait = necromancer
+		}
+	}
+	intrigue = 1
+}
+
+known_vampire = {
+	opposites = {
+		secret_vampire
+	}
+	potential = {
+		trait = vampire
+	}
+	birth = 0
+	customizer = no
+	fertility = -50
+	general_opinion = -30
+	vampire_culture_opinion = 40
+	satanist_opinion = 10
+}
+	
+
+werewolf = {
+	birth = 5
+	ruler_designer_cost = 10
+
+	opposites = {
+		vampire
+		monster_hunter
+	}
+	
+	same_trait_visibility = yes
+
+	fertility = -0.1
+
+	same_opinion = 20
+	opposite_opinion = -30
+	
+	combat_rating = 22
+	
+	diplomacy = -1
+	martial = 4
+	intrigue = -1
+	health = 2
+	
+	ai_rationality = -10
+
+}
+
+known_werewolf = {
+	potential = {
+		trait = werewolf
+	}
+	opposites = {
+		secret_werewolf
+	}
+	birth = 0
+	customizer = no
+	
+	general_opinion = -30
+	#opposite_opinion = 30 # Information leak
+	werewolf_culture_opinion = 40
+}
+
+secret_werewolf = {
+	potential = {
+		trait = werewolf
+	}
+	opposites = {
+		known_werewolf
+	}
+	birth = 0
+	customizer = no
+	hidden_from_others = yes
+	intrigue = 1
+}
+	
+
+mythos_giant = {
+
+	opposites = { half_giant }
+
+	christian_opinion = -20
+	muslim_opinion = -20
+	jewish_group_opinion = -20
+	
+	health = 5
+	diplomacy = -2
+	intrigue = -2
+	learning = -2
+	martial = 8
+	
+	combat_rating = 20
+	
+	ai_rationality = -10
+	
+	ruler_designer_cost = 30
+
+}
+
+pup = {
+	opposites = { fledgling }
+	health = 1
+	customizer = no
+	hidden_from_others = yes
+}
+
+fledgling = {
+	opposites = { pup }
+	health = 1
+	customizer = no
+}
+
+half_giant = {
+
+	opposites = { mythos_giant }
+	
+	inherit_chance = 75
+	martial = 3
+	diplomacy = -1
+	health = 2
+	
+	combat_rating = 10
+}
+
+god = {
+
+	opposites = { demi_god }
+	
+	immortal = yes
+	
+	same_religion_opinion = 15
+	levy_size = 1
+	
+	health = 18
+	martial = 20
+	diplomacy = 20
+	stewardship = 20
+	intrigue = 20
+	learning = 25
+	fertility = -0.2
+	
+	combat_rating = 100
+	command_modifier = {
+		morale_defence = 0.5
+		defence = 0.5
+		morale_offence = 0.5
+		damage = 0.5
+	}
+	
+	monthly_character_prestige = 9
+	
+	ai_ambition = -10
+	
+	cached = yes
+}
+
+demi_god = {
+
+	opposites = { god }
+	
+	same_religion_opinion = 5
+	levy_size = 0.5
+	
+	health = 8
+	martial = 5
+	diplomacy = 3
+	stewardship = 3
+	intrigue = 3
+	learning = 5
+	
+	combat_rating = 25
+	
+	monthly_character_prestige = 0.75
+	
+	ai_ambition = 20
+	
+	ruler_designer_cost = 100
+}
+
+blood_of_the_gods = {
+	inherit_chance = 75
+
+	opposites = { god }
+	
+	same_opinion = 5
+	
+	health = 2
+	martial = 1
+	diplomacy = 1
+	stewardship = 1
+	intrigue = 1
+	learning = 1
+	
+	combat_rating = 8
+	
+	monthly_character_prestige = 0.5
+	
+	ai_ambition = 15
+}
+
+zombie = {
+	is_epidemic = yes
+	is_illness = yes
+	cached = yes
+
+	immortal = yes
+	
+	opposites = { necromancer }
+
+	same_opinion = 1000
+	general_opinion = -200
+	opposite_opinion = 100
+	
+	health = 3
+	fertility = -50
+	diplomacy = -10
+	intrigue = -10
+	learning = -10
+	stewardship = -10
+	attrition = -0.8
+	days_of_supply = 15
+	
+	levy_reinforce_rate = -0.75
+	
+	command_modifier = {
+		speed = -0.2
+	}
+	
+	ai_rationality = -50
+	ai_honor = -100
+	ai_ambition = 50
+	ai_bravery = -20
+	ai_zeal = 100
+	
+	customizer = no
+
+}
+
+mummy = {
+
+	immortal = yes
+
+	same_opinion = 20
+	christian_opinion = -100
+	muslim_opinion = -100
+	jewish_group_opinion = -100
+	
+	fertility = -50
+	diplomacy = -4
+	intrigue = 2
+	learning = 5
+	health = 3
+	
+	ai_rationality = 20
+	ai_zeal = 20
+	ai_honor = -20
+	
+	ruler_designer_cost = 100
+}
+
+djinn = {
+	inherit_chance = 100
+	ruler_designer_cost = 30
+
+	immortal = yes
+
+	same_opinion = 20
+	christian_opinion = -50
+	church_opinion = -20
+	
+	diplomacy = 2
+	stewardship = 2
+	intrigue = 4
+	health = 5
+	
+	ai_rationality = 20
+	ai_zeal = 20
+	ai_honor = -20
+}
+
+dragon = {
+	opposites = { dragonborn }
+	christian_opinion = -10
+	
+	learning = 2
+	stewardship = 2
+	martial = 2
+	health = 10
+	fertility = -0.2 # To make up for longevity
+	
+	combat_rating = 30
+	
+	ai_rationality = 20
+	ai_honor = 20
+	ai_greed = 40
+	ai_ambition = 10
+	
+	ruler_designer_cost = 60
+	
+	potential = {
+		race = draconic
+	}
+}
+dragonborn = {
+	opposites = { dragon }
+	inherit_chance = 50
+	
+	christian_opinion = -5
+	
+	learning = 1
+	stewardship = 1
+	martial = 1
+	health = 2
+	
+	combat_rating = 20
+	
+	ai_rationality = 20
+	ai_honor = 20
+	ai_greed = 10
+	ai_ambition = 10
+}
+heldragon = {
+	christian_opinion = -25
+
+	learning = 4
+	stewardship = -2
+	martial = 4
+	health = 10
+
+	ai_ambition = 10
+	ai_honor = -40	
+}
+#EDUCATIONAL TRAITS
+
+novice_mage = {
+	
+	attribute = learning
+	education = yes
+	ruler_designer_cost = 0
+	
+	learning = 2
+	christian_opinion = -5
+	muslim_opinion = -5
+	jewish_group_opinion = -5
+	
+	male_insult_adj = INSULT_DRIVELING
+	female_insult_adj = INSULT_DRIVELING
+	child_insult_adj = INSULT_STUPID
+}
+
+eldritch_scholar = {
+	
+	attribute = learning
+	education = yes
+	ruler_designer_cost = 2
+	
+	learning = 3
+	diplomacy = 1
+	stewardship = 1
+	intrigue = 1
+	health = -0.5
+	fertility = -0.1
+	christian_opinion = -10
+	muslim_opinion = -10
+	jewish_group_opinion = -10
+	
+	ai_zeal = -10
+	ai_ambition = 10
+	ai_rationality = 10
+	
+	male_insult_adj = INSULT_DRIVELING
+	female_insult_adj = INSULT_DRIVELING
+	child_insult_adj = INSULT_STUPID
+}
+
+veteran_wizard = {
+	
+	attribute = learning
+	education = yes
+	ruler_designer_cost = 5
+	
+	learning = 6
+	diplomacy = 2
+	stewardship = 2
+	intrigue = 2
+	health = -1
+	fertility = -0.2
+	christian_opinion = -15
+	muslim_opinion = -15
+	jewish_group_opinion = -15
+	
+	ai_zeal = -10
+	ai_ambition = 10
+	ai_rationality = 10
+	
+	male_compliment_adj = COMPL_LEARNED
+	female_compliment_adj = COMPL_LEARNED
+	child_compliment_adj = COMPL_CLEVER
+	male_insult_adj = INSULT_DRIVELING
+	female_insult_adj = INSULT_DRIVELING
+	child_insult_adj = INSULT_STUPID
+}
+
+arcane_master = {
+	
+	attribute = learning
+	education = yes
+	ruler_designer_cost = 10
+	
+	learning = 10
+	diplomacy = 4
+	stewardship = 4
+	intrigue = 4
+	health = -1
+	fertility = -0.4
+	christian_opinion = -20
+	muslim_opinion = -20
+	jewish_group_opinion = -20
+	
+	ai_zeal = -15
+	ai_ambition = 15
+	ai_rationality = 15
+	
+	male_compliment_adj = COMPL_LEARNED
+	female_compliment_adj = COMPL_LEARNED
+	child_compliment_adj = COMPL_CLEVER
+	male_insult_adj = INSULT_DRIVELING
+	female_insult_adj = INSULT_DRIVELING
+	child_insult_adj = INSULT_STUPID
+}
+
+magic_heritage = {
+	birth = 50
+	inherit_chance = 70
+	
+	customizer = no
+	
+	is_visible = {
+		OR = {
+			character = FROM
+			trait = novice_mage
+			trait = eldritch_scholar
+			trait = veteran_wizard
+			trait = arcane_master
+			age < 16
+		}
+	}
+}
+
+#MISCELLANEOUS
+
+son_of_solomon = {
+	diplomacy = 1
+	martial = 1
+	monthly_character_prestige = 0.5
+	monthly_character_piety = 0.25
+}
+
+# Just for immortality - the rest is handled by the artifact
+philosopher_stone_trait = {
+	immortal = yes
+	customizer = no
+	random = no
+	
+	potential = {
+		has_artifact = philosopher_stone
+	}
+}
+
+monster_hunter = {
+
+	lifestyle = yes
+
+	opposites = { 
+		vampire
+		werewolf
+		zombie
+		mummy
+		djinn
+	}
+
+	martial = 2
+	learning = 1
+	monthly_character_piety = 0.8
+	church_opinion = 30
+	combat_rating = 4
+	ai_zeal = 20
+}
+
+# Bad Priest traits
+bad_priest_draconic = {
+
+	religious = yes
+
+	potential = {
+		OR = {
+			is_theocracy = yes
+			is_ruler = no
+			controls_religion = draconic_pagan_reformed
+		}
+	}
+
+	church_opinion = -10
+	same_opinion_if_same_religion = 25
+
+	monthly_character_piety = -1
+
+	customizer = no
+	random = no
+
+	male_insult = INSULT_SCARECROW
+	female_insult = INSULT_SCARECROW
+	child_insult = INSULT_SCARECROW
+	male_insult_adj = INSULT_DECADENT
+	female_insult_adj = INSULT_CORRUPT
+	child_insult_adj = INSULT_CRUMMY
+}
+bad_priest_voodoo = {
+
+	religious = yes
+
+	potential = {
+		OR = {
+			is_theocracy = yes
+			is_ruler = no
+		}
+	}
+
+	church_opinion = -10
+	same_opinion_if_same_religion = 25
+
+	monthly_character_piety = -1
+
+	customizer = no
+	random = no
+
+	male_insult = INSULT_SCARECROW
+	female_insult = INSULT_SCARECROW
+	child_insult = INSULT_SCARECROW
+	male_insult_adj = INSULT_DECADENT
+	female_insult_adj = INSULT_CORRUPT
+	child_insult_adj = INSULT_CRUMMY
+}
+bad_priest_druidic = {
+
+	religious = yes
+
+	potential = {
+		OR = {
+			is_theocracy = yes
+			is_ruler = no
+			controls_religion = druidic_reformed
+		}
+	}
+
+	church_opinion = -10
+	same_opinion_if_same_religion = 25
+
+	monthly_character_piety = -1
+
+	customizer = no
+	random = no
+
+	male_insult = INSULT_SCARECROW
+	female_insult = INSULT_SCARECROW
+	child_insult = INSULT_SCARECROW
+	male_insult_adj = INSULT_DECADENT
+	female_insult_adj = INSULT_CORRUPT
+	child_insult_adj = INSULT_CRUMMY
+}
+bad_priest_kemetic = {
+
+	religious = yes
+
+	potential = {
+		OR = {
+			is_theocracy = yes
+			is_ruler = no
+			controls_religion = atenist
+		}
+	}
+
+	church_opinion = -10
+	same_opinion_if_same_religion = 25
+
+	monthly_character_piety = -1
+
+	customizer = no
+	random = no
+
+	male_insult = INSULT_SCARECROW
+	female_insult = INSULT_SCARECROW
+	child_insult = INSULT_SCARECROW
+	male_insult_adj = INSULT_DECADENT
+	female_insult_adj = INSULT_CORRUPT
+	child_insult_adj = INSULT_CRUMMY
+}
+bad_priest_jotnar = {
+
+	religious = yes
+
+	potential = {
+		OR = {
+			is_theocracy = yes
+			is_ruler = no
+			controls_religion = jotnar_reformed
+		}
+	}
+
+	church_opinion = -10
+	same_opinion_if_same_religion = 25
+
+	monthly_character_piety = -1
+
+	customizer = no
+	random = no
+
+	male_insult = INSULT_SCARECROW
+	female_insult = INSULT_SCARECROW
+	child_insult = INSULT_SCARECROW
+	male_insult_adj = INSULT_DECADENT
+	female_insult_adj = INSULT_CORRUPT
+	child_insult_adj = INSULT_CRUMMY
+}
+bad_priest_hellenic = {
+
+	religious = yes
+
+	potential = {
+		OR = {
+			is_theocracy = yes
+			is_ruler = no
+			controls_religion = hellenic_pagan
+			controls_religion = hellenic_pagan_reformed
+		}
+	}
+
+	church_opinion = -10
+	same_opinion_if_same_religion = 25
+
+	monthly_character_piety = -1
+
+	customizer = no
+	random = no
+
+	male_insult = INSULT_SCARECROW
+	female_insult = INSULT_SCARECROW
+	child_insult = INSULT_SCARECROW
+	male_insult_adj = INSULT_DECADENT
+	female_insult_adj = INSULT_CORRUPT
+	child_insult_adj = INSULT_CRUMMY
+}
+bad_priest_satanist = {
+
+	religious = yes
+
+	potential = {
+		OR = {
+			is_theocracy = yes
+			is_ruler = no
+			controls_religion = satanist
+		}
+	}
+
+	church_opinion = -10
+	same_opinion_if_same_religion = 25
+
+	monthly_character_piety = -1
+
+	customizer = no
+	random = no
+
+	male_insult = INSULT_SCARECROW
+	female_insult = INSULT_SCARECROW
+	child_insult = INSULT_SCARECROW
+	male_insult_adj = INSULT_DECADENT
+	female_insult_adj = INSULT_CORRUPT
+	child_insult_adj = INSULT_CRUMMY
+}
+
+race_placeholder = {
+	# Placeholder for determining races
+	# No graphic - player should only see if they inherit within 20 days of birth.
+	birth = 10000
+	hidden = yes
+	cached = yes
+	customizer = no
+}
+
+infertile = {	
+	customizer = no
+	random = no
+	fertility = -1000
+}
+
+##########################
+# Magic Lifestyle Traits #
+##########################
+
+summoner = {
+	lifestyle = yes
+	
+	opposites = {
+		enchanter
+		alchemist
+		herbalist
+	}
+	
+	learning = 2
+	levy_size = 0.1
+	
+	# Also results in larger armies from summoning spell and higher success rate.
+	# Gives acess to an additional spell
+	
+	same_opinion = 10
+	
+	ruler_designer_cost = 15
+	
+	ai_rationality = -10 # Less need to consider army size when you can summon more
+	
+	male_insult = INSULT_OCCULTIST
+	female_insult = INSULT_OCCULTIST
+	child_insult = INSULT_DEVIL
+	male_insult_adj = INSULT_GODLESS
+	female_insult_adj = INSULT_GODLESS
+	child_insult_adj = INSULT_WEIRD
+}
+alchemist = {
+	lifestyle = yes
+	
+	opposites = {
+		enchanter
+		summoner
+		herbalist
+	}
+	
+	# Non-mages can get this one
+	
+	learning = 2
+	global_tax_modifier = 0.05
+	
+	# Gives better results from alchemy
+	# Allows non-mages to use alchemy
+	# Brew Potion more successful
+	# Poison assassination more successful and has an extra option
+	
+	same_opinion = 10
+	
+	ruler_designer_cost = 15
+	
+	male_insult = INSULT_OCCULTIST
+	female_insult = INSULT_OCCULTIST
+	child_insult = INSULT_DEVIL
+	male_insult_adj = INSULT_COVETOUS
+	female_insult_adj = INSULT_VENAL
+	child_insult_adj = INSULT_STUPID
+}
+enchanter = {
+	lifestyle = yes
+	
+	opposites = {
+		summoner
+		alchemist
+		herbalist
+	}
+	
+	learning = 2
+	general_opinion = 5
+	
+	# Improves the Aura spell
+	# Grants additional spells on prisoners
+	
+	same_opinion = 10
+	
+	ruler_designer_cost = 15
+	
+	male_insult = INSULT_OCCULTIST
+	female_insult = INSULT_OCCULTIST
+	child_insult = INSULT_DEVIL
+	male_insult_adj = INSULT_GODLESS
+	female_insult_adj = INSULT_GODLESS
+	child_insult_adj = INSULT_WEIRD
+}
+herbalist = {
+	lifestyle = yes
+	
+	opposites = {
+		enchanter
+		alchemist
+		summoner
+	}
+	
+	# Non-mages can have this trait
+	
+	learning = 1
+	health = 2
+	
+	# Gives an option to find medicinal herbs when sick, giving an extra health boost beyond physicians
+	# Can rarely find a pancea, which can use any illness - 1 use, by decision, inherited
+	
+	same_opinion = 10
+	
+	ruler_designer_cost = 10
+	
+	child_compliment = COMPL_SMARTY
+	male_compliment_adj = COMPL_LEARNED
+	female_compliment_adj = COMPL_LEARNED
+	child_compliment_adj = COMPL_CLEVER
+	male_insult = INSULT_TREEHUGGER
+	female_insult = INSULT_TREEHUGGER
+	child_insult = INSULT_DEVIL
+	male_insult_adj = INSULT_GODLESS
+	female_insult_adj = INSULT_GODLESS
+	child_insult_adj = INSULT_WEIRD
+}
+
+necromancer = {
+	lifestyle = yes
+	
+	opposites = {
+		zombie
+	}
+	
+	potential = {
+		OR = {
+			trait = novice_mage
+			trait = eldritch_scholar
+			trait = veteran_wizard
+			trait = arcane_master
+		}
+	}
+	
+	is_visible = {
+		OR = {
+			character = FROM
+			trait = necromancer
+			trait = zombie
+			has_opinion_modifier = { who = FROM modifier = aware_of_secret_actions }
+		}
+	}
+	
+	learning = 2
+	intrigue = 1
+	
+	same_opinion = 30
+	opposite_opinion = 200
+	general_opinion = -20
+	
+	ruler_designer_cost = 10
+	
+	child_compliment = COMPL_SMARTY
+	male_compliment = COMPL_DEVIL
+	female_compliment = COMPL_DEVIL
+	male_compliment_adj = COMPL_LEARNED
+	female_compliment_adj = COMPL_LEARNED
+	child_compliment_adj = COMPL_CLEVER
+	male_insult = INSULT_VILE
+	female_insult = INSULT_VILE
+	child_insult = INSULT_FREAK
+	male_insult_adj = INSULT_GODLESS
+	female_insult_adj = INSULT_GODLESS
+	child_insult_adj = INSULT_WEIRD
+}
+
+miracle_worker = {
+	# Character's magic is seen as works of their god(s)
+	potential = {
+		OR = {
+			trait = novice_mage
+			trait = eldritch_scholar
+			trait = veteran_wizard
+			trait = arcane_master
+		}
+		OR = {
+			religion_group = christian
+			religion_group = muslim
+			religion_group = jewish_group
+		}
+	}
+	random = no
+	
+	monthly_character_piety = 0.5
+	same_religion_opinion = 20
+	ai_zeal = 15
+	religious = yes
+}
+on_journey = {
+	pilgrimage = yes
+	random = no
+	customizer = no
+}
+demon_trait = {
+	christian_opinion = -50
+	muslim_opinion = -50
+	jewish_group_opinion = -50
+	zoroastrian_opinion = -50
+	hindu_opinion = -50
+	satanist_opinion = 20
+	
+	immortal = yes
+	fertility = -50
+	health = 10
+	diplomacy = 4
+	intrigue = 8
+	stewardship = 4
+	martial = 4
+	learning = 4
+	combat_rating = 15
+	
+	#liege_piety = -0.5
+	
+	inherit_chance = 100
+	
+	customizer = no
+	random = no
+	
+	cannot_marry = yes
+	cannot_inherit = yes
+	can_hold_titles = no
+	
+	tolerates_other_group = yes
+	
+	ai_zeal = 10
+	ai_greed = 10
+	ai_honor = -10
+
+	potential = {
+		race = demon_culture
+	}
+}
+
+ethereal_trait = {
+	general_opinion = -5
+	immortal = yes
+	fertility = -50
+	health = 10
+	
+	intrigue = 4
+	stewardship = 2
+	learning = 2
+	combat_rating = 25
+	
+	customizer = no
+	random = no
+	
+	cannot_marry = yes
+	cannot_inherit = yes
+	can_hold_titles = no
+	
+	ai_ambition = -20
+	
+	potential = {
+		race = ethereal_culture
+	}
+}
+
+zombie_infection = {
+	diplomacy_penalty = -2
+	martial_penalty = -2
+	stewardship_penalty = -2
+	intrigue_penalty = -2
+	learning_penalty = -4
+	health_penalty = -4
+	combat_Rating = -15
+	
+	sex_appeal_opinion = -20
+	fertility = -20
+	customizer = no
+	
+	potential = {
+		has_dlc = "Reapers"
+	}
+}
+
+flametender = {
+	potential = {
+		OR = {
+			religion = draconic_pagan
+			religion = draconic_pagan_reformed
+		}
+	}
+	
+	same_religion_opinion = 5
+	monthly_character_piety = 0.1
+	stewardship = 1
+	
+	male_compliment = COMPL_PILGRIM
+	female_compliment = COMPL_PILGRIM
+}
+
+# Crusader traits
+
+# Draconic Pagan
+claw_of_fafnir = {
+	opposites = {
+		crusader
+		mujahid
+		valhalla_bound
+		eagle_warrior
+		sun_warrior
+		ukkos_shield
+		nyames_shield
+		peruns_chosen
+		romuvas_own
+		ares_own
+		tengri_warrior
+		shaddai
+		gondi_shahansha
+		hell_knight
+		spear_of_lugh
+		lion_of_menhit
+		surtrs_fire
+		kailash_guardian
+	}
+	
+	martial = 2
+	combat_rating = 10
+	
+	pagan_group_opinion = 5
+	same_opinion_if_same_religion = 15
+	
+	ai_zeal = 10
+	customizer = no
+	
+	male_compliment = COMPL_CRUSADER
+	female_compliment = COMPL_CRUSADER
+}
+
+# Satanist
+hell_knight = {
+	opposites = {
+		crusader
+		mujahid
+		valhalla_bound
+		eagle_warrior
+		sun_warrior
+		ukkos_shield
+		nyames_shield
+		peruns_chosen
+		romuvas_own
+		ares_own
+		tengri_warrior
+		shaddai
+		gondi_shahansha
+		claw_of_fafnir
+		spear_of_lugh
+		lion_of_menhit
+		surtrs_fire
+		kailash_guardian
+	}
+	
+	martial = 2
+	combat_rating = 10
+	
+	church_opinion = 15
+	same_opinion_if_same_religion = 15
+	
+	ai_zeal = 10
+	customizer = no
+	
+	male_compliment = COMPL_CRUSADER
+	female_compliment = COMPL_CRUSADER
+}
+
+# Druidic
+spear_of_lugh = {
+	opposites = {
+		crusader
+		mujahid
+		valhalla_bound
+		eagle_warrior
+		sun_warrior
+		ukkos_shield
+		nyames_shield
+		peruns_chosen
+		romuvas_own
+		ares_own
+		tengri_warrior
+		shaddai
+		gondi_shahansha
+		claw_of_fafnir
+		hell_knight
+		lion_of_menhit
+		surtrs_fire
+		kailash_guardian
+	}
+	
+	martial = 2
+	combat_rating = 10
+	
+	pagan_group_opinion = 5
+	same_opinion_if_same_religion = 15
+	
+	ai_zeal = 10
+	customizer = no
+	
+	male_compliment = COMPL_CRUSADER
+	female_compliment = COMPL_CRUSADER
+}
+
+lion_of_menhit = {
+	opposites = {
+		crusader
+		mujahid
+		valhalla_bound
+		eagle_warrior
+		sun_warrior
+		ukkos_shield
+		nyames_shield
+		peruns_chosen
+		romuvas_own
+		ares_own
+		tengri_warrior
+		shaddai
+		gondi_shahansha
+		claw_of_fafnir
+		hell_knight
+		spear_of_lugh
+		surtrs_fire
+		kailash_guardian
+	}
+	
+	martial = 2
+	combat_rating = 10
+	
+	pagan_group_opinion = 5
+	same_opinion_if_same_religion = 15
+	
+	ai_zeal = 10
+	customizer = no
+	
+	male_compliment = COMPL_CRUSADER
+	female_compliment = COMPL_CRUSADER
+}
+
+surtrs_fire = {
+	opposites = {
+		crusader
+		mujahid
+		valhalla_bound
+		eagle_warrior
+		sun_warrior
+		ukkos_shield
+		nyames_shield
+		peruns_chosen
+		romuvas_own
+		ares_own
+		tengri_warrior
+		shaddai
+		gondi_shahansha
+		claw_of_fafnir
+		hell_knight
+		spear_of_lugh
+		kailash_guardian
+	}
+	
+	martial = 2
+	combat_rating = 10
+	
+	church_opinion = 15
+	same_opinion_if_same_religion = 15
+	
+	ai_zeal = 10
+	customizer = no
+	
+	male_compliment = COMPL_CRUSADER
+	female_compliment = COMPL_CRUSADER
+}
+
+ascetic = {
+	# Separate from Monk - still allows marriage and inheritance, but decreases income
+	# Used by Lollards and Waldensians
+	opposites = {
+		monk
+		nun
+	}
+	
+	prevent_decadence = yes # Currently doesn't matter, but could if used for something like Sufis
+	religious = yes
+	
+	monthly_character_piety = 0.3
+	same_religion_opinion = 5
+	global_tax_modifier = -0.2
+	same_opinion = 10
+	vassal_opinion = 5
+	land_morale = 0.05
+	
+	ai_zeal = 10
+	ai_greed = -50
+	customizer = no
+}
+
+# Hunger mechanic for Vampires
+hunger_0 = {
+	opposites = {
+		hunger_1
+		hunger_2
+		hunger_3
+		hunger_4
+		hunger_5
+	}
+	potential = {
+		trait = vampire
+	}
+	
+	hidden_from_others = yes
+	customizer = no
+}
+hunger_1 = {
+	opposites = {
+		hunger_0
+		hunger_2
+		hunger_3
+		hunger_4
+		hunger_5
+	}
+	potential = {
+		trait = vampire
+	}
+	
+	hidden_from_others = yes
+	customizer = no
+	
+	combat_rating = 8
+	assassinate_chance_modifier = 0.03
+	intrigue = 1
+	ai_ambition = 5
+}
+hunger_2 = {
+	opposites = {
+		hunger_0
+		hunger_1
+		hunger_3
+		hunger_4
+		hunger_5
+	}
+	potential = {
+		trait = vampire
+	}
+	
+	hidden_from_others = yes
+	customizer = no
+	
+	combat_rating = 16
+	assassinate_chance_modifier = 0.06
+	intrigue = 2
+	ai_ambition = 10
+}
+hunger_3 = {
+	opposites = {
+		hunger_0
+		hunger_1
+		hunger_2
+		hunger_4
+		hunger_5
+	}
+	potential = {
+		trait = vampire
+	}
+	
+	hidden_from_others = yes
+	customizer = no
+	
+	combat_rating = 24
+	assassinate_chance_modifier = 0.09
+	intrigue = 3
+	ai_ambition = 15
+}
+hunger_4 = {
+	opposites = {
+		hunger_0
+		hunger_1
+		hunger_2
+		hunger_3
+		hunger_5
+	}
+	potential = {
+		trait = vampire
+	}
+	
+	hidden_from_others = yes
+	customizer = no
+	
+	combat_rating = 32
+	assassinate_chance_modifier = 0.12
+	intrigue = 4
+	ai_ambition = 20
+}
+hunger_5 = {
+	opposites = {
+		hunger_0
+		hunger_1
+		hunger_2
+		hunger_3
+		hunger_4
+	}
+	potential = {
+		trait = vampire
+	}
+	
+	hidden_from_others = yes
+	customizer = no
+	
+	combat_rating = 40
+	assassinate_chance_modifier = 0.15
+	intrigue = 5
+	ai_ambition = 25
+}
+control_1 = { # Full Moon
+	opposites = {
+		control_2
+		control_3
+		control_4
+		control_5
+		control_6
+		control_7
+		control_8
+		control_9
+	}
+	potential = {
+		trait = werewolf
+	}
+	
+	hidden_from_others = yes
+	customizer = no
+	
+	combat_rating = 40
+	command_modifier = {
+		morale_offence = 0.2
+	}
+	martial = -2
+	intrigue = -2
+	ai_rationality = -80
+}
+control_2 = { # Full Gibbous
+	opposites = {
+		control_1
+		control_3
+		control_4
+		control_5
+		control_6
+		control_7
+		control_8
+		control_9
+	}
+	potential = {
+		trait = werewolf
+	}
+	
+	hidden_from_others = yes
+	customizer = no
+	
+	combat_rating = 30
+	command_modifier = {
+		morale_offence = 0.15
+	}
+	martial = -2
+	intrigue = -2
+	ai_rationality = -60
+}
+control_3 = { # Gibbous
+	opposites = {
+		control_1
+		control_2
+		control_4
+		control_5
+		control_6
+		control_7
+		control_8
+		control_9
+	}
+	potential = {
+		trait = werewolf
+	}
+	
+	hidden_from_others = yes
+	customizer = no
+	
+	combat_rating = 20
+	command_modifier = {
+		morale_offence = 0.1
+	}
+	martial = -1
+	intrigue = -1
+	ai_rationality = -40
+}
+control_4 = { # Half Gibbous
+	opposites = {
+		control_1
+		control_2
+		control_3
+		control_5
+		control_6
+		control_7
+		control_8
+		control_9
+	}
+	potential = {
+		trait = werewolf
+	}
+	
+	hidden_from_others = yes
+	customizer = no
+	
+	combat_rating = 10
+	command_modifier = {
+		morale_offence = 0.05
+	}
+	martial = -1
+	intrigue = -1
+	ai_rationality = -20
+}
+control_5 = { # Half
+	opposites = {
+		control_1
+		control_2
+		control_3
+		control_4
+		control_6
+		control_7
+		control_8
+		control_9
+	}
+	potential = {
+		trait = werewolf
+	}
+	
+	hidden_from_others = yes
+	customizer = no
+}
+control_6 = { # Half Crescent
+	opposites = {
+		control_1
+		control_2
+		control_3
+		control_4
+		control_5
+		control_7
+		control_8
+		control_9
+	}
+	potential = {
+		trait = werewolf
+	}
+	
+	hidden_from_others = yes
+	customizer = no
+	
+	combat_rating = -5
+	command_modifier = {
+		morale_offence = -0.025
+	}
+	martial = 1
+	intrigue = 1
+	ai_rationality = 4
+	ai_honor = 4
+}
+control_7 = { # Crescent
+	opposites = {
+		control_1
+		control_2
+		control_3
+		control_4
+		control_5
+		control_6
+		control_8
+		control_9
+	}
+	potential = {
+		trait = werewolf
+	}
+	
+	hidden_from_others = yes
+	customizer = no
+	
+	combat_rating = -10
+	command_modifier = {
+		morale_offence = -0.05
+	}
+	martial = 2
+	intrigue = 2
+	ai_rationality = 8
+	ai_honor = 8
+}
+control_8 = { # New Crescent
+	opposites = {
+		control_1
+		control_2
+		control_3
+		control_4
+		control_5
+		control_6
+		control_7
+		control_9
+	}
+	potential = {
+		trait = werewolf
+	}
+	
+	hidden_from_others = yes
+	customizer = no
+	
+	combat_rating = -15
+	command_modifier = {
+		morale_offence = -0.075
+	}
+	martial = 3
+	intrigue = 3
+	ai_rationality = 12
+	ai_honor = 12
+}
+control_9 = { # New
+	opposites = {
+		control_1
+		control_2
+		control_3
+		control_4
+		control_5
+		control_6
+		control_7
+		control_8
+	}
+	potential = {
+		trait = werewolf
+	}
+	
+	hidden_from_others = yes
+	customizer = no
+	
+	combat_rating = -20
+	command_modifier = {
+		morale_offence = -0.1
+	}
+	martial = 4
+	intrigue = 4
+	ai_rationality = 16
+	ai_honor = 16
+}
+size_1 = { # Age 16, age 20 half-giant
+	opposites = {
+		size_2
+		size_3
+		size_4
+		size_5
+		size_6
+		size_7
+		size_8
+		size_9
+		size_10
+	}
+	potential = {
+		OR = {
+			trait = mythos_giant
+			trait = half_giant
+		}
+		NOT = {
+			trait = dwarf
+		}
+	}
+	
+	customizer = no
+	
+	combat_rating = 6
+	health = 0.1
+	command_modifier = {
+		siege = 0.02
+		morale_offence = 0.02
+	}
+}
+size_2 = { # Age 28, age 40 half-giant
+	opposites = {
+		size_1
+		size_3
+		size_4
+		size_5
+		size_6
+		size_7
+		size_8
+		size_9
+		size_10
+	}
+	potential = {
+		OR = {
+			trait = mythos_giant
+			trait = half_giant
+		}
+		NOT = {
+			trait = dwarf
+		}
+	}
+	
+	customizer = no
+	
+	combat_rating = 12
+	health = 0.2
+	martial = 1
+	command_modifier = {
+		siege = 0.03
+		morale_offence = 0.03
+	}
+}
+size_3 = { # Age 40, age 60 half-giant
+	opposites = {
+		size_1
+		size_2
+		size_4
+		size_5
+		size_6
+		size_7
+		size_8
+		size_9
+		size_10
+	}
+	potential = {
+		OR = {
+			trait = mythos_giant
+			trait = half_giant
+		}
+		NOT = {
+			trait = dwarf
+		}
+	}
+	
+	customizer = no
+	
+	combat_rating = 18
+	health = 0.3
+	martial = 1
+	command_modifier = {
+		siege = 0.05
+		morale_offence = 0.05
+	}
+}
+size_4 = { # Age 52, age 80 half-giant
+	opposites = {
+		size_1
+		size_2
+		size_3
+		size_5
+		size_6
+		size_7
+		size_8
+		size_9
+		size_10
+	}
+	potential = {
+		OR = {
+			trait = mythos_giant
+			trait = half_giant
+		}
+		NOT = {
+			trait = dwarf
+		}
+	}
+	
+	customizer = no
+	
+	combat_rating = 24
+	health = 0.4
+	martial = 2
+	command_modifier = {
+		siege = 0.06
+		morale_offence = 0.06
+	}
+}
+size_5 = { # Age 64, age 100 half-giant
+	opposites = {
+		size_1
+		size_2
+		size_3
+		size_4
+		size_6
+		size_7
+		size_8
+		size_9
+		size_10
+	}
+	potential = {
+		OR = {
+			trait = mythos_giant
+			trait = half_giant
+		}
+		NOT = {
+			trait = dwarf
+		}
+	}
+	
+	customizer = no
+	
+	combat_rating = 30
+	health = 0.5
+	martial = 2
+	command_modifier = {
+		siege = 0.08
+		morale_offence = 0.08
+	}
+}
+size_6 = { # Age 76
+	opposites = {
+		size_1
+		size_2
+		size_3
+		size_4
+		size_5
+		size_7
+		size_8
+		size_9
+		size_10
+	}
+	potential = {
+		trait = mythos_giant
+		NOT = {
+			trait = dwarf
+		}
+	}
+	
+	customizer = no
+	
+	combat_rating = 36
+	health = 0.6
+	martial = 3
+	command_modifier = {
+		siege = 0.09
+		morale_offence = 0.09
+	}
+}
+size_7 = { # Age 88
+	opposites = {
+		size_1
+		size_2
+		size_3
+		size_4
+		size_5
+		size_6
+		size_8
+		size_9
+		size_10
+	}
+	potential = {
+		trait = mythos_giant
+		NOT = {
+			trait = dwarf
+		}
+	}
+	
+	customizer = no
+	
+	combat_rating = 42
+	health = 0.7
+	martial = 3
+	command_modifier = {
+		siege = 0.11
+		morale_offence = 0.11
+	}
+}
+size_8 = { # Age 110
+	opposites = {
+		size_1
+		size_2
+		size_3
+		size_4
+		size_5
+		size_6
+		size_7
+		size_9
+		size_10
+	}
+	potential = {
+		trait = mythos_giant
+		NOT = {
+			trait = dwarf
+		}
+	}
+	
+	customizer = no
+	
+	combat_rating = 48
+	health = 0.8
+	martial = 4
+	command_modifier = {
+		siege = 0.12
+		morale_offence = 0.12
+	}
+}
+size_9 = { # Age 122
+	opposites = {
+		size_1
+		size_2
+		size_3
+		size_4
+		size_5
+		size_6
+		size_7
+		size_8
+		size_10
+	}
+	potential = {
+		trait = mythos_giant
+		NOT = {
+			trait = dwarf
+		}
+	}
+	
+	customizer = no
+	
+	combat_rating = 54
+	health = 0.9
+	martial = 4
+	command_modifier = {
+		siege = 0.14
+		morale_offence = 0.14
+	}
+}
+size_10 = { # Age 134
+	opposites = {
+		size_1
+		size_2
+		size_3
+		size_4
+		size_5
+		size_6
+		size_7
+		size_8
+		size_9
+	}
+	potential = {
+		trait = mythos_giant
+		NOT = {
+			trait = dwarf
+		}
+	}
+	
+	customizer = no
+	
+	combat_rating = 60
+	health = 1
+	martial = 5
+	command_modifier = {
+		siege = 0.15
+		morale_offence = 0.15
+	}
+}
+
+giant_hrimthursar = { # Frost Giant
+	opposites = {
+		giant_eldjotnar
+		giant_bergrisar
+	}
+	potential = { trait = mythos_giant }
+	
+	frost_giants_defensive = 0.05
+	fire_giants_morale = -0.05
+	
+	command_modifier = {
+		defence = 0.2
+		morale_defence = 0.1
+		winter_supply = 2
+		winter_combat = 0.2
+		damage = -0.2
+		morale_offence = -0.1
+		speed = -0.2
+	}
+}
+giant_eldjotnar = { # Fire Giant
+	opposites = {
+		giant_hrimthursar
+		giant_bergrisar
+	}
+	potential = { trait = mythos_giant }
+	
+	fire_giants_offensive = 0.05
+	frost_giants_morale = -0.05
+	
+	command_modifier = {
+		damage = 0.2
+		morale_offence = 0.1
+		defence = -0.2
+		morale_defence = -0.1
+	}
+}
+giant_bergrisar = { # Hill Giant
+	opposites = {
+		giant_hrimthursar
+		giant_eldjotnar
+	}
+	potential = { trait = mythos_giant }
+	
+	combat_rating = 15
+	martial = 1
+	days_of_supply = 30
+	
+	command_modifier = {
+		terrain = hills
+		terrain = mountain
+	}
+}
+banker = {
+	customizer = no
+	random = no
+	cached = yes
+}
+natural_magic_1 = {
+	opposites = {
+		natural_magic_2
+		natural_magic_3
+		natural_magic_4
+	}
+	potential = {
+		trait = novice_mage
+		trait = djinn
+	}
+	
+	muslim_opinion = 5
+	
+	customizer = no
+}
+natural_magic_2 = {
+	opposites = {
+		natural_magic_1
+		natural_magic_3
+		natural_magic_4
+	}
+	potential = {
+		trait = eldritch_scholar
+		trait = djinn
+	}
+	
+	health = 0.5
+	fertility = 0.1
+	muslim_opinion = 10
+	
+	customizer = no
+}
+natural_magic_3 = {
+	opposites = {
+		natural_magic_1
+		natural_magic_2
+		natural_magic_4
+	}
+	potential = {
+		trait = veteran_wizard
+		trait = djinn
+	}
+	
+	health = 1
+	fertility = 0.2
+	muslim_opinion = 15
+	
+	customizer = no
+}
+natural_magic_4 = {
+	opposites = {
+		natural_magic_1
+		natural_magic_2
+		natural_magic_3
+	}
+	potential = {
+		trait = arcane_master
+		trait = djinn
+	}
+	
+	health = 1
+	fertility = 0.4
+	muslim_opinion = 20
+	
+	customizer = no
+}
+draconic_leader = {
+	leader = yes
+	random = no
+	dragon_cavalry_offensive = 0.1
+	command_modifier = {
+		terrain = mountain
+		terrain = hills
+		damage = 0.1
+	}
+}
+kemetic_leader = {
+	leader = yes
+	random = no
+	command_modifier = {
+		morale_offence = 0.2
+		speed = 0.1
+		terrain = desert
+		terrain = plains
+	}
+}
+druidic_leader = {
+	leader = yes
+	random = no
+	attrition = -0.1
+	days_of_supply = 10
+	command_modifier = {
+		speed = 0.2
+		terrain = forest
+		terrain = plains
+	}
+}
+jotnar_leader = {
+	leader = yes
+	random = no
+	command_modifier = {
+		damage = 0.1
+		morale_offence = 0.1
+		terrain = mountain
+		heavy_infantry = 0.15
+	}
+}
+
+# Non-congenital Hare-lip
+cleft_lip = {
+	sex_appeal_opinion = -10
+	same_opinion = 5
+	
+	diplomacy = -1
+	
+	male_insult = INSULT_HARELIP
+	female_insult = INSULT_HARELIP
+	male_insult_adj = INSULT_CLEFT_LIPPED
+	female_insult_adj = INSULT_CLEFT_LIPPED
+}
+# Non-congenital hunchback
+twisted = {
+	sex_appeal_opinion = -30
+	same_opinion = 5
+	
+	vassal_opinion = -5
+	
+	martial = -1
+	
+	male_insult = INSULT_HUNCHBACK
+	female_insult = INSULT_HUNCHBACK
+	male_insult_adj = INSULT_CROOKED
+	female_insult_adj = INSULT_CROOKED
+}
+# Non-congenital clubfoot
+quailfooted = {
+	combat_rating = -5 #old value: -1
+	
+	sex_appeal_opinion = -10
+	same_opinion = 5
+	
+	martial = -1
+	
+	male_insult = INSULT_CLUBFOOT
+	female_insult = INSULT_CLUBFOOT
+	male_insult_adj = INSULT_LIMPING
+	female_insult_adj = INSULT_LIMPING
+}

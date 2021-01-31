@@ -1,0 +1,214 @@
+spriteTypes = {
+	
+	spriteType = {
+		name = "GFX_religion_icon_strip"
+		#texturefile = "gfx\\interface\\mythos_religion_icon_strip.tga"
+		texturefile = "gfx\\interface\\religion_icon_strip.dds"
+		noOfFrames = 75
+		#norefcount = yes
+		#can_be_lowres = yes
+	}
+	spriteType = {
+		name = "GFX_religion_icon_strip_small"
+		#texturefile = "gfx\\interface\\mythos_religion_icon_strip_small.tga"
+		texturefile = "gfx\\interface\\religion_icon_strip_small.dds"
+		noOfFrames = 75
+		#norefcount = yes
+		#can_be_lowres = yes
+	}
+	spriteType = {
+		name = "GFX_religion_icon_strip_big"
+		#texturefile = "gfx\\interface\\mythos_religion_icon_strip_big.tga"
+		texturefile = "gfx\\interface\\religion_icon_strip_big.dds"
+		noOfFrames = 75
+		#norefcount = yes
+		#can_be_lowres = yes
+	}
+	spriteType = {
+		name = "GFX_focusicons"
+		texturefile = "gfx\\interface\\focusicons.tga"
+		noOfFrames = 22
+		loadType = "INGAME"
+	}
+	#spriteType = {
+	#	name = "GFX_focusview_bg_area"
+	#	texturefile = "gfx\\interface\\focusview_bg_area.dds"
+	#}
+	spriteType = {
+		name = "GFX_focusview_bg"
+		texturefile = "gfx\\interface\\focusview_bg.dds"
+		allwaystransparent = yes
+	}
+	spriteType = {
+		name = "GFX_focusicon_magic"
+		texturefile = "gfx\\interface\\focusicon_magic.tga"
+		noOfFrames = 2
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_focusicon_education_magic"
+		texturefile = "gfx\\interface\\focus_education_magic.tga"
+		noOfFrames = 2
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_focusicon_upbringing_magic"
+		texturefile = "gfx\\interface\\focus_upbringing_magic.tga"
+		noOfFrames = 2
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_obj_build_horde_1"
+		texturefile = "gfx/ambitions/obj_amass_wealth.tga"
+		noOfFrames = 1
+		norefcount = yes
+		effectFile = "gfx/FX/buttonstate.lua"
+	}
+	spriteType = {
+		name = "GFX_obj_build_horde_2"
+		texturefile = "gfx/ambitions/obj_amass_wealth.tga"
+		noOfFrames = 1
+		norefcount = yes
+		effectFile = "gfx/FX/buttonstate.lua"
+	}
+	spriteType = {
+		name = "GFX_obj_build_horde_3"
+		texturefile = "gfx/ambitions/obj_amass_wealth.tga"
+		noOfFrames = 1
+		norefcount = yes
+		effectFile = "gfx/FX/buttonstate.lua"
+	}
+	spriteType = {
+		name = "GFX_obj_build_horde_4"
+		texturefile = "gfx/ambitions/obj_amass_wealth.tga"
+		noOfFrames = 1
+		norefcount = yes
+		effectFile = "gfx/FX/buttonstate.lua"
+	}
+	spriteType = {
+		name = "GFX_obj_build_horde_5"
+		texturefile = "gfx/ambitions/obj_amass_wealth.tga"
+		noOfFrames = 1
+		norefcount = yes
+		effectFile = "gfx/FX/buttonstate.lua"
+	}
+	spriteType = {
+		name = "GFX_obj_build_horde_6"
+		texturefile = "gfx/ambitions/obj_amass_wealth.tga"
+		noOfFrames = 1
+		norefcount = yes
+		effectFile = "gfx/FX/buttonstate.lua"
+	}
+	spriteType = {
+		name = "GFX_obj_build_horde_7"
+		texturefile = "gfx/ambitions/obj_amass_wealth.tga"
+		noOfFrames = 1
+		norefcount = yes
+		effectFile = "gfx/FX/buttonstate.lua"
+	}
+	spriteType = {
+		name = "GFX_obj_become_pious_1"
+		texturefile = "gfx/ambitions/obj_dragon_piety.dds"
+		noOfFrames = 1
+		norefcount = yes
+		effectFile = "gfx/FX/buttonstate.lua"
+	}
+	spriteType = {
+		name = "GFX_obj_become_pious_2"
+		texturefile = "gfx/ambitions/obj_dragon_piety.dds"
+		noOfFrames = 1
+		norefcount = yes
+		effectFile = "gfx/FX/buttonstate.lua"
+	}
+	spriteType = {
+		name = "GFX_obj_become_pious_3"
+		texturefile = "gfx/ambitions/obj_dragon_piety.dds"
+		noOfFrames = 1
+		norefcount = yes
+		effectFile = "gfx/FX/buttonstate.lua"
+	}
+	spriteType = {
+		name = "GFX_obj_pilgrimage"
+		texturefile = "gfx/ambitions/obj_pilgrimage.dds"
+		noOfFrames = 1
+		norefcount = yes
+		effectFile = "gfx/FX/buttonstate.lua"
+	}
+	spriteType = {
+		name = "GFX_obj_purify_marriage"
+		texturefile = "gfx/ambitions/obj_get_married.tga"
+		noOfFrames = 1
+		norefcount = yes
+		effectFile = "gfx/FX/buttonstate.lua"
+	}
+	spriteType = {
+		name = "GFX_obj_purify_love"
+		texturefile = "gfx/ambitions/obj_get_married.tga"
+		noOfFrames = 1
+		norefcount = yes
+		effectFile = "gfx/FX/buttonstate.lua"
+	}
+	spriteType = {
+		name = "GFX_obj_purify_succession"
+		texturefile = "gfx/ambitions/plot_gain_liege_title.tga"
+		noOfFrames = 1
+		norefcount = yes
+		effectFile = "gfx/FX/buttonstate.lua"
+	}
+	spriteType = {
+		name = "GFX_obj_gain_prestige_human_1"
+		texturefile = "gfx/ambitions/obj_become_exalted.tga"
+		noOfFrames = 1
+		norefcount = yes
+		effectFile = "gfx/FX/buttonstate.lua"
+	}
+	spriteType = {
+		name = "GFX_obj_gain_prestige_human_2"
+		texturefile = "gfx/ambitions/obj_become_exalted.tga"
+		noOfFrames = 1
+		norefcount = yes
+		effectFile = "gfx/FX/buttonstate.lua"
+	}
+	spriteType = {
+		name = "GFX_obj_gain_prestige_human_3"
+		texturefile = "gfx/ambitions/obj_become_exalted.tga"
+		noOfFrames = 1
+		norefcount = yes
+		effectFile = "gfx/FX/buttonstate.lua"
+	}
+	spriteType = {
+		name = "GFX_obj_gain_prestige_human_4"
+		texturefile = "gfx/ambitions/obj_become_exalted.tga"
+		noOfFrames = 1
+		norefcount = yes
+		effectFile = "gfx/FX/buttonstate.lua"
+	}
+	spriteType = {
+		name = "GFX_obj_gain_prestige_human_5"
+		texturefile = "gfx/ambitions/obj_become_exalted.tga"
+		noOfFrames = 1
+		norefcount = yes
+		effectFile = "gfx/FX/buttonstate.lua"
+	}
+	spriteType = {
+		name = "GFX_obj_become_diligent"
+		texturefile = "gfx/ambitions/obj_become_diligent.dds"
+		noOfFrames = 1
+		norefcount = yes
+		effectFile = "gfx/FX/buttonstate.lua"
+	}
+	spriteType = {
+		name = "GFX_obj_gain_prestige_dragon_1"
+		texturefile = "gfx/ambitions/obj_become_exalted.tga"
+		noOfFrames = 1
+		norefcount = yes
+		effectFile = "gfx/FX/buttonstate.lua"
+	}
+	spriteType = {
+		name = "GFX_obj_gain_prestige_dragon_2"
+		texturefile = "gfx/ambitions/obj_become_exalted.tga"
+		noOfFrames = 1
+		norefcount = yes
+		effectFile = "gfx/FX/buttonstate.lua"
+	}
+}

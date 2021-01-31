@@ -1,0 +1,3 @@
+etherealgfx = {
+	skin_tone = 0
+}

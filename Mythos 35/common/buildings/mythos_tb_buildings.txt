@@ -1,0 +1,2824 @@
+tribal = {
+	
+	# Dragon capital
+	tb_dragon_tower_1 = {
+		desc = tb_dragon_vault_1_desc
+		
+		potential = {
+			OR = {
+				holder_scope = {
+					OR = {
+						trait = dragon
+						trait = dragonborn
+						culture = draconic
+					}
+				}
+				FROMFROM = {
+					has_building = tb_dragon_tower_1
+					NOT = {
+						calc_true_if = {
+							amount = 1
+							has_building = tb_werewolf_lodge_1
+							has_building = tb_vampire_citadel_1
+							has_building = tb_giant_shield
+							has_building = tb_mummy_necropolis
+							has_building = tb_djinn_caves
+							has_building = tb_monster_hunter_lodge
+						}
+					}
+				}
+			}
+		}
+		trigger = {	
+			holder_scope = { trait = dragon }
+			is_capital = yes	
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}				 
+		}
+		is_active_trigger = {
+			holder_scope = {
+				OR = {
+					trait = dragon
+					trait = dragonborn
+				}
+			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		
+		prerequisites = { tb_hillfort_2 }
+		ai_creation_factor = 101
+		
+		fort_level = 0.5
+		monthly_character_prestige = 0.15
+		dragon_cavalry = 3
+		global_movement_speed = 0.01
+		
+		prestige_cost = 300
+		build_time = 350
+		
+		extra_tech_building_start = 10.0
+	}
+	tb_dragon_tower_2 = {
+		desc = tb_dragon_tower_2_desc
+		
+		potential = {
+			OR = {
+				holder_scope = {
+					OR = {
+						trait = dragon
+						trait = dragonborn
+						culture = draconic
+					}
+				}
+				FROMFROM = {
+					has_building = tb_dragon_tower_2
+					NOT = {
+						calc_true_if = {
+							amount = 1
+							has_building = tb_werewolf_lodge_1
+							has_building = tb_vampire_citadel_1
+							has_building = tb_giant_shield
+							has_building = tb_mummy_necropolis
+							has_building = tb_djinn_caves
+							has_building = tb_monster_hunter_lodge
+						}
+					}
+				}
+			}
+		}
+		trigger = {
+			holder_scope = { 
+				trait = dragon
+				OR = {
+					has_law = tribal_organization_2
+					has_law = tribal_organization_3
+					has_law = tribal_organization_4
+				}
+			}
+			is_capital = yes	
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}				 
+		}
+		is_active_trigger = {
+			holder_scope = {
+				OR = {
+					trait = dragon
+					trait = dragonborn
+				}
+			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		
+		upgrades_from = tb_dragon_tower_1
+		ai_creation_factor = 100
+		
+		fort_level = 1
+		monthly_character_prestige = 0.2
+		dragon_cavalry = 5
+		global_movement_speed = 0.02
+		prestige_cost = 500
+		build_time = 625
+		
+		convert_to_castle = ca_dragon_tower_1
+		#convert_to_city = ct_dragon_tower_1
+		
+		extra_tech_building_start = 10.0
+	}
+	
+	tb_dragon_tower_3 = {
+		desc = tb_dragon_tower_3_desc
+		
+		potential = {
+			OR = {
+				holder_scope = {
+					OR = {
+						trait = dragon
+						trait = dragonborn
+						culture = draconic
+					}
+				}
+				FROMFROM = {
+					has_building = tb_dragon_tower_3
+					NOT = {
+						calc_true_if = {
+							amount = 1
+							has_building = tb_werewolf_lodge_1
+							has_building = tb_vampire_citadel_1
+							has_building = tb_giant_shield
+							has_building = tb_mummy_necropolis
+							has_building = tb_djinn_caves
+							has_building = tb_monster_hunter_lodge
+						}
+					}
+				}
+			}
+		}
+		trigger = {
+			holder_scope = { 
+				trait = dragon
+				has_law = tribal_organization_4
+			}
+			TECH_CASTLE_CONSTRUCTION = 1
+			is_capital = yes	
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}				 
+		}
+		is_active_trigger = {
+			holder_scope = {
+				OR = {
+					trait = dragon
+					trait = dragonborn
+				}
+			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		
+		upgrades_from = tb_dragon_tower_2
+		ai_creation_factor = 99
+		
+		fort_level = 2
+		monthly_character_prestige = 0.2
+		dragon_cavalry = 10
+		global_movement_speed = 0.03
+		
+		prestige_cost = 1000
+		build_time = 1020
+		
+		convert_to_castle = ca_dragon_tower_2
+		#convert_to_city = ct_dragon_tower_2
+		
+		extra_tech_building_start = 10.0
+	}
+
+	# Dragon Holding
+	tb_dragon_vault_1 = {
+		desc = tb_dragon_vault_1_desc
+		
+		potential = {
+			OR = {
+				holder_scope = {
+					OR = {
+						trait = dragon
+						trait = dragonborn
+						culture = draconic
+					}
+				}
+				FROMFROM = {
+					has_building = tb_dragon_vault_1
+					NOT = {
+						calc_true_if = {
+							amount = 1
+							has_building = ca_werewolf_pits
+							has_building = ca_vampire_spy_network
+							has_building = tb_giant_market
+							has_building = tb_mummy_mastaba
+							has_building = tb_djinni_town
+						}
+					}
+				}
+			}
+		}
+		trigger = {
+			holder_scope = { 
+				trait = dragon
+				OR = {
+					has_law = tribal_organization_1
+					has_law = tribal_organization_2
+					has_law = tribal_organization_3
+					has_law = tribal_organization_4
+				}
+			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		is_active_trigger = {
+			holder_scope = {
+				OR = {
+					trait = dragon
+					trait = dragonborn
+				}
+			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		
+		prerequisites = { tb_hillfort_1  }
+		ai_creation_factor = 101
+		
+		tax_income = 1
+		monthly_character_prestige = 0.1
+		trade_route_value = 0.5
+		
+		gold_cost = 50
+		build_time = 350
+		
+		
+		extra_tech_building_start = 10.0
+	}
+	
+	tb_dragon_vault_2 = {
+		desc = tb_dragon_vault_2_desc
+		
+		potential = {
+			OR = {
+				holder_scope = {
+					OR = {
+						trait = dragon
+						trait = dragonborn
+						culture = draconic
+					}
+				}
+				FROMFROM = {
+					has_building = tb_dragon_vault_2
+					NOT = {
+						calc_true_if = {
+							amount = 1
+							has_building = ca_werewolf_pits
+							has_building = ca_vampire_spy_network
+							has_building = tb_giant_market
+							has_building = tb_mummy_mastaba
+							has_building = tb_djinni_town
+						}
+					}
+				}
+			}
+		}
+		trigger = { 
+			holder_scope = {
+				trait = dragon 
+				OR = {
+					has_law = tribal_organization_3
+					has_law = tribal_organization_4
+				}
+			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		is_active_trigger = {
+			holder_scope = {
+				OR = {
+					trait = dragon
+					trait = dragonborn
+				}
+			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		
+		upgrades_from = tb_dragon_vault_1
+		ai_creation_factor = 99
+		
+		tax_income = 1
+		monthly_character_prestige = 0.1
+		trade_route_value = 0.5
+		
+		gold_cost = 100
+		build_time = 630
+		
+		convert_to_castle = ca_dragon_vault_1
+		convert_to_city = ct_dragon_tribute_1
+		
+		extra_tech_building_start = 10.0
+	}
+	tb_resident_dragons = {
+		desc = tb_resident_dragons_desc
+		
+		potential = { culture = draconic }
+		trigger = {
+			culture = draconic
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		is_active_trigger = {
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		ai_creation_factor = 90
+		
+		gold_cost = 100
+		build_time = 200
+		
+		dragon_cavalry = 1
+		dragon_cavalry_offensive = 0.05
+		
+		#convert_to_castle = ca_dragon_militia
+		convert_to_city = ct_dragon_guards
+		
+		extra_tech_building_start = 2.0
+	}
+	# Dragon Culture Building
+	tb_dragon_militia_1 = {
+		desc = ca_dragon_militia_desc
+
+		potential = {
+			holder_scope = { culture = draconic }
+		}
+		trigger = {
+			TECH_CASTLE_CONSTRUCTION = 1
+			# No other special troop
+			custom_tooltip = {
+				text = tt_no_other_special_troop
+				hidden_tooltip = {
+					FROMFROM = {
+						NOR = {
+							has_building = tb_werewolf_lodge_1
+							has_building = tb_vampire_citadel_1
+							has_building = tb_werewolf_soldiers_1
+							has_building = tb_vampire_catacomb_1
+							has_building = tb_culture_group_altaic_1
+							has_building = tb_culture_group_arabic_1
+							has_building = tb_culture_group_byzantine_1
+							has_building = tb_culture_indian_1
+							has_building = tb_culture_moors_1
+							has_building = tb_ritual_crypts_1
+						}
+					}
+				}
+			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		is_active_trigger = {
+			# No other special troop
+			custom_tooltip = {
+				text = tt_no_other_special_troop
+				hidden_tooltip = {
+					FROMFROM = {
+						NOR = {
+							has_building = tb_werewolf_lodge_1
+							has_building = tb_vampire_citadel_1
+							has_building = tb_werewolf_soldiers_1
+							has_building = tb_vampire_catacomb_1
+							has_building = tb_culture_group_altaic_1
+							has_building = tb_culture_group_arabic_1
+							has_building = tb_culture_group_byzantine_1
+							has_building = tb_culture_indian_1
+							has_building = tb_culture_moors_1
+							has_building = tb_ritual_crypts_1
+						}
+					}
+				}
+			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+			
+		ai_creation_factor = 90
+
+		prestige_cost = 100
+		build_time = 730
+
+		dragon_cavalry = 3
+		dragon_cavalry_offensive = 0.1
+
+		extra_tech_building_start = 2.0
+	}
+	tb_dragon_militia_2 = {
+		desc = ca_dragon_militia_desc
+
+		potential = {
+			holder_scope = { culture = draconic }
+		}
+		trigger = {
+			TECH_CASTLE_CONSTRUCTION = 3
+			# No other special troop
+			custom_tooltip = {
+				text = tt_no_other_special_troop
+				hidden_tooltip = {
+					FROMFROM = {
+						NOR = {
+							has_building = tb_werewolf_lodge_1
+							has_building = tb_vampire_citadel_1
+							has_building = tb_werewolf_soldiers_1
+							has_building = tb_vampire_catacomb_1
+							has_building = tb_culture_group_altaic_1
+							has_building = tb_culture_group_arabic_1
+							has_building = tb_culture_group_byzantine_1
+							has_building = tb_culture_indian_1
+							has_building = tb_culture_moors_1
+							has_building = tb_ritual_crypts_1
+						}
+					}
+				}
+			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		is_active_trigger = {
+			# No other special troop
+			custom_tooltip = {
+				text = tt_no_other_special_troop
+				hidden_tooltip = {
+					FROMFROM = {
+						NOR = {
+							has_building = tb_werewolf_lodge_1
+							has_building = tb_vampire_citadel_1
+							has_building = tb_werewolf_soldiers_1
+							has_building = tb_vampire_catacomb_1
+							has_building = tb_culture_group_altaic_1
+							has_building = tb_culture_group_arabic_1
+							has_building = tb_culture_group_byzantine_1
+							has_building = tb_culture_indian_1
+							has_building = tb_culture_moors_1
+							has_building = tb_ritual_crypts_1
+						}
+					}
+				}
+			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		upgrades_from = tb_dragon_militia_1
+		ai_creation_factor = 90
+
+		prestige_cost = 200
+		build_time = 1095
+
+		dragon_cavalry = 5
+		dragon_cavalry_offensive = 0.1
+		
+		convert_to_castle = ca_dragon_militia_1
+
+		extra_tech_building_start = 4.0
+	}
+	tb_dragon_militia_3 = {
+		desc = ca_dragon_militia_desc
+
+		potential = {
+			holder_scope = { culture = draconic }
+		}
+		trigger = {
+			TECH_CASTLE_CONSTRUCTION = 5
+			# No other special troop
+			custom_tooltip = {
+				text = tt_no_other_special_troop
+				hidden_tooltip = {
+					FROMFROM = {
+						NOR = {
+							has_building = tb_werewolf_lodge_1
+							has_building = tb_vampire_citadel_1
+							has_building = tb_werewolf_soldiers_1
+							has_building = tb_vampire_catacomb_1
+							has_building = tb_culture_group_altaic_1
+							has_building = tb_culture_group_arabic_1
+							has_building = tb_culture_group_byzantine_1
+							has_building = tb_culture_indian_1
+							has_building = tb_culture_moors_1
+							has_building = tb_ritual_crypts_1
+						}
+					}
+				}
+			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		is_active_trigger = {
+			# No other special troop
+			custom_tooltip = {
+				text = tt_no_other_special_troop
+				hidden_tooltip = {
+					FROMFROM = {
+						NOR = {
+							has_building = tb_werewolf_lodge_1
+							has_building = tb_vampire_citadel_1
+							has_building = tb_werewolf_soldiers_1
+							has_building = tb_vampire_catacomb_1
+							has_building = tb_culture_group_altaic_1
+							has_building = tb_culture_group_arabic_1
+							has_building = tb_culture_group_byzantine_1
+							has_building = tb_culture_indian_1
+							has_building = tb_culture_moors_1
+							has_building = tb_ritual_crypts_1
+						}
+					}
+				}
+			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		upgrades_from = tb_dragon_militia_2
+		ai_creation_factor = 90
+
+		prestige_cost = 300
+		build_time = 2190
+
+		dragon_cavalry = 8
+		dragon_cavalry_offensive = 0.1
+
+		extra_tech_building_start = 6.0
+	}
+	tb_dragon_militia_4 = {
+		desc = ca_dragon_militia_desc
+
+		potential = {
+			holder_scope = { culture = draconic }
+		}
+		trigger = {
+			TECH_CASTLE_CONSTRUCTION = 7
+			# No other special troop
+			custom_tooltip = {
+				text = tt_no_other_special_troop
+				hidden_tooltip = {
+					FROMFROM = {
+						NOR = {
+							has_building = tb_werewolf_lodge_1
+							has_building = tb_vampire_citadel_1
+							has_building = tb_werewolf_soldiers_1
+							has_building = tb_vampire_catacomb_1
+							has_building = tb_culture_group_altaic_1
+							has_building = tb_culture_group_arabic_1
+							has_building = tb_culture_group_byzantine_1
+							has_building = tb_culture_indian_1
+							has_building = tb_culture_moors_1
+							has_building = tb_ritual_crypts_1
+						}
+					}
+				}
+			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		is_active_trigger = {
+			# No other special troop
+			custom_tooltip = {
+				text = tt_no_other_special_troop
+				hidden_tooltip = {
+					FROMFROM = {
+						NOR = {
+							has_building = tb_werewolf_lodge_1
+							has_building = tb_vampire_citadel_1
+							has_building = tb_werewolf_soldiers_1
+							has_building = tb_vampire_catacomb_1
+							has_building = tb_culture_group_altaic_1
+							has_building = tb_culture_group_arabic_1
+							has_building = tb_culture_group_byzantine_1
+							has_building = tb_culture_indian_1
+							has_building = tb_culture_moors_1
+							has_building = tb_ritual_crypts_1
+						}
+					}
+				}
+			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		upgrades_from = tb_dragon_militia_3
+		ai_creation_factor = 90
+
+		prestige_cost = 400
+		build_time = 2190
+
+		dragon_cavalry = 8
+		dragon_cavalry_offensive = 0.1
+		
+		convert_to_castle = ca_dragon_militia_2
+
+		extra_tech_building_start = 8.0
+	}
+	
+	# Werewolf Capital Building
+	tb_werewolf_lodge_1 = {
+		desc = tb_werewolf_lodge_desc
+		
+		potential = {
+			OR = {
+				holder_scope = {
+					OR = {
+						trait = werewolf
+						culture = werewolf_culture
+					}
+				}
+				FROMFROM = {
+					has_building = tb_werewolf_lodge_1
+					NOT = {
+						calc_true_if = {
+							amount = 1
+							has_building = tb_dragon_tower_1
+							has_building = tb_vampire_citadel_1
+							has_building = tb_giant_shield
+							has_building = tb_mummy_necropolis
+							has_building = tb_djinn_caves
+							has_building = tb_monster_hunter_lodge
+						}
+					}
+				}
+			}
+		}
+		trigger = { 
+			holder_scope = { trait = known_werewolf }
+			TECH_CASTLE_CONSTRUCTION = 1
+			is_capital = yes
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}					 
+		}
+		is_active_trigger = {
+			holder_scope = { trait = known_werewolf }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		
+		prerequisites = { tb_hillfort_1 }
+		ai_creation_factor = 99
+		
+		lycan_berzerkers = 30
+		archers = 50
+		global_winter_supply = 0.5
+		siege_defence = 0.02
+		
+		prestige_cost = 150
+		build_time = 200
+		
+		extra_tech_building_start = 10.0
+	}
+	tb_werewolf_lodge_2 = {
+		desc = tb_werewolf_lodge_desc
+		
+		potential = {
+			OR = {
+				holder_scope = {
+					OR = {
+						trait = werewolf
+						culture = werewolf_culture
+					}
+				}
+				FROMFROM = {
+					has_building = tb_werewolf_lodge_2
+					NOT = {
+						calc_true_if = {
+							amount = 1
+							has_building = tb_dragon_tower_1
+							has_building = tb_vampire_citadel_1
+							has_building = tb_giant_shield
+							has_building = tb_mummy_necropolis
+							has_building = tb_djinn_caves
+							has_building = tb_monster_hunter_lodge
+						}
+					}
+				}
+			}
+		}
+		trigger = { 
+			holder_scope = { trait = known_werewolf }
+			TECH_CASTLE_CONSTRUCTION = 1
+			is_capital = yes		
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}			 
+		}
+		is_active_trigger = {
+			holder_scope = { trait = known_werewolf }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		
+		upgrades_from = tb_werewolf_lodge_1
+		prerequisites = { tb_hillfort_2 }
+		ai_creation_factor = 99
+		
+		lycan_berzerkers = 40
+		archers = 70
+		global_winter_supply = 1
+		siege_defence = 0.03
+		
+		prestige_cost = 200
+		build_time = 250
+		
+		convert_to_castle = ca_werewolf_lodge_1
+		#convert_to_city = ct_werewolf_lodge_1
+		
+		extra_tech_building_start = 10.0
+	}
+	# Werewolf Holding
+	tb_werewolf_pits = {
+		desc = tb_werewolf_pits_desc
+		
+		potential = {
+			OR = {
+				holder_scope = {
+					trait = werewolf
+				}
+				FROMFROM = {
+					has_building = tb_werewolf_pits
+					NOT = {
+						calc_true_if = {
+							amount = 1
+							has_building = tb_dragon_vault_1
+							has_building = ca_vampire_spy_network
+							has_building = tb_giant_market
+							has_building = tb_mummy_mastaba
+							has_building = tb_djinni_town
+						}
+					}
+				}
+			}
+		}
+		trigger = { 
+			TECH_CASTLE_CONSTRUCTION = 1
+			holder_scope = { trait = known_werewolf }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		is_active_trigger = {
+			holder_scope = { trait = known_werewolf }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		
+		prerequisites = { tb_hillfort_1 }
+		
+		ai_creation_factor = 100
+		
+		tax_income = 1
+		lycan_berzerkers = 100
+		lycan_berzerkers_offensive = 0.15
+		
+		prestige_cost = 100
+		build_time = 350
+		
+		convert_to_castle = ca_werewolf_pits
+		convert_to_city = ct_werewolf_court
+		
+		extra_tech_building_start = 10.0
+	}
+	
+	tb_werewolf_raiders = {
+		desc = tb_werewolf_raiders_desc
+		
+		potential = { culture = werewolf_culture }
+		trigger = {
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		is_active_trigger = {
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		ai_creation_factor = 90
+		
+		lycan_berzerkers = 20
+		
+		prestige_cost = 100
+		build_time = 120
+		
+		#convert_to_castle = ca_werewolf_soldiers
+		convert_to_city = ct_werewolf_guards
+		
+		extra_tech_building_start = 2.0
+	}
+	# Werewolf Culture
+	tb_werewolf_soldiers_1 = {
+		desc = ca_werewolf_soldiers_desc
+
+		potential = {
+			holder_scope = { culture = werewolf_culture }
+		}
+		trigger = {
+			TECH_CASTLE_CONSTRUCTION = 1
+			# No other special troop
+			custom_tooltip = {
+				text = tt_no_other_special_troop
+				hidden_tooltip = {
+					FROMFROM = {
+						NOR = {
+							has_building = tb_dragon_tower_1
+							has_building = tb_dragon_militia_1
+							has_building = tb_vampire_citadel_1
+							has_building = tb_vampire_catacomb_1
+							has_building = tb_culture_group_altaic_1
+							has_building = tb_culture_group_arabic_1
+							has_building = tb_culture_group_byzantine_1
+							has_building = tb_culture_indian_1
+							has_building = tb_culture_moors_1
+							has_building = tb_ritual_crypts_1
+						}
+					}
+				}
+			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		is_active_trigger = {
+			# No other special troop
+			custom_tooltip = {
+				text = tt_no_other_special_troop
+				hidden_tooltip = {
+					FROMFROM = {
+						NOR = {
+							has_building = tb_dragon_tower_1
+							has_building = tb_dragon_militia_1
+							has_building = tb_vampire_citadel_1
+							has_building = tb_vampire_catacomb_1
+							has_building = tb_culture_group_altaic_1
+							has_building = tb_culture_group_arabic_1
+							has_building = tb_culture_group_byzantine_1
+							has_building = tb_culture_indian_1
+							has_building = tb_culture_moors_1
+							has_building = tb_ritual_crypts_1
+						}
+					}
+				}
+			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		ai_creation_factor = 90
+
+		lycan_berzerkers = 10
+		lycan_berzerkers_offensive = 0.05
+		lycan_berzerkers_defensive = 0.05
+
+		prestige_cost = 100
+		build_time = 730
+
+
+		extra_tech_building_start = 2.0
+	}
+	tb_werewolf_soldiers_2 = {
+		desc = ca_werewolf_soldiers_desc
+
+		potential = {
+			holder_scope = { culture = werewolf_culture }
+		}
+		trigger = {
+			TECH_CASTLE_CONSTRUCTION = 3
+			# No other special troop
+			custom_tooltip = {
+				text = tt_no_other_special_troop
+				hidden_tooltip = {
+					FROMFROM = {
+						NOR = {
+							has_building = tb_dragon_tower_1
+							has_building = tb_dragon_militia_1
+							has_building = tb_vampire_citadel_1
+							has_building = tb_vampire_catacomb_1
+							has_building = tb_culture_group_altaic_1
+							has_building = tb_culture_group_arabic_1
+							has_building = tb_culture_group_byzantine_1
+							has_building = tb_culture_indian_1
+							has_building = tb_culture_moors_1
+							has_building = tb_ritual_crypts_1
+						}
+					}
+				}
+			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		is_active_trigger = {
+			# No other special troop
+			custom_tooltip = {
+				text = tt_no_other_special_troop
+				hidden_tooltip = {
+					FROMFROM = {
+						NOR = {
+							has_building = tb_dragon_tower_1
+							has_building = tb_dragon_militia_1
+							has_building = tb_vampire_citadel_1
+							has_building = tb_vampire_catacomb_1
+							has_building = tb_culture_group_altaic_1
+							has_building = tb_culture_group_arabic_1
+							has_building = tb_culture_group_byzantine_1
+							has_building = tb_culture_indian_1
+							has_building = tb_culture_moors_1
+							has_building = tb_ritual_crypts_1
+						}
+					}
+				}
+			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		ai_creation_factor = 90
+		upgrades_from = tb_werewolf_soldiers_1
+
+		lycan_berzerkers = 15
+		lycan_berzerkers_offensive = 0.05
+		lycan_berzerkers_defensive = 0.05
+
+		prestige_cost = 200
+		build_time = 1095
+		
+		convert_to_castle = ca_werewolf_soldiers_1
+
+		extra_tech_building_start = 4.0
+	}
+	tb_werewolf_soldiers_3 = {
+		desc = ca_werewolf_soldiers_desc
+
+		potential = {
+			holder_scope = { culture = werewolf_culture }
+		}
+		trigger = {
+			TECH_CASTLE_CONSTRUCTION = 5
+			# No other special troop
+			custom_tooltip = {
+				text = tt_no_other_special_troop
+				hidden_tooltip = {
+					FROMFROM = {
+						NOR = {
+							has_building = tb_dragon_tower_1
+							has_building = tb_dragon_militia_1
+							has_building = tb_vampire_citadel_1
+							has_building = tb_vampire_catacomb_1
+							has_building = tb_culture_group_altaic_1
+							has_building = tb_culture_group_arabic_1
+							has_building = tb_culture_group_byzantine_1
+							has_building = tb_culture_indian_1
+							has_building = tb_culture_moors_1
+							has_building = tb_ritual_crypts_1
+						}
+					}
+				}
+			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		is_active_trigger = {
+			# No other special troop
+			custom_tooltip = {
+				text = tt_no_other_special_troop
+				hidden_tooltip = {
+					FROMFROM = {
+						NOR = {
+							has_building = tb_dragon_tower_1
+							has_building = tb_dragon_militia_1
+							has_building = tb_vampire_citadel_1
+							has_building = tb_vampire_catacomb_1
+							has_building = tb_culture_group_altaic_1
+							has_building = tb_culture_group_arabic_1
+							has_building = tb_culture_group_byzantine_1
+							has_building = tb_culture_indian_1
+							has_building = tb_culture_moors_1
+							has_building = tb_ritual_crypts_1
+						}
+					}
+				}
+			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		ai_creation_factor = 90
+		upgrades_from = tb_werewolf_soldiers_2
+
+		lycan_berzerkers = 15
+		lycan_berzerkers_offensive = 0.05
+		lycan_berzerkers_defensive = 0.05
+
+		prestige_cost = 300
+		build_time = 2190
+
+		extra_tech_building_start = 6.0
+	}
+	tb_werewolf_soldiers_4 = {
+		desc = ca_werewolf_soldiers_desc
+
+		potential = {
+			holder_scope = { culture = werewolf_culture }
+		}
+		trigger = {
+			TECH_CASTLE_CONSTRUCTION = 7
+			# No other special troop
+			custom_tooltip = {
+				text = tt_no_other_special_troop
+				hidden_tooltip = {
+					FROMFROM = {
+						NOR = {
+							has_building = tb_dragon_tower_1
+							has_building = tb_dragon_militia_1
+							has_building = tb_vampire_citadel_1
+							has_building = tb_vampire_catacomb_1
+							has_building = tb_culture_group_altaic_1
+							has_building = tb_culture_group_arabic_1
+							has_building = tb_culture_group_byzantine_1
+							has_building = tb_culture_indian_1
+							has_building = tb_culture_moors_1
+							has_building = tb_ritual_crypts_1
+						}
+					}
+				}
+			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		is_active_trigger = {
+			# No other special troop
+			custom_tooltip = {
+				text = tt_no_other_special_troop
+				hidden_tooltip = {
+					FROMFROM = {
+						NOR = {
+							has_building = tb_dragon_tower_1
+							has_building = tb_dragon_militia_1
+							has_building = tb_vampire_citadel_1
+							has_building = tb_vampire_catacomb_1
+							has_building = tb_culture_group_altaic_1
+							has_building = tb_culture_group_arabic_1
+							has_building = tb_culture_group_byzantine_1
+							has_building = tb_culture_indian_1
+							has_building = tb_culture_moors_1
+							has_building = tb_ritual_crypts_1
+						}
+					}
+				}
+			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		ai_creation_factor = 90
+		upgrades_from = tb_werewolf_soldiers_3
+
+		lycan_berzerkers = 20
+		lycan_berzerkers_offensive = 0.05
+		lycan_berzerkers_defensive = 0.05
+
+		prestige_cost = 400
+		build_time = 2190
+		
+		convert_to_castle = ca_werewolf_soldiers_2
+
+		extra_tech_building_start = 8.0
+	}
+	
+	# Vampire Capital
+	tb_vampire_citadel_1 = {
+		desc = tb_vampire_citadel_1_desc
+		
+		potential = {
+			OR = {
+				holder_scope = {
+					OR = {
+						trait = vampire
+						culture = vampire_culture
+					}
+				}
+				FROMFROM = {
+					has_building = tb_vampire_citadel_1
+					NOT = {
+						calc_true_if = {
+							amount = 1
+							has_building = tb_dragon_tower_1
+							has_building = tb_werewolf_lodge_1
+							has_building = tb_giant_shield
+							has_building = tb_mummy_necropolis
+							has_building = tb_djinn_caves
+							has_building = tb_monster_hunter_lodge
+						}
+					}
+				}
+			}
+		}
+		trigger = { 
+			holder_scope = {
+				trait = known_vampire
+				OR = {
+					has_law = tribal_organization_1
+					has_law = tribal_organization_2
+					has_law = tribal_organization_3
+					has_law = tribal_organization_4
+				}
+			}
+			is_capital = yes 
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		is_active_trigger = {
+			holder_scope = { trait = known_vampire }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		
+		prerequisites = { tb_hillfort_2 }
+		ai_creation_factor = 100
+		
+		vampires = 50
+		fort_level = 1
+		monthly_character_prestige = 0.1
+		
+		prestige_cost = 100
+		build_time = 1095
+		
+		extra_tech_building_start = 10.0
+	}
+	tb_vampire_citadel_2 = {
+		desc = tb_vampire_citadel_2_desc
+		
+		potential = {
+			OR = {
+				holder_scope = {
+					OR = {
+						trait = vampire
+						culture = vampire_culture
+					}
+				}
+				FROMFROM = {
+					has_building = tb_vampire_citadel_2
+					NOT = {
+						calc_true_if = {
+							amount = 1
+							has_building = tb_dragon_tower_1
+							has_building = tb_werewolf_lodge_1
+							has_building = tb_giant_shield
+							has_building = tb_mummy_necropolis
+							has_building = tb_djinn_caves
+							has_building = tb_monster_hunter_lodge
+						}
+					}
+				}
+			}
+		}
+		trigger = { 
+			holder_scope = {
+				trait = known_vampire
+				OR = {
+					has_law = tribal_organization_3
+					has_law = tribal_organization_4
+				}
+			}
+			is_capital = yes	
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}				 
+		}
+		is_active_trigger = {
+			holder_scope = { trait = known_vampire }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		
+		upgrades_from = tb_vampire_citadel_1
+		ai_creation_factor = 99
+		
+		vampires = 100
+		fort_level = 1
+		monthly_character_prestige = 0.15
+		commander_limit = 1
+		
+		prestige_cost = 200
+		build_time = 1825
+		
+		convert_to_castle = ca_vampire_citadel_1
+		#convert_to_city = ct_vampire_mansion
+		
+		extra_tech_building_start = 10.0
+	}
+	
+	# Vampire Holding
+	tb_vampire_scouts = {
+		desc = tb_vampire_scouts_desc
+		
+		potential = {
+			OR = {
+				holder_scope = {
+					OR = {
+						trait = vampire
+						culture = vampire_culture
+					}
+				}
+				FROMFROM = {
+					has_building = tb_vampire_scouts
+					NOT = {
+						calc_true_if = {
+							amount = 1
+							has_building = tb_dragon_vault_1
+							has_building = tb_werewolf_pits
+							has_building = tb_giant_market
+							has_building = tb_mummy_mastaba
+							has_building = tb_djinni_town
+						}
+					}
+				}
+			}
+		}
+		trigger = { 
+			holder_scope = {
+				trait = known_vampire
+				OR = {
+					has_law = tribal_organization_1
+					has_law = tribal_organization_2
+					has_law = tribal_organization_3
+					has_law = tribal_organization_4
+				}
+			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		is_active_trigger = {
+			holder_scope = { trait = known_vampire }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		prerequisites = { tb_hillfort_2 }
+		ai_creation_factor = 100
+		
+		vampires = 20
+		defensive_plot_power_modifier = 0.1
+		siege_defence = 0.1
+		
+		prestige_cost = 100
+		build_time = 1095
+		
+		convert_to_castle = ca_vampire_spy_network
+		
+		extra_tech_building_start = 10.0
+	}
+	tb_vampire_raiders = {
+		desc = tb_vampire_raiders_desc
+		
+		potential = { culture = vampire_culture }
+		trigger = {
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		is_active_trigger = {
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		
+		ai_creation_factor = 90
+		
+		vampires = 15
+		
+		prestige_cost = 100
+		build_time = 150
+		
+		#convert_to_castle = ca_vampire_captains
+		convert_to_city = ct_vampire_noble_captains
+		
+		extra_tech_building_start = 2.0
+	}
+	# Vampire Culture Building
+	tb_vampire_catacomb_1 = {
+		desc = ca_vampire_catacomb_desc
+		
+		potential = {
+			holder_scope = { culture = vampire_culture }
+		}
+		trigger = {
+			TECH_CASTLE_CONSTRUCTION = 1
+			# No other special troop
+			custom_tooltip = {
+				text = tt_no_other_special_troop
+				hidden_tooltip = {
+					FROMFROM = {
+						NOR = {
+							has_building = tb_dragon_tower_1
+							has_building = tb_dragon_militia_1
+							has_building = tb_werewolf_lodge_1
+							has_building = tb_werewolf_soldiers_1
+							has_building = tb_culture_group_altaic_1
+							has_building = tb_culture_group_arabic_1
+							has_building = tb_culture_group_byzantine_1
+							has_building = tb_culture_indian_1
+							has_building = tb_culture_moors_1
+							has_building = tb_ritual_crypts_1
+						}
+					}
+				}
+			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		is_active_trigger = {
+			# No other special troop
+			custom_tooltip = {
+				text = tt_no_other_special_troop
+				hidden_tooltip = {
+					FROMFROM = {
+						NOR = {
+							has_building = tb_dragon_tower_1
+							has_building = tb_dragon_militia_1
+							has_building = tb_werewolf_lodge_1
+							has_building = tb_werewolf_soldiers_1
+							has_building = tb_culture_group_altaic_1
+							has_building = tb_culture_group_arabic_1
+							has_building = tb_culture_group_byzantine_1
+							has_building = tb_culture_indian_1
+							has_building = tb_culture_moors_1
+							has_building = tb_ritual_crypts_1
+						}
+					}
+				}
+			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		
+		ai_creation_factor = 99
+		
+		vampires = 15
+		vampires_defensive = 0.1
+		vampires_morale = 0.1
+		
+		prestige_cost = 100
+		build_time = 400
+		
+		extra_tech_building_start = 2.0
+	}
+	tb_vampire_catacomb_2 = {
+		desc = ca_vampire_catacomb_desc
+		
+		potential = {
+			holder_scope = { culture = vampire_culture }
+		}
+		trigger = {
+			TECH_CASTLE_CONSTRUCTION = 3
+			# No other special troop
+			custom_tooltip = {
+				text = tt_no_other_special_troop
+				hidden_tooltip = {
+					FROMFROM = {
+						NOR = {
+							has_building = tb_dragon_tower_1
+							has_building = tb_dragon_militia_1
+							has_building = tb_werewolf_lodge_1
+							has_building = tb_werewolf_soldiers_1
+							has_building = tb_culture_group_altaic_1
+							has_building = tb_culture_group_arabic_1
+							has_building = tb_culture_group_byzantine_1
+							has_building = tb_culture_indian_1
+							has_building = tb_culture_moors_1
+							has_building = tb_ritual_crypts_1
+						}
+					}
+				}
+			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		is_active_trigger = {
+			# No other special troop
+			custom_tooltip = {
+				text = tt_no_other_special_troop
+				hidden_tooltip = {
+					FROMFROM = {
+						NOR = {
+							has_building = tb_ritual_crypts_1
+							has_building = tb_dragon_tower_1
+							has_building = tb_dragon_militia_1
+							has_building = tb_werewolf_lodge_1
+							has_building = tb_werewolf_soldiers_1
+							has_building = tb_culture_group_altaic_1
+							has_building = tb_culture_group_arabic_1
+							has_building = tb_culture_group_byzantine_1
+							has_building = tb_culture_indian_1
+							has_building = tb_culture_moors_1
+						}
+					}
+				}
+			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		upgrades_from = tb_vampire_catacomb_1
+		
+		ai_creation_factor = 99
+		
+		vampires = 20
+		vampires_defensive = 0.1
+		vampires_morale = 0.1
+		
+		prestige_cost = 200
+		build_time = 1095
+		
+		convert_to_castle = ca_vampire_catacomb_1
+		
+		extra_tech_building_start = 4.0
+	}
+	tb_vampire_catacomb_3 = {
+		desc = ca_vampire_catacomb_desc
+		
+		potential = {
+			holder_scope = { culture = vampire_culture }
+		}
+		trigger = { 
+			TECH_CASTLE_CONSTRUCTION = 5
+			# No other special troop
+			custom_tooltip = {
+				text = tt_no_other_special_troop
+				hidden_tooltip = {
+					FROMFROM = {
+						NOR = {
+							has_building = tb_ritual_crypts_1
+							has_building = tb_dragon_tower_1
+							has_building = tb_dragon_militia_1
+							has_building = tb_werewolf_lodge_1
+							has_building = tb_werewolf_soldiers_1
+							has_building = tb_culture_group_altaic_1
+							has_building = tb_culture_group_arabic_1
+							has_building = tb_culture_group_byzantine_1
+							has_building = tb_culture_indian_1
+							has_building = tb_culture_moors_1
+						}
+					}
+				}
+			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		is_active_trigger = {
+			# No other special troop
+			custom_tooltip = {
+				text = tt_no_other_special_troop
+				hidden_tooltip = {
+					FROMFROM = {
+						NOR = {
+							has_building = tb_ritual_crypts_1
+							has_building = tb_dragon_tower_1
+							has_building = tb_dragon_militia_1
+							has_building = tb_werewolf_lodge_1
+							has_building = tb_werewolf_soldiers_1
+							has_building = tb_culture_group_altaic_1
+							has_building = tb_culture_group_arabic_1
+							has_building = tb_culture_group_byzantine_1
+							has_building = tb_culture_indian_1
+							has_building = tb_culture_moors_1
+						}
+					}
+				}
+			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		upgrades_from = tb_vampire_catacomb_2
+		
+		ai_creation_factor = 99
+		
+		vampires = 25
+		vampires_defensive = 0.1
+		vampires_morale = 0.1
+		
+		prestige_cost = 300
+		build_time = 2190
+		
+		extra_tech_building_start = 6.0
+	}
+	tb_vampire_catacomb_4 = {
+		desc = ca_vampire_catacomb_desc
+		
+		potential = {
+			holder_scope = { culture = vampire_culture }
+		}
+		trigger = { 
+			TECH_CASTLE_CONSTRUCTION = 7
+			# No other special troop
+			custom_tooltip = {
+				text = tt_no_other_special_troop
+				hidden_tooltip = {
+					FROMFROM = {
+						NOR = {
+							has_building = tb_ritual_crypts_1
+							has_building = tb_dragon_tower_1
+							has_building = tb_dragon_militia_1
+							has_building = tb_werewolf_lodge_1
+							has_building = tb_werewolf_soldiers_1
+							has_building = tb_culture_group_altaic_1
+							has_building = tb_culture_group_arabic_1
+							has_building = tb_culture_group_byzantine_1
+							has_building = tb_culture_indian_1
+							has_building = tb_culture_moors_1
+						}
+					}
+				}
+			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		is_active_trigger = {
+			# No other special troop
+			custom_tooltip = {
+				text = tt_no_other_special_troop
+				hidden_tooltip = {
+					FROMFROM = {
+						NOR = {
+							has_building = tb_ritual_crypts_1
+							has_building = tb_dragon_tower_1
+							has_building = tb_dragon_militia_1
+							has_building = tb_werewolf_lodge_1
+							has_building = tb_werewolf_soldiers_1
+							has_building = tb_culture_group_altaic_1
+							has_building = tb_culture_group_arabic_1
+							has_building = tb_culture_group_byzantine_1
+							has_building = tb_culture_indian_1
+							has_building = tb_culture_moors_1
+						}
+					}
+				}
+			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		upgrades_from = tb_vampire_catacomb_3
+		
+		ai_creation_factor = 99
+		
+		vampires = 30
+		vampires_defensive = 0.1
+		vampires_morale = 0.1
+		
+		prestige_cost = 400
+		build_time = 2190
+		
+		convert_to_castle = ca_vampire_catacomb_2
+		
+		extra_tech_building_start = 8.0
+	}
+	
+	# Giant Capital
+	tb_giant_shield = {
+		desc = tb_giant_shield_desc
+		
+		potential = {
+			OR = {
+				holder_scope = {
+					OR = {
+						trait = mythos_giant
+						trait = half_giant
+					}
+				}
+				FROMFROM = {
+					has_building = tb_giant_shield
+					NOT = {
+						calc_true_if = {
+							amount = 1
+							has_building = tb_dragon_tower_1
+							has_building = tb_werewolf_lodge_1
+							has_building = tb_vampire_citadel_1
+							has_building = tb_mummy_necropolis
+							has_building = tb_djinn_caves
+							has_building = tb_monster_hunter_lodge
+						}
+					}
+				}
+			}
+		}
+		trigger = {
+			holder_scope = {
+				trait = mythos_giant
+				OR = {
+					has_law = tribal_organization_1
+					has_law = tribal_organization_2
+					has_law = tribal_organization_3
+					has_law = tribal_organization_4
+				}
+			}
+			is_capital = yes
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		is_active_trigger = {
+			holder_scope = {
+				OR = {
+					trait = mythos_giant
+					trait = half_giant
+				}
+			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+			
+		prerequisites = { tb_hillfort_1 }
+		ai_creation_factor = 100
+		
+		heavy_infantry = 100
+		heavy_infantry_offensive = 0.10
+		fort_level = 0.5
+		short_reign_length = -1
+		levy_reinforce_rate = 0.1
+		
+		prestige_cost = 100
+		build_time = 400
+
+		convert_to_castle = tb_giant_shield
+
+		extra_tech_building_start = 10.0
+	}
+	tb_giant_hall = {
+		desc = tb_giant_hall_desc
+		
+		potential = {
+			OR = {
+				holder_scope = {
+					OR = {
+						trait = mythos_giant
+						trait = half_giant
+					}
+				}
+				FROMFROM = {
+					has_building = tb_giant_hall
+					NOT = {
+						calc_true_if = {
+							amount = 1
+							has_building = tb_dragon_tower_1
+							has_building = tb_werewolf_lodge_1
+							has_building = tb_vampire_citadel_1
+							has_building = tb_mummy_necropolis
+							has_building = tb_djinn_caves
+							has_building = tb_monster_hunter_lodge
+						}
+					}
+				}
+			}
+		}
+		trigger = { 
+			holder_scope = {
+				trait = mythos_giant
+				OR = {
+					has_law = tribal_organization_3
+					has_law = tribal_organization_4
+				}
+			}
+			is_capital = yes	
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}				 
+		}
+		is_active_trigger = {
+			holder_scope = {
+				OR = {
+					trait = mythos_giant
+					trait = half_giant
+				}
+			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		
+		upgrades_from = tb_giant_shield
+		ai_creation_factor = 100
+		
+		heavy_infantry = 100
+		heavy_infantry_offensive = 0.15
+		fort_level = 1
+		short_reign_length = -1
+		levy_reinforce_rate = 0.15
+		
+		prestige_cost = 200
+		build_time = 550
+		
+		convert_to_castle = ca_giant_hall
+		#convert_to_city = ct_giant_mansion
+		
+		extra_tech_building_start = 10.0
+	}
+	# Giant Holding
+	tb_giant_market = {
+		desc = tb_giant_market_desc
+		
+		potential = {
+			OR = {
+				holder_scope = {
+					OR = {
+						trait = mythos_giant
+						trait = half_giant
+					}
+				}
+				FROMFROM = {
+					has_building = tb_giant_market
+					NOT = {
+						calc_true_if = {
+							amount = 1
+							has_building = tb_dragon_vault_1
+							has_building = tb_werewolf_pits
+							has_building = tb_vampire_scouts
+							has_building = tb_mummy_mastaba
+							has_building = tb_djinni_town
+						}
+					}
+				}
+			}
+		}
+		trigger = { 
+			holder_scope = {
+				trait = mythos_giant
+				OR = {
+					has_law = tribal_organization_1
+					has_law = tribal_organization_2
+					has_law = tribal_organization_3
+					has_law = tribal_organization_4
+				}
+			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		is_active_trigger = {
+			holder_scope = {
+				OR = {
+					trait = mythos_giant
+					trait = half_giant
+				}
+			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		ai_creation_factor = 100
+		
+		tax_income = 2
+		supply_limit = 1
+		tradevalue = 5
+		
+		convert_to_castle = ca_giant_market
+		convert_to_city = ct_giant_market
+		
+		prestige_cost = 100
+		build_time = 350
+		extra_tech_building_start = 10.0
+	}
+	# Giant (Jotun) Culture
+	tb_giant_arena_1 = {
+		desc = ca_giant_arena_desc
+		
+		potential = {
+			holder_scope = { culture = jotunn }
+		}
+		trigger = {
+			TECH_CASTLE_CONSTRUCTION = 0
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		is_active_trigger = {
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		prerequisites = { tb_hillfort_2 }
+		
+		prestige_cost = 100
+		build_time = 730
+		heavy_infantry = 15
+		heavy_infantry_offensive = 0.1
+		heavy_infantry_defensive = 0.05
+		garrison_size = 0.1
+		ai_creation_factor = 101
+		
+		extra_tech_building_start = 0.8
+	}
+	tb_giant_arena_2 = {
+		desc = ca_giant_arena_desc
+		
+		potential = {
+			holder_scope = { culture = jotunn }
+		}
+		trigger = {
+			TECH_CASTLE_CONSTRUCTION = 1
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		is_active_trigger = {
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		upgrades_from = tb_giant_arena_1
+		prestige_cost = 200
+		build_time = 1095
+		heavy_infantry = 20
+		heavy_infantry_offensive = 0.1
+		heavy_infantry_defensive = 0.05
+		garrison_size = 0.1
+		ai_creation_factor = 100
+		
+		convert_to_castle = ca_giant_arena_1
+		
+		extra_tech_building_start = 0.8
+	}
+	tb_giant_arena_3 = {
+		desc = ca_giant_arena_desc
+		
+		potential = {
+			holder_scope = { culture = jotunn }
+		}
+		trigger = {
+			TECH_CASTLE_CONSTRUCTION = 2
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		is_active_trigger = {
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		upgrades_from = tb_giant_arena_2
+		prestige_cost = 300
+		build_time = 2190
+		heavy_infantry = 25
+		heavy_infantry_offensive = 0.1
+		heavy_infantry_defensive = 0.05
+		garrison_size = 0.1
+		ai_creation_factor = 100
+		
+		extra_tech_building_start = 0.8
+	}
+	tb_giant_arena_4 = {
+		desc = ca_giant_arena_desc
+		
+		potential = {
+			holder_scope = { culture = jotunn }
+		}
+		trigger = {
+			TECH_CASTLE_CONSTRUCTION = 4
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		is_active_trigger = {
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		upgrades_from = tb_giant_arena_3
+		prestige_cost = 400
+		build_time = 2190
+		heavy_infantry = 30
+		heavy_infantry_offensive = 0.1
+		heavy_infantry_defensive = 0.05
+		garrison_size = 0.1
+		ai_creation_factor = 100
+		
+		convert_to_castle = ca_giant_arena_2
+		
+		extra_tech_building_start = 0.8
+	}
+	
+	# God Holding
+	tb_god_pantheon = {
+		desc = tb_god_pantheon_desc
+		
+		potential = { 
+			OR = {
+				holder_scope = {
+					AND = {
+						OR = {
+							trait = god
+							trait = demi_god
+						}
+						follows_polytheistic_religion = yes
+					}
+				}
+				FROMFROM = {
+					has_building = tb_god_pantheon
+				}
+			}
+		}
+		trigger = { 
+			holder_scope = {
+				OR = {
+					trait = god
+					trait = demi_god
+				}
+			}
+			TECH_CASTLE_CONSTRUCTION = 1
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		is_active_trigger = {
+			holder_scope = {
+				OR = {
+					trait = god
+					trait = demi_god
+					trait = blood_of_the_gods
+					any_owned_bloodline = { has_bloodline_flag = BOTG }
+				}
+			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}		
+		
+		prerequisites = { tb_hillfort_1 }
+		ai_creation_factor = 100
+		
+		fort_level = 1
+		tax_income = 1.5
+		monthly_character_piety = 1.0
+		land_morale = 0.1
+		
+		prestige_cost = 200
+		build_time = 350
+		
+		convert_to_castle = ca_god_pantheon
+		convert_to_city = ct_gods_pantheon
+		
+		extra_tech_building_start = 10.0
+	}
+	
+	# Mage Holding
+	tb_mage_library = {
+		desc = tb_mage_library_desc
+		
+		potential = {
+			OR = {
+				holder_scope = {
+					OR = {
+						trait = novice_mage
+						trait = eldritch_scholar
+						trait = veteran_wizard
+						trait = arcane_master
+					}
+				}
+				FROMFROM = { has_building = tb_mage_library }
+			}
+		}
+		trigger = { 
+			holder_scope = {
+				OR = {
+					trait = novice_mage
+					trait = eldritch_scholar
+					trait = veteran_wizard
+					trait = arcane_master
+				}
+				OR = {
+					has_law = tribal_organization_2
+					has_law = tribal_organization_3
+					has_law = tribal_organization_4
+				}
+			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		is_active_trigger = {
+			holder_scope = {
+				OR = {
+					trait = novice_mage
+					trait = eldritch_scholar
+					trait = veteran_wizard
+					trait = arcane_master
+				}
+			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		
+		ai_creation_factor = 95
+		
+		fort_level = 1
+		land_morale = 0.1
+		levy_reinforce_rate = 0.1
+		monthly_character_prestige = 0.15
+		
+		prestige_cost = 300
+		build_time = 450
+		
+		convert_to_castle = ca_mage_library
+		convert_to_city = ct_mage_library
+		
+		extra_tech_building_start = 10.0
+	}
+	# Mummy Capital
+	tb_mummy_necropolis = {
+		desc = tb_mummy_necropolis_desc
+		
+		potential = {
+			OR = {
+				holder_scope = { trait = mummy }
+				FROMFROM = {
+					has_building = tb_mummy_necropolis
+					NOT = {
+						calc_true_if = {
+							amount = 1
+							has_building = tb_dragon_tower_1
+							has_building = tb_werewolf_lodge_1
+							has_building = tb_vampire_citadel_1
+							has_building = tb_giant_shield
+							has_building = tb_djinn_caves
+							has_building = tb_monster_hunter_lodge
+						}
+					}
+				}
+			}
+		}
+		trigger = {
+			holder_scope = { trait = mummy }
+			is_capital = yes
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		is_active_trigger = {
+			holder_scope = { trait = mummy }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		prerequisites = { tb_hillfort_2 }
+		ai_creation_factor = 95
+		
+		light_infantry = 120
+		heavy_infantry = 40
+		monthly_character_piety = 0.5
+		retinuesize = 30
+		
+		prestige_cost = 300
+		build_time = 350
+		extra_tech_building_start = 10.0
+		
+		convert_to_castle = ca_mummy_necropolis
+		#convert_to_city = ct_mummy_necropolis
+	}
+	# Mummy Holding
+	tb_mummy_mastaba = {
+		desc = tb_mummy_mastaba_desc
+		
+		potential = {
+			OR = {
+				holder_scope = {
+					trait = mummy
+				}
+				FROMFROM = {
+					has_building = tb_mummy_mastaba
+					NOT = {
+						calc_true_if = {
+							amount = 1
+							has_building = tb_dragon_vault_1
+							has_building = tb_werewolf_pits
+							has_building = tb_vampire_scouts
+							has_building = tb_giant_market
+							has_building = tb_djinni_town
+						}
+					}
+				}
+			}
+		}
+		trigger = {
+			TECH_CASTLE_CONSTRUCTION = 1
+			holder_scope = { trait = mummy }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		is_active_trigger = {
+			holder_scope = { trait = mummy }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		prerequisites = { tb_hillfort_1 }
+		ai_creation_factor = 101
+		
+		fort_level = 1
+		heavy_infantry = 30
+		supply_limit = 1
+		siege_defence = 0.1
+		
+		prestige_cost = 100
+		build_time = 350
+		extra_tech_building_start = 10.0
+		
+		convert_to_castle = ca_mummy_pyramid
+		convert_to_city = ct_mummy_temple_district
+	}
+	# Djinn Capital
+	tb_djinn_caves = {
+		desc = tb_djinn_caves_desc
+		
+		potential = {
+			OR = {
+				holder_scope = { trait = djinn }
+				FROMFROM = {
+					has_building = tb_djinn_caves
+					NOT = {
+						calc_true_if = {
+							amount = 1
+							has_building = tb_dragon_tower_1
+							has_building = tb_werewolf_lodge_1
+							has_building = tb_vampire_citadel_1
+							has_building = tb_giant_shield
+							has_building = tb_mummy_necropolis
+							has_building = tb_monster_hunter_lodge
+						}
+					}
+				}
+			}
+		}
+		trigger = {
+			holder_scope = { trait = djinn }
+			is_capital = yes
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		is_active_trigger = {
+			holder_scope = { trait = djinn }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		prerequisites = { tb_hillfort_1 }
+		ai_creation_factor = 101
+		
+		heavy_infantry = 60
+		tax_income = 1.5
+		global_movement_speed = 0.15
+		
+		prestige_cost = 200
+		build_time = 350
+		extra_tech_building_start = 10.0
+		
+		convert_to_castle = ca_djinni_caves
+		#convert_to_city = ct_djinni_caves
+	}
+	# Djinn Holding
+	tb_djinni_town = {
+		desc = tb_djinni_town_desc
+		
+		potential = {
+			OR = {
+				holder_scope = {
+					trait = djinn
+				}
+				FROMFROM = {
+					has_building = tb_mummy_mastaba
+					NOT = {
+						calc_true_if = {
+							amount = 1
+							has_building = tb_dragon_vault_1
+							has_building = tb_werewolf_pits
+							has_building = tb_vampire_scouts
+							has_building = tb_giant_market
+							has_building = tb_mummy_mastaba
+						}
+					}
+				}
+			}
+		}
+		trigger = {
+			holder_scope = { trait = djinn }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		is_active_trigger = {
+			holder_scope = { trait = djinn }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		prerequisites = { tb_hillfort_1 }
+		ai_creation_factor = 101
+		
+		supply_limit = 2
+		disease_defence = 0.2
+		tax_income = 1
+		
+		prestige_cost = 100
+		build_time = 350
+		extra_tech_building_start = 10.0
+		
+		convert_to_castle = ca_djinni_town
+		convert_to_city = ct_djinni_town
+	}
+	# Monster Hunter Capital
+	tb_monster_hunter_lodge = {
+		desc = tb_monster_hunter_lodge_desc
+		
+		potential = {
+			OR = {
+				holder_scope = { trait = monster_hunter }
+				FROMFROM = {
+					has_building = tb_monster_hunter_lodge
+					NOT = {
+						calc_true_if = {
+							amount = 1
+							has_building = tb_dragon_tower_1
+							has_building = tb_werewolf_lodge_1
+							has_building = tb_vampire_citadel_1
+							has_building = tb_giant_shield
+							has_building = tb_mummy_necropolis
+							has_building = tb_djinn_caves
+						}
+					}
+				}
+			}
+		}
+		trigger = {
+			TECH_CASTLE_CONSTRUCTION = 1
+			is_capital = yes
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		is_active_trigger = {
+			holder_scope = { trait = monster_hunter }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		prerequisites = { tb_hillfort_1 }
+		ai_creation_factor = 101
+		
+		archers = 70
+		heavy_infantry = 30
+		land_morale = 0.5
+		
+		prestige_cost = 150
+		build_time = 350
+		extra_tech_building_start = 10.0
+	}
+	
+	# Necromancer Building
+	tb_ritual_crypts_1 = {
+		desc = ca_ritual_crypts_desc
+
+		potential = {
+			holder_scope = { trait = necromancer }
+		}
+		trigger = {
+			TECH_CASTLE_CONSTRUCTION = 1
+			holder_scope = { trait = necromancer }
+			# No other special troop
+			custom_tooltip = {
+				text = tt_no_other_special_troop
+				hidden_tooltip = {
+					FROMFROM = {
+						NOR = {
+							has_building = tb_dragon_tower_1
+							has_building = tb_dragon_militia_1
+							has_building = tb_werewolf_lodge_1
+							has_building = tb_werewolf_soldiers_1
+							has_building = tb_culture_group_altaic_1
+							has_building = tb_culture_group_arabic_1
+							has_building = tb_culture_group_byzantine_1
+							has_building = tb_culture_indian_1
+							has_building = tb_culture_moors_1
+							has_building = tb_vampire_catacomb_1
+						}
+					}
+				}
+			}
+		}
+		is_active_trigger = {
+			# No other special troop
+			holder_scope = { trait = necromancer }
+			custom_tooltip = {
+				text = tt_no_other_special_troop
+				hidden_tooltip = {
+					FROMFROM = {
+						NOR = {
+							has_building = tb_dragon_tower_1
+							has_building = tb_dragon_militia_1
+							has_building = tb_werewolf_lodge_1
+							has_building = tb_werewolf_soldiers_1
+							has_building = tb_culture_group_altaic_1
+							has_building = tb_culture_group_arabic_1
+							has_building = tb_culture_group_byzantine_1
+							has_building = tb_culture_indian_1
+							has_building = tb_culture_moors_1
+							has_building = tb_vampire_catacomb_1
+						}
+					}
+				}
+			}
+		}
+			
+		ai_creation_factor = 90
+
+		gold_cost = 200
+		build_time = 730
+
+		zombie_troops = 25
+		zombie_troops_offensive = 0.1
+
+		extra_tech_building_start = 2.0
+	}
+	tb_ritual_crypts_2 = {
+		desc = ca_ritual_crypts_desc
+
+		potential = {
+			holder_scope = { trait = necromancer }
+		}
+		trigger = {
+			TECH_CASTLE_CONSTRUCTION = 3
+			holder_scope = { trait = necromancer }
+			# No other special troop
+			custom_tooltip = {
+				text = tt_no_other_special_troop
+				hidden_tooltip = {
+					FROMFROM = {
+						NOR = {
+							has_building = tb_dragon_tower_1
+							has_building = tb_dragon_militia_1
+							has_building = tb_werewolf_lodge_1
+							has_building = tb_werewolf_soldiers_1
+							has_building = tb_culture_group_altaic_1
+							has_building = tb_culture_group_arabic_1
+							has_building = tb_culture_group_byzantine_1
+							has_building = tb_culture_indian_1
+							has_building = tb_culture_moors_1
+							has_building = tb_vampire_catacomb_1
+						}
+					}
+				}
+			}
+		}
+		is_active_trigger = {
+			holder_scope = { trait = necromancer }
+			# No other special troop
+			custom_tooltip = {
+				text = tt_no_other_special_troop
+				hidden_tooltip = {
+					FROMFROM = {
+						NOR = {
+							has_building = tb_dragon_tower_1
+							has_building = tb_dragon_militia_1
+							has_building = tb_werewolf_lodge_1
+							has_building = tb_werewolf_soldiers_1
+							has_building = tb_culture_group_altaic_1
+							has_building = tb_culture_group_arabic_1
+							has_building = tb_culture_group_byzantine_1
+							has_building = tb_culture_indian_1
+							has_building = tb_culture_moors_1
+							has_building = tb_vampire_catacomb_1
+						}
+					}
+				}
+			}
+		}
+		upgrades_from = tb_ritual_crypts_1
+		ai_creation_factor = 90
+
+		gold_cost = 300
+		build_time = 1095
+
+		zombie_troops = 35
+		zombie_troops_offensive = 0.1
+
+		extra_tech_building_start = 4.0
+	}
+	tb_ritual_crypts_3 = {
+		desc = ca_ritual_crypts_desc
+
+		potential = {
+			holder_scope = { trait = necromancer }
+		}
+		trigger = {
+			TECH_CASTLE_CONSTRUCTION = 5
+			holder_scope = { trait = necromancer }
+			# No other special troop
+			custom_tooltip = {
+				text = tt_no_other_special_troop
+				hidden_tooltip = {
+					FROMFROM = {
+						NOR = {
+							has_building = tb_dragon_tower_1
+							has_building = tb_dragon_militia_1
+							has_building = tb_werewolf_lodge_1
+							has_building = tb_werewolf_soldiers_1
+							has_building = tb_culture_group_altaic_1
+							has_building = tb_culture_group_arabic_1
+							has_building = tb_culture_group_byzantine_1
+							has_building = tb_culture_indian_1
+							has_building = tb_culture_moors_1
+							has_building = tb_vampire_catacomb_1
+						}
+					}
+				}
+			}
+		}
+		is_active_trigger = {
+			holder_scope = { trait = necromancer }
+			# No other special troop
+			custom_tooltip = {
+				text = tt_no_other_special_troop
+				hidden_tooltip = {
+					FROMFROM = {
+						NOR = {
+							has_building = tb_dragon_tower_1
+							has_building = tb_dragon_militia_1
+							has_building = tb_werewolf_lodge_1
+							has_building = tb_werewolf_soldiers_1
+							has_building = tb_culture_group_altaic_1
+							has_building = tb_culture_group_arabic_1
+							has_building = tb_culture_group_byzantine_1
+							has_building = tb_culture_indian_1
+							has_building = tb_culture_moors_1
+							has_building = tb_vampire_catacomb_1
+						}
+					}
+				}
+			}
+		}
+		upgrades_from = tb_ritual_crypts_2
+		ai_creation_factor = 90
+
+		gold_cost = 400
+		build_time = 2190
+
+		zombie_troops = 50
+		zombie_troops_offensive = 0.1
+
+		extra_tech_building_start = 6.0
+	}
+	tb_ritual_crypts_4 = {
+		desc = ca_ritual_crypts_desc
+
+		potential = {
+			holder_scope = { trait = necromancer }
+		}
+		trigger = {
+			TECH_CASTLE_CONSTRUCTION = 7
+			holder_scope = { trait = necromancer }
+			# No other special troop
+			custom_tooltip = {
+				text = tt_no_other_special_troop
+				hidden_tooltip = {
+					FROMFROM = {
+						NOR = {
+							has_building = tb_dragon_tower_1
+							has_building = tb_dragon_militia_1
+							has_building = tb_werewolf_lodge_1
+							has_building = tb_werewolf_soldiers_1
+							has_building = tb_culture_group_altaic_1
+							has_building = tb_culture_group_arabic_1
+							has_building = tb_culture_group_byzantine_1
+							has_building = tb_culture_indian_1
+							has_building = tb_culture_moors_1
+							has_building = tb_vampire_catacomb_1
+						}
+					}
+				}
+			}
+		}
+		is_active_trigger = {
+			holder_scope = { trait = necromancer }
+			# No other special troop
+			custom_tooltip = {
+				text = tt_no_other_special_troop
+				hidden_tooltip = {
+					FROMFROM = {
+						NOR = {
+							has_building = tb_dragon_tower_1
+							has_building = tb_dragon_militia_1
+							has_building = tb_werewolf_lodge_1
+							has_building = tb_werewolf_soldiers_1
+							has_building = tb_culture_group_altaic_1
+							has_building = tb_culture_group_arabic_1
+							has_building = tb_culture_group_byzantine_1
+							has_building = tb_culture_indian_1
+							has_building = tb_culture_moors_1
+							has_building = tb_vampire_catacomb_1
+						}
+					}
+				}
+			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		upgrades_from = tb_ritual_crypts_3
+		ai_creation_factor = 90
+
+		gold_cost = 500
+		build_time = 2190
+
+		zombie_troops = 75
+		zombie_troops_offensive = 0.1
+
+		extra_tech_building_start = 8.0
+	}
+}

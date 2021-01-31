@@ -1,0 +1,25 @@
+#CODE;ENGLISH;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
+GOD_THE_ALLFATHER_2; the Allfather; Père de tout; Allvater;; el Padre de todos;;;;;;;;;x
+GOD_ODIN_2; Odin; Odin; Odin;; Odín;;;;;;;;;x
+GOD_FRIGG_2; Frigg; Frigg; Frigg;; Frigg;;;;;;;;;x
+GOD_TENGRI_2; Tengri; Tengri; Tengri;; Tengri;;;;;;;;;x
+GOD_UMAY_2; Umay; Umay; Umay;; Umay;;;;;;;;;x
+GOD_DIEVAS_2; Dievas; Dievas; Dievas;; Dievas;;;;;;;;;x
+GOD_GABIJA_2; Gabija; Gabija; Gabija;; Gabija;;;;;;;;;x
+GOD_UKKO_2; Ukko; Ukko; Ukko;; Ukko;;;;;;;;;x
+GOD_KUU_2; Kuu; Kuu; Kuu;; Kuu;;;;;;;;;x
+GOD_QUETZALCOATL_2; Quetzalcoatl; Quetzalcoatl; Quetzalcoatl;; Quetzalcóatl;;;;;;;;;x
+GOD_HUITZILOPOCHTLI_2; Huitzilopochtli; Huitzilopochtli; Huitzilopochtli;; Huitzilopochtli;;;;;;;;;x
+GOD_CIHUACOATL_2; Cihuacoatl; Cihuacoatl; Cihuacoatl;; Cihuacóatl;;;;;;;;;x
+GOD_PERUN_2; Perun; Péroun; Perun;; Perún;;;;;;;;;x
+GOD_MEDEINA_2; Medeina; Medeina; Medeina;; Medeina;;;;;;;;;x
+GOD_SANGPO_BUMTRI_2; Sangpo Bumtri; Sangpo Bumtri; Sangpo Bumtri;; Sangpo Bumtri;;;;;;;;;x
+GOD_GREEK_JUPITER_2; Zeús; Zeus; zeus;; Zeus;;;;;;;;;x
+GOD_POSEIDON_2; Poseidon; Poséidon; Poseidon;; Poseidón;;;;;;;;;x
+GOD_HERA_2; Hera; Héra; Hera;; Hera;;;;;;;;;x
+GOD_JUPITER_2; Jupiter; Jupiter; Jupiter;; Júpiter;;;;;;;;;x
+GOD_NEPTUNE_2; Neptune; Neptune; Neptun;; Neptuno;;;;;;;;;x
+GOD_JUNO_2; Juno; Junon; Juno;; Juno;;;;;;;;;x
+GOD_APHRODITE_GYNAIKERASTRIA;Aphrodite Gynaikerastria;;;;;;;;;;;;;x
+GOD_VENUS_2; Venus; Venus; Venus;; Venus;;;;;;;;;x
+string_reformer_god2;[This.GetFirstName];[This.GetFirstName];[This.GetFirstName];;[This.GetFirstName];;;;;;;;;x

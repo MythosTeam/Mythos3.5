@@ -1,0 +1,6343 @@
+namespace = MYTHMORE
+
+# New and Rewritten Spells
+
+# Potion finished
+character_event = {
+	id = "MYTHMORE.1"
+	desc = "EVTDESCMYTHMORE.1"
+	picture = GFX_evt_lovers
+	border = GFX_event_normal_frame_war
+	is_triggered_only = yes
+	
+	immediate = {
+		FROM = {
+			save_event_target_as = target_potioned
+		}
+		save_event_target_as = target_potioner
+		select_random_magic_ingredient_herb_effect = yes
+		select_random_magic_ingredient_herb_effect = yes
+		set_variable = { which = potion_bonus value = 0 }
+	}
+	
+	option = {
+		name = EVTOPTMYTHMORE.1
+		hidden_tooltip = {
+			character_event = { id = MYTHMORE.51 days = 2 }
+		}
+	}
+	
+	option = {
+		name = EVTOPTBMYTHMORE.1
+		trigger = { has_selected_herb_ingredient_1_trigger = yes }
+		hidden_tooltip = {
+			if = {
+				limit = {
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_1
+						quality >= 2
+					}
+				}
+				change_variable = { which = potion_bonus value = 1 }
+			}
+			if = {
+				limit = {
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_1
+						ingredient_is_good_for_love = yes
+					}
+				}
+				change_variable = { which = potion_bonus value = 1 }
+			}
+			else_if = {
+				limit = {
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_1
+						ingredient_is_unhealthy_trigger = yes
+					}
+				}
+				change_variable = { which = potion_bonus value = -2 }
+			}
+			character_event = { id = MYTHMORE.51 days = 2 }
+		}
+		destroy_selected_ingredient_1_effect = yes
+	}
+	
+	option = {
+		name = EVTOPTCMYTHMORE.1
+		trigger = { has_selected_herb_ingredient_2_trigger = yes }
+		hidden_tooltip = {
+			if = {
+				limit = {
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_2
+						quality >= 2
+					}
+				}
+				change_variable = { which = potion_bonus value = 1 }
+			}
+			if = {
+				limit = {
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_2
+						ingredient_is_good_for_love = yes
+					}
+				}
+				change_variable = { which = potion_bonus value = 1 }
+			}
+			else_if = {
+				limit = {
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_2
+						ingredient_is_unhealthy_trigger = yes
+					}
+				}
+				change_variable = { which = potion_bonus value = -2 }
+			}
+			character_event = { id = MYTHMORE.51 days = 2 }
+		}
+		destroy_selected_ingredient_2_effect = yes
+	}
+	
+	after = {
+		remove_selection_of_ingredients_effect = yes
+	}
+}
+
+# MYTHMORE.2 - Potion success, target loses homosexual
+character_event = {
+	id = "MYTHMORE.2"
+	desc = "EVTDESCMYTHMORE.2"
+	picture = GFX_evt_lovers
+	border = GFX_event_normal_frame_war
+	is_triggered_only = yes
+	
+	option = {
+		name = "EVTOPTMYTHMORE.2"
+		event_target:target_potioned = {
+			remove_trait = homosexual
+		}
+		hidden_tooltip = {
+			event_target:target_potioned = { character_event = { id = "MYTHMORE.14" } }
+		}
+	}
+}
+
+# MYTHMORE.3 - Potion success, target gains homosexual
+character_event = {
+	id = "MYTHMORE.3"
+	desc = "EVTDESCMYTHMORE.2"
+	picture = GFX_evt_lovers
+	border = GFX_event_normal_frame_war
+	is_triggered_only = yes
+	
+	option = {
+		name = "EVTOPTMYTHMORE.2"
+		event_target:target_potioned = {
+			add_trait = homosexual
+		}
+		hidden_tooltip = {
+			event_target:target_potioned = { character_event = { id = "MYTHMORE.15" } }
+		}
+	}
+}
+
+# MYTHMORE.4 - Potion success, target loses chaste
+character_event = {
+	id = "MYTHMORE.4"
+	desc = "EVTDESCMYTHMORE.2"
+	picture = GFX_evt_lovers
+	border = GFX_event_normal_frame_war
+	is_triggered_only = yes
+	
+	option = {
+		name = "EVTOPTMYTHMORE.2"
+		event_target:target_potioned = { remove_trait = chaste }
+		hidden_tooltip = {
+			event_target:target_potioned = { character_event = { id = "1029" } } # Call vanilla trait removal
+		}
+	}
+	
+	after = {
+		hidden_tooltip = {
+			event_target:target_potioned = { character_event = { id = MYTH.56 } }
+		}
+	}
+}
+
+# MYTHMORE.5 - Potion success, target becomes lover
+character_event = {
+	id = "MYTHMORE.5"
+	desc = "EVTDESCMYTHMORE.5"
+	picture = GFX_evt_lovers
+	border = GFX_event_normal_frame_war
+	is_triggered_only = yes
+	
+	option = {
+		name = "EVTOPTMYTHMORE.5"
+		event_target:target_potioned = { add_lover = event_target:target_potioner }
+		hidden_tooltip = {
+			if = {
+				limit = {
+					event_target:target_potioned = { spouse = { character = event_target:target_potioner } }
+				}
+				event_target:target_potioned = { character_event = { id = "64030" } }
+			}
+			if = {
+				limit = {
+					NOT = { event_target:target_potioned = { spouse = { character = event_target:target_potioner } } }
+				}
+				event_target:target_potioned = { character_event = { id = "64018" } }
+			}
+		}
+	}
+}
+
+# MYTHMORE.6 - Potion failure, target becomes rival
+character_event = {
+	id = "MYTHMORE.6"
+	desc = "EVTDESCMYTHMORE.6"
+	picture = GFX_evt_quarrel
+	border = GFX_event_normal_frame_war
+	is_triggered_only = yes
+	
+	option = {
+		name = "EVTOPTMYTHMORE.6"
+		event_target:target_potioned = { add_rival = event_target:target_potioner }
+		hidden_tooltip = {
+			event_target:target_potioned = { character_event = { id = "MYTHMORE.16" } }
+		}
+	}
+}
+		
+# MYTHMORE.7 - Potion failure, target gains chaste
+character_event = {
+	id = "MYTHMORE.7"
+	desc = "EVTDESCMYTHMORE.7"
+	picture = GFX_evt_bishop
+	border = GFX_event_normal_frame_war
+	is_triggered_only = yes
+	
+	option = {
+		name = "EVTOPTMYTHMORE.7"
+		event_target:target_potioned = { add_trait = chaste }
+		hidden_tooltip = {
+			event_target:target_potioned = { character_event = { id = "MYTHMORE.17" } }
+		}
+	}
+	
+	after = {
+		hidden_tooltip = {
+			event_target:target_potioned = { character_event = { id = MYTH.56 } }
+		}
+	}
+}
+
+# MYTHMORE.8 - Potion failure, target loses homosexual
+character_event = {
+	id = "MYTHMORE.8"
+	desc = "EVTDESCMYTHMORE.8"
+	picture = GFX_evt_lovers
+	border = GFX_event_normal_frame_war
+	is_triggered_only = yes
+	
+	option = {
+		name = "EVTOPTMYTHMORE.8"
+		event_target:target_potioned = { remove_trait = homosexual }
+		hidden_tooltip = {
+			event_target:target_potioned = { character_event = { id = "MYTHMORE.14" } }
+		}
+	}
+}
+	
+# MYTHMORE.9 - Potion failure, target gains homosexual
+character_event = {
+	id = "MYTHMORE.9"
+	desc = "EVTDESCMYTHMORE.8"
+	picture = GFX_evt_lovers
+	border = GFX_event_normal_frame_war
+	is_triggered_only = yes
+	
+	option = {
+		name = "EVTOPTMYTHMORE.8"
+		event_target:target_potioned = { add_trait = homosexual }
+		hidden_tooltip = {
+			event_target:target_potioned = { character_event = { id = "MYTHMORE.15" } }
+		}
+	}
+}
+
+# MYTHMORE.10 - Potion failure, target gains Celibate
+character_event = {
+	id = "MYTHMORE.10"
+	title = "EVTNAMEMYTHMORE.10"
+	desc = "EVTDESCMYTHMORE.10"
+	picture = GFX_evt_bishop
+	border = GFX_event_normal_frame_war
+	is_triggered_only = yes
+	
+	option = {
+		name = "EVTOPTMYTHMORE.10"
+		event_target:target_potioned = { add_trait = celibate }
+		hidden_tooltip = {
+			event_target:target_potioned = { character_event = { id = "MYTHMORE.18" } }
+		}
+	}
+}
+
+# MYTHMORE.11 - Cast convert religion
+character_event = {
+	id = "MYTHMORE.11"
+	desc = "EVTDESCMYTHMORE.11"
+	picture = GFX_evt_throne_room
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		FROM = {
+			#save_event_target_as = target_converted_province
+			location = {
+				save_event_target_as = target_converted_province
+			}
+		}
+		save_event_target_as = target_conversion_caster
+	}
+	
+	option = {
+		name = "EVTOPTMYTHMORE.11"
+		hidden_tooltip = {
+			if = {
+				limit = { 
+					event_target:target_conversion_caster = { trait = arcane_master }
+				}
+				event_target:target_conversion_caster = {
+					character_event = {
+						id = "MYTHMORE.12"
+						days = 1
+					}
+				}
+			}
+			if = {
+				limit = {
+					event_target:target_conversion_caster = { trait = veteran_wizard }
+				}
+				random_list = {
+					60 = {
+						# Conversion
+						event_target:target_conversion_caster = {
+							character_event = {
+								id = "MYTHMORE.12"
+								days = 1
+							}
+						}
+					}
+					40 = {
+						# Spread of false religion
+						event_target:target_conversion_caster = {
+							character_event = {
+								id = "MYTHMORE.13"
+								days = 1
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+# MYTHMORE.12 - Successful religious conversion
+character_event = {
+	id = "MYTHMORE.12"
+	desc = "EVTDESCMYTHMORE.12"
+	picture = GFX_evt_throne_room
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "EVTOPTMYTHMORE.12"
+		event_target:target_converted_province = { religion = event_target:target_conversion_caster }
+	}
+}
+
+# MYTHMORE.13 - Failed religion conversion
+character_event = {
+	id = "MYTHMORE.13"
+	desc = "EVTDESCMYTHMORE.13"
+	picture = GFX_evt_throne_room
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "EVTOPTMYTHMORE.13"
+		random_demesne_province = {
+			religion = event_target:target_converted_province
+		}
+	}
+}
+
+# MYTHMORE.14 - Lost Homosexual
+character_event = {
+	id = "MYTHMORE.14"
+	desc = "EVTDESCMYTHMORE.14"
+	picture = GFX_evt_lovers
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "EVTOPTMYTHMORE.14"
+		remove_trait = homosexual
+	}
+}
+
+# MYTHMORE.15 - Gained Homosexual
+character_event = {
+	id = "MYTHMORE.15"
+	desc = "EVTDESCMYTHMORE.15"
+	picture = GFX_evt_lovers
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "EVTOPTMYTHMORE.15"
+		add_trait = homosexual
+	}
+}
+
+# MYTHMORE.16 - Become Rival
+character_event = {
+	id = "MYTHMORE.16"
+	desc = "EVTDESCMYTHMORE.16"
+	picture = GFX_evt_courtiers_talking
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "EVTOPTMYTHMORE.16"
+		add_rival = event_target:target_potioner
+	}
+}
+
+# MYTHMORE.17 - Become chaste
+character_event = {
+	id = "MYTHMORE.17"
+	desc = "EVTDESCMYTHMORE.17"
+	picture = "GFX_evt_library"
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "EVTOPTMYTHMORE.17"
+		add_trait = chaste
+	}
+	
+	after = {
+		hidden_tooltip = {
+			character_event = { id = MYTH.56 }
+		}
+	}
+}
+
+# MYTHMORE.18 - Become Celibate - Player can refuse
+character_event = {
+	id = "MYTHMORE.18"
+	desc = "EVTDESCMYTHMORE.18"
+	picture = GFX_evt_heretic
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "EVTOPTMYTHMORE.18a"
+		add_trait = celibate
+		remove_trait = hedonist
+	}
+	option = {
+		name = "EVTOPTMYTHMORE.18b"
+	}
+}
+
+# MYTH isn't loading events past 57. Move here?
+
+# MYTH.58-64 - Offer to convert to Roman Paganism - Now in vanilla
+
+
+# MYTH.65 - Gain Religious Icon (Not made by hand)
+#Miraculous Icon
+#Quality 2
+character_event = {
+    id = MYTHMORE.26
+    desc = EVTDESC_MYTHMORE.26
+    picture = GFX_evt_relic_box
+    border = GFX_event_normal_frame_religion
+
+    is_triggered_only = yes
+
+    has_dlc = "Mystics"
+
+    option = { #it's their duty
+        name = EVTOPT_MINOR_ARTIFACT_DUTY
+        prestige = 10
+        reverse_opinion = {
+			who = FROM
+		modifier = opinion_disappointed
+			years = 10
+		}
+        add_artifact = religious_icon_not_made_by_hand
+        new_artifact = {
+			set_creation_date = 1.1.1
+		}
+    }
+
+    option = { #monetary reward
+        name = EVTOPT_MINOR_ARTIFACT_MONEY
+
+        reverse_opinion = {
+			who = FROM
+			modifier = opinion_was_rewarded
+			years = 5
+		}
+		opinion = {
+			who = FROM
+			modifier = opinion_found_minor_artifact
+			years = 5
+		}
+		transfer_scaled_wealth = {
+			to = FROM
+			value = 0.25
+			min = 20
+		}
+
+        add_artifact = religious_icon_not_made_by_hand
+        new_artifact = {
+			set_creation_date = 1.1.1
+		}
+    }
+    
+    option = { #reward them with a favor
+        name = EVTOPT_MINOR_ARTIFACT_FAVOR
+
+        reverse_opinion = {
+			who = FROM
+			modifier = opinion_was_rewarded
+			years = 5
+		}
+		opinion = {
+			who = FROM
+			modifier = opinion_found_minor_artifact
+			years = 5
+		}
+        reverse_add_favor = FROM
+        add_artifact = religious_icon_not_made_by_hand
+        new_artifact = {
+			set_creation_date = 1.1.1
+		}
+    }
+
+    option = { #praise them (prestige reward)
+    	trigger = {
+			diplomacy = 15
+		}
+        name = EVTOPT_MINOR_ARTIFACT_PRESTIGE
+
+        reverse_opinion = {
+			who = FROM
+			modifier = opinion_was_praised
+			years = 5
+		}
+		opinion = {
+			who = FROM
+			modifier = opinion_found_minor_artifact
+			years = 5
+		}
+		FROM = { prestige = 25 }
+		random = {
+			chance = 20
+			add_friend = FROM
+		}
+        add_artifact = religious_icon_not_made_by_hand
+        new_artifact = {
+			set_creation_date = 1.1.1
+		}
+    }
+    after = { clr_artifact_flagsmodifiers_effect = yes }
+}
+# MYTH.66 - Gain Religious Icon
+#Religious Icon
+#Quality 1
+character_event = {
+    id = MYTHMORE.27
+    desc = EVTDESC_MYTHMORE.27
+    picture = GFX_evt_relic_box
+    border = GFX_event_normal_frame_religion
+
+    is_triggered_only = yes
+
+    has_dlc = "Mystics"
+
+    option = { #it's their duty
+        name = EVTOPT_MINOR_ARTIFACT_DUTY
+        prestige = 10
+        reverse_opinion = {
+			who = FROM
+		modifier = opinion_disappointed
+			years = 10
+		}
+        add_artifact = religious_icon
+    }
+
+    option = { #monetary reward
+        name = EVTOPT_MINOR_ARTIFACT_MONEY
+
+        reverse_opinion = {
+			who = FROM
+			modifier = opinion_was_rewarded
+			years = 5
+		}
+		opinion = {
+			who = FROM
+			modifier = opinion_found_minor_artifact
+			years = 5
+		}
+		transfer_scaled_wealth = {
+			to = FROM
+			value = 0.25
+			min = 20
+		}
+
+        add_artifact = religious_icon
+    }
+    
+    option = { #reward them with a favor
+        name = EVTOPT_MINOR_ARTIFACT_FAVOR
+
+        reverse_opinion = {
+			who = FROM
+			modifier = opinion_was_rewarded
+			years = 5
+		}
+		opinion = {
+			who = FROM
+			modifier = opinion_found_minor_artifact
+			years = 5
+		}
+        reverse_add_favor = FROM
+        add_artifact = religious_icon
+    }
+
+    option = { #praise them (prestige reward)
+    	trigger = {
+			diplomacy = 15
+		}
+        name = EVTOPT_MINOR_ARTIFACT_PRESTIGE
+
+        reverse_opinion = {
+			who = FROM
+			modifier = opinion_was_praised
+			years = 5
+		}
+		opinion = {
+			who = FROM
+			modifier = opinion_found_minor_artifact
+			years = 5
+		}
+		FROM = { prestige = 25 }
+		random = {
+			chance = 20
+			add_friend = FROM
+		}
+        add_artifact = religious_icon
+    }
+    after = { clr_artifact_flagsmodifiers_effect = yes }
+}
+
+# MYTH.67 - Notification for gaining ascetic
+character_event = {
+	id = MYTHMORE.28
+	desc = EVTDESC_MYTHMORE.28
+	picture = GFX_evt_secluded_in_prayer
+	
+	notification = yes
+	
+	is_triggered_only = yes
+	hide_from = yes
+	
+	option = {
+		name = OK 
+	}
+}
+
+# MYTH.68 - Notification for losing ascetic
+character_event = {
+	id = MYTHMORE.29
+	desc = EVTDESC_MYTHMORE.29
+	picture = GFX_evt_relaxed_ruler
+	
+	notification = yes
+	
+	is_triggered_only = yes
+	hide_from = yes
+	
+	option = {
+		name = OK 
+	}
+}
+
+# MYTH.69 - Destroy Icon
+character_event = {
+	id = MYTHMORE.30
+	desc = EVTDESC_MYTHMORE.30
+	picture = GFX_evt_icon
+	border = GFX_event_normal_frame_religion
+	
+	notification = yes
+
+    is_triggered_only = yes
+	
+	trigger = { religion = iconoclast } # Sanity
+	
+	immediate = {
+		if = {
+			limit = {
+				FROMFROMFROM = {
+					has_artifact_flag = major_icon
+				}
+			}
+			any_demesne_province = {
+				limit = { religion = iconoclast }
+				add_province_modifier = { modifier = destroyed_major_icon years = 1 }
+			}
+			piety = 300
+			add_character_modifier = { modifier = destroyed_major_icon_character years = 1 }
+			religion_authority = { modifier = destroyed_major_icon_MA }
+		}
+		else = {
+			any_demesne_province = {
+				limit = { religion = iconoclast }
+				add_province_modifier = { modifier = destroyed_minor_icon years = 1 }
+			}
+			piety = 100
+			add_character_modifier = { modifier = destroyed_minor_icon_character years = 1 }
+		}
+		FROMFROMFROM = { destroy_artifact = yes }
+	}
+	option = {
+		name = OK 
+	}
+}
+
+# MYTH.70 - Donate Artifact
+character_event = {
+	id = MYTHMORE.31
+	desc = EVTDESC_MYTHMORE.31
+	picture = GFX_evt_relic_box
+	border = GFX_event_normal_frame_religion
+	
+	notification = yes
+
+    is_triggered_only = yes
+	
+	immediate = {
+		any_demesne_province = {
+			limit = { NOT = { has_province_modifier = prosperity_modifier_3 } }
+			add_province_modifier = { modifier = charity_to_poor years = 1 }
+			hidden_tooltip = {
+ 				change_variable = { which = prosperity_value value = 2 }
+			}
+		}
+		piety = 100
+		add_character_modifier = { modifier = acts_of_charity years = 1 }
+		FROMFROMFROM = { destroy_artifact = yes }
+		if = {
+			limit = {
+				NOR = {
+					trait = charitable
+					trait = greedy
+				}
+			}
+			random = {
+				chance = 20
+				add_trait = charitable
+				hidden_tooltip = {
+					# Notify
+					character_event = { id = 38273 }
+				}
+			}
+		}
+		else_if = {
+			limit = { trait = greedy }
+			random = {
+				chance = 20
+				remove_trait = greedy
+				hidden_tooltip = {
+					# Notify
+					character_event = { id = 38252 }
+				}
+			}
+		}
+	}
+	option = {
+		name = OK 
+	}
+}
+
+# Wipe prosperity progress with a chance to lower prosperity
+province_event = {
+	id = MYTHMORE.32
+	
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		set_variable = { which = prosperity_value value = 0 }
+		random = {
+			chance = 75 #chance to lower by 1 step
+			if = {
+				limit = {
+					has_province_modifier = depopulated_2
+				}
+				remove_province_modifier = depopulated_2
+				add_province_modifier = { name = depopulated_3 duration = -1 }
+				break = yes
+			}
+			else_if = {
+				limit = {
+					has_province_modifier = depopulated_1
+				}
+				remove_province_modifier = depopulated_1
+				add_province_modifier = { name = depopulated_2 duration = -1 }
+				break = yes
+			}
+			else_if = {
+				limit = {
+					NOR = {
+						has_province_modifier = depopulated_1
+						has_province_modifier = depopulated_2
+						has_province_modifier = depopulated_3
+						has_province_modifier = prosperity_modifier_1
+						has_province_modifier = prosperity_modifier_2
+						has_province_modifier = prosperity_modifier_3
+					}
+				}
+				add_province_modifier = { name = depopulated_1 duration = -1 }
+				break = yes
+			}
+			else_if = {
+				limit = {
+					has_province_modifier = prosperity_modifier_1
+				}
+				remove_province_modifier = prosperity_modifier_1
+				break = yes
+			}
+			else_if = {
+				limit = {
+					has_province_modifier = prosperity_modifier_2
+				}
+				remove_province_modifier = prosperity_modifier_2
+				add_province_modifier = { name = prosperity_modifier_1 duration = -1 }
+				break = yes
+			}
+			else_if = {
+				limit = {
+					has_province_modifier = prosperity_modifier_3
+				}
+				remove_province_modifier = prosperity_modifier_3
+				add_province_modifier = { name = prosperity_modifier_2 duration = -1 }
+			}
+		}
+	}
+}
+
+# MYTHMORE.33 - See if Wolfbane title should be given - ROOT is killed character, FROM is killer
+character_event = {
+	id = MYTHMORE.33
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		trait = known_werewolf
+		FROM = {
+			NOR = {
+				trait = werewolf
+				culture = werewolf_culture
+			}
+			trait = monster_hunter
+			has_nickname = no
+		}
+	}
+	
+	immediate = {
+		random = {
+			chance = 10
+			FROM = {
+				give_nickname = nick_wolf_bane
+			}
+		}
+	}
+}
+# MYTHMORE.34 - See if Dragonbane title should be given - ROOT is killed character, FROM is killer
+character_event = {
+	id = MYTHMORE.34
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		trait = dragon
+		FROM = {
+			NOR = {
+				trait = dragon
+				culture = draconic
+				religion = draconic_pagan
+				religion = draconic_pagan_reformed
+			}
+			trait = monster_hunter
+			has_nickname = no
+		}
+	}
+	
+	immediate = {
+		random = {
+			chance = 10
+			FROM = {
+				give_nickname = nick_dragonbane
+			}
+		}
+	}
+}
+# MYTHMORE.35 - Set up events 33 and 34 when used in CBs. ROOT is killer. event_target:killed must be set on killed character
+character_event = {
+	id = MYTHMORE.35
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		event_target:killed = {
+			character_event = { id = MYTHMORE.33 }
+			character_event = { id = MYTHMORE.34 }
+		}
+	}
+}
+# MYTHMORE.36 - Become Fugitive if fled arrest with claim on title
+character_event = {
+	id = MYTHMORE.36
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		FROM = { 
+			higher_tier_than = COUNT
+			primary_title = {
+				ROOT = {
+					any_claim = {
+						title = PREVPREV
+					}
+				}
+			}
+		}
+	}
+	
+	immediate = {
+		random = {
+			chance = 25
+			give_nickname = nick_the_fugitive
+		}
+	}
+}
+# MYTHMORE.37 - If undead and gaining first title, may gain title Posthumous
+character_event = {
+	id = MYTHMORE.37
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		num_of_titles == 1
+		OR = {
+			trait = zombie
+			trait = known_vampire
+		}
+		FROMFROM = {
+			location = { 
+				NOR = {
+					culture = vampire_culture
+				}
+			}
+		}
+		has_nickname = no
+	}
+	
+	immediate = {
+		give_nickname = nick_the_posthumous
+	}
+}
+# MYTHMORE.38 - Alchemy critical failure
+character_event = {
+	id = MYTHMORE.38
+	desc = EVTDESC_MYTHMORE.38
+	picture = GFX_evt_stressed_ruler
+	border = GFX_event_normal_frame_economy
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_MYTHMORE.38
+		clear_wealth = yes
+		capital_scope = {
+			set_variable = { which = prosperity_value value = 0 }
+			random = {
+				chance = 75 #chance to lower by 1 step
+				if = {
+					limit = {
+						has_province_modifier = prosperity_modifier_1
+					}
+					remove_province_modifier = prosperity_modifier_1
+					break = yes
+				}
+				if = {
+					limit = {
+						has_province_modifier = prosperity_modifier_2
+					}
+					remove_province_modifier = prosperity_modifier_2
+					add_province_modifier = { name = prosperity_modifier_1 duration = -1 }
+					break = yes
+				}
+				if = {
+					limit = {
+						has_province_modifier = prosperity_modifier_3
+					}
+					remove_province_modifier = prosperity_modifier_3
+					add_province_modifier = { name = prosperity_modifier_2 duration = -1 }
+				}
+			}
+		}
+	}
+}
+
+# Remove and re-add immortality traits for player characters at start
+character_event = {
+	id = MYTHMORE.39
+	hide_window = yes
+	is_triggered_only = yes
+	
+	only_playable = yes
+	ai = no
+	
+	trigger = {
+		OR = {
+			trait = god
+			trait = vampire
+			trait = zombie
+			trait = mummy
+			trait = djinn
+			# Demon and Ethereal aren't playable. Can't start with Philosopher's Stone
+		}
+	}
+	
+	immediate = {
+		if = {
+			limit = { trait = god }
+			remove_trait = god
+			add_trait = god
+		}
+		if = {
+			limit = { trait = vampire }
+			remove_trait = vampire
+			add_trait = vampire
+		}
+		if = {
+			limit = { trait = zombie }
+			remove_trait = zombie
+			add_trait = zombie
+			set_graphical_culture = undead_revenant
+			set_undead_culture = yes
+			religion = the_damned
+			abdicate = yes # Not playable
+		}
+		if = {
+			limit = { trait = mummy }
+			remove_trait = mummy
+			add_trait = mummy
+		}
+		if = {
+			limit = { trait = djinn }
+			remove_trait = djinn
+			add_trait = djinn
+		}
+	}
+}
+
+# MYTHMORE.40 - Djinn child religion
+character_event = {
+	id = MYTHMORE.40
+	hide_window = yes
+	min_age = 6
+	max_age = 11
+	prisoner = no
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		trait = djinn
+		OR = {
+			NOT = { has_dlc = Conclave }
+			has_focus = focus_ch_heritage
+		}
+		NOT = { religion_group = muslim }
+		NOT = { has_character_flag = djinn_religion_childhood_event }
+	}
+	
+	immediate = {
+		# Select branch
+		if = {
+			limit = {
+				educator = { religion_group = muslim }
+			}
+			educator = { save_event_target_as = target_muslim }
+		}
+		else_if = {
+			limit = {
+				father = { religion_group = muslim }
+			}
+			father = { save_event_target_as = target_muslim }
+		}
+		else_if = {
+			limit = {
+				mother = { religion_group = muslim }
+			}
+			mother = { save_event_target_as = target_muslim }
+		}
+		else_if = {
+			limit = {
+				any_courtier = {
+					religion_group = muslim
+					is_heretic = no
+				}
+			}
+			any_courtier = {
+				limit = {
+					religion_group = muslim
+					is_heretic = no
+				}
+				score_value = {
+					value = 10
+					interesting_courtier_selection_score = yes
+				}
+				save_event_target_as = target_muslim
+			}
+		}
+		else = {
+			random_character = {
+				limit = {
+					religion_group = muslim
+					is_heretic = no
+				}
+				save_event_target_as = target_muslim
+			}
+		}
+		
+		# Ping for localization
+		set_character_flag = djinn_religion_childhood_event
+		educator = {
+			character_event = { id = MYTHMORE.41 }
+		}
+	}
+}
+
+character_event = {
+	id = MYTHMORE.41
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		FROM = {
+			character_event = { id = MYTHMORE.42 }
+		}
+	}
+}
+
+character_event = {
+	id = MYTHMORE.42
+	desc = EVTDESC_MYTHMORE.42
+	picture = GFX_evt_child_play
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_MYTHMORE.42
+		hidden_tooltip = {
+			educator = {
+				character_event = {
+					id = MYTHMORE.43
+					days = 3
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTB_MYTHMORE.42
+		trigger = { ai = no }
+	}
+}
+
+character_event = {
+	id = MYTHMORE.43
+	desc = EVTDESC_MYTHMORE.43
+	picture = GFX_evt_child_play
+	
+	is_triggered_only = yes
+	
+	# Encourage
+	option = {
+		name = EVTOPTA_MYTHMORE.43
+		tooltip = {
+			FROM = {
+				religion = event_target:target_muslim
+			}
+		}
+		hidden_tooltip = {
+			FROM = {
+				character_event = { id = MYTHMORE.44 }
+			}
+		}
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 5
+				religion_group = muslim
+			}
+			modifier = {
+				factor = 3
+				culture_group = arabic
+			}
+			modifier = {
+				factor = 2
+				trait = djinn
+			}
+		}
+	}
+	
+	# Discourage
+	option = {
+		name = EVTOPTB_MYTHMORE.43
+		hidden_tooltip = {
+			FROM = {
+				character_event = { id = MYTHMORE.45 }
+			}
+		}
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 3
+				trait = monster_hunter
+				NOR = { 
+					trait = djinn
+					religion_group = muslim
+				}
+			}
+			modifier = {
+				factor = 3
+				OR = {
+					religion_group = christian
+					religion_group = jewish_group
+				}
+			}
+			modifier = {
+				factor = 2
+				is_priest = yes
+				NOT = { religion_group = muslim }
+			}
+			modifier = {
+				factor = 2
+				trait = zealous
+				NOT = { religion_group = muslim }
+			}
+		}
+	}
+}
+
+character_event = {
+	id = MYTHMORE.44
+	desc = EVTDESC_MYTHMORE.44
+	picture = GFX_evt_child_play
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_MYTHMORE.44
+		religion = event_target:target_muslim
+	}
+}
+
+character_event = {
+	id = MYTHMORE.45
+	desc = EVTDESC_MYTHMORE.45
+	picture = GFX_evt_child_play
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_MYTHMORE.45
+	}
+}
+
+# New magic educator event
+# MYTHMORE.46 - Call event for educator
+character_event = {
+	id = MYTHMORE.46
+	hide_window = yes
+	is_triggered_only = yes
+	
+	min_age = 13
+	max_age = 14
+	
+	trigger = {
+		NOT = { has_character_flag = magic_child_event }
+		OR = {
+			educator = { 
+				NOT = { character = ROOT }
+				AND = {
+					has_education_magic_trigger = yes
+					OR = {
+						diplomacy = 12
+						stewardship = 12
+						martial = 12
+						intrigue = 12
+						learning = 12
+						health = 6
+						AND = {
+							has_lover = yes
+							ROOT = { is_betrothed = yes }
+						}
+					}
+				}
+			}
+			AND = {
+				NOT = { educator = { always = yes } }
+				guardian = {
+					AND = {
+						NOT = { character = ROOT }
+						has_education_magic_trigger = yes
+						OR = {
+							diplomacy = 12
+							stewardship = 12
+							martial = 12
+							intrigue = 12
+							learning = 12
+							health = 6
+							AND = {
+								has_lover = yes
+								ROOT = { is_betrothed = yes }
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	immediate = {
+		set_character_flag = magic_child_event
+		if = {
+			limit = { educator = { always = yes } }
+			educator = {
+				character_event = { id = MYTHMORE.47 }
+			}
+		}
+		else = {
+			guardian = {
+				character_event = { id = MYTHMORE.47 }
+			}
+		}
+	}
+}
+
+# Mage gifts abilities to a child
+# ROOT is the mage, FROM is the child
+character_event = {
+	id = MYTHMORE.47
+	desc = EVTDESC_MYTHMORE.47
+	picture = GFX_evt_monk
+	
+	capable_only = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		OR = {
+			trait = arcane_master
+			trait = veteran_wizard
+			trait = eldritch_scholar
+			trait = novice_mage
+		}
+	}
+	
+	immediate = {
+		random_list = {
+			# Diplomacy
+			1 = {
+				modifier = {
+					factor = 0
+					NOT = { diplomacy = 12 }
+				}
+				modifier = {
+					factor = 1.5
+					diplomacy = 20
+				}
+				modifier = {
+					factor = 1.5
+					diplomacy = 25
+				}
+				modifier = {
+					factor = 1.5
+					diplomacy = 30
+				}
+				modifier = {
+					factor = 1.5
+					diplomacy = 35
+				}
+				modifier = {
+					factor = 1.5
+					diplomacy = 40
+				}
+				modifier = {
+					factor = 1.5
+					diplomacy = 45
+				}
+				modifier = {
+					factor = 1.5
+					diplomacy = 50
+				}
+				set_character_flag = temp_choose_diplomacy
+			}
+			# Martial
+			1 = {
+				modifier = {
+					factor = 0
+					NOT = { martial = 12 }
+				}
+				modifier = {
+					factor = 1.5
+					martial = 20
+				}
+				modifier = {
+					factor = 1.5
+					martial = 25
+				}
+				modifier = {
+					factor = 1.5
+					martial = 30
+				}
+				modifier = {
+					factor = 1.5
+					martial = 35
+				}
+				modifier = {
+					factor = 1.5
+					martial = 40
+				}
+				modifier = {
+					factor = 1.5
+					martial = 45
+				}
+				modifier = {
+					factor = 1.5
+					martial = 50
+				}
+				set_character_flag = temp_choose_martial
+			}
+			# Stewardship
+			1 = {
+				modifier = {
+					factor = 0
+					NOT = { stewardship = 12 }
+				}
+				modifier = {
+					factor = 1.5
+					stewardship = 20
+				}
+				modifier = {
+					factor = 1.5
+					stewardship = 25
+				}
+				modifier = {
+					factor = 1.5
+					stewardship = 30
+				}
+				modifier = {
+					factor = 1.5
+					stewardship = 35
+				}
+				modifier = {
+					factor = 1.5
+					stewardship = 40
+				}
+				modifier = {
+					factor = 1.5
+					stewardship = 45
+				}
+				modifier = {
+					factor = 1.5
+					stewardship = 50
+				}
+				set_character_flag = temp_choose_stewardship
+			}
+			# Intrigue
+			1 = {
+				modifier = {
+					factor = 0
+					NOT = { intrigue = 12 }
+				}
+				modifier = {
+					factor = 1.5
+					intrigue = 20
+				}
+				modifier = {
+					factor = 1.5
+					intrigue = 25
+				}
+				modifier = {
+					factor = 1.5
+					intrigue = 30
+				}
+				modifier = {
+					factor = 1.5
+					intrigue = 35
+				}
+				modifier = {
+					factor = 1.5
+					intrigue = 40
+				}
+				modifier = {
+					factor = 1.5
+					intrigue = 45
+				}
+				modifier = {
+					factor = 1.5
+					intrigue = 50
+				}
+				set_character_flag = temp_choose_intrigue
+			}
+			# Learning
+			1 = {
+				modifier = {
+					factor = 0
+					NOT = { learning = 12 }
+				}
+				modifier = {
+					factor = 1.5
+					learning = 20
+				}
+				modifier = {
+					factor = 1.5
+					learning = 25
+				}
+				modifier = {
+					factor = 1.5
+					learning = 30
+				}
+				modifier = {
+					factor = 1.5
+					learning = 35
+				}
+				modifier = {
+					factor = 1.5
+					learning = 40
+				}
+				modifier = {
+					factor = 1.5
+					learning = 45
+				}
+				modifier = {
+					factor = 1.5
+					learning = 50
+				}
+				set_character_flag = temp_choose_learning
+			}
+			# Health
+			1 = {
+				modifier = {
+					factor = 0
+					NOT = { health = 6 }
+				}
+				modifier = {
+					factor = 1.5
+					health = 7
+				}
+				modifier = {
+					factor = 1.5
+					health = 8
+				}
+				modifier = {
+					factor = 1.5
+					health = 10
+				}
+				modifier = {
+					factor = 1.5
+					health = 12
+				}
+				modifier = {
+					factor = 1.5
+					health = 15
+				}
+				modifier = {
+					factor = 1.5
+					health = 20
+				}
+				modifier = {
+					factor = 1.5
+					health = 25
+				}
+				set_character_flag = temp_choose_health
+			}
+			# Love
+			1 = {
+				modifier = {
+					factor = 0
+					has_lover = no
+				}
+				modifier = {
+					factor = 3
+					num_of_lovers = 2
+				}
+				modifier = {
+					factor = 2
+					num_of_lovers = 3
+				}
+				modifier = {
+					factor = 2
+					num_of_lovers = 4
+				}
+				set_character_flag = temp_choose_love
+			}
+		}
+		# Choose second option
+		random_list = {
+			# Diplomacy
+			1 = {
+				modifier = {
+					factor = 0
+					NOT = { diplomacy = 12 }
+				}
+				modifier = {
+					factor = 0
+					has_character_flag = temp_choose_diplomacy
+				}
+				modifier = {
+					factor = 1.5
+					diplomacy = 20
+				}
+				modifier = {
+					factor = 1.5
+					diplomacy = 25
+				}
+				modifier = {
+					factor = 1.5
+					diplomacy = 30
+				}
+				modifier = {
+					factor = 1.5
+					diplomacy = 35
+				}
+				modifier = {
+					factor = 1.5
+					diplomacy = 40
+				}
+				modifier = {
+					factor = 1.5
+					diplomacy = 45
+				}
+				modifier = {
+					factor = 1.5
+					diplomacy = 50
+				}
+				set_character_flag = temp_choose_diplomacy
+			}
+			# Martial
+			1 = {
+				modifier = {
+					factor = 0
+					NOT = { martial = 12 }
+				}
+				modifier = {
+					factor = 0
+					has_character_flag = temp_choose_martial
+				}
+				modifier = {
+					factor = 1.5
+					martial = 20
+				}
+				modifier = {
+					factor = 1.5
+					martial = 25
+				}
+				modifier = {
+					factor = 1.5
+					martial = 30
+				}
+				modifier = {
+					factor = 1.5
+					martial = 35
+				}
+				modifier = {
+					factor = 1.5
+					martial = 40
+				}
+				modifier = {
+					factor = 1.5
+					martial = 45
+				}
+				modifier = {
+					factor = 1.5
+					martial = 50
+				}
+				set_character_flag = temp_choose_martial
+			}
+			# Stewardship
+			1 = {
+				modifier = {
+					factor = 0
+					NOT = { stewardship = 12 }
+				}
+				modifier = {
+					factor = 0
+					has_character_flag = temp_choose_stewardship
+				}
+				modifier = {
+					factor = 1.5
+					stewardship = 20
+				}
+				modifier = {
+					factor = 1.5
+					stewardship = 25
+				}
+				modifier = {
+					factor = 1.5
+					stewardship = 30
+				}
+				modifier = {
+					factor = 1.5
+					stewardship = 35
+				}
+				modifier = {
+					factor = 1.5
+					stewardship = 40
+				}
+				modifier = {
+					factor = 1.5
+					stewardship = 45
+				}
+				modifier = {
+					factor = 1.5
+					stewardship = 50
+				}
+				set_character_flag = temp_choose_stewardship
+			}
+			# Intrigue
+			1 = {
+				modifier = {
+					factor = 0
+					NOT = { intrigue = 12 }
+				}
+				modifier = {
+					factor = 0
+					has_character_flag = temp_choose_intrigue
+				}
+				modifier = {
+					factor = 1.5
+					intrigue = 20
+				}
+				modifier = {
+					factor = 1.5
+					intrigue = 25
+				}
+				modifier = {
+					factor = 1.5
+					intrigue = 30
+				}
+				modifier = {
+					factor = 1.5
+					intrigue = 35
+				}
+				modifier = {
+					factor = 1.5
+					intrigue = 40
+				}
+				modifier = {
+					factor = 1.5
+					intrigue = 45
+				}
+				modifier = {
+					factor = 1.5
+					intrigue = 50
+				}
+				set_character_flag = temp_choose_intrigue
+			}
+			# Learning
+			1 = {
+				modifier = {
+					factor = 0
+					NOT = { learning = 12 }
+				}
+				modifier = {
+					factor = 0
+					has_character_flag = temp_choose_learning
+				}
+				modifier = {
+					factor = 1.5
+					learning = 20
+				}
+				modifier = {
+					factor = 1.5
+					learning = 25
+				}
+				modifier = {
+					factor = 1.5
+					learning = 30
+				}
+				modifier = {
+					factor = 1.5
+					learning = 35
+				}
+				modifier = {
+					factor = 1.5
+					learning = 40
+				}
+				modifier = {
+					factor = 1.5
+					learning = 45
+				}
+				modifier = {
+					factor = 1.5
+					learning = 50
+				}
+				set_character_flag = temp_choose_learning
+			}
+			# Health
+			1 = {
+				modifier = {
+					factor = 0
+					NOT = { health = 6 }
+				}
+				modifier = {
+					factor = 0
+					has_character_flag = temp_choose_health
+				}
+				modifier = {
+					factor = 1.5
+					health = 7
+				}
+				modifier = {
+					factor = 1.5
+					health = 8
+				}
+				modifier = {
+					factor = 1.5
+					health = 10
+				}
+				modifier = {
+					factor = 1.5
+					health = 12
+				}
+				modifier = {
+					factor = 1.5
+					health = 15
+				}
+				modifier = {
+					factor = 1.5
+					health = 20
+				}
+				modifier = {
+					factor = 1.5
+					health = 25
+				}
+				set_character_flag = temp_choose_health
+			}
+			# Love
+			1 = {
+				modifier = {
+					factor = 0
+					has_lover = no
+				}
+				modifier = {
+					factor = 0
+					has_character_flag = temp_choose_love
+				}
+				modifier = {
+					factor = 3
+					num_of_lovers = 2
+				}
+				modifier = {
+					factor = 2
+					num_of_lovers = 3
+				}
+				modifier = {
+					factor = 2
+					num_of_lovers = 4
+				}
+				set_character_flag = temp_choose_love
+			}
+		}
+		# Choose third option
+		random_list = {
+			# Diplomacy
+			1 = {
+				modifier = {
+					factor = 0
+					NOT = { diplomacy = 12 }
+				}
+				modifier = {
+					factor = 0
+					has_character_flag = temp_choose_diplomacy
+				}
+				modifier = {
+					factor = 1.5
+					diplomacy = 20
+				}
+				modifier = {
+					factor = 1.5
+					diplomacy = 25
+				}
+				modifier = {
+					factor = 1.5
+					diplomacy = 30
+				}
+				modifier = {
+					factor = 1.5
+					diplomacy = 35
+				}
+				modifier = {
+					factor = 1.5
+					diplomacy = 40
+				}
+				modifier = {
+					factor = 1.5
+					diplomacy = 45
+				}
+				modifier = {
+					factor = 1.5
+					diplomacy = 50
+				}
+				set_character_flag = temp_choose_diplomacy
+			}
+			# Martial
+			1 = {
+				modifier = {
+					factor = 0
+					NOT = { martial = 12 }
+				}
+				modifier = {
+					factor = 0
+					has_character_flag = temp_choose_martial
+				}
+				modifier = {
+					factor = 1.5
+					martial = 20
+				}
+				modifier = {
+					factor = 1.5
+					martial = 25
+				}
+				modifier = {
+					factor = 1.5
+					martial = 30
+				}
+				modifier = {
+					factor = 1.5
+					martial = 35
+				}
+				modifier = {
+					factor = 1.5
+					martial = 40
+				}
+				modifier = {
+					factor = 1.5
+					martial = 45
+				}
+				modifier = {
+					factor = 1.5
+					martial = 50
+				}
+				set_character_flag = temp_choose_martial
+			}
+			# Stewardship
+			1 = {
+				modifier = {
+					factor = 0
+					NOT = { stewardship = 12 }
+				}
+				modifier = {
+					factor = 0
+					has_character_flag = temp_choose_stewardship
+				}
+				modifier = {
+					factor = 1.5
+					stewardship = 20
+				}
+				modifier = {
+					factor = 1.5
+					stewardship = 25
+				}
+				modifier = {
+					factor = 1.5
+					stewardship = 30
+				}
+				modifier = {
+					factor = 1.5
+					stewardship = 35
+				}
+				modifier = {
+					factor = 1.5
+					stewardship = 40
+				}
+				modifier = {
+					factor = 1.5
+					stewardship = 45
+				}
+				modifier = {
+					factor = 1.5
+					stewardship = 50
+				}
+				set_character_flag = temp_choose_stewardship
+			}
+			# Intrigue
+			1 = {
+				modifier = {
+					factor = 0
+					NOT = { intrigue = 12 }
+				}
+				modifier = {
+					factor = 0
+					has_character_flag = temp_choose_intrigue
+				}
+				modifier = {
+					factor = 1.5
+					intrigue = 20
+				}
+				modifier = {
+					factor = 1.5
+					intrigue = 25
+				}
+				modifier = {
+					factor = 1.5
+					intrigue = 30
+				}
+				modifier = {
+					factor = 1.5
+					intrigue = 35
+				}
+				modifier = {
+					factor = 1.5
+					intrigue = 40
+				}
+				modifier = {
+					factor = 1.5
+					intrigue = 45
+				}
+				modifier = {
+					factor = 1.5
+					intrigue = 50
+				}
+				set_character_flag = temp_choose_intrigue
+			}
+			# Learning
+			1 = {
+				modifier = {
+					factor = 0
+					NOT = { learning = 12 }
+				}
+				modifier = {
+					factor = 0
+					has_character_flag = temp_choose_learning
+				}
+				modifier = {
+					factor = 1.5
+					learning = 20
+				}
+				modifier = {
+					factor = 1.5
+					learning = 25
+				}
+				modifier = {
+					factor = 1.5
+					learning = 30
+				}
+				modifier = {
+					factor = 1.5
+					learning = 35
+				}
+				modifier = {
+					factor = 1.5
+					learning = 40
+				}
+				modifier = {
+					factor = 1.5
+					learning = 45
+				}
+				modifier = {
+					factor = 1.5
+					learning = 50
+				}
+				set_character_flag = temp_choose_learning
+			}
+			# Health
+			1 = {
+				modifier = {
+					factor = 0
+					NOT = { health = 6 }
+				}
+				modifier = {
+					factor = 0
+					has_character_flag = temp_choose_health
+				}
+				modifier = {
+					factor = 1.5
+					health = 7
+				}
+				modifier = {
+					factor = 1.5
+					health = 8
+				}
+				modifier = {
+					factor = 1.5
+					health = 10
+				}
+				modifier = {
+					factor = 1.5
+					health = 12
+				}
+				modifier = {
+					factor = 1.5
+					health = 15
+				}
+				modifier = {
+					factor = 1.5
+					health = 20
+				}
+				modifier = {
+					factor = 1.5
+					health = 25
+				}
+				set_character_flag = temp_choose_health
+			}
+			# Love
+			1 = {
+				modifier = {
+					factor = 0
+					has_lover = no
+				}
+				modifier = {
+					factor = 0
+					has_character_flag = temp_choose_love
+				}
+				modifier = {
+					factor = 3
+					num_of_lovers = 2
+				}
+				modifier = {
+					factor = 2
+					num_of_lovers = 3
+				}
+				modifier = {
+					factor = 2
+					num_of_lovers = 4
+				}
+				set_character_flag = temp_choose_love
+			}
+		}
+		if = {
+			limit = { trait = arcane_master }
+			FROM = {
+				set_variable = { which = temp_gain value = 4 }
+				set_variable = { which = temp_gain_health value = 2 }
+			}
+		}
+		else_if = {
+			limit = { trait = veteran_wizard }
+			FROM = {
+				set_variable = { which = temp_gain value = 3 }
+				set_variable = { which = temp_gain_health value = 3 }
+				divide_variable = { which = temp_gain_health value = 2 }
+			}
+		}
+		else_if = {
+			limit = { trait = eldritch_scholar }
+			FROM = {
+				set_variable = { which = temp_gain value = 2 }
+				set_variable = { which = temp_gain_health value = 1 }
+			}
+		}
+		else = {
+			FROM = {
+				set_variable = { which = temp_gain value = 1 }
+				set_variable = { which = temp_gain_health value = 1 }
+				divide_variable = { which = temp_gain_health value = 2 }
+			}
+		}
+		
+		if = {
+			limit = { FROM = { is_betrothed = yes } }
+			export_to_variable = { which = local_age value = age }
+			betrothed = {
+				export_to_variable = { which = local_age value = age }
+				if = {
+					limit = { check_variable = { which = local_age which = FROM } }
+					FROM = { set_character_flag = flag_older }
+				}
+			}
+		}
+	}
+	
+	# Give diplomacy
+	option = {
+		name = EVTOPTA_MYTHMORE.47
+		trigger = {
+			has_character_flag = temp_choose_diplomacy
+			diplomacy = 12
+		}
+		if = {
+			limit = { trait = arcane_master }
+			change_diplomacy = -4
+		}
+		else_if = {
+			limit = { trait = veteran_wizard }
+			change_diplomacy = -3
+		}
+		else_if = {
+			limit = { trait = eldritch_scholar }
+			change_diplomacy = -2
+		}
+		else = {
+			change_diplomacy = -1
+		}
+		FROM = {
+			if = {
+				limit = { ROOT = { trait = arcane_master } }
+				change_diplomacy = 4
+			}
+			else_if = {
+				limit = { ROOT = { trait = veteran_wizard } }
+				change_diplomacy = 3
+			}
+			else_if = {
+				limit = { ROOT = { trait = eldritch_scholar } }
+				change_diplomacy = 2
+			}
+			else = {
+				change_diplomacy = 1
+			}
+			add_trait = gregarious
+		}
+		hidden_tooltip = {
+			FROM = { character_event = { id = MYTHMORE.48 } }
+			clr_character_flag = temp_choose_martial
+			clr_character_flag = temp_choose_stewardship
+			clr_character_flag = temp_choose_intrigue
+			clr_character_flag = temp_choose_learning
+			clr_character_flag = temp_choose_health
+			clr_character_flag = temp_choose_love
+		}
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 2
+				diplomacy = 20
+			}
+			modifier = {
+				factor = 2
+				diplomacy = 30
+			}
+			modifier = {
+				factor = 2
+				diplomacy = 40
+			}
+			modifier = {
+				factor = 2
+				diplomacy = 50
+			}
+			modifier = {
+				factor = 2
+				has_lifestyle_diplomacy_trigger = yes
+			}
+			modifier = {
+				factor = 2
+				FROM = { child_personality_diplomacy_trigger = yes }
+			}
+			modifier = {
+				factor = 2
+				trait = gregarious
+			}
+		}
+	}
+	
+	# Give Martial
+	option = {
+		name = EVTOPTB_MYTHMORE.47
+		trigger = {
+			has_character_flag = temp_choose_martial
+			martial = 12
+		}
+		if = {
+			limit = { trait = arcane_master }
+			change_martial = -4
+		}
+		else_if = {
+			limit = { trait = veteran_wizard }
+			change_martial = -3
+		}
+		else_if = {
+			limit = { trait = eldritch_scholar }
+			change_martial = -2
+		}
+		else = {
+			change_martial = -1
+		}
+		FROM = {
+			if = {
+				limit = { ROOT = { trait = arcane_master } }
+				change_martial = 4
+			}
+			else_if = {
+				limit = { ROOT = { trait = veteran_wizard } }
+				change_martial = 3
+			}
+			else_if = {
+				limit = { ROOT = { trait = eldritch_scholar } }
+				change_martial = 2
+			}
+			else = {
+				change_martial = 1
+			}
+			add_trait = brave
+		}
+		hidden_tooltip = {
+			FROM = { character_event = { id = MYTHMORE.48 } }
+			clr_character_flag = temp_choose_diplomacy
+			clr_character_flag = temp_choose_stewardship
+			clr_character_flag = temp_choose_intrigue
+			clr_character_flag = temp_choose_learning
+			clr_character_flag = temp_choose_health
+			clr_character_flag = temp_choose_love
+		}
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 2
+				martial = 20
+			}
+			modifier = {
+				factor = 2
+				martial = 30
+			}
+			modifier = {
+				factor = 2
+				martial = 40
+			}
+			modifier = {
+				factor = 2
+				martial = 50
+			}
+			modifier = {
+				factor = 2
+				has_lifestyle_martial_trigger = yes
+			}
+			modifier = {
+				factor = 2
+				FROM = { child_personality_martial_trigger = yes }
+			}
+			modifier = {
+				factor = 2
+				trait = brave
+			}
+		}
+	}
+	
+	# Give Stewardship
+	option = {
+		name = EVTOPTC_MYTHMORE.47
+		trigger = {
+			has_character_flag = temp_choose_stewardship
+			stewardship = 12
+		}
+		if = {
+			limit = { trait = arcane_master }
+			change_stewardship = -4
+		}
+		else_if = {
+			limit = { trait = veteran_wizard }
+			change_stewardship = -3
+		}
+		else_if = {
+			limit = { trait = eldritch_scholar }
+			change_stewardship = -2
+		}
+		else = {
+			change_stewardship = -1
+		}
+		FROM = {
+			if = {
+				limit = { ROOT = { trait = arcane_master } }
+				change_stewardship = 4
+			}
+			else_if = {
+				limit = { ROOT = { trait = veteran_wizard } }
+				change_stewardship = 3
+			}
+			else_if = {
+				limit = { ROOT = { trait = eldritch_scholar } }
+				change_stewardship = 2
+			}
+			else = {
+				change_stewardship = 1
+			}
+			add_trait = temperate
+			lose_weight_small_effect = yes
+			weight_trait_check_effect = yes
+		}
+		hidden_tooltip = {
+			FROM = { character_event = { id = MYTHMORE.48 } }
+			clr_character_flag = temp_choose_diplomacy
+			clr_character_flag = temp_choose_martial
+			clr_character_flag = temp_choose_intrigue
+			clr_character_flag = temp_choose_learning
+			clr_character_flag = temp_choose_health
+			clr_character_flag = temp_choose_love
+		}
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 2
+				stewardship = 20
+			}
+			modifier = {
+				factor = 2
+				stewardship = 30
+			}
+			modifier = {
+				factor = 2
+				stewardship = 40
+			}
+			modifier = {
+				factor = 2
+				stewardship = 50
+			}
+			modifier = {
+				factor = 2
+				has_lifestyle_stewardship_trigger = yes
+			}
+			modifier = {
+				factor = 2
+				FROM = { child_personality_stewardship_trigger = yes }
+			}
+			modifier = {
+				factor = 2
+				trait = temperate
+			}
+		}
+	}
+	
+	# Give Intrigue
+	option = {
+		name = EVTOPTD_MYTHMORE.47
+		trigger = {
+			has_character_flag = temp_choose_intrigue
+			intrigue = 12
+		}
+		if = {
+			limit = { trait = arcane_master }
+			change_intrigue = -4
+		}
+		else_if = {
+			limit = { trait = veteran_wizard }
+			change_intrigue = -3
+		}
+		else_if = {
+			limit = { trait = eldritch_scholar }
+			change_intrigue = -2
+		}
+		else = {
+			change_intrigue = -1
+		}
+		FROM = {
+			if = {
+				limit = { ROOT = { trait = arcane_master } }
+				change_intrigue = 4
+			}
+			else_if = {
+				limit = { ROOT = { trait = veteran_wizard } }
+				change_intrigue = 3
+			}
+			else_if = {
+				limit = { ROOT = { trait = eldritch_scholar } }
+				change_intrigue = 2
+			}
+			else = {
+				change_intrigue = 1
+			}
+			add_trait = deceitful
+		}
+		hidden_tooltip = {
+			FROM = { character_event = { id = MYTHMORE.48 } }
+			clr_character_flag = temp_choose_diplomacy
+			clr_character_flag = temp_choose_martial
+			clr_character_flag = temp_choose_stewardship
+			clr_character_flag = temp_choose_learning
+			clr_character_flag = temp_choose_health
+			clr_character_flag = temp_choose_love
+		}
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 2
+				intrigue = 20
+			}
+			modifier = {
+				factor = 2
+				intrigue = 30
+			}
+			modifier = {
+				factor = 2
+				intrigue = 40
+			}
+			modifier = {
+				factor = 2
+				intrigue = 50
+			}
+			modifier = {
+				factor = 2
+				has_lifestyle_intrigue_trigger = yes
+			}
+			modifier = {
+				factor = 2
+				FROM = { child_personality_intrigue_trigger = yes }
+			}
+			modifier = {
+				factor = 2
+				trait = deceitful
+			}
+		}
+	}
+	
+	# Give Learning
+	option = {
+		name = EVTOPTE_MYTHMORE.47
+		trigger = {
+			has_character_flag = temp_choose_learning
+			learning = 12
+		}
+		if = {
+			limit = { trait = arcane_master }
+			change_learning = -4
+		}
+		else_if = {
+			limit = { trait = veteran_wizard }
+			change_learning = -3
+		}
+		else_if = {
+			limit = { trait = eldritch_scholar }
+			change_learning = -2
+		}
+		else = {
+			change_learning = -1
+		}
+		FROM = {
+			if = {
+				limit = { ROOT = { trait = arcane_master } }
+				change_learning = 4
+			}
+			else_if = {
+				limit = { ROOT = { trait = veteran_wizard } }
+				change_learning = 3
+			}
+			else_if = {
+				limit = { ROOT = { trait = eldritch_scholar } }
+				change_learning = 2
+			}
+			else = {
+				change_learning = 1
+			}
+			add_trait = erudite
+		}
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 2
+				learning = 20
+			}
+			modifier = {
+				factor = 2
+				learning = 30
+			}
+			modifier = {
+				factor = 2
+				learning = 40
+			}
+			modifier = {
+				factor = 2
+				learning = 50
+			}
+			modifier = {
+				factor = 2
+				has_lifestyle_learning_trigger = yes
+			}
+			modifier = {
+				factor = 2
+				FROM = { child_personality_learning_trigger = yes }
+			}
+			modifier = {
+				factor = 2
+				trait = erudite
+			}
+		}
+		hidden_tooltip = {
+			FROM = { character_event = { id = MYTHMORE.48 } }
+			clr_character_flag = temp_choose_diplomacy
+			clr_character_flag = temp_choose_martial
+			clr_character_flag = temp_choose_stewardship
+			clr_character_flag = temp_choose_intrigue
+			clr_character_flag = temp_choose_health
+			clr_character_flag = temp_choose_love
+		}
+	}
+	
+	# Give Health
+	option = {
+		name = EVTOPTF_MYTHMORE.47
+		trigger = {
+			has_character_flag = temp_choose_health
+			health = 6
+		}
+		if = {
+			limit = { trait = arcane_master }
+			health = -2
+		}
+		else_if = {
+			limit = { trait = veteran_wizard }
+			health = -1.5
+		}
+		else_if = {
+			limit = { trait = eldritch_scholar }
+			health = -1
+		}
+		else = {
+			health = -0.5
+		}
+		FROM = {
+			if = {
+				limit = { ROOT = { trait = arcane_master } }
+				health = 2
+			}
+			else_if = {
+				limit = { ROOT = { trait = veteran_wizard } }
+				health = 1.5
+			}
+			else_if = {
+				limit = { ROOT = { trait = eldritch_scholar } }
+				health = 1
+			}
+			else = {
+				health = 0.5
+			}
+			if = {
+				limit = { trait = feeble }
+				remove_trait = feeble
+			}
+			else_if = {
+				limit = { trait = weak }
+				remove_trait = weak
+			}
+			else_if = {
+				limit = {
+					NOR = {
+						trait = robust
+						trait = strong
+					}
+				}
+				add_trait = robust
+			}
+		}
+		hidden_tooltip = {
+			FROM = { character_event = { id = MYTHMORE.48 } }
+			clr_character_flag = temp_choose_diplomacy
+			clr_character_flag = temp_choose_martial
+			clr_character_flag = temp_choose_stewardship
+			clr_character_flag = temp_choose_intrigue
+			clr_character_flag = temp_choose_learning
+			clr_character_flag = temp_choose_love
+		}
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 2
+				health = 7
+			}
+			modifier = {
+				factor = 2
+				health = 10
+			}
+			modifier = {
+				factor = 2
+				health = 15
+			}
+			modifier = {
+				factor = 2
+				health = 20
+			}
+			modifier = {
+				factor = 2
+				trait = physician
+			}
+			modifier = {
+				factor = 2
+				FROM = { 
+					OR = {
+						trait = feeble
+						trait = weak
+					}
+				}
+			}
+			modifier = {
+				factor = 2
+				is_maimed_trigger = yes
+			}
+		}
+	}
+	
+	# Give Love
+	option = {
+		name = EVTOPTG_MYTHMORE.47
+		trigger = {
+			has_character_flag = temp_choose_love
+		}
+		random_lover = {
+			hidden_tooltip = { remove_lover = ROOT }
+			add_rival = ROOT
+		}
+		FROM = {
+			betrothed = {
+				opinion = { who = FROM modifier = opinion_childhood_sweetheart years = 4 }
+				reverse_opinion = { who = FROM modifier = opinion_childhood_sweetheart years = 4 }
+				if = {
+					limit = { has_character_flag = flag_older }
+					set_character_flag = become_adult_lover
+					clr_character_flag = flag_older
+				}
+				else = {
+					FROM = { set_character_flag = become_adult_lover }
+				}
+			}
+			random_list = {
+				1 = { add_trait = kind }
+				1 = { add_trait = trusting }
+				1 = { add_trait = lustful }
+			}
+		}
+		hidden_tooltip = {
+			FROM = { character_event = { id = MYTHMORE.48 } }
+			clr_character_flag = temp_choose_diplomacy
+			clr_character_flag = temp_choose_martial
+			clr_character_flag = temp_choose_stewardship
+			clr_character_flag = temp_choose_intrigue
+			clr_character_flag = temp_choose_learning
+			clr_character_flag = temp_choose_health
+		}
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 2
+				num_of_lovers = 2
+			}
+			modifier = {
+				factor = 2
+				num_of_lovers = 3
+			}
+			modifier = {
+				factor = 2
+				OR = {
+					trait = seducer
+					trait = seductress
+				}
+			}
+			modifier = {
+				factor = 2
+				trait = lustful
+			}
+			modifier = {
+				factor = 2
+				trait = kind
+			}
+			modifier = {
+				factor = 2
+				trait = trusting
+			}
+		}
+	}
+	
+	# Do nothing
+	option = {
+		name = EVTOPTH_MYTHMORE.47
+		hidden_tooltip = {
+			clr_character_flag = temp_choose_diplomacy
+			clr_character_flag = temp_choose_martial
+			clr_character_flag = temp_choose_stewardship
+			clr_character_flag = temp_choose_intrigue
+			clr_character_flag = temp_choose_learning
+			clr_character_flag = temp_choose_health
+			clr_character_flag = temp_choose_love
+			FROM = {
+				set_variable = { which = temp_gain value = 0 }
+				set_variable = { which = temp_gain_health value = 0 }
+			}
+		}
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 2
+				NOT = { opinion = { who = FROM value = 0 } }
+			}
+			modifier = {
+				factor = 2
+				trait = depressed
+			}
+			modifier = {
+				factor = 2
+				trait = proud
+			}
+			modifier = {
+				factor = 2
+				trait = slothful
+			}
+		}
+	}
+	
+	after = {
+		# Event to clear all flags, just in case of some sort of weird failure
+		character_event = { id = MYTHMORE.49 days = 2 }
+	}
+}
+
+# Child informed of ritual
+character_event = {
+	id = MYTHMORE.48
+	desc = EVTDESC_MYTHMORE.48
+	picture = GFX_evt_dark_prayer
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_MYTHMORE.48
+		trigger = { FROM = { has_character_flag = temp_choose_diplomacy } }
+		tooltip = {
+			change_diplomacy = temp_gain
+			if = {
+				limit = {
+					NOT = { trait = gregarious }
+				}
+				add_trait = gregarious
+			}
+		}
+		hidden_tooltip = {
+			FROM = { clr_character_flag = temp_choose_diplomacy }
+		}
+	}
+	
+	option = {
+		name = EVTOPTB_MYTHMORE.48
+		trigger = { FROM = { has_character_flag = temp_choose_martial } }
+		tooltip = {
+			change_martial = temp_gain
+			if = {
+				limit = {
+					NOT = { trait = brave }
+				}
+				add_trait = brave
+			}
+		}
+		hidden_tooltip = {
+			FROM = { clr_character_flag = temp_choose_martial }
+		}
+	}
+	
+	option = {
+		name = EVTOPTC_MYTHMORE.48
+		trigger = { FROM = { has_character_flag = temp_choose_stewardship } }
+		tooltip = {
+			change_stewardship = temp_gain
+			if = {
+				limit = {
+					NOT = { trait = temperate }
+				}
+				add_trait = temperate
+				lose_weight_small_effect = yes
+				weight_trait_check_effect = yes
+			}
+		}
+		hidden_tooltip = {
+			FROM = { clr_character_flag = temp_choose_stewardship }
+		}
+	}
+	
+	option = {
+		name = EVTOPTD_MYTHMORE.48
+		trigger = { FROM = { has_character_flag = temp_choose_intrigue } }
+		tooltip = {
+			change_intrigue = temp_gain
+			if = {
+				limit = {
+					NOT = { trait = deceitful }
+				}
+				add_trait = deceitful
+			}
+		}
+		hidden_tooltip = {
+			FROM = { clr_character_flag = temp_choose_intrigue }
+		}
+	}
+	
+	option = {
+		name = EVTOPTE_MYTHMORE.48
+		trigger = { FROM = { has_character_flag = temp_choose_learning } }
+		tooltip = {
+			change_learning = temp_gain
+			if = {
+				limit = {
+					NOT = { trait = erudite }
+				}
+				add_trait = erudite
+			}
+		}
+		hidden_tooltip = {
+			FROM = { clr_character_flag = temp_choose_learning }
+		}
+	}
+	
+	option = {
+		name = EVTOPTF_MYTHMORE.48
+		trigger = { FROM = { has_character_flag = temp_choose_health } }
+		tooltip = {
+			health = temp_gain
+			if = {
+				limit = {
+					NOT = { trait = robust }
+				}
+				add_trait = robust
+			}
+		}
+		hidden_tooltip = {
+			FROM = { clr_character_flag = temp_choose_health }
+		}
+	}
+	
+	option = {
+		name = EVTOPTG_MYTHMORE.48
+		trigger = { FROM = { has_character_flag = temp_choose_love } }
+		tooltip = {
+			betrothed = {
+				opinion = { who = FROM modifier = opinion_childhood_sweetheart years = 4 }
+				reverse_opinion = { who = FROM modifier = opinion_childhood_sweetheart years = 4 }
+			}
+		}
+		hidden_tooltip = {
+			FROM = { clr_character_flag = temp_choose_love }
+		}
+	}
+	
+	after = {
+		set_variable = { which = temp_gain value = 0 }
+		set_variable = { which = temp_gain_health value = 0 }
+	}
+}
+
+# Clear all flags, just in case
+character_event = {
+	id = MYTHMORE.49
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		clr_character_flag = temp_choose_diplomacy
+		clr_character_flag = temp_choose_martial
+		clr_character_flag = temp_choose_stewardship
+		clr_character_flag = temp_choose_intrigue
+		clr_character_flag = temp_choose_learning
+		clr_character_flag = temp_choose_health
+		clr_character_flag = temp_choose_love
+	}
+}
+
+# On adulthood, magic childhood sweetheart becomes lover
+character_event = {
+	id = MYTHMORE.50
+	desc = EVTDESC_MYTHMORE.50
+	picture = GFX_evt_lovers
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		has_character_flag = become_adult_lover
+		OR = {
+			betrothed = { always = yes }
+			spouse = { always = yes }
+		}
+	}
+	
+	option = {
+		name = EVTOPTA_MYTHMORE.50
+		if = {
+			limit = { betrothed = { always = yes } }
+			betrothed = { add_lover = ROOT }
+		}
+		else = {
+			spouse = { add_lover = ROOT }
+		}
+		hidden_tooltip = { clr_character_flag = become_adult_lover }
+	}
+}
+
+# MYTHMORE.51 - Determine love potion result
+character_event = {
+	id = MYTHMORE.51
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		random_list = {
+			# Critical success
+			10 = {
+				modifier = {
+					factor = 10
+					trait = arcane_master
+				}
+				modifier = {
+					factor = 4.5
+					trait = veteran_wizard
+				}
+				modifier = {
+					factor = 2.1
+					trait = eldritch_scholar
+				}
+				modifier = {
+					factor = 1.2
+					trait = enchanter
+				}
+				modifier = {
+					factor = 1.7
+					trait = herbalist
+				}
+				modifier = {
+					factor = 1.5
+					has_artifact = greater_key_of_solomon
+				}
+				modifier = {
+					factor = 3
+					check_variable = { which = potion_bonus value = 2 }
+				}
+				character_event = { id = MYTHMORE.53 days = 1 }
+			}
+			# Success
+			50 = {
+				modifier = {
+					factor = 9
+					trait = arcane_master
+				}
+				modifier = {
+					factor = 4
+					trait = veteran_wizard
+				}
+				modifier = {
+					factor = 2.3
+					trait = eldritch_scholar
+				}
+				modifier = {
+					factor = 1.5
+					trait = novice_mage
+				}
+				modifier = {
+					factor = 1.2
+					trait = enchanter
+				}
+				modifier = {
+					factor = 1.5
+					trait = herbalist
+				}
+				modifier = {
+					factor = 1.5
+					has_artifact = greater_key_of_solomon
+				}
+				modifier = {
+					factor = 2
+					check_variable = { which = potion_bonus value = 1 }
+				}
+				if = {
+					limit = {
+						NOT = { same_sex = event_target:target_potioned }
+						event_target:target_potioned = { trait = homosexual }
+					}
+					# Target is different sex, but homosexual
+					character_event = {
+						id = MYTHMORE.2
+						days = 1
+					}
+					break = yes
+				}
+				if = {
+					limit = {
+						same_sex = FROM
+						event_target:target_potioned = { NOT = { trait = homosexual } }
+					}
+					# Target is same sex, but not homosexual
+					character_event = {
+						id = MYTHMORE.3
+						days = 1
+					}
+					break = yes
+				}
+				if = {
+					limit = {
+						event_target:target_potioned = { trait = chaste }
+					}
+					# Target has chaste
+					character_event = {
+						id = MYTHMORE.4
+						days = 1
+					}
+					break = yes
+				}
+				# Target becomes lover
+				character_event = {
+					id = MYTHMORE.5
+					days = 1
+				}
+			}
+			# No effect
+			40 = {
+				if = {
+					limit = { ai = no } # Notification event
+					character_event = { id = MYTHMORE.52 days = 1 }
+				}
+			}
+			# Failure
+			50 = {
+				modifier = {
+					factor = 2
+					NOT = { check_variable = { which = potion_bonus value = 0 } }
+				}
+				if = {
+					limit = {
+						OR = {
+							AND = {
+								same_sex = event_target:target_potioned
+								NOT = { event_target:target_potioned = { trait = homosexual } }
+							}
+							AND = {
+								NOT = { same_sex = FROM }
+								event_target:target_potioned = { trait = homosexual }
+							}
+						}
+					}
+					# Target is not attracted to your sex, becomes your rival
+					character_event = {
+						id = MYTHMORE.6
+						days = 1
+					}
+					break = yes
+				}
+				if = {
+					limit = {
+						NOT = { event_target:target_potioned = { trait = chaste } }
+					}
+					# Target is not chaste
+					random_list = {
+						50 = {
+							# Target becomes chaste
+							character_event = {
+								id = MYTHMORE.7
+								days = 1
+							}
+						}
+						30 = {
+							# Target sexuality change
+							if = {
+								limit = {
+									same_sex = FROM
+								}
+								# Target loses homosexual
+								character_event = {
+									id = MYTHMORE.8
+									days = 1
+								}
+							}
+							if = {
+								limit = {
+									NOT = { same_sex = FROM }
+								}
+								# Target gains homosexual
+								character_event = {
+									id = MYTHMORE.9
+									days = 1
+								}
+							}
+						}
+						10 = {
+							# Target becomes Rival
+							character_event = {
+								id = MYTHMORE.6
+								days = 1
+							}
+						}
+						10 = {
+							# Target becomes Celibate
+							character_event = {
+								id = MYTHMORE.10
+								days = 1
+							}
+						}
+					}
+					break = yes
+				}
+				
+				# Target is attracted to your sex, but is already chaste
+				random_list = {
+					50 = {
+						# Target sexuality change
+						if = {
+							limit = {
+								same_sex = FROM
+							}
+							# Target loses homosexual
+							character_event = {
+								id = MYTHMORE.8
+								days = 1
+							}
+						}
+						if = {
+							limit = {
+								NOT = { same_sex = FROM }
+							}
+							# Target gains homosexual
+							character_event = {
+								id = MYTHMORE.9
+								days = 1
+							}
+						}
+					}
+					30 = {
+						# Target becomes Rival
+						character_event = {
+							id = MYTHMORE.6
+							days = 1
+						}
+					}
+					20 = {
+						# Target becomes Celibate
+						character_event = {
+							id = MYTHMORE.10
+							days = 1
+						}
+					}
+				}
+				break = yes
+			}
+		}
+	}
+}
+
+# MYTHMORE.52 - Love potion has no effect
+character_event = {
+	id = MYTHMORE.52
+	desc = EVTDESCMYTHMORE.52
+	picture = GFX_evt_experiments_failed
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAMYTHMORE.52
+	}
+}
+
+# MYTHMORE.53 - Love Potion critical success
+character_event = {
+	id = MYTHMORE.53
+	desc = EVTDESCMYTHMORE.53
+	picture = GFX_evt_lovers
+	is_triggered_only = yes
+	
+	option = {
+		name = EXCELLENT
+		event_target:target_potioned = {
+			tooltip = {
+				if = {
+					limit = {
+						same_sex = ROOT
+						NOT = { trait = homosexual }
+					}
+					add_trait = homosexual
+				}
+				else_if = {
+					limit = {
+						NOT = { same_sex = ROOT }
+						trait = homosexual
+					}
+					remove_trait = homosexual
+				}
+				if = {
+					limit = { trait = chaste }
+					remove_trait = chaste
+				}
+				add_lover = ROOT
+			}
+			character_event = { id = MYTHMORE.54 }
+		}
+	}
+}
+
+# MYTHMORE.54 - Informed potioned of critical success
+character_event = {
+	id = MYTHMORE.54
+	desc = EVTDESCMYTHMORE.54
+	picture = GFX_evt_lovers
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAMYTHMORE.55
+		if = {
+			limit = {
+				same_sex = FROM
+				NOT = { trait = homosexual }
+			}
+			add_trait = homosexual
+		}
+		else_if = {
+			limit = {
+				NOT = { same_sex = FROM }
+				trait = homosexual
+			}
+			remove_trait = homosexual
+		}
+		if = {
+			limit = { trait = chaste }
+			remove_trait = chaste
+		}
+		add_lover = FROM
+	}
+}
+
+# Summoned revenant courtier
+character_event = {
+	id = MYTHMORE.55
+	desc = EVTDESCMYTHMORE.55
+	picture = GFX_evt_death
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_NE_1
+		
+		trigger = {
+			event_target:invited_character = { has_character_flag = invited_soldier }
+			OR = {
+				AND = {
+					tier = COUNT
+					NOT = {
+						any_realm_character = {
+							count = 2
+							liege = { character = ROOT }
+							has_minor_title = title_commander
+						}
+					}
+				}
+				AND = {
+					tier = DUKE
+					NOT = {
+						any_realm_character = {
+							count = 4
+							liege = { character = ROOT }
+							has_minor_title = title_commander
+						}
+					}
+				}
+				AND = {
+					tier = KING
+					is_nomadic = no
+					NOT = {
+						any_realm_character = {
+							count = 6
+							liege = { character = ROOT }
+							has_minor_title = title_commander
+						}
+					}
+				}
+				AND = {
+					tier = EMPEROR
+					is_nomadic = no
+					NOT = {
+						any_realm_character = {
+							count = 8
+							liege = { character = ROOT }
+							has_minor_title = title_commander
+						}
+					}
+				}
+				AND = {
+					tier = KING
+					is_nomadic = yes
+					NOT = {
+						any_realm_character = {
+							count = 2
+							liege = { character = ROOT }
+							has_minor_title = title_commander
+						}
+					}
+				}
+				AND = {
+					tier = EMPEROR
+					is_nomadic = yes
+					NOT = {
+						any_realm_character = {
+							count = 4
+							liege = { character = ROOT }
+							has_minor_title = title_commander
+						}
+					}
+				}
+			}
+		}
+		
+		event_target:invited_character = {
+			give_minor_title = title_commander
+		}
+	}
+	
+	option = {
+		name = EXCELLENT
+	}
+}
+
+#character_event = {
+#	id = MYTHMORE.56
+#	hide_window = yes
+#	is_triggered_only = yes
+#	
+#	immediate = {
+#		# Lucifer's Own
+#		if = {
+#			limit = {
+#				OR = {
+#					society = the_satanists
+#					society = the_trollcrafters
+#				}
+#			}
+#			FROM = {
+#				create_character = {
+#					dynasty = random
+#					culture = FROM
+#					religion = FROM
+#					random_traits = yes
+#					trait = elusive_shadow
+#				}
+#				new_character = {
+#					if = { limit = { trait = chaste } remove_trait = chaste add_trait = lustful }
+#					if = { limit = { trait = temperate } remove_trait = temperate add_trait = gluttonous }
+#					if = { limit = { trait = charitable } remove_trait = charitable add_trait = greedy }
+#					if = { limit = { trait = diligent } remove_trait = diligent add_trait = slothful }
+#					if = { limit = { trait = patient } remove_trait = patient add_trait = wroth }
+#					if = { limit = { trait = kind } remove_trait = kind add_trait = envious }
+#					if = { limit = { trait = humble } remove_trait = humble add_trait = proud }
+#					join_society = ROOT
+#					set_society_grandmaster = yes
+#				}
+#			}
+#		}
+#		else_if = {
+#			limit = { society = the_cult_of_kali }
+#			FROM = {
+#				create_character = {
+#					dynasty = random
+#					culture = FROM
+#					religion = FROM
+#					random_traits = yes
+#					trait = elusive_shadow
+#					trait = ambitious
+#					trait = cruel
+#				}
+#				new_character = {
+#					join_society = ROOT
+#					set_society_grandmaster = yes
+#				}
+#			}
+#		}
+#		else_if = {
+#			limit = { society = the_cold_ones }
+#			FROM = {
+#				create_character = {
+#					dynasty = random
+#					culture = FROM
+#					religion = FROM
+#					random_traits = yes
+#					trait = arcane_master
+#					trait = necromancer
+#					trait = craven
+#				}
+#				new_character = {
+#					join_society = ROOT
+#					set_society_grandmaster = yes
+#				}
+#			}
+#		}
+#		else_if = {
+#			limit = { society = the_plaguebringers }
+#			FROM = {
+#				create_character = {
+#					dynasty = random
+#					culture = FROM
+#					religion = FROM
+#					random_traits = yes
+#					health = 7
+#					flag = plague_bearer
+#				}
+#				new_character = {
+#					join_society = ROOT
+#					set_society_grandmaster = yes
+#				}
+#			}
+#		}
+#		else_if = {
+#			limit = { society = the_vodouns }
+#			FROM = {
+#				create_character = {
+#					dynasty = random
+#					culture = FROM
+#					religion = FROM
+#					random_traits = yes
+#					trait = veteran_wizard
+#					trait = necromancer
+#				}
+#				new_character = {
+#					join_society = ROOT
+#					set_society_grandmaster = yes
+#				}
+#			}
+#		}
+#		else_if = {
+#			limit = { society = the_vodouns }
+#			FROM = {
+#				create_character = {
+#					dynasty = random
+#					culture = FROM
+#					religion = FROM
+#					random_traits = yes
+#					trait = hedonist
+#				}
+#				new_character = {
+#					join_society = ROOT
+#					set_society_grandmaster = yes
+#				}
+#			}
+#		}
+#		else_if = {
+#			limit = { society = warrior_lodge_norse }
+#			FROM = {
+#				spawn_good_commander_effect = yes
+#				new_character = {
+#					add_trait = berserker
+#					add_trait = norse_leader
+#					join_society = ROOT
+#					set_society_grandmaster = yes
+#				}
+#			}
+#		}
+#		else_if = {
+#			limit = { society = warrior_lodge_tengri }
+#			FROM = {
+#				spawn_good_commander_effect = yes
+#				new_character = {
+#					add_trait = hunter
+#					add_trait = tengri_leader
+#					join_society = ROOT
+#					set_society_grandmaster = yes
+#				}
+#			}
+#		}
+#		else_if = {
+#			limit = { society = warrior_lodge_baltic }
+#			FROM = {
+#				spawn_good_commander_effect = yes
+#				new_character = {
+#					add_trait = baltic_leader
+#					join_society = ROOT
+#					set_society_grandmaster = yes
+#				}
+#			}
+#		}
+#		else_if = {
+#			limit = { society = warrior_lodge_finnish }
+#			FROM = {
+#				spawn_good_commander_effect = yes
+#				new_character = {
+#					add_trait = finnish_leader
+#					join_society = ROOT
+#					set_society_grandmaster = yes
+#				}
+#			}
+#		}
+#		else_if = {
+#			limit = { society = warrior_lodge_slavic }
+#			FROM = {
+#				spawn_good_commander_effect = yes
+#				new_character = {
+#					add_trait = slavic_leader
+#					join_society = ROOT
+#					set_society_grandmaster = yes
+#				}
+#			}
+#		}
+#		else_if = {
+#			limit = { society = warrior_lodge_west_african }
+#			FROM = {
+#				spawn_good_commander_effect = yes
+#				new_character = {
+#					add_trait = west_african_leader
+#					join_society = ROOT
+#					set_society_grandmaster = yes
+#				}
+#			}
+#		}
+#		else_if = {
+#			limit = { society = warrior_lodge_zun }
+#			FROM = {
+#				spawn_good_commander_effect = yes
+#				new_character = {
+#					add_trait = zun_leader
+#					join_society = ROOT
+#					set_society_grandmaster = yes
+#				}
+#			}
+#		}
+#		else_if = {
+#			limit = { society = warrior_lodge_bon }
+#			FROM = {
+#				spawn_good_commander_effect = yes
+#				new_character = {
+#					add_trait = bon_leader
+#					join_society = ROOT
+#					set_society_grandmaster = yes
+#				}
+#			}
+#		}
+#		else_if = {
+#			limit = { society = warrior_lodge_hellenic }
+#			FROM = {
+#				spawn_good_commander_effect = yes
+#				new_character = {
+#					add_trait = hellenic_leader
+#					join_society = ROOT
+#					set_society_grandmaster = yes
+#				}
+#			}
+#		}
+#		else_if = {
+#			limit = { society = warrior_lodge_draconic }
+#			FROM = {
+#				spawn_good_commander_effect = yes
+#				new_character = {
+#					add_trait = draconic_leader
+#					add_trait = dragon
+#					culture = draconic
+#					set_graphical_culture = draconic
+#					join_society = ROOT
+#					set_society_grandmaster = yes
+#				}
+#			}
+#		}
+#		else_if = {
+#			limit = { society = warrior_lodge_kemetic }
+#			FROM = {
+#				spawn_good_commander_effect = yes
+#				new_character = {
+#					add_trait = kemetic_leader
+#					join_society = ROOT
+#					set_society_grandmaster = yes
+#				}
+#			}
+#		}
+#		else_if = {
+#			limit = { society = warrior_lodge_druidic }
+#			FROM = {
+#				spawn_good_commander_effect = yes
+#				new_character = {
+#					add_trait = druidic_leader
+#					join_society = ROOT
+#					set_society_grandmaster = yes
+#				}
+#			}
+#		}
+#		else_if = {
+#			limit = { society = warrior_lodge_jotnar }
+#			FROM = {
+#				spawn_good_commander_effect = yes
+#				new_character = {
+#					add_trait = jotnar_leader
+#					add_trait = mythos_giant
+#					add_trait = giant_hrimthursar
+#					join_society = ROOT
+#					set_society_grandmaster = yes
+#				}
+#			}
+#		}
+#	}
+#}
+
+# MYTHMORE.57 - Gain supplies from annual flooding
+character_event = {
+	id = MYTHMORE.57
+	desc = EVTMYTHMORE_DESC_57
+	picture = GFX_evt_river
+	border = GFX_event_normal_frame_war
+    has_dlc = "Holy Fury"
+
+    is_triggered_only = yes
+
+    notification = yes
+	
+	option = {
+		name = EXCELLENT
+		any_realm_province = {
+			limit = { borders_major_river = yes }
+			add_province_modifier = { modifier = bountiful_harvests years = 2 }
+		}
+		add_character_modifier = { modifier = well_supplied years = 2 }
+		any_courtier_or_vassal = {
+			limit = {
+				OR = { 
+					has_minor_title = title_commander
+					has_job_title = yes
+				}
+			}
+			add_character_modifier = { modifier = well_supplied years = 2 }
+			if = {
+				limit = { ai = no }
+				character_event = { id = MYTHMORE.58 }
+			}
+		}
+	}
+}
+
+character_event = {
+	id = MYTHMORE.58
+	desc = EVTMYTHMORE_DESC_58
+	picture = GFX_evt_river
+	border = GFX_event_normal_frame_war
+    has_dlc = "Holy Fury"
+
+    is_triggered_only = yes
+
+    notification = yes
+	
+	option = {
+		name = EXCELLENT
+		tooltip = { add_character_modifier = { modifier = well_supplied years = 2 } }
+	}
+}
+
+character_event = {
+	id = MYTHMORE.59
+	desc = EVTMYTHMORE_DESC_59
+	picture = GFX_evt_riders_night_hf
+	border = GFX_event_normal_frame_war
+    has_dlc = "Holy Fury"
+
+    is_triggered_only = yes
+
+    notification = yes
+	
+	option = {
+		name = EXCELLENT
+		add_character_modifier = { modifier = druidic_mobility duration = 2655 }
+	}
+}
+
+# Dragon Warrior Lodge ability
+# At start of battle, damage opposing army
+# Assuming Root is the leader
+character_event = {
+	id = MYTHMORE.60
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		society_member_of = warrior_lodge_draconic
+		society_rank >= 3
+		trait = dragon
+	}
+	
+	immediate = {
+		FROM = {
+			any_controlled_unit = {
+				damage_unit = { percentage = 0.05 }
+			}
+		}
+	}
+}
+
+# Records eternal flames for random religions
+character_event = {
+	id = MYTHMORE.61
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		NOT = { has_global_flag = set_up_eternal_flames }
+	}
+	
+	immediate = {
+		
+		# Record eternal flame sites
+		if = {
+			limit = { # Set normal ones manually for consistent ordering and descriptions
+				NOT = {
+					has_alternate_start_parameter = {
+						key = religion_names
+						value = random
+					}
+				}
+			}
+			k_draconic_pagan_reformed = {
+				save_persistent_event_target = { name = draconic_holy_site_1 scope = c_sjaelland }
+				save_persistent_event_target = { name = draconic_holy_site_2 scope = c_kent }
+				save_persistent_event_target = { name = draconic_holy_site_3 scope = c_plock }
+				save_persistent_event_target = { name = draconic_holy_site_4 scope = c_galloway }
+				save_persistent_event_target = { name = draconic_holy_site_5 scope = c_uppland }
+			}
+		}
+		else = {
+			draconic_pagan = { # If there are errors, this might need to scope to a random character of this religion instead
+				random_landed_title = {
+					limit = { is_holy_site = PREV }
+					k_draconic_pagan_reformed = {
+						save_persistent_event_target = { name = draconic_holy_site_1 scope = PREV }
+					}
+					add_wonder = wonder_eternal_flame
+					add_wonder_upgrade = upgrade_dragon_flame
+					remove_wonder_upgrade_slots = 1
+				}
+				random_landed_title = {
+					limit = {
+						is_holy_site = PREV
+						NOT = { k_draconic_pagan_reformed = { persistent_event_target:draconic_holy_site_1 = { title = PREVPREV } } }
+					}
+					k_draconic_pagan_reformed = {
+						save_persistent_event_target = { name = draconic_holy_site_2 scope = PREV }
+					}
+					add_wonder = wonder_eternal_flame
+					add_wonder_upgrade = upgrade_dragon_flame
+					remove_wonder_upgrade_slots = 1
+				}
+				random_landed_title = {
+					limit = {
+						is_holy_site = PREV
+						NOT = { k_draconic_pagan_reformed = { persistent_event_target:draconic_holy_site_1 = { title = PREVPREV } } }
+						NOT = { k_draconic_pagan_reformed = { persistent_event_target:draconic_holy_site_2 = { title = PREVPREV } } }
+					}
+					k_draconic_pagan_reformed = {
+						save_persistent_event_target = { name = draconic_holy_site_3 scope = PREV }
+					}
+					add_wonder = wonder_eternal_flame
+					add_wonder_upgrade = upgrade_dragon_flame
+					remove_wonder_upgrade_slots = 1
+				}
+				random_landed_title = {
+					limit = {
+						is_holy_site = PREV
+						NOT = { k_draconic_pagan_reformed = { persistent_event_target:draconic_holy_site_1 = { title = PREVPREV } } }
+						NOT = { k_draconic_pagan_reformed = { persistent_event_target:draconic_holy_site_2 = { title = PREVPREV } } }
+						NOT = { k_draconic_pagan_reformed = { persistent_event_target:draconic_holy_site_3 = { title = PREVPREV } } }
+					}
+					k_draconic_pagan_reformed = {
+						save_persistent_event_target = { name = draconic_holy_site_4 scope = PREV }
+					}
+					add_wonder = wonder_eternal_flame
+					add_wonder_upgrade = upgrade_dragon_flame
+					remove_wonder_upgrade_slots = 1
+				}
+				random_landed_title = {
+					limit = {
+						is_holy_site = PREV
+						NOT = { k_draconic_pagan_reformed = { persistent_event_target:draconic_holy_site_1 = { title = PREVPREV } } }
+						NOT = { k_draconic_pagan_reformed = { persistent_event_target:draconic_holy_site_2 = { title = PREVPREV } } }
+						NOT = { k_draconic_pagan_reformed = { persistent_event_target:draconic_holy_site_3 = { title = PREVPREV } } }
+						NOT = { k_draconic_pagan_reformed = { persistent_event_target:draconic_holy_site_4 = { title = PREVPREV } } }
+					}
+					k_draconic_pagan_reformed = {
+						save_persistent_event_target = { name = draconic_holy_site_5 scope = PREV }
+					}
+					add_wonder = wonder_eternal_flame
+					add_wonder_upgrade = upgrade_dragon_flame
+					remove_wonder_upgrade_slots = 1
+				}
+			}
+		}
+		
+		set_global_flag = set_up_eternal_flames
+	}
+}
+
+# After conversion to werewolf culture, adjust werewolf laws
+# Also run after gaining title
+character_event = {
+	id = MYTHMORE.62
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		culture = werewolf_culture
+		is_landed = yes
+		higher_tier_than = count
+	}
+	
+	immediate = {
+		if = {
+			limit = {
+				NOR = {
+					has_law = werewolf_law_0
+					has_law = werewolf_law_1
+					has_law = werewolf_law_2
+					has_law = werewolf_law_3
+					has_law = werewolf_law_4
+				}
+			}
+			primary_title = { add_law = werewolf_law_0 }
+		}
+		if = {
+			limit = {
+				NOR = {
+					has_law = werewolf_wait_law_0
+					has_law = werewolf_wait_law_1
+					has_law = werewolf_wait_law_2
+					has_law = werewolf_wait_law_3
+					has_law = werewolf_wait_law_4
+				}
+			}
+			primary_title = { add_law = werewolf_wait_law_2 }
+		}
+	}
+}
+
+# Pregnancy event - Character tried to curse the child
+character_event = {
+	id = MYTHMORE.63
+	picture = GFX_evt_shadow
+	border = GFX_event_normal_frame_intrigue
+	desc = { # Rival is pregnant
+		text = EVT_DESCA_MYTHMORE.63
+		trigger = { 
+			any_rival = { character = FROM }
+		}
+	}
+	desc = { # Rival's wife is pregnant
+		text = EVT_DESCB_MYTHMORE.63
+		trigger = {
+			any_rival = {
+				any_spouse = { character = FROM }
+			}
+		}
+	}
+	desc = { # Rival's baby-mama is pregnant
+		text = EVT_DESCC_MYTHMORE.63
+		trigger = {
+			FROM = {
+				father_of_unborn = {
+					any_rival = { character = ROOT }
+				}
+			}
+		}
+	}
+	desc = { # Rival wife
+		text = EVT_DESCD_MYTHMORE.63
+		trigger = {
+			any_spouse = {
+				any_spouse = { character = FROM }
+			}
+		}
+	}
+	desc = { # Otherwise, you are an heir and the new child is a threat (lose position as heir or lose gavelkind land)
+		text = EVT_DESCE_MYTHMORE.63
+		trigger = {
+			NOR = {
+				any_rival = { character = FROM }
+				any_rival = {
+					any_spouse = { character = FROM }
+				}
+				FROM = {
+					father_of_unborn = {
+						any_rival = { character = ROOT }
+					}
+				}
+				any_spouse = {
+					any_spouse = { character = FROM }
+				}
+			}
+			OR = {
+				FROM = {
+					has_law = succ_gavelkind
+					has_law = succ_elective_gavelkind
+					has_law = succ_primogeniture
+					has_law = succ_ultimogeniture
+					has_law = succ_turkish_succession
+					has_law = succ_nomad_succession
+				}
+			}
+		}
+	}
+	desc = { # Otherwise, you are an heir and the new child is a threat (elective)
+		text = EVT_DESCF_MYTHMORE.63
+		trigger = {
+			NOR = {
+				any_rival = { character = FROM }
+				any_rival = {
+					any_spouse = { character = FROM }
+				}
+				FROM = {
+					father_of_unborn = {
+						any_rival = { character = ROOT }
+					}
+				}
+				any_spouse = {
+					any_spouse = { character = FROM }
+				}
+			}
+			NOR = {
+				FROM = {
+					has_law = succ_gavelkind
+					has_law = succ_elective_gavelkind
+					has_law = succ_primogeniture
+					has_law = succ_ultimogeniture
+					has_law = succ_turkish_succession
+					has_law = succ_nomad_succession
+				}
+			}
+		}
+	}
+	
+	is_triggered_only = yes
+	
+	# Curse the body (twisted or hunchback)
+	# Curse the mouth (cleft lip or harelip/lisp/stutter)
+	# Curse the legs (clubfooted or quailfooted)
+	# Curse the mind (dull or slow)
+	# Curse the muscles (frail or weak)
+	# Curse appearance (uncouth or ugly)
+	# Curse size (rare) (giant or dwarf)
+	
+	immediate = {
+		# Select 3 curses
+		while = {
+			count = 3
+			random_list = {
+				5 = {
+					trigger = {
+						NOT = { has_character_flag = can_curse_body }
+					}
+					set_character_flag = can_curse_body
+				}
+				5 = {
+					trigger = {
+						NOT = { has_character_flag = can_curse_mouth }
+					}
+					set_character_flag = can_curse_mouth
+				}
+				5 = {
+					trigger = {
+						NOT = { has_character_flag = can_curse_legs }
+					}
+					set_character_flag = can_curse_legs
+				}
+				5 = {
+					trigger = {
+						NOT = { has_character_flag = can_curse_mind }
+					}
+					set_character_flag = can_curse_mind
+				}
+				5 = {
+					trigger = {
+						NOT = { has_character_flag = can_curse_muscles }
+					}
+					set_character_flag = can_curse_muscles
+				}
+				5 = {
+					trigger = {
+						NOT = { has_character_flag = can_curse_appearance }
+					}
+					set_character_flag = can_curse_appearance
+				}
+				1 = {
+					trigger = {
+						NOT = { has_character_flag = can_curse_size }
+					}
+					set_character_flag = can_curse_size
+				}
+			}
+		}
+	}
+	
+	# Curse the body
+	option = {
+		trigger = { has_character_flag = can_curse_body }
+		name = EVT_OPTA_MYTHMORE.63
+		piety = -100
+		custom_tooltip = { text = tt_cursed_body }
+		hidden_tooltip = { FROM = { set_character_flag = baby_cursed_body } }
+	}
+	
+	# Curse the mouth
+	option = {
+		trigger = { has_character_flag = can_curse_mouth }
+		name = EVT_OPTB_MYTHMORE.63
+		piety = -100
+		custom_tooltip = { text = tt_cursed_mouth }
+		hidden_tooltip = { FROM = { set_character_flag = baby_cursed_mouth } }
+	}
+	
+	# Curse the legs
+	option = {
+		trigger = { has_character_flag = can_curse_legs }
+		name = EVT_OPTC_MYTHMORE.63
+		piety = -100
+		custom_tooltip = { text = tt_cursed_legs }
+		hidden_tooltip = { FROM = { set_character_flag = baby_cursed_legs } }
+	}
+	
+	# Curse the mind
+	option = {
+		trigger = { has_character_flag = can_curse_mind }
+		name = EVT_OPTD_MYTHMORE.63
+		piety = -100
+		custom_tooltip = { text = tt_cursed_mind }
+		hidden_tooltip = { FROM = { set_character_flag = baby_cursed_mind } }
+	}
+	
+	# Curse the muscles
+	option = {
+		trigger = { has_character_flag = can_curse_muscles }
+		name = EVT_OPTE_MYTHMORE.63
+		piety = -100
+		custom_tooltip = { text = tt_cursed_muscles }
+		hidden_tooltip = { FROM = { set_character_flag = baby_cursed_muscles } }
+	}
+	
+	# Curse the appearance
+	option = {
+		trigger = { has_character_flag = can_curse_appearance }
+		name = EVT_OPTF_MYTHMORE.63
+		piety = -100
+		custom_tooltip = { text = tt_cursed_appearance }
+		hidden_tooltip = { FROM = { set_character_flag = baby_cursed_appearance } }
+	}
+	
+	# Curse the size
+	option = {
+		trigger = { has_character_flag = can_curse_size }
+		name = EVT_OPTG_MYTHMORE.63
+		piety = -100
+		custom_tooltip = { text = tt_cursed_size }
+		hidden_tooltip = { FROM = { set_character_flag = baby_cursed_size } }
+	}
+	
+	# Nothing
+	option = {
+		name = EVT_OPTH_MYTHMORE.63
+	}
+	
+	after = {
+		clr_character_flag = can_curse_body
+		clr_character_flag = can_curse_mouth
+		clr_character_flag = can_curse_legs
+		clr_character_flag = can_curse_mind
+		clr_character_flag = can_curse_muscles
+		clr_character_flag = can_curse_appearance
+		clr_character_flag = can_curse_size
+		if = {
+			limit = {
+				FROM = {
+					OR = {
+						has_character_flag = baby_cursed_body
+						has_character_flag = baby_cursed_mouth
+						has_character_flag = baby_cursed_legs
+						has_character_flag = baby_cursed_mind
+						has_character_flag = baby_cursed_muscles
+						has_character_flag = baby_cursed_appearance
+						has_character_flag = baby_cursed_size
+					}
+				}
+			}
+			if = {
+				limit = {
+					trait = novice_mage
+				}
+				FROM = { set_character_flag = curse_1 }
+			}
+			else_if = {
+				limit = {
+					trait = eldritch_scholar
+				}
+				FROM = { set_character_flag = curse_2 }
+			}
+			else_if = {
+				limit = {
+					trait = veteran_wizard
+				}
+				FROM = { set_character_flag = curse_3 }
+			}
+			else_if = {
+				limit = {
+					trait = arcane_master
+				}
+				FROM = { set_character_flag = curse_4 }
+			}
+		}
+	}
+}
+
+# Herbalist can poison the mother
+character_event = {
+	id = MYTHMORE.64
+	picture = GFX_evt_shadow
+	border = GFX_event_normal_frame_intrigue
+	desc = { # Rival is pregnant
+		text = EVT_DESCA_MYTHMORE.64
+		trigger = { 
+			any_rival = { character = FROM }
+		}
+	}
+	desc = { # Rival's wife is pregnant
+		text = EVT_DESCB_MYTHMORE.64
+		trigger = {
+			any_rival = {
+				any_spouse = { character = FROM }
+			}
+		}
+	}
+	desc = { # Rival's baby-mama is pregnant
+		text = EVT_DESCC_MYTHMORE.64
+		trigger = {
+			FROM = {
+				father_of_unborn = {
+					any_rival = { character = ROOT }
+				}
+			}
+		}
+	}
+	desc = { # Rival wife
+		text = EVT_DESCD_MYTHMORE.64
+		trigger = {
+			any_spouse = {
+				any_spouse = { character = FROM }
+			}
+		}
+	}
+	desc = { # Otherwise, you are an heir and the new child is a threat (lose position as heir or lose gavelkind land)
+		text = EVT_DESCE_MYTHMORE.64
+		trigger = {
+			NOR = {
+				any_rival = { character = FROM }
+				any_rival = {
+					any_spouse = { character = FROM }
+				}
+				FROM = {
+					father_of_unborn = {
+						any_rival = { character = ROOT }
+					}
+				}
+				any_spouse = {
+					any_spouse = { character = FROM }
+				}
+			}
+			OR = {
+				FROM = {
+					has_law = succ_gavelkind
+					has_law = succ_elective_gavelkind
+					has_law = succ_primogeniture
+					has_law = succ_ultimogeniture
+					has_law = succ_turkish_succession
+					has_law = succ_nomad_succession
+				}
+			}
+		}
+	}
+	desc = { # Otherwise, you are an heir and the new child is a threat (elective)
+		text = EVT_DESCF_MYTHMORE.64
+		trigger = {
+			NOR = {
+				any_rival = { character = FROM }
+				any_rival = {
+					any_spouse = { character = FROM }
+				}
+				FROM = {
+					father_of_unborn = {
+						any_rival = { character = ROOT }
+					}
+				}
+				any_spouse = {
+					any_spouse = { character = FROM }
+				}
+			}
+			NOR = {
+				FROM = {
+					has_law = succ_gavelkind
+					has_law = succ_elective_gavelkind
+					has_law = succ_primogeniture
+					has_law = succ_ultimogeniture
+					has_law = succ_turkish_succession
+					has_law = succ_nomad_succession
+				}
+			}
+		}
+	}
+	
+	is_triggered_only = yes
+	
+	# Select ingredients
+	immediate = {
+		select_random_magic_ingredient_effect = yes
+		select_random_magic_ingredient_effect = yes
+	}
+	
+	# Use ingredient 1
+	option = {
+		trigger = { has_selected_ingredient_1_trigger = yes }
+		name = EVT_OPTA_MYTHMORE.64
+		# Mother may be poisoned
+		if = {
+			limit = {
+				ingredient_1_poison_mother = yes
+			}
+			custom_tooltip = { text = tt_poison_mother }
+		}
+		# Child may be poisoned
+		if = {
+			limit = {
+				ingredient_1_poison_child = yes
+			}
+			custom_tooltip = { text = tt_poison_child }
+		}
+		hidden_tooltip = {
+			if = { # Child may gain frail or weak
+				limit = {
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_1
+						artifact_type = ingredient_herb1
+					}
+				}
+				random_list = {
+					3 = {
+						FROM = { set_character_flag = baby_poisoned_frail }
+					}
+					1 = {
+						FROM = { set_character_flag = baby_poisoned_weak }
+					}
+					6 = {}
+				}
+			}
+			if = { # Child may gain dull or slow
+				limit = {
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_1
+						artifact_type = ingredient_metal_exotic2
+					}
+				}
+				random_list = {
+					3 = {
+						FROM = { set_character_flag = baby_poisoned_dull }
+					}
+					1 = {
+						FROM = { set_character_flag = baby_poisoned_slow }
+					}
+					6 = {}
+				}
+			}
+			if = { # Child may gain lunatic
+				limit = {
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_1
+						artifact_type = ingredient_metal_exotic2
+					}
+				}
+				random_list = {
+					3 = { FROM = { set_character_flag = baby_poisoned_lunatic } }
+					7 = {}
+				}
+			}
+			if = { # Child may gain quailfooted or clubfooted
+				limit = {
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_1
+						artifact_type = ingredient_animal4
+					}
+				}
+				random_list = {
+					3 = {
+						FROM = { set_character_flag = baby_poisoned_quailfooted }
+					}
+					1 = {
+						FROM = { set_character_flag = baby_poisoned_clubfooted }
+					}
+					6 = {}
+				}
+			}
+			if = { # Mother may start vomiting
+				limit = {
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_1
+						OR = {
+							artifact_type = ingredient_herb3
+							artifact_type = ingredient_herb5
+							artifact_type = ingredient_animal4
+							artifact_type = ingredient_metal_exotic9
+							artifact_type = ingredient_wolfsbane
+						}
+					}
+				}
+				random = {
+					chance = 30
+					if = {
+						limit = { has_dlc = Reapers }
+						random = {
+							chance = 95
+							set_character_flag = disease_not_serious
+						}
+						FROM = { character_event = { id = RIP.5003 days = 1 random = 9 } }
+					}
+					else = {
+						FROM = { character_event = { id = 6060 } } 
+						set_character_flag = made_ill
+					}
+						
+				}
+			}
+			if = { # Mother may gain diarreah
+				limit = {
+					NOT = { has_character_flag = made_ill }
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_1
+						OR = {
+							artifact_type = ingredient_herb3
+							artifact_type = ingredient_herb5
+							artifact_type = ingredient_animal4
+							artifact_type = ingredient_animal9
+							artifact_type = ingredient_metal_exotic2
+							artifact_type = ingredient_metal_exotic9
+							artifact_type = ingredient_wolfsbane
+						}
+					}
+				}
+				random = {
+					chance = 30
+					if = {
+						limit = { has_dlc = Reapers }
+						random = {
+							chance = 95
+							set_character_flag = disease_not_serious
+						}
+						FROM = { character_event = { id = RIP.5002 days = 1 random = 9 } }
+					}
+					else = {
+						FROM = { character_event = { id = 6060 } } 
+						set_character_flag = made_ill
+					}
+						
+				}
+			}
+			if = { # Mother can gain fever
+				limit = {
+					NOT = { has_character_flag = made_ill }
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_1
+						artifact_type = ingredient_herb5
+					}
+				}
+				random = {
+					chance = 30
+					if = {
+						limit = { has_dlc = Reapers }
+						random = {
+							chance = 95
+							set_character_flag = disease_not_serious
+						}
+						FROM = { character_event = { id = RIP.5001 days = 1 random = 9 } }
+					}
+					else = {
+						FROM = { character_event = { id = 6060 } } 
+						set_character_flag = made_ill
+					}
+						
+				}
+			}
+			if = { # Mother may gain headache
+				limit = {
+					NOT = { has_character_flag = made_ill }
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_1
+						OR = {
+							artifact_type = ingredient_herb5
+							artifact_type = ingredient_animal3
+							artifact_type = ingredient_wolfsbane
+						}
+					}
+				}
+				random = {
+					chance = 30
+					if = {
+						limit = { has_dlc = Reapers }
+						random = {
+							chance = 95
+							set_character_flag = disease_not_serious
+						}
+						FROM = { character_event = { id = RIP.5004 days = 1 random = 9 } }
+					}
+					else = {
+						FROM = { character_event = { id = 6060 } } 
+						set_character_flag = made_ill
+					}
+						
+				}
+			}
+			if = { # Mother may gain rash
+				limit = {
+					NOT = { has_character_flag = made_ill }
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_1
+						OR = {
+							artifact_type = ingredient_herb5
+							artifact_type = ingredient_herb8
+						}
+					}
+				}
+				random = {
+					chance = 30
+					if = {
+						limit = { has_dlc = Reapers }
+						random = {
+							chance = 95
+							set_character_flag = disease_not_serious
+						}
+						FROM = { character_event = { id = RIP.5007 days = 1 random = 9 } }
+					}
+					else = {
+						FROM = { character_event = { id = 6060 } } 
+						set_character_flag = made_ill
+					}
+						
+				}
+			}
+			if = { # Mother may gain cough
+				limit = {
+					NOT = { has_character_flag = made_ill }
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_1
+						artifact_type = ingredient_metal_exotic2
+					}
+				}
+				random = {
+					chance = 30
+					if = {
+						limit = { has_dlc = Reapers }
+						random = {
+							chance = 95
+							set_character_flag = disease_not_serious
+						}
+						FROM = { character_event = { id = RIP.5000 days = 1 random = 9 } }
+					}
+					else = {
+						FROM = { character_event = { id = 6060 } } 
+						set_character_flag = made_ill
+					}
+						
+				}
+			}
+			if = { # Mother may gain food poisoning
+				limit = {
+					NOT = { has_character_flag = made_ill }
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_1
+						OR = {
+							artifact_type = ingredient_herb5
+							artifact_type = ingredient_herb6
+							artifact_type = ingredient_metal_exotic2
+						}
+					}
+				}
+				random = {
+					chance = 30
+					if = {
+						limit = { has_dlc = Reapers }
+						set_character_flag = got_food_poisoning
+						FROM = { character_event = { id = RIP.5001 days = 1 random = 9 } }
+					}
+					else = {
+						FROM = { character_event = { id = 6060 } } 
+						set_character_flag = made_ill
+					}
+						
+				}
+			}
+			if = { # Mother may gain chest pain
+				limit = {
+					NOT = { has_character_flag = made_ill }
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_1
+						OR = {
+							artifact_type = ingredient_animal7
+							artifact_type = ingredient_metal_exotic2
+							artifact_type = ingredient_metal_exotic8
+							artifact_type = ingredient_metal_exotic9
+							artifact_type = ingredient_wolfsbane
+						}
+					}
+				}
+				random = {
+					chance = 30
+					if = {
+						limit = { has_dlc = Reapers }
+						random = {
+							chance = 95
+							set_character_flag = disease_not_serious
+						}
+						FROM = { character_event = { id = RIP.5005 days = 1 random = 9 } }
+					}
+					else = {
+						FROM = { character_event = { id = 6060 } } 
+						set_character_flag = made_ill
+					}
+						
+				}
+			}
+			if = { # Mother may gain abdominal pain
+				limit = {
+					NOT = { has_character_flag = made_ill }
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_1
+						OR = {
+							artifact_type = ingredient_metal_exotic3
+							artifact_type = ingredient_metal_exotic4
+							artifact_type = ingredient_metal_exotic5
+							artifact_type = ingredient_metal_exotic8
+							artifact_type = ingredient_metal_exotic9
+						}
+					}
+				}
+				random = {
+					chance = 30
+					if = {
+						limit = { has_dlc = Reapers }
+						random = {
+							chance = 95
+							set_character_flag = disease_not_serious
+						}
+						FROM = { character_event = { id = RIP.5008 days = 1 random = 9 } }
+					}
+					else = {
+						FROM = { character_event = { id = 6060 } } 
+						set_character_flag = made_ill
+					}
+						
+				}
+			}
+			if = { # Mother may gain lunatic
+				limit = {
+					NOT = { FROM = { trait = lunatic } }
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_1
+						artifact_type = ingredient_metal_exotic2
+					}
+				}
+				random = {
+					chance = 30
+					FROM = { character_event = { id = 6020 days = 1 random = 9 } }
+				}
+			}
+			if = { # Mother may be poisoned
+				limit = {
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_1
+						OR = {
+							AND = {
+								artifact_type = ingredient_metal_exotic1
+								FROM = { trait = werewolf }
+							}
+							artifact_type = ingredient_herb3
+							artifact_type = ingredient_wolfsbane
+							artifact_type = ingredient_metal_exotic2
+							artifact_type = ingredient_metal_exotic3
+							artifact_type = ingredient_metal_exotic9
+							artifact_type = ingredient_mistletoe
+						}
+					}
+				}
+				random = {
+					chance = 30
+					modifier = {
+						factor = 1.5
+						FROM = { trait = werewolf }
+						any_artifact = { 
+							has_artifact_flag = selected_ingredient_1
+							artifact_type = ingredient_wolfsbane
+						}
+					}
+					FROM = { add_character_modifier = { name = poisoned months = 7 } }
+				}
+			}
+			if = { # Child may become sickly
+				limit = {
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_1
+						OR = {
+							artifact_type = ingredient_herb3
+							artifact_type = ingredient_metal_exotic6
+							artifact_type = ingredient_moly
+						}
+					}
+				}
+				random = {
+					chance = 30
+					FROM = { set_character_flag = baby_poisoned_sickly }
+				}
+			}
+			if = { # Child may become craven
+				limit = {
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_1
+						artifact_type = ingredient_mistletoe
+					}
+				}
+				random = {
+					chance = 30
+					FROM = { set_character_flag = baby_poisoned_craven }
+				}
+			}
+			if = { # Child may become slothful
+				limit = {
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_1
+						artifact_type = ingredient_lotus
+					}
+				}
+				random = {
+					chance = 30
+					FROM = { set_character_flag = baby_poisoned_slothful }
+				}
+			}
+			if = { # Child may be lose magical talent
+				limit = {
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_1
+						artifact_type = ingredient_moly
+					}
+				}
+				random = {
+					chance = 30
+					FROM = { set_character_flag = baby_poisoned_magic }
+				}
+			}
+		}
+		destroy_selected_ingredient_1_effect = yes
+	}
+	
+	# Use ingredient 2
+	option = {
+		trigger = { has_selected_ingredient_2_trigger = yes }
+		name = EVT_OPTB_MYTHMORE.64
+		# Mother may be poisoned
+		if = {
+			limit = {
+				ingredient_2_poison_mother = yes
+			}
+			custom_tooltip = { text = tt_poison_mother }
+		}
+		# Child may be poisoned
+		if = {
+			limit = {
+				ingredient_2_poison_child = yes
+			}
+			custom_tooltip = { text = tt_poison_child }
+		}
+		hidden_tooltip = {
+			if = { # Child may gain frail or weak
+				limit = {
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_2
+						artifact_type = ingredient_herb1
+					}
+				}
+				random_list = {
+					3 = {
+						FROM = { set_character_flag = baby_poisoned_frail }
+					}
+					1 = {
+						FROM = { set_character_flag = baby_poisoned_weak }
+					}
+					6 = {}
+				}
+			}
+			if = { # Child may gain dull or slow
+				limit = {
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_2
+						artifact_type = ingredient_metal_exotic2
+					}
+				}
+				random_list = {
+					3 = {
+						FROM = { set_character_flag = baby_poisoned_dull }
+					}
+					1 = {
+						FROM = { set_character_flag = baby_poisoned_slow }
+					}
+					6 = {}
+				}
+			}
+			if = { # Child may gain lunatic
+				limit = {
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_2
+						artifact_type = ingredient_metal_exotic2
+					}
+				}
+				random_list = {
+					3 = { FROM = { set_character_flag = baby_poisoned_lunatic } }
+					7 = {}
+				}
+			}
+			if = { # Child may gain quailfooted or clubfooted
+				limit = {
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_2
+						artifact_type = ingredient_animal4
+					}
+				}
+				random_list = {
+					3 = {
+						FROM = { set_character_flag = baby_poisoned_quailfooted }
+					}
+					1 = {
+						FROM = { set_character_flag = baby_poisoned_clubfooted }
+					}
+					6 = {}
+				}
+			}
+			if = { # Mother may start vomiting
+				limit = {
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_2
+						OR = {
+							artifact_type = ingredient_herb3
+							artifact_type = ingredient_herb5
+							artifact_type = ingredient_animal4
+							artifact_type = ingredient_metal_exotic9
+							artifact_type = ingredient_wolfsbane
+						}
+					}
+				}
+				random = {
+					chance = 30
+					if = {
+						limit = { has_dlc = Reapers }
+						random = {
+							chance = 95
+							set_character_flag = disease_not_serious
+						}
+						FROM = { character_event = { id = RIP.5003 days = 1 random = 9 } }
+					}
+					else = {
+						FROM = { character_event = { id = 6060 } } 
+						set_character_flag = made_ill
+					}
+						
+				}
+			}
+			if = { # Mother may gain diarreah
+				limit = {
+					NOT = { has_character_flag = made_ill }
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_2
+						OR = {
+							artifact_type = ingredient_herb3
+							artifact_type = ingredient_herb5
+							artifact_type = ingredient_animal4
+							artifact_type = ingredient_animal9
+							artifact_type = ingredient_metal_exotic2
+							artifact_type = ingredient_metal_exotic9
+							artifact_type = ingredient_wolfsbane
+						}
+					}
+				}
+				random = {
+					chance = 30
+					if = {
+						limit = { has_dlc = Reapers }
+						random = {
+							chance = 95
+							set_character_flag = disease_not_serious
+						}
+						FROM = { character_event = { id = RIP.5002 days = 1 random = 9 } }
+					}
+					else = {
+						FROM = { character_event = { id = 6060 } } 
+						set_character_flag = made_ill
+					}
+						
+				}
+			}
+			if = { # Mother can gain fever
+				limit = {
+					NOT = { has_character_flag = made_ill }
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_2
+						artifact_type = ingredient_herb5
+					}
+				}
+				random = {
+					chance = 30
+					if = {
+						limit = { has_dlc = Reapers }
+						random = {
+							chance = 95
+							set_character_flag = disease_not_serious
+						}
+						FROM = { character_event = { id = RIP.5001 days = 1 random = 9 } }
+					}
+					else = {
+						FROM = { character_event = { id = 6060 } } 
+						set_character_flag = made_ill
+					}
+						
+				}
+			}
+			if = { # Mother may gain headache
+				limit = {
+					NOT = { has_character_flag = made_ill }
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_2
+						OR = {
+							artifact_type = ingredient_herb5
+							artifact_type = ingredient_animal3
+							artifact_type = ingredient_wolfsbane
+						}
+					}
+				}
+				random = {
+					chance = 30
+					if = {
+						limit = { has_dlc = Reapers }
+						random = {
+							chance = 95
+							set_character_flag = disease_not_serious
+						}
+						FROM = { character_event = { id = RIP.5004 days = 1 random = 9 } }
+					}
+					else = {
+						FROM = { character_event = { id = 6060 } } 
+						set_character_flag = made_ill
+					}
+						
+				}
+			}
+			if = { # Mother may gain rash
+				limit = {
+					NOT = { has_character_flag = made_ill }
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_2
+						OR = {
+							artifact_type = ingredient_herb5
+							artifact_type = ingredient_herb8
+						}
+					}
+				}
+				random = {
+					chance = 30
+					if = {
+						limit = { has_dlc = Reapers }
+						random = {
+							chance = 95
+							set_character_flag = disease_not_serious
+						}
+						FROM = { character_event = { id = RIP.5007 days = 1 random = 9 } }
+					}
+					else = {
+						FROM = { character_event = { id = 6060 } } 
+						set_character_flag = made_ill
+					}
+						
+				}
+			}
+			if = { # Mother may gain cough
+				limit = {
+					NOT = { has_character_flag = made_ill }
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_2
+						artifact_type = ingredient_metal_exotic2
+					}
+				}
+				random = {
+					chance = 30
+					if = {
+						limit = { has_dlc = Reapers }
+						random = {
+							chance = 95
+							set_character_flag = disease_not_serious
+						}
+						FROM = { character_event = { id = RIP.5000 days = 1 random = 9 } }
+					}
+					else = {
+						FROM = { character_event = { id = 6060 } } 
+						set_character_flag = made_ill
+					}
+						
+				}
+			}
+			if = { # Mother may gain food poisoning
+				limit = {
+					NOT = { has_character_flag = made_ill }
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_2
+						OR = {
+							artifact_type = ingredient_herb5
+							artifact_type = ingredient_herb6
+							artifact_type = ingredient_metal_exotic2
+						}
+					}
+				}
+				random = {
+					chance = 30
+					if = {
+						limit = { has_dlc = Reapers }
+						set_character_flag = got_food_poisoning
+						FROM = { character_event = { id = RIP.5001 days = 1 random = 9 } }
+					}
+					else = {
+						FROM = { character_event = { id = 6060 } } 
+						set_character_flag = made_ill
+					}
+						
+				}
+			}
+			if = { # Mother may gain chest pain
+				limit = {
+					NOT = { has_character_flag = made_ill }
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_2
+						OR = {
+							artifact_type = ingredient_animal7
+							artifact_type = ingredient_metal_exotic2
+							artifact_type = ingredient_metal_exotic8
+							artifact_type = ingredient_metal_exotic9
+							artifact_type = ingredient_wolfsbane
+						}
+					}
+				}
+				random = {
+					chance = 30
+					if = {
+						limit = { has_dlc = Reapers }
+						random = {
+							chance = 95
+							set_character_flag = disease_not_serious
+						}
+						FROM = { character_event = { id = RIP.5005 days = 1 random = 9 } }
+					}
+					else = {
+						FROM = { character_event = { id = 6060 } } 
+						set_character_flag = made_ill
+					}
+						
+				}
+			}
+			if = { # Mother may gain abdominal pain
+				limit = {
+					NOT = { has_character_flag = made_ill }
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_2
+						OR = {
+							artifact_type = ingredient_metal_exotic3
+							artifact_type = ingredient_metal_exotic4
+							artifact_type = ingredient_metal_exotic5
+							artifact_type = ingredient_metal_exotic8
+							artifact_type = ingredient_metal_exotic9
+						}
+					}
+				}
+				random = {
+					chance = 30
+					if = {
+						limit = { has_dlc = Reapers }
+						random = {
+							chance = 95
+							set_character_flag = disease_not_serious
+						}
+						FROM = { character_event = { id = RIP.5008 days = 1 random = 9 } }
+					}
+					else = {
+						FROM = { character_event = { id = 6060 } } 
+						set_character_flag = made_ill
+					}
+						
+				}
+			}
+			if = { # Mother may gain lunatic
+				limit = {
+					NOT = { FROM = { trait = lunatic } }
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_2
+						artifact_type = ingredient_metal_exotic2
+					}
+				}
+				random = {
+					chance = 30
+					FROM = { character_event = { id = 6020 days = 1 random = 9 } }
+				}
+			}
+			if = { # Mother may be poisoned
+				limit = {
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_2
+						OR = {
+							AND = {
+								artifact_type = ingredient_metal_exotic1
+								FROM = { trait = werewolf }
+							}
+							artifact_type = ingredient_herb3
+							artifact_type = ingredient_wolfsbane
+							artifact_type = ingredient_metal_exotic2
+							artifact_type = ingredient_metal_exotic3
+							artifact_type = ingredient_metal_exotic9
+							artifact_type = ingredient_mistletoe
+						}
+					}
+				}
+				random = {
+					chance = 30
+					modifier = {
+						factor = 1.5
+						FROM = { trait = werewolf }
+						any_artifact = { 
+							has_artifact_flag = selected_ingredient_2
+							artifact_type = ingredient_wolfsbane
+						}
+					}
+					FROM = { add_character_modifier = { name = poisoned months = 7 } }
+				}
+			}
+			if = { # Child may become sickly
+				limit = {
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_2
+						OR = {
+							artifact_type = ingredient_herb3
+							artifact_type = ingredient_metal_exotic6
+							artifact_type = ingredient_moly
+						}
+					}
+				}
+				random = {
+					chance = 30
+					FROM = { set_character_flag = baby_poisoned_sickly }
+				}
+			}
+			if = { # Child may become craven
+				limit = {
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_2
+						artifact_type = ingredient_mistletoe
+					}
+				}
+				random = {
+					chance = 30
+					FROM = { set_character_flag = baby_poisoned_craven }
+				}
+			}
+			if = { # Child may become slothful
+				limit = {
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_2
+						artifact_type = ingredient_lotus
+					}
+				}
+				random = {
+					chance = 30
+					FROM = { set_character_flag = baby_poisoned_slothful }
+				}
+			}
+			if = { # Child may be lose magical talent
+				limit = {
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_2
+						artifact_type = ingredient_moly
+					}
+				}
+				random = {
+					chance = 30
+					FROM = { set_character_flag = baby_poisoned_magic }
+				}
+			}
+		}
+		destroy_selected_ingredient_1_effect = yes
+	}
+	
+	# Do nothing
+	option = {
+		name = EVT_OPTC_MYTHMORE.64
+		trigger = { ai = no }
+	}
+}
+
+# Good sorcerer tries to bless mother
+character_event = {
+	id = MYTHMORE.65
+	picture = GFX_evt_pregnancy
+	border = GFX_event_normal_frame_religion
+	desc = { # Physician
+		text = EVT_DESCA_MYTHMORE.65
+		trigger = {
+			has_minor_title = title_court_physician
+			NOR = {
+				any_spouse = { character = FROM }
+				any_lover = { character = FROM }
+			}
+		}
+	}
+	desc = { # Anyone else
+		text = EVT_DESCB_MYTHMORE.65
+		trigger = {
+			OR = {
+				NOT = { has_minor_title = title_court_physician }
+				any_spouse = { character = FROM }
+				any_lover = { character = FROM }
+			}
+		}
+	}
+	
+	is_triggered_only = yes
+	
+	# Bless Strength (Improve Strength trait - robust, sturdy, and strong versions)
+	# Bless Mind (Improve Intelligence trait - shrewd, quick, and genius versions)
+	# Bless Beauty (Improve appearance - groomed and attractive versions)
+	# Bless Health (Remove random defect, remove sickly, give sturdy)
+	# Bless Healthy mother (Give good_nights_sleep, invigorated, and/or remove drunkard)
+	
+	immediate = {
+		# Select 3 blessings
+		while = {
+			count = 3
+			random_list = {
+				1 = {
+					trigger = {
+						NOT = { has_character_flag = can_bless_strength }
+					}
+					set_character_flag = can_bless_strength
+				}
+				1 = {
+					trigger = {
+						NOT = { has_character_flag = can_bless_mind }
+					}
+					set_character_flag = can_bless_mind
+				}
+				1 = {
+					trigger = {
+						NOT = { has_character_flag = can_bless_beauty }
+					}
+					set_character_flag = can_bless_beauty
+				}
+				1 = {
+					trigger = {
+						NOT = { has_character_flag = can_bless_health }
+					}
+					set_character_flag = can_bless_health
+				}
+				1 = {
+					trigger = {
+						NOT = { has_character_flag = can_bless_health_mother }
+					}
+					set_character_flag = can_bless_health_mother
+				}
+			}
+		}
+	}
+	
+	# Bless the child's body
+	option = {
+		name = EVT_OPTA_MYTHMORE.65
+		trigger = { has_character_flag = can_bless_strength }
+		piety = -100
+		custom_tooltip = { text = tt_blessed_strength }
+		hidden_tooltip = { FROM = { set_character_flag = baby_blessed_strength } }
+		hidden_tooltip = {
+			trigger_switch = {
+				on_trigger = trait
+				novice_mage = { FROM = { set_character_flag = bless_1 } }
+				eldritch_scholar = { FROM = { set_character_flag = bless_2 } }
+				veteran_wizard = { FROM = { set_character_flag = bless_2 } }
+				arcane_master = { FROM = { set_character_flag = bless_2 } }
+			}
+		}
+	}
+	
+	# Bless the child's mind
+	option = {
+		name = EVT_OPTB_MYTHMORE.65
+		trigger = { has_character_flag = can_bless_mind }
+		piety = -100
+		custom_tooltip = { text = tt_blessed_mind }
+		hidden_tooltip = { FROM = { set_character_flag = baby_blessed_mind } }
+		hidden_tooltip = {
+			trigger_switch = {
+				on_trigger = trait
+				novice_mage = { FROM = { set_character_flag = bless_1 } }
+				eldritch_scholar = { FROM = { set_character_flag = bless_2 } }
+				veteran_wizard = { FROM = { set_character_flag = bless_2 } }
+				arcane_master = { FROM = { set_character_flag = bless_2 } }
+			}
+		}
+	}
+	
+	# Bless the child's beauty
+	option = {
+		name = EVT_OPTC_MYTHMORE.65
+		trigger = { has_character_flag = can_bless_beauty }
+		piety = -100
+		custom_tooltip = { text = tt_blessed_beauty }
+		hidden_tooltip = { FROM = { set_character_flag = baby_blessed_beauty } }
+		hidden_tooltip = {
+			trigger_switch = {
+				on_trigger = trait
+				novice_mage = { FROM = { set_character_flag = bless_1 } }
+				eldritch_scholar = { FROM = { set_character_flag = bless_2 } }
+				veteran_wizard = { FROM = { set_character_flag = bless_2 } }
+				arcane_master = { FROM = { set_character_flag = bless_2 } }
+			}
+		}
+	}
+	
+	# Bless the child's health
+	option = {
+		name = EVT_OPTD_MYTHMORE.65
+		trigger = { has_character_flag = can_bless_health }
+		piety = -100
+		custom_tooltip = { text = tt_blessed_health }
+		hidden_tooltip = { FROM = { set_character_flag = baby_blessed_health } }
+		hidden_tooltip = {
+			trigger_switch = {
+				on_trigger = trait
+				novice_mage = { FROM = { set_character_flag = bless_1 } }
+				eldritch_scholar = { FROM = { set_character_flag = bless_2 } }
+				veteran_wizard = { FROM = { set_character_flag = bless_2 } }
+				arcane_master = { FROM = { set_character_flag = bless_2 } }
+			}
+		}
+	}
+	
+	# Bless the mother's health
+	option = {
+		name = EVT_OPTE_MYTHMORE.65
+		trigger = { has_character_flag = can_bless_health_mother }
+		piety = -100
+		custom_tooltip = { text = tt_blessed_health_mother }
+		hidden_tooltip = {
+			random = {
+				chance = 15
+				FROM = { add_character_modifier = { name = good_nights_sleep months = 6 } }
+			}
+			random = {
+				chance = 15
+				FROM = { add_character_modifier = { name = invigorated months = 6 } }
+			}
+			random = {
+				chance = 5
+				modifier = {
+					factor = 0
+					NOT = { FROM = { trait = drunkard } }
+				}
+				FROM = { character_event = { id = 65046 days = 3 } }
+			}
+		}
+		hidden_tooltip = {
+			trigger_switch = {
+				on_trigger = trait
+				novice_mage = { FROM = { set_character_flag = bless_1 } }
+				eldritch_scholar = { FROM = { set_character_flag = bless_2 } }
+				veteran_wizard = { FROM = { set_character_flag = bless_2 } }
+				arcane_master = { FROM = { set_character_flag = bless_2 } }
+			}
+		}
+	}
+	
+	# Nothing
+	option = {
+		name = EVT_OPTF_MYTHMORE.65
+		trigger = { ai = no }
+	}
+	
+	after = {
+		clr_character_flag = can_bless_strength
+		clr_character_flag = can_bless_mind
+		clr_character_flag = can_bless_beauty
+		clr_character_flag = can_bless_health
+		clr_character_flag = can_bless_health_mother
+	}
+}
+
+# Herbalist can make a benefician potion for the mother
+character_event = {
+	id = MYTHMORE.66
+	picture = GFX_evt_pregnancy
+	border = GFX_event_normal_frame_religion
+	desc = { # Physician
+		text = EVT_DESCA_MYTHMORE.66
+		trigger = {
+			has_minor_title = title_court_physician
+			NOR = {
+				any_spouse = { character = FROM }
+				any_lover = { character = FROM }
+			}
+		}
+	}
+	desc = { # Anyone else
+		text = EVT_DESCB_MYTHMORE.66
+		trigger = {
+			OR = {
+				NOT = { has_minor_title = title_court_physician }
+				any_spouse = { character = FROM }
+				any_lover = { character = FROM }
+			}
+		}
+	}
+	
+	is_triggered_only = yes
+	
+	# Select ingredients
+	immediate = {
+		select_random_magic_ingredient_effect = yes
+		select_random_magic_ingredient_effect = yes
+	}
+	
+	# Use ingredient 1
+	option = {
+		trigger = { has_selected_ingredient_1_trigger = yes }
+		name = EVT_OPTA_MYTHMORE.64
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 1.5
+				ingredient_1_boon_mother = yes
+			
+			}
+			modifier = {
+				factor = 1.5
+				ingredient_1_boon_child = yes
+			
+			}
+			modifier = {
+				factor = 0.5
+				ingredient_1_side_effects = yes
+			
+			}
+		}	
+		# Mother may be given a boon
+		if = {
+			limit = {
+				ingredient_1_boon_mother = yes
+			}
+			custom_tooltip = { text = tt_boon_mother }
+		}
+		# Child may be given a boon
+		if = {
+			limit = {
+				ingredient_1_boon_child = yes
+			}
+			custom_tooltip = { text = tt_boon_child }
+		}
+		# There may be side effects
+		if = {
+			limit = {
+				ingredient_1_side_effects = yes
+			}
+			custom_tooltip = { text = tt_side_effects }
+		}
+		hidden_tooltip = {
+			if = { # May cure depression
+				limit = {
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_1
+						OR = {
+							artifact_type = ingredient_herb3
+							artifact_type = ingredient_herb5
+							artifact_type = ingredient_metal_exotic6
+							artifact_type = ingredient_asclepois
+						}
+					}
+					FROM = { trait = depressed }
+				}
+				random_list = {
+					4 = {
+						FROM = { character_event = { id = 6051 days = 2 random = 10 } }
+					}
+					6 = {}
+				}
+			}
+			if = { # May cause vomiting
+				limit = {
+					NOT = { has_character_flag = made_ill }
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_1
+						OR = {
+							artifact_type = ingredient_herb3
+							artifact_type = ingredient_herb5
+							artifact_type = ingredient_wolfsbane
+						}
+					}
+				}
+				random = {
+					chance = 15
+					if = {
+						limit = { has_dlc = Reapers }
+						random = {
+							chance = 95
+							set_character_flag = disease_not_serious
+						}
+						FROM = { character_event = { id = RIP.5003 days = 1 random = 15 } }
+					}
+					else = {
+						FROM = { character_event = { id = 6060 } } 
+						set_character_flag = made_ill
+					}
+				}
+			}
+			if = { # May cause diarrhea
+				limit = {
+					NOT = { has_character_flag = made_ill }
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_1
+						OR = {
+							artifact_type = ingredient_herb3
+							artifact_type = ingredient_herb5
+							artifact_type = ingredient_wolfsbane
+						}
+					}
+				}
+				random = {
+					chance = 15
+					if = {
+						limit = { has_dlc = Reapers }
+						random = {
+							chance = 95
+							set_character_flag = disease_not_serious
+						}
+						FROM = { character_event = { id = RIP.5002 days = 1 random = 15 } }
+					}
+					else = {
+						FROM = { character_event = { id = 6060 } } 
+						set_character_flag = made_ill
+					}
+				}
+			}
+			if = { # May cause fever
+				limit = {
+					NOT = { has_character_flag = made_ill }
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_1
+						artifact_type = ingredient_herb5
+					}
+				}
+				random = {
+					chance = 15
+					if = {
+						limit = { has_dlc = Reapers }
+						random = {
+							chance = 95
+							set_character_flag = disease_not_serious
+						}
+						FROM = { character_event = { id = RIP.5001 days = 1 random = 15 } }
+					}
+					else = {
+						FROM = { character_event = { id = 6060 } } 
+						set_character_flag = made_ill
+					}
+				}
+			}
+			if = { # May cause headache
+				limit = {
+					NOT = { has_character_flag = made_ill }
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_1
+						OR = {
+							artifact_type = ingredient_herb5
+							artifact_type = ingredient_metal_exotic6
+							artifact_type = ingredient_wolfsbane
+						}
+					}
+				}
+				random = {
+					chance = 15
+					if = {
+						limit = { has_dlc = Reapers }
+						random = {
+							chance = 95
+							set_character_flag = disease_not_serious
+						}
+						FROM = { character_event = { id = RIP.5004 days = 1 random = 15 } }
+					}
+					else = {
+						FROM = { character_event = { id = 6060 } } 
+						set_character_flag = made_ill
+					}
+				}
+			}
+			if = { # May cause chest pain
+				limit = {
+					NOT = { has_character_flag = made_ill }
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_1
+						OR = {
+							artifact_type = ingredient_metal_exotic3
+							artifact_type = ingredient_metal_exotic4
+							artifact_type = ingredient_wolfsbane
+						}
+					}
+				}
+				random = {
+					chance = 15
+					if = {
+						limit = { has_dlc = Reapers }
+						random = {
+							chance = 95
+							set_character_flag = disease_not_serious
+						}
+						FROM = { character_event = { id = RIP.5005 days = 1 random = 15 } }
+					}
+					else = {
+						FROM = { character_event = { id = 6060 } } 
+						set_character_flag = made_ill
+					}
+				}
+			}
+			if = { # May cause abdominal pain
+				limit = {
+					NOT = { has_character_flag = made_ill }
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_1
+						OR = {
+							artifact_type = ingredient_metal_exotic3
+							artifact_type = ingredient_metal_exotic4
+							artifact_type = ingredient_wolfsbane
+						}
+					}
+				}
+				random = {
+					chance = 15
+					if = {
+						limit = { has_dlc = Reapers }
+						random = {
+							chance = 95
+							set_character_flag = disease_not_serious
+						}
+						FROM = { character_event = { id = RIP.5008 days = 1 random = 15 } }
+					}
+					else = {
+						FROM = { character_event = { id = 6060 } } 
+						set_character_flag = made_ill
+					}
+				}
+			}
+			if = { # May cause fatigue
+				limit = {
+					NOT = { has_character_flag = made_ill }
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_1
+						artifact_type = ingredient_lotus
+					}
+				}
+				random = {
+					chance = 15
+					if = {
+						limit = { has_dlc = Reapers }
+						random = {
+							chance = 95
+							set_character_flag = disease_not_serious
+						}
+						FROM = { character_event = { id = RIP.5009 days = 1 random = 15 } }
+					}
+					else = {
+						FROM = { character_event = { id = 6060 } } 
+						set_character_flag = made_ill
+					}
+				}
+			}
+			if = { # May cure fever
+				limit = {
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_1
+						OR = {
+							artifact_type = ingredient_herb6
+							artifact_type = ingredient_asclepois
+						}
+					}
+				}
+				random = {
+					chance = 40
+					FROM = { character_event = { id = RIP.11003 days = 1 random = 15 } }
+				}
+			}
+			if = { # May cure cramps
+				limit = {
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_1
+						OR = {
+							artifact_type = ingredient_metal_exotic6
+							artifact_type = ingredient_asclepois
+						}
+					}
+				}
+				random = {
+					chance = 40
+					FROM = { character_event = { id = RIP.11007 days = 1 random = 15 } }
+				}
+			}
+			if = { # May cure food poisoning
+				limit = {
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_1
+						OR = {
+							artifact_type = ingredient_metal_exotic2
+							artifact_type = ingredient_asclepois
+						}
+					}
+				}
+				random = {
+					chance = 40
+					FROM = { character_event = { id = RIP.11018 days = 1 random = 15 } }
+				}
+			}
+			if = { # May cure drunkard
+				limit = {
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_1
+						OR = {
+							artifact_type = ingredient_metal_exotic2
+							artifact_type = ingredient_asclepois
+						}
+					}
+				}
+				random = {
+					chance = 40
+					FROM = { character_event = { id = RIP.11018 days = 1 random = 15 } }
+				}
+			}
+			if = { # May give good night's sleep
+				limit = {
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_1
+						OR = {
+							artifact_type = ingredient_herb7
+							artifact_type = ingredient_thyme
+							artifact_type = ingredient_lotus
+							artifact_type = ingredient_asclepois
+						}
+					}
+				}
+				random = {
+					chance = 40
+					FROM = { add_character_modifier = { name = good_nights_sleep months = 6 } }
+				}
+			}
+			if = { # May give invigorated
+				limit = {
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_1
+						OR = {
+							artifact_type = ingredient_animal5
+							artifact_type = ingredient_animal7
+							artifact_type = ingredient_animal8
+							artifact_type = ingredient_metal_exotic8
+							artifact_type = ingredient_asclepois
+						}
+					}
+				}
+				random = {
+					chance = 40
+					FROM = { add_character_modifier = { name = invigorated months = 6 } }
+				}
+			}
+			if = { # May give successful treatment
+				limit = {
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_1
+						OR = {
+							artifact_type = ingredient_herb9
+							artifact_type = ingredient_metal_exotic1
+							artifact_type = ingredient_metal_exotic8
+							artifact_type = ingredient_sage
+							artifact_type = ingredient_asclepois
+						}
+					}
+				}
+				random = {
+					chance = 40
+					FROM = { add_character_modifier = { name = successful_treatment_1 months = 6 } }
+				}
+			}
+			if = { # May give poisoned
+				limit = {
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_1
+						OR = {
+							AND = {
+								artifact_type = ingredient_metal_exotic1
+								FROM = { trait = werewolf }
+							}
+							artifact_type = ingredient_metal_exotic2
+							artifact_type = ingredient_metal_exotic3
+							artifact_type = ingredient_metal_exotic4
+							artifact_type = ingredient_wolfsbane
+							artifact_type = ingredient_mistletoe
+						}
+					}
+				}
+				random = {
+					chance = 15
+					modifier = {
+						factor = 2
+						any_artifact = {
+							has_artifact_flag = selected_ingredient_1
+							artifact_type = ingredient_wolfsbane
+						}
+						FROM = { trait = werewolf }
+					}
+					FROM = { add_character_modifier = { name = poisoned months = 6 } }
+				}
+			}
+			if = { # May prevent sickly
+				limit = {
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_1
+						OR = {
+							artifact_type = ingredient_metal_exotic5
+							artifact_type = ingredient_fern_flower
+							artifact_type = ingredient_asclepois
+						}
+					}
+				}
+				random = {
+					chance = 40
+					FROM = { set_character_flag = baby_prevent_sickly }
+				}
+			}
+			if = { # May give any (or all) positive genetic traits
+				limit = {
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_1
+						OR = {
+							artifact_type = ingredient_metal_exotic6
+							artifact_type = ingredient_asclepois
+						}
+					}
+				}
+				random = {
+					chance = 5
+					FROM = { set_character_flag = baby_all_traits }
+				}
+			}
+			if = { # May give patient
+				limit = {
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_1
+						artifact_type = ingredient_mistletoe
+					}
+				}
+				random = {
+					chance = 20
+					FROM = { set_character_flag = baby_patient }
+				}
+			}
+			if = { # May give brave
+				limit = {
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_1
+						OR = {
+							artifact_type = ingredient_animal7
+							artifact_type = ingredient_thyme
+						}
+					}
+				}
+				random = {
+					chance = 20
+					FROM = { set_character_flag = baby_brave }
+				}
+			}
+		}
+	}
+	
+	# Ingredient 2
+	option = {
+		trigger = { has_selected_ingredient_2_trigger = yes }
+		name = EVT_OPTB_MYTHMORE.64
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 1.5
+				ingredient_2_boon_mother = yes
+			
+			}
+			modifier = {
+				factor = 1.5
+				ingredient_2_boon_child = yes
+			
+			}
+			modifier = {
+				factor = 0.5
+				ingredient_2_side_effects = yes
+			
+			}
+		}	
+		# Mother may be given a boon
+		if = {
+			limit = {
+				ingredient_2_boon_mother = yes
+			}
+			custom_tooltip = { text = tt_boon_mother }
+		}
+		# Child may be given a boon
+		if = {
+			limit = {
+				ingredient_2_boon_child = yes
+			}
+			custom_tooltip = { text = tt_boon_child }
+		}
+		# There may be side effects
+		if = {
+			limit = {
+				ingredient_2_side_effects = yes
+			}
+			custom_tooltip = { text = tt_side_effects }
+		}
+		hidden_tooltip = {
+			if = { # May cure depression
+				limit = {
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_2
+						OR = {
+							artifact_type = ingredient_herb3
+							artifact_type = ingredient_herb5
+							artifact_type = ingredient_metal_exotic6
+							artifact_type = ingredient_asclepois
+						}
+					}
+					FROM = { trait = depressed }
+				}
+				random_list = {
+					4 = {
+						FROM = { character_event = { id = 6051 days = 2 random = 10 } }
+					}
+					6 = {}
+				}
+			}
+			if = { # May cause vomiting
+				limit = {
+					NOT = { has_character_flag = made_ill }
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_2
+						OR = {
+							artifact_type = ingredient_herb3
+							artifact_type = ingredient_herb5
+							artifact_type = ingredient_wolfsbane
+						}
+					}
+				}
+				random = {
+					chance = 15
+					if = {
+						limit = { has_dlc = Reapers }
+						random = {
+							chance = 95
+							set_character_flag = disease_not_serious
+						}
+						FROM = { character_event = { id = RIP.5003 days = 1 random = 15 } }
+					}
+					else = {
+						FROM = { character_event = { id = 6060 } } 
+						set_character_flag = made_ill
+					}
+				}
+			}
+			if = { # May cause diarrhea
+				limit = {
+					NOT = { has_character_flag = made_ill }
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_2
+						OR = {
+							artifact_type = ingredient_herb3
+							artifact_type = ingredient_herb5
+							artifact_type = ingredient_wolfsbane
+						}
+					}
+				}
+				random = {
+					chance = 15
+					if = {
+						limit = { has_dlc = Reapers }
+						random = {
+							chance = 95
+							set_character_flag = disease_not_serious
+						}
+						FROM = { character_event = { id = RIP.5002 days = 1 random = 15 } }
+					}
+					else = {
+						FROM = { character_event = { id = 6060 } } 
+						set_character_flag = made_ill
+					}
+				}
+			}
+			if = { # May cause fever
+				limit = {
+					NOT = { has_character_flag = made_ill }
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_2
+						artifact_type = ingredient_herb5
+					}
+				}
+				random = {
+					chance = 15
+					if = {
+						limit = { has_dlc = Reapers }
+						random = {
+							chance = 95
+							set_character_flag = disease_not_serious
+						}
+						FROM = { character_event = { id = RIP.5001 days = 1 random = 15 } }
+					}
+					else = {
+						FROM = { character_event = { id = 6060 } } 
+						set_character_flag = made_ill
+					}
+				}
+			}
+			if = { # May cause headache
+				limit = {
+					NOT = { has_character_flag = made_ill }
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_2
+						OR = {
+							artifact_type = ingredient_herb5
+							artifact_type = ingredient_metal_exotic6
+							artifact_type = ingredient_wolfsbane
+						}
+					}
+				}
+				random = {
+					chance = 15
+					if = {
+						limit = { has_dlc = Reapers }
+						random = {
+							chance = 95
+							set_character_flag = disease_not_serious
+						}
+						FROM = { character_event = { id = RIP.5004 days = 1 random = 15 } }
+					}
+					else = {
+						FROM = { character_event = { id = 6060 } } 
+						set_character_flag = made_ill
+					}
+				}
+			}
+			if = { # May cause chest pain
+				limit = {
+					NOT = { has_character_flag = made_ill }
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_2
+						OR = {
+							artifact_type = ingredient_metal_exotic3
+							artifact_type = ingredient_metal_exotic4
+							artifact_type = ingredient_wolfsbane
+						}
+					}
+				}
+				random = {
+					chance = 15
+					if = {
+						limit = { has_dlc = Reapers }
+						random = {
+							chance = 95
+							set_character_flag = disease_not_serious
+						}
+						FROM = { character_event = { id = RIP.5005 days = 1 random = 15 } }
+					}
+					else = {
+						FROM = { character_event = { id = 6060 } } 
+						set_character_flag = made_ill
+					}
+				}
+			}
+			if = { # May cause abdominal pain
+				limit = {
+					NOT = { has_character_flag = made_ill }
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_2
+						OR = {
+							artifact_type = ingredient_metal_exotic3
+							artifact_type = ingredient_metal_exotic4
+							artifact_type = ingredient_wolfsbane
+						}
+					}
+				}
+				random = {
+					chance = 15
+					if = {
+						limit = { has_dlc = Reapers }
+						random = {
+							chance = 95
+							set_character_flag = disease_not_serious
+						}
+						FROM = { character_event = { id = RIP.5008 days = 1 random = 15 } }
+					}
+					else = {
+						FROM = { character_event = { id = 6060 } } 
+						set_character_flag = made_ill
+					}
+				}
+			}
+			if = { # May cause fatigue
+				limit = {
+					NOT = { has_character_flag = made_ill }
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_2
+						artifact_type = ingredient_lotus
+					}
+				}
+				random = {
+					chance = 15
+					if = {
+						limit = { has_dlc = Reapers }
+						random = {
+							chance = 95
+							set_character_flag = disease_not_serious
+						}
+						FROM = { character_event = { id = RIP.5009 days = 1 random = 15 } }
+					}
+					else = {
+						FROM = { character_event = { id = 6060 } } 
+						set_character_flag = made_ill
+					}
+				}
+			}
+			if = { # May cure fever
+				limit = {
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_2
+						OR = {
+							artifact_type = ingredient_herb6
+							artifact_type = ingredient_asclepois
+						}
+					}
+				}
+				random = {
+					chance = 40
+					FROM = { character_event = { id = RIP.11003 days = 1 random = 15 } }
+				}
+			}
+			if = { # May cure cramps
+				limit = {
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_2
+						OR = {
+							artifact_type = ingredient_metal_exotic6
+							artifact_type = ingredient_asclepois
+						}
+					}
+				}
+				random = {
+					chance = 40
+					FROM = { character_event = { id = RIP.11007 days = 1 random = 15 } }
+				}
+			}
+			if = { # May cure food poisoning
+				limit = {
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_2
+						OR = {
+							artifact_type = ingredient_metal_exotic2
+							artifact_type = ingredient_asclepois
+						}
+					}
+				}
+				random = {
+					chance = 40
+					FROM = { character_event = { id = RIP.11018 days = 1 random = 15 } }
+				}
+			}
+			if = { # May cure drunkard
+				limit = {
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_2
+						OR = {
+							artifact_type = ingredient_metal_exotic2
+							artifact_type = ingredient_asclepois
+						}
+					}
+				}
+				random = {
+					chance = 40
+					FROM = { character_event = { id = RIP.11018 days = 1 random = 15 } }
+				}
+			}
+			if = { # May give good night's sleep
+				limit = {
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_2
+						OR = {
+							artifact_type = ingredient_herb7
+							artifact_type = ingredient_thyme
+							artifact_type = ingredient_lotus
+							artifact_type = ingredient_asclepois
+						}
+					}
+				}
+				random = {
+					chance = 40
+					FROM = { add_character_modifier = { name = good_nights_sleep months = 6 } }
+				}
+			}
+			if = { # May give invigorated
+				limit = {
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_2
+						OR = {
+							artifact_type = ingredient_animal5
+							artifact_type = ingredient_animal7
+							artifact_type = ingredient_animal8
+							artifact_type = ingredient_metal_exotic8
+							artifact_type = ingredient_asclepois
+						}
+					}
+				}
+				random = {
+					chance = 40
+					FROM = { add_character_modifier = { name = invigorated months = 6 } }
+				}
+			}
+			if = { # May give successful treatment
+				limit = {
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_2
+						OR = {
+							artifact_type = ingredient_herb9
+							artifact_type = ingredient_metal_exotic1
+							artifact_type = ingredient_metal_exotic8
+							artifact_type = ingredient_sage
+							artifact_type = ingredient_asclepois
+						}
+					}
+				}
+				random = {
+					chance = 40
+					FROM = { add_character_modifier = { name = successful_treatment_1 months = 6 } }
+				}
+			}
+			if = { # May give poisoned
+				limit = {
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_2
+						OR = {
+							AND = {
+								artifact_type = ingredient_metal_exotic1
+								FROM = { trait = werewolf }
+							}
+							artifact_type = ingredient_metal_exotic2
+							artifact_type = ingredient_metal_exotic3
+							artifact_type = ingredient_metal_exotic4
+							artifact_type = ingredient_wolfsbane
+							artifact_type = ingredient_mistletoe
+						}
+					}
+				}
+				random = {
+					chance = 15
+					modifier = {
+						factor = 2
+						any_artifact = {
+							has_artifact_flag = selected_ingredient_2
+							artifact_type = ingredient_wolfsbane
+						}
+						FROM = { trait = werewolf }
+					}
+					FROM = { add_character_modifier = { name = poisoned months = 6 } }
+				}
+			}
+			if = { # May prevent sickly
+				limit = {
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_2
+						OR = {
+							artifact_type = ingredient_metal_exotic5
+							artifact_type = ingredient_fern_flower
+							artifact_type = ingredient_asclepois
+						}
+					}
+				}
+				random = {
+					chance = 40
+					FROM = { set_character_flag = baby_prevent_sickly }
+				}
+			}
+			if = { # May give any (or all) positive genetic traits
+				limit = {
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_2
+						OR = {
+							artifact_type = ingredient_metal_exotic6
+							artifact_type = ingredient_asclepois
+						}
+					}
+				}
+				random = {
+					chance = 5
+					FROM = { set_character_flag = baby_all_traits }
+				}
+			}
+			if = { # May give patient
+				limit = {
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_2
+						artifact_type = ingredient_mistletoe
+					}
+				}
+				random = {
+					chance = 20
+					FROM = { set_character_flag = baby_patient }
+				}
+			}
+			if = { # May give brave
+				limit = {
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_2
+						OR = {
+							artifact_type = ingredient_animal7
+							artifact_type = ingredient_thyme
+						}
+					}
+				}
+				random = {
+					chance = 20
+					FROM = { set_character_flag = baby_brave }
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = EVT_OPTC_MYTHMORE.64
+		ai_chance = {
+			factor = 4
+		}
+	}
+	
+}

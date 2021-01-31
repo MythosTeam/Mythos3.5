@@ -1,0 +1,7 @@
+20.1.1 = {
+	law = cognatic_succession
+	law = succ_primogeniture
+	law = crown_authority_2
+	holder = 0
+	active = no
+}

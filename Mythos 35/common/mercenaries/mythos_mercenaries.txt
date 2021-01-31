@@ -1,0 +1,12 @@
+golden_order_composition = {
+	levy_size = 4
+	heavy_infantry = 400
+	knights = 300
+	dragon_cavalry = 50
+}
+vigrithr_composition = {
+	levy_size = 4
+	heavy_infantry = 400
+	light_infantry = 400
+	fire_giants = 200
+}

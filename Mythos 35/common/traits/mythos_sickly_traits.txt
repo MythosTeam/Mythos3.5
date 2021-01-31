@@ -1,0 +1,211 @@
+# Special Sickly traits for other races, based off health bonus
+# Health penalty is race bonuses + 2.5
+# Only includes Dragon, dragonborn, demigod, giant, half-giant, and djinn.
+sickly_30 = {
+	is_health = yes
+	is_illness = yes
+	
+	potential = {
+		NOT = { age = 6 }
+	}
+	
+	health = -32.5
+	
+	customizer = no
+	random = no
+}
+sickly_27 = {
+	is_health = yes
+	is_illness = yes
+	
+	potential = {
+		NOT = { age = 6 }
+	}
+	
+	health = -29.5
+	
+	customizer = no
+	random = no
+}
+sickly_25 = {
+	is_health = yes
+	is_illness = yes
+	
+	potential = {
+		NOT = { age = 6 }
+	}
+	
+	health = -27.5
+	
+	customizer = no
+	random = no
+}
+sickly_22 = {
+	is_health = yes
+	is_illness = yes
+	
+	potential = {
+		NOT = { age = 6 }
+	}
+	
+	health = -24.5
+	
+	customizer = no
+	random = no
+}
+sickly_20 = {
+	is_health = yes
+	is_illness = yes
+	
+	potential = {
+		NOT = { age = 6 }
+	}
+	
+	health = -22.5
+	
+	customizer = no
+	random = no
+}
+sickly_19 = {
+	is_health = yes
+	is_illness = yes
+	
+	potential = {
+		NOT = { age = 6 }
+	}
+	
+	health = -21.5
+	
+	customizer = no
+	random = no
+}
+sickly_17 = {
+	is_health = yes
+	is_illness = yes
+	
+	potential = {
+		NOT = { age = 6 }
+	}
+	
+	health = -19.5
+	
+	customizer = no
+	random = no
+}
+sickly_15 = {
+	is_health = yes
+	is_illness = yes
+	
+	potential = {
+		NOT = { age = 6 }
+	}
+	
+	health = -17.5
+	
+	customizer = no
+	random = no
+}
+sickly_14 = {
+	is_health = yes
+	is_illness = yes
+	
+	potential = {
+		NOT = { age = 6 }
+	}
+	
+	health = -16.5
+	
+	customizer = no
+	random = no
+}
+sickly_12 = {
+	is_health = yes
+	is_illness = yes
+	
+	potential = {
+		NOT = { age = 6 }
+	}
+	
+	health = -14.5
+	
+	customizer = no
+	random = no
+}
+sickly_10 = {
+	is_health = yes
+	is_illness = yes
+	
+	potential = {
+		NOT = { age = 6 }
+	}
+	
+	health = -12.5
+	
+	customizer = no
+	random = no
+}
+sickly_9 = {
+	is_health = yes
+	is_illness = yes
+	
+	potential = {
+		NOT = { age = 6 }
+	}
+	
+	health = -11.5
+	
+	customizer = no
+	random = no
+}
+sickly_7 = {
+	is_health = yes
+	is_illness = yes
+	
+	potential = {
+		NOT = { age = 6 }
+	}
+	
+	health = -9.5
+	
+	customizer = no
+	random = no
+}
+sickly_5 = {
+	is_health = yes
+	is_illness = yes
+	
+	potential = {
+		NOT = { age = 6 }
+	}
+	
+	health = -7.5
+	
+	customizer = no
+	random = no
+}
+sickly_4 = {
+	is_health = yes
+	is_illness = yes
+	
+	potential = {
+		NOT = { age = 6 }
+	}
+	
+	health = -6.5
+	
+	customizer = no
+	random = no
+}
+sickly_2 = {
+	is_health = yes
+	is_illness = yes
+	
+	potential = {
+		NOT = { age = 6 }
+	}
+	
+	health = -4.5
+	
+	customizer = no
+	random = no
+}

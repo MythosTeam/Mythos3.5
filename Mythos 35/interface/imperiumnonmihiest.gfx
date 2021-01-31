@@ -1,0 +1,52 @@
+spriteTypes = {
+	#HRE
+	spriteType = {
+		name = "GFX_trait_refuses_imperium"
+		texturefile = "gfx/traits/inme.dds"
+		noOfFrames = 1
+		norefcount = yes
+		effectFile = "gfx/FX/buttonstate.lua"
+	}
+	
+	spriteType = {
+		name = "GFX_refuse_imperium"
+		texturefile = "gfx/interface/inmedec.dds"
+	}
+	spriteType = {
+		name = "GFX_renounce_refusal"
+		texturefile = "gfx/interface/inmedec2.dds"
+	}
+	#ERE
+	spriteType = {
+		name = "GFX_trait_refuses_imperium_byz"
+		texturefile = "gfx/traits/inme_byz.dds"
+		noOfFrames = 1
+		norefcount = yes
+		effectFile = "gfx/FX/buttonstate.lua"
+	}
+	
+	spriteType = {
+		name = "GFX_refuse_imperium_byz"
+		texturefile = "gfx/interface/inmedec_byz.dds"
+	}
+	spriteType = {
+		name = "GFX_renounce_refusal_byz"
+		texturefile = "gfx/interface/inmedec2_byz.dds"
+	}
+	#Feudal Elective
+	spriteType = {
+		name = "GFX_trait_refuses_the_crown"
+		texturefile = "gfx/traits/inmecrown.dds"
+		noOfFrames = 1
+		norefcount = yes
+		effectFile = "gfx/FX/buttonstate.lua"
+	}
+	spriteType = {
+		name = "GFX_refuse_the_crown"
+		texturefile = "gfx/interface/inmedec3.dds"
+	}
+	spriteType = {
+		name = "GFX_renounce_refusal_crown"
+		texturefile = "gfx/interface/inmedec4.dds"
+	}
+}

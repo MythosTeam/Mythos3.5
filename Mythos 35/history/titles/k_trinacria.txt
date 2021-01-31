@@ -1,0 +1,14 @@
+1230.12.25={
+	holder=268302 #Davakonus founds it as The Black Isles
+	law=succ_primogeniture
+	effect={
+		insert_title_history=c_malta
+	}
+}
+
+1245.11.11={
+	holder=268302 #Refounded after civil war aftermath
+}
+1262.1.21={
+	holder=0 #Sicily is ruined during a crusade, Dynasty flees to Blackrock (malta)
+}

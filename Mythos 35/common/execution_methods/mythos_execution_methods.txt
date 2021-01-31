@@ -1,0 +1,16 @@
+execution_method = {
+	death = death_execution_dragonfire
+	weight_multiplier = {
+		factor = 400
+	}
+	trigger = {
+		FROM = {
+			trait = dragon
+			OR = {
+				religion = draconic_pagan_reformed
+				religion = draconic_pagan
+			}
+		}
+		NOT = { trait = dragon }
+	}
+}

@@ -1,0 +1,55 @@
+##########################################################
+##########################2.1.1###########################
+##########################################################
+
+#### 2.1.1a ####
+- Added compatibility for 3.0.1
+
+###############
+# Compatibility
+###############
+- Updated files with changes from CK2 3.0
+- Vanilla dragons will not appear to avoid conflicts with Mythos dragons
+- The old method of reviving Hellenism and reforming it have been removed in favor of the Holy Fury version for DLC owners
+- Hellenic gods renaming themselves on reformation is temporarily disabled
+- Hellenic Pagans now call the Evocatio event when fighting non-Hellenics and the vanilla Haruspicy when fighting other Hellenics
+
+WARNING: Random world probably not work very well yet.
+
+#########
+# Dragons
+#########
+- Draconic tribes now use a different method of vassalizing tributes.  On succession, the heir may choose to remain a tribute, pay off several years of payments to break free, accept vassalization, or rebel.
+- Draconic tributes now have a modifier listing the likelyhood of each choice upon succession.  This information is updated yearly and may not reflect recent changes.
+- Draconic tributes now give a small portion of their reinforcements to their suzerain
+- In order to work better with the new reformations, the Sapphire Flame is now Kingdom-tier
+
+######
+# Misc
+######
+- Germanic Pagans are less thrilled about members of other pagan religions repeatedly raiding their lands
+- Odin is more likely to take a raven familiar and Athena is more likely to take an Owl familiar
+- Werewolves are less likely to deliberately reveal themselves unless their liege is werewolf cultured
+- Increased chance of vampires gaining stats when feeding on someone more skilled than them
+
+##########
+# Bugfixes
+##########
+- Apalala now has the Kshatriya caste
+- Skill transfer ritual will no longer trigger for characters without magic education
+- Skill transfer ritual will now work correctly in some cases that were giving 0 stat change
+- Fixed a bug where a set of alchemy events would spawn copies of itself if imprisoned.
+- Religious heads will now abdicate if they become a revenant
+- The Blood Feast decision now has an icon
+- Species fixing events will no longer run on human players.  This should prevent issues with ruler designer traits being removed.
+- Fixed Celtic religion crashing on reform
+- Revenant AI should be better at having the largest army they can
+- Fixed an issue where summoned troops could spawn under someone else's control
+- Fixed a bug where the child of a giant and a half-giant could never be a giant
+- Removed a way werewolves and vampires could gain the monster hunter trait
+- It is no longer possible to lose gold by winning a draconic tribute war.
+- The Image of Edessa can no longer be gifted to Iconoclast characters
+- Fixed a bug where you couldn't borrow money from Y Ddraig Goch unless the Army of Baal had been founded
+- Fixed a bug where you couldn't vassalize the Servents of Anubis if you had expelled the Soldiers of Horus
+- Vampires should not longer be able to get pregnant.
+- Fixed magical child education event not giving stats
