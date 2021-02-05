@@ -17,6 +17,30 @@ secrecy = {
 		desc = "RULE_DISCOVERY_FEWER_DESC"
 	}
 }
+supernatural_spawning = {
+	name = "RULE_SUPERNATUAL_SPAWNING"
+	group = "RULE_GROUP_MYTHOS"
+	option = {
+		name = default
+		text = "RULE_SUPERNATUAL_SPAWNING_DEFAULT"
+		desc = "RULE_SUPERNATUAL_SPAWNING_DEFAULT_DESC"
+	}
+	option = {
+		name = more
+		text = "RULE_SUPERNATUAL_SPAWNING_MORE"
+		desc = "RULE_SUPERNATUAL_SPAWNING_MORE_DESC"
+	}
+	option = {
+		name = fewer
+		text = "RULE_SUPERNATUAL_SPAWNING_FEWER"
+		desc = "RULE_SUPERNATUAL_SPAWNING_FEWER_DESC"
+	}
+	option = {
+		name = none
+		text = "RULE_SUPERNATUAL_SPAWNING_NONE"
+		desc = "RULE_SUPERNATUAL_SPAWNING_NONE_DESC"
+	}
+}
 breeding = {
 	name = "RULE_BREEDING"
 	group = "RULE_GROUP_MYTHOS"

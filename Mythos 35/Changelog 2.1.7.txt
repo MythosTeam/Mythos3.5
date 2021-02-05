@@ -1,0 +1,50 @@
+##########################################################
+##########################2.1.7###########################
+##########################################################
+
+#############
+# Description
+#############
+-Main plan for this update is a expansion of flavor events.
+-A French Translation is on it's way.
+-New gamerules to control certain variables.
+-We are now recruiting new team members. If interested, join the discord https://discord.gg/GxZwZHScqE
+
+
+##########
+# Vampires
+##########
+- 
+
+#########
+# Dragons
+#########
+-
+
+############
+# Werewolves
+############
+- 
+
+########
+# Giants
+########
+- 
+
+#######
+# Other
+#######
+- 
+-
+
+##########
+# Database
+##########
+- New gamerules.
+- 
+- 
+
+##########
+# Bugfixes
+##########
+-
