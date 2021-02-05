@@ -120,6 +120,15 @@ character_event = {
 					}
 					add_trait = heldragon
 				}
+				if = {
+					limit = {
+						or = {
+							event_target:true_father = { trait = longdragon }
+							mother_even_if_dead = { trait = longdragon }
+						}
+					}
+					add_trait = longdragon
+				}
 							
 			}
 			# Mother is dragon, father is dragonborn

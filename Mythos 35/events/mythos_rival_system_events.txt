@@ -1,0 +1,2 @@
+namespace = MRIVAL
+### Events for rivals.

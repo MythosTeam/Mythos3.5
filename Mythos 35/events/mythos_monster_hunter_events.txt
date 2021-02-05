@@ -1,0 +1,2 @@
+namespace = MHUNTER
+### Events for Monster hunters.

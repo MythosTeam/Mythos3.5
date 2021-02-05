@@ -7,9 +7,9 @@
 #############
 -Main plan for next major update is a expansion of flavor events.
 -A French Translation is on it's way.
--New gamerule; currently unimplemented.
+-New gamerules; currently unimplemented.
 -We are now recruiting new team members. If interested, join the discord https://discord.gg/GxZwZHScqE
-
+-
 
 ##########
 # Vampires
@@ -19,6 +19,7 @@
 #########
 # Dragons
 #########
+- Subtraits system expanded with eastern dragons.
 -
 
 ############
@@ -40,7 +41,7 @@
 ##########
 # Database
 ##########
-- New gamerule.
+- New gamerules.
 - 
 - 
 

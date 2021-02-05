@@ -364,13 +364,17 @@ dragonborn = { #represents a "Half-Dragon". Dragonblooded represents anything le
 	ai_greed = 10
 	ai_ambition = 10
 }
+
+#SUBTRAITS - Experimental system. Feedback wanted.
+
 heldragon = { #Subtype, Represents the more evil, wicked types of dragon. Relies more on dark magic.
 	christian_opinion = -25 #Fits the idea of dragons as monsters even more closely
 
 	learning = 4 #Represents magic, especially necromancy. Replace with magic once that system is done.
 	stewardship = -2 #Greed is good.. but why wait?
-	martial = 4
-	health = 10
+	martial = 2
+	
+	combat_rating = 10
 
 	ai_ambition = 10 
 	ai_honor = -40 #Ruthless
@@ -381,6 +385,25 @@ heldragon = { #Subtype, Represents the more evil, wicked types of dragon. Relies
 		race = draconic
 	}
 }
+longdragon = { #Subtype, Represents the eastern, wise dragons.
+	buddhist_opinion = 10
+
+	diplomacy = 2
+	learning = 4 
+	martial = -2
+
+	combat_rating = 10
+
+	ai_ambition = -5
+	ai_greed = -10
+
+	ruler_designer_cost = 20
+
+	potential = {
+		race = draconic
+	}
+}
+
 #EDUCATIONAL TRAITS
 
 novice_mage = {

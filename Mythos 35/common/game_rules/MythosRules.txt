@@ -17,6 +17,25 @@ secrecy = {
 		desc = "RULE_DISCOVERY_FEWER_DESC"
 	}
 }
+hybrids = {
+	name = "RULE_HYBRIDS"
+	group = "RULE_GROUP_MYTHOS"
+	option = {
+		name = default
+		text = "RULE_HYBRIDS_DEFAULT"
+		desc = "RULE_HYBRIDS_DEFAULT_DESC"
+	}
+	option = {
+		name = yes
+		text = "RULE_HYBRIDS_YES"
+		desc = "RULE_HYBRIDS_YES_DESC"
+	}
+	option = {
+		name = no
+		text = "RULE_HYBRIDS_NO"
+		desc = "RULE_HYBRIDS_NO_DESC"
+	}
+}
 supernatural_spawning = {
 	name = "RULE_SUPERNATUAL_SPAWNING"
 	group = "RULE_GROUP_MYTHOS"
