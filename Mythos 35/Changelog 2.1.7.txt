@@ -5,9 +5,9 @@
 #############
 # Description
 #############
--Main plan for this update is a expansion of flavor events.
+-Main plan for next major update is a expansion of flavor events.
 -A French Translation is on it's way.
--New gamerules to control certain variables.
+-New gamerule; currently unimplemented.
 -We are now recruiting new team members. If interested, join the discord https://discord.gg/GxZwZHScqE
 
 
@@ -40,11 +40,12 @@
 ##########
 # Database
 ##########
-- New gamerules.
+- New gamerule.
 - 
 - 
 
 ##########
 # Bugfixes
 ##########
--
+- Event picture not displaying - Thanks, YourBestFriendJ0#4612, for the bug report!
+- 

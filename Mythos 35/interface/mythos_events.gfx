@@ -2,7 +2,7 @@ spriteTypes =
 {
 	spriteType = {
 		name = "GFX_evt_squaring_the_circle"
-		texturefile= "gfx\\event_pictures\\squareing_the_circle.png"
+		texturefile= "gfx\\event_pictures\\squareing_the_circle.dds"
 		allwaystransparent = yes
 	}
 	spriteType = {
