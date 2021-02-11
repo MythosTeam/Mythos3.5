@@ -286,7 +286,7 @@
 }
 268302 = {
 	name="Davakonus" #Archetypical dragon tyrant. Intended to serve as a rival for any hellenic players.
-	dna=gccabhaahhh #He and his dynasty are Kellen's testbed for the Rival System.
+	dna=gccabhaahhh #He and his dynasty are Kellen's pet project, do tell him before making major changes
 	dynasty=1049229
 	#real_father=268298
 	religion="draconic_pagan"
@@ -341,6 +341,9 @@
 		wealth = 500
 	}
 		
+	1302.8.31 = {
+		add_claim="k_naples"
+	}
 }
 268303 = {
 	name = "Edelène"
@@ -4103,9 +4106,9 @@
 		effect = { set_character_flag = checked_race }
 	}
 	750.1.1={
-		religion=buddhist
+		religion=buddhist #hello buddha
 	}
-	852.1.1={
+	952.1.1={
 		death=yes
 	}
 }
@@ -5059,7 +5062,7 @@
 		trait="heldragon"
 		trait="arcane_master"
 		trait="magic_heritage"
-		732.5.9 = {
+		632.1.1 = {
 			birth=yes
 		}
 	}
@@ -5077,9 +5080,9 @@
 		trait="mystic"
 		trait="alchemist"
 		trait="heldragon"
-		trait="veteran_wizard"
+		trait="arcane_master"
 		trait="magic_heritage"
-		745.6.2 = {
+		632.1.1 = {
 			birth=yes
 		}
 	}
@@ -5099,10 +5102,6 @@
 		}
 		532.1.1 = {
 			add_spouse=268302
-			trait=immortal
-		}
-		909.1.1={
-			death = { death_reason = death_troubled_pregnancy }
 		}
 	}
 }

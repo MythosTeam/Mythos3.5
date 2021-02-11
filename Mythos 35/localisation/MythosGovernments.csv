@@ -45,3 +45,12 @@ tyrant_king;Tyrant-King;;;;;;;;;;;;;;,,,,,,,
 tyrant_king_female;Tyrant-Queen;;;;;;;;;;;;;;,,,,,,,
 tyrant_emperor;Tyrant-Emperor;;;;;;;;;;;;;;
 tyrant_emperor_female;Tyrant-Emperoress;;;;;;;;;;;;;;
+#;;;;;;;;;;;;;;;,,,,,,,L O N G Dragons
+longdragon_baron;Lord;;;;;;;;;;;;;;,,,,,,,
+longdragon_baron_female;Lord;;;;;;;;;;;;;;,,,,,,,
+longdragon_count;Prefect;;;;;;;;;;;;;;,,,,,,,
+longdragon_duke;Dictator;;;;;;;;;;;;;;,,,,,,,
+longdragon_king;Tyrant-King;;;;;;;;;;;;;;,,,,,,,
+longdragon_king_female;Tyrant-Queen;;;;;;;;;;;;;;,,,,,,,
+longdragon_emperor;Tyrant-Emperor;;;;;;;;;;;;;;
+longdragon_emperor_female;Tyrant-Emperoress;;;;;;;;;;;;;;

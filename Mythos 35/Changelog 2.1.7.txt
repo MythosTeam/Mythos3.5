@@ -7,9 +7,16 @@
 #############
 -Main plan for next major update is a expansion of flavor events.
 -A French Translation is on it's way.
--New gamerules; currently unimplemented.
+-New gamerule; currently unimplemented.
 -We are now recruiting new team members. If interested, join the discord https://discord.gg/GxZwZHScqE
 -
+
+
+
+##############
+# Known Issues
+##############
+-All supernatural characters are now immortal.
 
 ##########
 # Vampires
@@ -19,7 +26,7 @@
 #########
 # Dragons
 #########
-- Subtraits system expanded with eastern dragons.
+- Subtraits system expanded. 
 -
 
 ############
@@ -41,7 +48,7 @@
 ##########
 # Database
 ##########
-- New gamerules.
+- New gamerule.
 - 
 - 
 
@@ -49,4 +56,5 @@
 # Bugfixes
 ##########
 - Event picture not displaying - Thanks, YourBestFriendJ0#4612, for the bug report!
+- Quick deaths fixed
 - 

@@ -44,7 +44,7 @@ is_undead = {
 	}
 }
 
-# Old = 45 for humans, age of menopause
+# Old = 45 for humans, age of menopause. HAS BEEN CHANGED AS A TEMPORARY FIX.
 is_old = {
 	immortal = no
 	OR = {
@@ -54,7 +54,7 @@ is_old = {
 				trait = demi_god
 			}
 			# practical_age = 135
-			age = 135
+			age = 500
 		}
 		AND = {
 			OR = {
@@ -66,7 +66,7 @@ is_old = {
 				trait = demi_god
 			}
 			# practical_age = 65
-			age = 65
+			age = 165
 		}
 		AND = {
 			OR = {
@@ -83,7 +83,7 @@ is_old = {
 				trait = demi_god
 			}
 			# practical_age = 50
-			age = 50
+			age = 60
 		}
 		AND = {
 			NOR = {
@@ -98,7 +98,7 @@ is_old = {
 				trait = demi_god
 			}
 			# practical_age = 45
-			age = 45
+			age = 46
 		}
 	}
 }
@@ -117,7 +117,7 @@ is_very_old = {
 				trait = demi_god
 			}
 			# practical_age = 195
-			age = 195
+			age = 600
 		}
 		AND = {
 			OR = {
@@ -129,7 +129,7 @@ is_very_old = {
 				trait = demi_god
 			}
 			# practical_age = 94
-			age = 94
+			age = 194
 		}
 		AND = {
 			OR = {
@@ -146,7 +146,7 @@ is_very_old = {
 				trait = demi_god
 			}
 			# practical_age = 72
-			age = 72
+			age = 172
 		}
 		AND = {
 			NOR = {
@@ -175,379 +175,7 @@ is_30 = {
 				trait = dragon
 				trait = demi_god
 			}
-			age = 90
-		}
-		AND = {
-			OR = {
-				trait = mythos_giant
-				trait = djinn
-			}
-			NOR = {
-				trait = dragon
-				trait = demi_god
-			}
-			age = 44
-		}
-		AND = {
-			OR = {
-				trait = dragonborn
-				trait = blood_of_the_gods
-				any_owned_bloodline = { has_bloodline_flag = BOTG }
-				trait = werewolf
-				trait = half_giant
-			}
-			NOR = {
-				trait = mythos_giant
-				trait = djinn
-				trait = dragon
-				trait = demi_god
-			}
-			age = 33
-		}
-		AND = {
-			NOR = {
-				trait = dragonborn
-				trait = blood_of_the_gods
-				any_owned_bloodline = { has_bloodline_flag = BOTG }
-				trait = werewolf
-				trait = half_giant
-				trait = mythos_giant
-				trait = djinn
-				trait = dragon
-				trait = demi_god
-			}
-			age = 30
-		}
-	}
-}
-
-is_40 = {
-	immortal = no
-	OR = {
-		AND = {
-			OR = {
-				trait = dragon
-				trait = demi_god
-			}
-			age = 120
-		}
-		AND = {
-			OR = {
-				trait = mythos_giant
-				trait = djinn
-			}
-			NOR = {
-				trait = dragon
-				trait = demi_god
-			}
-			age = 58
-		}
-		AND = {
-			OR = {
-				trait = dragonborn
-				trait = blood_of_the_gods
-				any_owned_bloodline = { has_bloodline_flag = BOTG }
-				trait = werewolf
-				trait = half_giant
-			}
-			NOR = {
-				trait = mythos_giant
-				trait = djinn
-				trait = dragon
-				trait = demi_god
-			}
-			age = 44
-		}
-		AND = {
-			NOR = {
-				trait = dragonborn
-				trait = blood_of_the_gods
-				any_owned_bloodline = { has_bloodline_flag = BOTG }
-				trait = werewolf
-				trait = half_giant
-				trait = mythos_giant
-				trait = djinn
-				trait = dragon
-				trait = demi_god
-			}
-			age = 40
-		}
-	}
-}
-
-is_50 = {
-	OR = {
-		AND = {
-			OR = {
-				trait = dragon
-				trait = demi_god
-			}
-			age = 150
-		}
-		AND = {
-			OR = {
-				trait = mythos_giant
-				trait = djinn
-			}
-			NOR = {
-				trait = dragon
-				trait = demi_god
-			}
-			age = 72
-		}
-		AND = {
-			OR = {
-				trait = dragonborn
-				trait = blood_of_the_gods
-				any_owned_bloodline = { has_bloodline_flag = BOTG }
-				trait = werewolf
-				trait = half_giant
-			}
-			NOR = {
-				trait = mythos_giant
-				trait = djinn
-				trait = dragon
-				trait = demi_god
-			}
-			age = 56
-		}
-		AND = {
-			NOR = {
-				trait = dragonborn
-				trait = blood_of_the_gods
-				any_owned_bloodline = { has_bloodline_flag = BOTG }
-				trait = werewolf
-				trait = half_giant
-				trait = mythos_giant
-				trait = djinn
-				trait = dragon
-				trait = demi_god
-			}
-			age = 50
-		}
-	}
-}
-
-is_60 = {
-	OR = {
-		AND = {
-			OR = {
-				trait = dragon
-				trait = demi_god
-			}
-			age = 180
-		}
-		AND = {
-			OR = {
-				trait = mythos_giant
-				trait = djinn
-			}
-			NOR = {
-				trait = dragon
-				trait = demi_god
-			}
-			age = 87
-		}
-		AND = {
-			OR = {
-				trait = dragonborn
-				trait = blood_of_the_gods
-				any_owned_bloodline = { has_bloodline_flag = BOTG }
-				trait = werewolf
-				trait = half_giant
-			}
-			NOR = {
-				trait = mythos_giant
-				trait = djinn
-				trait = dragon
-				trait = demi_god
-			}
-			age = 67
-		}
-		AND = {
-			NOR = {
-				trait = dragonborn
-				trait = blood_of_the_gods
-				any_owned_bloodline = { has_bloodline_flag = BOTG }
-				trait = werewolf
-				trait = half_giant
-				trait = mythos_giant
-				trait = djinn
-				trait = dragon
-				trait = demi_god
-			}
-			age = 60
-		}
-	}
-}
-
-is_70 = {
-	OR = {
-		AND = {
-			OR = {
-				trait = dragon
-				trait = demi_god
-			}
-			age = 210
-		}
-		AND = {
-			OR = {
-				trait = mythos_giant
-				trait = djinn
-			}
-			NOR = {
-				trait = dragon
-				trait = demi_god
-			}
-			age = 101
-		}
-		AND = {
-			OR = {
-				trait = dragonborn
-				trait = blood_of_the_gods
-				any_owned_bloodline = { has_bloodline_flag = BOTG }
-				trait = werewolf
-				trait = half_giant
-			}
-			NOR = {
-				trait = mythos_giant
-				trait = djinn
-				trait = dragon
-				trait = demi_god
-			}
-			age = 78
-		}
-		AND = {
-			NOR = {
-				trait = dragonborn
-				trait = blood_of_the_gods
-				any_owned_bloodline = { has_bloodline_flag = BOTG }
-				trait = werewolf
-				trait = half_giant
-				trait = mythos_giant
-				trait = djinn
-				trait = dragon
-				trait = demi_god
-			}
-			age = 70
-		}
-	}
-}
-
-is_80 = {
-	OR = {
-		AND = {
-			OR = {
-				trait = dragon
-				trait = demi_god
-			}
-			age = 240
-		}
-		AND = {
-			OR = {
-				trait = mythos_giant
-				trait = djinn
-			}
-			NOR = {
-				trait = dragon
-				trait = demi_god
-			}
-			age = 116
-		}
-		AND = {
-			OR = {
-				trait = dragonborn
-				trait = blood_of_the_gods
-				any_owned_bloodline = { has_bloodline_flag = BOTG }
-				trait = werewolf
-				trait = half_giant
-			}
-			NOR = {
-				trait = mythos_giant
-				trait = djinn
-				trait = dragon
-				trait = demi_god
-			}
-			age = 89
-		}
-		AND = {
-			NOR = {
-				trait = dragonborn
-				trait = blood_of_the_gods
-				any_owned_bloodline = { has_bloodline_flag = BOTG }
-				trait = werewolf
-				trait = half_giant
-				trait = mythos_giant
-				trait = djinn
-				trait = dragon
-				trait = demi_god
-			}
-			age = 80
-		}
-	}
-}
-
-is_90 = {
-	OR = {
-		AND = {
-			OR = {
-				trait = dragon
-				trait = demi_god
-			}
-			age = 270
-		}
-		AND = {
-			OR = {
-				trait = mythos_giant
-				trait = djinn
-			}
-			NOR = {
-				trait = dragon
-				trait = demi_god
-			}
-			age = 130
-		}
-		AND = {
-			OR = {
-				trait = dragonborn
-				trait = blood_of_the_gods
-				any_owned_bloodline = { has_bloodline_flag = BOTG }
-				trait = werewolf
-				trait = half_giant
-			}
-			NOR = {
-				trait = mythos_giant
-				trait = djinn
-				trait = dragon
-				trait = demi_god
-			}
-			age = 100
-		}
-		AND = {
-			NOR = {
-				trait = dragonborn
-				trait = blood_of_the_gods
-				any_owned_bloodline = { has_bloodline_flag = BOTG }
-				trait = werewolf
-				trait = half_giant
-				trait = mythos_giant
-				trait = djinn
-				trait = dragon
-				trait = demi_god
-			}
-			age = 90
-		}
-	}
-}
-
-is_100 = {
-	OR = {
-		AND = {
-			OR = {
-				trait = dragon
-				trait = demi_god
-			}
-			age = 300
+			age = 190
 		}
 		AND = {
 			OR = {
@@ -574,7 +202,379 @@ is_100 = {
 				trait = dragon
 				trait = demi_god
 			}
-			age = 110
+			age = 133
+		}
+		AND = {
+			NOR = {
+				trait = dragonborn
+				trait = blood_of_the_gods
+				any_owned_bloodline = { has_bloodline_flag = BOTG }
+				trait = werewolf
+				trait = half_giant
+				trait = mythos_giant
+				trait = djinn
+				trait = dragon
+				trait = demi_god
+			}
+			age = 30
+		}
+	}
+}
+
+is_40 = {
+	immortal = no
+	OR = {
+		AND = {
+			OR = {
+				trait = dragon
+				trait = demi_god
+			}
+			age = 250
+		}
+		AND = {
+			OR = {
+				trait = mythos_giant
+				trait = djinn
+			}
+			NOR = {
+				trait = dragon
+				trait = demi_god
+			}
+			age = 158
+		}
+		AND = {
+			OR = {
+				trait = dragonborn
+				trait = blood_of_the_gods
+				any_owned_bloodline = { has_bloodline_flag = BOTG }
+				trait = werewolf
+				trait = half_giant
+			}
+			NOR = {
+				trait = mythos_giant
+				trait = djinn
+				trait = dragon
+				trait = demi_god
+			}
+			age = 144
+		}
+		AND = {
+			NOR = {
+				trait = dragonborn
+				trait = blood_of_the_gods
+				any_owned_bloodline = { has_bloodline_flag = BOTG }
+				trait = werewolf
+				trait = half_giant
+				trait = mythos_giant
+				trait = djinn
+				trait = dragon
+				trait = demi_god
+			}
+			age = 40
+		}
+	}
+}
+
+is_50 = {
+	OR = {
+		AND = {
+			OR = {
+				trait = dragon
+				trait = demi_god
+			}
+			age = 500
+		}
+		AND = {
+			OR = {
+				trait = mythos_giant
+				trait = djinn
+			}
+			NOR = {
+				trait = dragon
+				trait = demi_god
+			}
+			age = 172
+		}
+		AND = {
+			OR = {
+				trait = dragonborn
+				trait = blood_of_the_gods
+				any_owned_bloodline = { has_bloodline_flag = BOTG }
+				trait = werewolf
+				trait = half_giant
+			}
+			NOR = {
+				trait = mythos_giant
+				trait = djinn
+				trait = dragon
+				trait = demi_god
+			}
+			age = 156
+		}
+		AND = {
+			NOR = {
+				trait = dragonborn
+				trait = blood_of_the_gods
+				any_owned_bloodline = { has_bloodline_flag = BOTG }
+				trait = werewolf
+				trait = half_giant
+				trait = mythos_giant
+				trait = djinn
+				trait = dragon
+				trait = demi_god
+			}
+			age = 50
+		}
+	}
+}
+
+is_60 = {
+	OR = {
+		AND = {
+			OR = {
+				trait = dragon
+				trait = demi_god
+			}
+			age = 700
+		}
+		AND = {
+			OR = {
+				trait = mythos_giant
+				trait = djinn
+			}
+			NOR = {
+				trait = dragon
+				trait = demi_god
+			}
+			age = 187
+		}
+		AND = {
+			OR = {
+				trait = dragonborn
+				trait = blood_of_the_gods
+				any_owned_bloodline = { has_bloodline_flag = BOTG }
+				trait = werewolf
+				trait = half_giant
+			}
+			NOR = {
+				trait = mythos_giant
+				trait = djinn
+				trait = dragon
+				trait = demi_god
+			}
+			age = 167
+		}
+		AND = {
+			NOR = {
+				trait = dragonborn
+				trait = blood_of_the_gods
+				any_owned_bloodline = { has_bloodline_flag = BOTG }
+				trait = werewolf
+				trait = half_giant
+				trait = mythos_giant
+				trait = djinn
+				trait = dragon
+				trait = demi_god
+			}
+			age = 60
+		}
+	}
+}
+
+is_70 = {
+	OR = {
+		AND = {
+			OR = {
+				trait = dragon
+				trait = demi_god
+			}
+			age = 800
+		}
+		AND = {
+			OR = {
+				trait = mythos_giant
+				trait = djinn
+			}
+			NOR = {
+				trait = dragon
+				trait = demi_god
+			}
+			age = 201
+		}
+		AND = {
+			OR = {
+				trait = dragonborn
+				trait = blood_of_the_gods
+				any_owned_bloodline = { has_bloodline_flag = BOTG }
+				trait = werewolf
+				trait = half_giant
+			}
+			NOR = {
+				trait = mythos_giant
+				trait = djinn
+				trait = dragon
+				trait = demi_god
+			}
+			age = 178
+		}
+		AND = {
+			NOR = {
+				trait = dragonborn
+				trait = blood_of_the_gods
+				any_owned_bloodline = { has_bloodline_flag = BOTG }
+				trait = werewolf
+				trait = half_giant
+				trait = mythos_giant
+				trait = djinn
+				trait = dragon
+				trait = demi_god
+			}
+			age = 70
+		}
+	}
+}
+
+is_80 = {
+	OR = {
+		AND = {
+			OR = {
+				trait = dragon
+				trait = demi_god
+			}
+			age = 900
+		}
+		AND = {
+			OR = {
+				trait = mythos_giant
+				trait = djinn
+			}
+			NOR = {
+				trait = dragon
+				trait = demi_god
+			}
+			age = 216
+		}
+		AND = {
+			OR = {
+				trait = dragonborn
+				trait = blood_of_the_gods
+				any_owned_bloodline = { has_bloodline_flag = BOTG }
+				trait = werewolf
+				trait = half_giant
+			}
+			NOR = {
+				trait = mythos_giant
+				trait = djinn
+				trait = dragon
+				trait = demi_god
+			}
+			age = 189
+		}
+		AND = {
+			NOR = {
+				trait = dragonborn
+				trait = blood_of_the_gods
+				any_owned_bloodline = { has_bloodline_flag = BOTG }
+				trait = werewolf
+				trait = half_giant
+				trait = mythos_giant
+				trait = djinn
+				trait = dragon
+				trait = demi_god
+			}
+			age = 80
+		}
+	}
+}
+
+is_90 = {
+	OR = {
+		AND = {
+			OR = {
+				trait = dragon
+				trait = demi_god
+			}
+			age = 1000
+		}
+		AND = {
+			OR = {
+				trait = mythos_giant
+				trait = djinn
+			}
+			NOR = {
+				trait = dragon
+				trait = demi_god
+			}
+			age = 230
+		}
+		AND = {
+			OR = {
+				trait = dragonborn
+				trait = blood_of_the_gods
+				any_owned_bloodline = { has_bloodline_flag = BOTG }
+				trait = werewolf
+				trait = half_giant
+			}
+			NOR = {
+				trait = mythos_giant
+				trait = djinn
+				trait = dragon
+				trait = demi_god
+			}
+			age = 200
+		}
+		AND = {
+			NOR = {
+				trait = dragonborn
+				trait = blood_of_the_gods
+				any_owned_bloodline = { has_bloodline_flag = BOTG }
+				trait = werewolf
+				trait = half_giant
+				trait = mythos_giant
+				trait = djinn
+				trait = dragon
+				trait = demi_god
+			}
+			age = 90
+		}
+	}
+}
+
+is_100 = {
+	OR = {
+		AND = {
+			OR = {
+				trait = dragon
+				trait = demi_god
+			}
+			age = 1200
+		}
+		AND = {
+			OR = {
+				trait = mythos_giant
+				trait = djinn
+			}
+			NOR = {
+				trait = dragon
+				trait = demi_god
+			}
+			age = 344
+		}
+		AND = {
+			OR = {
+				trait = dragonborn
+				trait = blood_of_the_gods
+				any_owned_bloodline = { has_bloodline_flag = BOTG }
+				trait = werewolf
+				trait = half_giant
+			}
+			NOR = {
+				trait = mythos_giant
+				trait = djinn
+				trait = dragon
+				trait = demi_god
+			}
+			age = 210
 		}
 		AND = {
 			NOR = {
