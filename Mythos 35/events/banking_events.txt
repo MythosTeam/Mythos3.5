@@ -629,6 +629,10 @@ character_event = {
 	border = GFX_event_normal_frame_economy
 	
 	is_triggered_only = yes
+	
+	trigger = {
+		check_variable = { which = loan_amount value > 0 }
+	}
 		
 	immediate = {
 		set_variable = { which = local_interest which = loan_amount }
@@ -757,6 +761,7 @@ character_event = {
 		wealth = local_payment_large
 		hidden_tooltip = {
 			set_variable = { which = local_payment which = local_requirement_large }
+			change_variable = { which = loan_amount which = local_payment_large }
 			event_target:selected_banker = {
 				set_variable = { which = local_payment which = ROOT }
 				if = {
@@ -793,6 +798,7 @@ character_event = {
 		wealth = local_payment_small
 		hidden_tooltip = {
 			set_variable = { which = local_payment which = local_requirement_small }
+			change_variable = { which = loan_amount which = local_payment_small }
 			event_target:selected_banker = {
 				set_variable = { which = local_payment which = ROOT }
 				if = {

@@ -1,0 +1,18 @@
+v3.5.0
+
+Enhancements:
+
+Version change to keep up with the Mythos version number.
+
+Bug Fixes:
+
+Yearly loan payment event now checked to see if you actually have a loan.
+Thor went back to school and got an education. I'm so proud of him!
+Cultural buildings now require the province to be that culture to both be built and be active.
+Capital buildings now require the province to be a capital to be active.
+Panacea should now correctly remove the diseases if it was used during the symptom phase.
+Hidden werewolves will no longer accidentally reveal themselves due to a non-hidden Werewolf Killed character modifier. This modifier will now only be visible to other werewolves.
+The Recruit Commander event should now respect ROOT's graphical culture.
+Loans are bad, mmkay? But they have been fixed. Probably.
+Djinn towns for cities now rely on the tribal versions of themselves to be built instead of city mummy temples.
+

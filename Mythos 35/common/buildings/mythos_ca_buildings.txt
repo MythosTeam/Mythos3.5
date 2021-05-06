@@ -7,13 +7,7 @@ castle = {
 
 		potential = {
 			OR = {
-				holder_scope = {
-					OR = {
-						trait = dragon
-						trait = dragonborn
-						culture = draconic
-					}
-				}
+				culture = draconic
 				FROMFROM = {
 					has_building = ca_dragon_tower_1
 					NOT = {
@@ -31,8 +25,8 @@ castle = {
 			}
 		}
 		trigger = {
-			holder_scope = { trait = dragon }
 			TECH_CASTLE_CONSTRUCTION = 1
+			culture = draconic
 			is_capital = yes
 			# No other special troop
 			custom_tooltip = {
@@ -62,12 +56,8 @@ castle = {
 			}
 		}
 		is_active_trigger = {
-			holder_scope = {
-				OR = {
-					trait = dragon
-					trait = dragonborn
-				}
-			}
+			culture = draconic
+			is_capital = yes
 			# No other special troop
 			custom_tooltip = {
 				text = tt_no_other_special_troop
@@ -115,13 +105,7 @@ castle = {
 
 		potential = {
 			OR = {
-				holder_scope = {
-					OR = {
-						trait = dragon
-						trait = dragonborn
-						culture = draconic
-					}
-				}
+				culture = draconic
 				FROMFROM = {
 					has_building = ca_dragon_tower_2
 					NOT = {
@@ -139,8 +123,8 @@ castle = {
 			}
 		}
 		trigger = {
-			holder_scope = { trait = dragon }
 			TECH_CASTLE_CONSTRUCTION = 3
+			culture = draconic
 			is_capital = yes
 			# No other special troop
 			custom_tooltip = {
@@ -170,12 +154,8 @@ castle = {
 			}
 		}
 		is_active_trigger = {
-			holder_scope = {
-				OR = {
-					trait = dragon
-					trait = dragonborn
-				}
-			}
+			culture = draconic
+			is_capital = yes
 			# No other special troop
 			custom_tooltip = {
 				text = tt_no_other_special_troop
@@ -222,13 +202,7 @@ castle = {
 
 		potential = {
 			OR = {
-				holder_scope = {
-					OR = {
-						trait = dragon
-						trait = dragonborn
-						culture = draconic
-					}
-				}
+				culture = draconic
 				FROMFROM = {
 					has_building = ca_dragon_tower_3
 					NOT = {
@@ -246,8 +220,8 @@ castle = {
 			}
 		}
 		trigger = {
-			holder_scope = { trait = dragon }
 			TECH_CASTLE_CONSTRUCTION = 5
+			culture = draconic
 			is_capital = yes
 			# No other special troop
 			custom_tooltip = {
@@ -277,12 +251,8 @@ castle = {
 			}
 		}
 		is_active_trigger = {
-			holder_scope = {
-				OR = {
-					trait = dragon
-					trait = dragonborn
-				}
-			}
+			culture = draconic
+			is_capital = yes
 			# No other special troop
 			custom_tooltip = {
 				text = tt_no_other_special_troop
@@ -329,7 +299,7 @@ castle = {
 		desc = ca_dragon_militia_desc
 
 		potential = {
-			holder_scope = { culture = draconic }
+			culture = draconic
 		}
 		trigger = {
 			TECH_CASTLE_CONSTRUCTION = 1
@@ -361,6 +331,7 @@ castle = {
 			}
 		}
 		is_active_trigger = {
+			culture = draconic
 			# No other special troop
 			custom_tooltip = {
 				text = tt_no_other_special_troop
@@ -403,7 +374,7 @@ castle = {
 		desc = ca_dragon_militia_desc
 
 		potential = {
-			holder_scope = { culture = draconic }
+			culture = draconic
 		}
 		trigger = {
 			TECH_CASTLE_CONSTRUCTION = 3
@@ -435,6 +406,7 @@ castle = {
 			}
 		}
 		is_active_trigger = {
+			culture = draconic
 			# No other special troop
 			custom_tooltip = {
 				text = tt_no_other_special_troop
@@ -477,7 +449,7 @@ castle = {
 		desc = ca_dragon_militia_desc
 
 		potential = {
-			holder_scope = { culture = draconic }
+			culture = draconic
 		}
 		trigger = {
 			TECH_CASTLE_CONSTRUCTION = 5
@@ -509,6 +481,7 @@ castle = {
 			}
 		}
 		is_active_trigger = {
+			culture = draconic
 			# No other special troop
 			custom_tooltip = {
 				text = tt_no_other_special_troop
@@ -551,7 +524,7 @@ castle = {
 		desc = ca_dragon_militia_desc
 
 		potential = {
-			holder_scope = { culture = draconic }
+			culture = draconic
 		}
 		trigger = {
 			TECH_CASTLE_CONSTRUCTION = 7
@@ -583,6 +556,7 @@ castle = {
 			}
 		}
 		is_active_trigger = {
+			culture = draconic
 			# No other special troop
 			custom_tooltip = {
 				text = tt_no_other_special_troop
@@ -628,13 +602,7 @@ castle = {
 
 		potential = {
 			OR = {
-				holder_scope = {
-					OR = {
-						trait = dragon
-						trait = dragonborn
-						culture = draconic
-					}
-				}
+				culture = draconic
 				FROMFROM = {
 					has_building = ca_dragon_vault_1
 					NOT = {
@@ -651,7 +619,6 @@ castle = {
 			}
 		}
 		trigger = {
-			holder_scope = { trait = dragon }
 			TECH_CASTLE_CONSTRUCTION = 1
 			owner = {
 				NOR = {
@@ -661,12 +628,7 @@ castle = {
 			}
 		}
 		is_active_trigger = {
-			holder_scope = {
-				OR = {
-					trait = dragon
-					trait = dragonborn
-				}
-			}
+			culture = draconic
 			owner = {
 				NOR = {
 					government = zombie_horde
@@ -691,13 +653,7 @@ castle = {
 
 		potential = {
 			OR = {
-				holder_scope = {
-					OR = {
-						trait = dragon
-						trait = dragonborn
-						culture = draconic
-					}
-				}
+				culture = draconic
 				FROMFROM = {
 					has_building = ca_dragon_vault_2
 					NOT = {
@@ -714,7 +670,6 @@ castle = {
 			}
 		}
 		trigger = {
-			holder_scope = { trait = dragon }
 			TECH_CASTLE_CONSTRUCTION = 1
 			owner = {
 				NOR = {
@@ -724,12 +679,7 @@ castle = {
 			}
 		}
 		is_active_trigger = {
-			holder_scope = {
-				OR = {
-					trait = dragon
-					trait = dragonborn
-				}
-			}
+			culture = draconic
 			owner = {
 				NOR = {
 					government = zombie_horde
@@ -756,12 +706,7 @@ castle = {
 
 		potential = {
 			OR = {
-				holder_scope = {
-					OR = {
-						trait = werewolf
-						culture = werewolf_culture
-					}
-				}
+				culture = werewolf_culture
 				FROMFROM = { 
 					has_building = ca_werewolf_lodge_1
 					NOT = {
@@ -779,8 +724,8 @@ castle = {
 			}
 		}
 		trigger = {
-			holder_scope = { trait = known_werewolf }
 			TECH_CASTLE_CONSTRUCTION = 1
+			culture = werewolf_culture
 			is_capital = yes
 			# No other special troop
 			custom_tooltip = {
@@ -810,7 +755,8 @@ castle = {
 			}
 		}
 		is_active_trigger = {
-			holder_scope = { trait = known_werewolf }
+			culture = werewolf_culture
+			is_capital = yes
 			# No other special troop
 			custom_tooltip = {
 				text = tt_no_other_special_troop
@@ -858,12 +804,7 @@ castle = {
 
 		potential = {
 			OR = {
-				holder_scope = {
-					OR = {
-						trait = werewolf
-						culture = werewolf_culture
-					}
-				}
+				culture = werewolf_culture
 				FROMFROM = { 
 					has_building = ca_werewolf_lodge_2
 					NOT = {
@@ -881,8 +822,8 @@ castle = {
 			}
 		}
 		trigger = {
-			holder_scope = { trait = known_werewolf }
 			TECH_CASTLE_CONSTRUCTION = 3
+			culture = werewolf_culture
 			is_capital = yes
 			# No other special troop
 			custom_tooltip = {
@@ -912,7 +853,8 @@ castle = {
 			}
 		}
 		is_active_trigger = {
-			holder_scope = { trait = known_werewolf }
+			culture = werewolf_culture
+			is_capital = yes
 			# No other special troop
 			custom_tooltip = {
 				text = tt_no_other_special_troop
@@ -960,7 +902,7 @@ castle = {
 		desc = ca_werewolf_soldiers_desc
 
 		potential = {
-			holder_scope = { culture = werewolf_culture }
+			culture = werewolf_culture
 		}
 		trigger = {
 			TECH_CASTLE_CONSTRUCTION = 1
@@ -992,6 +934,7 @@ castle = {
 			}
 		}
 		is_active_trigger = {
+			culture = werewolf_culture
 			# No other special troop
 			custom_tooltip = {
 				text = tt_no_other_special_troop
@@ -1035,7 +978,7 @@ castle = {
 		desc = ca_werewolf_soldiers_desc
 
 		potential = {
-			holder_scope = { culture = werewolf_culture }
+			culture = werewolf_culture
 		}
 		trigger = {
 			TECH_CASTLE_CONSTRUCTION = 3
@@ -1067,6 +1010,7 @@ castle = {
 			}
 		}
 		is_active_trigger = {
+			culture = werewolf_culture
 			# No other special troop
 			custom_tooltip = {
 				text = tt_no_other_special_troop
@@ -1110,7 +1054,7 @@ castle = {
 		desc = ca_werewolf_soldiers_desc
 
 		potential = {
-			holder_scope = { culture = werewolf_culture }
+			culture = werewolf_culture
 		}
 		trigger = {
 			TECH_CASTLE_CONSTRUCTION = 5
@@ -1142,6 +1086,7 @@ castle = {
 			}
 		}
 		is_active_trigger = {
+			culture = werewolf_culture
 			# No other special troop
 			custom_tooltip = {
 				text = tt_no_other_special_troop
@@ -1185,7 +1130,7 @@ castle = {
 		desc = ca_werewolf_soldiers_desc
 
 		potential = {
-			holder_scope = { culture = werewolf_culture }
+			culture = werewolf_culture
 		}
 		trigger = {
 			TECH_CASTLE_CONSTRUCTION = 7
@@ -1217,6 +1162,7 @@ castle = {
 			}
 		}
 		is_active_trigger = {
+			culture = werewolf_culture
 			# No other special troop
 			custom_tooltip = {
 				text = tt_no_other_special_troop
@@ -1263,12 +1209,7 @@ castle = {
 
 		potential = {
 			OR = {
-				holder_scope = {
-					OR = {
-						trait = werewolf
-						culture = werewolf_culture
-					}
-				}
+				culture = werewolf_culture
 				FROMFROM = {
 					has_building = ca_werewolf_pits
 					NOT = {
@@ -1286,10 +1227,6 @@ castle = {
 		}
 		trigger = {
 			TECH_CASTLE_CONSTRUCTION = 1
-			holder_scope = {
-				culture = werewolf_culture
-				trait = known_werewolf
-			}
 			owner = {
 				NOR = {
 					government = zombie_horde
@@ -1298,12 +1235,7 @@ castle = {
 			}
 		}
 		is_active_trigger = {
-			holder_scope = {
-				OR = {
-					trait = known_werewolf
-					culture = werewolf_culture
-				}
-			}
+			culture = werewolf_culture
 			owner = {
 				NOR = {
 					government = zombie_horde
@@ -1330,7 +1262,7 @@ castle = {
 
 		potential = {
 			OR = {
-				holder_scope = { trait = vampire }
+				culture = vampire_culture
 				FROMFROM = {
 					has_building = ca_vampire_citadel_1
 					NOT = {
@@ -1348,7 +1280,6 @@ castle = {
 			}
 		}
 		trigger = {
-			holder_scope = { trait = vampire }
 			TECH_CASTLE_CONSTRUCTION = 1
 			is_capital = yes
 			# No other special troop
@@ -1379,6 +1310,8 @@ castle = {
 			}
 		}
 		is_active_trigger = {
+			culture = vampire_culture
+			is_capital = yes
 			holder_scope = { trait = known_vampire }
 			# No other special troop
 			custom_tooltip = {
@@ -1428,7 +1361,7 @@ castle = {
 
 		potential = {
 			OR = {
-				holder_scope = { trait = vampire }
+				culture = vampire_culture
 				FROMFROM = {
 					has_building = ca_vampire_citadel_2
 					NOT = {
@@ -1446,7 +1379,6 @@ castle = {
 			}
 		}
 		trigger = {
-			holder_scope = { trait = vampire }
 			TECH_CASTLE_CONSTRUCTION = 3
 			is_capital = yes
 			# No other special troop
@@ -1477,7 +1409,8 @@ castle = {
 			}
 		}
 		is_active_trigger = {
-			holder_scope = { trait = known_vampire }
+			culture = vampire_culture
+			is_capital = yes
 			# No other special troop
 			custom_tooltip = {
 				text = tt_no_other_special_troop
@@ -1526,7 +1459,7 @@ castle = {
 		desc = ca_vampire_catacomb_desc
 		
 		potential = {
-			holder_scope = { culture = vampire_culture }
+			culture = vampire_culture
 		}
 		trigger = {
 			TECH_CASTLE_CONSTRUCTION = 1
@@ -1558,6 +1491,7 @@ castle = {
 			}
 		}
 		is_active_trigger = {
+			culture = vampire_culture
 			# No other special troop
 			custom_tooltip = {
 				text = tt_no_other_special_troop
@@ -1601,7 +1535,7 @@ castle = {
 		desc = ca_vampire_catacomb_desc
 		
 		potential = {
-			holder_scope = { culture = vampire_culture }
+			culture = vampire_culture
 		}
 		trigger = {
 			TECH_CASTLE_CONSTRUCTION = 3
@@ -1633,6 +1567,7 @@ castle = {
 			}
 		}
 		is_active_trigger = {
+			culture = vampire_culture
 			# No other special troop
 			custom_tooltip = {
 				text = tt_no_other_special_troop
@@ -1677,7 +1612,7 @@ castle = {
 		desc = ca_vampire_catacomb_desc
 		
 		potential = {
-			holder_scope = { culture = vampire_culture }
+			culture = vampire_culture
 		}
 		trigger = { 
 			TECH_CASTLE_CONSTRUCTION = 5
@@ -1709,6 +1644,7 @@ castle = {
 			}
 		}
 		is_active_trigger = {
+			culture = vampire_culture
 			# No other special troop
 			custom_tooltip = {
 				text = tt_no_other_special_troop
@@ -1753,7 +1689,7 @@ castle = {
 		desc = ca_vampire_catacomb_desc
 		
 		potential = {
-			holder_scope = { culture = vampire_culture }
+			culture = vampire_culture
 		}
 		trigger = { 
 			TECH_CASTLE_CONSTRUCTION = 7
@@ -1785,6 +1721,7 @@ castle = {
 			}
 		}
 		is_active_trigger = {
+			culture = vampire_culture
 			# No other special troop
 			custom_tooltip = {
 				text = tt_no_other_special_troop
@@ -1832,7 +1769,7 @@ castle = {
 		
 		potential = {
 			OR = {
-				holder_scope = { trait = vampire }
+				culture = vampire_culture
 				FROMFROM = {
 					has_building = ca_vampire_spy_network
 					NOT = {
@@ -1850,7 +1787,6 @@ castle = {
 		}
 		trigger = { 
 			TECH_CASTLE_CONSTRUCTION = 1
-			holder_scope = { trait = vampire }
 			owner = {
 				NOR = {
 					government = zombie_horde
@@ -1859,7 +1795,7 @@ castle = {
 			}
 		}
 		is_active_trigger = {
-			holder_scope = { trait = known_vampire }
+			culture = vampire_culture
 			owner = {
 				NOR = {
 					government = zombie_horde
@@ -1887,12 +1823,7 @@ castle = {
 		
 		potential = { 
 			OR = {
-				holder_scope = {
-					OR = {
-						trait = mythos_giant
-						trait = half_giant
-					}
-				}
+				culture = jotunn
 				FROMFROM = {
 					has_building = ca_giant_shield
 					NOT = {
@@ -1910,7 +1841,6 @@ castle = {
 			}
 		}
 		trigger = {
-			holder_scope = { trait = mythos_giant }
 			TECH_CASTLE_CONSTRUCTION = 1
 			is_capital = yes
 			owner = {
@@ -1921,6 +1851,8 @@ castle = {
 			}
 		}
 		is_active_trigger = {
+			culture = jotunn
+			is_capital = yes
 			holder_scope = {
 				OR = {
 					trait = mythos_giant
@@ -1954,12 +1886,7 @@ castle = {
 		
 		potential = { 
 			OR = {
-				holder_scope = {
-					OR = {
-						trait = mythos_giant
-						trait = half_giant
-					}
-				}
+				culture = jotunn
 				FROMFROM = {
 					has_building = ca_giant_hall
 					NOT = {
@@ -1977,7 +1904,6 @@ castle = {
 			}
 		}
 		trigger = { 
-			holder_scope = { trait = mythos_giant }
 			TECH_CASTLE_CONSTRUCTION = 3
 			is_capital = yes	
 			owner = {
@@ -1988,12 +1914,8 @@ castle = {
 			}	 
 		}
 		is_active_trigger = {
-			holder_scope = {
-				OR = {
-					trait = mythos_giant
-					trait = half_giant
-				}
-			}
+			culture = jotunn
+			is_capital = yes
 			owner = {
 				NOR = {
 					government = zombie_horde
@@ -2022,7 +1944,7 @@ castle = {
 		desc = ca_giant_arena_desc
 		
 		potential = {
-			holder_scope = { culture = jotunn }
+			culture = jotunn
 		}
 		trigger = {
 			TECH_CASTLE_CONSTRUCTION = 0
@@ -2034,6 +1956,7 @@ castle = {
 			}
 		}
 		is_active_trigger = {
+			culture = jotunn
 			owner = {
 				NOR = {
 					government = zombie_horde
@@ -2057,7 +1980,7 @@ castle = {
 		desc = ca_giant_arena_desc
 		
 		potential = {
-			holder_scope = { culture = jotunn }
+			culture = jotunn
 		}
 		trigger = {
 			TECH_CASTLE_CONSTRUCTION = 1
@@ -2069,6 +1992,7 @@ castle = {
 			}
 		}
 		is_active_trigger = {
+			culture = jotunn
 			owner = {
 				NOR = {
 					government = zombie_horde
@@ -2091,7 +2015,7 @@ castle = {
 		desc = ca_giant_arena_desc
 		
 		potential = {
-			holder_scope = { culture = jotunn }
+			culture = jotunn
 		}
 		trigger = {
 			TECH_CASTLE_CONSTRUCTION = 2
@@ -2103,6 +2027,7 @@ castle = {
 			}
 		}
 		is_active_trigger = {
+			culture = jotunn
 			owner = {
 				NOR = {
 					government = zombie_horde
@@ -2125,7 +2050,7 @@ castle = {
 		desc = ca_giant_arena_desc
 		
 		potential = {
-			holder_scope = { culture = jotunn }
+			culture = jotunn
 		}
 		trigger = {
 			TECH_CASTLE_CONSTRUCTION = 4
@@ -2137,6 +2062,7 @@ castle = {
 			}
 		}
 		is_active_trigger = {
+			culture = jotunn
 			owner = {
 				NOR = {
 					government = zombie_horde
@@ -2161,12 +2087,7 @@ castle = {
 		
 		potential = { 
 			OR = {
-				holder_scope = {
-					OR = {
-						trait = mythos_giant
-						trait = half_giant
-					}
-				}
+				culture = jotunn
 				FROMFROM = {
 					has_building = ca_giant_market
 					NOT = {
@@ -2183,7 +2104,6 @@ castle = {
 			}
 		}
 		trigger = {
-			holder_scope = { trait = mythos_giant }
 			TECH_CASTLE_CONSTRUCTION = 1
 			owner = {
 				NOR = {
@@ -2193,12 +2113,7 @@ castle = {
 			}
 		}
 		is_active_trigger = {
-			holder_scope = {
-				OR = {
-					trait = mythos_giant
-					trait = half_giant
-				}
-			}
+			culture = jotunn
 			owner = {
 				NOR = {
 					government = zombie_horde
@@ -2536,7 +2451,7 @@ castle = {
 		
 		potential = {
 			OR = {
-				holder_scope = { trait = djinn }
+				culture = djinni
 				FROMFROM = {
 					has_building = ca_djinni_caves
 					NOT = {
@@ -2554,7 +2469,6 @@ castle = {
 			}
 		}
 		trigger = {
-			holder_scope = { trait = djinn }
 			TECH_CASTLE_CONSTRUCTION = 1
 			is_capital = yes
 			owner = {
@@ -2565,7 +2479,8 @@ castle = {
 			}
 		}
 		is_active_trigger = {
-			holder_scope = { trait = djinn }
+			culture = djinni
+			is_capital = yes
 			owner = {
 				NOR = {
 					government = zombie_horde
@@ -2589,7 +2504,7 @@ castle = {
 		
 		potential = {
 			OR = {
-				holder_scope = { trait = djinn }
+				culture = djinni
 				FROMFROM = {
 					has_building = ca_djinni_town
 					NOT = {
@@ -2608,7 +2523,6 @@ castle = {
 			}
 		}
 		trigger = {
-			holder_scope = { trait = djinn }
 			TECH_CASTLE_CONSTRUCTION = 1
 			owner = {
 				NOR = {
@@ -2618,7 +2532,7 @@ castle = {
 			}
 		}
 		is_active_trigger = {
-			holder_scope = { trait = djinn }
+			culture = djinni
 			owner = {
 				NOR = {
 					government = zombie_horde

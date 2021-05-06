@@ -13389,22 +13389,27 @@ character_event = {
 			remove_trait = craven
 			
 			if = {
-				limit = { graphical_culture = dragongfx }
+				limit = { ROOT = { graphical_culture = dragongfx } }
 				add_trait = dragon
+				set_graphical_culture = draconic
 			}
 			else_if = {
-				limit = { graphical_culture = demongfx }
+				limit = { ROOT = { graphical_culture = demongfx } }
 				add_trait = demon_trait
+				set_graphical_culture = demon_culture
 			}
 			else_if = {
-				limit = { graphical_culture = etherealgfx }
+				limit = { ROOT = { graphical_culture = etherealgfx } }
 				add_trait = ethereal_trait
+				set_graphical_culture = ethereal_culture
 			}
 			else_if = {
 				limit = {
-					OR = {
-						graphical_culture = undeadgfx
-						culture_group = undead_culture_group
+					ROOT = { 
+						OR = {
+							graphical_culture = undeadgfx
+							culture_group = undead_culture_group
+						}
 					}
 				}
 				add_trait = zombie

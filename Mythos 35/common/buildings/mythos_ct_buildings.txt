@@ -7,17 +7,7 @@ city = {
 		
 		potential = {
 			OR = {
-				holder_scope = {
-					OR = {
-						trait = dragon
-						trait = dragonborn
-						culture = draconic
-					}
-					OR = {
-						government = draconic_merchant_republic_government
-						government = merchant_republic_government
-					}
-				}
+				culture = draconic
 				FROMFROM = {
 					has_building = ct_dragon_tribute_1
 					NOT = {
@@ -45,16 +35,7 @@ city = {
 			}
 		}
 		is_active_trigger = {
-			holder_scope = {
-				OR = {
-					trait = dragon
-					trait = dragonborn
-				}
-				OR = {
-					government = draconic_merchant_republic_government
-					government = merchant_republic_government
-				}
-			}
+			culture = draconic
 			owner = {
 				NOR = {
 					government = zombie_horde
@@ -80,17 +61,7 @@ city = {
 		
 		potential = {
 			OR = {
-				holder_scope = {
-					OR = {
-						trait = dragon
-						trait = dragonborn
-						culture = draconic
-					}
-					OR = {
-						government = draconic_merchant_republic_government
-						government = merchant_republic_government
-					}
-				}
+				culture = draconic
 				FROMFROM = {
 					has_building = ct_dragon_tribute_2
 					NOT = {
@@ -118,16 +89,7 @@ city = {
 			}
 		}
 		is_active_trigger = {
-			holder_scope = {
-				OR = {
-					trait = dragon
-					trait = dragonborn
-				}
-				OR = {
-					government = draconic_merchant_republic_government
-					government = merchant_republic_government
-				}
-			}
+			culture = draconic
 			owner = {
 				NOR = {
 					government = zombie_horde
@@ -155,27 +117,19 @@ city = {
 		
 		potential = { culture = draconic }
 		trigger = {
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		is_active_trigger = {
 			culture = draconic
 			owner = {
 				NOR = {
 					government = zombie_horde
 					trait = zombie
-				}
-				OR = {
-					government = draconic_merchant_republic_government
-					government = merchant_republic_government
-				}
-			}
-		}
-		is_active_trigger = {
-			owner = {
-				NOR = {
-					government = zombie_horde
-					trait = zombie
-				}
-				OR = {
-					government = draconic_merchant_republic_government
-					government = merchant_republic_government
 				}
 			}
 		}
@@ -196,16 +150,7 @@ city = {
 		
 		potential = {
 			OR = {
-				holder_scope = {
-					OR = {
-						trait = werewolf
-						culture = werewolf_culture
-					}
-					OR = {
-						government = draconic_merchant_republic_government
-						government = merchant_republic_government
-					}
-				}
+				culture = werewolf_culture
 				FROMFROM = {
 					has_building = ct_werewolf_court
 					NOT = {
@@ -225,10 +170,6 @@ city = {
 		}
 		trigger = {
 			TECH_CITY_CONSTRUCTION = 1
-			holder_scope = {
-				culture = werewolf_culture
-				trait = known_werewolf
-			}
 			owner = {
 				NOR = {
 					government = zombie_horde
@@ -237,14 +178,7 @@ city = {
 			}
 		}
 		is_active_trigger = {
-			holder_scope = {
-				trait = known_werewolf
-				culture = werewolf_culture
-				OR = {
-					government = draconic_merchant_republic_government
-					government = merchant_republic_government
-				}
-			}
+			culture = werewolf_culture
 			owner = {
 				NOR = {
 					government = zombie_horde
@@ -275,21 +209,14 @@ city = {
 					government = zombie_horde
 					trait = zombie
 				}
-				OR = {
-					government = draconic_merchant_republic_government
-					government = merchant_republic_government
-				}
 			}
 		}
 		is_active_trigger = {
+			culture = werewolf_culture
 			owner = {
 				NOR = {
 					government = zombie_horde
 					trait = zombie
-				}
-				OR = {
-					government = draconic_merchant_republic_government
-					government = merchant_republic_government
 				}
 			}
 		}
@@ -310,13 +237,7 @@ city = {
 		
 		potential = {
 			OR = {
-				holder_scope = {
-					trait = vampire
-					OR = {
-						government = draconic_merchant_republic_government
-						government = merchant_republic_government
-					}
-				}
+				culture = vampire_culture
 				FROMFROM = {
 					has_building = ct_vampire_blood_warehouse
 					NOT = {
@@ -336,13 +257,6 @@ city = {
 		}
 		trigger = {
 			TECH_CITY_CONSTRUCTION = 1
-			holder_scope = {
-				trait = vampire
-				OR = {
-					government = draconic_merchant_republic_government
-					government = merchant_republic_government
-				}
-			}
 			owner = {
 				NOR = {
 					government = zombie_horde
@@ -351,13 +265,7 @@ city = {
 			}
 		}
 		is_active_trigger = {
-			holder_scope = {
-				trait = known_vampire
-				OR = {
-					government = draconic_merchant_republic_government
-					government = merchant_republic_government
-				}
-			}
+			culture = vampire_culture
 			owner = {
 				NOR = {
 					government = zombie_horde
@@ -387,21 +295,14 @@ city = {
 					government = zombie_horde
 					trait = zombie
 				}
-				OR = {
-					government = draconic_merchant_republic_government
-					government = merchant_republic_government
-				}
 			}
 		}
 		is_active_trigger = {
+			culture = vampire_culture
 			owner = {
 				NOR = {
 					government = zombie_horde
 					trait = zombie
-				}
-				OR = {
-					government = draconic_merchant_republic_government
-					government = merchant_republic_government
 				}
 			}
 		}
@@ -422,17 +323,8 @@ city = {
 		desc = ct_giant_market_desc
 		
 		potential = {
+			culture = jotunn
 			OR = {
-				holder_scope = {
-					OR = {
-						trait = mythos_giant
-						trait = half_giant
-					}
-					OR = {
-						government = draconic_merchant_republic_government
-						government = merchant_republic_government
-					}
-				}
 				FROMFROM = {
 					has_building = ct_giant_market
 					NOT = {
@@ -449,7 +341,7 @@ city = {
 			}
 		}
 		trigger = {
-			holder_scope = { trait = mythos_giant }
+			culture = jotunn
 			TECH_CITY_CONSTRUCTION = 1
 			owner = {
 				NOR = {
@@ -459,16 +351,7 @@ city = {
 			}
 		}
 		is_active_trigger = {
-			holder_scope = {
-				OR = {
-					trait = mythos_giant
-					trait = half_giant
-				}
-				OR = {
-					government = draconic_merchant_republic_government
-					government = merchant_republic_government
-				}
-			}
+			culture = jotunn
 			owner = {
 				NOR = {
 					government = zombie_horde
@@ -709,16 +592,10 @@ city = {
 		desc = ct_djinni_town_desc
 		
 		potential = {
+			culture = djinni
 			OR = {
-				holder_scope = {
-					trait = djinn
-					OR = {
-						government = draconic_merchant_republic_government
-						government = merchant_republic_government
-					}
-				}
 				FROMFROM = {
-					has_building = ct_mummy_temple_district
+					has_building = tb_djinni_town
 					NOT = {
 						calc_true_if = {
 							amount = 1
@@ -733,7 +610,6 @@ city = {
 			}
 		}
 		trigger = {
-			holder_scope = { trait = djinn }
 			TECH_CITY_CONSTRUCTION = 1
 			owner = {
 				NOR = {
@@ -747,13 +623,7 @@ city = {
 			}
 		}
 		is_active_trigger = {
-			holder_scope = {
-				trait = djinn
-				OR = {
-					government = draconic_merchant_republic_government
-					government = merchant_republic_government
-				}
-			}
+			culture = djinni
 			owner = {
 				NOR = {
 					government = zombie_horde
@@ -761,7 +631,7 @@ city = {
 				}
 			}
 		}
-		prerequisites = { ca_wall_2 }
+		prerequisites = { ct_wall_1 }
 		ai_creation_factor = 101
 		
 		supply_limit = 2

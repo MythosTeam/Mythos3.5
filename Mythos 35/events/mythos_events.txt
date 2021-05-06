@@ -1356,10 +1356,12 @@ character_event = {
 	
 	trigger = {
 		trait = djinn
-		NOT = { trait = novice_mage }
-		NOT = { trait = eldritch_scholar }
-		NOT = { trait = veteran_wizard }
-		NOT = { trait = arcane_master }
+		NOR = { 
+			trait = novice_mage
+			trait = eldritch_scholar
+			trait = veteran_wizard
+			trait = arcane_master 
+		}
 	}
 	
 	option = {
@@ -2913,15 +2915,16 @@ character_event = {
 	
 	option = {
 		name = EVTOPTAMYTH.44
-		remove_disease_trait_effect = yes
 		if = { limit = { trait = infirm } remove_trait = infirm }
 		if = { limit = { trait = incapable } remove_trait = incapable }
 		if = { limit = { trait = severely_injured } remove_trait = severely_injured clear_delayed_event = { id = RIP.11000 } }
 		if = { limit = { trait = lovers_pox } remove_trait = lovers_pox }
 		hidden_tooltip = {
+			remove_symptoms_effect = yes
 			clear_disease_level_effect = yes
-			remove_treatment_modifiers_effect = yes
 			remove_disease_flags_effect = yes
+			remove_disease_trait_effect = yes
+			remove_treatment_modifiers_effect = yes
 			remove_character_modifier = dancing_queen
 			remove_character_modifier = dancing_king
 			remove_character_modifier = cant_stop_dancing

@@ -1792,3 +1792,17 @@ vampire_starving = {
 asked_for_wish = {
 	icon = 53
 }
+
+werewolf_killed = {
+	icon = 71
+	martial = 2
+	is_visible = { 
+		ROOT = { 
+			OR = {
+				character = FROM 
+				trait = werewolf
+				trait = known_werewolf
+			}
+		} 
+	}	
+}
