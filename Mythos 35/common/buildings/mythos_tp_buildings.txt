@@ -1,40 +1,4 @@
 temple = {
-	tp_flameguard = {
-		desc = tp_flameguard_desc
-		
-		potential = {
-			FROM = { government = draconic_theocracy_government }
-		}
-		trigger = {
-			FROM = { government = draconic_theocracy_government }
-			OR = {
-				FROMFROM = { location = { has_wonder = wonder_eternal_flame } }
-				FROM = { controls_religion = yes }
-			}
-			OR = {
-				religion = draconic_pagan
-				religion = draconic_pagan_reformed
-			}
-			TECH_CITY_CONSTRUCTION = 0
-		}
-		is_active_trigger = {
-			FROM = { government = draconic_theocracy_government }
-			OR = {
-				FROMFROM = { location = { has_wonder = wonder_eternal_flame } }
-				FROM = { controls_religion = yes }
-			}
-			FROMFROM = { location = { has_wonder_upgrade  = upgrade_dragon_flame } }
-		}
-		gold_cost = 320
-		build_time = 1095
-		ai_creation_factor = 98
-		extra_tech_building_start = 2.0
-		
-		heavy_infantry = 100
-		knights = 40
-		dragon_cavalry = 40
-		retinuesize = 20
-	}
 	tp_flameshrine = {
 		desc = tp_flameshrine_desc
 		

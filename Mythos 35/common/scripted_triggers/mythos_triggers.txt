@@ -836,211 +836,6 @@ trigger_minor_challenge = {
 	is_incapable = no
 }
 
-has_purity_trait = {
-	OR = {
-		trait = purity_0x0
-		trait = purity_0x1
-		trait = purity_0x2
-		trait = purity_0x3
-		trait = purity_0x4
-		trait = purity_0x5
-		trait = purity_0x6
-		trait = purity_0x7
-		trait = purity_0x8
-		trait = purity_0x9
-		trait = purity_1x0
-		trait = purity_1x1
-		trait = purity_1x2
-		trait = purity_1x3
-		trait = purity_1x4
-		trait = purity_1x5
-		trait = purity_1x6
-		trait = purity_1x7
-		trait = purity_1x8
-		trait = purity_1x9
-		trait = purity_2x0
-		trait = purity_2x1
-		trait = purity_2x2
-		trait = purity_2x3
-		trait = purity_2x4
-		trait = purity_2x5
-		trait = purity_2x6
-		trait = purity_2x7
-		trait = purity_2x8
-		trait = purity_2x9
-		trait = purity_3x0
-		trait = purity_3x1
-		trait = purity_3x2
-		trait = purity_3x3
-		trait = purity_3x4
-		trait = purity_3x5
-		trait = purity_3x6
-		trait = purity_3x7
-		trait = purity_3x8
-		trait = purity_3x9
-		trait = purity_4x0
-		trait = purity_4x1
-		trait = purity_4x2
-		trait = purity_4x3
-		trait = purity_4x4
-		trait = purity_4x5
-		trait = purity_4x6
-		trait = purity_4x7
-		trait = purity_4x8
-		trait = purity_4x9
-		trait = purity_5x0
-		trait = purity_5x1
-		trait = purity_5x2
-		trait = purity_5x3
-		trait = purity_5x4
-		trait = purity_5x5
-		trait = purity_5x6
-		trait = purity_5x7
-		trait = purity_5x8
-		trait = purity_5x9
-		trait = purity_6x0
-		trait = purity_6x1
-		trait = purity_6x2
-		trait = purity_6x3
-		trait = purity_6x4
-		trait = purity_6x5
-		trait = purity_6x6
-		trait = purity_6x7
-		trait = purity_6x8
-		trait = purity_6x9
-		trait = purity_7x0
-		trait = purity_7x1
-		trait = purity_7x2
-		trait = purity_7x3
-		trait = purity_7x4
-		trait = purity_7x5
-		trait = purity_7x6
-		trait = purity_7x7
-		trait = purity_7x8
-		trait = purity_7x9
-		trait = purity_8x0
-		trait = purity_8x1
-		trait = purity_8x2
-		trait = purity_8x3
-		trait = purity_8x4
-		trait = purity_8x5
-		trait = purity_8x6
-		trait = purity_8x7
-		trait = purity_8x8
-		trait = purity_8x9
-		trait = purity_9x0
-		trait = purity_9x1
-		trait = purity_9x2
-		trait = purity_9x3
-		trait = purity_9x4
-		trait = purity_9x5
-		trait = purity_9x6
-		trait = purity_9x7
-		trait = purity_9x8
-		trait = purity_9x9
-		trait = purity_10
-		trait = purity_minus1x0
-		trait = purity_minus1x1
-		trait = purity_minus1x2
-		trait = purity_minus1x3
-		trait = purity_minus1x4
-		trait = purity_minus1x5
-		trait = purity_minus1x6
-		trait = purity_minus1x7
-		trait = purity_minus1x8
-		trait = purity_minus1x9
-		trait = purity_minus2x0
-		trait = purity_minus2x1
-		trait = purity_minus2x2
-		trait = purity_minus2x3
-		trait = purity_minus2x4
-		trait = purity_minus2x5
-		trait = purity_minus2x6
-		trait = purity_minus2x7
-		trait = purity_minus2x8
-		trait = purity_minus2x9
-		trait = purity_minus3x0
-		trait = purity_minus3x1
-		trait = purity_minus3x2
-		trait = purity_minus3x3
-		trait = purity_minus3x4
-		trait = purity_minus3x5
-		trait = purity_minus3x6
-		trait = purity_minus3x7
-		trait = purity_minus3x8
-		trait = purity_minus3x9
-		trait = purity_minus4x0
-		trait = purity_minus4x1
-		trait = purity_minus4x2
-		trait = purity_minus4x3
-		trait = purity_minus4x4
-		trait = purity_minus4x5
-		trait = purity_minus4x6
-		trait = purity_minus4x7
-		trait = purity_minus4x8
-		trait = purity_minus4x9
-		trait = purity_minus5x0
-		trait = purity_minus5x1
-		trait = purity_minus5x2
-		trait = purity_minus5x3
-		trait = purity_minus5x4
-		trait = purity_minus5x5
-		trait = purity_minus5x6
-		trait = purity_minus5x7
-		trait = purity_minus5x8
-		trait = purity_minus5x9
-		trait = purity_minus6x0
-		trait = purity_minus6x1
-		trait = purity_minus6x2
-		trait = purity_minus6x3
-		trait = purity_minus6x4
-		trait = purity_minus6x5
-		trait = purity_minus6x6
-		trait = purity_minus6x7
-		trait = purity_minus6x8
-		trait = purity_minus6x9
-		trait = purity_minus7x0
-		trait = purity_minus7x1
-		trait = purity_minus7x2
-		trait = purity_minus7x3
-		trait = purity_minus7x4
-		trait = purity_minus7x5
-		trait = purity_minus7x6
-		trait = purity_minus7x7
-		trait = purity_minus7x8
-		trait = purity_minus7x9
-		trait = purity_minus8x0
-		trait = purity_minus8x1
-		trait = purity_minus8x2
-		trait = purity_minus8x3
-		trait = purity_minus8x4
-		trait = purity_minus8x5
-		trait = purity_minus8x6
-		trait = purity_minus8x7
-		trait = purity_minus8x8
-		trait = purity_minus8x9
-		trait = purity_minus9x0
-		trait = purity_minus9x1
-		trait = purity_minus9x2
-		trait = purity_minus9x3
-		trait = purity_minus9x4
-		trait = purity_minus9x5
-		trait = purity_minus9x6
-		trait = purity_minus9x7
-		trait = purity_minus9x8
-		trait = purity_minus9x9
-		trait = purity_minus10
-	}
-}
-
-has_positive_purity = {
-	check_variable = { which = purity_level value = 1 }
-}
-
-has_negative_purity = {
-	NOT = { check_variable = { which = purity_level value = 0 } }
-}
-
 use_christian_vice_virtue = {
 	NOR = {
 		religion = norse_pagan
@@ -1235,10 +1030,6 @@ use_secret_undead_vice_virtue = {
 	# Vices: Temperate, Diligent, Patient, Just, Craven, Kind
 }
 
-higher_purity_prev_this = { # Does previous have higher purity than this?
-	NOT = { check_variable = { which = purity_level which = PREV } }
-}
-
 # Jade Dragon Emperor likes and dislikes
 likes_dragon_worship = {
 	OR = {
@@ -1282,35 +1073,6 @@ likes_magicians = {
 likes_djinn = {
 	trait = djinn
 }
-
-use_dragon_purity = {
-	OR = {
-		religion = draconic_pagan
-		AND = {
-			religion = draconic_pagan_reformed
-			trait = dragon
-		}
-	}
-}
-use_human_purity = {
-	AND = {
-		religion = draconic_pagan_reformed
-		NOT = { trait = dragon }
-	}
-}
-no_purity_mechanic = {
-	NOR = {
-		religion = draconic_pagan
-		religion = draconic_pagan_reformed
-	}
-}
-use_purity_mechanic = {
-	OR = {
-		religion = draconic_pagan
-		religion = draconic_pagan_reformed
-	}
-}
-
 
 from_god_convert_to_root_religion = {
 	# Gods can't convert to monotheistic religions
@@ -1692,7 +1454,6 @@ accept_SF_divorce = {
 					FROM = { spouse = { NOT = { trait = dragon } } }
 					FROM = { spouse = { NOT = { trait = dragon } } }
 					FROM = { spouse = { NOT = { trait = dragon } } }
-					FROM = { higher_purity_prev_this = yes }
 					is_friend = FROM
 					is_friend = FROM
 					FROM = { spouse = { is_rival = ROOT } }
@@ -2378,7 +2139,6 @@ has_a_herb_ingredient_Q1_trigger = {
 has_potion_modifer_trigger = {
 	OR = {
 		has_character_modifier = regeneration_strain
-		has_character_modifier = potion_of_purity
 		has_character_modifier = potion_of_battle
 		has_character_modifier = potion_of_fertility
 		has_character_modifier = potion_of_health

@@ -22,11 +22,6 @@ culture = draconic
 religion = draconic_pagan
 
 # History
-1.1.1 = {
-	build_wonder = wonder_eternal_flame
-	set_wonder_stage = 2
-	build_wonder_upgrade = upgrade_dragon_flame
-}
 680.1.1 = {
 	culture = norse
 	religion = norse_pagan

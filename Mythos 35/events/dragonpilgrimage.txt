@@ -34,56 +34,13 @@ character_event = {
 		hidden_tooltip = {
 			if = {
 				limit = {
-					OR = {
-						capital_holding = { region = world_europe_west_brittania }
-						NOR = {
-							# Sjaelland
-							266 = {
-								AND = {
-									has_wonder = wonder_eternal_flame
-									has_wonder_upgrade = upgrade_dragon_flame
-								}
-							}
-							# Uppland
-							290 = {
-								AND = {
-									has_wonder = wonder_eternal_flame
-									has_wonder_upgrade = upgrade_dragon_flame
-								}
-							}
-							# Plock
-							529 = {
-								AND = {
-									has_wonder = wonder_eternal_flame
-									has_wonder_upgrade = upgrade_dragon_flame
-								}
-							}
-						}
-					}
+					capital_holding = { region = world_europe_west_brittania }
 				}
 				character_event = { id = DragonPilgrimage.2 }
 			}
 			else_if = {
 				limit = {
-					OR = {
-						capital_holding = { NOT = { region = world_europe_west_brittania } }
-						NOR = {
-							# Kent
-							73 = {
-								AND = {
-									has_wonder = wonder_eternal_flame
-									has_wonder_upgrade = upgrade_dragon_flame
-								}
-							}
-							# Galloway
-							50 = {
-								AND = {
-									has_wonder = wonder_eternal_flame
-									has_wonder_upgrade = upgrade_dragon_flame
-								}
-							}
-						}
-					}
+					capital_holding = { NOT = { region = world_europe_west_brittania } }
 				}
 				character_event = { id = DragonPilgrimage.3 }
 			}
@@ -128,13 +85,6 @@ character_event = {
 	
 	option = {
 		name = EVTOPTADragonPilgrimage.2
-		trigger = {
-			# Galloway
-			50 = {
-				has_wonder = wonder_eternal_flame
-				has_wonder_upgrade = upgrade_dragon_flame
-			}
-		}
 		ai_chance = { factor = 50 }
 		set_character_flag = pilgrimage_to_galloway
 		hidden_tooltip = { character_event = { id = DragonPilgrimage.4 } }
@@ -148,13 +98,6 @@ character_event = {
 	}
 	option = {
 		name = EVTOPTBDragonPilgrimage.2
-		trigger = {
-			# Kent
-			73 = {
-				has_wonder = wonder_eternal_flame
-				has_wonder_upgrade = upgrade_dragon_flame
-			}
-		}
 		ai_chance = { factor = 50 }
 		set_character_flag = pilgrimage_to_kent
 		hidden_tooltip = { character_event = { id = DragonPilgrimage.5 } }
@@ -186,13 +129,6 @@ character_event = {
 	
 	option = {
 		name = EVTOPTADragonPilgrimage.3
-		trigger = {
-			# Sjaelland
-			266 = {
-				has_wonder = wonder_eternal_flame
-				has_wonder_upgrade = upgrade_dragon_flame
-			}
-		}
 		ai_chance = { factor = 30 }
 		set_character_flag = pilgrimage_to_sjaelland
 		hidden_tooltip = { character_event = { id = DragonPilgrimage.6 } }
@@ -206,13 +142,6 @@ character_event = {
 	}
 	option = {
 		name = EVTOPTBDragonPilgrimage.3
-		trigger = {
-			# Uppland
-			290 = {
-				has_wonder = wonder_eternal_flame
-				has_wonder_upgrade = upgrade_dragon_flame
-			}
-		}
 		ai_chance = { factor = 30 }
 		set_character_flag = pilgrimage_to_uppland
 		hidden_tooltip = { character_event = { id = DragonPilgrimage.8 } }
@@ -226,13 +155,6 @@ character_event = {
 	}
 	option = {
 		name = EVTOPTCDragonPilgrimage.3
-		trigger = {
-			# Plock
-			529 = {
-				has_wonder = wonder_eternal_flame
-				has_wonder_upgrade = upgrade_dragon_flame
-			}
-		}
 		ai_chance = { factor = 30 }
 		set_character_flag = pilgrimage_to_plock
 		hidden_tooltip = { character_event = { id = DragonPilgrimage.9 } }
@@ -3854,26 +3776,6 @@ character_event = {
 		# Check number of valid provinces
 		set_variable = { which = province_count value = 0 }
 		if = {
-			limit = { k_draconic_pagan_reformed = { persistent_event_target:draconic_holy_site_1 = { location = { has_wonder = wonder_eternal_flame has_wonder_upgrade = upgrade_dragon_flame } } } }
-			change_variable = { which = province_count value = 1 }
-		}
-		if = {
-			limit = { k_draconic_pagan_reformed = { persistent_event_target:draconic_holy_site_2 = { location = { has_wonder = wonder_eternal_flame has_wonder_upgrade = upgrade_dragon_flame } } } }
-			change_variable = { which = province_count value = 1 }
-		}
-		if = {
-			limit = { k_draconic_pagan_reformed = { persistent_event_target:draconic_holy_site_3 = { location = {  has_wonder = wonder_eternal_flame has_wonder_upgrade = upgrade_dragon_flame } } } }
-			change_variable = { which = province_count value = 1 }
-		}
-		if = {
-			limit = { k_draconic_pagan_reformed = { persistent_event_target:draconic_holy_site_4 = { location = { has_wonder = wonder_eternal_flame has_wonder_upgrade = upgrade_dragon_flame } } } }
-			change_variable = { which = province_count value = 1 }
-		}
-		if = {
-			limit = { k_draconic_pagan_reformed = { persistent_event_target:draconic_holy_site_5 = { location = {  has_wonder = wonder_eternal_flame has_wonder_upgrade = upgrade_dragon_flame } } } }
-			change_variable = { which = province_count value = 1 }
-		}
-		if = {
 			limit = { NOT = { check_variable = { which = province_count value = 4 } } }
 			# Omit none
 		}
@@ -3958,9 +3860,6 @@ character_event = {
 	option = {
 		name = EVTOPTADragonPilgrimage.74
 		trigger = {
-			k_draconic_pagan_reformed = {
-				persistent_event_target:draconic_holy_site_1 = { location = { has_wonder = wonder_eternal_flame has_wonder_upgrade = upgrade_dragon_flame } }
-			}
 			NOR = {
 				is_variable_equal = { which = omit_locations value = 1 }
 				is_variable_equal = { which = omit_locations value = 12 }
@@ -3976,9 +3875,6 @@ character_event = {
 	option = {
 		name = EVTOPTBDragonPilgrimage.74
 		trigger = {
-			k_draconic_pagan_reformed = {
-				persistent_event_target:draconic_holy_site_2 = { location = {  has_wonder = wonder_eternal_flame has_wonder_upgrade = upgrade_dragon_flame } }
-			}
 			NOR = {
 				is_variable_equal = { which = omit_locations value = 2 }
 				is_variable_equal = { which = omit_locations value = 12 }
@@ -3994,9 +3890,6 @@ character_event = {
 	option = {
 		name = EVTOPTCDragonPilgrimage.74
 		trigger = {
-			k_draconic_pagan_reformed = {
-				persistent_event_target:draconic_holy_site_3 = { location = { has_wonder = wonder_eternal_flame has_wonder_upgrade = upgrade_dragon_flame } }
-			}
 			NOR = {
 				is_variable_equal = { which = omit_locations value = 3 }
 				is_variable_equal = { which = omit_locations value = 13 }
@@ -4012,9 +3905,6 @@ character_event = {
 	option = {
 		name = EVTOPTDDragonPilgrimage.74
 		trigger = {
-			k_draconic_pagan_reformed = {
-				persistent_event_target:draconic_holy_site_4 = { location = {  has_wonder = wonder_eternal_flame has_wonder_upgrade = upgrade_dragon_flame } }
-			}
 			NOR = {
 				is_variable_equal = { which = omit_locations value = 4 }
 				is_variable_equal = { which = omit_locations value = 14 }
@@ -4030,9 +3920,6 @@ character_event = {
 	option = {
 		name = EVTOPTEDragonPilgrimage.74
 		trigger = {
-			k_draconic_pagan_reformed = {
-				persistent_event_target:draconic_holy_site_5 = { location = { has_wonder = wonder_eternal_flame has_wonder_upgrade = upgrade_dragon_flame } }
-			}
 			NOR = {
 				is_variable_equal = { which = omit_locations value = 5 }
 				is_variable_equal = { which = omit_locations value = 15 }

@@ -18351,7 +18351,6 @@ character_event = {
 		if = {
 			limit = {
 				OR = {
-					has_character_modifier = potion_of_purity
 					has_character_modifier = potion_of_battle
 					has_character_modifier = potion_of_fertility
 					has_character_modifier = potion_of_health
@@ -18428,10 +18427,6 @@ character_event = {
 			modifier = {
 				factor = 0
 				character = FROM
-			}
-			modifier = {
-				factor = 2
-				has_character_modifier = potion_of_purity
 			}
 			modifier = {
 				factor = 2
@@ -18699,113 +18694,6 @@ character_event = {
 	}
 }
 
-# Potion of Purity
-character_event = {
-	id = MYTH_WoL.223
-	desc = {
-		trigger = { NOT = { character = FROM } }
-		text = EVTDESCMYTH_WoL.223
-	}
-	desc = {
-		trigger = { character = FROM }
-		text = EVTDESCBMYTH_WoL.223
-	}
-	picture = GFX_evt_dragon_face
-	is_triggered_only = yes
-	
-	option = {
-		name = EVTOPTAMYTH_WoL.223
-		add_character_modifier = { name = potion_of_purity years = 5 }
-		FROM = {
-			if = {
-				limit = { ai = no }
-				character_event = { id = MYTH_WoL.224 }
-			}
-		}
-		if = {
-			limit = {
-				OR = {
-					has_character_modifier = regeneration_strain
-					has_character_modifier = potion_of_battle
-					has_character_modifier = potion_of_fertility
-					has_character_modifier = potion_of_health
-					has_character_modifier = potion_of_secrets
-				}
-			}
-			random_list = {
-				4 = {}
-				1 = {
-					custom_tooltip = { text = tt_poor_admixture }
-					character_event = { id = MYTH_WoL.232 days = 1 }
-				}
-			}
-		}
-		ai_chance = {
-			factor = 10
-			modifier = {
-				factor = 3
-				trait = brave
-			}
-		}
-	}
-	
-	option = {
-		name = REFUSE_POTION
-		trigger = {
-			OR = {
-				ai = no
-				trait = paranoid
-				has_potion_modifer_trigger = yes
-			}
-		}
-		if = {
-			limit = { character = FROM }
-			custom_tooltip = { text = tt_no_refund }
-		}
-		else = {
-			character_event = { id = MYTH_WoL.234 }
-		}
-		ai_chance = {
-			factor = 1
-			modifier = {
-				factor = 0
-				character = FROM
-			}
-			modifier = {
-				factor = 2
-				has_character_modifier = regeneration_strain
-			}
-			modifier = {
-				factor = 2
-				has_character_modifier = potion_of_battle
-			}
-			modifier = {
-				factor = 2
-				has_character_modifier = potion_of_fertility
-			}
-			modifier = {
-				factor = 2
-				has_character_modifier = potion_of_health
-			}
-			modifier = {
-				factor = 2
-				has_character_modifier = potion_of_secrets
-			}
-		}
-	}
-}
-
-character_event = {
-	id = MYTH_WoL.224
-	desc = EVTDESCMYTH_WoL.224
-	picture = GFX_evt_dragon_face
-	is_triggered_only = yes
-	
-	option = {
-		name = EXCELLENT
-		FROM = { add_character_modifier = { name = potion_of_purity years = 5 } }
-	}
-}
 
 # Battle Potion
 character_event = {
@@ -18834,7 +18722,6 @@ character_event = {
 			limit = {
 				OR = {
 					has_character_modifier = regeneration_strain
-					has_character_modifier = potion_of_purity
 					has_character_modifier = potion_of_fertility
 					has_character_modifier = potion_of_health
 					has_character_modifier = potion_of_secrets
@@ -18886,10 +18773,6 @@ character_event = {
 			modifier = {
 				factor = 2
 				has_character_modifier = regeneration_strain
-			}
-			modifier = {
-				factor = 2
-				has_character_modifier = potion_of_purity
 			}
 			modifier = {
 				factor = 2
@@ -18968,7 +18851,6 @@ character_event = {
 			limit = {
 				OR = {
 					has_character_modifier = regeneration_strain
-					has_character_modifier = potion_of_purity
 					has_character_modifier = potion_of_battle
 					has_character_modifier = potion_of_health
 					has_character_modifier = potion_of_secrets
@@ -19020,10 +18902,6 @@ character_event = {
 			modifier = {
 				factor = 2
 				has_character_modifier = regeneration_strain
-			}
-			modifier = {
-				factor = 2
-				has_character_modifier = potion_of_purity
 			}
 			modifier = {
 				factor = 2
@@ -19079,7 +18957,6 @@ character_event = {
 			limit = {
 				OR = {
 					has_character_modifier = regeneration_strain
-					has_character_modifier = potion_of_purity
 					has_character_modifier = potion_of_battle
 					has_character_modifier = potion_of_fertility
 					has_character_modifier = potion_of_secrets
@@ -19150,10 +19027,6 @@ character_event = {
 			}
 			modifier = {
 				factor = 2
-				has_character_modifier = potion_of_purity
-			}
-			modifier = {
-				factor = 2
 				has_character_modifier = potion_of_battle
 			}
 			modifier = {
@@ -19206,7 +19079,6 @@ character_event = {
 			limit = {
 				OR = {
 					has_character_modifier = regeneration_strain
-					has_character_modifier = potion_of_purity
 					has_character_modifier = potion_of_battle
 					has_character_modifier = potion_of_fertility
 					has_character_modifier = potion_of_health
@@ -19254,10 +19126,6 @@ character_event = {
 			modifier = {
 				factor = 2
 				has_character_modifier = regeneration_strain
-			}
-			modifier = {
-				factor = 2
-				has_character_modifier = potion_of_purity
 			}
 			modifier = {
 				factor = 2
@@ -19343,7 +19211,6 @@ character_event = {
 		name = EVTOPTAMYTH_WoL.233
 		remove_trait = food_poisoning
 		remove_trait = ill
-		remove_character_modifier = potion_of_purity
 		remove_character_modifier = potion_of_battle
 		remove_character_modifier = potion_of_fertility
 		remove_character_modifier = potion_of_health

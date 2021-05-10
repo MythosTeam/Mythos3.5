@@ -20,10 +20,5 @@ culture = saxon
 religion = catholic
 
 # History
-1.1.1 = {
-	build_wonder = wonder_eternal_flame
-	set_wonder_stage = 1
-	build_wonder_upgrade = upgrade_dragon_flame
-}
 1100.11.11 = { culture = english }
 1298.1.1 = { trade_post = b_vorrade }

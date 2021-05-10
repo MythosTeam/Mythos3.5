@@ -137,7 +137,6 @@ has_pious_trait_trigger = {
 		trait = zealous
 		trait = god
 		trait = miracle_worker
-		check_variable = { which = purity_level value = 9 }
 		trait = flametender
 	}
 }
@@ -291,7 +290,6 @@ has_impious_trait_trigger = {
 		trait = bad_priest_satanist
 		trait = cannibal_trait
 		trait = impaler
-		NOT = { check_variable = { which = purity_level value = -4 } }
 		AND = {
 			OR = {
 				trait = novice_mage

@@ -22,11 +22,6 @@ religion = norse_pagan
 terrain = farmlands
 
 # History
-1.1.1 = {
-	build_wonder = wonder_eternal_flame
-	set_wonder_stage = 1
-	build_wonder_upgrade = upgrade_dragon_flame
-}
 800.1.1 = {
 	b_lejre = tp_shipyard_1
 	b_ringsted = tb_shipyard_1

@@ -144,7 +144,6 @@ warrior_lodge_draconic = {
 			warrior_lodge_inspire_warriors #Power: Inspire Warriors
 			warrior_lodge_war_sacrifice #Power: War Sacrifice
 			warrior_lodge_draconic_flame_charge #Power: Flame Charge
-			warrior_lodge_draconic_purity #Power: Warrior's Purity
 		}
 	}
 

@@ -708,9 +708,6 @@ wolf_pet = {
 	martial = 2
 	combat_rating = 5
 }
-purity_review_timer = {
-	icon = 49
-}
 built_horde = {
 	icon = 6
 	stewardship = 2
@@ -836,15 +833,12 @@ unfit_sapphire_flame = {
 }
 replaced_impure_flame = {
 	icon = 48
-	#custom_tooltip = { text = purity_plus_1 }
 }
 rebelled_against_religious_head = {
 	icon = 49
-	#custom_tooltip = { text = purity_down_3 }
 }
 sapphire_flame_blessing = {
 	icon = 48
-	#custom_tooltip = { text = purity_plus_1 }
 	monthly_character_piety = 0.1
 	draconic_pagan_reformed_opinion = 5
 }
@@ -854,7 +848,6 @@ current_SF_offer = {
 }
 begger = {
 	icon = 24
-	#custom_tooltip = { text = purity_down_3 }
 	draconic_pagan_reformed_opinion = -5
 	draconic_pagan_opinion = -5
 	#months = 120
@@ -1488,10 +1481,6 @@ regeneration_strain = {
 	icon = 51
 	combat_rating = -20
 	health = -1
-}
-potion_of_purity = {
-	icon = 83
-	#custom_tooltip = { text = purity_plus_1 }
 }
 potion_of_battle = {
 	icon = 83

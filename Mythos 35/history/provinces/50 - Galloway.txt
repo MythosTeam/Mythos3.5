@@ -22,11 +22,6 @@ religion = catholic
 terrain = hills
 
 # History
-1.1.1 = {
-	build_wonder = wonder_eternal_flame
-	set_wonder_stage = 2
-	build_wonder_upgrade = upgrade_dragon_flame
-}
 1000.1.1 = {
 	b_dunragit = castle
 }

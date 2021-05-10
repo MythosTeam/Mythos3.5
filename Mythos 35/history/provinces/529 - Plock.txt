@@ -19,11 +19,6 @@ culture = polish
 religion = slavic_pagan
 
 # History
-1.1.1 = {
-	build_wonder = wonder_eternal_flame
-	set_wonder_stage = 1
-	build_wonder_upgrade = upgrade_dragon_flame
-}
 987.1.1 = {
 	religion = catholic
 	b_plock = castle

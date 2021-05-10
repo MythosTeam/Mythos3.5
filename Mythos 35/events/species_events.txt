@@ -1579,18 +1579,7 @@ character_event = {
 			}
 		}
 		
-		# Minor variable hiccup for draconic pagans
-		if = {
-			limit = {
-				OR = {
-					religion = draconic_pagan
-					religion = draconic_pagan_reformed
-				}
-			}
-			set_variable = { which = purity_level value = 0 }
-			add_trait = purity_0x0
-		}
-		
+	
 		if = {
 			limit = { trait = vampire }
 			add_trait = hunger_0
@@ -2327,8 +2316,6 @@ character_event = {
 	immediate = {
 		# Zombies gain troops
 		character_event = { id = ZOMBIE.11 }
-		# New Purity system
-		character_event = { id = DRAGON.176 }
 		# New Hunger system
 		character_event = { id = VAMPIRE.202 }
 		# Bank bloodline gains interest

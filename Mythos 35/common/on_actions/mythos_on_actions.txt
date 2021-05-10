@@ -35,7 +35,6 @@ on_yearly_pulse = {
 		MYTH.48			# Plaguebearer spreads disease
 		MONSTER.10		# Remind demons of their true master
 		SPECIES.7		# Make sure heir modifiers aren't out of date
-		#DRAGON.20		# Make sure unfit flame controller isn't out of date
 		MYTH.56			# Update Virtues/Vices
 		MONSTER.20		# Chance for province modifiers for known monsters.
 		#MONSTER.25		# Remove inappropriate province modifiers
@@ -119,17 +118,6 @@ on_yearly_pulse = {
 		1 = MYTH.6		# Search for Solomon
 		100 = MYTH.16	# Form Helsing
 		40 = MYTH.17	# Helsing followers get monster hunter
-		
-		# Eternal Flame infidel events
-		150 = DRAGON.22		# Pilgrims rile up peasants
-		150 = DRAGON.23		# Priests upset by heather ritual site
-		100 = DRAGON.24		# Upset Zealous vassal
-		150 = DRAGON.25		# Courtier converter
-		150 = DRAGON.26		# Draconic preacher appears
-		100 = DRAGON.27		# Dragon blamed for disease
-		50 = DRAGON.28		# Accused of leading dragon rituals
-		70 = DRAGON.29		# Conflicts between pilgrims and locals
-		30 = DRAGON.30		# Religious unrest
 		
 		# Religious
 		#5 = MYTHMORE.22		# Revive Roman paganism by event
@@ -461,10 +449,6 @@ on_rebel_revolt = {
 on_character_convert_religion = {
 	events = {
 		#MYTH.51		# Rename Greek gods - disabled until new reform option added
-		DRAGON.20		# Update unfit flame controller
-		DRAGON.21		# Update Heathen Stronghold modifier
-		DRAGON.169		# Recalculate draconic tribute succession effect
-		DRAGON.177		# Remove purity
 	}
 }
 
@@ -485,7 +469,6 @@ on_approve_de_jure_law = {
 on_elective_gavelkind_succession = {
 	events = {
 		SPECIES.8		# Update heir modifiers
-		DRAGON.20		# Update flame controller modifiers
 		MONSTER.25		# Remove inappropriate modifiers
 	}
 }
@@ -503,9 +486,6 @@ on_create_title = {
 on_new_holder = {
 	events = {
 		SPECIES.7		# Update heir modifiers
-		DRAGON.20		# Update flame controller modifiers
-		DRAGON.21		# Update Heathen Stronghold modifier
-		DRAGON.68		# Update Sapphire flame controller modifiers
 		VAMPIRE.103		# Remove Blood Court vassal bonuses if independent
 		MONSTER.25		# Remove inappropriate modifiers
 		VAMPIRE.155		# Assign missing blood court titles
@@ -571,8 +551,3 @@ on_employer_change = {
 	}
 }
 
-on_wonder_stage_finish = {
-	events = {
-		DRAGON.175		# Add eternal flame upgrade
-	}
-}
