@@ -3236,7 +3236,6 @@ character_event = {
 		has_focus = focus_rulership
 		NOT = { has_character_flag = in_seclusion }
 		NOT = { trait = dragon }
-		NOT = { trait = zombie }
 	}
 	
 	weight_multiplier = {
@@ -22574,7 +22573,6 @@ character_event = {
 						1 = { set_character_flag = immune_dysentery }
 						1 = { set_character_flag = immune_pneumonia }
 						1 = { set_character_flag = immune_rabies }
-						1 = { set_character_flag = immune_zombie_plague }
 					}
 				}
 			}

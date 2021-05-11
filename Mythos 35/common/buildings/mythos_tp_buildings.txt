@@ -37,10 +37,10 @@ temple = {
 	tp_flamesworn_barracks_1 = {
 		desc = tp_flamesworn_barracks_1_desc
 		potential = {
-			FROM = { government = draconic_theocracy_government }
+			culture = draconic
 		}
 		trigger = {
-			FROM = { government = draconic_theocracy_government }
+			culture = draconic
 			OR = {
 				religion = draconic_pagan
 				religion = draconic_pagan_reformed
@@ -48,7 +48,11 @@ temple = {
 			TECH_CITY_CONSTRUCTION = 0
 		}
 		is_active_trigger = {
-			FROM = { government = draconic_theocracy_government }
+			culture = draconic
+			OR = {
+				religion = draconic_pagan
+				religion = draconic_pagan_reformed
+			}
 		}
 		gold_cost = 150
 		build_time = 547
@@ -62,10 +66,10 @@ temple = {
 	tp_flamesworn_barracks_2 = {
 		desc = tp_flamesworn_barracks_1_desc
 		potential = {
-			FROM = { government = draconic_theocracy_government }
+			culture = draconic
 		}
 		trigger = {
-			FROM = { government = draconic_theocracy_government }
+			culture = draconic
 			OR = {
 				religion = draconic_pagan
 				religion = draconic_pagan_reformed
@@ -73,7 +77,11 @@ temple = {
 			TECH_CITY_CONSTRUCTION = 0
 		}
 		is_active_trigger = {
-			FROM = { government = draconic_theocracy_government }
+			culture = draconic
+			OR = {
+				religion = draconic_pagan
+				religion = draconic_pagan_reformed
+			}
 		}
 		prerequisites = { tp_wall_1 }
 		upgrades_from = tp_flamesworn_barracks_1
@@ -89,10 +97,10 @@ temple = {
 	tp_flamesworn_barracks_3 = {
 		desc = tp_flamesworn_barracks_1_desc
 		potential = {
-			FROM = { government = draconic_theocracy_government }
+			culture = draconic
 		}
 		trigger = {
-			FROM = { government = draconic_theocracy_government }
+			culture = draconic
 			OR = {
 				religion = draconic_pagan
 				religion = draconic_pagan_reformed
@@ -100,7 +108,11 @@ temple = {
 			TECH_CITY_CONSTRUCTION = 2
 		}
 		is_active_trigger = {
-			FROM = { government = draconic_theocracy_government }
+			culture = draconic
+			OR = {
+				religion = draconic_pagan
+				religion = draconic_pagan_reformed
+			}
 		}
 		prerequisites = { tp_wall_2 }
 		upgrades_from = tp_flamesworn_barracks_2
@@ -116,10 +128,10 @@ temple = {
 	tp_flamesworn_barracks_4 = {
 		desc = tp_flamesworn_barracks_1_desc
 		potential = {
-			FROM = { government = draconic_theocracy_government }
+			culture = draconic
 		}
 		trigger = {
-			FROM = { government = draconic_theocracy_government }
+			culture = draconic
 			OR = {
 				religion = draconic_pagan
 				religion = draconic_pagan_reformed
@@ -127,7 +139,11 @@ temple = {
 			TECH_CITY_CONSTRUCTION = 4
 		}
 		is_active_trigger = {
-			FROM = { government = draconic_theocracy_government }
+			culture = draconic
+			OR = {
+				religion = draconic_pagan
+				religion = draconic_pagan_reformed
+			}
 		}
 		upgrades_from = tp_flamesworn_barracks_3
 		gold_cost = 450
@@ -142,10 +158,10 @@ temple = {
 	tp_flamesworn_barracks_5 = {
 		desc = tp_flamesworn_barracks_1_desc
 		potential = {
-			FROM = { government = draconic_theocracy_government }
+			culture = draconic
 		}
 		trigger = {
-			FROM = { government = draconic_theocracy_government }
+			culture = draconic
 			OR = {
 				religion = draconic_pagan
 				religion = draconic_pagan_reformed
@@ -153,7 +169,11 @@ temple = {
 			TECH_CITY_CONSTRUCTION = 6
 		}
 		is_active_trigger = {
-			FROM = { government = draconic_theocracy_government }
+			culture = draconic
+			OR = {
+				religion = draconic_pagan
+				religion = draconic_pagan_reformed
+			}
 		}
 		upgrades_from = tp_flamesworn_barracks_4
 		gold_cost = 600
@@ -168,10 +188,10 @@ temple = {
 	tp_flamesworn_barracks_6 = {
 		desc = tp_flamesworn_barracks_1_desc
 		potential = {
-			FROM = { government = draconic_theocracy_government }
+			culture = draconic
 		}
 		trigger = {
-			FROM = { government = draconic_theocracy_government }
+			culture = draconic
 			OR = {
 				religion = draconic_pagan
 				religion = draconic_pagan_reformed
@@ -179,7 +199,11 @@ temple = {
 			TECH_CITY_CONSTRUCTION = 8
 		}
 		is_active_trigger = {
-			FROM = { government = draconic_theocracy_government }
+			culture = draconic
+			OR = {
+				religion = draconic_pagan
+				religion = draconic_pagan_reformed
+			}
 		}
 		upgrades_from = tp_flamesworn_barracks_5
 		gold_cost = 750

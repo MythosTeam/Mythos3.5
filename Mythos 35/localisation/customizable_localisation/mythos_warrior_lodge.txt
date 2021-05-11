@@ -405,7 +405,7 @@ defined_text = {
 	# When you give up, will you blame the dawn again this time?								(known vampire, speaker is not.)
 	# Your prowess in bed is as weak as your prowess with coin.									(Dragon, <100 gold)
 	# How badly did you have to fail to be stuck down with mere mortals?						(God)
-	# You've gotten so good at failing that you can't even die properly.						(Known vampire, mummy, zombie, ethereal)
+	# You've gotten so good at failing that you can't even die properly.						(Known vampire, mummy, ethereal)
 	# I'm amazed you came yourself instead of hiding behind one of your tricks.					(Summoner or enchanter)
 	# Are you sure you wouldn't rather be moping in a graveyard again?							(Necromancer)
 	# We'll see what kind of [From.GetManWoman] turns to the dead for friendship.				(Necromancer)
@@ -653,7 +653,6 @@ defined_text = {
 				OR = {
 					trait = known_vampire
 					trait = mummy
-					trait = zombie
 					trait = ethereal_trait
 				}
 			}
@@ -685,8 +684,8 @@ defined_text = {
 				OR = {
 					AND = { trait = necromancer trait = lustful reverse_has_opinion_modifier = { who = FROM modifier = aware_of_secret_actions } }
 					AND = {
-						any_lover = { OR = { trait = zombie trait = mummy trait = ethereal_trait } }
-						NOR = { trait = zombie trait = mummy trait = ethereal_trait }
+						any_lover = { OR = { trait = mummy trait = ethereal_trait } }
+						NOR = { trait = mummy trait = ethereal_trait }
 					}
 				}
 			}
@@ -890,7 +889,7 @@ defined_text = {
 	# When you give up, will you blame the dawn again this time?								(known vampire, speaker is not.)
 	# Your prowess in bed is as weak as your prowess with coin.									(Dragon, <100 gold)
 	# How badly did you have to fail to be stuck down with mere mortals?						(God)
-	# You've gotten so good at failing that you can't even die properly.						(Known vampire, mummy, zombie, ethereal)
+	# You've gotten so good at failing that you can't even die properly.						(Known vampire, mummy, ethereal)
 	# I'm amazed you came yourself instead of hiding behind one of your tricks.					(Summoner or enchanter)
 	# Are you sure you wouldn't rather be moping in a graveyard again?							(Necromancer)
 	# We'll see what kind of [From.GetManWoman] turns to the dead for friendship.				(Necromancer)
@@ -1219,7 +1218,6 @@ defined_text = {
 				OR = {
 					trait = known_vampire
 					trait = mummy
-					trait = zombie
 					trait = ethereal_trait
 				}
 			}
@@ -1251,8 +1249,8 @@ defined_text = {
 				OR = {
 					AND = { trait = necromancer trait = lustful reverse_has_opinion_modifier = { who = FROM modifier = aware_of_secret_actions } }
 					AND = {
-						any_lover = { OR = { trait = zombie trait = mummy trait = ethereal_trait } }
-						NOR = { trait = zombie trait = mummy trait = ethereal_trait }
+						any_lover = { OR = { trait = mummy trait = ethereal_trait } }
+						NOR = { trait = mummy trait = ethereal_trait }
 					}
 				}
 			}
@@ -1266,8 +1264,8 @@ defined_text = {
 				OR = {
 					AND = { trait = necromancer trait = lustful reverse_has_opinion_modifier = { who = FROM modifier = aware_of_secret_actions } }
 					AND = {
-						any_lover = { OR = { trait = zombie trait = mummy trait = ethereal_trait } }
-						NOR = { trait = zombie trait = mummy trait = ethereal_trait }
+						any_lover = { OR = { trait = mummy trait = ethereal_trait } }
+						NOR = { trait = mummy trait = ethereal_trait }
 					}
 				}
 			}

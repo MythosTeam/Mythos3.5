@@ -45,7 +45,7 @@ character_event = {
 				trait = werewolf
 				trait = monster_hunter
 				trait = god
-				trait = zombie
+				
 				trait = dragon
 				trait = djinn
 				trait = giant
@@ -809,7 +809,7 @@ character_event = {
 					OR = {
 						trait = vampire
 						trait = werewolf
-						trait = zombie
+						
 						trait = demon_trait
 						trait = ethereal_trait
 					}
@@ -1876,22 +1876,6 @@ character_event = {
 		# Diseases from unsafe races
 		if = {
 			limit = {
-				FROMFROM = { trait = zombie }
-				NOT = {
-					any_owned_bloodline = {
-						has_bloodline_flag = vampire_feed_any
-					}
-				}
-			}
-			if = {
-				limit = { has_dlc = "Reapers" }
-				set_character_flag = got_bubonic_plague
-				add_plague_symptom_effect = yes
-			}
-			set_character_flag = vf_sick_bubonic_plague
-		}
-		if = {
-			limit = {
 				FROMFROM = { trait = werewolf }
 				NOT = {
 					any_owned_bloodline = {
@@ -2366,7 +2350,7 @@ character_event = {
 					trait = ethereal_trait
 					trait = werewolf
 					trait = vampire
-					trait = zombie
+					
 					trait = god
 					trait = demi_god
 					trait = mythos_giant
@@ -3191,7 +3175,7 @@ character_event = {
 								trait = werewolf
 								trait = demon_trait
 								trait = ethereal_trait
-								trait = zombie
+								
 								trait = mummy
 							}
 						}
@@ -4714,7 +4698,7 @@ character_event = {
 			trait = philosopher_stone_trait
 			trait = demon_trait
 			trait = ethereal_trait
-			trait = zombie
+			
 			trait = mummy
 		}
 	}
@@ -12989,7 +12973,7 @@ character_event = {
 					prisoner = yes
 					NOR = {
 						trait = vampire
-						trait = zombie
+						
 						trait = known_werewolf
 						trait = demon_trait
 						trait = ethereal_trait
@@ -13201,7 +13185,7 @@ character_event = {
 						prisoner = yes
 						NOR = {
 							trait = vampire
-							trait = zombie
+							
 							trait = known_werewolf
 							trait = demon_trait
 							trait = ethereal_trait
@@ -13226,7 +13210,7 @@ character_event = {
 						prisoner = yes
 						NOR = {
 							trait = vampire
-							trait = zombie
+							
 							trait = known_werewolf
 							trait = demon_trait
 							trait = ethereal_trait
@@ -13239,7 +13223,7 @@ character_event = {
 						prisoner = yes
 						NOR = {
 							trait = vampire
-							trait = zombie
+							
 							trait = known_werewolf
 							trait = demon_trait
 							trait = ethereal_trait
@@ -13279,7 +13263,7 @@ character_event = {
 						prisoner = no
 						NOR = {
 							trait = vampire
-							trait = zombie
+							
 							trait = werewolf
 							trait = demon_trait
 							trait = ethereal_trait
@@ -13568,7 +13552,6 @@ character_event = {
 						has_character_flag = got_flu
 						has_character_flag = got_dysentery
 						has_character_flag = got_food_poisoning
-						has_character_flag = got_zombie_plague
 					}
 				}
 				give_food_poisoning_effect = yes

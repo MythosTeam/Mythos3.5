@@ -4,26 +4,14 @@ on_startup = {
 		MYTH.56			# Update Virtues/Vices
 		VAMPIRE.155		# Assign missing blood court titles
 		SPECIES.12		# Set Djinn natural magic
-		#ZOMBIE.10		# Zombie corpse gain control event
 		DRAGON.169		# Recalculate draconic tribute succession effect
 		SPECIES.15		# Set bloodlines for gods
-		ZOMBIE.37		# Force zombies to use zombie government
 	}
 }
 
 #character
 on_yearly_pulse = {
 	events = {
-		ZOMBIE.1		# Form the undead horde
-		ZOMBIE.2		# Zombie damned conversion
-		ZOMBIE.8		# Update devastation - living
-		ZOMBIE.9		# Update devastation - undead
-		#ZOMBIE.10		# Zombie corpse gain control event
-		ZOMBIE.19		# Building conversion event
-		ZOMBIE.22		# Living culture returns
-		ZOMBIE.24		# Living religion returns
-		ZOMBIE.26		# Undead religious county conversion
-		ZOMBIE.37		# Force zombie government
 		MUMMY.5			# Ramesis reborn
 		MYTH.34 		# Force Zeus to use seduction
 		SPECIES.4		# Species-based infertility
@@ -109,9 +97,6 @@ on_yearly_pulse = {
 		15 = GIANT.16		# Landed AI giant takes an AI giant in their court as a concubine
 		
 		# Suspected monster
-		
-		# Revenant
-		20 = ZOMBIE.28		# Spread plague
 		
 		# Misc
 		4 = MUMMY.1		# Explore tombs in Egypt
@@ -298,7 +283,6 @@ on_adulthood = {
 on_siege_over_winner = {
 	events = {
 		MONSTER.3		# Monster hunters take county capital
-		ZOMBIE.16		# Undead take county capital
 	}
 }
 
@@ -330,7 +314,6 @@ on_chronicle_start = {
 		WEREWOLF.95		# Set initial werewolf control
 		SPECIES.11		# Set subrace on eligable giants
 		MYTHMORE.39		# Fix Ruler Designer Immortality
-		ZOMBIE.37		# Force zombies to be Fuedal
 		SPECIES.14		# With Holy Fury, replace Blood of the Gods
 		SPECIES.15		# Set bloodlines for gods
 		MYTHMORE.61		# Set up eternal flames
@@ -430,7 +413,6 @@ on_death = {
 		BANK.12			# Transfer loans to heir (Debter)
 		BANK.25			# Transfer loans to heir (Banker)
 		DRAGON.170		# Remove modifier from draconic tributes
-		ZOMBIE.40		# Kill some unneeded zombies
 		MBLOODLINE.42	# Killer may gain bloodline
 	}
 }
@@ -440,8 +422,6 @@ on_rebel_revolt = {
 	events = {
 		MONSTER.4		# Monster revels reinforce
 		MONSTER.1		# Monster rebels rise up
-		ZOMBIE.17		# Zombie uprising reinforces
-		ZOMBIE.15		# Zombie uprising
 	}
 }
 
@@ -490,7 +470,6 @@ on_new_holder = {
 		MONSTER.25		# Remove inappropriate modifiers
 		VAMPIRE.155		# Assign missing blood court titles
 		MYTHMORE.37		# Nickname for undead gaining title
-		#ZOMBIE.10		# Zombie corpse gain control event
 		DRAGON.169		# Recalculate draconic tribute succession effect
 		MYTHMORE.62		# Add werewolf laws if appropriate
 	}
@@ -519,11 +498,6 @@ on_county_religion_change = {
 	}
 }
 
-on_province_major_modifier = {
-	events = {
-		ZOMBIE.38		# Increase depopulation/devastation
-	}
-}
 
 #character (at 2 months)
 on_pregnancy = {

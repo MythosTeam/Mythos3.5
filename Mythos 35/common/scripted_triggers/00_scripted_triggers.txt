@@ -239,7 +239,6 @@ has_evil_trait_trigger = {
 		trait = cruel
 		trait = impaler
 		trait = vampire
-		trait = zombie
 		trait = demon_trait
 		trait = necromancer
 	}
@@ -470,8 +469,6 @@ has_unattractive_trait_trigger = {
 		trait = vomiting
 		trait = diarrhea
 		trait = cough
-		trait = zombie_infection
-		trait = zombie
 	}
 }
 
@@ -555,7 +552,6 @@ character_disease_trigger = {
 		trait = rabies
 		trait = cancer
 		trait = pneumonic
-		trait = zombie_infection
 	}
 }
 
@@ -581,7 +577,6 @@ has_disease_trigger = {
 		trait = ill
 		trait = leper
 		trait = lovers_pox
-		trait = zombie_infection
 	}
 }
 
@@ -743,7 +738,6 @@ has_infertile_trait_trigger = {
 		trait = arcane_master
 		trait = vampire
 		trait = werewolf
-		trait = zombie
 		trait = mummy
 		trait = infertile
 		trait = demon_trait
@@ -759,7 +753,6 @@ is_infertile_trigger = {
 		trait = eunuch
 		trait = celibate
 		trait = vampire
-		trait = zombie
 		trait = mummy
 		trait = infertile
 		trait = demon_trait
@@ -2155,7 +2148,6 @@ block_general_event_trigger = {
 		trait = incapable
 		prisoner = yes
 		is_inaccessible_trigger = yes
-		trait = zombie
 		hidden_trigger = { is_alive = no }
 	}
 }
@@ -8665,7 +8657,6 @@ is_sick_or_injured_trigger = {
 		trait = rabies
 		trait = cancer
 		trait = scurvy
-		trait = zombie_infection
 	}
 }
 
@@ -8744,7 +8735,6 @@ parent_for_elective_succession_trigger = {
 			trait = bastard
 			trait = demon_trait
 			trait = ethereal_trait
-			trait = zombie
 			is_ascetic_trigger = yes
 			is_theocracy = yes
 			is_republic = yes

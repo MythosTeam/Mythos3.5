@@ -33,7 +33,6 @@ wonder_cathedral_satanic = {
 		#
 		upgrade_torture_chamber
 		upgrade_historical_mural
-		upgrade_ritual_chamber
 
 		# OTHER:
 	 	upgrade_roads

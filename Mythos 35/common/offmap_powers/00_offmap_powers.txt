@@ -186,7 +186,6 @@ offmap_china = {
 			Zhenzong
 			Renzong
 			Zhongzong
-			Yingzong
 			Shenzong
 			Zhezhong
 			Huizong
@@ -197,7 +196,6 @@ offmap_china = {
 			Lizong
 			Duzong
 			Duanzong
-			Xuanzong
 			Suzong
 			Daizong
 			Muzong
@@ -208,7 +206,6 @@ offmap_china = {
 			Xizong
 			Xuanzong
 			Shizong
-			Zhangzong
 			Ruizong
 			Dingzong
 			Xianzong

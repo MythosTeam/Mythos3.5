@@ -2411,34 +2411,6 @@
 	name = "Kelly"
 	culture = undead_wight
 }
-1049366 = {
-	name = "Zumbi"
-	culture = undead_zombie
-}
-1049367 = {
-	name = "Xidachane"
-	culture = undead_zombie
-}
-1049368 = {
-	name = "Maduxwane"
-	culture = undead_zombie
-}
-1049369 = {
-	name = "Zikode"
-	culture = undead_zombie
-}
-1049370 = {
-	name = "Simelane"
-	culture = undead_zombie
-}
-1049371 = {
-	name = "Nivome"
-	culture = undead_zombie
-}
-1049372 = {
-	name = "Zimri"
-	culture = undead_zombie
-}
 1049373 = {
 	name = "Aswang"
 	culture = undead_vetala
@@ -2623,13 +2595,6 @@
 1049411={
 	name=Karnstein
 	culture=german
-}
-1049412={
-	name=Za
-	culture=undead_zombie
-	coat_of_arms={
-		data={ 0 1 0 10 12 3 2 }
-	}
 }
 1049413={
 	name=Manalane

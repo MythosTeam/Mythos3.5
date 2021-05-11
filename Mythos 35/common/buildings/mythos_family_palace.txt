@@ -45,12 +45,6 @@ family_palace = {
 					trait = dragonborn
 				}
 			}
-			holder_scope = {
-				NOR = {
-					government = zombie_horde
-					trait = zombie
-				}
-			}
 		}
 		prerequisites = { fp_mansion_1 }
 		ai_creation_factor = 100
@@ -105,12 +99,6 @@ family_palace = {
 				OR = {
 					trait = dragon
 					trait = dragonborn
-				}
-			}
-			holder_scope = {
-				NOR = {
-					government = zombie_horde
-					trait = zombie
 				}
 			}
 		}
@@ -170,12 +158,6 @@ family_palace = {
 					trait = dragonborn
 				}
 			}
-			holder_scope = {
-				NOR = {
-					government = zombie_horde
-					trait = zombie
-				}
-			}
 		}
 		upgrades_from = fp_dragon_tower_2
 		prerequisites = { fp_mansion_3 }
@@ -219,20 +201,10 @@ family_palace = {
 		trigger = {
 			holder_scope = { trait = known_werewolf }
 			TECH_CASTLE_CONSTRUCTION = 1
-			holder_scope = {
-				NOR = {
-					government = zombie_horde
-					trait = zombie
-				}
-			}
 		}
 		is_active_trigger = {
 			holder_scope = {
 				trait = known_werewolf
-				NOR = {
-					government = zombie_horde
-					trait = zombie
-				}
 			}
 		}
 		prerequisites = { fp_mansion_1 }
@@ -274,20 +246,10 @@ family_palace = {
 		trigger = {
 			holder_scope = { trait = known_werewolf }
 			TECH_CASTLE_CONSTRUCTION = 3
-			holder_scope = {
-				NOR = {
-					government = zombie_horde
-					trait = zombie
-				}
-			}
 		}
 		is_active_trigger = {
 			holder_scope = {
 				trait = known_werewolf
-				NOR = {
-					government = zombie_horde
-					trait = zombie
-				}
 			}
 		}
 		upgrades_from = fp_werewolf_lodge_1
@@ -330,20 +292,10 @@ family_palace = {
 		trigger = {
 			holder_scope = { trait = known_werewolf }
 			TECH_CASTLE_CONSTRUCTION = 5
-			holder_scope = {
-				NOR = {
-					government = zombie_horde
-					trait = zombie
-				}
-			}
 		}
 		is_active_trigger = {
 			holder_scope = {
 				trait = known_werewolf
-				NOR = {
-					government = zombie_horde
-					trait = zombie
-				}
 			}
 		}
 		upgrades_from = fp_werewolf_lodge_2
@@ -382,21 +334,9 @@ family_palace = {
 		trigger = { 
 			holder_scope = { trait = vampire }
 			TECH_CASTLE_CONSTRUCTION = 1
-			owner = {
-				NOR = {
-					government = zombie_horde
-					trait = zombie
-				}
-			}
 		}
 		is_active_trigger = {
 			holder_scope = { trait = known_vampire }
-			owner = {
-				NOR = {
-					government = zombie_horde
-					trait = zombie
-				}
-			}
 		}
 		prerequisites = { fp_mansion_1 }
 		ai_creation_factor = 100
@@ -434,21 +374,9 @@ family_palace = {
 		trigger = { 
 			holder_scope = { trait = vampire }
 			TECH_CASTLE_CONSTRUCTION = 3
-			owner = {
-				NOR = {
-					government = zombie_horde
-					trait = zombie
-				}
-			}
 		}
 		is_active_trigger = {
 			holder_scope = { trait = known_vampire }
-			owner = {
-				NOR = {
-					government = zombie_horde
-					trait = zombie
-				}
-			}
 		}
 		upgrades_from = fp_vampire_mansion_1
 		prerequisites = { fp_mansion_2 }
@@ -487,21 +415,9 @@ family_palace = {
 		trigger = { 
 			holder_scope = { trait = vampire }
 			TECH_CASTLE_CONSTRUCTION = 5
-			owner = {
-				NOR = {
-					government = zombie_horde
-					trait = zombie
-				}
-			}
 		}
 		is_active_trigger = {
 			holder_scope = { trait = known_vampire }
-			owner = {
-				NOR = {
-					government = zombie_horde
-					trait = zombie
-				}
-			}
 		}
 		upgrades_from = fp_vampire_mansion_2
 		prerequisites = { fp_mansion_3 }
@@ -546,24 +462,12 @@ family_palace = {
 		trigger = {
 			holder_scope = { trait = mythos_giant }
 			TECH_CASTLE_CONSTRUCTION = 1
-			owner = {
-				NOR = {
-					government = zombie_horde
-					trait = zombie
-				}
-			}
 		}
 		is_active_trigger = {
 			holder_scope = {
 				OR = {
 					trait = mythos_giant
 					trait = half_giant
-				}
-			}
-			owner = {
-				NOR = {
-					government = zombie_horde
-					trait = zombie
 				}
 			}
 		}
@@ -608,24 +512,12 @@ family_palace = {
 		trigger = {
 			holder_scope = { trait = mythos_giant }
 			TECH_CASTLE_CONSTRUCTION = 3
-			owner = {
-				NOR = {
-					government = zombie_horde
-					trait = zombie
-				}
-			}
 		}
 		is_active_trigger = {
 			holder_scope = {
 				OR = {
 					trait = mythos_giant
 					trait = half_giant
-				}
-			}
-			owner = {
-				NOR = {
-					government = zombie_horde
-					trait = zombie
 				}
 			}
 		}
@@ -670,24 +562,12 @@ family_palace = {
 		trigger = {
 			holder_scope = { trait = mythos_giant }
 			TECH_CASTLE_CONSTRUCTION = 3
-			owner = {
-				NOR = {
-					government = zombie_horde
-					trait = zombie
-				}
-			}
 		}
 		is_active_trigger = {
 			holder_scope = {
 				OR = {
 					trait = mythos_giant
 					trait = half_giant
-				}
-			}
-			owner = {
-				NOR = {
-					government = zombie_horde
-					trait = zombie
 				}
 			}
 		}
@@ -728,21 +608,9 @@ family_palace = {
 		trigger = {
 			holder_scope = { trait = mummy }
 			TECH_CASTLE_CONSTRUCTION = 1
-			owner = {
-				NOR = {
-					government = zombie_horde
-					trait = zombie
-				}
-			}
 		}
 		is_active_trigger = {
 			holder_scope = { trait = mummy }
-			owner = {
-				NOR = {
-					government = zombie_horde
-					trait = zombie
-				}
-			}
 		}
 		prerequisites = { fp_mansion_1 }
 		ai_creation_factor = 100
@@ -779,21 +647,9 @@ family_palace = {
 		trigger = {
 			holder_scope = { trait = mummy }
 			TECH_CASTLE_CONSTRUCTION = 3
-			owner = {
-				NOR = {
-					government = zombie_horde
-					trait = zombie
-				}
-			}
 		}
 		is_active_trigger = {
 			holder_scope = { trait = mummy }
-			owner = {
-				NOR = {
-					government = zombie_horde
-					trait = zombie
-				}
-			}
 		}
 		upgrades_from = fp_mummy_necropolis_1
 		prerequisites = { fp_mansion_2 }
@@ -831,21 +687,9 @@ family_palace = {
 		trigger = {
 			holder_scope = { trait = mummy }
 			TECH_CASTLE_CONSTRUCTION = 5
-			owner = {
-				NOR = {
-					government = zombie_horde
-					trait = zombie
-				}
-			}
 		}
 		is_active_trigger = {
 			holder_scope = { trait = mummy }
-			owner = {
-				NOR = {
-					government = zombie_horde
-					trait = zombie
-				}
-			}
 		}
 		upgrades_from = fp_mummy_necropolis_2
 		prerequisites = { fp_mansion_3 }
@@ -884,21 +728,9 @@ family_palace = {
 		trigger = {
 			holder_scope = { trait = djinn }
 			TECH_CASTLE_CONSTRUCTION = 1
-			owner = {
-				NOR = {
-					government = zombie_horde
-					trait = zombie
-				}
-			}
 		}
 		is_active_trigger = {
 			holder_scope = { trait = djinn }
-			owner = {
-				NOR = {
-					government = zombie_horde
-					trait = zombie
-				}
-			}
 		}
 		prerequisites = { fp_mansion_1 }
 		ai_creation_factor = 100
@@ -934,21 +766,9 @@ family_palace = {
 		trigger = {
 			holder_scope = { trait = djinn }
 			TECH_CASTLE_CONSTRUCTION = 3
-			owner = {
-				NOR = {
-					government = zombie_horde
-					trait = zombie
-				}
-			}
 		}
 		is_active_trigger = {
 			holder_scope = { trait = djinn }
-			owner = {
-				NOR = {
-					government = zombie_horde
-					trait = zombie
-				}
-			}
 		}
 		upgrades_from = fp_djinni_caves_1
 		prerequisites = { fp_mansion_2 }
@@ -985,21 +805,9 @@ family_palace = {
 		trigger = {
 			holder_scope = { trait = djinn }
 			TECH_CASTLE_CONSTRUCTION = 5
-			owner = {
-				NOR = {
-					government = zombie_horde
-					trait = zombie
-				}
-			}
 		}
 		is_active_trigger = {
 			holder_scope = { trait = djinn }
-			owner = {
-				NOR = {
-					government = zombie_horde
-					trait = zombie
-				}
-			}
 		}
 		upgrades_from = fp_djinni_caves_2
 		prerequisites = { fp_mansion_3 }
@@ -1036,21 +844,9 @@ family_palace = {
 		}
 		trigger = {
 			TECH_CASTLE_CONSTRUCTION = 1
-			owner = {
-				NOR = {
-					government = zombie_horde
-					trait = zombie
-				}
-			}
 		}
 		is_active_trigger = {
 			holder_scope = { trait = monster_hunter }
-			owner = {
-				NOR = {
-					government = zombie_horde
-					trait = zombie
-				}
-			}
 		}
 		prerequisites = { fp_mansion_1 }
 		ai_creation_factor = 100
@@ -1086,21 +882,9 @@ family_palace = {
 		}
 		trigger = {
 			TECH_CASTLE_CONSTRUCTION = 3
-			owner = {
-				NOR = {
-					government = zombie_horde
-					trait = zombie
-				}
-			}
 		}
 		is_active_trigger = {
 			holder_scope = { trait = monster_hunter }
-			owner = {
-				NOR = {
-					government = zombie_horde
-					trait = zombie
-				}
-			}
 		}
 		upgrades_from = fp_monster_hunter_lodge_1
 		prerequisites = { fp_mansion_2 }
@@ -1137,21 +921,9 @@ family_palace = {
 		}
 		trigger = {
 			TECH_CASTLE_CONSTRUCTION = 5
-			owner = {
-				NOR = {
-					government = zombie_horde
-					trait = zombie
-				}
-			}
 		}
 		is_active_trigger = {
 			holder_scope = { trait = monster_hunter }
-			owner = {
-				NOR = {
-					government = zombie_horde
-					trait = zombie
-				}
-			}
 		}
 		upgrades_from = fp_monster_hunter_lodge_2
 		prerequisites = { fp_mansion_3 }

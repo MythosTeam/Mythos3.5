@@ -1125,10 +1125,6 @@ get_health = {
 		change_variable = { which = var_health value = 2 }
 	}
 	if = {
-		limit = { trait = zombie }
-		change_variable = { which = var_health value = -1 }
-	}
-	if = {
 		limit = { trait = djinn }
 		change_variable = { which = var_health value = 5 }
 	}
@@ -1163,10 +1159,6 @@ get_health = {
 	if = {
 		limit = { trait = ethereal_trait }
 		change_variable = { which = var_health value = 10 }
-	}
-	if = {
-		limit = { trait = zombie_infection }
-		change_variable = { which = var_health value = -4 }
 	}
 	if = {
 		limit = { has_character_modifier = healing_potion_great }

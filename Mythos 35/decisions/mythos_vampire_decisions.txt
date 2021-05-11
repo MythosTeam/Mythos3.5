@@ -124,7 +124,7 @@ decisions = {
 				prisoner = yes
 				NOR = {
 					trait = vampire
-					trait = zombie
+					
 					trait = known_werewolf
 					trait = demon_trait
 					trait = ethereal_trait
@@ -844,7 +844,7 @@ targetted_decisions = {
 				trait = djinn
 				trait = giant
 				trait = god
-				trait = zombie
+				
 				character = FROM
 			}
 			OR = { 
@@ -953,7 +953,7 @@ targetted_decisions = {
 				}
 				NOR = {
 					trait = vampire
-					trait = zombie
+					
 					trait = known_werewolf
 					trait = demon_trait
 				}
@@ -1120,7 +1120,7 @@ targetted_decisions = {
 					NOR = {
 						trait = vampire
 						trait = werewolf
-						trait = zombie
+						
 						trait = demon_trait
 						trait = ethereal_trait
 					}
@@ -1239,7 +1239,7 @@ targetted_decisions = {
 				}
 				NOR = {
 					trait = vampire
-					trait = zombie
+					
 					trait = known_werewolf
 					trait = demon_trait
 				}

@@ -121,19 +121,6 @@ mythos_generate_monsters = {
 								factor = 3
 								any_neighbor_province = {
 									OR = {
-										culture_group = west_african
-										religion = west_african_pagan
-										religion = west_african_pagan_reformed
-									}
-								}
-							}
-							culture = undead_zombie
-						}
-						1 = {
-							modifier = {
-								factor = 3
-								any_neighbor_province = {
-									OR = {
 										culture_group = indo_aryan_group
 										culture_group = dravidian_group
 										religion_group = indian_group
@@ -1473,87 +1460,7 @@ mythos_generate_monsters = {
 					event_target:base_character = { culture = PREV }
 				}
 			}
-			
-			# Make sure there are enough revenants
-			if = {
-				limit = {
-					NOT = {
-						any_independent_ruler = {
-							culture_group = undead_culture_group
-						}
-					}
-				}
-				random_independent_ruler = {
-					limit = {
-						NOT = { culture_group = undead_culture_group }
-						NOT = { realm_size = 50 }
-					}
-					preferred_limit = { NOT = { realm_size = 15 } }
-					preferred_limit = { NOT = { realm_size = 30 } }
-					set_undead_culture = yes
-					religion = the_damned
-					add_trait = zombie
-					set_graphical_culture = undead_revenant
-					set_government_type = zombie_horde
-					any_demesne_province = {
-						religion = the_damned
-						culture = PREV
-						fix_local_character_culture = yes
-					}
-				}
-			}
-			if = {
-				limit = {
-					NOT = {
-						any_independent_ruler = {
-							culture_group = undead_culture_group
-							count = 2
-						}
-					}
-				}
-				random_independent_ruler = {
-					limit = {
-						NOT = { culture_group = undead_culture_group }
-						NOT = { realm_size = 50 }
-					}
-					preferred_limit = { NOT = { realm_size = 15 } }
-					preferred_limit = { NOT = { realm_size = 30 } }
-					set_undead_culture = yes
-					religion = the_damned
-					add_trait = zombie
-					set_graphical_culture = undead_revenant
-					set_government_type = zombie_horde
-					any_demesne_province = {
-						religion = the_damned
-						culture = PREV
-						fix_local_character_culture = yes
-					}
-				}
-			}
-			if = {
-				limit = {
-					has_alternate_start_parameter = { key = special_culture value = monster_kingdoms }
-				}
-				random_independent_ruler = {
-					limit = {
-						NOT = { culture_group = undead_culture_group }
-						NOT = { realm_size = 80 }
-					}
-					preferred_limit = { NOT = { realm_size = 30 } }
-					preferred_limit = { NOT = { realm_size = 50 } }
-					set_undead_culture = yes
-					religion = the_damned
-					add_trait = zombie
-					set_graphical_culture = undead_revenant
-					set_government_type = zombie_horde
-					any_demesne_province = {
-						religion = the_damned
-						culture = PREV
-						fix_local_character_culture = yes
-					}
-				}
-			}
-			
+						
 			# Setup mythos races
 			# First, werewolves
 			any_character = {
@@ -2006,14 +1913,6 @@ mythos_generate_monsters = {
 					add_trait = djinn
 				}
 			}
-			# Revenants
-			any_character = {
-				limit = { culture_group = undead_culture_group }
-				add_trait = zombie
-				religion = the_damned
-				set_government_type = zombie_horde
-				set_graphical_culture = undead_revenant
-			}
 			# Demons and ethereal just in case
 			any_character = {
 				limit = { culture = demon_culture }
@@ -2032,7 +1931,6 @@ mythos_generate_monsters = {
 					NOR = {
 						trait = vampire
 						trait = werewolf
-						trait = zombie
 						trait = djinn
 						trait = demon_trait
 						trait = ethereal_trait
@@ -2045,7 +1943,6 @@ mythos_generate_monsters = {
 						NOR = {
 							trait = vampire
 							trait = werewolf
-							trait = zombie
 							trait = djinn
 							trait = demon_trait
 							trait = ethereal_trait
@@ -2066,7 +1963,6 @@ mythos_generate_monsters = {
 						NOR = {
 							trait = vampire
 							trait = werewolf
-							trait = zombie
 							trait = djinn
 							trait = demon_trait
 							trait = ethereal_trait
@@ -2093,7 +1989,6 @@ mythos_generate_monsters = {
 						NOR = {
 							trait = vampire
 							trait = werewolf
-							trait = zombie
 							trait = djinn
 							trait = demon_trait
 							trait = ethereal_trait
@@ -2106,7 +2001,6 @@ mythos_generate_monsters = {
 							NOR = {
 								trait = vampire
 								trait = werewolf
-								trait = zombie
 								trait = djinn
 								trait = demon_trait
 								trait = ethereal_trait
@@ -2126,7 +2020,6 @@ mythos_generate_monsters = {
 							NOR = {
 								trait = vampire
 								trait = werewolf
-								trait = zombie
 								trait = djinn
 								trait = demon_trait
 								trait = ethereal_trait

@@ -1570,7 +1570,7 @@ character_event = {
 			trait = djinn
 			trait = mythos_giant
 			trait = half_giant
-			trait = zombie
+			
 			trait = mummy
 			trait = ethereal_trait
 			has_instances_of_character_modifier = { modifier = known_monster amount = 3 }
@@ -1674,7 +1674,7 @@ character_event = {
 					trait = djinn
 					trait = mythos_giant
 					trait = half_giant
-					trait = zombie
+					
 					trait = mummy
 					trait = ethereal_trait
 				}
@@ -2400,12 +2400,6 @@ province_event = {
 					}
 				}
 				culture = jotunn
-			}
-			1 = {
-				trigger = {
-					FROMFROM = { trait = zombie }
-				}
-				culture = FROMFROM
 			}
 		}
 	}

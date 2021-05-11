@@ -65,7 +65,6 @@ TRIBAL_PIETY_RET_2 = {
 			religion = bon
 			religion = bon_reformed
 		}
-		NOT = { trait = zombie }
 	}
 	
 	hire_cost = 50
@@ -85,7 +84,7 @@ TRIBAL_RET_1 = {
 	
 	potential = {
 		is_tribal = yes
-		NOT = { trait = zombie }
+		
 	}
 	
 	hire_cost = 25
@@ -109,7 +108,7 @@ TRIBAL_RET_2 = {
 	
 	potential = {
 		is_tribal = yes
-		NOT = { trait = zombie }
+		
 	}
 	
 	hire_cost = 50
@@ -135,7 +134,7 @@ TRIBAL_RET_3 = {
 	
 	potential = {
 		is_tribal = yes
-		NOT = { trait = zombie }
+		
 	}
 	
 	hire_cost = 75
@@ -161,7 +160,7 @@ TRIBAL_RET_4 = {
 	
 	potential = {
 		is_tribal = yes
-		NOT = { trait = zombie }
+		
 	}
 	
 	hire_cost = 75
@@ -197,7 +196,7 @@ TRIBAL_RET_5 = {
 		NOT = {
 			culture = jurchen
 		}
-		NOT = { trait = zombie }
+		
 	}
 	
 	hire_cost = 75
@@ -222,7 +221,7 @@ RETTYPE_INF1 =
 	potential = {
 		is_nomadic = no
 		is_tribal = no
-		NOT = { trait = zombie }
+		
 	}
 	
 	modifier = {
@@ -242,7 +241,7 @@ RETTYPE_INF2 =
 	potential = {
 		is_nomadic = no
 		is_tribal = no
-		NOT = { trait = zombie }
+		
 	}
 	
 	modifier = {
@@ -262,7 +261,7 @@ RETTYPE_CAV1 =
 	potential = {
 		is_nomadic = no
 		is_tribal = no
-		NOT = { trait = zombie }
+		
 	}
 	
 	modifier = {
@@ -281,7 +280,7 @@ RETTYPE_SKIR1 =
 	potential = {
 		is_nomadic = no
 		is_tribal = no
-		NOT = { trait = zombie }
+		
 	}
 	
 	modifier = {
@@ -301,7 +300,7 @@ RETTYPE_SKIR2 =
 	potential = {
 		is_nomadic = no
 		is_tribal = no
-		NOT = { trait = zombie }
+		
 	}
 	
 	modifier = {
@@ -323,7 +322,7 @@ RETTYPE_CUL_ENG =
 			culture = english
 			culture = welsh
 		}
-		NOT = { trait = zombie }
+		
 	}
 	
 	modifier = {
@@ -340,7 +339,7 @@ RETTYPE_CUL_SCOT =
 	potential = {
 		is_nomadic = no
 		culture = scottish
-		NOT = { trait = zombie }
+		
 	}
 	
 	modifier = {
@@ -361,7 +360,7 @@ RETTYPE_CUL_BALT =
 			culture_group = baltic
 			culture_group = finno_ugric
 		}
-		NOT = { trait = zombie }
+		
 	}
 	
 	modifier = {
@@ -388,7 +387,6 @@ RETTYPE_CUL_ALTAIC =
 		}
 		NOR = {
 			culture = jurchen
-			trait = zombie
 		}
 	}
 	
@@ -415,7 +413,7 @@ RETTYPE_CUL_FRANK_NOR_GER =
 			culture = german
 			culture = breton
 		}
-		NOT = { trait = zombie }
+		
 	}
 	
 	modifier = {
@@ -433,7 +431,7 @@ RETTYPE_CUL_IBER =
 	potential = {
 		is_nomadic = no
 		culture_group = iberian
-		NOT = { trait = zombie }
+		
 	}
 	
 	modifier = {
@@ -453,7 +451,7 @@ RETTYPE_CUL_ITA =
 			culture = italian
 			culture = dalmatian
 		}
-		NOT = { trait = zombie }
+		
 	}
 	
 	modifier = {
@@ -493,7 +491,7 @@ RETTYPE_CUL_RUS =
 	potential = {
 		is_nomadic = no
 		culture_group = east_slavic
-		NOT = { trait = zombie }
+		
 	}
 	
 	modifier = {
@@ -516,7 +514,7 @@ RETTYPE_CUL_NORTHGER =
 			culture = old_saxon
 			culture = frisian
 		}
-		NOT = { trait = zombie }
+		
 	}
 	
 	modifier = {
@@ -536,7 +534,7 @@ RETTYPE_CUL_HUNG =
 			culture = hungarian
 			culture_group = west_slavic
 		}
-		NOT = { trait = zombie }
+		
 	}
 	
 	modifier = {
@@ -557,7 +555,7 @@ RETTYPE_CUL_ARAB =
 		culture_group = arabic
 		NOT = { culture = andalusian_arabic }
 		NOT = { culture = maghreb_arabic }
-		NOT = { trait = zombie }
+		
 	}
 	
 	modifier = {
@@ -575,7 +573,7 @@ RETTYPE_CUL_ANDALUSIAN =
 	potential = {
 		is_nomadic = no
 		culture = andalusian_arabic
-		NOT = { trait = zombie }
+		
 	}
 
 	modifier = {
@@ -593,7 +591,7 @@ RETTYPE_CUL_BERBER =
 	potential = {
 		is_nomadic = no
 		culture = maghreb_arabic
-		NOT = { trait = zombie }
+		
 	}
 
 	modifier = {
@@ -619,7 +617,7 @@ RETTYPE_CUL_BYZ =
 		NOT = { culture = alan }
 		NOT = { culture = assyrian }
 		NOT = { culture = arberian }
-		NOT = { trait = zombie }
+		
 	}
 	
 	modifier = {
@@ -637,7 +635,7 @@ RETTYPE_CUL_IRISH =
 	potential = {
 		is_nomadic = no
 		culture = irish
-		NOT = { trait = zombie }
+		
 	}
 	
 	modifier = {
@@ -654,7 +652,7 @@ RETTYPE_CUL_ETHIO =
 	potential = {
 		is_nomadic = no
 		culture = ethiopian
-		NOT = { trait = zombie }
+		
 	}
 	
 	modifier = {
@@ -671,7 +669,7 @@ RETTYPE_CUL_SOMALI =
 	potential = {
 		is_nomadic = no
 		culture = somali
-		NOT = { trait = zombie }
+		
 	}
 	
 	modifier = {
@@ -695,7 +693,7 @@ RETTYPE_CUL_W_AFR =
 			culture_group = central_african
 			culture = daju
 		}
-		NOT = { trait = zombie }
+		
 	}
 	
 	modifier = {
@@ -716,7 +714,7 @@ RETTYPE_CUL_SOUTH_SLA =
 	potential = {
 		is_nomadic = no
 		culture_group = south_slavic
-		NOT = { trait = zombie }
+		
 	}
 	
 	modifier = {
@@ -738,7 +736,7 @@ RETTYPE_CUL_DUTCH =
 	potential = {
 		is_nomadic = no
 		culture = dutch
-		NOT = { trait = zombie }
+		
 	}
 	
 	modifier = {
@@ -761,7 +759,7 @@ RETTYPE_CUL_NAHUA =
 	potential = {
 		is_nomadic = no
 		culture = nahuatl
-		NOT = { trait = zombie }
+		
 	}
 	
 	modifier = {
@@ -780,7 +778,7 @@ RETTYPE_CUL_JEWISH =
 	potential = {
 		is_nomadic = no
 		culture_group = israelite
-		NOT = { trait = zombie }
+		
 	}
 	
 	modifier = {
@@ -804,7 +802,7 @@ RETTYPE_CUL_INDIAN =
 			culture_group = indo_aryan_group
 			culture_group = dravidian_group
 		}
-		NOT = { trait = zombie }
+		
 	}
 	
 	modifier = {
@@ -821,7 +819,7 @@ RETTYPE_CUL_NUBIAN =
 	potential = {
 		is_nomadic = no
 		culture = nubian
-		NOT = { trait = zombie }
+		
 	}
 	
 	modifier = {
@@ -838,7 +836,7 @@ RETTYPE_CUL_FRA =
 	potential = {
 		is_nomadic = no
 		culture = old_frankish
-		NOT = { trait = zombie }
+		
 	}
 	
 	modifier = {
@@ -856,7 +854,7 @@ RETTYPE_CUL_LOM =
 	potential = {
 		is_nomadic = no
 		culture = lombard
-		NOT = { trait = zombie }
+		
 	}
 	
 	modifier = {
@@ -876,7 +874,7 @@ RETTYPE_CUL_SUEBI =
 	potential = {
 		is_nomadic = no
 		culture = suebi
-		NOT = { trait = zombie }
+		
 	}
 	
 	modifier = {
@@ -897,7 +895,7 @@ RETTYPE_CUL_PICTISH =
 	potential = {
 		is_nomadic = no
 		culture = pictish
-		NOT = { trait = zombie }
+		
 	}
 	
 	modifier = {
@@ -921,7 +919,7 @@ HORDE_RETTYPE_CAV1 =
 	
 	potential = {
 		is_nomadic = yes
-		NOT = { trait = zombie }
+		
 	}
 	
 	modifier = {
@@ -947,7 +945,7 @@ HORDE_RETTYPE_CAV2 =
 	potential = {
 		is_nomadic = yes
 		NOT = { trait = dragon }
-		NOT = { trait = zombie }
+		
 	}
 	
 	modifier = {
@@ -975,7 +973,7 @@ HORDE_RETTYPE_CAV3 =
 	potential = {
 		is_nomadic = yes
 		NOT = { trait = dragon }
-		NOT = { trait = zombie }
+		
 	}
 	
 	modifier = {
@@ -1002,7 +1000,7 @@ HORDE_RETTYPE_CAV4 =
 	potential = {
 		is_nomadic = yes
 		NOT = { trait = dragon }
-		NOT = { trait = zombie }
+		
 	}
 	
 	modifier = {
@@ -1027,7 +1025,7 @@ HORDE_RETTYPE_CAV5 =
 		is_nomadic = yes
 		NOT = { has_character_modifier = invading_population_halt } # This stops the Mongol Empire from spending all their money on super-expensive retinues
 		NOT = { trait = dragon }
-		NOT = { trait = zombie }
+		
 	}
 	
 	modifier = {
@@ -1052,7 +1050,7 @@ HORDE_RETTYPE_CAV6 =
 		is_nomadic = yes
 		NOT = { has_character_modifier = invading_population_halt } # This stops the Mongol Empire from spending all their money on super-expensive retinues
 		NOT = { trait = dragon }
-		NOT = { trait = zombie }
+		
 	}
 	modifier = {
 		light_cavalry_offensive = 0.25
@@ -1076,7 +1074,7 @@ HORDE_RETTYPE_CAV7 =
 		is_nomadic = yes
 		NOT = { has_character_modifier = invading_population_halt } # This stops the Mongol Empire from spending all their money on super-expensive retinues
 		NOT = { trait = dragon }
-		NOT = { trait = zombie }
+		
 	}
 	
 	modifier = {
@@ -1103,7 +1101,7 @@ HORDE_RETTYPE_PAGAN =
 		is_nomadic = yes
 		religion_group = pagan_group
 		NOT = { trait = dragon }
-		NOT = { trait = zombie }
+		
 	}
 	modifier = {
 		light_cavalry_defensive = 0.5
@@ -1131,7 +1129,7 @@ HORDE_RETTYPE_MUSLIM =
 		is_nomadic = yes
 		religion_group = muslim
 		NOT = { trait = dragon }
-		NOT = { trait = zombie }
+		
 	}
 	modifier = {
 		archers_offensive = 0.25
@@ -1159,7 +1157,7 @@ HORDE_RETTYPE_CHRISTIAN =
 		is_nomadic = yes
 		religion_group = christian
 		NOT = { trait = dragon }
-		NOT = { trait = zombie }
+		
 	}
 	modifier = {
 		pikemen_defensive = 0.25
@@ -1186,7 +1184,7 @@ HORDE_RETTYPE_ZOROASTRIAN =
 		is_nomadic = yes
 		religion_group = zoroastrian_group
 		NOT = { trait = dragon }
-		NOT = { trait = zombie }
+		
 	}
 	modifier = {
 		heavy_infantry_defensive = 0.25
@@ -1213,7 +1211,7 @@ HORDE_RETTYPE_JEWISH =
 		is_nomadic = yes
 		religion_group = jewish_group
 		NOT = { trait = dragon }
-		NOT = { trait = zombie }
+		
 	}
 	modifier = {
 		heavy_infantry_defensive = 0.25
@@ -1239,7 +1237,7 @@ HORDE_RETTYPE_EASTERN =
 		is_nomadic = yes
 		religion_group = indian_group
 		NOT = { trait = dragon }
-		NOT = { trait = zombie }
+		
 	}
 	modifier = {
 		light_infantry_offensive = 0.25
@@ -1267,7 +1265,7 @@ HORDE_RETTYPE_INDIAN =
 		}
 		NOT = { has_character_modifier = invading_population_halt } # This stops the Mongol Empire from spending all their money on super-expensive retinues
 		NOT = { trait = dragon }
-		NOT = { trait = zombie }
+		
 	}
 	
 	modifier = {
@@ -1294,7 +1292,7 @@ HORDE_RETTYPE_DESERT = {
 		}
 		NOT = { has_character_modifier = invading_population_halt } # This stops the Mongol Empire from spending all their money on super-expensive retinues
 		NOT = { trait = dragon }
-		NOT = { trait = zombie }
+		
 	}
 	
 	modifier = {
@@ -1323,7 +1321,7 @@ HORDE_RETTYPE_EUROPE = {
 		}
 		NOT = { has_character_modifier = invading_population_halt } # This stops the Mongol Empire from spending all their money on super-expensive retinues
 		NOT = { trait = dragon }
-		NOT = { trait = zombie }
+		
 	}
 	
 	modifier = {
@@ -1342,7 +1340,7 @@ RETTYPE_CUL_HAN =
 	potential = {
 		is_nomadic = no
 		culture = han
-		NOT = { trait = zombie }
+		
 	}
 	
 	modifier = {
@@ -1365,7 +1363,7 @@ RETTYPE_CUL_TIBET =
 	potential = {
 		is_nomadic = no
 		culture_group = tibetan_group
-		NOT = { trait = zombie }
+		
 	}
 	
 	modifier = {
@@ -1388,7 +1386,7 @@ RETTYPE_CUL_JURCHEN =
 	potential = {
 		is_nomadic = no
 		culture = jurchen
-		NOT = { trait = zombie }
+		
 	}
 	
 	modifier = {

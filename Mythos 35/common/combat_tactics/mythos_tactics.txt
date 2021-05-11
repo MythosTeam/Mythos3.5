@@ -118,10 +118,7 @@ shamble_tactic_skirmish = {
 	
 	trigger = {
 		phase = skirmish
-		OR = {
-			zombie_troops = 0.4
-			leader = { trait = zombie }
-		}
+		zombie_troops = 0.4
 	}
 	
 	mean_time_to_happen = {
@@ -187,10 +184,7 @@ shamble_tactic_melee = {
 	
 	trigger = {
 		phase = melee
-		OR = {
-			zombie_troops = 0.4
-			leader = { trait = zombie }
-		}
+		zombie_troops = 0.4
 	}
 	
 	mean_time_to_happen = {
@@ -257,10 +251,7 @@ undead_charge = {
 	
 	trigger = {
 		phase = skirmish
-		OR = {
-			zombie_troops = 0.4
-			leader = { trait = zombie }
-		}
+		zombie_troops = 0.4
 		location = {
 			OR = {
 				has_province_modifier = depopulated_3
@@ -805,7 +796,6 @@ turn_undead_tactic = {
 				vampires = 0.3
 				einherjar = 0.3
 				etherial_soldiers = 0.3
-				leader = { trait = zombie }
 				leader = { trait = vampire }
 				leader = { trait = ethereal_trait }
 			}
@@ -884,7 +874,6 @@ smite_undead_tactic = {
 				vampires = 0.3
 				einherjar = 0.3
 				etherial_soldiers = 0.3
-				leader = { trait = zombie }
 				leader = { trait = vampire }
 				leader = { trait = ethereal_trait }
 			}

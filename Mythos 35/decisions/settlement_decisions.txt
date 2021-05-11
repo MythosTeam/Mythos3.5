@@ -452,7 +452,7 @@ settlement_decisions = {
 				is_nomadic = yes
 				is_tribal = yes
 			}
-			NOT = { government = zombie_horde }
+			
 			has_dlc = "Horse Lords"
 		}
 		
@@ -706,7 +706,7 @@ settlement_decisions = {
 			is_nomadic = yes
 			has_dlc = "Horse Lords"
 			is_landed = yes
-			NOT = { government = zombie_horde }
+			
 			
 			OR = {
 				ai = yes
@@ -1375,7 +1375,7 @@ settlement_decisions = {
 			is_playable = yes
 			is_nomadic = yes
 			has_dlc = "Horse Lords"
-			NOT = { government = zombie_horde }
+			
 			
 			OR = {
 				ai = yes
@@ -2105,7 +2105,7 @@ settlement_decisions = {
 				has_dlc = "The Republic"
 			}
 			has_dlc = "Horse Lords"
-			NOT = { government = zombie_horde }
+			
 			
 			OR = {
 				ai = yes

@@ -374,7 +374,7 @@ offmap_decisions = {
 			holy_order = no
 			is_landed = yes
 			is_nomadic = yes
-			NOT = { government = zombie_horde }
+			
 		}
     
 		allow = {

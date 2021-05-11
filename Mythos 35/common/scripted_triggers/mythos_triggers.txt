@@ -39,7 +39,6 @@ has_lifestyle_theology_trigger = {
 is_undead = {
 	OR = {
 		trait = vampire
-		trait = zombie
 		trait = mummy
 	}
 }
@@ -597,7 +596,6 @@ race_monster = {
 	OR = {
 		trait = vampire
 		trait = known_werewolf
-		trait = zombie
 		trait = mummy
 		trait = demon_trait
 		trait = ethereal_trait
@@ -630,7 +628,6 @@ race_disease_immune = {
 		trait = god
 		trait = demon_trait
 		trait = ethereal_trait
-		trait = zombie
 		trait = necromancer
 		# Vampires can't get disease normally, but can through feeding
 		AND = {
@@ -667,7 +664,6 @@ is_human = {
 		trait = half_giant
 		trait = god
 		trait = demi_god
-		trait = zombie
 		trait = djinn
 		trait = mummy
 		trait = pup
@@ -737,7 +733,6 @@ is_unblemished = {
 		trait = blinded
 		trait = eunuch
 		trait = lovers_pox
-		trait = zombie
 	}
 }
 
@@ -751,16 +746,6 @@ probable_virgin_trigger = {
 		trait = seducer
 		trait = seductress
 		trait = hedonist
-	}
-}
-
-has_positive_congenital_trigger = {
-	OR = {
-		trait = genius
-		trait = quick
-		trait = fair
-		trait = strong
-		trait = groomed
 	}
 }
 
@@ -1603,7 +1588,6 @@ inquisitor = {
 
 unsafe_vampire_food = {
 	OR = {
-		trait = zombie
 		trait = werewolf
 		trait = vampire
 		trait = demon_trait
@@ -1634,7 +1618,6 @@ is_monster_to_root = {
 		NOR = {
 			trait = demon_trait
 			trait = ethereal_trait
-			trait = zombie
 		}
 	}
 	NOT = {
@@ -1647,7 +1630,6 @@ is_monster_to_root = {
 		#	trait = necromancer
 		#	ROOT = {
 		#		NOR = {
-		#			trait = zombie
 		#			trait = necromancer
 		#		}
 		#	}
@@ -1727,16 +1709,6 @@ is_monster_to_root = {
 			}
 		}
 		AND = {
-			trait = zombie
-			ROOT = {
-				NOR = {
-					trait = zombie
-					trait = necromancer
-					society_member_of = the_cold_ones
-				}
-			}
-		}
-		AND = {
 			trait = mummy
 			ROOT = {
 				NOR = {
@@ -1776,7 +1748,6 @@ is_monster_to_root = {
 			trait = djinn
 			trait = mythos_giant
 			trait = half_giant
-			trait = zombie
 			trait = mummy
 			trait = ethereal_trait
 		}
@@ -1788,7 +1759,6 @@ is_monster_to_prev = {
 		NOR = {
 			trait = demon_trait
 			trait = ethereal_trait
-			trait = zombie
 		}
 	}
 	NOT = {
@@ -1800,7 +1770,6 @@ is_monster_to_prev = {
 			trait = necromancer
 			PREV = {
 				NOR = {
-					trait = zombie
 					trait = necromancer
 				}
 			}
@@ -1876,16 +1845,6 @@ is_monster_to_prev = {
 					religion = jotnar_reformed
 					culture = jotunn
 					society_member_of = the_trollcrafters
-				}
-			}
-		}
-		AND = {
-			trait = zombie
-			PREV = {
-				NOR = {
-					trait = zombie
-					society_member_of = the_cold_ones
-					trait = necromancer
 				}
 			}
 		}
@@ -1928,7 +1887,6 @@ is_monster_to_prev = {
 			trait = djinn
 			trait = mythos_giant
 			trait = half_giant
-			trait = zombie
 			trait = mummy
 			trait = ethereal_trait
 		}
@@ -1940,7 +1898,6 @@ is_monster_to_from = {
 		NOR = {
 			trait = demon_trait
 			trait = ethereal_trait
-			trait = zombie
 		}
 	}
 	NOT = {
@@ -1952,7 +1909,6 @@ is_monster_to_from = {
 			trait = necromancer
 			ROOT_FROM = {
 				NOR = {
-					trait = zombie
 					trait = necromancer
 				}
 			}
@@ -2032,10 +1988,8 @@ is_monster_to_from = {
 			}
 		}
 		AND = {
-			trait = zombie
 			ROOT_FROM = {
 				NOR = {
-					trait = zombie
 					society_member_of = the_cold_ones
 					trait = necromancer
 				}
@@ -2080,7 +2034,6 @@ is_monster_to_from = {
 			trait = djinn
 			trait = mythos_giant
 			trait = half_giant
-			trait = zombie
 			trait = mummy
 			trait = ethereal_trait
 		}
@@ -2374,7 +2327,6 @@ has_undead_building_tribal = {
 immune_to_infection = {
 	OR = {
 		trait = god
-		trait = zombie
 		trait = demon_trait
 		trait = ethereal_trait
 		trait = vampire
@@ -2549,7 +2501,6 @@ is_infertile = {
 		trait = ethereal_trait
 		trait = celibate
 		trait = eunuch
-		trait = zombie
 		trait = mummy
 	}
 }

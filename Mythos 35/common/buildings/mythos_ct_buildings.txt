@@ -27,21 +27,9 @@ city = {
 		}
 		trigger = {
 			TECH_CITY_CONSTRUCTION = 1
-			owner = {
-				NOR = {
-					government = zombie_horde
-					trait = zombie
-				}
-			}
 		}
 		is_active_trigger = {
 			culture = draconic
-			owner = {
-				NOR = {
-					government = zombie_horde
-					trait = zombie
-				}
-			}
 		}
 		
 		prerequisites = { ct_marketplace_1 }
@@ -81,21 +69,9 @@ city = {
 		}
 		trigger = {
 			TECH_CITY_CONSTRUCTION = 3
-			owner = {
-				NOR = {
-					government = zombie_horde
-					trait = zombie
-				}
-			}
 		}
 		is_active_trigger = {
 			culture = draconic
-			owner = {
-				NOR = {
-					government = zombie_horde
-					trait = zombie
-				}
-			}
 		}
 		
 		upgrades_from = ct_dragon_tribute_1
@@ -117,21 +93,10 @@ city = {
 		
 		potential = { culture = draconic }
 		trigger = {
-			owner = {
-				NOR = {
-					government = zombie_horde
-					trait = zombie
-				}
-			}
+			TECH_CITY_CONSTRUCTION = 1
 		}
 		is_active_trigger = {
 			culture = draconic
-			owner = {
-				NOR = {
-					government = zombie_horde
-					trait = zombie
-				}
-			}
 		}
 		ai_creation_factor = 90
 		
@@ -170,21 +135,9 @@ city = {
 		}
 		trigger = {
 			TECH_CITY_CONSTRUCTION = 1
-			owner = {
-				NOR = {
-					government = zombie_horde
-					trait = zombie
-				}
-			}
 		}
 		is_active_trigger = {
 			culture = werewolf_culture
-			owner = {
-				NOR = {
-					government = zombie_horde
-					trait = zombie
-				}
-			}
 		}
 		ai_creation_factor = 100
 		
@@ -204,21 +157,10 @@ city = {
 		
 		potential = { culture = werewolf_culture }
 		trigger = {
-			owner = {
-				NOR = {
-					government = zombie_horde
-					trait = zombie
-				}
-			}
+			TECH_CITY_CONSTRUCTION = 1
 		}
 		is_active_trigger = {
 			culture = werewolf_culture
-			owner = {
-				NOR = {
-					government = zombie_horde
-					trait = zombie
-				}
-			}
 		}
 		ai_creation_factor = 90
 		
@@ -257,21 +199,9 @@ city = {
 		}
 		trigger = {
 			TECH_CITY_CONSTRUCTION = 1
-			owner = {
-				NOR = {
-					government = zombie_horde
-					trait = zombie
-				}
-			}
 		}
 		is_active_trigger = {
 			culture = vampire_culture
-			owner = {
-				NOR = {
-					government = zombie_horde
-					trait = zombie
-				}
-			}
 		}
 		ai_creation_factor = 99
 		
@@ -290,21 +220,10 @@ city = {
 		
 		potential = { culture = vampire_culture }
 		trigger = {
-			owner = {
-				NOR = {
-					government = zombie_horde
-					trait = zombie
-				}
-			}
+			TECH_CITY_CONSTRUCTION = 1
 		}
 		is_active_trigger = {
 			culture = vampire_culture
-			owner = {
-				NOR = {
-					government = zombie_horde
-					trait = zombie
-				}
-			}
 		}
 		
 		ai_creation_factor = 90
@@ -343,21 +262,9 @@ city = {
 		trigger = {
 			culture = jotunn
 			TECH_CITY_CONSTRUCTION = 1
-			owner = {
-				NOR = {
-					government = zombie_horde
-					trait = zombie
-				}
-			}
 		}
 		is_active_trigger = {
 			culture = jotunn
-			owner = {
-				NOR = {
-					government = zombie_horde
-					trait = zombie
-				}
-			}
 		}
 		
 		ai_creation_factor = 100
@@ -386,10 +293,7 @@ city = {
 						}
 						follows_polytheistic_religion = yes
 					}
-					OR = {
-						government = draconic_merchant_republic_government
-						government = merchant_republic_government
-					}
+					government = merchant_republic_government
 				}
 				FROMFROM = {
 					has_building = ct_gods_pantheon
@@ -402,18 +306,9 @@ city = {
 					trait = god
 					trait = demi_god
 				}
-				OR = {
-					government = draconic_merchant_republic_government
-					government = merchant_republic_government
-				}
+				government = merchant_republic_government
 			}
 			TECH_CITY_CONSTRUCTION = 1
-			owner = {
-				NOR = {
-					government = zombie_horde
-					trait = zombie
-				}
-			}
 		}
 		is_active_trigger = {
 			holder_scope = {
@@ -423,16 +318,7 @@ city = {
 					trait = blood_of_the_gods
 					any_owned_bloodline = { has_bloodline_flag = BOTG }
 				}
-				OR = {
-					government = draconic_merchant_republic_government
-					government = merchant_republic_government
-				}
-			}
-			owner = {
-				NOR = {
-					government = zombie_horde
-					trait = zombie
-				}
+				government = merchant_republic_government
 			}
 		}		 
 		
@@ -462,10 +348,7 @@ city = {
 						trait = veteran_wizard
 						trait = arcane_master
 					}
-					OR = {
-						government = draconic_merchant_republic_government
-						government = merchant_republic_government
-					}
+					government = merchant_republic_government
 				}
 				FROMFROM = { has_building = tb_mage_library }
 			}
@@ -478,29 +361,13 @@ city = {
 					trait = veteran_wizard
 					trait = arcane_master
 				}
-				OR = {
-					government = draconic_merchant_republic_government
-					government = merchant_republic_government
-				}
+				government = merchant_republic_government
 			}
 			TECH_CITY_CONSTRUCTION = 1
-			owner = {
-				NOR = {
-					government = zombie_horde
-					trait = zombie
-				}
-			}
 		}
 		is_active_trigger = {
 			owner = {
-				NOR = {
-					government = zombie_horde
-					trait = zombie
-				}
-				OR = {
-					government = draconic_merchant_republic_government
-					government = merchant_republic_government
-				}
+				government = merchant_republic_government
 			}
 		}
 		
@@ -525,10 +392,7 @@ city = {
 			OR = {
 				holder_scope = {
 					trait = mummy
-					OR = {
-						government = draconic_merchant_republic_government
-						government = merchant_republic_government
-					}
+					government = merchant_republic_government
 				}
 				FROMFROM = {
 					has_building = ct_mummy_temple_district
@@ -548,30 +412,14 @@ city = {
 		trigger = {
 			holder_scope = {
 				trait = mummy
-				OR = {
-					government = draconic_merchant_republic_government
-					government = merchant_republic_government
-				}
+				government = merchant_republic_government
 			}
 			TECH_CITY_CONSTRUCTION = 1
-			owner = {
-				NOR = {
-					government = zombie_horde
-					trait = zombie
-				}
-			}
 		}
 		is_active_trigger = {
 			holder_scope = { trait = mummy }
 			owner = {
-				NOR = {
-					government = zombie_horde
-					trait = zombie
-				}
-				OR = {
-					government = draconic_merchant_republic_government
-					government = merchant_republic_government
-				}
+				government = merchant_republic_government
 			}
 		}
 		prerequisites = { ct_wall_2 }
@@ -612,24 +460,11 @@ city = {
 		trigger = {
 			TECH_CITY_CONSTRUCTION = 1
 			owner = {
-				NOR = {
-					government = zombie_horde
-					trait = zombie
-				}
-				OR = {
-					government = draconic_merchant_republic_government
-					government = merchant_republic_government
-				}
+				government = merchant_republic_government
 			}
 		}
 		is_active_trigger = {
 			culture = djinni
-			owner = {
-				NOR = {
-					government = zombie_horde
-					trait = zombie
-				}
-			}
 		}
 		prerequisites = { ct_wall_1 }
 		ai_creation_factor = 101
@@ -657,12 +492,6 @@ city = {
 				# Only appears it you have it.  Built by event
 				has_building = ct_mage_tower_enchantment
 			}
-			owner = {
-				NOR = {
-					government = zombie_horde
-					trait = zombie
-				}
-			}
 		}
 		is_active_trigger = {
 			holder_scope = {
@@ -671,12 +500,6 @@ city = {
 					any_owned_bloodline = {
 						has_bloodline_flag = all_towers
 					}
-				}
-			}
-			owner = {
-				NOR = {
-					government = zombie_horde
-					trait = zombie
 				}
 			}
 		}
@@ -713,12 +536,6 @@ city = {
 				# Only appears it you have it.  Built by event
 				has_building = ct_mage_tower_conjuration
 			}
-			owner = {
-				NOR = {
-					government = zombie_horde
-					trait = zombie
-				}
-			}
 		}
 		is_active_trigger = {
 			holder_scope = {
@@ -727,12 +544,6 @@ city = {
 					any_owned_bloodline = {
 						has_bloodline_flag = all_towers
 					}
-				}
-			}
-			owner = {
-				NOR = {
-					government = zombie_horde
-					trait = zombie
 				}
 			}
 		}
@@ -769,12 +580,6 @@ city = {
 				# Only appears it you have it.  Built by event
 				has_building = ct_mage_tower_alchemy
 			}
-			owner = {
-				NOR = {
-					government = zombie_horde
-					trait = zombie
-				}
-			}
 		}
 		is_active_trigger = {
 			holder_scope = {
@@ -783,12 +588,6 @@ city = {
 					any_owned_bloodline = {
 						has_bloodline_flag = all_towers
 					}
-				}
-			}
-			owner = {
-				NOR = {
-					government = zombie_horde
-					trait = zombie
 				}
 			}
 		}
@@ -825,12 +624,6 @@ city = {
 				# Only appears it you have it.  Built by event
 				has_building = ct_mage_tower_herbalism
 			}
-			owner = {
-				NOR = {
-					government = zombie_horde
-					trait = zombie
-				}
-			}
 		}
 		is_active_trigger = {
 			holder_scope = {
@@ -839,12 +632,6 @@ city = {
 					any_owned_bloodline = {
 						has_bloodline_flag = all_towers
 					}
-				}
-			}
-			owner = {
-				NOR = {
-					government = zombie_horde
-					trait = zombie
 				}
 			}
 		}

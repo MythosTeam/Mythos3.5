@@ -10,7 +10,7 @@ RETTYPE_CUL_VAMPIRE =  {
 	
 	potential = {
 		culture = vampire_culture
-		NOT = { trait = zombie }
+		
 	}
 }
 RETTYPE_CUL_WEREWOLF =  {
@@ -25,7 +25,7 @@ RETTYPE_CUL_WEREWOLF =  {
 	
 	potential = {
 		culture = werewolf_culture
-		NOT = { trait = zombie }
+		
 	}
 }
 RETTYPE_CUL_DRAGON =  {
@@ -40,81 +40,10 @@ RETTYPE_CUL_DRAGON =  {
 	
 	potential = {
 		culture = draconic
-		NOT = { trait = zombie }
+		
 	}
 }
-HORDE_RETTYPE_DRG1 = {
-	first_type = 6
-	first_amount = 10
-	
-	special_troops = dragon_cavalry
 
-	hire_cost = 30
-	costs_prestige = yes
-	
-	maintenance_multiplier = 2.5
-	
-	potential = {
-		is_nomadic = yes
-		government = marauding_dragon_government
-		NOT = { trait = zombie }
-	}
-}
-HORDE_RETTYPE_DRG2 = {
-	first_type = 3
-	first_amount = 150
-	second_type = 6
-	second_amount = 10
-	
-	special_troops = dragon_cavalry
-	
-	hire_cost = 75
-	costs_prestige = yes
-	
-	maintenance_multiplier = 1.5
-	
-	potential = {
-		is_nomadic = yes
-		government = marauding_dragon_government
-		NOT = { trait = zombie }
-	}
-}
-HORDE_RETTYPE_DRG3 = {
-	first_type = 5
-	first_amount = 200
-	second_type = 6
-	second_amount = 15
-	
-	special_troops = dragon_cavalry
-	
-	hire_cost = 100
-	costs_prestige = yes
-	
-	maintenance_multiplier = 1.5
-	
-	potential = {
-		is_nomadic = yes
-		government = marauding_dragon_government
-		NOT = { trait = zombie }
-	}
-}
-HORDE_RETTYPE_DRG4 = {
-	first_type = 6
-	first_amount = 100
-	
-	special_troops = dragon_cavalry
-	
-	hire_cost = 300
-	costs_prestige = yes
-	
-	maintenance_multiplier = 2.0
-	
-	potential = {
-		is_nomadic = yes
-		government = marauding_dragon_government
-		NOT = { trait = zombie }
-	}
-}
 RETTYPE_NECROMANCER_BLOODLINE = {
 	first_type = 6
 	first_amount = 150

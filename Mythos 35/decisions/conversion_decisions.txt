@@ -477,7 +477,7 @@ targetted_decisions = {
 			holy_order = no
 			mercenary = no
 			has_dlc = "Rajas of India"
-			NOT = { trait = zombie }
+			
 			NOT = { government = chinese_imperial_government }
 		}
 		allow = {

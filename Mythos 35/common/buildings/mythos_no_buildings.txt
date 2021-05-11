@@ -1,309 +1,4 @@
 nomad = {
-	################### HORDEGUARD ###################
-	no_hordeguard_1 = {
-		desc = no_hordeguard_desc
-		trigger = { 
-			FROM = { 
-				TECH_CASTLE_CONSTRUCTION = 0
-				government = marauding_dragon_government
-			}
-			owner = {
-				NOR = {
-					government = zombie_horde
-					trait = zombie
-				}
-			}
-		}
-		potential = {
-			OR = {
-				FROM = { government = marauding_dragon_government }
-				FROMFROM = { has_building = no_hordeguard_1 }
-			}
-		}
-		is_active_trigger = {
-			FROM = { trait = dragon }
-			owner = {
-				NOR = {
-					government = zombie_horde
-					trait = zombie
-				}
-			}
-		}
-		gold_cost = 30
-		build_time = 365
-		ai_creation_factor = 97
-		extra_tech_building_start = 1
-		
-		dragon_cavalry_defensive = 0.03
-		nomad_tax_modifier = 0.01
-	}
-	no_hordeguard_2 = {
-		desc = no_hordeguard_desc
-		trigger = { 
-			FROM = { 
-				TECH_CASTLE_CONSTRUCTION = 0
-				government = marauding_dragon_government
-			}
-			owner = {
-				NOR = {
-					government = zombie_horde
-					trait = zombie
-				}
-			}
-		}
-		potential = {
-			OR = {
-				FROM = { government = marauding_dragon_government }
-				FROMFROM = { has_building = no_hordeguard_2 }
-			}
-		}
-		is_active_trigger = {
-			FROM = { trait = dragon }
-			owner = {
-				NOR = {
-					government = zombie_horde
-					trait = zombie
-				}
-			}
-		}
-		upgrades_from = no_hordeguard_1
-		gold_cost = 50
-		build_time = 365
-		ai_creation_factor = 90
-		extra_tech_building_start = 2
-		
-		dragon_cavalry_defensive = 0.03
-		nomad_tax_modifier = 0.01
-	}
-	no_hordeguard_3 = {
-		desc = no_hordeguard_desc
-		trigger = { 
-			FROM = { 
-				TECH_CASTLE_CONSTRUCTION = 1
-				government = marauding_dragon_government
-			}
-			owner = {
-				NOR = {
-					government = zombie_horde
-					trait = zombie
-				}
-			}
-		}
-		potential = {
-			OR = {
-				FROM = { government = marauding_dragon_government }
-				FROMFROM = { has_building = no_hordeguard_3 }
-			}
-		}
-		is_active_trigger = {
-			FROM = { trait = dragon }
-			owner = {
-				NOR = {
-					government = zombie_horde
-					trait = zombie
-				}
-			}
-		}
-		upgrades_from = no_hordeguard_2
-		gold_cost = 90
-		build_time = 365
-		ai_creation_factor = 85
-		extra_tech_building_start = 3
-		
-		dragon_cavalry_defensive = 0.04
-		nomad_tax_modifier = 0.01
-	}
-	no_hordeguard_4 = {
-		desc = no_hordeguard_desc
-		trigger = { 
-			FROM = { 
-				TECH_CASTLE_CONSTRUCTION = 1
-				government = marauding_dragon_government
-			}
-			owner = {
-				NOR = {
-					government = zombie_horde
-					trait = zombie
-				}
-			}
-		}
-		potential = {
-			OR = {
-				FROM = { government = marauding_dragon_government }
-				FROMFROM = { has_building = no_hordeguard_4 }
-			}
-		}
-		is_active_trigger = {
-			FROM = { trait = dragon }
-			owner = {
-				NOR = {
-					government = zombie_horde
-					trait = zombie
-				}
-			}
-		}
-		upgrades_from = no_hordeguard_3
-		gold_cost = 170
-		build_time = 365
-		ai_creation_factor = 80
-		extra_tech_building_start = 4
-		
-		dragon_cavalry_defensive = 0.05
-		nomad_tax_modifier = 0.02
-	}
-	no_hordeguard_5 = {
-		desc = no_hordeguard_desc
-		trigger = { 
-			FROM = { 
-				TECH_CASTLE_CONSTRUCTION = 2
-				government = marauding_dragon_government
-			}
-			owner = {
-				NOR = {
-					government = zombie_horde
-					trait = zombie
-				}
-			}
-		}
-		potential = {
-			OR = {
-				FROM = { government = marauding_dragon_government }
-				FROMFROM = { has_building = no_hordeguard_5 }
-			}
-		}
-		is_active_trigger = {
-			FROM = { trait = dragon }
-			owner = {
-				NOR = {
-					government = zombie_horde
-					trait = zombie
-				}
-			}
-		}
-		upgrades_from = no_hordeguard_4
-		gold_cost = 170
-		build_time = 365
-		ai_creation_factor = 80
-		extra_tech_building_start = 4
-		
-		dragon_cavalry_defensive = 0.05
-		nomad_tax_modifier = 0.02
-	}
-	no_hordeguard_6 = {
-		desc = no_hordeguard_desc
-		trigger = { 
-			FROM = { 
-				TECH_CASTLE_CONSTRUCTION = 2
-				government = marauding_dragon_government
-			}
-			owner = {
-				NOR = {
-					government = zombie_horde
-					trait = zombie
-				}
-			}
-		}
-		potential = {
-			OR = {
-				FROM = { government = marauding_dragon_government }
-				FROMFROM = { has_building = no_hordeguard_6 }
-			}
-		}
-		is_active_trigger = {
-			FROM = { trait = dragon }
-			owner = {
-				NOR = {
-					government = zombie_horde
-					trait = zombie
-				}
-			}
-		}
-		upgrades_from = no_hordeguard_5
-		gold_cost = 170
-		build_time = 365
-		ai_creation_factor = 80
-		extra_tech_building_start = 4
-		
-		dragon_cavalry_defensive = 0.05
-		nomad_tax_modifier = 0.02
-	}
-	no_hordeguard_7 = {
-		desc = no_hordeguard_desc
-		trigger = { 
-			FROM = { 
-				TECH_CASTLE_CONSTRUCTION = 3
-				government = marauding_dragon_government
-			}
-			owner = {
-				NOR = {
-					government = zombie_horde
-					trait = zombie
-				}
-			}
-		}
-		potential = {
-			OR = {
-				FROM = { government = marauding_dragon_government }
-				FROMFROM = { has_building = no_hordeguard_7 }
-			}
-		}
-		is_active_trigger = {
-			FROM = { trait = dragon }
-			owner = {
-				NOR = {
-					government = zombie_horde
-					trait = zombie
-				}
-			}
-		}
-		upgrades_from = no_hordeguard_6
-		gold_cost = 170
-		build_time = 365
-		ai_creation_factor = 80
-		extra_tech_building_start = 4
-		
-		dragon_cavalry_defensive = 0.05
-		nomad_tax_modifier = 0.03
-	}
-	no_hordeguard_8 = {
-		desc = no_hordeguard_desc
-		trigger = { 
-			FROM = { 
-				TECH_CASTLE_CONSTRUCTION = 4
-				government = marauding_dragon_government
-			}
-			owner = {
-				NOR = {
-					government = zombie_horde
-					trait = zombie
-				}
-			}
-		}
-		potential = {
-			OR = {
-				FROM = { government = marauding_dragon_government }
-				FROMFROM = { has_building = no_hordeguard_8 }
-			}
-		}
-		is_active_trigger = {
-			FROM = { trait = dragon }
-			owner = {
-				NOR = {
-					government = zombie_horde
-					trait = zombie
-				}
-			}
-		}
-		upgrades_from = no_hordeguard_7
-		gold_cost = 170
-		build_time = 365
-		ai_creation_factor = 80
-		extra_tech_building_start = 5
-		
-		dragon_cavalry_defensive = 0.05
-		nomad_tax_modifier = 0.03
-	}
-	
 	################### HATCHERY ###################
 	no_hatchery_1 = {
 		desc = no_hatchery_desc
@@ -312,12 +7,6 @@ nomad = {
 				TECH_CASTLE_CONSTRUCTION = 0
 			}
 			culture = draconic
-			owner = {
-				NOR = {
-					government = zombie_horde
-					trait = zombie
-				}
-			}
 		}
 		potential = {
 			OR = {
@@ -327,12 +16,6 @@ nomad = {
 		}
 		is_active_trigger = {
 			culture = draconic
-			owner = {
-				NOR = {
-					government = zombie_horde
-					trait = zombie
-				}
-			}
 		}
 		gold_cost = 60
 		build_time = 365
@@ -349,12 +32,6 @@ nomad = {
 				TECH_CASTLE_CONSTRUCTION = 1
 			}
 			culture = draconic
-			owner = {
-				NOR = {
-					government = zombie_horde
-					trait = zombie
-				}
-			}
 		}
 		potential = {
 			OR = {
@@ -364,12 +41,6 @@ nomad = {
 		}
 		is_active_trigger = {
 			culture = draconic
-			owner = {
-				NOR = {
-					government = zombie_horde
-					trait = zombie
-				}
-			}
 		}
 		upgrades_from = no_hatchery_1
 		gold_cost = 80
@@ -387,12 +58,6 @@ nomad = {
 				TECH_CASTLE_CONSTRUCTION = 2
 			}
 			culture = draconic
-			owner = {
-				NOR = {
-					government = zombie_horde
-					trait = zombie
-				}
-			}
 		}
 		potential = {
 			OR = {
@@ -402,12 +67,6 @@ nomad = {
 		}
 		is_active_trigger = {
 			culture = draconic
-			owner = {
-				NOR = {
-					government = zombie_horde
-					trait = zombie
-				}
-			}
 		}
 		upgrades_from = no_hatchery_2
 		gold_cost = 100
@@ -425,12 +84,6 @@ nomad = {
 				TECH_CASTLE_CONSTRUCTION = 3
 			}
 			culture = draconic
-			owner = {
-				NOR = {
-					government = zombie_horde
-					trait = zombie
-				}
-			}
 		}
 		potential = {
 			OR = {
@@ -440,12 +93,6 @@ nomad = {
 		}
 		is_active_trigger = {
 			culture = draconic
-			owner = {
-				NOR = {
-					government = zombie_horde
-					trait = zombie
-				}
-			}
 		}
 		upgrades_from = no_hatchery_3
 		gold_cost = 130
@@ -463,12 +110,6 @@ nomad = {
 				TECH_CASTLE_CONSTRUCTION = 4
 			}
 			culture = draconic
-			owner = {
-				NOR = {
-					government = zombie_horde
-					trait = zombie
-				}
-			}
 		}
 		potential = {
 			OR = {
@@ -478,12 +119,6 @@ nomad = {
 		}
 		is_active_trigger = {
 			culture = draconic
-			owner = {
-				NOR = {
-					government = zombie_horde
-					trait = zombie
-				}
-			}
 		}
 		upgrades_from = no_hatchery_4
 		gold_cost = 160
@@ -501,12 +136,6 @@ nomad = {
 				TECH_CASTLE_CONSTRUCTION = 5
 			}
 			culture = draconic
-			owner = {
-				NOR = {
-					government = zombie_horde
-					trait = zombie
-				}
-			}
 		}
 		potential = {
 			OR = {
@@ -516,12 +145,6 @@ nomad = {
 		}
 		is_active_trigger = {
 			culture = draconic
-			owner = {
-				NOR = {
-					government = zombie_horde
-					trait = zombie
-				}
-			}
 		}
 		upgrades_from = no_hatchery_5
 		gold_cost = 190
@@ -539,12 +162,6 @@ nomad = {
 				TECH_CASTLE_CONSTRUCTION = 6
 			}
 			culture = draconic
-			owner = {
-				NOR = {
-					government = zombie_horde
-					trait = zombie
-				}
-			}
 		}
 		potential = {
 			OR = {
@@ -554,12 +171,6 @@ nomad = {
 		}
 		is_active_trigger = {
 			culture = draconic
-			owner = {
-				NOR = {
-					government = zombie_horde
-					trait = zombie
-				}
-			}
 		}
 		upgrades_from = no_hatchery_6
 		gold_cost = 220
@@ -577,12 +188,6 @@ nomad = {
 				TECH_CASTLE_CONSTRUCTION = 7
 			}
 			culture = draconic
-			owner = {
-				NOR = {
-					government = zombie_horde
-					trait = zombie
-				}
-			}
 		}
 		potential = {
 			OR = {
@@ -592,12 +197,6 @@ nomad = {
 		}
 		is_active_trigger = {
 			culture = draconic
-			owner = {
-				NOR = {
-					government = zombie_horde
-					trait = zombie
-				}
-			}
 		}
 		upgrades_from = no_hatchery_7
 		gold_cost = 250
@@ -609,435 +208,5 @@ nomad = {
 		max_population = 3000
 	}
 	
-	################### FLAME TOURNAMENT ###################
-	no_flame_tournament_1 = {
-		desc = no_flame_tournament_desc
-		trigger = { 
-			FROM = { 
-				TECH_CASTLE_CONSTRUCTION = 0
-				government = marauding_dragon_government
-			}
-			owner = {
-				NOR = {
-					government = zombie_horde
-					trait = zombie
-				}
-			}
-		}
-		potential = {
-			OR = {
-				FROM = { government = marauding_dragon_government }
-				FROMFROM = { has_building = no_flame_tournament_1 }
-			}
-		}
-		is_active_trigger = {
-			FROM = { trait = dragon }
-			owner = {
-				NOR = {
-					government = zombie_horde
-					trait = zombie
-				}
-			}
-		}
-		prerequisites = { no_hordeguard_1 }
-		gold_cost = 60
-		build_time = 365
-		ai_creation_factor = 97
-		extra_tech_building_start = 1
-		
-		dragon_cavalry_offensive = 0.04
-		land_morale = 0.02
-	}
-	no_flame_tournament_2 = {
-		desc = no_flame_tournament_desc
-		trigger = { 
-			FROM = { 
-				TECH_CASTLE_CONSTRUCTION = 1
-				government = marauding_dragon_government
-			}
-			owner = {
-				NOR = {
-					government = zombie_horde
-					trait = zombie
-				}
-			}
-		}
-		potential = {
-			OR = {
-				FROM = { government = marauding_dragon_government }
-				FROMFROM = { has_building = no_flame_tournament_2 }
-			}
-		}
-		is_active_trigger = {
-			FROM = { trait = dragon }
-			owner = {
-				NOR = {
-					government = zombie_horde
-					trait = zombie
-				}
-			}
-		}
-		prerequisites = { no_hordeguard_2 }
-		upgrades_from = no_flame_tournament_1
-		gold_cost = 90
-		build_time = 365
-		ai_creation_factor = 97
-		extra_tech_building_start = 2
-		
-		dragon_cavalry_offensive = 0.04
-		land_morale = 0.02
-	}
-	no_flame_tournament_3 = {
-		desc = no_flame_tournament_desc
-		trigger = { 
-			FROM = { 
-				TECH_CASTLE_CONSTRUCTION = 2
-				government = marauding_dragon_government
-			}
-			owner = {
-				NOR = {
-					government = zombie_horde
-					trait = zombie
-				}
-			}
-		}
-		potential = {
-			OR = {
-				FROM = { government = marauding_dragon_government }
-				FROMFROM = { has_building = no_flame_tournament_3 }
-			}
-		}
-		is_active_trigger = {
-			FROM = { trait = dragon }
-			owner = {
-				NOR = {
-					government = zombie_horde
-					trait = zombie
-				}
-			}
-		}
-		prerequisites = { no_hordeguard_3 }
-		upgrades_from = no_flame_tournament_2
-		gold_cost = 120
-		build_time = 365
-		ai_creation_factor = 97
-		extra_tech_building_start = 3
-		
-		dragon_cavalry_offensive = 0.04
-		land_morale = 0.03
-	}
-	no_flame_tournament_4 = {
-		desc = no_flame_tournament_desc
-		trigger = { 
-			FROM = { 
-				TECH_CASTLE_CONSTRUCTION = 3
-				government = marauding_dragon_government
-			}
-			owner = {
-				NOR = {
-					government = zombie_horde
-					trait = zombie
-				}
-			}
-		}
-		potential = {
-			OR = {
-				FROM = { government = marauding_dragon_government }
-				FROMFROM = { has_building = no_flame_tournament_4 }
-			}
-		}
-		is_active_trigger = {
-			FROM = { trait = dragon }
-			owner = {
-				NOR = {
-					government = zombie_horde
-					trait = zombie
-				}
-			}
-		}
-		prerequisites = { no_hordeguard_4 }
-		upgrades_from = no_flame_tournament_3
-		gold_cost = 150
-		build_time = 365
-		ai_creation_factor = 97
-		extra_tech_building_start = 4
-		
-		dragon_cavalry_offensive = 0.05
-		land_morale = 0.04
-	}
-	no_flame_tournament_5 = {
-		desc = no_flame_tournament_desc
-		trigger = { 
-			FROM = { 
-				TECH_CASTLE_CONSTRUCTION = 4
-				government = marauding_dragon_government
-			}
-			owner = {
-				NOR = {
-					government = zombie_horde
-					trait = zombie
-				}
-			}
-		}
-		potential = {
-			OR = {
-				FROM = { government = marauding_dragon_government }
-				FROMFROM = { has_building = no_flame_tournament_5 }
-			}
-		}
-		is_active_trigger = {
-			FROM = { trait = dragon }
-			owner = {
-				NOR = {
-					government = zombie_horde
-					trait = zombie
-				}
-			}
-		}
-		prerequisites = { no_hordeguard_5 }
-		upgrades_from = no_flame_tournament_4
-		gold_cost = 180
-		build_time = 365
-		ai_creation_factor = 97
-		extra_tech_building_start = 5
-		
-		dragon_cavalry_offensive = 0.05
-		land_morale = 0.04
-	}
-	no_flame_tournament_6 = {
-		desc = no_flame_tournament_desc
-		trigger = { 
-			FROM = { 
-				TECH_CASTLE_CONSTRUCTION = 5
-				government = marauding_dragon_government
-			}
-			owner = {
-				NOR = {
-					government = zombie_horde
-					trait = zombie
-				}
-			}
-		}
-		potential = {
-			OR = {
-				FROM = { government = marauding_dragon_government }
-				FROMFROM = { has_building = no_flame_tournament_6 }
-			}
-		}
-		is_active_trigger = {
-			FROM = { trait = dragon }
-			owner = {
-				NOR = {
-					government = zombie_horde
-					trait = zombie
-				}
-			}
-		}
-		prerequisites = { no_hordeguard_6 }
-		upgrades_from = no_flame_tournament_5
-		gold_cost = 210
-		build_time = 365
-		ai_creation_factor = 97
-		extra_tech_building_start = 6
-		
-		dragon_cavalry_offensive = 0.05
-		land_morale = 0.05
-	}
-	no_flame_tournament_7 = {
-		desc = no_flame_tournament_desc
-		trigger = { 
-			FROM = { 
-				TECH_CASTLE_CONSTRUCTION = 6
-				government = marauding_dragon_government
-			}
-			owner = {
-				NOR = {
-					government = zombie_horde
-					trait = zombie
-				}
-			}
-		}
-		potential = {
-			OR = {
-				FROM = { government = marauding_dragon_government }
-				FROMFROM = { has_building = no_flame_tournament_7 }
-			}
-		}
-		is_active_trigger = {
-			FROM = { trait = dragon }
-			owner = {
-				NOR = {
-					government = zombie_horde
-					trait = zombie
-				}
-			}
-		}
-		prerequisites = { no_hordeguard_7 }
-		upgrades_from = no_flame_tournament_6
-		gold_cost = 240
-		build_time = 365
-		ai_creation_factor = 97
-		extra_tech_building_start = 7
-		
-		dragon_cavalry_offensive = 0.06
-		land_morale = 0.05
-	}
-	no_flame_tournament_8 = {
-		desc = no_flame_tournament_desc
-		trigger = { 
-			FROM = { 
-				TECH_CASTLE_CONSTRUCTION = 7
-				government = marauding_dragon_government
-			}
-			owner = {
-				NOR = {
-					government = zombie_horde
-					trait = zombie
-				}
-			}
-		}
-		potential = {
-			OR = {
-				FROM = { government = marauding_dragon_government }
-				FROMFROM = { has_building = no_flame_tournament_8 }
-			}
-		}
-		is_active_trigger = {
-			FROM = { trait = dragon }
-			owner = {
-				NOR = {
-					government = zombie_horde
-					trait = zombie
-				}
-			}
-		}
-		prerequisites = { no_hordeguard_8 }
-		upgrades_from = no_flame_tournament_7
-		gold_cost = 270
-		build_time = 365
-		ai_creation_factor = 97
-		extra_tech_building_start = 8
-		
-		dragon_cavalry_offensive = 0.06
-		land_morale = 0.1
-	}
-	
-	no_wandering_dead_1 = {
-		desc = no_wandering_dead_desc
-		potential = {
-			owner = {
-				government = zombie_horde
-			}
-		}
-		trigger = {
-			owner = {
-				government = zombie_horde
-			}
-		}
-		is_active_trigger = {
-			owner = { government = zombie_horde }
-		}
-		gold_cost = 20
-		build_time = 100
-		ai_creation_factor = 110
-		extra_tech_building_start = 1
-		
-		garrison_size = 2
-	}
-	no_wandering_dead_2 = {
-		desc = no_wandering_dead_desc
-		potential = {
-			owner = {
-				government = zombie_horde
-			}
-		}
-		trigger = {
-			FROM = { TECH_CASTLE_CONSTRUCTION = 2 }
-			owner = {
-				government = zombie_horde
-			}
-		}
-		is_active_trigger = {
-			owner = { government = zombie_horde }
-		}
-		upgrades_from = no_wandering_dead_1
-		gold_cost = 50
-		build_time = 300
-		ai_creation_factor = 100
-		extra_tech_building_start = 1
-		
-		garrison_size = 2
-	}
-	no_wandering_dead_3 = {
-		desc = no_wandering_dead_desc
-		potential = {
-			owner = {
-				government = zombie_horde
-			}
-		}
-		trigger = {
-			FROM = { TECH_CASTLE_CONSTRUCTION = 4 }
-			owner = {
-				government = zombie_horde
-			}
-		}
-		is_active_trigger = {
-			owner = { government = zombie_horde }
-		}
-		upgrades_from = no_wandering_dead_2
-		gold_cost = 700
-		build_time = 400
-		ai_creation_factor = 99
-		extra_tech_building_start = 1
-		
-		garrison_size = 2
-	}
-	no_wandering_dead_4 = {
-		desc = no_wandering_dead_desc
-		potential = {
-			owner = {
-				government = zombie_horde
-			}
-		}
-		trigger = {
-			FROM = { TECH_CASTLE_CONSTRUCTION = 6 }
-			owner = {
-				government = zombie_horde
-			}
-		}
-		is_active_trigger = {
-			owner = { government = zombie_horde }
-		}
-		upgrades_from = no_wandering_dead_3
-		gold_cost = 800
-		build_time = 500
-		ai_creation_factor = 97
-		extra_tech_building_start = 1
-		
-		garrison_size = 2.5
-	}
-	no_wandering_dead_5 = {
-		desc = no_wandering_dead_desc
-		potential = {
-			owner = {
-				government = zombie_horde
-			}
-		}
-		trigger = {
-			FROM = { TECH_CASTLE_CONSTRUCTION = 8 }
-			owner = {
-				government = zombie_horde
-			}
-		}
-		is_active_trigger = {
-			owner = { government = zombie_horde }
-		}
-		upgrades_from = no_wandering_dead_4
-		gold_cost = 900
-		build_time = 600
-		ai_creation_factor = 95
-		extra_tech_building_start = 1
-		
-		garrison_size = 3
-	}
+
 }

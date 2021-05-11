@@ -245,44 +245,6 @@ blood_of_the_gods = {
 	ai_ambition = 15
 }
 
-zombie = {
-	is_epidemic = yes
-	is_illness = yes
-	cached = yes
-
-	immortal = yes
-	
-	opposites = { necromancer }
-
-	same_opinion = 1000
-	general_opinion = -200
-	opposite_opinion = 100
-	
-	health = 3
-	fertility = -50
-	diplomacy = -10
-	intrigue = -10
-	learning = -10
-	stewardship = -10
-	attrition = -0.8
-	days_of_supply = 15
-	
-	levy_reinforce_rate = -0.75
-	
-	command_modifier = {
-		speed = -0.2
-	}
-	
-	ai_rationality = -50
-	ai_honor = -100
-	ai_ambition = 50
-	ai_bravery = -20
-	ai_zeal = 100
-	
-	customizer = no
-
-}
-
 mummy = {
 
 	immortal = yes
@@ -553,7 +515,6 @@ monster_hunter = {
 	opposites = { 
 		vampire
 		werewolf
-		zombie
 		mummy
 		djinn
 	}
@@ -896,10 +857,6 @@ herbalist = {
 necromancer = {
 	lifestyle = yes
 	
-	opposites = {
-		zombie
-	}
-	
 	potential = {
 		OR = {
 			trait = novice_mage
@@ -913,7 +870,6 @@ necromancer = {
 		OR = {
 			character = FROM
 			trait = necromancer
-			trait = zombie
 			has_opinion_modifier = { who = FROM modifier = aware_of_secret_actions }
 		}
 	}
@@ -1030,24 +986,6 @@ ethereal_trait = {
 	
 	potential = {
 		race = ethereal_culture
-	}
-}
-
-zombie_infection = {
-	diplomacy_penalty = -2
-	martial_penalty = -2
-	stewardship_penalty = -2
-	intrigue_penalty = -2
-	learning_penalty = -4
-	health_penalty = -4
-	combat_Rating = -15
-	
-	sex_appeal_opinion = -20
-	fertility = -20
-	customizer = no
-	
-	potential = {
-		has_dlc = "Reapers"
 	}
 }
 

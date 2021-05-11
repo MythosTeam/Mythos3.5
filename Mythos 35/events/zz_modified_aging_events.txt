@@ -4316,7 +4316,7 @@ character_event = {
 							trait = celibate
 							trait = chaste
 							trait = homosexual
-							trait = zombie
+							
 						}
 						is_female = yes
 						is_pregnant = no

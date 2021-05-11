@@ -447,33 +447,6 @@ e_asgard = {
 	#	Nerthus Njorun Nótt Rán Rindr Sága Sandraudiga Sif Sigyn Sinthgunt Sjöfn Snotra Sól Syn Tanfana Þrúðr Vár Vör Zisa
 	#}
 }
-e_zombie = {
-	color={ 0 0 0 }
-	color2={ 0 0 0 }
-	
-	capital = 925 # Mali
-	
-	creation_requires_capital = no
-	
-	short_name = yes
-	
-	christian = 1000
-	muslim = 1000
-	
-	title = ZOMBIE
-	foa = ZOMBIE
-	
-	culture = undead_revenant
-	religion = the_damned
-	
-	allow = {
-		trait = zombie
-		culture_group = undead_culture_group
-	}
-	location_ruler_title = yes
-	
-	modifier = e_zombie_modifier
-}
 k_avalon = {
 	color={ 155 25 100 }
 	color2={ 255 255 255 }

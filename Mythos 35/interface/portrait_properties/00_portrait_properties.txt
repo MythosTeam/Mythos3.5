@@ -3604,10 +3604,6 @@
 				has_character_modifier = forced_mask
 			}
 		}
-		modifier = {
-			factor = 1000
-			trait = zombie
-		}
 	}
 
 	1 = { # mask 1 bone
@@ -3615,7 +3611,6 @@
 		modifier = {
 			factor = 0
 			OR = {
-				trait = zombie
 				NOR = { 
 					trait = disfigured 
 					has_character_modifier = attending_masquerade
@@ -3643,7 +3638,6 @@
 		modifier = {
 			factor = 0
 			OR = {
-				trait = zombie
 				NOR = { 
 					trait = disfigured 
 					has_character_modifier = attending_masquerade
@@ -3682,7 +3676,6 @@
 		modifier = {
 			factor = 0
 			OR = {
-				trait = zombie
 				NOR = { 
 					trait = disfigured 
 					has_character_modifier = attending_masquerade
@@ -3710,7 +3703,6 @@
 		modifier = {
 			factor = 0
 			OR = {
-				trait = zombie
 				NOR = { 
 					trait = disfigured 
 					has_character_modifier = attending_masquerade
@@ -3734,7 +3726,6 @@
 		modifier = {
 			factor = 0
 			OR = {
-				trait = zombie
 				NOR = { 
 					trait = disfigured 
 					has_character_modifier = attending_masquerade
@@ -3758,7 +3749,6 @@
 		modifier = {
 			factor = 0
 			OR = {
-				trait = zombie
 				NOR = { 
 					trait = disfigured 
 					has_character_modifier = attending_masquerade
@@ -3797,7 +3787,6 @@
 		modifier = {
 			factor = 0
 			OR = {
-				trait = zombie
 				NOR = { 
 					trait = disfigured 
 					has_character_modifier = attending_masquerade
@@ -3836,7 +3825,7 @@
 		modifier = {
 			factor = 0
 			OR = {
-				trait = zombie
+				
 				NOR = { 
 					trait = disfigured 
 					has_character_modifier = attending_masquerade
@@ -3860,7 +3849,7 @@
 		modifier = {
 			factor = 0
 			OR = {
-				trait = zombie
+				
 				NOR = { 
 					trait = disfigured 
 					has_character_modifier = attending_masquerade
@@ -3884,7 +3873,7 @@
 		modifier = {
 			factor = 0
 			OR = {
-				trait = zombie
+				
 				NOR = { 
 					trait = disfigured 
 					has_character_modifier = attending_masquerade
@@ -3923,7 +3912,7 @@
 		modifier = {
 			factor = 0
 			OR = {
-				trait = zombie
+				
 				NOR = { 
 					trait = disfigured 
 					has_character_modifier = attending_masquerade
@@ -3975,7 +3964,7 @@
 		modifier = {
 			factor = 0
 			OR = {
-				trait = zombie
+				
 				NOR = { 
 					trait = disfigured 
 					has_character_modifier = attending_masquerade
@@ -4005,7 +3994,7 @@
 		modifier = {
 			factor = 0
 			OR = {
-				trait = zombie
+				
 				NOR = { 
 					trait = disfigured 
 					has_character_modifier = attending_masquerade

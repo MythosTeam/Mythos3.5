@@ -937,7 +937,6 @@ character_event = {
 						attributes = {
 							martial = 6
 						}
-						trait = zombie
 						immortal_age = 23
 						flag = die_on_war_end
 					}
@@ -970,7 +969,6 @@ character_event = {
 						attributes = {
 							martial = 5
 						}
-						trait = zombie
 						immortal_age = 23
 						flag = die_on_war_end
 					}
@@ -1864,7 +1862,6 @@ character_event = {
 			trait = monster_hunter
 			trait = vampire
 			trait = werewolf
-			trait = zombie
 		}
 	}
 	
@@ -1894,7 +1891,6 @@ character_event = {
 				trait = monster_hunter
 				trait = vampire
 				trait = werewolf
-				trait = zombie
 			}
 		}
 	}

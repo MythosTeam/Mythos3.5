@@ -1571,7 +1571,6 @@ character_event = {
 						culture_group = undead_culture_group
 						religion = the_damned
 					}
-					trait = zombie
 				}
 			}
 			random_list = {
@@ -2257,7 +2256,6 @@ narrative_event = {
 		NOR = {
 			trait = god
 			trait = vampire
-			trait = zombie
 			trait = demon_trait
 			trait = ethereal_trait
 			trait = philosopher_stone_trait
@@ -13403,21 +13401,6 @@ character_event = {
 				add_trait = ethereal_trait
 				set_graphical_culture = ethereal_culture
 			}
-			else_if = {
-				limit = {
-					ROOT = { 
-						OR = {
-							graphical_culture = undeadgfx
-							culture_group = undead_culture_group
-						}
-					}
-				}
-				add_trait = zombie
-				set_graphical_culture = undead_revenant
-				set_undead_culture = yes
-				religion = the_damned
-				any_claim = { remove_claim = PREV }
-			}
 			
 			if = {
 				limit = {
@@ -13773,7 +13756,6 @@ province_event = {
 		}
 		NOT = {
 			has_disease = yes
-			holder_scope = { trait = zombie }
 		}
 	}
 	
@@ -16495,7 +16477,6 @@ character_event = { # immortal suspicions
 			trait = djinn
 			trait = known_vampire
 			trait = god
-			trait = zombie
 			trait = mummy
 			trait = demon_trait
 			trait = ethereal_trait
@@ -16571,7 +16552,6 @@ character_event = {
 				trait = incapable
 				has_non_aggression_pact_with = ROOT
 				war_with = ROOT
-				trait = zombie
 			}
 			primary_title = {
 				is_landless_type_title = no
@@ -16591,7 +16571,6 @@ character_event = {
 				}
 			}
 		}
-		NOT = { trait = zombie }
 	}
 
 	immediate = {

@@ -19202,48 +19202,6 @@ set_new_character_race = {
 	}
 	if = {
 		limit = {
-			ROOT = { trait = zombie }
-			NOR = {
-				trait = dragon
-				trait = demon_trait
-				trait = ethereal_trait
-				trait = cat
-				trait = mythos_giant
-				trait = half_giant
-				trait = werewolf
-				trait = vampire
-			}
-		}
-		random = {
-			chance = 70
-			add_trait = zombie
-			set_graphical_culture = undead_revenant
-			set_undead_culture = yes
-			religion = the_damned
-		}
-	}
-	if = {
-		limit = {
-			ROOT = { trait = zombie }
-			NOR = {
-				trait = dragon
-				trait = demon_trait
-				trait = ethereal_trait
-				#trait = cat
-				trait = mythos_giant
-				trait = half_giant
-				trait = werewolf
-				trait = vampire
-				trait = zombie
-			}
-		}
-		random = {
-			chance = 40
-			add_trait = mummy
-		}
-	}
-	if = {
-		limit = {
 			ROOT = { trait = djinn }
 			NOR = {
 				trait = dragon

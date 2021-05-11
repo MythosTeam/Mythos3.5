@@ -2751,7 +2751,7 @@ character_event = {
 			limit = {
 				NOR = {
 					trait = necromancer
-					trait = zombie
+					
 					religion = the_damned
 					culture_group = undead_culture_group
 				}
@@ -2766,7 +2766,7 @@ character_event = {
 			limit = {
 				NOR = {
 					trait = necromancer
-					trait = zombie
+					
 					religion = the_damned
 					culture_group = undead_culture_group
 				}
@@ -2785,7 +2785,7 @@ character_event = {
 				limit = {
 					NOR = {
 						trait = necromancer
-						trait = zombie
+						
 						religion = the_damned
 						culture_group = undead_culture_group
 					}
@@ -2802,7 +2802,7 @@ character_event = {
 				}
 				NOR = {
 					trait = necromancer
-					trait = zombie
+					
 					religion = the_damned
 					culture_group = undead_culture_group
 				}
@@ -2829,7 +2829,7 @@ character_event = {
 			limit = {
 				NOR = {
 					trait = necromancer
-					trait = zombie
+					
 					religion = the_damned
 					culture_group = undead_culture_group
 				}
@@ -2847,7 +2847,7 @@ character_event = {
 			limit = {
 				NOR = {
 					trait = necromancer
-					trait = zombie
+					
 					religion = the_damned
 					culture_group = undead_culture_group
 				}
@@ -3563,10 +3563,6 @@ character_event = {
 			killer = { change_variable = { which = werewolf_kills value = 1 } }
 		}
 		if = {
-			limit = { trait = zombie }
-			killer = { change_variable = { which = zombie_kills value = 1 } }
-		}
-		if = {
 			limit = { trait = mythos_giant }
 			killer = { change_variable = { which = giant_kills value = 1 } }
 		}
@@ -3621,13 +3617,12 @@ character_event = {
 						}
 					}
 					OR = {
-						trait = zombie
 						religion = the_damned
 						culture_group = undead_culture_group
 						check_variable = { which = zombie_kills which = global_bloodline_monster_hunter_kills_needed }
 						any_character = {
 							is_within_diplo_range = PREV
-							trait = zombie
+							
 							count < global_bloodline_monster_hunter_kills_needed
 						}
 					}

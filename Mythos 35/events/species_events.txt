@@ -57,20 +57,6 @@ character_event = {
 			father_even_if_dead = { save_event_target_as = true_father }
 		}
 		
-		# Zombies, regardless of number of parents
-		if = {
-			limit = { graphical_culture = undeadgfx }
-			add_trait = zombie
-			set_undead_culture = yes
-			if = {
-				limit = { ai = no } # Not playable
-				abdicate = yes
-			}
-			religion = the_damned
-			any_claim = { remove_claim = PREV }
-			character_event = { id = ZOMBIE.39 }
-		}
-		
 		# Handle characters with 2 parents
 		if = {
 			limit = {
@@ -82,13 +68,11 @@ character_event = {
 				limit = {
 					OR = {
 						event_target:true_father = {
-							trait = zombie
 							trait = mummy
 							trait = ethereal_trait
 							trait = demon_trait
 						}
 						mother_even_if_dead = {
-							trait = zombie
 							trait = mummy
 							trait = ethereal_trait
 							trait = demon_trait
@@ -1479,30 +1463,11 @@ character_event = {
 				limit = { graphical_culture = etherealgfx }
 				add_trait = ethereal_trait
 			}
-			else_if = {
-				limit = {
-					OR = {
-						graphical_culture = undeadgfx
-						culture_group = undead_culture_group
-					}
-				}
-				add_trait = zombie
-				set_graphical_culture = undead_revenant
-				set_undead_culture = yes
-				if = {
-					limit = { ai = no } # Not playable
-					abdicate = yes
-				}
-				religion = the_damned
-				any_claim = { remove_claim = PREV }
-				character_event = { id = ZOMBIE.39 }
-			}
 			else = {
 				remove_trait = dragon
 				remove_trait = demon_trait
 				remove_trait = ethereal_trait
 				remove_trait = dragonborn
-				remove_trait = zombie
 			}
 			if = {
 				limit = {
@@ -1690,7 +1655,6 @@ character_event = {
 			#trait = infertile
 			trait = god
 			trait = immortal
-			trait = zombie # Undead should always be infertile
 			trait = mummy
 			trait = known_vampire
 			any_owned_bloodline = {
@@ -2314,8 +2278,6 @@ character_event = {
 	is_triggered_only = yes
 	
 	immediate = {
-		# Zombies gain troops
-		character_event = { id = ZOMBIE.11 }
 		# New Hunger system
 		character_event = { id = VAMPIRE.202 }
 		# Bank bloodline gains interest

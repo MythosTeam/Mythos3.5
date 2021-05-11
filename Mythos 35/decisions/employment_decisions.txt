@@ -5,7 +5,7 @@ decisions = {
 		only_playable = yes
 		
 		potential = {
-			NOT = { government = zombie_horde }
+			
 		}
 		allow = {
 			prestige = 25
@@ -54,7 +54,7 @@ decisions = {
 		
 		potential = {
 			NOT = { has_religion_feature = religion_matriarchal }
-			NOT = { government = zombie_horde }
+			
 		}
 		allow = {
 			piety = 25
@@ -173,7 +173,7 @@ decisions = {
 		only_playable = yes
 
 		potential = {
-			NOT = { government = zombie_horde }
+			
 			has_religion_feature = religion_matriarchal
 		}
 		allow = {
@@ -290,7 +290,7 @@ decisions = {
 		only_playable = yes
 		
 		potential = {
-			NOT = { government = zombie_horde }
+			
 			NOT = { has_religion_feature = religion_matriarchal }
 		}
 		allow = {
@@ -415,7 +415,7 @@ decisions = {
 		only_playable = yes
 
 		potential = {
-			NOT = { government = zombie_horde }
+			
 			has_religion_feature = religion_matriarchal
 		}
 		allow = {
@@ -543,7 +543,7 @@ decisions = {
 		
 		potential = {
 			NOT = { has_religion_feature = religion_matriarchal }
-			NOT = { government = zombie_horde }
+			
 		}
 		allow = {
 			scaled_wealth = 0.20

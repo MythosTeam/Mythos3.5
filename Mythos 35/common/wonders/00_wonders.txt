@@ -158,7 +158,7 @@ wonder_cathedral = {
 		#
 		upgrade_torture_chamber
 		upgrade_historical_mural
-		upgrade_inquisition_chambers
+		
 
 		# OTHER:
 	 	upgrade_roads
@@ -288,7 +288,7 @@ wonder_mosque = {
 		upgrade_hostel
 		upgrade_custodian_of_the_mosque
 		
-		upgrade_inquisition_chambers
+		
 
 		# OTHER:
 		upgrade_roads
@@ -414,7 +414,7 @@ wonder_synagogue = {
 		upgrade_choir_rooms
 		upgrade_school_synagogue
 		
-		upgrade_inquisition_chambers
+		
 
 		# OTHER:
 		upgrade_roads
@@ -547,7 +547,7 @@ wonder_temple_pagan = {
 		upgrade_inner_sanctuary
 		upgrade_custodian_of_temple
 		
-		upgrade_inquisition_chambers
+		
 
 		# OTHER:
 	 	upgrade_roads
@@ -1475,7 +1475,7 @@ wonder_wall = {
 					has_alternate_start_parameter = { key = religion value = full_random }
 				}
 			}
-			FFROMFROMFROM = {
+			FROMFROMFROM = {
 				NOR = {
 					county = { is_holy_site = draconic_pagan }
 					any_province_holding = { is_holy_site = draconic_pagan }

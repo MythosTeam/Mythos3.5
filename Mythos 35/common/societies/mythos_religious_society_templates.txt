@@ -26,7 +26,6 @@ secret_norse_religious_society_template = {
 					rank = 1
 				}
 			}
-			NOT = { trait = zombie }
 		}
 		age = 16
 		any_society_member = { society_member_of = FROM }
@@ -45,13 +44,13 @@ secret_norse_religious_society_template = {
 			num_of_society_members > 0
 		}
 		secret_religion = FROM
-		NOT = { trait = zombie }
+		
 	}
 	
 	potential = {
 		age = 16
 		secret_religion = FROM
-		NOT = { trait = zombie }
+		
 	}
 	
 	society_rank = {
@@ -257,7 +256,7 @@ secret_draconic_religious_society_template = {
 					rank = 1
 				}
 			}
-			NOT = { trait = zombie }
+			
 		}
 		age = 16
 		any_society_member = { society_member_of = FROM }
@@ -276,13 +275,13 @@ secret_draconic_religious_society_template = {
 			num_of_society_members > 0
 		}
 		secret_religion = FROM
-		NOT = { trait = zombie }
+		
 	}
 	
 	potential = {
 		age = 16
 		secret_religion = FROM
-		NOT = { trait = zombie }
+		
 	}
 	
 	society_rank = {
@@ -508,7 +507,7 @@ secret_aztec_religious_society_template = {
 					rank = 1
 				}
 			}
-			NOT = { trait = zombie }
+			
 		}
 		age = 16
 		any_society_member = { society_member_of = FROM }
@@ -527,13 +526,13 @@ secret_aztec_religious_society_template = {
 			num_of_society_members > 0
 		}
 		secret_religion = FROM
-		NOT = { trait = zombie }
+		
 	}
 	
 	potential = {
 		age = 16
 		secret_religion = FROM
-		NOT = { trait = zombie }
+		
 	}
 	
 	society_rank = {
@@ -739,7 +738,7 @@ secret_zoroastrian_religious_society_template = {
 					rank = 1
 				}
 			}
-			NOT = { trait = zombie }
+			
 		}
 		age = 16
 		any_society_member = { society_member_of = FROM }
@@ -758,13 +757,13 @@ secret_zoroastrian_religious_society_template = {
 			num_of_society_members > 0
 		}
 		secret_religion = FROM
-		NOT = { trait = zombie }
+		
 	}
 	
 	potential = {
 		age = 16
 		secret_religion = FROM
-		NOT = { trait = zombie }
+		
 	}
 	
 	society_rank = {
@@ -986,7 +985,7 @@ secret_tengri_religious_society_template = {
 					rank = 1
 				}
 			}
-			NOT = { trait = zombie }
+			
 		}
 		age = 16
 		any_society_member = { society_member_of = FROM }
@@ -1005,13 +1004,13 @@ secret_tengri_religious_society_template = {
 			num_of_society_members > 0
 		}
 		secret_religion = FROM
-		NOT = { trait = zombie }
+		
 	}
 	
 	potential = {
 		age = 16
 		secret_religion = FROM
-		NOT = { trait = zombie }
+		
 	}
 	
 	society_rank = {

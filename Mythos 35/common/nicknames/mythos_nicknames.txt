@@ -174,10 +174,7 @@ nick_wolf_blooded = {
 nick_wolf_bane = {} # By event - killed a werewolf
 nick_the_undead = {
 	allow = {
-		OR = {
-			trait = zombie
-			trait = known_vampire
-		}
+		trait = known_vampire
 	}
 	chance = {
 		factor = 1
@@ -298,7 +295,7 @@ nick_the_purple_born = {
 		factor = 1
 	}
 }
-nick_the_posthumous = {} # From event, gained first title with zombie or vampire
+nick_the_posthumous = {} # From event, gained first title with vampire
 nick_the_grim = {
 	allow = {
 		trait = depressed

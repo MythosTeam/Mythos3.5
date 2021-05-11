@@ -594,16 +594,6 @@ upgrade_historical_mural = {
 		}
 	}
 	active = {
-		trigger_if = {
-			limit = {
-				OR = {
-					religion = draconic_pagan
-					religion = draconic_pagan_reformed
-				}
-				FROM = { has_wonder_upgrade = upgrade_dead_flame }
-			}
-			FROM = { NOT = { has_wonder_upgrade = upgrade_dead_flame } }
-		}
 	}
 
 	flags = {
@@ -3330,9 +3320,6 @@ upgrade_soaring_fortresses = { # Soaring Fortresses
 	gold_cost_flat = 500
 	gold_cost_ticking = 1
 
-	owner_modifier = {
-	}
-	
 	local_modifier = {
 		heavy_infantry = 100
 		siege_defence = 0.05
@@ -3834,11 +3821,7 @@ upgrade_runestones = {
 			}
 			OR = {
 				religion_openly_norse_or_reformed_trigger = yes
-				AND = {
-					religion_openly_draconic_or_reformed_trigger = yes
-					FROM = { has_wonder = wonder_eternal_flame }
-					FROM = { NOT = { has_wonder_upgrade = upgrade_dead_flame } }
-				}
+				religion_openly_draconic_or_reformed_trigger = yes
 			}
 		}
 	}

@@ -7,7 +7,6 @@ action_fabricate_claims = {
 			is_nomadic = no 
 			NOR = { 
 				government = draconic_tribal_government
-				government = zombie_horde
 			}
 		}
 	}
