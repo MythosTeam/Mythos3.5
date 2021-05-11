@@ -1,52 +1,52 @@
-vampire;Vampire;;;;;;;;;;;;;x
-vampire_desc;This character is an unholy vampire, immortal and free from disease, but hated by all but their own kin.;;;;;;;;;;;;;x
-werewolf;Werewolf;;;;;;;;;;;;;x
-werewolf_desc;This character bears the blood of the wolf, undying and powerful, but cursed with a savage, bestial form that emerges when the moon is full.;;;;;;;;;;;;;x
-zombie;[From.GetRevenantTermCap];;;;;;;;;;;;;x
-zombie_desc;This abomination is risen from the dead, and has no goals but to devour the flesh of men.;;;;;;;;;;;;;x
-mummy;Mummy;;;;;;;;;;;;;x
-mummy_desc;Entombed and preserved long ago by the Egyptians, some force has brought this corpse back to life.;;;;;;;;;;;;;x
-djinn;Djinn;;;;;;;;;;;;;x
-djinn_desc;Said to be made from fire as men were made from clay, these beings have many powers, though they usually do not meddle in human affairs.;;;;;;;;;;;;;x
-god;God;;;;;;;;;;;;;x
-god_desc;This character is imbued with divine power. Immortal and powerful beyond most human imagination, these beings are literal gods among men.;;;;;;;;;;;;;x
-blood_of_the_gods;Blood of the Gods;;;;;;;;;;;;;x
-blood_of_the_gods_desc;This character was not directly born of a god, but some of that powerful blood still remains.;;;;;;;;;;;;;x
-demi_god;Demi-god;;;;;;;;;;;;;x
-demi_god_desc;While not a true god, this character possesses a substantial amount of divine blood. Demi-gods may not live forever, but they are a cut above other men in almost every way.;;;;;;;;;;;;;x
-pup;Wolf-blooded;;;;;;;;;;;;;x
-pup_desc;This child has shown signs of sharing the blood of the wolf.;;;;;;;;;;;;;x
-fledgling;Fledgling;;;;;;;;;;;;;x
-fledgling_desc;This child is the spawn of a vampire. It is not yet above diseases and even death, but will mature in time.;;;;;;;;;;;;;x
-half_giant;Half-Giant;;;;;;;;;;;;;x
-half_giant_desc;This character is the child of a giant and a non-giant. An imposing sight, though perhaps not as tactful as most, half-giants are formidable opponents in combat.;;;;;;;;;;;;;x
-heldragon;Hel Dragon;;;;;;;;;;;;;x
-heldragon_desc;Unlike most dragons, this unique bloodline cares little for the "lesser races". They are the archetypical dragon tyrants, and seek to make the world bow. They are notorious for having a strong grasp on dark magics.;;;;;;;;;;;;;x
-longdragon;Long Dragon;;;;;;;;;;;;;x
-longdragon_desc;Unlike most dragons, this unique bloodline, found in the east, cares less for wealth and more for the most valueble of commodities - knowledge.;;;;;;;;;;;;;x
-dragon;Dragon;;;;;;;;;;;;;x
-dragon_desc;This character is a mighty dragon, powerful and very long lived. Dragons are wise, persuasive, and have a particular fondness for hoarding wealth. ;;;;;;;;;;;;;x
-dragonborn;Dragonborn;;;;;;;;;;;;;x
-dragonborn_desc;This character, though human, bears the blood of dragons and a small portion of their strength and wisdom.;;;;;;;;;;;;;x
-son_of_solomon;Son of Solomon;;;;;;;;;;;;;x
-son_of_solomon_desc;This character is the leader of the resurrected Legion of Solomon.;;;;;;;;;;;;;x
-monster_hunter;Monster Hunter;;;;;;;;;;;;;x
-monster_hunter_desc;This character has dedicated his life to the eradication of all monstrous creatures.;;;;;;;;;;;;;x
-novice_mage;Novice Mage;;;;;;;;;;;;;x
-novice_mage_desc;The Novice Mage has dabbled in the arcane, but never learned much.;;;;;;;;;;;;;x
-eldritch_scholar;Eldritch Scholar;;;;;;;;;;;;;x
-eldritch_scholar_desc;The Eldritch Scholar is well-versed in the wizarding arts, and can perform a range of spells.;;;;;;;;;;;;;x
-eldritch_scholar_death;of magical decay.;;;;;;;;;;;;;x
-veteran_wizard;Veteran Wizard;;;;;;;;;;;;;x
-veteran_wizard_desc;Few powers elude the Veteran Wizard, but their exercise takes a toll on the body.;;;;;;;;;;;;;x
-veteran_wizard_death;of magical decay.;;;;;;;;;;;;;x
-arcane_master;Arcane Master;;;;;;;;;;;;;x
-arcane_master_desc;The Arcane Master is a wizard of unparalleled power. This character can perform miraculous feats, though at great cost.;;;;;;;;;;;;;x
-arcane_master_death;of magical decay.;;;;;;;;;;;;;x
-magic_heritage;Magic Hertiage;;;;;;;;;;;;;
-magic_heritage_desc;This character's bloodline has a history of magical ability.  They may learn magic even if it would be otherwise unavailable, and they may pass this on to their children.;;;;;;;;;;;;;
-mythos_giant;Giant;;;;;;;;;;;;;x
-mythos_giant_desc;Twice over the height of men and tougher as well, the northern Giants are a fearsome sight in combat, though they lack the wisdom of common men.;;;;;;;;;;;;;x
+vampire;Vampire;;;;;;;;;;;;;xx
+vampire_desc;This character is an unholy vampire, immortal and free from disease, but hated by all but their own kin.;;;;;;;;;;;;;xx
+werewolf;Werewolf;;;;;;;;;;;;;xx
+werewolf_desc;This character bears the blood of the wolf, undying and powerful, but cursed with a savage, bestial form that emerges when the moon is full.;;;;;;;;;;;;;xx
+zombie;[From.GetRevenantTermCap];;;;;;;;;;;;;xx
+zombie_desc;This abomination is risen from the dead, and has no goals but to devour the flesh of men.;;;;;;;;;;;;;xx
+mummy;Mummy;;;;;;;;;;;;;xx
+mummy_desc;Entombed and preserved long ago by the Egyptians, some force has brought this corpse back to life.;;;;;;;;;;;;;xx
+djinn;Djinn;;;;;;;;;;;;;xx
+djinn_desc;Said to be made from fire as men were made from clay, these beings have many powers, though they usually do not meddle in human affairs.;;;;;;;;;;;;;xx
+god;God;;;;;;;;;;;;;xx
+god_desc;This character is imbued with divine power. Immortal and powerful beyond most human imagination, these beings are literal gods among men.;;;;;;;;;;;;;xx
+blood_of_the_gods;Blood of the Gods;;;;;;;;;;;;;xx
+blood_of_the_gods_desc;This character was not directly born of a god, but some of that powerful blood still remains.;;;;;;;;;;;;;xx
+demi_god;Demi-god;;;;;;;;;;;;;xx
+demi_god_desc;While not a true god, this character possesses a substantial amount of divine blood. Demi-gods may not live forever, but they are a cut above other men in almost every way.;;;;;;;;;;;;;xx
+pup;Wolf-blooded;;;;;;;;;;;;;xx
+pup_desc;This child has shown signs of sharing the blood of the wolf.;;;;;;;;;;;;;xx
+fledgling;Fledgling;;;;;;;;;;;;;xx
+fledgling_desc;This child is the spawn of a vampire. It is not yet above diseases and even death, but will mature in time.;;;;;;;;;;;;;xx
+half_giant;Half-Giant;;;;;;;;;;;;;xx
+half_giant_desc;This character is the child of a giant and a non-giant. An imposing sight, though perhaps not as tactful as most, half-giants are formidable opponents in combat.;;;;;;;;;;;;;xx
+heldragon;Hel Dragon;;;;;;;;;;;;;xx
+heldragon_desc;Unlike most dragons, this unique bloodline cares little for the "lesser races". They are the archetypical dragon tyrants, and seek to make the world bow. They are notorious for having a strong grasp on dark magics.;;;;;;;;;;;;;xx
+longdragon;Long Dragon;;;;;;;;;;;;;xx
+longdragon_desc;Unlike most dragons, this unique bloodline, found in the east, cares less for wealth and more for the most valueble of commodities - knowledge.;;;;;;;;;;;;;xx
+dragon;Dragon;;;;;;;;;;;;;xx
+dragon_desc;This character is a mighty dragon, powerful and very long lived. Dragons are wise, persuasive, and have a particular fondness for hoarding wealth. ;;;;;;;;;;;;;xx
+dragonborn;Dragonborn;;;;;;;;;;;;;xx
+dragonborn_desc;This character, though human, bears the blood of dragons and a small portion of their strength and wisdom.;;;;;;;;;;;;;xx
+son_of_solomon;Son of Solomon;;;;;;;;;;;;;xx
+son_of_solomon_desc;This character is the leader of the resurrected Legion of Solomon.;;;;;;;;;;;;;xx
+monster_hunter;Monster Hunter;;;;;;;;;;;;;xx
+monster_hunter_desc;This character has dedicated his life to the eradication of all monstrous creatures.;;;;;;;;;;;;;xx
+novice_mage;Novice Mage;;;;;;;;;;;;;xx
+novice_mage_desc;The Novice Mage has dabbled in the arcane, but never learned much.;;;;;;;;;;;;;xx
+eldritch_scholar;Eldritch Scholar;;;;;;;;;;;;;xx
+eldritch_scholar_desc;The Eldritch Scholar is well-versed in the wizarding arts, and can perform a range of spells.;;;;;;;;;;;;;xx
+eldritch_scholar_death;of magical decay.;;;;;;;;;;;;;xx
+veteran_wizard;Veteran Wizard;;;;;;;;;;;;;xx
+veteran_wizard_desc;Few powers elude the Veteran Wizard, but their exercise takes a toll on the body.;;;;;;;;;;;;;xx
+veteran_wizard_death;of magical decay.;;;;;;;;;;;;;xx
+arcane_master;Arcane Master;;;;;;;;;;;;;xx
+arcane_master_desc;The Arcane Master is a wizard of unparalleled power. This character can perform miraculous feats, though at great cost.;;;;;;;;;;;;;xx
+arcane_master_death;of magical decay.;;;;;;;;;;;;;xx
+magic_heritage;Magic Hertiage;;;;;;;;;;;;;x
+magic_heritage_desc;This character's bloodline has a history of magical ability.  They may learn magic even if it would be otherwise unavailable, and they may pass this on to their children.;;;;;;;;;;;;;x
+mythos_giant;Giant;;;;;;;;;;;;;xx
+mythos_giant_desc;Twice over the height of men and tougher as well, the northern Giants are a fearsome sight in combat, though they lack the wisdom of common men.;;;;;;;;;;;;;xx
 bad_priest_draconic;Unworthy Priest;Prêtre abject;Der unwürdige Priester;;Sacerdote indigno;;;;;;;;;x
 bad_priest_draconic_desc;The personality and wealth of this priest are very inappropriate for [GetHerHis] position. And what's worse, [GetSheHe] has been unable to hide them from public view.;La personnalité et la richesse de ce prêtre sont très inappropriées pour quelqu'un de sa fonction. Pire encore, [GetSheHe] est incapable de commettre ses actes impies discrètement.;Die Persönlichkeit und Reichtum des Priesters sind äußerst unpassend für Stand. Auch vermag [GetSheHe] es keineswegs, seine schlechten Eigenschaften vor der Allgemeinheit zu verbergen.;;La personalidad y riqueza de este sacerdote son muy inapropiados para esta posición. Y lo peor es que no es capaz de esconderlos en público.;;;;;;;;;x
 bad_priest_voodoo;Wicked Priest;Prêtre impie;Der gottlose Priester;;Sacerdote malvado;;;;;;;;;x
@@ -61,292 +61,292 @@ bad_priest_hellenic;Wicked Priest;Prêtre impie;Der gottlose Priester;;Sacerdote 
 bad_priest_hellenic_desc;The personality and habits of this priest are very inappropriate for [GetHerHis] position. And what's worse, [GetSheHe] has been unable to hide them from public view.;La personnalité et les mœurs de ce prêtre sont très inappropriées pour quelqu'un de sa fonction. Pire encore, [GetSheHe] est incapable de commettre ses actes impies discrètement.;Die Persönlichkeit und Gewohnheiten des Priesters sind äußerst unpassend für [GetHerHis] Stand. Auch vermag [GetSheHe] es keineswegs, seine schlechten Eigenschaften vor der Allgemeinheit zu verbergen.;;La personalidad y hábitos de este sacerdote son muy inapropiados para esta posición. Y lo peor es que no es capaz de esconderlos en público.;;;;;;;;;x
 bad_priest_satanist;Wicked Priest;Prêtre impie;Der gottlose Priester;;Sacerdote malvado;;;;;;;;;x
 bad_priest_satanist_desc;The personality and habits of this priest are very inappropriate for [GetHerHis] position. And what's worse, [GetSheHe] has been unable to hide them from public view.;La personnalité et les mœurs de ce prêtre sont très inappropriées pour quelqu'un de sa fonction. Pire encore, [GetSheHe] est incapable de commettre ses actes impies discrètement.;Die Persönlichkeit und Gewohnheiten des Priesters sind äußerst unpassend für [GetHerHis] Stand. Auch vermag [GetSheHe] es keineswegs, seine schlechten Eigenschaften vor der Allgemeinheit zu verbergen.;;La personalidad y hábitos de este sacerdote son muy inapropiados para esta posición. Y lo peor es que no es capaz de esconderlos en público.;;;;;;;;;x
-secret_werewolf;Secret Werewolf;;;;;;;;;;;;;
-secret_werewolf_desc;Your identity as a werewolf is still a secret from the public at large.;;;;;;;;;;;;;
-known_werewolf;Known Werewolf;;;;;;;;;;;;;
-known_werewolf_desc;This character has been exposed and everyone knows what kind of monster [Root.GetSheHe] is.;;;;;;;;;;;;;
-secret_vampire;Secret Vampire;;;;;;;;;;;;;
-secret_vampire_desc;Your identity as a vampire is still a secret from the public at large.;;;;;;;;;;;;;
-known_vampire;Known Vampire;;;;;;;;;;;;;
-known_vampire_desc;This character has been exposed and everyone knows what kind of monster [Root.GetSheHe] is.;;;;;;;;;;;;;
-infertile;Infertile;;;;;;;;;;;;;
-infertile_desc;This character is post-menopausal and can no longer bear children.;;;;;;;;;;;;;
-on_journey;On Journey;;;;;;;;;;;;;
-on_journey_desc;This character is on a long journey, leaving their realm in the hands of a reagent.;;;;;;;;;;;;;
-summoner;Summoner;;;;;;;;;;;;;
-summoner_desc;This character is an magician capable of summoning beings from other lands;;;;;;;;;;;;;
-alchemist;Alchemist;;;;;;;;;;;;;
-alchemist_desc;This character has mastered the art of transmuting metal to gold and understands the hermetic secrets.;;;;;;;;;;;;;
-enchanter;Enchanter;;;;;;;;;;;;;
-enchanter_desc;This character is learned in the magical ways of altering people's minds and perceptions;;;;;;;;;;;;;
-herbalist;Herbalist;;;;;;;;;;;;;
-herbalist_desc;This character is learned in the effects of local plant life.;;;;;;;;;;;;;
-necromancer;Necromancer;;;;;;;;;;;;;
-necromancer_desc;This character is learned is the art of the reanimation of the dead.;;;;;;;;;;;;;
-miracle_worker;Miracle Worker;;;;;;;;;;;;;
-miracle_worker_desc;This character is a known worker of miracles.;;;;;;;;;;;;;
-demon_trait;Demon;;;;;;;;;;;;;
-demon_trait_desc;An unclean spirit of a being who has fallen from grace.  They delight in temping of mortals into eternal damnation.;;;;;;;;;;;;;
-ethereal_trait;Ethereal;;;;;;;;;;;;;
-ethereal_trait_desc;A mysterious spirit with a transparent body of magic.;;;;;;;;;;;;;
-claw_of_fafnir;Claw of Fafnir;;;;;;;;;;;;;
-claw_of_fafnir_desc;This character is a champion of dragon-kind, fighting in the draconic holy wars.;;;;;;;;;;;;;
-hell_knight;Hell Knight;;;;;;;;;;;;;
-hell_knight_desc;Fighting as a satanic legion on earth, this character has fought as a champion of Lucifer.;;;;;;;;;;;;;
-spear_of_lugh;Spear of Lugh;;;;;;;;;;;;;
-spear_of_lugh_desc;Fighting for the Celtic faith, this character acts as the long arm of Lugh.;;;;;;;;;;;;;
-surtrs_fire;Surtr's Fire;;;;;;;;;;;;;
-surtrs_fire_desc;Fighting as part of Surtr's host, this character has acted to hasten the twilight of the gods by fighting for the Jotunn faith.;;;;;;;;;;;;;
-lion_of_menhit;Lion of Menhit;;;;;;;;;;;;;
-lion_of_menhit_desc;Fighting with the ferocity of a lion, this character has fought for the gods of Egypt.;;;;;;;;;;;;;
-zombie_infection;Zombie Infection;;;;;;;;;;;;;
-zombie_infection_desc;This character has been infected with the plague of undeath.;;;;;;;;;;;;;
-flametender;Flametender;;;;;;;;;;;;;
-flametender_desc;This character has lent their inner fire to one of the eternal flames.;;;;;;;;;;;;;
-ascetic;Ascetic;;;;;;;;;;;;;
-ascetic_desc;This character abstains from the accumulation of worldly possessions and focuses instead on spiritual matters;;;;;;;;;;;;;
-purity_plus_1;Purity: §G+1§! (placeholder, unused);;;;;;;;;;;;;
-hunger_0;Hunger (§Y0§!);;;;;;;;;;;;;
-hunger_0_desc;This character's unholy thirst for blood is sated\nYou are §Yunlikely§! to be caught.[Hunger_Gain_TT];;;;;;;;;;;;;
-hunger_1;Hunger (§Y1§!);;;;;;;;;;;;;
-hunger_1_desc;This character is ready to feed on human blood\nYou are §Yslightly§! more likely to be caught.[Hunger_Gain_TT];;;;;;;;;;;;;
-hunger_2;Hunger (§Y2§!);;;;;;;;;;;;;
-hunger_2_desc;This character hungers for human blood\nYou are §Yslightly§! more likely to be caught.[Hunger_Gain_TT];;;;;;;;;;;;;
-hunger_3;Hunger (§Y3§!);;;;;;;;;;;;;
-hunger_3_desc;This character has not fed for some time\nYou are §Ya good deal§! more likely to be caught.[Hunger_Gain_TT];;;;;;;;;;;;;
-hunger_4;Hunger (§R4§!);;;;;;;;;;;;;
-hunger_4_desc;This character is ravenous for human blood\nYou are §Rmuch§! more likely to be caught.[Hunger_Gain_TT];;;;;;;;;;;;;
-hunger_5;Hunger (§R4§!);;;;;;;;;;;;;
-hunger_5_desc;This character's hunger for blood leaves [From.GetHerHis] a barely controlled beast.\nYou are §Rvery§! likely to be caught.[Hunger_Gain_TT];;;;;;;;;;;;;
-control_1;Control (§YFull Moon§!);;;;;;;;;;;;;
-control_1_desc;This character has no control over [From.GetHerHis] shapeshifting, running wild under the full moon or stress.\nYou are §Rvery§! likely to be caught.;;;;;;;;;;;;;
-control_2;Control (§YFull Gibbous Moon§!);;;;;;;;;;;;;
-control_2_desc;This character has barely any control over [From.GetHerHis] shapeshifting, changing with mood and moon.\nYou are §Rmuch§! more likely to be caught.;;;;;;;;;;;;;
-control_3;Control (§YGibbous Moon§!);;;;;;;;;;;;;
-control_3_desc;This character has little control over [From.GetHerHis] shapeshifting, changing with mood and moon.\nYou are §Ra good deal§! more likely to be caught.;;;;;;;;;;;;;
-control_4;Control (§YHalf Gibbous Moon§!);;;;;;;;;;;;;
-control_4_desc;This character has weak control over [From.GetHerHis] shapeshifting.\nYou are §Rslightly§! likely to be caught.;;;;;;;;;;;;;
-control_5;Control (§YHalf Moon§!);;;;;;;;;;;;;
-control_5_desc;This character has some control over [From.GetHerHis] shapeshifting.;;;;;;;;;;;;;
-control_6;Control (§YHalf Crescent Moon§!);;;;;;;;;;;;;
-control_6_desc;This character has minor control over [From.GetHerHis] shapeshifting.;;;;;;;;;;;;;
-control_7;Control (§YCrescent Moon§!);;;;;;;;;;;;;
-control_7_desc;This character has good control over [From.GetHerHis] shapeshifting, changing by [From.GetHerHis] own will.;;;;;;;;;;;;;
-control_8;Control (§YFull Crescent Moon§!);;;;;;;;;;;;;
-control_8_desc;This character has great control over [From.GetHerHis] shapeshifting, changing by [From.GetHerHis] own will.;;;;;;;;;;;;;
-control_9;Control (§YFull Moon§!);;;;;;;;;;;;;
-control_9_desc;This character has full control over [From.GetHerHis] shapeshifting, changing by [From.GetHerHis] own will.;;;;;;;;;;;;;
-size_1;Size (§G1§!);;;;;;;;;;;;;
-size_1_desc;As a giant ages, they continually grow in size and strength until they die.;;;;;;;;;;;;;
-size_2;Size (§G2§!);;;;;;;;;;;;;
-size_2_desc;As a giant ages, they continually grow in size and strength until they die.;;;;;;;;;;;;;
-size_3;Size (§G3§!);;;;;;;;;;;;;
-size_3_desc;As a giant ages, they continually grow in size and strength until they die.;;;;;;;;;;;;;
-size_4;Size (§G4§!);;;;;;;;;;;;;
-size_4_desc;As a giant ages, they continually grow in size and strength until they die.;;;;;;;;;;;;;
-size_5;Size (§G5§!);;;;;;;;;;;;;
-size_5_desc;As a giant ages, they continually grow in size and strength until they die.;;;;;;;;;;;;;
-size_6;Size (§G6§!);;;;;;;;;;;;;
-size_6_desc;As a giant ages, they continually grow in size and strength until they die.;;;;;;;;;;;;;
-size_7;Size (§G7§!);;;;;;;;;;;;;
-size_7_desc;As a giant ages, they continually grow in size and strength until they die.;;;;;;;;;;;;;
-size_8;Size (§G8§!);;;;;;;;;;;;;
-size_8_desc;As a giant ages, they continually grow in size and strength until they die.;;;;;;;;;;;;;
-size_9;Size (§G9§!);;;;;;;;;;;;;
-size_9_desc;As a giant ages, they continually grow in size and strength until they die.;;;;;;;;;;;;;
-size_10;Size (§G10§!);;;;;;;;;;;;;
-size_10_desc;As a giant of truly staggering age and power, this giant has reached their maximum potential.;;;;;;;;;;;;;
-giant_hrimthursar;[hrimthursar];;;;;;;;;;;;;
-NordicHrimthursar;Hrimþursar;;;;;;;;;;;;;
-OtherHrimthursar;Frost Giant;;;;;;;;;;;;;
-giant_hrimthursar_desc;A giant carrying the legacy of the frozen world of Jotunneheim;;;;;;;;;;;;;
-giant_eldjotnar;[eldjotnar];;;;;;;;;;;;;
-NordicEldjotnar;Eldjötnar;;;;;;;;;;;;;
-OtherEldjotnar;Fire Giant;;;;;;;;;;;;;
-giant_eldjotnar_desc;A giant born with the fires of torn and burning world of Muspelheim;;;;;;;;;;;;;
-giant_bergrisar;[bergrisar];;;;;;;;;;;;;
-NordicBergrisar;Bergrisar;;;;;;;;;;;;;
-OtherBergrisar;Hill Giant;;;;;;;;;;;;;
-giant_bergrisar_desc;A giant born of earth and stone, of hill and mountain;;;;;;;;;;;;;
-banker;Moneylender;;;;;;;;;;;;;
-banker_desc;This character has set aside ¤[Root.bank_total.GetValue] to finance loans.;;;;;;;;;;;;;
-natural_magic_1;Natural Magic;;;;;;;;;;;;;
-natural_magic_1_desc;Djinn are naturally gifted with magic and suffer few repercussions from its use;;;;;;;;;;;;;
-natural_magic_2;Natural Magic;;;;;;;;;;;;;
-natural_magic_2_desc;Djinn are naturally gifted with magic and suffer few repercussions from its use;;;;;;;;;;;;;
-natural_magic_3;Natural Magic;;;;;;;;;;;;;
-natural_magic_3_desc;Djinn are naturally gifted with magic and suffer few repercussions from its use;;;;;;;;;;;;;
-natural_magic_4;Natural Magic;;;;;;;;;;;;;
-natural_magic_4_desc;Djinn are naturally gifted with magic and suffer few repercussions from its use;;;;;;;;;;;;;
-tt_purity_wealth_8;\nWealth: §G+8§![Purity_Piety];;;;;;;;;;;;;
-tt_purity_wealth_7;\nWealth: §G+7§![Purity_Piety];;;;;;;;;;;;;
-tt_purity_wealth_6;\nWealth: §G+6§![Purity_Piety];;;;;;;;;;;;;
-tt_purity_wealth_5;\nWealth: §G+5§![Purity_Piety];;;;;;;;;;;;;
-tt_purity_wealth_4;\nWealth: §G+4§![Purity_Piety];;;;;;;;;;;;;
-tt_purity_wealth_3;\nWealth: §G+3§![Purity_Piety];;;;;;;;;;;;;
-tt_purity_wealth_2;\nWealth: §G+2§![Purity_Piety];;;;;;;;;;;;;
-tt_purity_wealth_1;\nWealth: §G+1§![Purity_Piety];;;;;;;;;;;;;
-tt_purity_piety_5;\nPiety: §G+5§![Purity_Prestige];;;;;;;;;;;;;
-tt_purity_piety_4;\nPiety: §G+4§![Purity_Prestige];;;;;;;;;;;;;
-tt_purity_piety_3;\nPiety: §G+3§![Purity_Prestige];;;;;;;;;;;;;
-tt_purity_piety_2;\nPiety: §G+2§![Purity_Prestige];;;;;;;;;;;;;
-tt_purity_piety_1;\nPiety: §G+1§![Purity_Prestige];;;;;;;;;;;;;
-tt_purity_prestige_6;\nPrestige: §G+6§![Purity_SF];;;;;;;;;;;;;
-tt_purity_prestige_5;\nPrestige: §G+5§![Purity_SF];;;;;;;;;;;;;
-tt_purity_prestige_4;\nPrestige: §G+4§![Purity_SF];;;;;;;;;;;;;
-tt_purity_prestige_3;\nPrestige: §G+3§![Purity_SF];;;;;;;;;;;;;
-tt_purity_prestige_2;\nPrestige: §G+2§![Purity_SF];;;;;;;;;;;;;
-tt_purity_prestige_1;\nPrestige: §G+1§![Purity_SF];;;;;;;;;;;;;
-tt_purity_sf;\nSapphire Flame: §G+2§![Purity_Flametender];;;;;;;;;;;;;
-tt_purity_flametender;\nFlametender: §G+2§![Purity_EternalFlameControl];;;;;;;;;;;;;
-tt_purity_eternal_flame_control;\nControls Eternal Flame: §G+2§![Purity_Divinity];;;;;;;;;;;;;
-tt_purity_god_HF;\nGod: §G+4§![Purity_DivineMarriage];;;;;;;;;;;;;
-tt_purity_demi_god_HF;\nDemigod: §G+3§![Purity_DivineMarriage];;;;;;;;;;;;;
-tt_purity_botg_HF;\nBlood of the Gods: §G+2§![Purity_DivineMarriage];;;;;;;;;;;;;
-tt_purity_god;\nGod: §G+3§![Purity_DivineMarriage];;;;;;;;;;;;;
-tt_purity_demi_god;\nDemigod: §G+2§![Purity_DivineMarriage];;;;;;;;;;;;;
-tt_purity_botg;\nBlood of the Gods: §G+1§![Purity_DivineMarriage];;;;;;;;;;;;;
-tt_purity_false_divinity;\nFalse Divinity: §R-2§![Purity_DivineMarriage];;;;;;;;;;;;;
-tt_purity_divine_marriage;\nDivine Marriage: §G+1 Each§![Purity_Rank];;;;;;;;;;;;;
-tt_purity_emperor;\nEmperor: §G+3§![Purity_Bad_Spouse];;;;;;;;;;;;;
-tt_purity_king;\nKing: §G+2§![Purity_Bad_Spouse];;;;;;;;;;;;;
-tt_purity_bows_to_humans;\nBows to Humans: §R-1§![Purity_Bad_Spouse];;;;;;;;;;;;;
-tt_purity_duke;\nDuke: §G+1§![Purity_Bad_Spouse];;;;;;;;;;;;;
-tt_purity_count;\nCount: §G+1§![Purity_Bad_Spouse];;;;;;;;;;;;;
-tt_purity_non_dragon_spouse;\nHuman [From.GetHusbandWifeOpp]: §R-3 Each§![Purity_Bad_Lover];;;;;;;;;;;;;
-tt_purity_dragon_spouse_1;\nDragon [From.GetHusbandWifeOpp]: §R-1 Each§![Purity_Bad_Lover];;;;;;;;;;;;;
-tt_purity_dragon_spouse_3;\nDragon [From.GetHusbandWifeOpp]: §R-3 Each§![Purity_Bad_Lover];;;;;;;;;;;;;
-tt_purity_non_dragon_lover;\nHuman Lover: §R-1 Each§![Purity_Bad_Consort];;;;;;;;;;;;;
-tt_purity_dragon_lover;\nDragon Lover: §R-1 Each§![Purity_Bad_Consort];;;;;;;;;;;;;
-tt_purity_non_dragon_consort;\nHuman Consort: §R-1 Each§![Purity_Bad_Heir];;;;;;;;;;;;;
-tt_purity_dragon_consort;\nDragon Consort: §R-1 Each§![Purity_Bad_Heir];;;;;;;;;;;;;
-tt_purity_bad_heir_1;\nHuman Heir: §R-1§![Purity_Dragonborn];;;;;;;;;;;;;
-tt_purity_bad_heir_4;\nHuman Heir: §R-4§![Purity_Dragonborn];;;;;;;;;;;;;
-tt_purity_dragonborn_bad;\nHalf-breed: §R-2§![Purity_Unlanded];;;;;;;;;;;;;
-tt_purity_dragonborn_good;\nDragonborn: §G+1§![Purity_Unlanded];;;;;;;;;;;;;
-tt_purity_unlanded_6;\nUnlanded under a human: §R-6§![Purity_Human];;;;;;;;;;;;;
-tt_purity_unlanded_2_DE;\nUnlanded under a human: §R-2§![Purity_Human];;;;;;;;;;;;;
-tt_purity_unlanded_2;\nUnlanded: §R-2§![Purity_Human];;;;;;;;;;;;;
-tt_purity_human;\nHuman: §R-5§![Purity_InDebt];;;;;;;;;;;;;
-tt_purity_debt;\nIn debt: §R-4§![Purity_Disease];;;;;;;;;;;;;
-tt_purity_disease;\nDiseased: §R-2§![Purity_Clubfooted];;;;;;;;;;;;;
-tt_purity_clubfooted;\nClubfooted: §R-1§![Purity_Harelip];;;;;;;;;;;;;
-tt_purity_harelip;\nHarelip: §R-1§![Purity_Hunchback];;;;;;;;;;;;;
-tt_purity_hunchback;\nHunchback: §R-1§![Purity_Lisp];;;;;;;;;;;;;
-tt_purity_lisp;\nLisp: §R-1§![Purity_Stutter];;;;;;;;;;;;;
-tt_purity_stutter;\nStutter: §R-1§![Purity_Ugly];;;;;;;;;;;;;
-tt_purity_ugly;\nUgly: §R-1§![Purity_Dwarf];;;;;;;;;;;;;
-tt_purity_dwarf;\nDwarf: §R-1§![Purity_Slow];;;;;;;;;;;;;
-tt_purity_slow;\nSlow: §R-1§![Purity_Imbecile];;;;;;;;;;;;;
-tt_purity_imbecile;\nImbecile: §R-1§![Purity_Inbred];;;;;;;;;;;;;
-tt_purity_inbred;\nInbred: §R-1§![Purity_Weak];;;;;;;;;;;;;
-tt_purity_weak;\nWeak: §R-1§![Purity_Giant];;;;;;;;;;;;;
-tt_purity_giant;\nGigantism: §R-1§![Purity_Diligent];;;;;;;;;;;;;
-tt_purity_diligent_virtue;\nDiligent: §G+1§![Purity_Brave];;;;;;;;;;;;;
-tt_purity_diligent_vice;\nDiligent: §R-1§![Purity_Brave];;;;;;;;;;;;;
-tt_purity_brave_virtue;\nBrave: §G+1§![Purity_Greedy];;;;;;;;;;;;;
-tt_purity_brave_vice;\nBrave: §R-1§![Purity_Greedy];;;;;;;;;;;;;
-tt_purity_greedy_virtue;\nGreedy: §G+1§![Purity_Proud];;;;;;;;;;;;;
-tt_purity_greedy_vice;\nGreedy: §R-1§![Purity_Proud];;;;;;;;;;;;;
-tt_purity_proud_virtue;\nProud: §G+1§![Purity_Just];;;;;;;;;;;;;
-tt_purity_proud_vice;\nProud: §R-1§![Purity_Just];;;;;;;;;;;;;
-tt_purity_just_virtue;\nJust: §G+1§![Purity_Patient];;;;;;;;;;;;;
-tt_purity_just_vice;\nJust: §R-1§![Purity_Patient];;;;;;;;;;;;;
-tt_purity_patient_virtue;\nPatient: §G+1§![Purity_Ambitious];;;;;;;;;;;;;
-tt_purity_patient_vice;\nPatient: §R-1§![Purity_Ambitious];;;;;;;;;;;;;
-tt_purity_ambitious_virtue;\nAmbitious: §G+1§![Purity_Temperate];;;;;;;;;;;;;
-tt_purity_ambitious_vice;\nAmbitious: §R-1§![Purity_Temperate];;;;;;;;;;;;;
-tt_purity_temperate_virtue;\nTemperate: §G+1§![Purity_Charitable];;;;;;;;;;;;;
-tt_purity_temperate_vice;\nTemperate: §R-1§![Purity_Charitable];;;;;;;;;;;;;
-tt_purity_charitable_virtue;\nCharitable: §G+1§![Purity_Humble];;;;;;;;;;;;;
-tt_purity_charitable_vice;\nCharitable: §R-1§![Purity_Humble];;;;;;;;;;;;;
-tt_purity_humble_virtue;\nHumble: §G+1§![Purity_Content];;;;;;;;;;;;;
-tt_purity_humble_vice;\nHumble: §R-1§![Purity_Content];;;;;;;;;;;;;
-tt_purity_content_virtue;\nContent: §G+1§![Purity_Honest];;;;;;;;;;;;;
-tt_purity_content_vice;\nContent: §R-1§![Purity_Honest];;;;;;;;;;;;;
-tt_purity_honest_virtue;\nHonest: §G+1§![Purity_Shy];;;;;;;;;;;;;
-tt_purity_honest_vice;\nHonest: §R-1§![Purity_Shy];;;;;;;;;;;;;
-tt_purity_shy_virtue;\nShy: §G+1§![Purity_Chaste];;;;;;;;;;;;;
-tt_purity_shy_vice;\nShy: §R-1§![Purity_Chaste];;;;;;;;;;;;;
-tt_purity_chaste_virtue;\nChaste: §G+1§![Purity_Slothful];;;;;;;;;;;;;
-tt_purity_chaste_vice;\nChaste: §R-1§![Purity_Slothful];;;;;;;;;;;;;
-tt_purity_slothful_virtue;\nSlothful: §G+1§![Purity_Craven];;;;;;;;;;;;;
-tt_purity_slothful_vice;\nSlothful: §R-1§![Purity_Craven];;;;;;;;;;;;;
-tt_purity_craven_virtue;\nCraven: §G+1§![Purity_Trusting];;;;;;;;;;;;;
-tt_purity_craven_vice;\nCraven: §R-1§![Purity_Trusting];;;;;;;;;;;;;
-tt_purity_trusting_virtue;\nTrusting: §G+1§![Purity_Wroth];;;;;;;;;;;;;
-tt_purity_trusting_vice;\nTrusting: §R-1§![Purity_Wroth];;;;;;;;;;;;;
-tt_purity_wroth_virtue;\nWroth: §G+1§![Purity_Arbitrary];;;;;;;;;;;;;
-tt_purity_wroth_vice;\nWroth: §R-1§![Purity_Arbitrary];;;;;;;;;;;;;
-tt_purity_arbitrary_virtue;\nArbitrary: §G+1§![Purity_Cruel];;;;;;;;;;;;;
-tt_purity_arbitrary_vice;\nArbitrary: §R-1§![Purity_Cruel];;;;;;;;;;;;;
-tt_purity_cruel_virtue;\nCruel: §G+1§![Purity_Lustful];;;;;;;;;;;;;
-tt_purity_cruel_vice;\nCruel: §R-1§![Purity_Lustful];;;;;;;;;;;;;
-tt_purity_lustful_virtue;\nLustful: §G+1§![Purity_Gluttonous];;;;;;;;;;;;;
-tt_purity_lustful_vice;\nLustful: §R-1§![Purity_Gluttonous];;;;;;;;;;;;;
-tt_purity_gluttonous_virtue;\nGluttonous: §G+1§![Purity_Paranoid];;;;;;;;;;;;;
-tt_purity_gluttonous_vice;\nGluttonous: §R-1§![Purity_Paranoid];;;;;;;;;;;;;
-tt_purity_paranoid_virtue;\nParanoid: §G+1§![Purity_Deceitful];;;;;;;;;;;;;
-tt_purity_paranoid_vice;\nParanoid: §R-1§![Purity_Deceitful];;;;;;;;;;;;;
-tt_purity_deceitful_virtue;\nDeceitful: §G+1§![Purity_Gregarious];;;;;;;;;;;;;
-tt_purity_deceitful_vice;\nDeceitful: §R-1§![Purity_Gregarious];;;;;;;;;;;;;
-tt_purity_gregarious_virtue;\nGregarious: §G+1§![Purity_Kind];;;;;;;;;;;;;
-tt_purity_gregarious_vice;\nGregarious: §R-1§![Purity_Kind];;;;;;;;;;;;;
-tt_purity_kind_virtue;\nKind: §G+1§![Purity_Liege];;;;;;;;;;;;;
-tt_purity_kind_vice;\nKind: §R-1§![Purity_Liege];;;;;;;;;;;;;
-tt_purity_king_dragon;\nKing under dragon: §G+3§![Purity_Grandmaster];;;;;;;;;;;;;
-tt_purity_duke_dragon;\nDuke under dragon: §G+2§![Purity_Grandmaster];;;;;;;;;;;;;
-tt_purity_count_dragon;\nCount under dragon: §G+1§![Purity_Grandmaster];;;;;;;;;;;;;
-tt_purity_flamewardens;\nGrandmaster of Flamewardens: §G+2§![Purity_Voter];;;;;;;;;;;;;
-tt_purity_blackflame;\nGrandmaster of Black Flames: §G+2§![Purity_Voter];;;;;;;;;;;;;
-tt_purity_voter;\nCouncil Voter: §G+1§![Purity_Werewolf];;;;;;;;;;;;;
-tt_purity_werewolf;\nWerewolf: §R-3§![Purity_Undead];;;;;;;;;;;;;
-tt_purity_undead;\nUndead: §R-6§![Purity_Diplomacy];;;;;;;;;;;;;
-tt_purity_diplomacy_bad;\nDiplomacy: §R-1§![Purity_Martial];;;;;;;;;;;;;
-tt_purity_diplomacy_good;\nDiplomacy: §G+1§![Purity_Martial];;;;;;;;;;;;;
-tt_purity_martial_bad;\nMartial: §R-1§![Purity_Stewardship];;;;;;;;;;;;;
-tt_purity_martial_good;\nMartial: §G+1§![Purity_Stewardship];;;;;;;;;;;;;
-tt_purity_stewardship_bad;\nStewardship: §R-1§![Purity_Intrigue];;;;;;;;;;;;;
-tt_purity_stewardship_good;\nStewardship: §G+1§![Purity_Intrigue];;;;;;;;;;;;;
-tt_purity_intrigue_bad;\nIntrigue: §R-1§![Purity_Learning];;;;;;;;;;;;;
-tt_purity_intrigue_good;\nIntrigue: §G+1§![Purity_Learning];;;;;;;;;;;;;
-tt_purity_learning_bad;\nLearning: §R-1§![Purity_ReplacedImpure];;;;;;;;;;;;;
-tt_purity_learning_good;\nLearning: §G+1§![Purity_ReplacedImpure];;;;;;;;;;;;;
-tt_purity_replaced_impure;\nReplaced Impure Flame: §G+3§![Purity_Rebelled];;;;;;;;;;;;;
-tt_purity_rebelled;\nRebelled: §R-5§![Purity_Blessing];;;;;;;;;;;;;
-tt_purity_blessing;\nBlessing: §G+3§![Purity_Potion];;;;;;;;;;;;;
-tt_purity_potion;\nPotion of Purity: §G+3§![Purity_Lodge];;;;;;;;;;;;;
-tt_purity_lodge;\nWarrior's Purity: §G+2§![Purity_Begger];;;;;;;;;;;;;
-tt_purity_begger;\nBegger: §R-3§![Purity_Purification_Chambers];;;;;;;;;;;;;
-tt_purity_loans;\nLoans: §R-3§![Purity_Purification_Chambers];;;;;;;;;;;;;
-tt_purity_chamber_5;\nPurification Chambers: §G+10§![Purity_Active_Flames];;;;;;;;;;;;;
-tt_purity_chamber_4;\nPurification Chambers: §G+8§![Purity_Active_Flames];;;;;;;;;;;;;
-tt_purity_chamber_3;\nPurification Chambers: §G+6§![Purity_Active_Flames];;;;;;;;;;;;;
-tt_purity_chamber_2;\nPurification Chambers: §G+4§![Purity_Active_Flames];;;;;;;;;;;;;
-tt_purity_chamber_1;\nPurification Chambers: §G+2§![Purity_Active_Flames];;;;;;;;;;;;;
-tt_purity_flames_3;\nActive Flames: §G+3§![Purity_Saint];;;;;;;;;;;;;
-tt_purity_flames_1;\nActive Flames: §G+1§![Purity_Saint];;;;;;;;;;;;;
-tt_purity_flames_minus_5;\nActive Flames: §R-5§![Purity_Saint];;;;;;;;;;;;;
-tt_purity_flames_minus_1;\nActive Flames: §R-1§![Purity_Saint];;;;;;;;;;;;;
-tt_purity_saint;\nDescendant of a holy sacrifice: §G+2§!;;;;;;;;;;;;;
-tt_purity_gain_yellow;\nChange last month: §Y[From.purity_gain.GetValue]§![GetPurityProgress];;;;;;;;;;;;;
-tt_purity_gain_green;\nChange last month: §G[From.purity_gain.GetValue]§![GetPurityProgress];;;;;;;;;;;;;
-tt_purity_gain_red;\nChange last month: §R[From.purity_gain.GetValue]§![GetPurityProgress];;;;;;;;;;;;;
-tt_purity_progress_yellow;\nProgress: §Y[From.purity_progress.GetValue]§!/[From.purity_to_next.GetValue][Purity_Wealth];;;;;;;;;;;;;
-tt_purity_progress_green;\nProgress: §G[From.purity_progress.GetValue]§!/[From.purity_to_next.GetValue][Purity_Wealth];;;;;;;;;;;;;
-tt_purity_progress_red;\nProgress: §R[From.purity_progress.GetValue]§!/[From.purity_to_next.GetValue][Purity_Wealth];;;;;;;;;;;;;
-tt_hunger_gain_increase;\nChange last month: §R+[From.hunger_gain.GetValue]§!\nProgress: [From.hunger_progress.GetValue]%[Hunger_Base];;;;;;;;;;;;;
-tt_hunger_gain_null;\nChange last month: §Y+[From.hunger_gain.GetValue]§!\nProgress: [From.hunger_progress.GetValue]%[Hunger_Base];;;;;;;;;;;;;
-tt_hunger_gain_decrease;\nChange last month: §G[From.hunger_gain.GetValue]§!\nProgress: [From.hunger_progress.GetValue]%[Hunger_Base];;;;;;;;;;;;;
-tt_base_default;\nBase: §R+10§![Hunger_Age];;;;;;;;;;;;;
-tt_base_ai_vassal;\nBase (AI Vassal): §R+8§![Hunger_Age];;;;;;;;;;;;;
-tt_hunger_gluttonous;\nGluttonous: §R+5§![Hunger_Vomiting];;;;;;;;;;;;;
-tt_hunger_temperate;\nTemperate: §G-5§![Hunger_Vomiting];;;;;;;;;;;;;
-tt_hunger_vomiting;\nVomiting: §R+5§![Hunger_Starving];;;;;;;;;;;;;
-tt_hunger_starving;\nStarving: §R+20§![Hunger_Injury];;;;;;;;;;;;;
-tt_hunger_injuries;\nInjuries: §R+[From.hunger_gain_injuries.GetValue]§![Hunger_VileBlood];;;;;;;;;;;;;
-tt_hunger_vile_blood;\nInjuries: §G[From.hunger_gain_vile_blood.GetValue]§!\n-;;;;;;;;;;;;;
-String_Spacer;\n-;;;;;;;;;;;;;
+secret_werewolf;Secret Werewolf;;;;;;;;;;;;;x
+secret_werewolf_desc;Your identity as a werewolf is still a secret from the public at large.;;;;;;;;;;;;;x
+known_werewolf;Known Werewolf;;;;;;;;;;;;;x
+known_werewolf_desc;This character has been exposed and everyone knows what kind of monster [Root.GetSheHe] is.;;;;;;;;;;;;;x
+secret_vampire;Secret Vampire;;;;;;;;;;;;;x
+secret_vampire_desc;Your identity as a vampire is still a secret from the public at large.;;;;;;;;;;;;;x
+known_vampire;Known Vampire;;;;;;;;;;;;;x
+known_vampire_desc;This character has been exposed and everyone knows what kind of monster [Root.GetSheHe] is.;;;;;;;;;;;;;x
+infertile;Infertile;;;;;;;;;;;;;x
+infertile_desc;This character is post-menopausal and can no longer bear children.;;;;;;;;;;;;;x
+on_journey;On Journey;;;;;;;;;;;;;x
+on_journey_desc;This character is on a long journey, leaving their realm in the hands of a reagent.;;;;;;;;;;;;;x
+summoner;Summoner;;;;;;;;;;;;;x
+summoner_desc;This character is an magician capable of summoning beings from other lands;;;;;;;;;;;;;x
+alchemist;Alchemist;;;;;;;;;;;;;x
+alchemist_desc;This character has mastered the art of transmuting metal to gold and understands the hermetic secrets.;;;;;;;;;;;;;x
+enchanter;Enchanter;;;;;;;;;;;;;x
+enchanter_desc;This character is learned in the magical ways of altering people's minds and perceptions;;;;;;;;;;;;;x
+herbalist;Herbalist;;;;;;;;;;;;;x
+herbalist_desc;This character is learned in the effects of local plant life.;;;;;;;;;;;;;x
+necromancer;Necromancer;;;;;;;;;;;;;x
+necromancer_desc;This character is learned is the art of the reanimation of the dead.;;;;;;;;;;;;;x
+miracle_worker;Miracle Worker;;;;;;;;;;;;;x
+miracle_worker_desc;This character is a known worker of miracles.;;;;;;;;;;;;;x
+demon_trait;Demon;;;;;;;;;;;;;x
+demon_trait_desc;An unclean spirit of a being who has fallen from grace.  They delight in temping of mortals into eternal damnation.;;;;;;;;;;;;;x
+ethereal_trait;Ethereal;;;;;;;;;;;;;x
+ethereal_trait_desc;A mysterious spirit with a transparent body of magic.;;;;;;;;;;;;;x
+claw_of_fafnir;Claw of Fafnir;;;;;;;;;;;;;x
+claw_of_fafnir_desc;This character is a champion of dragon-kind, fighting in the draconic holy wars.;;;;;;;;;;;;;x
+hell_knight;Hell Knight;;;;;;;;;;;;;x
+hell_knight_desc;Fighting as a satanic legion on earth, this character has fought as a champion of Lucifer.;;;;;;;;;;;;;x
+spear_of_lugh;Spear of Lugh;;;;;;;;;;;;;x
+spear_of_lugh_desc;Fighting for the Celtic faith, this character acts as the long arm of Lugh.;;;;;;;;;;;;;x
+surtrs_fire;Surtr's Fire;;;;;;;;;;;;;x
+surtrs_fire_desc;Fighting as part of Surtr's host, this character has acted to hasten the twilight of the gods by fighting for the Jotunn faith.;;;;;;;;;;;;;x
+lion_of_menhit;Lion of Menhit;;;;;;;;;;;;;x
+lion_of_menhit_desc;Fighting with the ferocity of a lion, this character has fought for the gods of Egypt.;;;;;;;;;;;;;x
+zombie_infection;Zombie Infection;;;;;;;;;;;;;x
+zombie_infection_desc;This character has been infected with the plague of undeath.;;;;;;;;;;;;;x
+flametender;Flametender;;;;;;;;;;;;;x
+flametender_desc;This character has lent their inner fire to one of the eternal flames.;;;;;;;;;;;;;x
+ascetic;Ascetic;;;;;;;;;;;;;x
+ascetic_desc;This character abstains from the accumulation of worldly possessions and focuses instead on spiritual matters;;;;;;;;;;;;;x
+purity_plus_1;Purity: §G+1§! (placeholder, unused);;;;;;;;;;;;;x
+hunger_0;Hunger (§Y0§!);;;;;;;;;;;;;x
+hunger_0_desc;This character's unholy thirst for blood is sated\nYou are §Yunlikely§! to be caught.[Hunger_Gain_TT];;;;;;;;;;;;;x
+hunger_1;Hunger (§Y1§!);;;;;;;;;;;;;x
+hunger_1_desc;This character is ready to feed on human blood\nYou are §Yslightly§! more likely to be caught.[Hunger_Gain_TT];;;;;;;;;;;;;x
+hunger_2;Hunger (§Y2§!);;;;;;;;;;;;;x
+hunger_2_desc;This character hungers for human blood\nYou are §Yslightly§! more likely to be caught.[Hunger_Gain_TT];;;;;;;;;;;;;x
+hunger_3;Hunger (§Y3§!);;;;;;;;;;;;;x
+hunger_3_desc;This character has not fed for some time\nYou are §Ya good deal§! more likely to be caught.[Hunger_Gain_TT];;;;;;;;;;;;;x
+hunger_4;Hunger (§R4§!);;;;;;;;;;;;;x
+hunger_4_desc;This character is ravenous for human blood\nYou are §Rmuch§! more likely to be caught.[Hunger_Gain_TT];;;;;;;;;;;;;x
+hunger_5;Hunger (§R4§!);;;;;;;;;;;;;x
+hunger_5_desc;This character's hunger for blood leaves [From.GetHerHis] a barely controlled beast.\nYou are §Rvery§! likely to be caught.[Hunger_Gain_TT];;;;;;;;;;;;;x
+control_1;Control (§YFull Moon§!);;;;;;;;;;;;;x
+control_1_desc;This character has no control over [From.GetHerHis] shapeshifting, running wild under the full moon or stress.\nYou are §Rvery§! likely to be caught.;;;;;;;;;;;;;x
+control_2;Control (§YFull Gibbous Moon§!);;;;;;;;;;;;;x
+control_2_desc;This character has barely any control over [From.GetHerHis] shapeshifting, changing with mood and moon.\nYou are §Rmuch§! more likely to be caught.;;;;;;;;;;;;;x
+control_3;Control (§YGibbous Moon§!);;;;;;;;;;;;;x
+control_3_desc;This character has little control over [From.GetHerHis] shapeshifting, changing with mood and moon.\nYou are §Ra good deal§! more likely to be caught.;;;;;;;;;;;;;x
+control_4;Control (§YHalf Gibbous Moon§!);;;;;;;;;;;;;x
+control_4_desc;This character has weak control over [From.GetHerHis] shapeshifting.\nYou are §Rslightly§! likely to be caught.;;;;;;;;;;;;;x
+control_5;Control (§YHalf Moon§!);;;;;;;;;;;;;x
+control_5_desc;This character has some control over [From.GetHerHis] shapeshifting.;;;;;;;;;;;;;x
+control_6;Control (§YHalf Crescent Moon§!);;;;;;;;;;;;;x
+control_6_desc;This character has minor control over [From.GetHerHis] shapeshifting.;;;;;;;;;;;;;x
+control_7;Control (§YCrescent Moon§!);;;;;;;;;;;;;x
+control_7_desc;This character has good control over [From.GetHerHis] shapeshifting, changing by [From.GetHerHis] own will.;;;;;;;;;;;;;x
+control_8;Control (§YFull Crescent Moon§!);;;;;;;;;;;;;x
+control_8_desc;This character has great control over [From.GetHerHis] shapeshifting, changing by [From.GetHerHis] own will.;;;;;;;;;;;;;x
+control_9;Control (§YFull Moon§!);;;;;;;;;;;;;x
+control_9_desc;This character has full control over [From.GetHerHis] shapeshifting, changing by [From.GetHerHis] own will.;;;;;;;;;;;;;x
+size_1;Size (§G1§!);;;;;;;;;;;;;x
+size_1_desc;As a giant ages, they continually grow in size and strength until they die.;;;;;;;;;;;;;x
+size_2;Size (§G2§!);;;;;;;;;;;;;x
+size_2_desc;As a giant ages, they continually grow in size and strength until they die.;;;;;;;;;;;;;x
+size_3;Size (§G3§!);;;;;;;;;;;;;x
+size_3_desc;As a giant ages, they continually grow in size and strength until they die.;;;;;;;;;;;;;x
+size_4;Size (§G4§!);;;;;;;;;;;;;x
+size_4_desc;As a giant ages, they continually grow in size and strength until they die.;;;;;;;;;;;;;x
+size_5;Size (§G5§!);;;;;;;;;;;;;x
+size_5_desc;As a giant ages, they continually grow in size and strength until they die.;;;;;;;;;;;;;x
+size_6;Size (§G6§!);;;;;;;;;;;;;x
+size_6_desc;As a giant ages, they continually grow in size and strength until they die.;;;;;;;;;;;;;x
+size_7;Size (§G7§!);;;;;;;;;;;;;x
+size_7_desc;As a giant ages, they continually grow in size and strength until they die.;;;;;;;;;;;;;x
+size_8;Size (§G8§!);;;;;;;;;;;;;x
+size_8_desc;As a giant ages, they continually grow in size and strength until they die.;;;;;;;;;;;;;x
+size_9;Size (§G9§!);;;;;;;;;;;;;x
+size_9_desc;As a giant ages, they continually grow in size and strength until they die.;;;;;;;;;;;;;x
+size_10;Size (§G10§!);;;;;;;;;;;;;x
+size_10_desc;As a giant of truly staggering age and power, this giant has reached their maximum potential.;;;;;;;;;;;;;x
+giant_hrimthursar;[hrimthursar];;;;;;;;;;;;;x
+NordicHrimthursar;Hrimþursar;;;;;;;;;;;;;x
+OtherHrimthursar;Frost Giant;;;;;;;;;;;;;x
+giant_hrimthursar_desc;A giant carrying the legacy of the frozen world of Jotunneheim;;;;;;;;;;;;;x
+giant_eldjotnar;[eldjotnar];;;;;;;;;;;;;x
+NordicEldjotnar;Eldjötnar;;;;;;;;;;;;;x
+OtherEldjotnar;Fire Giant;;;;;;;;;;;;;x
+giant_eldjotnar_desc;A giant born with the fires of torn and burning world of Muspelheim;;;;;;;;;;;;;x
+giant_bergrisar;[bergrisar];;;;;;;;;;;;;x
+NordicBergrisar;Bergrisar;;;;;;;;;;;;;x
+OtherBergrisar;Hill Giant;;;;;;;;;;;;;x
+giant_bergrisar_desc;A giant born of earth and stone, of hill and mountain;;;;;;;;;;;;;x
+banker;Moneylender;;;;;;;;;;;;;x
+banker_desc;This character has set aside ¤[Root.bank_total.GetValue] to finance loans.;;;;;;;;;;;;;x
+natural_magic_1;Natural Magic;;;;;;;;;;;;;x
+natural_magic_1_desc;Djinn are naturally gifted with magic and suffer few repercussions from its use;;;;;;;;;;;;;x
+natural_magic_2;Natural Magic;;;;;;;;;;;;;x
+natural_magic_2_desc;Djinn are naturally gifted with magic and suffer few repercussions from its use;;;;;;;;;;;;;x
+natural_magic_3;Natural Magic;;;;;;;;;;;;;x
+natural_magic_3_desc;Djinn are naturally gifted with magic and suffer few repercussions from its use;;;;;;;;;;;;;x
+natural_magic_4;Natural Magic;;;;;;;;;;;;;x
+natural_magic_4_desc;Djinn are naturally gifted with magic and suffer few repercussions from its use;;;;;;;;;;;;;x
+tt_purity_wealth_8;\nWealth: §G+8§![Purity_Piety];;;;;;;;;;;;;x
+tt_purity_wealth_7;\nWealth: §G+7§![Purity_Piety];;;;;;;;;;;;;x
+tt_purity_wealth_6;\nWealth: §G+6§![Purity_Piety];;;;;;;;;;;;;x
+tt_purity_wealth_5;\nWealth: §G+5§![Purity_Piety];;;;;;;;;;;;;x
+tt_purity_wealth_4;\nWealth: §G+4§![Purity_Piety];;;;;;;;;;;;;x
+tt_purity_wealth_3;\nWealth: §G+3§![Purity_Piety];;;;;;;;;;;;;x
+tt_purity_wealth_2;\nWealth: §G+2§![Purity_Piety];;;;;;;;;;;;;x
+tt_purity_wealth_1;\nWealth: §G+1§![Purity_Piety];;;;;;;;;;;;;x
+tt_purity_piety_5;\nPiety: §G+5§![Purity_Prestige];;;;;;;;;;;;;x
+tt_purity_piety_4;\nPiety: §G+4§![Purity_Prestige];;;;;;;;;;;;;x
+tt_purity_piety_3;\nPiety: §G+3§![Purity_Prestige];;;;;;;;;;;;;x
+tt_purity_piety_2;\nPiety: §G+2§![Purity_Prestige];;;;;;;;;;;;;x
+tt_purity_piety_1;\nPiety: §G+1§![Purity_Prestige];;;;;;;;;;;;;x
+tt_purity_prestige_6;\nPrestige: §G+6§![Purity_SF];;;;;;;;;;;;;x
+tt_purity_prestige_5;\nPrestige: §G+5§![Purity_SF];;;;;;;;;;;;;x
+tt_purity_prestige_4;\nPrestige: §G+4§![Purity_SF];;;;;;;;;;;;;x
+tt_purity_prestige_3;\nPrestige: §G+3§![Purity_SF];;;;;;;;;;;;;x
+tt_purity_prestige_2;\nPrestige: §G+2§![Purity_SF];;;;;;;;;;;;;x
+tt_purity_prestige_1;\nPrestige: §G+1§![Purity_SF];;;;;;;;;;;;;x
+tt_purity_sf;\nSapphire Flame: §G+2§![Purity_Flametender];;;;;;;;;;;;;x
+tt_purity_flametender;\nFlametender: §G+2§![Purity_EternalFlameControl];;;;;;;;;;;;;x
+tt_purity_eternal_flame_control;\nControls Eternal Flame: §G+2§![Purity_Divinity];;;;;;;;;;;;;x
+tt_purity_god_HF;\nGod: §G+4§![Purity_DivineMarriage];;;;;;;;;;;;;x
+tt_purity_demi_god_HF;\nDemigod: §G+3§![Purity_DivineMarriage];;;;;;;;;;;;;x
+tt_purity_botg_HF;\nBlood of the Gods: §G+2§![Purity_DivineMarriage];;;;;;;;;;;;;x
+tt_purity_god;\nGod: §G+3§![Purity_DivineMarriage];;;;;;;;;;;;;x
+tt_purity_demi_god;\nDemigod: §G+2§![Purity_DivineMarriage];;;;;;;;;;;;;x
+tt_purity_botg;\nBlood of the Gods: §G+1§![Purity_DivineMarriage];;;;;;;;;;;;;x
+tt_purity_false_divinity;\nFalse Divinity: §R-2§![Purity_DivineMarriage];;;;;;;;;;;;;x
+tt_purity_divine_marriage;\nDivine Marriage: §G+1 Each§![Purity_Rank];;;;;;;;;;;;;x
+tt_purity_emperor;\nEmperor: §G+3§![Purity_Bad_Spouse];;;;;;;;;;;;;x
+tt_purity_king;\nKing: §G+2§![Purity_Bad_Spouse];;;;;;;;;;;;;x
+tt_purity_bows_to_humans;\nBows to Humans: §R-1§![Purity_Bad_Spouse];;;;;;;;;;;;;x
+tt_purity_duke;\nDuke: §G+1§![Purity_Bad_Spouse];;;;;;;;;;;;;x
+tt_purity_count;\nCount: §G+1§![Purity_Bad_Spouse];;;;;;;;;;;;;x
+tt_purity_non_dragon_spouse;\nHuman [From.GetHusbandWifeOpp]: §R-3 Each§![Purity_Bad_Lover];;;;;;;;;;;;;x
+tt_purity_dragon_spouse_1;\nDragon [From.GetHusbandWifeOpp]: §R-1 Each§![Purity_Bad_Lover];;;;;;;;;;;;;x
+tt_purity_dragon_spouse_3;\nDragon [From.GetHusbandWifeOpp]: §R-3 Each§![Purity_Bad_Lover];;;;;;;;;;;;;x
+tt_purity_non_dragon_lover;\nHuman Lover: §R-1 Each§![Purity_Bad_Consort];;;;;;;;;;;;;x
+tt_purity_dragon_lover;\nDragon Lover: §R-1 Each§![Purity_Bad_Consort];;;;;;;;;;;;;x
+tt_purity_non_dragon_consort;\nHuman Consort: §R-1 Each§![Purity_Bad_Heir];;;;;;;;;;;;;x
+tt_purity_dragon_consort;\nDragon Consort: §R-1 Each§![Purity_Bad_Heir];;;;;;;;;;;;;x
+tt_purity_bad_heir_1;\nHuman Heir: §R-1§![Purity_Dragonborn];;;;;;;;;;;;;x
+tt_purity_bad_heir_4;\nHuman Heir: §R-4§![Purity_Dragonborn];;;;;;;;;;;;;x
+tt_purity_dragonborn_bad;\nHalf-breed: §R-2§![Purity_Unlanded];;;;;;;;;;;;;x
+tt_purity_dragonborn_good;\nDragonborn: §G+1§![Purity_Unlanded];;;;;;;;;;;;;x
+tt_purity_unlanded_6;\nUnlanded under a human: §R-6§![Purity_Human];;;;;;;;;;;;;x
+tt_purity_unlanded_2_DE;\nUnlanded under a human: §R-2§![Purity_Human];;;;;;;;;;;;;x
+tt_purity_unlanded_2;\nUnlanded: §R-2§![Purity_Human];;;;;;;;;;;;;x
+tt_purity_human;\nHuman: §R-5§![Purity_InDebt];;;;;;;;;;;;;x
+tt_purity_debt;\nIn debt: §R-4§![Purity_Disease];;;;;;;;;;;;;x
+tt_purity_disease;\nDiseased: §R-2§![Purity_Clubfooted];;;;;;;;;;;;;x
+tt_purity_clubfooted;\nClubfooted: §R-1§![Purity_Harelip];;;;;;;;;;;;;x
+tt_purity_harelip;\nHarelip: §R-1§![Purity_Hunchback];;;;;;;;;;;;;x
+tt_purity_hunchback;\nHunchback: §R-1§![Purity_Lisp];;;;;;;;;;;;;x
+tt_purity_lisp;\nLisp: §R-1§![Purity_Stutter];;;;;;;;;;;;;x
+tt_purity_stutter;\nStutter: §R-1§![Purity_Ugly];;;;;;;;;;;;;x
+tt_purity_ugly;\nUgly: §R-1§![Purity_Dwarf];;;;;;;;;;;;;x
+tt_purity_dwarf;\nDwarf: §R-1§![Purity_Slow];;;;;;;;;;;;;x
+tt_purity_slow;\nSlow: §R-1§![Purity_Imbecile];;;;;;;;;;;;;x
+tt_purity_imbecile;\nImbecile: §R-1§![Purity_Inbred];;;;;;;;;;;;;x
+tt_purity_inbred;\nInbred: §R-1§![Purity_Weak];;;;;;;;;;;;;x
+tt_purity_weak;\nWeak: §R-1§![Purity_Giant];;;;;;;;;;;;;x
+tt_purity_giant;\nGigantism: §R-1§![Purity_Diligent];;;;;;;;;;;;;x
+tt_purity_diligent_virtue;\nDiligent: §G+1§![Purity_Brave];;;;;;;;;;;;;x
+tt_purity_diligent_vice;\nDiligent: §R-1§![Purity_Brave];;;;;;;;;;;;;x
+tt_purity_brave_virtue;\nBrave: §G+1§![Purity_Greedy];;;;;;;;;;;;;x
+tt_purity_brave_vice;\nBrave: §R-1§![Purity_Greedy];;;;;;;;;;;;;x
+tt_purity_greedy_virtue;\nGreedy: §G+1§![Purity_Proud];;;;;;;;;;;;;x
+tt_purity_greedy_vice;\nGreedy: §R-1§![Purity_Proud];;;;;;;;;;;;;x
+tt_purity_proud_virtue;\nProud: §G+1§![Purity_Just];;;;;;;;;;;;;x
+tt_purity_proud_vice;\nProud: §R-1§![Purity_Just];;;;;;;;;;;;;x
+tt_purity_just_virtue;\nJust: §G+1§![Purity_Patient];;;;;;;;;;;;;x
+tt_purity_just_vice;\nJust: §R-1§![Purity_Patient];;;;;;;;;;;;;x
+tt_purity_patient_virtue;\nPatient: §G+1§![Purity_Ambitious];;;;;;;;;;;;;x
+tt_purity_patient_vice;\nPatient: §R-1§![Purity_Ambitious];;;;;;;;;;;;;x
+tt_purity_ambitious_virtue;\nAmbitious: §G+1§![Purity_Temperate];;;;;;;;;;;;;x
+tt_purity_ambitious_vice;\nAmbitious: §R-1§![Purity_Temperate];;;;;;;;;;;;;x
+tt_purity_temperate_virtue;\nTemperate: §G+1§![Purity_Charitable];;;;;;;;;;;;;x
+tt_purity_temperate_vice;\nTemperate: §R-1§![Purity_Charitable];;;;;;;;;;;;;x
+tt_purity_charitable_virtue;\nCharitable: §G+1§![Purity_Humble];;;;;;;;;;;;;x
+tt_purity_charitable_vice;\nCharitable: §R-1§![Purity_Humble];;;;;;;;;;;;;x
+tt_purity_humble_virtue;\nHumble: §G+1§![Purity_Content];;;;;;;;;;;;;x
+tt_purity_humble_vice;\nHumble: §R-1§![Purity_Content];;;;;;;;;;;;;x
+tt_purity_content_virtue;\nContent: §G+1§![Purity_Honest];;;;;;;;;;;;;x
+tt_purity_content_vice;\nContent: §R-1§![Purity_Honest];;;;;;;;;;;;;x
+tt_purity_honest_virtue;\nHonest: §G+1§![Purity_Shy];;;;;;;;;;;;;x
+tt_purity_honest_vice;\nHonest: §R-1§![Purity_Shy];;;;;;;;;;;;;x
+tt_purity_shy_virtue;\nShy: §G+1§![Purity_Chaste];;;;;;;;;;;;;x
+tt_purity_shy_vice;\nShy: §R-1§![Purity_Chaste];;;;;;;;;;;;;x
+tt_purity_chaste_virtue;\nChaste: §G+1§![Purity_Slothful];;;;;;;;;;;;;x
+tt_purity_chaste_vice;\nChaste: §R-1§![Purity_Slothful];;;;;;;;;;;;;x
+tt_purity_slothful_virtue;\nSlothful: §G+1§![Purity_Craven];;;;;;;;;;;;;x
+tt_purity_slothful_vice;\nSlothful: §R-1§![Purity_Craven];;;;;;;;;;;;;x
+tt_purity_craven_virtue;\nCraven: §G+1§![Purity_Trusting];;;;;;;;;;;;;x
+tt_purity_craven_vice;\nCraven: §R-1§![Purity_Trusting];;;;;;;;;;;;;x
+tt_purity_trusting_virtue;\nTrusting: §G+1§![Purity_Wroth];;;;;;;;;;;;;x
+tt_purity_trusting_vice;\nTrusting: §R-1§![Purity_Wroth];;;;;;;;;;;;;x
+tt_purity_wroth_virtue;\nWroth: §G+1§![Purity_Arbitrary];;;;;;;;;;;;;x
+tt_purity_wroth_vice;\nWroth: §R-1§![Purity_Arbitrary];;;;;;;;;;;;;x
+tt_purity_arbitrary_virtue;\nArbitrary: §G+1§![Purity_Cruel];;;;;;;;;;;;;x
+tt_purity_arbitrary_vice;\nArbitrary: §R-1§![Purity_Cruel];;;;;;;;;;;;;x
+tt_purity_cruel_virtue;\nCruel: §G+1§![Purity_Lustful];;;;;;;;;;;;;x
+tt_purity_cruel_vice;\nCruel: §R-1§![Purity_Lustful];;;;;;;;;;;;;x
+tt_purity_lustful_virtue;\nLustful: §G+1§![Purity_Gluttonous];;;;;;;;;;;;;x
+tt_purity_lustful_vice;\nLustful: §R-1§![Purity_Gluttonous];;;;;;;;;;;;;x
+tt_purity_gluttonous_virtue;\nGluttonous: §G+1§![Purity_Paranoid];;;;;;;;;;;;;x
+tt_purity_gluttonous_vice;\nGluttonous: §R-1§![Purity_Paranoid];;;;;;;;;;;;;x
+tt_purity_paranoid_virtue;\nParanoid: §G+1§![Purity_Deceitful];;;;;;;;;;;;;x
+tt_purity_paranoid_vice;\nParanoid: §R-1§![Purity_Deceitful];;;;;;;;;;;;;x
+tt_purity_deceitful_virtue;\nDeceitful: §G+1§![Purity_Gregarious];;;;;;;;;;;;;x
+tt_purity_deceitful_vice;\nDeceitful: §R-1§![Purity_Gregarious];;;;;;;;;;;;;x
+tt_purity_gregarious_virtue;\nGregarious: §G+1§![Purity_Kind];;;;;;;;;;;;;x
+tt_purity_gregarious_vice;\nGregarious: §R-1§![Purity_Kind];;;;;;;;;;;;;x
+tt_purity_kind_virtue;\nKind: §G+1§![Purity_Liege];;;;;;;;;;;;;x
+tt_purity_kind_vice;\nKind: §R-1§![Purity_Liege];;;;;;;;;;;;;x
+tt_purity_king_dragon;\nKing under dragon: §G+3§![Purity_Grandmaster];;;;;;;;;;;;;x
+tt_purity_duke_dragon;\nDuke under dragon: §G+2§![Purity_Grandmaster];;;;;;;;;;;;;x
+tt_purity_count_dragon;\nCount under dragon: §G+1§![Purity_Grandmaster];;;;;;;;;;;;;x
+tt_purity_flamewardens;\nGrandmaster of Flamewardens: §G+2§![Purity_Voter];;;;;;;;;;;;;x
+tt_purity_blackflame;\nGrandmaster of Black Flames: §G+2§![Purity_Voter];;;;;;;;;;;;;x
+tt_purity_voter;\nCouncil Voter: §G+1§![Purity_Werewolf];;;;;;;;;;;;;x
+tt_purity_werewolf;\nWerewolf: §R-3§![Purity_Undead];;;;;;;;;;;;;x
+tt_purity_undead;\nUndead: §R-6§![Purity_Diplomacy];;;;;;;;;;;;;x
+tt_purity_diplomacy_bad;\nDiplomacy: §R-1§![Purity_Martial];;;;;;;;;;;;;x
+tt_purity_diplomacy_good;\nDiplomacy: §G+1§![Purity_Martial];;;;;;;;;;;;;x
+tt_purity_martial_bad;\nMartial: §R-1§![Purity_Stewardship];;;;;;;;;;;;;x
+tt_purity_martial_good;\nMartial: §G+1§![Purity_Stewardship];;;;;;;;;;;;;x
+tt_purity_stewardship_bad;\nStewardship: §R-1§![Purity_Intrigue];;;;;;;;;;;;;x
+tt_purity_stewardship_good;\nStewardship: §G+1§![Purity_Intrigue];;;;;;;;;;;;;x
+tt_purity_intrigue_bad;\nIntrigue: §R-1§![Purity_Learning];;;;;;;;;;;;;x
+tt_purity_intrigue_good;\nIntrigue: §G+1§![Purity_Learning];;;;;;;;;;;;;x
+tt_purity_learning_bad;\nLearning: §R-1§![Purity_ReplacedImpure];;;;;;;;;;;;;x
+tt_purity_learning_good;\nLearning: §G+1§![Purity_ReplacedImpure];;;;;;;;;;;;;x
+tt_purity_replaced_impure;\nReplaced Impure Flame: §G+3§![Purity_Rebelled];;;;;;;;;;;;;x
+tt_purity_rebelled;\nRebelled: §R-5§![Purity_Blessing];;;;;;;;;;;;;x
+tt_purity_blessing;\nBlessing: §G+3§![Purity_Potion];;;;;;;;;;;;;x
+tt_purity_potion;\nPotion of Purity: §G+3§![Purity_Lodge];;;;;;;;;;;;;x
+tt_purity_lodge;\nWarrior's Purity: §G+2§![Purity_Begger];;;;;;;;;;;;;x
+tt_purity_begger;\nBegger: §R-3§![Purity_Purification_Chambers];;;;;;;;;;;;;x
+tt_purity_loans;\nLoans: §R-3§![Purity_Purification_Chambers];;;;;;;;;;;;;x
+tt_purity_chamber_5;\nPurification Chambers: §G+10§![Purity_Active_Flames];;;;;;;;;;;;;x
+tt_purity_chamber_4;\nPurification Chambers: §G+8§![Purity_Active_Flames];;;;;;;;;;;;;x
+tt_purity_chamber_3;\nPurification Chambers: §G+6§![Purity_Active_Flames];;;;;;;;;;;;;x
+tt_purity_chamber_2;\nPurification Chambers: §G+4§![Purity_Active_Flames];;;;;;;;;;;;;x
+tt_purity_chamber_1;\nPurification Chambers: §G+2§![Purity_Active_Flames];;;;;;;;;;;;;x
+tt_purity_flames_3;\nActive Flames: §G+3§![Purity_Saint];;;;;;;;;;;;;x
+tt_purity_flames_1;\nActive Flames: §G+1§![Purity_Saint];;;;;;;;;;;;;x
+tt_purity_flames_minus_5;\nActive Flames: §R-5§![Purity_Saint];;;;;;;;;;;;;x
+tt_purity_flames_minus_1;\nActive Flames: §R-1§![Purity_Saint];;;;;;;;;;;;;x
+tt_purity_saint;\nDescendant of a holy sacrifice: §G+2§!;;;;;;;;;;;;;x
+tt_purity_gain_yellow;\nChange last month: §Y[From.purity_gain.GetValue]§![GetPurityProgress];;;;;;;;;;;;;x
+tt_purity_gain_green;\nChange last month: §G[From.purity_gain.GetValue]§![GetPurityProgress];;;;;;;;;;;;;x
+tt_purity_gain_red;\nChange last month: §R[From.purity_gain.GetValue]§![GetPurityProgress];;;;;;;;;;;;;x
+tt_purity_progress_yellow;\nProgress: §Y[From.purity_progress.GetValue]§!/[From.purity_to_next.GetValue][Purity_Wealth];;;;;;;;;;;;;x
+tt_purity_progress_green;\nProgress: §G[From.purity_progress.GetValue]§!/[From.purity_to_next.GetValue][Purity_Wealth];;;;;;;;;;;;;x
+tt_purity_progress_red;\nProgress: §R[From.purity_progress.GetValue]§!/[From.purity_to_next.GetValue][Purity_Wealth];;;;;;;;;;;;;x
+tt_hunger_gain_increase;\nChange last month: §R+[From.hunger_gain.GetValue]§!\nProgress: [From.hunger_progress.GetValue]%[Hunger_Base];;;;;;;;;;;;;x
+tt_hunger_gain_null;\nChange last month: §Y+[From.hunger_gain.GetValue]§!\nProgress: [From.hunger_progress.GetValue]%[Hunger_Base];;;;;;;;;;;;;x
+tt_hunger_gain_decrease;\nChange last month: §G[From.hunger_gain.GetValue]§!\nProgress: [From.hunger_progress.GetValue]%[Hunger_Base];;;;;;;;;;;;;x
+tt_base_default;\nBase: §R+10§![Hunger_Age];;;;;;;;;;;;;x
+tt_base_ai_vassal;\nBase (AI Vassal): §R+8§![Hunger_Age];;;;;;;;;;;;;x
+tt_hunger_gluttonous;\nGluttonous: §R+5§![Hunger_Vomiting];;;;;;;;;;;;;x
+tt_hunger_temperate;\nTemperate: §G-5§![Hunger_Vomiting];;;;;;;;;;;;;x
+tt_hunger_vomiting;\nVomiting: §R+5§![Hunger_Starving];;;;;;;;;;;;;x
+tt_hunger_starving;\nStarving: §R+20§![Hunger_Injury];;;;;;;;;;;;;x
+tt_hunger_injuries;\nInjuries: §R+[From.hunger_gain_injuries.GetValue]§![Hunger_VileBlood];;;;;;;;;;;;;x
+tt_hunger_vile_blood;\nInjuries: §G[From.hunger_gain_vile_blood.GetValue]§!\n-;;;;;;;;;;;;;x
+String_Spacer;\n-;;;;;;;;;;;;;x
 sickly_30;Sickly;Enfant maladif;Kränklich;;Enfermizo;;;;;;;;;x
 sickly_30_desc;This child was born sickly and might not survive infancy.;Cet enfant est maladif et pourrait donc ne pas atteindre l'âge adulte.;Dieses Kind wurde kränklich geboren und wird vielleicht nicht lange leben;;Este niño nació enfermizo y podría no sobrevivir a la infancia.;;;;;;;;;x
 sickly_30_death;a sickly infant;de son état maladif;als kränkliches Kind;;bebé enfermizo;;;;;;;;;x
@@ -395,9 +395,9 @@ sickly_4_death;a sickly infant;de son état maladif;als kränkliches Kind;;bebé en
 sickly_2;Sickly;Enfant maladif;Kränklich;;Enfermizo;;;;;;;;;x
 sickly_2_desc;This child was born sickly and might not survive infancy.;Cet enfant est maladif et pourrait donc ne pas atteindre l'âge adulte.;Dieses Kind wurde kränklich geboren und wird vielleicht nicht lange leben;;Este niño nació enfermizo y podría no sobrevivir a la infancia.;;;;;;;;;x
 sickly_2_death;a sickly infant;de son état maladif;als kränkliches Kind;;bebé enfermizo;;;;;;;;;x
-quailfooted;Quailfooted;;;;;;;;;;;;;
+quailfooted;Quailfooted;;;;;;;;;;;;;x
 quailfooted_desc;This character was born with a clubfoot - an unattractive disability.;Ce personnage est né avec un pied bot, une infirmité plutôt disgracieuse.;Dieser Charakter wurde mit einem Klumpfuß geboren, einer unansehnlichen Behinderung.;;Este personaje nació con pie zambo, una minusvalía nada atractiva.;;;;;;;;;
-twisted;Twisted;;;;;;;;;;;;;
-twisted_desc;This character was born with a twisted back, which is despised by vassals and ugly in the eyes of the opposite sex.;;;;;;;;;;;;;
-cleft_lip;Cleft Lip;;;;;;;;;;;;;
-cleft_lip_desc;This character was born with a cleft lip and palette - a less than charming trait.;;;;;;;;;;;;;
+twisted;Twisted;;;;;;;;;;;;;x
+twisted_desc;This character was born with a twisted back, which is despised by vassals and ugly in the eyes of the opposite sex.;;;;;;;;;;;;;x
+cleft_lip;Cleft Lip;;;;;;;;;;;;;x
+cleft_lip_desc;This character was born with a cleft lip and palette - a less than charming trait.;;;;;;;;;;;;;x

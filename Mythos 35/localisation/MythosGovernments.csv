@@ -1,56 +1,56 @@
 #CODE;ENGLISH;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
-#;;;;;;;;;;;;;;;,,,,,,,
-succ_fame_succession;Prestige Succession (Test);;;;;;;;;;;;;;,,,,,,,
-succ_fame_succession_desc;Under Prestige Succession, the son or brother with the most Prestige normally inherits, but prestigious vassals also stand a chance. Wrong-culture characters are disqualified and adults have precedence over children. If the ruler's primary heir is still a child, the realm is lost to one of the vassals. Vasslas with more Prestige than the heir get Claims on the realm.;;;;;;;;;;;;;;,,,,
-#;;;;;;;;;;;;;;;,,,,,,,
-draconic_feudal_government;Dragonlaw;;;;;;;;;;;;;;,,,,,,,
-draconic_feudal_government_desc;The rule of this realm have fallen into the claws of powerful dragons. A single dragon can only personally force the control of a small area, having the rest of their realm ruled by their vassals, usually other dragons. With their constant desire for gold, these vassals are often heavily taxed, though they instead maintain greater control over their armies. Your vassals will demand that your heir be a dragon as well for the protection that brings. If control should fall back into the hands of men, your government will revert to Feudal or Iqta.;;;;;;;;;;;;;;,,
-draconic_tribal_government;Dragon Tribe;;;;;;;;;;;;;;,,,,,,,
-draconic_tribal_government_desc;It only takes a relatively small number of dragons to rule over small tribes of agrarian humans. Each county can only have one Tribal 'Holding', representing the entire local tribal population - the more empty Holding slots, the more powerful the Tribal Holding. Rulers of dragon tribers are limited to the Gavelkind Succession Law, which tends to fragment the realm between sons on the death of the chief.  Your vassals will demand that your heir be a dragon for the protection that brings.;;;;;;;;;;;;;;,,,,
-draconic_governorship;Draconic Governorship;;;;;;;;;;;;;;,,,,,,,
-draconic_governorship_desc;Unlike human cities, the leaders of cities ruled by dragons are not elected.  Instead they are initially appointed by their liege, then passed down throughout that ruling family, akin to feudal kingddoms.;;;;;;;;;;;;;;,,,,
-draconic_merchant_republic_government;Draconic Merchant Republic;;;;;;;;;;;;;;,,,,,,,
-draconic_merchant_republic_government_desc;In the richest ports within the influence of dragons, it's rare to see any one dragon maintain full control of the area.  Instead, political and economic control will be fought over by several families of dragons in the region, each competing for fame, wealth, and power.  Like human patricians, they can also build a network of Trade Posts, even in the counties of other powers...;;;;;;;;;;;;;;
-draconic_theocracy_government;Flamesworn Theocracy;;;;;;;;;;;;;;,,,,,,,
-draconic_theocracy_government_desc;Ruling the temples hosting the Eternal Flames, the Flamesworn priests tend to the Eternal Flames and the pilgrims who come to them.  Fighting for the draconic gods, the Flamesworn attract many zealous warriors as well, giving them more military power than most theocracies.;;;;;;;;;;;;;;,,,,
-marauding_dragon_government;Marauding Dragon;;;;;;;;;;;;;;,,,,,,,
-marauding_dragon_government_desc;Less of a government and more of a band of powerful dragons simply seizing whatever they can get their claws on. They have little interest in holding land beyond what gold it can bring their horde and soldiers thay can force into their growing army.  Empty Holdings slots in open terrain increases the maximum population. While these dragons can have normal vassals, they are mostly concerned with managing the other, few but powerful, major Clans of the tribe.;;;;;;;;;;;;;;,,,,
-blood_court_government;Blood Court;;;;;;;;;;;;;;,,,,,,,
-blood_court_government_desc;The rulership of this land falls heavily under the influence of a cabal of elder vampires known as the Blood Court.  While largely similar to human feudal realms, the size and influence of this powerful council means that the official ruler holds a weaker grip on the land, and internal politics can be much harsher.  While vampires are immortal and the position is for life, these tense feuds can still lead to power passing hands, albeit at the point of a sharp wooden stake.;;;;;;;;;;;;;;,,,
-#;;;;;;;;;;;;;;;,,,,,,,
-gov_dragon_monarchy;Draconic Dictatorship;;;;;;;;;;;;;;,,,,,,,
-gov_dragon_clan;Dragon Clan;;;;;;;;;;;;;;,,,,,,,
-gov_dragon_tribe;Dragon Tribe;;;;;;;;;;;;;;,,,,,,,
-gov_draconic_governorship;Draconic Governorship;;;;;;;;;;;;;;,,,,,,,
-gov_draconic_merchant_republic;Draconic Merchant Republic;;;;;;;;;;;;;;,,,,,,,
-gov_draconic_theocracy;Flamesworn Theocracy;;;;;;;;;;;;;;,,,,,,,
-gov_marauding_dragon;Marauding Dragon;;;;;;;;;;;;;;,,,,,,,
-gov_blood_court;Blood Court;;;;;;;;;;;;;;,,,,,,,
-gov_zombie_horde;Undead Horde;;;;;;;;;;;;;;,,,,,,,
-#;;;;;;;;;;;;;;;,,,,,,,Dragon Republic
-governor_baron;Governor;;;;;;;;;;;;;;,,,,,,,
-governor_baron_female;Governess;;;;;;;;;;;;;;,,,,,,,
-governor_count;Prefect;;;;;;;;;;;;;;,,,,,,,
-governor_duke;State Governor;;;;;;;;;;;;;;,,,,,,,
-governor_duke_female;State Governess;;;;;;;;;;;;;;,,,,,,,
-governor_king;Governor-General;;;;;;;;;;;;;;,,,,,,,
-governor_king_female;Governess-General;;;;;;;;;;;;;;,,,,,,,
-governor_emperor;President;;;;;;;;;;;;;;# Should be impossible – this government can't be indepenent, and you can't get vassal emperors,,,,,,
-#;;;;;;;;;;;;;;;,,,,,,,Dragonlaw
-tyrant_baron;Lord;;;;;;;;;;;;;;,,,,,,,
-tyrant_baron_female;Lord;;;;;;;;;;;;;;,,,,,,,
-tyrant_count;Prefect;;;;;;;;;;;;;;,,,,,,,
-tyrant_duke;Dictator;;;;;;;;;;;;;;,,,,,,,
-tyrant_king;Tyrant-King;;;;;;;;;;;;;;,,,,,,,
-tyrant_king_female;Tyrant-Queen;;;;;;;;;;;;;;,,,,,,,
-tyrant_emperor;Tyrant-Emperor;;;;;;;;;;;;;;
-tyrant_emperor_female;Tyrant-Emperoress;;;;;;;;;;;;;;
-#;;;;;;;;;;;;;;;,,,,,,,L O N G Dragons
-longdragon_baron;Lord;;;;;;;;;;;;;;,,,,,,,
-longdragon_baron_female;Lord;;;;;;;;;;;;;;,,,,,,,
-longdragon_count;Prefect;;;;;;;;;;;;;;,,,,,,,
-longdragon_duke;Dictator;;;;;;;;;;;;;;,,,,,,,
-longdragon_king;Tyrant-King;;;;;;;;;;;;;;,,,,,,,
-longdragon_king_female;Tyrant-Queen;;;;;;;;;;;;;;,,,,,,,
-longdragon_emperor;Tyrant-Emperor;;;;;;;;;;;;;;
-longdragon_emperor_female;Tyrant-Emperoress;;;;;;;;;;;;;;
+
+succ_fame_succession;Prestige Succession (Test);;;;;;;;;;;;;x
+succ_fame_succession_desc;Under Prestige Succession, the son or brother with the most Prestige normally inherits, but prestigious vassals also stand a chance. Wrong-culture characters are disqualified and adults have precedence over children. If the ruler's primary heir is still a child, the realm is lost to one of the vassals. Vasslas with more Prestige than the heir get Claims on the realm.;;;;;;;;;;;;;x
+
+draconic_feudal_government;Dragonlaw;;;;;;;;;;;;;x
+draconic_feudal_government_desc;The rule of this realm have fallen into the claws of powerful dragons. A single dragon can only personally force the control of a small area, having the rest of their realm ruled by their vassals, usually other dragons. With their constant desire for gold, these vassals are often heavily taxed, though they instead maintain greater control over their armies. Your vassals will demand that your heir be a dragon as well for the protection that brings. If control should fall back into the hands of men, your government will revert to Feudal or Iqta.;;;;;;;;;;;;;x,,
+draconic_tribal_government;Dragon Tribe;;;;;;;;;;;;;x
+draconic_tribal_government_desc;It only takes a relatively small number of dragons to rule over small tribes of agrarian humans. Each county can only have one Tribal 'Holding', representing the entire local tribal population - the more empty Holding slots, the more powerful the Tribal Holding. Rulers of dragon tribers are limited to the Gavelkind Succession Law, which tends to fragment the realm between sons on the death of the chief.  Your vassals will demand that your heir be a dragon for the protection that brings.;;;;;;;;;;;;;x
+draconic_governorship;Draconic Governorship;;;;;;;;;;;;;x
+draconic_governorship_desc;Unlike human cities, the leaders of cities ruled by dragons are not elected.  Instead they are initially appointed by their liege, then passed down throughout that ruling family, akin to feudal kingddoms.;;;;;;;;;;;;;x
+draconic_merchant_republic_government;Draconic Merchant Republic;;;;;;;;;;;;;x
+draconic_merchant_republic_government_desc;In the richest ports within the influence of dragons, it's rare to see any one dragon maintain full control of the area.  Instead, political and economic control will be fought over by several families of dragons in the region, each competing for fame, wealth, and power.  Like human patricians, they can also build a network of Trade Posts, even in the counties of other powers...;;;;;;;;;;;;;x
+draconic_theocracy_government;Flamesworn Theocracy;;;;;;;;;;;;;x
+draconic_theocracy_government_desc;Ruling the temples hosting the Eternal Flames, the Flamesworn priests tend to the Eternal Flames and the pilgrims who come to them.  Fighting for the draconic gods, the Flamesworn attract many zealous warriors as well, giving them more military power than most theocracies.;;;;;;;;;;;;;x
+marauding_dragon_government;Marauding Dragon;;;;;;;;;;;;;x
+marauding_dragon_government_desc;Less of a government and more of a band of powerful dragons simply seizing whatever they can get their claws on. They have little interest in holding land beyond what gold it can bring their horde and soldiers thay can force into their growing army.  Empty Holdings slots in open terrain increases the maximum population. While these dragons can have normal vassals, they are mostly concerned with managing the other, few but powerful, major Clans of the tribe.;;;;;;;;;;;;;x
+blood_court_government;Blood Court;;;;;;;;;;;;;x
+blood_court_government_desc;The rulership of this land falls heavily under the influence of a cabal of elder vampires known as the Blood Court.  While largely similar to human feudal realms, the size and influence of this powerful council means that the official ruler holds a weaker grip on the land, and internal politics can be much harsher.  While vampires are immortal and the position is for life, these tense feuds can still lead to power passing hands, albeit at the point of a sharp wooden stake.;;;;;;;;;;;;;x
+
+gov_dragon_monarchy;Draconic Dictatorship;;;;;;;;;;;;;x
+gov_dragon_clan;Dragon Clan;;;;;;;;;;;;;x
+gov_dragon_tribe;Dragon Tribe;;;;;;;;;;;;;x
+gov_draconic_governorship;Draconic Governorship;;;;;;;;;;;;;x
+gov_draconic_merchant_republic;Draconic Merchant Republic;;;;;;;;;;;;;x
+gov_draconic_theocracy;Flamesworn Theocracy;;;;;;;;;;;;;x
+gov_marauding_dragon;Marauding Dragon;;;;;;;;;;;;;x
+gov_blood_court;Blood Court;;;;;;;;;;;;;x
+gov_zombie_horde;Undead Horde;;;;;;;;;;;;;x
+
+governor_baron;Governor;;;;;;;;;;;;;x
+governor_baron_female;Governess;;;;;;;;;;;;;x
+governor_count;Prefect;;;;;;;;;;;;;x
+governor_duke;State Governor;;;;;;;;;;;;;x
+governor_duke_female;State Governess;;;;;;;;;;;;;x
+governor_king;Governor-General;;;;;;;;;;;;;x
+governor_king_female;Governess-General;;;;;;;;;;;;;x
+governor_emperor;President;;;;;;;;;;;;;x# Should be impossible – this government can't be indepenent, and you can't get vassal emperors,,,,,,
+
+tyrant_baron;Lord;;;;;;;;;;;;;x
+tyrant_baron_female;Lord;;;;;;;;;;;;;x
+tyrant_count;Prefect;;;;;;;;;;;;;x
+tyrant_duke;Dictator;;;;;;;;;;;;;x
+tyrant_king;Tyrant-King;;;;;;;;;;;;;x
+tyrant_king_female;Tyrant-Queen;;;;;;;;;;;;;x
+tyrant_emperor;Tyrant-Emperor;;;;;;;;;;;;;x
+tyrant_emperor_female;Tyrant-Emperoress;;;;;;;;;;;;;x
+
+longdragon_baron;Lord;;;;;;;;;;;;;x
+longdragon_baron_female;Lord;;;;;;;;;;;;;x
+longdragon_count;Prefect;;;;;;;;;;;;;x
+longdragon_duke;Dictator;;;;;;;;;;;;;x
+longdragon_king;Tyrant-King;;;;;;;;;;;;;x
+longdragon_king_female;Tyrant-Queen;;;;;;;;;;;;;x
+longdragon_emperor;Tyrant-Emperor;;;;;;;;;;;;;x
+longdragon_emperor_female;Tyrant-Emperoress;;;;;;;;;;;;;x

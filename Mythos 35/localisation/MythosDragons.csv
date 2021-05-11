@@ -1,74 +1,74 @@
-draconic_tributary;Draconic Tribute;;;;;;;;;;;;;
-draconic_tributary_desc;This character pays tribute to a dragon.\nOn death, their heir will take one of the following actions. Percentages are calculated yearly.\n[GetTributeContineTotal];;;;;;;;;;;;;
-STRING_TributeContinueTotal;Continue Paying: §Y[From.tribute_continue_percent.GetValue]§![GetTributeContinueBase];;;;;;;;;;;;;
-STRING_TributeContinueBase;\nBase: §G6§![GetTributeContinueContent];;;;;;;;;;;;;
-STRING_TributeContinueContent;\nContent: §G1§![GetTributeContinueSlothful];;;;;;;;;;;;;
-STRING_TributeContinueSlothful;\nSlothful: §G1§![GetTributeContinueOpinion];;;;;;;;;;;;;
-STRING_TributeContinueOpinion2;\nOpinion: §G2§!\n\n[GetTributePayOffTotal];;;;;;;;;;;;;
-STRING_TributeContinueOpinion0;\nOpinion: §Y0§!\n\n[GetTributePayOffTotal];;;;;;;;;;;;;
-STRING_TributePayOffTotal;Pay Lump Sum: §Y[From.tribute_payoff_percent.GetValue]§![GetTributePayOffBase];;;;;;;;;;;;;
-STRING_TributePayOffBase;\nBase: §G4§![GetTributePayOffWealth];;;;;;;;;;;;;
-STRING_TributePayOffWealth;\nWealth: §R-4§!\n\n[GetTributeVassalTotal];;;;;;;;;;;;;
-STRING_TributePayOffTruce;\nTruce: §G1§![GetTributePayOffHighWealth];;;;;;;;;;;;;
-STRING_TributePayOffWealth6;\nWealth: §G3§!\n\n[GetTributeVassalTotal];;;;;;;;;;;;;
-STRING_TributePayOffWealth4;\nWealth: §G2§!\n\n[GetTributeVassalTotal];;;;;;;;;;;;;
-STRING_TributePayOffWealth3;\nWealth: §G1§!\n\n[GetTributeVassalTotal];;;;;;;;;;;;;
-STRING_TributeVassalTotal;Request Vassalization: §Y[From.tribute_vassal_percent.GetValue]§![GetTributeVassalBase];;;;;;;;;;;;;
-STRING_TributeVassalBase;\nBase: §G4§![GetTributeVassalRank];;;;;;;;;;;;;
-STRING_TributeVassalRank;\nHigh Rank: §R-4§!\n\n[GetTributeWarTotal];;;;;;;;;;;;;
-STRING_TributeVassalLowAmbition;\nLow Ambition: §G1§![GetTributeVassalReligion];;;;;;;;;;;;;
-STRING_TributeVassalReligion;\nReligion: §G1§![GetTributeVassalCulture];;;;;;;;;;;;;
-STRING_TributeVassalCulture;\nCulture: §G1§![GetTributeVassalDynasty];;;;;;;;;;;;;
-STRING_TributeVassalDynasty;\nDynasty: §G2§![GetTributeVassalIncapable];;;;;;;;;;;;;
-STRING_TributeVassalIncapable;\nIncapable: §G2§![GetTributeVassalLover];;;;;;;;;;;;;
-STRING_TributeVassalLover;\nLover: §G1§![GetTributeVassalOpinion];;;;;;;;;;;;;
-STRING_TributeVassalOpinion2;\nOpinion: §G2§![GetTributeVassalSize];;;;;;;;;;;;;
-STRING_TributeVassalOpinion1;\nOpinion: §G1§![GetTributeVassalSize];;;;;;;;;;;;;
-STRING_TributeVassalOpinion0;\nOpinion: §Y0§![GetTributeVassalSize];;;;;;;;;;;;;
-STRING_TributeVassalSize;\nSingle Province Realm: §G2§![GetTributeVassalPower];;;;;;;;;;;;;
-STRING_TributeVassalPower2;\nPower: §G2§![GetTributeVassalDuchy];;;;;;;;;;;;;
-STRING_TributeVassalPower1;\nPower: §G1§![GetTributeVassalDuchy];;;;;;;;;;;;;
-STRING_TributeVassalPower0;\nPower: §Y0§![GetTributeVassalDuchy];;;;;;;;;;;;;
-STRING_TributeVassalDuchy;\nControl of my Duchy: §G1§![GetTributeVassalDeJure];;;;;;;;;;;;;
-STRING_TributeVassalDeJure;\nDe Jure Liege: §G2§![GetTributeVassalHumble];;;;;;;;;;;;;
-STRING_TributeVassalHumble;\nHumble: §G1§![GetTributeVassalNonTribal];;;;;;;;;;;;;
-STRING_TributeVassalNonTribal;\nWrong Government Type: §R-1§![GetTributeVassalProud];;;;;;;;;;;;;
-STRING_TributeVassalProud;\nProud: §R-1§![GetTributeVassalAmbitious];;;;;;;;;;;;;
-STRING_TributeVassalAmbitious;\nAmbitious: §R-2§!\n\n[GetTributeWarTotal];;;;;;;;;;;;;
-STRING_TributeWarTotal;Independence War: §Y[From.tribute_war_percent.GetValue]§![GetTributeWarBase];;;;;;;;;;;;;
-STRING_TributeWarBase;\nBase: §G4§![GetTributeWarAtWar];;;;;;;;;;;;;
-STRING_TributeWarAtWar;\nAt War: §R-4§!;;;;;;;;;;;;;
-STRING_TributeWarTruce;\nTruce: §R-4§!;;;;;;;;;;;;;
-STRING_TributeWarAmbition;\nAmbition: §G1§![GetTributeWarGreed];;;;;;;;;;;;;
-STRING_TributeWarGreed;\nGreed: §G1§![GetTributeWarRival];;;;;;;;;;;;;
-STRING_TributeWarRival;\nRival: §G1§![GetTributeWarHighTier];;;;;;;;;;;;;
-STRING_TributeWarHighTier;\nHigh Rank: §G1§![GetTributeWarOpinion];;;;;;;;;;;;;
-STRING_TributeWarOpinion5;\nOpinion: §G5§![GetTributeWarPower];;;;;;;;;;;;;
-STRING_TributeWarOpinion4;\nOpinion: §G4§![GetTributeWarPower];;;;;;;;;;;;;
-STRING_TributeWarOpinion3;\nOpinion: §G3§![GetTributeWarPower];;;;;;;;;;;;;
-STRING_TributeWarOpinion2;\nOpinion: §G2§![GetTributeWarPower];;;;;;;;;;;;;
-STRING_TributeWarOpinion1;\nOpinion: §G1§![GetTributeWarPower];;;;;;;;;;;;;
-STRING_TributeWarOpinionM4;\nOpinion: §R-4§![GetTributeWarPower];;;;;;;;;;;;;
-STRING_TributeWarOpinionM3;\nOpinion: §R-3§![GetTributeWarPower];;;;;;;;;;;;;
-STRING_TributeWarOpinionM2;\nOpinion: §R-2§![GetTributeWarPower];;;;;;;;;;;;;
-STRING_TributeWarOpinionM1;\nOpinion: §R-1§![GetTributeWarPower];;;;;;;;;;;;;
-STRING_TributeWarOpinion0;\nOpinion: §Y0§![GetTributeWarPower];;;;;;;;;;;;;
-STRING_TributeWarPower4;\nPower: §G4§![GetTributeWarLifestyle];;;;;;;;;;;;;
-STRING_TributeWarPower3;\nPower: §G3§![GetTributeWarLifestyle];;;;;;;;;;;;;
-STRING_TributeWarPower2;\nPower: §G2§![GetTributeWarLifestyle];;;;;;;;;;;;;
-STRING_TributeWarPower1;\nPower: §G1§![GetTributeWarLifestyle];;;;;;;;;;;;;
-STRING_TributeWarPowerM3;\nPower: §R-3§![GetTributeWarLifestyle];;;;;;;;;;;;;
-STRING_TributeWarPowerM2;\nPower: §R-2§![GetTributeWarLifestyle];;;;;;;;;;;;;
-STRING_TributeWarPowerM1;\nPower: §R-1§![GetTributeWarLifestyle];;;;;;;;;;;;;
-STRING_TributeWarPower0;\nPower: §Y0§![GetTributeWarLifestyle];;;;;;;;;;;;;
-STRING_TributeWarLifestyle;\nLifesyle: §G1§![GetTributeWarDesireKing];;;;;;;;;;;;;
-STRING_TributeWarDesireKing;\nDesires to Become King: §G1§![GetTributeWarWroth];;;;;;;;;;;;;
-STRING_TributeWarWroth;\nWroth: §G1§![GetTributeWarBrave];;;;;;;;;;;;;
-STRING_TributeWarBrave;\nBrave: §G1§![GetTributeWarDesiresPeace];;;;;;;;;;;;;
-STRING_TributeWarDesiresPeace;\nDesires Peace: §R-2§![GetTributeWarSmallRealm];;;;;;;;;;;;;
-STRING_TributeWarSmallRealm;\nSmall Realm: §R-2§![GetTributeWarLostWar];;;;;;;;;;;;;
-STRING_TributeWarLostWar;\nLost Last Independence War: §R-2§![GetTributeWarCraven];;;;;;;;;;;;;
-STRING_TributeWarCraven;\nCraven: §R-3§!;;;;;;;;;;;;;
+draconic_tributary;Draconic Tribute;;;;;;;;;;;;;x
+draconic_tributary_desc;This character pays tribute to a dragon.\nOn death, their heir will take one of the following actions. Percentages are calculated yearly.\n[GetTributeContineTotal];;;;;;;;;;;;;x
+STRING_TributeContinueTotal;Continue Paying: §Y[From.tribute_continue_percent.GetValue]§![GetTributeContinueBase];;;;;;;;;;;;;x
+STRING_TributeContinueBase;\nBase: §G6§![GetTributeContinueContent];;;;;;;;;;;;;x
+STRING_TributeContinueContent;\nContent: §G1§![GetTributeContinueSlothful];;;;;;;;;;;;;x
+STRING_TributeContinueSlothful;\nSlothful: §G1§![GetTributeContinueOpinion];;;;;;;;;;;;;x
+STRING_TributeContinueOpinion2;\nOpinion: §G2§!\n\n[GetTributePayOffTotal];;;;;;;;;;;;;x
+STRING_TributeContinueOpinion0;\nOpinion: §Y0§!\n\n[GetTributePayOffTotal];;;;;;;;;;;;;x
+STRING_TributePayOffTotal;Pay Lump Sum: §Y[From.tribute_payoff_percent.GetValue]§![GetTributePayOffBase];;;;;;;;;;;;;x
+STRING_TributePayOffBase;\nBase: §G4§![GetTributePayOffWealth];;;;;;;;;;;;;x
+STRING_TributePayOffWealth;\nWealth: §R-4§!\n\n[GetTributeVassalTotal];;;;;;;;;;;;;x
+STRING_TributePayOffTruce;\nTruce: §G1§![GetTributePayOffHighWealth];;;;;;;;;;;;;x
+STRING_TributePayOffWealth6;\nWealth: §G3§!\n\n[GetTributeVassalTotal];;;;;;;;;;;;;x
+STRING_TributePayOffWealth4;\nWealth: §G2§!\n\n[GetTributeVassalTotal];;;;;;;;;;;;;x
+STRING_TributePayOffWealth3;\nWealth: §G1§!\n\n[GetTributeVassalTotal];;;;;;;;;;;;;x
+STRING_TributeVassalTotal;Request Vassalization: §Y[From.tribute_vassal_percent.GetValue]§![GetTributeVassalBase];;;;;;;;;;;;;x
+STRING_TributeVassalBase;\nBase: §G4§![GetTributeVassalRank];;;;;;;;;;;;;x
+STRING_TributeVassalRank;\nHigh Rank: §R-4§!\n\n[GetTributeWarTotal];;;;;;;;;;;;;x
+STRING_TributeVassalLowAmbition;\nLow Ambition: §G1§![GetTributeVassalReligion];;;;;;;;;;;;;x
+STRING_TributeVassalReligion;\nReligion: §G1§![GetTributeVassalCulture];;;;;;;;;;;;;x
+STRING_TributeVassalCulture;\nCulture: §G1§![GetTributeVassalDynasty];;;;;;;;;;;;;x
+STRING_TributeVassalDynasty;\nDynasty: §G2§![GetTributeVassalIncapable];;;;;;;;;;;;;x
+STRING_TributeVassalIncapable;\nIncapable: §G2§![GetTributeVassalLover];;;;;;;;;;;;;x
+STRING_TributeVassalLover;\nLover: §G1§![GetTributeVassalOpinion];;;;;;;;;;;;;x
+STRING_TributeVassalOpinion2;\nOpinion: §G2§![GetTributeVassalSize];;;;;;;;;;;;;x
+STRING_TributeVassalOpinion1;\nOpinion: §G1§![GetTributeVassalSize];;;;;;;;;;;;;x
+STRING_TributeVassalOpinion0;\nOpinion: §Y0§![GetTributeVassalSize];;;;;;;;;;;;;x
+STRING_TributeVassalSize;\nSingle Province Realm: §G2§![GetTributeVassalPower];;;;;;;;;;;;;x
+STRING_TributeVassalPower2;\nPower: §G2§![GetTributeVassalDuchy];;;;;;;;;;;;;x
+STRING_TributeVassalPower1;\nPower: §G1§![GetTributeVassalDuchy];;;;;;;;;;;;;x
+STRING_TributeVassalPower0;\nPower: §Y0§![GetTributeVassalDuchy];;;;;;;;;;;;;x
+STRING_TributeVassalDuchy;\nControl of my Duchy: §G1§![GetTributeVassalDeJure];;;;;;;;;;;;;x
+STRING_TributeVassalDeJure;\nDe Jure Liege: §G2§![GetTributeVassalHumble];;;;;;;;;;;;;x
+STRING_TributeVassalHumble;\nHumble: §G1§![GetTributeVassalNonTribal];;;;;;;;;;;;;x
+STRING_TributeVassalNonTribal;\nWrong Government Type: §R-1§![GetTributeVassalProud];;;;;;;;;;;;;x
+STRING_TributeVassalProud;\nProud: §R-1§![GetTributeVassalAmbitious];;;;;;;;;;;;;x
+STRING_TributeVassalAmbitious;\nAmbitious: §R-2§!\n\n[GetTributeWarTotal];;;;;;;;;;;;;x
+STRING_TributeWarTotal;Independence War: §Y[From.tribute_war_percent.GetValue]§![GetTributeWarBase];;;;;;;;;;;;;x
+STRING_TributeWarBase;\nBase: §G4§![GetTributeWarAtWar];;;;;;;;;;;;;x
+STRING_TributeWarAtWar;\nAt War: §R-4§!;;;;;;;;;;;;;x
+STRING_TributeWarTruce;\nTruce: §R-4§!;;;;;;;;;;;;;x
+STRING_TributeWarAmbition;\nAmbition: §G1§![GetTributeWarGreed];;;;;;;;;;;;;x
+STRING_TributeWarGreed;\nGreed: §G1§![GetTributeWarRival];;;;;;;;;;;;;x
+STRING_TributeWarRival;\nRival: §G1§![GetTributeWarHighTier];;;;;;;;;;;;;x
+STRING_TributeWarHighTier;\nHigh Rank: §G1§![GetTributeWarOpinion];;;;;;;;;;;;;x
+STRING_TributeWarOpinion5;\nOpinion: §G5§![GetTributeWarPower];;;;;;;;;;;;;x
+STRING_TributeWarOpinion4;\nOpinion: §G4§![GetTributeWarPower];;;;;;;;;;;;;x
+STRING_TributeWarOpinion3;\nOpinion: §G3§![GetTributeWarPower];;;;;;;;;;;;;x
+STRING_TributeWarOpinion2;\nOpinion: §G2§![GetTributeWarPower];;;;;;;;;;;;;x
+STRING_TributeWarOpinion1;\nOpinion: §G1§![GetTributeWarPower];;;;;;;;;;;;;x
+STRING_TributeWarOpinionM4;\nOpinion: §R-4§![GetTributeWarPower];;;;;;;;;;;;;x
+STRING_TributeWarOpinionM3;\nOpinion: §R-3§![GetTributeWarPower];;;;;;;;;;;;;x
+STRING_TributeWarOpinionM2;\nOpinion: §R-2§![GetTributeWarPower];;;;;;;;;;;;;x
+STRING_TributeWarOpinionM1;\nOpinion: §R-1§![GetTributeWarPower];;;;;;;;;;;;;x
+STRING_TributeWarOpinion0;\nOpinion: §Y0§![GetTributeWarPower];;;;;;;;;;;;;x
+STRING_TributeWarPower4;\nPower: §G4§![GetTributeWarLifestyle];;;;;;;;;;;;;x
+STRING_TributeWarPower3;\nPower: §G3§![GetTributeWarLifestyle];;;;;;;;;;;;;x
+STRING_TributeWarPower2;\nPower: §G2§![GetTributeWarLifestyle];;;;;;;;;;;;;x
+STRING_TributeWarPower1;\nPower: §G1§![GetTributeWarLifestyle];;;;;;;;;;;;;x
+STRING_TributeWarPowerM3;\nPower: §R-3§![GetTributeWarLifestyle];;;;;;;;;;;;;x
+STRING_TributeWarPowerM2;\nPower: §R-2§![GetTributeWarLifestyle];;;;;;;;;;;;;x
+STRING_TributeWarPowerM1;\nPower: §R-1§![GetTributeWarLifestyle];;;;;;;;;;;;;x
+STRING_TributeWarPower0;\nPower: §Y0§![GetTributeWarLifestyle];;;;;;;;;;;;;x
+STRING_TributeWarLifestyle;\nLifesyle: §G1§![GetTributeWarDesireKing];;;;;;;;;;;;;x
+STRING_TributeWarDesireKing;\nDesires to Become King: §G1§![GetTributeWarWroth];;;;;;;;;;;;;x
+STRING_TributeWarWroth;\nWroth: §G1§![GetTributeWarBrave];;;;;;;;;;;;;x
+STRING_TributeWarBrave;\nBrave: §G1§![GetTributeWarDesiresPeace];;;;;;;;;;;;;x
+STRING_TributeWarDesiresPeace;\nDesires Peace: §R-2§![GetTributeWarSmallRealm];;;;;;;;;;;;;x
+STRING_TributeWarSmallRealm;\nSmall Realm: §R-2§![GetTributeWarLostWar];;;;;;;;;;;;;x
+STRING_TributeWarLostWar;\nLost Last Independence War: §R-2§![GetTributeWarCraven];;;;;;;;;;;;;x
+STRING_TributeWarCraven;\nCraven: §R-3§!;;;;;;;;;;;;;x
 EVTNAME_DRAGON.1;Dragon Angers Locals;;;;;;;;;;;;;x
 EVTDESC_DRAGON.1;Some local human peasants have come to you complaining that you've been flying around eating their farm animals and burning their lands. You try to explain that no dragon could be expected not to do these things, but they don't seem convinced.;;;;;;;;;;;;;x
 EVTOPTA_DRAGON.1;Pay them off.;;;;;;;;;;;;;x
@@ -83,571 +83,571 @@ EVTOPTC_DRAGON.2;Accept your poverty for now.;;;;;;;;;;;;;x
 EVTNAME_DRAGON.3;You Grow Stronger;;;;;;;;;;;;;x
 EVTDESC_DRAGON.3;As a dragon, the long decades do not wear away at you, but instead make you healthier, and your long experience ruling shows over younger peers. You awaken today feeling wiser than ever before.;;;;;;;;;;;;;x
 EVTOPTA_DRAGON.3;Excellent.;;;;;;;;;;;;;x
-EVTDESC_DRAGON.5;As your hoard grows, so to do does the reputation that comes with it.  Tales of your wealth reach the farthest corners of the land;;;;;;;;;;;;;
-EVTOPTA_DRAGON.5;As well they should.;;;;;;;;;;;;;
-EVTDESC_DRAGON.6;As you rest upon your mountainous hoard, you can practically feel the gold strengthening your soul.  Surely this is why dragons are the world's masters.;;;;;;;;;;;;;
-EVTOPTA_DRAGON.6;And I'll use this strength to get more gold.;;;;;;;;;;;;;
-EVTDESC_DRAGON.7;As my troops ransacked [From.GetBestName]'s treasure room, they managed to grab an interesting artifact that [From.GetSheHe] was hiding.;;;;;;;;;;;;;
-EVTDESC_DRAGON.9;Now that you have come in to your inheritance, you have found that [FromFrom.GetBestName], was paying tribute to a nearby dragon, [dragon_suzerain.GetFirstName].  You've also received an ultimatum from the dragon – either continue this arrangement, or have your realm burnt to the ground.;;;;;;;;;;;;;
-EVTOPTA_DRAGON.9;I guess we have no choice.;;;;;;;;;;;;;
-EVTOPTB_DRAGON.9;We can pay in one lump sum, then stay free.;;;;;;;;;;;;;
-EVTOPTC_DRAGON.9;It's cheaper just to swear fealty;;;;;;;;;;;;;
-EVTOPTD_DRAGON.9;If [dragon_suzerain.GetSheHe] wants it, [dragon_suzerain.GetSheHe] will have to come take it.;;;;;;;;;;;;;
-EVTDESC_DRAGON.10;After the death of [FromFromFrom.GetBestName], [FromFromFrom.GetHerHis] heir, [From.GetBestName] has agreed to continue paying tribute.;;;;;;;;;;;;;
-EVTOPTA_DRAGON.10;Good, that saves time.;;;;;;;;;;;;;
-EVTDESC_DRAGON.11;After the death of [FromFromFrom.GetBestName], [FromFromFrom.GetHerHis] heir, [From.GetBestName] has offered a large sum of money to avoid paying future tribute.;;;;;;;;;;;;;
-EVTOPTA_DRAGON.11;I'll leave [From.GetHerHim] be... for now.;;;;;;;;;;;;;
-EVTTT_DRAGON.11;[From.GetBestName] stops paying tribute.;;;;;;;;;;;;;
-EVTDESC_DRAGON.12;After the death of [FromFromFrom.GetBestName], [FromFromFrom.GetHerHis] heir, [From.GetBestName] has offered to become my vassal rather than paying tribute in gold.;;;;;;;;;;;;;
-EVTOPTA_DRAGON.12;I still get what I want.;;;;;;;;;;;;;
-EVTOPTB_DRAGON.12;No, you will keep paying me tribute;;;;;;;;;;;;;
-EVTTT_DRAGON.12;[From.GetBestName] remains you tributary.;;;;;;;;;;;;;
-EVTDESC_DRAGON.13;After the death of [FromFromFrom.GetBestName], [FromFromFrom.GetHerHis] heir, [From.GetBestName] has rallied [From.GetHerHis] armies to try and stop paying me.;;;;;;;;;;;;;
-EVTOPTA_DRAGON.13;I'll put them in their place.;;;;;;;;;;;;;
-EVTOPTB_DRAGON.13;Let them go - I have more important matters to deal with.;;;;;;;;;;;;;
-EVTDESC_DRAGON.15;We will not stand idly by and allow the realm to fall our of draconic control.  Your human heir is a disgrace and will bring ruin upon us.  The has come for you to name a new heir in their place..  Submit peacefully to this demand or face the consequences\n\nSigned,\n[From.GetTitledName];;;;;;;;;;;;;
-EVTDESC_DRAGON.16;Under the pressure from draconic hardliners, [From.GetTitledName] has agreed to make [FromFrom.GetBestName] [From.GetHerHis] heir.;;;;;;;;;;;;;
-EVTDESC_DRAGON.17;Rather than risking civil war tearing the realm apart, I have decided to give in to your demand and name you my heir.  But this treacherous act of blackmail will not be forgotten...\n\nSigned,\n[From.GetTitledName];;;;;;;;;;;;;
-EVTDESC_DRAGON.18;Rather than letting civil war tear the realm apart, [From.GetTitledName] has agreed to declare me [From.GetHerHis] heir. Your valuable support in this conflict will not be forgotten.\n\nSincerely,\n[FromFrom.GetTitledName];;;;;;;;;;;;;
-EVTDESC_DRAGON.22;I've been receiving more and more reports from my vassals of peasants and merchants worried about their safety with the almost constant arrival of dragons performing heathen rituals in [upset_province.GetName].  They are demanding that I find some way to stop them for coming.;;;;;;;;;;;;;
-EVTDESC_DRAGON.23;The [Root.Religion.GetPriestName]s from [upset_province.GetName] keep complaining to me about having a major heathen site right under their noses and demanding that I find a way to destroy it. It wouldn't be so bad if this “eternal flame” wasn't seemingly indestructable.;;;;;;;;;;;;;
-EVTOPTA_DRAGON.23;Does it look like I haven't tried?;;;;;;;;;;;;;
-EVTDESC_DRAGON.24;[upset_vassal.GetTitledFirstName] came up to me today and insisted that I wasn't doing everything I could to stop the heathen rituals in [upset_province.GetName], saying that I was sinful and impious.;;;;;;;;;;;;;
-EVTOPTA_DRAGON.24;If [upset_vassal.GetSheHe] thinks [upset_vassal.GetSheHe] could do better, then [upset_vassal.GetSheHe] should do it!;;;;;;;;;;;;;
-EVTDESC_DRAGON.25;I've been hearing rumours that, after a visit to [upset_province.GetName], my courtier [converted_courtier.GetFirstName], once a good [converted_courtier.Religion.GetName], has instead embraced the religion of the dragons.;;;;;;;;;;;;;
-EVTOPTA_DRAGON.25;That can't be true, can it?;;;;;;;;;;;;;
-EVTDESC_DRAGON.26;People have been talking about a popular draconic preacher who has shown up in [upset_province.GetName], leading people away from the true [Root.Religion.GetName] faith.;;;;;;;;;;;;;
-EVTOPTA_DRAGON.26;He's too popular to do anything overt.;;;;;;;;;;;;;
-EVTOPTB_DRAGON.26;Arrest him and execute him.;;;;;;;;;;;;;
-EVTDESC_DRAGON.27;As the sickness spreads in [upset_province.GetName], rumors have run wild, claiming that the disease is caused by the profane rituals performed by the draconic pilgrims.  The locals are demanding that I destroy their ritual site to stop the illness.;;;;;;;;;;;;;
-EVTOPTA_DRAGON.27;It's not that easy...;;;;;;;;;;;;;
-EVTDESC_DRAGON.28;Vicious rumors have begun to take root throughout the realm – people throughout my court are claiming that the reason I haven't destroyed the heathen ritual site in [upset_province.GetName] is that I'm secretly leading their unholy rites.;;;;;;;;;;;;;
-EVTOPTA_DRAGON.28;That's preposterous!;;;;;;;;;;;;;
-EVTDESC_DRAGON.29;Several of the [Root.Religion.GetPriestName]s have been complaining of constant conflicts between the local [upset_province.Religion.GetName]s an the draconic pilgrims and are demanding that I do something about it.;;;;;;;;;;;;;
-EVTOPTA_DRAGON.29;Easy. The locals will need to convert, or they die.;;;;;;;;;;;;;
-EVTOPTB_DRAGON.29;If the [Root.Religion.GetPriestName]s have a problem, the [Root.Religion.GetPriestName]s can fix it.;;;;;;;;;;;;;
-EVTOPTC_DRAGON.29;We'll drive out the pilgrims, then.;;;;;;;;;;;;;
-EVTOPTD_DRAGON.29;I'll deliver a speech and smooth things over.;;;;;;;;;;;;;
-EVTDESC_DRAGON.30;Rumors have begun to spread throughout [upset_province.GetName] that I am working to try and destroy the heathen's holy site, known as the “eternal flame” present there.  Guards have found peasants stockpiling arms and local preachers speak out against me.;;;;;;;;;;;;;
-EVTOPTA_DRAGON.30;They better not try anything.;;;;;;;;;;;;;
-EVTDESC_DRAGON.31;I've gathered my council together to try and find a way to destroy this infernal flame the heathens keep worshiping and put a stop to the strife it brings our lands.;;;;;;;;;;;;;
-EVTOPTA_DRAGON.31;We won't stop until it's destroyed;;;;;;;;;;;;;
-EVTDESC_DRAGON.32;Since I no longer directly control the county of [destroy_flame.GetName], the destruction of the flame there is no longer under my control.;;;;;;;;;;;;;
-EVTOPTA_DRAGON.32;I can only hope others continue in my stead.;;;;;;;;;;;;;
-EVTDESC_DRAGON.33;While I was working on a way to destroy the heathen fire in [destroy_flame.GetName], I found that another had beaten me to it – the flame is gone.;;;;;;;;;;;;;
-EVTOPTA_DRAGON.33;My work is finished, then.;;;;;;;;;;;;;
-EVTDESC_DRAGON.35;After a lot of hard work and dedication, we have finally managed to destroy the site of these foul heathen rituals.  No longer shall they bring evil upon our lands.;;;;;;;;;;;;;
-EVTOPTA_DRAGON.35;[Root.Religion.GetHighGodNameCap] be praised!;;;;;;;;;;;;;
-EVTDESC_DRAGON.36;Despite the effort I've gone through, that evil flame still burns in [destroy_flame.GetName].;;;;;;;;;;;;;
-EVTOPTA_DRAGON.36;We have to keep searching;;;;;;;;;;;;;
-EVTOPTB_DRAGON.36;I need to focus my time and money elsewhere;;;;;;;;;;;;;
-keep_searching_flame;Keep searching for a way to destroy it.;;;;;;;;;;;;;
-stop_searching_flame;Stop searching.;;;;;;;;;;;;;
-destroy_flame_success;You successfully destroy the flame;;;;;;;;;;;;;
-destroy_flame_failure;You fail to destroy the flame;;;;;;;;;;;;;
-alternate_plan;You search for an alternate plan;;;;;;;;;;;;;
-EVTDESC_DRAGON.38;Together, we have decided that we should try to bury this heather flame.  If the ground does not smother it, this should at least make it inaccessible.;;;;;;;;;;;;;
-EVTOPTA_DRAGON.38;Let's do it.;;;;;;;;;;;;;
-EVTOPTB_DRAGON.38;We should hire extra workers for this.;;;;;;;;;;;;;
-EVTOPTC_DRAGON.38;Spare no expense.;;;;;;;;;;;;;
-EVTOPTD_DRAGON.38;Let's try and think of a better plan.;;;;;;;;;;;;;
-EVTDESC_DRAGON.40;The best way to stop a magical flame is with more magic.  I will can use my own talents to try to counter the spelling protecting this “eternal flame,” though it may test the limits of my magic, potentially burning them out if I strain too hard.;;;;;;;;;;;;;
-EVTOPTA_DRAGON.40;Let's give it a try.;;;;;;;;;;;;;
-strenuous_casting_1;You will be unable to cast spells for 1 year;;;;;;;;;;;;;
-EVTOPTB_DRAGON.40;I'll give this my all.;;;;;;;;;;;;;
-strenuous_casting_3;You will be unable to cast spells for 3 years;;;;;;;;;;;;;
-EVTOPTC_DRAGON.40;I'll succeed, no matter the cost!;;;;;;;;;;;;;
-EVTOPTD_DRAGON.40;It's not worth the risk.;;;;;;;;;;;;;
-EVTDESC_DRAGON.42;My [Root.GetLordSpiritualName] has suggested that stopping the flame may be beyond my power, but not beyond [Root.Religion.GetRandomGodName].  I should be spending my time in prayer and meditation.;;;;;;;;;;;;;
-EVTOPTA_DRAGON.42;Prayer is the answer.;;;;;;;;;;;;;
-EVTOPTB_DRAGON.42;More than that, I will take a vow of celibacy.;;;;;;;;;;;;;
-EVTOPTC_DRAGON.42;Perhaps something more hands-on would be better.;;;;;;;;;;;;;
-EVTOPTD_DRAGON.42;I will renounce wealth and take a vow of poverty.;;;;;;;;;;;;;
-EVTDESC_DRAGON.44;My [Root.GetMarshalName] has proposed that we line up as much of our military force as possible and hit the heathen fire with a heavy seige bombardment until it's nothing but ruins.;;;;;;;;;;;;;
-EVTOPTA_DRAGON.44;Use what you have.;;;;;;;;;;;;;
-EVTOPTB_DRAGON.44;Dedicate some soldiers to it.;;;;;;;;;;;;;
-EVTOPTC_DRAGON.44;Dedicate the army to it.;;;;;;;;;;;;;
-EVTOPTD_DRAGON.44;There are better uses for our troops.;;;;;;;;;;;;;
-EVTDESC_DRAGON.46;My [Root.GetTreasurerName] has suggested we try and flood the area that that profane flame occupies.  It may put out the flame, but it even it that fails, should cut off access to it.;;;;;;;;;;;;;
-EVTOPTA_DRAGON.46;It's a good plan.;;;;;;;;;;;;;
-EVTOPTB_DRAGON.46;Wall of the surrounding area to contain the water.;;;;;;;;;;;;;
-EVTOPTC_DRAGON.46;Use all the resources you need.;;;;;;;;;;;;;
-EVTOPTD_DRAGON.46;Sorry, I need that money elsewhere;;;;;;;;;;;;;
-EVTDESC_DRAGON.48;In our search for the way to destroy this “eternal flame,” we have found an ancient ritual designed to extinguish them.  However, in order to complete it, I must sacrifice the life of someone closest to me.;;;;;;;;;;;;;
-EVTOPTA_DRAGON.48;I'm not going to sacrifice them.;;;;;;;;;;;;;
-EVTOPTB_DRAGON.48;I will sacrifice [child_sacrifice.GetFirstName].;;;;;;;;;;;;;
-EVTOPTC_DRAGON.48;I will sacrifice [spouse_sacrifice.GetFirstName].;;;;;;;;;;;;;
-EVTOPTD_DRAGON.48;I will sacrifice [lover_sacrifice.GetBestName].;;;;;;;;;;;;;
-EVTOPTE_DRAGON.48;I will sacrifice [friend_sacrifice.GetBestName].;;;;;;;;;;;;;
-EVTDESC_DRAGON.50;If the dragons' rites will bring ruin to my lands, then perhaps their blood will bring ruin to their precious flame.;;;;;;;;;;;;;
-EVTOPTA_DRAGON.50;Round them up. Kill them all, and drown the flame in their blood.;;;;;;;;;;;;;
-butchered_my_people;Butchered my people;;;;;;;;;;;;;
-EVTOPTB_DRAGON.50;I think that's going a bit too far.;;;;;;;;;;;;;
-EVTDESC_DRAGON.51;I now see how much of a fool I was to try and destroy the Eternal Flame.  I did not know how much I put the world at risk.;;;;;;;;;;;;;
-EVTOPTA_DRAGON.51;I now protect it from others like I was.;;;;;;;;;;;;;
-flame_sacrifice;Sacrifice yourself to restore the flame;;;;;;;;;;;;;
-EVTDESC_DRAGON.52;Although creating one of the Eternal Flames if beyond the powers of mortals, there are ancient rituals to reignite one that has been struck from the world.  Unfortunately, the rituals require a willing, noble dragon to sacrifice themself to become the new flame.;;;;;;;;;;;;;
-EVTOPTA_DRAGON.52;I will gladly sacrifice myself so the world may live.;;;;;;;;;;;;;
-EVTOPTB_DRAGON.51;On second thought...;;;;;;;;;;;;;
-EVTTITLE_DRAGON.53;A Flame Extinguished;;;;;;;;;;;;;
-EVTDESC_DRAGON.53;Through the efforts of [From.GetBestName], the once mighty dragon's flame at [destroyed_flame.GetName] has been extinguished.  Once a pillar of faith to the pilgrims and pagan worshipers there, it burns no more.;;;;;;;;;;;;;
-EVTOPTA_DRAGON.53;That [GetFromRootInsult] will burn for this!;;;;;;;;;;;;;
-EVTOPTB_DRAGON.53;The old ways are gone.;;;;;;;;;;;;;
-EVTOPTC_DRAGON.53;I guess that flame wasn't so eternal after all.;;;;;;;;;;;;;
-EVTOPTD_DRAGON.53;Why should I care what one infidel does to another?;;;;;;;;;;;;;
-EVTTITLE_DRAGON.54;The Flame Reborn;;;;;;;;;;;;;
-EVTDESC_DRAGON.54;With a great sacrifice, the [GetRootFromCompliment] dragon, [From.GetBestName] has turned [From.GetHerselfHimself] into a new Eternal Flame in [relit_flame.GetName].;;;;;;;;;;;;;
-EVTOPTA_DRAGON.54;Rejoice!;;;;;;;;;;;;;
-EVTOPTB_DRAGON.54;They still cling to their heathen traditions.;;;;;;;;;;;;;
-EVTDESC_DRAGON.60;I've been searching for an appropriate [Root.GetHusbandWifeOpp] for a while, and my thoughts keep turning towards [From.GetTitledFirstName].  We get along well enough, and I think [From.GetSheHe] might be my type.;;;;;;;;;;;;;
-EVTOPTA_DRAGON.60;I will ask [From.GetHerHim] to marry me.;;;;;;;;;;;;;
-EVTOPTB_DRAGON.60;No, I should keep looking.;;;;;;;;;;;;;
-EVTOPTC_DRAGON.60;Perhaps something less permanent...;;;;;;;;;;;;;
-EVTDESC_DRAGON.62;[From.GetTitledFirstName] has intended to become more pure, but has not done anything about [From.GetHerHis] human [From.GetHusbandWifeOpp].  Perhaps I should speak to [From.GetHerHim] about it.;;;;;;;;;;;;;
-EVTOPTA_DRAGON.62;It's for [From.GetHerHis] own good.;;;;;;;;;;;;;
-EVTOPTB_DRAGON.62;It's not my place.;;;;;;;;;;;;;
-EVTDESC_DRAGON.63;[From.GetTitledFirstName] has been telling me that I need to divorce my human [Root.GetHusbandWifeOpp].  My purity has been on my mind, but haven't been sure if I should go through with it.;;;;;;;;;;;;;
-EVTOPTA_DRAGON.63;Best get it over with quickly.;;;;;;;;;;;;;
-EVTOPTB_DRAGON.63;[From.GetSheHe] should stay out of my affairs.;;;;;;;;;;;;;
-EVTDESC_DRAGON.65;My [GetFromRelation], [From.GetTitledFirstName], wants to be pure, and planned to set aside [From.GetHerHis] human lovers, but still has not done so.;;;;;;;;;;;;;
-EVTOPTA_DRAGON.65;I should talk to [From.GetHerHim].;;;;;;;;;;;;;
-EVTOPTB_DRAGON.65;I don't want to get involved.;;;;;;;;;;;;;
-EVTDESC_DRAGON.66;My [GetRootRelation], [From.GetTitledFirstName], confronted me about my tendency to lay with humans, claiming that it is corrupting my soul.;;;;;;;;;;;;;
-EVTOPTA_DRAGON.66;[From.GetSheHe]'s right – I'll set them aside.;;;;;;;;;;;;;
-EVTOPTB_DRAGON.66;But I like my [Root.GetMenWomenPreference] exotic.;;;;;;;;;;;;;
-EVTDESC_DRAGON.69;If I were to grant some of my land to the Sapphire Flame, I could secure a very useful alliance and curry favor with the gods.;;;;;;;;;;;;;
-offer_county_SF_alliance;Offer this county in exchange for an alliance;;;;;;;;;;;;;
-EVTOPTA_DRAGON.69;I will offer [title_1.GetName].;;;;;;;;;;;;;
-EVTOPTB_DRAGON.69;I will offer [title_2.GetName].;;;;;;;;;;;;;
-EVTOPTC_DRAGON.69;I will offer [title_3.GetName].;;;;;;;;;;;;;
-EVTOPTD_DRAGON.69;On second thought, I'd rather keep this land.;;;;;;;;;;;;;
-EVTOPTE_DRAGON.69;I don't think I have any appropriate land.;;;;;;;;;;;;;
-EVTDESC_DRAGON.70;[FromFrom.GetTitledName] has come forth with an interesting proposal.  [FromFrom.GetSheHeCap] could like to form an alliance with me in exchange for transferring me control of the county of [From.GetName].;;;;;;;;;;;;;
-EVTOPTA_DRAGON.70;That's a good idea.;;;;;;;;;;;;;
-EVTOPTB_DRAGON.70;No, it's not worth it.;;;;;;;;;;;;;
-EVTDESC_DRAGON.71;My esteemed new ally,\nI am intrigued by your suggestion of trading land for an alliance, and have decided to accept your offer. Hopefully this will be a fruitful endeavor for all dragon kind.\n\n[From.GetTitledName];;;;;;;;;;;;;
-EVTDESC_DRAGON.72;To the noble [Root.GetTitledName],\nWhile I am intrigued by your offer of trading land for an alliance, I do not believe it is in either of our best interests for the time being.\n\n[From.GetTitledName];;;;;;;;;;;;;
-EVTDESCA_DRAGON.75;[Root.GetFOA] [Root.GetFullName],\nI would be honored if you would bestow your blessing upon me and intercede in my favor for the gods.  If you are so inclined, I am prepared to make a sizable donation of W¤[FromFrom.GetBlessingDonation]\n\nYour humble servant,\n[FromFrom.GetTitledName];;;;;;;;;;;;;
-EVTDESCB_DRAGON.75;[Root.GetFOA] [Root.GetFullName],\nI would be honored if you would bestow your blessing upon my [GetFromVsFromFromRelation], [From.GetFullName].  If you are so inclined, I am prepared to make a sizable donation of W¤[FromFrom.GetBlessingDonation]\n\nYour humble servant,\n[FromFrom.GetTitledName];;;;;;;;;;;;;
-EVTOPTA_DRAGON.75;The money's good.;;;;;;;;;;;;;
-EVTOPTB_DRAGON.75;Not for you. Not for [From.GetHerHim].;;;;;;;;;;;;;
-EVTDESC_DRAGON.76;May the peace of the gods keep your heart, mind, and soul pure, in this world and the next.\n\n[From.GetTitledName];;;;;;;;;;;;;
-EVTOPTA_DRAGON.76;I've received an official blessing!;;;;;;;;;;;;;
-EVTDESC_DRAGON.77;[Root.GetTitledName],\nI have given my blessing to [FromFrom.GetFullName].  Your generous donation will be put to good use.\n\n[From.GetTitledName];;;;;;;;;;;;;
-EVTOPTA_DRAGON.77;It's just what [FromFrom.GetSheHe] needs.;;;;;;;;;;;;;
-EVTDESC_DRAGON.78;To the [GetFromRootInsult] [Root.GetTitledFirstName],\nYou are unfit to ask any blessing of me for yourself or your kin.  Keep your filthy gold – we need it not.\n\n[From.GetTitledName];;;;;;;;;;;;;
-EVTOPTA_DRAGON.78;That [GetRootFromInsult]!;;;;;;;;;;;;;
-EVTDESC_DRAGON.79;[Root.GetFOA] [Root.GetFullName],\nThe vile [From.Holder.GetTitledName]'s impure soul has profaned our faith long enough.  I humbly request to be granted sanction to claim [From.Holder.GetHerHis] title of [From.GetName] for myself.\n\n[FromFrom.GetTitledName];;;;;;;;;;;;;
-EVTOPTA_DRAGON.79;Yes, [From.Holder.GetSheHe] is not fit to rule [From.GetName].;;;;;;;;;;;;;
-EVTOPTB_DRAGON.79;No, let's give [From.Holder.GetHerHim] time to turn around.;;;;;;;;;;;;;
-EVTDESC_DRAGON.80;Righteous follower of the gods,\nI approve of your request to seize the title of [FromFrom.GetTitle] from the claws of the impure.  May [Root.Religion.GetHighGodName] guide your steps.\n\n[From.GetTitledName];;;;;;;;;;;;;
-EVTOPTA_DRAGON.80;Excellent.;;;;;;;;;;;;;
-EVTDESC_DRAGON.81;[From.GetTitledName],\nAt this time, I do not believe it would be best if you were to claim [FromFrom.GetTitle]. Instead, let us allow [FromFrom.Holder.GetTitledName] time to shape up and purify [FromFrom.Holder.GetHerselfHimself].\n\n[From.GetTitledName];;;;;;;;;;;;;
-EVTOPTA_DRAGON.81;I'll have to find another way to take [FromFrom.GetName].;;;;;;;;;;;;;
-EVTDESC_DRAGON.82;Your holiness,\n My [FromFrom.GetHusbandWifeOpp] is a vile [FromFrom.GetManWomanOpp] who has served only to drag my soul into the depths of impurity.  I beg you, please release me from my marriage to [FromFrom.GetHerHimOpp] in the sight of the gods, for the sake of my soul.\n\n[FromFrom.GetTitledName];;;;;;;;;;;;;
-EVTOPTA_DRAGON.82;I concur – this marriage is no more.;;;;;;;;;;;;;
-EVTOPTB_DRAGON.82;No, you will need to pay [FromFrom.GetHerHimOpp] for a normal divorce.;;;;;;;;;;;;;
-EVTDESC_DRAGON.83;[Root.GetTitledName],\nI have pled before the gods, and you are no longer bound to the [Spouse.GetManWoman] [Spouse.GetDynName].  You are now free to seek a new [Root.GetHusbandWifeOpp].\n\n[From.GetTitledName];;;;;;;;;;;;;
-EVTOPTA_DRAGON.83;Good riddance.;;;;;;;;;;;;;
-EVTDESC_DRAGON.84;[Root.GetDynName],\nThe gods have seen that the marriage between you and [FromFromFrom.GetTitledName] is unfit, and granted lease for it to be terminated.  You are no longer the [Root.GetHusbandWife] of [FromFromFrom.GetDynName] and are free to seek a new [Root.GetHusbandWifeOpp].\n\n[From.GetTitledName];;;;;;;;;;;;;
-EVTOPTA_DRAGON.84;How dare [FromFromFrom.GetSheHe]!;;;;;;;;;;;;;
-EVTDESC_DRAGON.85;[Root.GetTitledName]\nThe gods do not see your present situation as fit grounds for divorce or annulment.  If you wish to break from your [Root.Spouse.GetHusbandWife], you must pay [Root.Spouse.GetHerHim] the divorce fee, as is custom.\n\n[From.GetTitledName];;;;;;;;;;;;;
-EVTOPTA_DRAGON.85;What a waste of money.;;;;;;;;;;;;;
-EVTDESC_DRAGON.86;[Root.GetTitledName],\nIt has come to pass that my heir is not one of dragon kind.  So that our lands may not fall out of draconic claws, grant me leave to disinherit [FromFrom.Heir.GetHerHim].\n\n[FromFrom.GetTitledName];;;;;;;;;;;;;
-EVTOPTA_DRAGON.86;Yes, Dragons are meant to rule, and this human heir to serve.;;;;;;;;;;;;;
-EVTOPTB_DRAGON.86;[FromFrom.GetHerHis] indiscretions are not [FromFrom.GetHerHis] child's fault.;;;;;;;;;;;;;
-EVTDESC_DRAGON.87;[Root.GetTitledName],\nThe role of dragons is to rule, and the role of humans is to serve. Our lands must remain in our control, and so the gods grant your request – [Heir.GetFirstName] shall be stripped of all rights to your wealth and titles in inheritance.\n\n[From.GetTitledName].;;;;;;;;;;;;;
-EVTOPTA_DRAGON.87;The realm is secure.;;;;;;;;;;;;;
-EVTDESC_DRAGON.88;[Root.GetDynName],\nIn light of your birth, it would not be appropriate for you to rule over dragons.  As such, the gods have deemed that you shall receive no inheritance and rule shall pass to another.\n\n[From.GetTitledName];;;;;;;;;;;;;
-EVTOPTA_DRAGON.88;This can't be happening!;;;;;;;;;;;;;
-EVTOPTB_DRAGON.88;We'll see about that.;;;;;;;;;;;;;
-EVTOPTC_DRAGON.88;[FromFromFrom.GetTitledFirstName] will pay for this!;;;;;;;;;;;;;
-EVTOPTD_DRAGON.88;Everyone will pay for this!;;;;;;;;;;;;;
-EVTDESC_DRAGON.89;[Root.GetTitledName],\nThough your child is not a dragon, the gods have not granted your request.  [Root.Heir.GetSheHeCap] should not be the one to suffer for your indiscretions with humans.\n\n[From.GetTitledName];;;;;;;;;;;;;
-EVTOPTA_DRAGON.89;I will find a way.;;;;;;;;;;;;;
-EVTDESC_DRAGON.90;[Root.GetTitledName],\nMy funds have run frighteningly low.  To avoid the disasters that could ensue for dragonkind, I humbly request to borrow a small sum of W¤[From.GoldAmt.GetValue].\n\n[FromFrom.GetTitledName];;;;;;;;;;;;;
-EVTOPTA_DRAGON.90;I can afford it.;;;;;;;;;;;;;
-EVTOPTB_DRAGON.90;I see no reason to pay your debts.;;;;;;;;;;;;;
-EVTDESC_DRAGON.91;[Root.GetTitledName],\nYou shall have the funds you requested, but don't try to pretend this is anything more than you failing to manage your hoard.\n\n[From.GetTitledName];;;;;;;;;;;;;
-EVTOPT_DRAGON.91;I've got my money.;;;;;;;;;;;;;
-EVTDESC_DRAGON.92;[Root.GetTitledName],\nI have declined to send you the money you requested.  It's is important for a dragon to gain gold by their own tooth and claw.  You must rid yourself of your debt on your own.\n\n[From.GetTitledName];;;;;;;;;;;;;
-EVTOPT_DRAGON.92;I'll have to get gold elsewhere.;;;;;;;;;;;;;
-EVTDESC_DRAGON.94;I believe that [From.GetTitledName] has spare room in his land.  Perhaps I could pay to build a temple there to help serve the faithful.;;;;;;;;;;;;;
-EVTOPTA_DRAGON.94;I should make the offer.;;;;;;;;;;;;;
-EVTOPTB_DRAGON.94;I need to hold on to my money.;;;;;;;;;;;;;
-EVTDESC_DRAGON.96;[Root.GetTitledName],\nThere appears to be a large plot of unused land in the county of [From.GetName].  With your permission, I would like to construct a new temple there to aid the faithful and honor the gods.  You will, of course, be compensated for the land required.\n\n[FromFrom.GetTitledName];;;;;;;;;;;;;
-EVTOPTA_DRAGON.96;I could use the money.;;;;;;;;;;;;;
-EVTOPTB_DRAGON.96;My land is my own.;;;;;;;;;;;;;
-EVTDESC_DRAGON.97;[Root.GetTitledName],\nI accept your offer to build a new temple in [FromFrom.GetName].  I believe this deal will benefit us both, as well as the faithful.\n\n[From.GetTitledName];;;;;;;;;;;;;
-EVTOPTA_DRAGON.97;[Root.Religion.GetRandomGodName] be praised!;;;;;;;;;;;;;
-EVTDESC_DRAGON.98;[Root.GetTitledName],\nI'm afraid I already have plans for the land you requested and am unable to grant it to you.\n\n[From.GetTitledName];;;;;;;;;;;;;
-EVTOPTA_DRAGON.98;A pity.;;;;;;;;;;;;;
-EVTDESC_DRAGON.99;Many of the temples I control lie in lands outside of my control. Perhaps I could write to [county_holder.GetTitledName] bout purchasing the county of [targetted_county.GetName].;;;;;;;;;;;;;
-EVTOPTA_DRAGON.99;It would be a solid investment.;;;;;;;;;;;;;
-EVTOPTB_DRAGON.99;I don't think that land is worth the money.;;;;;;;;;;;;;
-EVTDESC_DRAGON.100;[Root.GetTitledName],\nAs you are no doubt aware, I own a temple in the county of [targetted_county.GetName], though you control the surrounding lands.  I believe it would be to great benefit of the draconic faithful if their lands were fully in control of the church.  I am prepared to pay you a great sum of gold for the county, of course.\n\n[From.GetTitledFirstName].;;;;;;;;;;;;;
-EVTOPTA_DRAGON.100;I do need the money...;;;;;;;;;;;;;
-EVTOPTB_DRAGON.100;That's not nearly what [targetted_county.GetName] is worth to me.;;;;;;;;;;;;;
-EVTOPTC_DRAGON.100;I will not cede an inch of [Root.Religion.GetName] land!;;;;;;;;;;;;;
-EVTDESC_DRAGON.101;[From.GetTitledName],\nThough it pains me to part with such land, your gold is good and I have need of it.  I accept your offer.\n\n[From.GetTitledName].;;;;;;;;;;;;;
-EVTOPTA_DRAGON.101;My realm grows.;;;;;;;;;;;;;
-EVTDESC_DRAGON.102;[From.GetTitledName],\nYour offer falls a bit short.  That land is worth more to me than it appears you can afford.\n\n[From.GetTitledName];;;;;;;;;;;;;
-EVTDESC_DRAGON.103;To the [GetFromRootInsult] [Root.GetTitledFirstName],\nI will not give of one inch of the soil of [From.Religion.GetHighGodName]'s chosen.  The only thing you will receive from me is the sword.\n\n[From.GetTitledName];;;;;;;;;;;;;
-EVTOPTA_DRAGON.103;About what I expected.;;;;;;;;;;;;;
-EVTDESC_DRAGON.107;When I came to [From.GetFirstName]'s hoard, I found the [GetRootFromInsult] asleep and [From.GetHerHis] treasure unguarded.;;;;;;;;;;;;;
-EVTOPTA_DRAGON.107;I guess I don't need to fight after all.;;;;;;;;;;;;;
-EVTDESC_DRAGON.108;After everything going on in the court, I felt it was time for a good nap.  But when I woke up, I found that a sizable chunk of my gold was missing!;;;;;;;;;;;;;
-EVTOPTA_DRAGON.108;It must have been my rival, [From.GetTitledName]!;;;;;;;;;;;;;
-EVTDESC_DRAGON.109;My rival, [FromFromFrom.GetTitledName], has announced [FromFromFrom.GetHerHis] intent to attack me and seize my gold!;;;;;;;;;;;;;
-EVTOPTA_DRAGON.109;Perhaps if I were to owe [FromFromFrom.GetHerHim] a favor...;;;;;;;;;;;;;
-EVTOPTB_DRAGON.109;I'll just give [FromFromFrom.GetHerHim] a smaller amount of gold to leave.;;;;;;;;;;;;;
-EVTOPTC_DRAGON.109;Then [FromFromFrom.GetSheHe]'ll have a fight on [FromFromFrom.GetHerHis] claws!;;;;;;;;;;;;;
-EVTDESC_DRAGON.110;That [GetFromRootInsult] [GetTitledFirstName] hopes keep me from attacking [From.GetHerHim] with promises of owing me a favor later.;;;;;;;;;;;;;
-EVTOPTA_DRAGON.110;That sounds like a good deal.;;;;;;;;;;;;;
-EVTOPTB_DRAGON.110;No, I'm here for gold.;;;;;;;;;;;;;
-EVTDESC_DRAGON.111;[From.GetTitledFirstName] has decided to turn over some of their gold without a fight.;;;;;;;;;;;;;
-EVTOPTA_DRAGON.111;I got what I came for;;;;;;;;;;;;;
-EVTDESCA_DRAGON.118;It only took a moment before I was able to drive [challenged_party.GetBestName] down, battered and beaten.  With [challenged_party.GetHerHim] down, I was free to grab all the gold I could carry.;;;;;;;;;;;;;
-EVTDESCB_DRAGON.118;After a brief fight, the cowardly [challenged_party.GetBestName] took off, leaving [challenged_party.GetHerHis] best treasures behind for me to take.;;;;;;;;;;;;;
-EVTOPTA_DRAGON.118;To the victor go the spoils;;;;;;;;;;;;;
-EVTDESCA_DRAGON.119;I thought I could beat [challenger.GetBestName], but the battle quickly turned against me as [challenger.GetSheHe] landed a crippling blow and relentlessly beat on my wounded body.;;;;;;;;;;;;;
-EVTDESCB_DRAGON.119;Perhaps I was a fool to fight [challenger.GetBestName].  [challenger.GetHerHisCap] attacks drove me from my halls and left lasting wounds on my body.;;;;;;;;;;;;;
-EVTOPTA_DRAGON.119;I will find a way to get revenge.;;;;;;;;;;;;;
-EVTDESCA_DRAGON.120;[challenger.GetBestName] was a stronger opponent than I'd thought.  Although I fought will all I had, it wasn't long before my body was too battered to do anything besides watch [challenger.GetHerHim] drag my gold away.;;;;;;;;;;;;;
-EVTDESCB_DRAGON.120;[challenger.GetBestName] was a ferocious opponent.  After a few swipes from [challenger.GetHerHis] claws, I fled, leaving my gold behind, but at least keeping my life.;;;;;;;;;;;;;
-EVTOPTA_DRAGON.120;[challenger.GetSheHeCap] hasn't heard the last of me!;;;;;;;;;;;;;
-EVTDESCA_DRAGON.121;[challenged_party.GetBestName] was a tough opponent, though I still came out of top.  A few of [challenged_party.GetHerHis] attacks managed to tear deeply into my flesh and I fear I may have some lasting injuries.;;;;;;;;;;;;;
-EVTDESCB_DRAGON.121;I managed to drive [challenged_party.GetTitledName] off, though [challenged_party.GetSheHe] left me with a few parting gifts - some injuries that will probably stay with me for some time to come.;;;;;;;;;;;;;
-EVTOPTA_DRAGON.121;At least I still got [challenged_party.GetHerHis] gold.;;;;;;;;;;;;;
-EVTDESCA_DRAGON.122;Although [challenger.GetTitledName] came at me full of confidence, it wasn't long before I completely overpowered [challenger.GetHerHim].  Now it's just a question of what to do with [challenger.GetHerHim].;;;;;;;;;;;;;
-EVTDESCB_DRAGON.122;Although [challenger.GetTitledName] came at me full of confidence, it wasn't long before I drove [challenger.GetHerHim] off.  I was able to chase [challenger.GetHerHim] down and now it's just a question of what to do with [challenger.GetHerHim].;;;;;;;;;;;;;
-EVTOPTA_DRAGON.122;[challenger.GetSheHeCap] must pay reparations.;;;;;;;;;;;;;
-EVTOPTB_DRAGON.122;I have something I'll need help with later.;;;;;;;;;;;;;
-EVTOPTC_DRAGON.122;Break [challenger.GetHerHim] to teach [challenger.GetHerHim] a lesson.;;;;;;;;;;;;;
-EVTOPTD_DRAGON.122;[challenger.GetSheHeCap] doesn't learn. [challenger.GetSheHeCap] must die.;;;;;;;;;;;;;
-EVTOPTE_DRAGON.122;[challenger.GetSheHeCap] must give me [selected_ward.GetFirstName] as a ward.;;;;;;;;;;;;;
-EVTDESCA_DRAGON.123;[challenged_party.GetBestName] was a a stronger opponent than I expected.  [challenged_party.GetSheHeCap] severely injured me and tore at me until I could no longer resist.  Now [challenged_party.GetSheHe] is forcing me to give up my gold in reparations.;;;;;;;;;;;;;
-EVTDESCB_DRAGON.123;[challenged_party.GetBestName] was much tougher than I thought.  After a few wicked blows, I tried to run, but [challenged_party.GetSheHe] caught me and is forcing me to pay reparations for the attack.;;;;;;;;;;;;;
-EVTDESCC_DRAGON.123;I thought I could easily beat [challenged_party.GetTitledName], but [challenged_party.GetSheHe] ground me into the dirt.  Now [challenged_party.GetSheHe] is making pay reparations for the attack.;;;;;;;;;;;;;
-EVTDESCD_DRAGON.123;[challenged_party.GetTitledName] should have been an easy fight, but [challenged_party.GetSheHe] was stronger than I thought.  I tried to flee, but [challenged_party.GetSheHe] caught me and is demanding that I pay [challenged_party.GetHerHim] for the attacks.;;;;;;;;;;;;;
-EVTOPTA_DRAGON.123;That could have gone better.;;;;;;;;;;;;;
-EVTDESCA_DRAGON.124;[challenged_party.GetBestName] was a a stronger opponent than I expected.  [challenged_party.GetSheHeCap] severely injured me and tore at me until I could no longer resist.  [challenged_party.GetSheHeCap] is demanding my support in [challenged_party.GetHerHis] future political plans;;;;;;;;;;;;;
-EVTDESCB_DRAGON.124;[challenged_party.GetBestName] was much tougher than I thought.  After a few wicked blows, I tried to run, but [challenged_party.GetSheHe] caught me and is demanding my aid in [challenged_party.GetHerHis] political plans.;;;;;;;;;;;;;
-EVTDESCC_DRAGON.124;I thought I could easily beat [challenged_party.GetTitledName], but [challenged_party.GetSheHe] ground me into the dirt.  Now [challenged_party.GetSheHe] is demanding my political support in exchange for my life.;;;;;;;;;;;;;
-EVTDESCD_DRAGON.124;[challenged_party.GetTitledName] should have been an easy fight, but [challenged_party.GetSheHe] was stronger than I thought.  I tried to flee, but [challenged_party.GetSheHe] caught me and is demanding that I aiid [challenged_party.GetHerHim] in some political schemes.;;;;;;;;;;;;;
-EVTOPTA_DRAGON.124;That could have gone better.;;;;;;;;;;;;;
-EVTDESCA_DRAGON.125;[challenged_party.GetBestName] was a a stronger opponent than I expected.  [challenged_party.GetSheHeCap] severely injured me and tore at me until I could no longer resist.  Now [challenged_party.GetSheHe] has decided to injure me even further as a “lesson.”;;;;;;;;;;;;;
-EVTDESCB_DRAGON.125;[challenged_party.GetBestName] was much tougher than I thought.  After a few wicked blows, I tried to run, but [challenged_party.GetSheHe] caught me and deliberately injured me further to keep me from attacking again.;;;;;;;;;;;;;
-EVTDESCC_DRAGON.125;I thought I could easily beat [challenged_party.GetTitledName], but [challenged_party.GetSheHe] ground me into the dirt and debilerately injured me to teach me a “lesson.”;;;;;;;;;;;;;
-EVTDESCD_DRAGON.125;[challenged_party.GetTitledName] should have been an easy fight, but [challenged_party.GetSheHe] was stronger than I thought.  I tried to flee, but [challenged_party.GetSheHe] caught me and decided to teach me a lesson by deliberately maiming me.;;;;;;;;;;;;;
-EVTOPTA_DRAGON.125;Ouch.;;;;;;;;;;;;;
-EVTDESCA_DRAGON.126;[challenged_party.GetBestName] was a a stronger opponent than I expected.  [challenged_party.GetSheHeCap] severely injured me and tore at me until I could no longer resist.  As I lost conciousness, I could feel [challenged_party.GetHerHis] jaws closing around my throat...;;;;;;;;;;;;;
-EVTDESCB_DRAGON.126;[challenged_party.GetBestName] was much tougher than I thought.  After a few wicked blows, I tried to run, but [challenged_party.GetSheHe] caught me and began to tear out my throat...;;;;;;;;;;;;;
-EVTOPTA_DRAGON.126;This is it.;;;;;;;;;;;;;
-EVTDESCA_DRAGON.127;[challenged_party.GetBestName] was a a stronger opponent than I expected.  [challenged_party.GetSheHeCap] severely injured me and tore at me until I could no longer resist.  Instead of taking my gold as I expected, [challenged_party.GetSheHe] is demanding that I hand over [selected_ward.GetFullName] to [challenged_party.GetHerHis] “care.”;;;;;;;;;;;;;
-EVTDESCB_DRAGON.127;[challenged_party.GetBestName] was much tougher than I thought.  I tried to run, but no no avail. Now, instead of taking my gold as I expected, [challenged_party.GetSheHe] is demanding that I hand over [selected_ward.GetFullName] to [challenged_party.GetHerHis] “care.”;;;;;;;;;;;;;
-EVTDESCC_DRAGON.127;I thought I could easily beat [challenged_party.GetTitledName], but [challenged_party.GetSheHe] ground me into the dirt and instead of taking my gold as I expected, [challenged_party.GetSheHe] is demanding that I hand over [selected_ward.GetFullName] to [challenged_party.GetHerHis] “care.”;;;;;;;;;;;;;
-EVTDESCD_DRAGON.127;[challenged_party.GetTitledName] should have been an easy fight, but [challenged_party.GetSheHe] was stronger than I thought.  I tried to flee, but [challenged_party.GetSheHe] caught me and demanded that I hand over [selected_ward.GetFullName] to [challenged_party.GetHerHis] “care.”;;;;;;;;;;;;;
-EVTOPTA_DRAGON.127;I guess I have no choice.;;;;;;;;;;;;;
-EVTDESCA_DRAGON.128;Although [challenger.GetTitledName] came at me full of confidence, and while [challenger.GetSheHe] managed to injure me, I fought through the pain and won.  Now it's just a question of what to do with [challenger.GetHerHim].;;;;;;;;;;;;;
-EVTDESCB_DRAGON.128;Although [challenger.GetTitledName] came at me full of confidence, it wasn't long before I drove [challenger.GetHerHim] off.  I was injured, but I was able to chase [challenger.GetHerHim] down and now it's just a question of what to do with [challenger.GetHerHim].;;;;;;;;;;;;;
-EVTDESC_DRAGON.129;After a fierce battle, I stand victorious while [challenger.GetTitledName] lies dead at my feet.  Now, our rivalry has ended.;;;;;;;;;;;;;
-EVTDESC_DRAGON.130;I fought as hard as I could, but it wasn't to be.  [From.GetTitledName] was too strong and landed blow after blow until one of them was fatal.;;;;;;;;;;;;;
-EVTOPTA_DRAGON.130;This is the end.;;;;;;;;;;;;;
-EVTDESC_DRAGON.131;After a fierce battle, I stand victorious while [challenged_party.GetTitledName] lies dead at my feet.  Now, our rivalry has ended.;;;;;;;;;;;;;
-EVTDESC_DRAGON.133;Although [challenger.GetTitledName] came at me full of confidence, and while [challenger.GetSheHe] managed to injure me, I fought through the pain and won.  Now [challenger.GetSheHe] lies dead at my feet.;;;;;;;;;;;;;
-EVTOPTA_DRAGON.133;What is mine stays mine.;;;;;;;;;;;;;
-EVTDESC_DRAGON.134;Though [challenged_party.GetTitledName] fought fiercely and even managed to wound me, in the end I stood over [challenged_party.GetHerHis] beaten corpse.  My rival is dead and [challenged_party.GetHerHis] treasures are mine.;;;;;;;;;;;;;
-EVTOPTA_DRAGON.134;It was worth the pain;;;;;;;;;;;;;
-EVTDESC_DRAGON.135;While taking my rightful gold from [raid_loser.GetTitledName]'s hoard, I came across a [stolen_artifact.GetName] that suit my collection quite nicely.;;;;;;;;;;;;;
-EVTOPTA_DRAGON.135;It was too good for [raid_loser.GetHerHim] anyway.;;;;;;;;;;;;;
-EVTDESC_DRAGON.136;Not content with what [From.GetSheHe] has already taken from me, [From.GetTitledName] came across my [stolen_artifact.GetName] and felt the need to steal that as well!;;;;;;;;;;;;;
-EVTOPTA_DRAGON.136;This is just further insult!;;;;;;;;;;;;;
-EVTDESC_DRAGON.137;[From.GetTitledFirstName] has accepted my promise of political aid.  The fight has been avoided for now.;;;;;;;;;;;;;
-EVTOPTA_DRAGON.137;I don't think I've heard the last of this.;;;;;;;;;;;;;
-EVTDESC_DRAGON.138;[From.GetTitledFirstName] has rejected my offer of peace.  Now we will meet on the field of battle.;;;;;;;;;;;;;
-EVTOPTA_DRAGON.138;[From.GetSheHeCap]'ll regret that decision.;;;;;;;;;;;;;
-EVTDESC_DRAGON.139;As we both clashed and tore at each other, our injuries began to bare down on us.  Soon, we were both too weak to do anything more than lie and watch the other bleed out.;;;;;;;;;;;;;
-EVTOPTA_DRAGON.139;Our rivalry has destroyed us both.;;;;;;;;;;;;;
-EVTDESC_DRAGON.141;The coffers of the Sapphire Flame are full and the faithful are struggling against infidels and heathens. Perhaps we should provide some assistance.;;;;;;;;;;;;;
-EVTOPTA_DRAGON.141;Send an envoy with funds;;;;;;;;;;;;;
-EVTOPTB_DRAGON.141;Our purity depends on our gold.;;;;;;;;;;;;;
-EVTDESC_DRAGON.142;Your righteous struggle against the impure foreigner has not gone unnoticed. I have dispatched an emissary with sufficient funds to assist you.;;;;;;;;;;;;;
-EVTOPTA_DRAGON.142;Our pure souls shall prevail!;;;;;;;;;;;;;
-EVTDESC_DRAGON.143;An emissary from [From.GetTitledFirstName] has reached us with a proposal. [From.GetTitle] will grant us absolution for our sins of kinslaying.;;;;;;;;;;;;;
-EVTOPTA_DRAGON.143;The purity of gold for my reputation.;;;;;;;;;;;;;
-EVTOPTB_DRAGON.143;That gold brings purity to my soul.;;;;;;;;;;;;;
-EVTDESC_DRAGON.144;[From.GetTitledFirstName] has paid for [From.GetHerHis] grave sin of kinslaying. Absolution has been granted and the Sapphire Flame's hoard grows.;;;;;;;;;;;;;
-EVTOPTA_DRAGON.144;Praise [Root.Religion.GetRandomGodName]!;;;;;;;;;;;;;
-EVTDESC_DRAGON.145;[From.GetTitledFirstName] refuses to pay for [From.GetHerHis] grave sin of kinslaying.;;;;;;;;;;;;;
-EVTOPTA_DRAGON.145;[From.GetSheHeCap] will find the world has little mercy for [From.GetHerHim].;;;;;;;;;;;;;
-EVTDESC_DRAGON.146;There are rumors that one of the rulers of dragonkind is employing a heathen in their court, claiming a foreign god that grants paradise to the impure. This heathen must be removed for the sake of this ruler's soul.;;;;;;;;;;;;;
-EVTOPTA_DRAGON.146;Demand adherence to the Eternal Flames!;;;;;;;;;;;;;
-EVTOPTB_DRAGON.146;This is not our concern.;;;;;;;;;;;;;
-EVTDESC_DRAGON.147;An emissary from [From.GetTitledFirstName] has arrived in our court. According to the emissary, the church are concerned about our employment of heathens as advisors.  The Sapphire Flame is asking of me to remove them from their position.;;;;;;;;;;;;;
-EVTOPTB_DRAGON.147;Imprison the heathen!;;;;;;;;;;;;;
-EVTOPTC_DRAGON.147;I rule in my realm!;;;;;;;;;;;;;
-EVTDESC_DRAGON.148;An emissary has returned from [From.GetBestName] bearing glorious news. The emissary says that [From.GetTitledFirstName] has agreed to imprison a heathen that was in [From.GetHerHis] court.;;;;;;;;;;;;;
-EVTOPTA_DRAGON.148;Glory to [Root.Religion.GetHighGodName]!;;;;;;;;;;;;;
-EVTDESC_DRAGON.149;[From.GetBestName] toys with the sanctity of [From.GetHerHis] soul. An emissary from [From.GetHerHis] realm is stating that [From.GetSheHe] refuses to follow our demands.;;;;;;;;;;;;;
-EVTOPTA_DRAGON.149;[From.GetSheHeCap] will be lead astray!;;;;;;;;;;;;;
-EVTDESC_DRAGON.151;It seems that [From.GetTitledName] has grown envious of my wealth and power - and why shouldn't [From.GetSheHe] be?  This could cause problems if [From.GetSheHe] decides to do more than just brood about this.;;;;;;;;;;;;;
-EVTOPTA_DRAGON.151;[From.GetSheHeCap] will regret it if [From.GetSheHe] crosses me.;;;;;;;;;;;;;
-EVTDESCA_DRAGON.152;[From.GetBestName] has been flaunting [From.GetHerHis] wealth whenever [From.GetSheHe] is around me, trying to show me up.  I should put [From.GetHerHim] in [From.GetHerHis] place!;;;;;;;;;;;;;
-EVTDESCB_DRAGON.152;I've heard tales that [From.GetTitledName] has a hoard than dwarfs even mine.  If this turns out to be true, the realm will look weak.  I cannot allow [From.GetHerHim] to overshadow me.;;;;;;;;;;;;;
-EVTOPTA_DRAGON.152;I think I have a new rival.;;;;;;;;;;;;;
-EVTDESC_DRAGON.153;One of [Root.Religion.GetHighGodName]'s favored children seems to have been accused of kinslaying. This is clearly unfortunate.  We could absolve them of this, in exchange for increasing our hoard.;;;;;;;;;;;;;
-EVTOPTA_DRAGON.153;The Sapphire Flame will offer them absolution.;;;;;;;;;;;;;
-EVTOPTB_DRAGON.153;They don't deserve absolution.;;;;;;;;;;;;;
-EVTDESC_DRAGON.157;I've recently been interested in other dragons in history, and I've found that we've had a rich and unique culture.  I don't understand why we don't follow these old traditions.;;;;;;;;;;;;;
-EVTOPTA_DRAGON.157;I should ask my [GetFromRelation] about this.;;;;;;;;;;;;;
-EVTOPTB_DRAGON.157;No, being [Root.Culture.GetName] is good.;;;;;;;;;;;;;
-EVTDESC_DRAGON.158;[From.GetTitledName] has been asking about [From.GetHerHis] draconic heritage. Perhaps I should help instruct [From.GetHerHim] in old draconic traditions.;;;;;;;;;;;;;
-EVTOPTA_DRAGON.158;[From.GetSheHeCap] should embrace [From.GetHerHis] heritage.;;;;;;;;;;;;;
-EVTOPTB_DRAGON.158;No, [From.GetSheHe] should be raised in the proper [From.Culture.GetAdjective] way.;;;;;;;;;;;;;
-EVTDESC_DRAGON.159;[From.GetFirstName] had agreed to teach me about old draconic traditions.;;;;;;;;;;;;;
-EVTOPTA_DRAGON.159;This will be fun!;;;;;;;;;;;;;
-EVTDESC_DRAGON.160;[From.GetFirstName] won't help me learn about old dragon traditions.;;;;;;;;;;;;;
-EVTOPTA_DRAGON.160;Too bad.;;;;;;;;;;;;;
-EVTDESC_DRAGON.163;I've spent a lot of time reading about dragons and their gods like Tiamat, Nidhogg, and Zirnita.  They seem so powerful and interesting.;;;;;;;;;;;;;
-EVTOPTA_DRAGON.163;I wonder why they aren't worshiped any more.;;;;;;;;;;;;;
-EVTOPTB_DRAGON.163;They're just stories.;;;;;;;;;;;;;
-EVTDESC_DRAGON.164;Young [From.GetTitledName] has been reading legends of the old draconic gods and begun to question [From.GetHerHis] faith in [From.Religion.GetHighGodName].;;;;;;;;;;;;;
-EVTOPTA_DRAGON.164;It's natural for a dragon to wish to worship the gods of their ancestors.;;;;;;;;;;;;;
-EVTOPTB_DRAGON.164;I cannot allow [From.GetHerHim] to be tempted by [Root.Religion.GetRandomEvilGodName].;;;;;;;;;;;;;
-EVTDESC_DRAGON.165;[From.GetTitledFirstName] told me that there are still some who worship the dragon gods and has begun to show me their rites and rituals.;;;;;;;;;;;;;
-EVTOPTA_DRAGON.165;This is what I hoped for.;;;;;;;;;;;;;
-EVTDESC_DRAGON.166;[From.GetTitledFirstName] heard about my interest in the draconic legends and has taken to lecturing me at length about sin and heathenism.;;;;;;;;;;;;;
-EVTOPTA_DRAGON.166;Perhaps I shouldn't read those anymore if this is the result.;;;;;;;;;;;;;
-EVTDESC_DRAGON.167;[Root.GetTitledFirstName], \nWhile it pleases me that you wish to serve under me, you will serve me better as a tribute than you would as my vassal. Your predecessor's arrangement will continue.\n\n[From.GetTitledFirstName];;;;;;;;;;;;;
-EVTOPTA_DRAGON.167;That's disappointing.;;;;;;;;;;;;;
-EVTDESC_DRAGON.168;[Root.GetTitledFirstName], \nI have more important matters to attend to than crushing your weak revolt.  Consider yourself free from your obligations to me for now.\n\n[From.GetTitledFirstName];;;;;;;;;;;;;
-EVTOPTA_DRAGON.168;That was easier than I expected.;;;;;;;;;;;;;
-tt_request_sf_loan;Request a loan of [Root.GoldAmt]¤ from the Sapphire Flame, paying back one quarter of your yearly income each your for 10 years;;;;;;;;;;;;;
-EVTDESC_DRAGON.171;Though my request is only for a small sum of [From.GoldAmt]¤, it appears that the coffers of the Sapphire Flame cannot afford it at this time.;;;;;;;;;;;;;
-EVTDESC_DRAGON.174;After ten long years, I have finally paid off my loan to the Sapphire Flame.;;;;;;;;;;;;;
-EVTDESCDragonPilgrimage.1;It's expected that every dragon will eventually lend their breath to the Eternal Flames.  Now seems like a good time.;;;;;;;;;;;;;
-EVTOPTDragonPilgrimage.1;I'll make travel plans.;;;;;;;;;;;;;
-EVTOPTBDragonPilgrimage.1;I will visit the temple.;;;;;;;;;;;;;
-EVTDESCDragonPilgrimage.2;There are two eternal flames in the isles.;;;;;;;;;;;;;
-EVTDESCBDragonPilgrimage.2;With the continental Eternal Flames destroyed by the humans, I will need to travel to the western isles to visit the flames there.;;;;;;;;;;;;;
-EVTOPTADragonPilgrimage.2;I will visit the flame in Galloway;;;;;;;;;;;;;
-EVTOPTBDragonPilgrimage.2;I will aid the flame in Kent;;;;;;;;;;;;;
-CHRONICLE_PILGRIMAGE_TO_GALLOWAY;[Root.GetTitledName] took a pious pilgrimage to strengthen the Eternal Flame in Galloway.;;;;;;;;;;;;;
-CHRONICLE_PILGRIMAGE_TO_KENT;[Root.GetTitledName] took a pious pilgrimage to strengthen the Eternal Flame in Kent.;;;;;;;;;;;;;
-EVTDESCDragonPilgrimage.3;There are three flames I can reach by land.;;;;;;;;;;;;;
-EVTDESCBDragonPilgrimage.3;With the Flames on the isles destroyed by the humans, I will need to sail across the channel to seek one of the flames on the mainland.;;;;;;;;;;;;;
-EVTOPTADragonPilgrimage.3;I will renew the flame in Sjaelland.;;;;;;;;;;;;;
-EVTOPTBDragonPilgrimage.3;I will travel to Uppland.;;;;;;;;;;;;;
-EVTOPTCDragonPilgrimage.3;I will see the southern flame in Plock.;;;;;;;;;;;;;
-CHRONICLE_PILGRIMAGE_TO_SJAELLAND;[Root.GetTitledName] took a pious pilgrimage to strengthen the Eternal Flame in Sjaelland.;;;;;;;;;;;;;
-CHRONICLE_PILGRIMAGE_TO_UPPLAND;[Root.GetTitledName] took a pious pilgrimage to strengthen the Eternal Flame in Uppland.;;;;;;;;;;;;;
-CHRONICLE_PILGRIMAGE_TO_PLOCK;[Root.GetTitledName] took a pious pilgrimage to strengthen the Eternal Flame in Plock.;;;;;;;;;;;;;
-EVTDESCDragonPilgrimage.4;My things are packed, everything is in order. Soon, I shall see fair Galloway and its Eternal Flame.;;;;;;;;;;;;;
-OPT_JOURNEY;My journey begins!;;;;;;;;;;;;;
-EVTDESCDragonPilgrimage.5;I have my traveling supplies ready.  I shall strike out to strengthen the Eternal Flame in Kent, where dragons first landed on the isles.;;;;;;;;;;;;;
-EVTDESCDragonPilgrimage.6;My things are packed, everything is in order. Soon, I shall lend my strength to the central flame in Sjaelland;;;;;;;;;;;;;
-EVTDESCDragonPilgrimage.7;I already live only a short distance from one of the Eternal Flames. I will present myself to the temple and prepare to aid it.;;;;;;;;;;;;;
-EVTOPTADragonPilgrimage.7;I shall stay here, then.;;;;;;;;;;;;;
-EVTDESCDragonPilgrimage.8;Everything is packed.  It's time to go to [Root.GetLandvaettirKampe]'s eternal flame in Uppland.;;;;;;;;;;;;;
-EVTDESCDragonPilgrimage.9;I have my traveling supplies ready.  I shall strike out to strengthen [Root.GetWawelDelphyne]'s Eternal Flame in Plock;;;;;;;;;;;;;
-EVTNAMEDragonPilgrimage.10;Galloway;;;;;;;;;;;;;
-EVTDESCDragonPilgrimage.10;We have finally arrived in Galloway.  We will pay a visit to the temple at Whithorn, then head north to visit the Eternal Flame at Torhouse.  Legends say that this flame was created by the god [Root.GetDewiSybaris] to protect and support the dragons furthest in the west.  The flame burns without fuel or tinder above three stones at the center of a stone circle.;;;;;;;;;;;;;
-EVTOPTADragonPilgrimage.10;A green and pleasant land!;;;;;;;;;;;;;
-EVTDESCDragonPilgrimage.11;The rain has been pouring down for days.  It's been impossible to make and progress on the flooded roads, and traveling through plains or woods in this weather is slow and miserable.;;;;;;;;;;;;;
-EVTOPTADragonPilgrimage.11;This is a test of my faith and dedication.;;;;;;;;;;;;;
-EVTOPTBDragonPilgrimage.11;This is a waste of time.  I should have stayed home.;;;;;;;;;;;;;
-EVTDESCDragonPilgrimage.12;You look out across the beautiful valley stretching out before you. It would be a wonderful moment, if not for the fact that there should be no valley here. You are a pilgrim in an unfamiliar land and you have no idea where you are.;;;;;;;;;;;;;
-EVTOPTADragonPilgrimage.12;If only I hadn't listened to those useless humans that gave me directions.;;;;;;;;;;;;;
-EVTOPTBDragonPilgrimage.12;If only I'd listened more to those humans that gave me directions.;;;;;;;;;;;;;
-EVTDESCDragonPilgrimage.13;Much of the trip has been through the outskirts of land, on roads not protected by any chief or king.  This has become all too apparent as we came across a group of brigands demanding a 'toll' in exchange for safe passage.;;;;;;;;;;;;;
-EVTOPTADragonPilgrimage.13;Pay up.;;;;;;;;;;;;;
-EVTOPTBDragonPilgrimage.13;I'll pay with claw and sword!;;;;;;;;;;;;;
-EVTDESCDragonPilgrimage.14;The old wooden bridge has carried many pilgrims in its day. It creaks suspiciously as you step on it.;;;;;;;;;;;;;
-EVTOPTADragonPilgrimage.14;No time to stop. I'm sure it will hold.;;;;;;;;;;;;;
-EVTOPTBDragonPilgrimage.14;Stop and repair it.;;;;;;;;;;;;;
-EVTOPTCDragonPilgrimage.14;These people deserve a stone bridge.  I will pay for its construction.;;;;;;;;;;;;;
-EVTDESCDragonPilgrimage.15;As winter sets in, the weather beings to turn.  A blizzard has set in and the road in becoming increasingly difficult.;;;;;;;;;;;;;
-EVTOPTADragonPilgrimage.15;We need to push on;;;;;;;;;;;;;
-EVTOPTBDragonPilgrimage.15;We will stay a few days at the next inn we come across.;;;;;;;;;;;;;
-EVTDESCDragonPilgrimage.16;You lie awake at night, pondering the purpose of your journey.  Every dragon is supposed to lend their breath to the Eternal Flames, but so few do.  What would happen if they went out? Could they not just be reignited? And while they protected the dragons of old, do they still server some higher purpose?;;;;;;;;;;;;;
-EVTOPTADragonPilgrimage.16;I will trust the gods and heed their commands.;;;;;;;;;;;;;
-EVTOPTBDragonPilgrimage.16;I already started the journey, so I may as well finish it.  That's reason enough.;;;;;;;;;;;;;
-EVTDESCDragonPilgrimage.17;I my journey, I met a human along the road.  When I told [curious_human.GetHerHim] why I was traveling, they were curious about my faith.  I explained our history and beliefs about dragons' souls when [curious_human.GetSheHe] asked where humans fit in.;;;;;;;;;;;;;
-EVTOPTADragonPilgrimage.17;Human souls are strengthened through hard work.;;;;;;;;;;;;;
-EVTOPTBDragonPilgrimage.17;I don't know... I should look in to that for you.;;;;;;;;;;;;;
-EVTOPTCDragonPilgrimage.17;Humans don't matter.;;;;;;;;;;;;;
-EVTNAMEDragonPilgrimage.18;The Flood;;;;;;;;;;;;;
+EVTDESC_DRAGON.5;As your hoard grows, so to do does the reputation that comes with it.  Tales of your wealth reach the farthest corners of the land;;;;;;;;;;;;;x
+EVTOPTA_DRAGON.5;As well they should.;;;;;;;;;;;;;x
+EVTDESC_DRAGON.6;As you rest upon your mountainous hoard, you can practically feel the gold strengthening your soul.  Surely this is why dragons are the world's masters.;;;;;;;;;;;;;x
+EVTOPTA_DRAGON.6;And I'll use this strength to get more gold.;;;;;;;;;;;;;x
+EVTDESC_DRAGON.7;As my troops ransacked [From.GetBestName]'s treasure room, they managed to grab an interesting artifact that [From.GetSheHe] was hiding.;;;;;;;;;;;;;x
+EVTDESC_DRAGON.9;Now that you have come in to your inheritance, you have found that [FromFrom.GetBestName], was paying tribute to a nearby dragon, [dragon_suzerain.GetFirstName].  You've also received an ultimatum from the dragon – either continue this arrangement, or have your realm burnt to the ground.;;;;;;;;;;;;;x
+EVTOPTA_DRAGON.9;I guess we have no choice.;;;;;;;;;;;;;x
+EVTOPTB_DRAGON.9;We can pay in one lump sum, then stay free.;;;;;;;;;;;;;x
+EVTOPTC_DRAGON.9;It's cheaper just to swear fealty;;;;;;;;;;;;;x
+EVTOPTD_DRAGON.9;If [dragon_suzerain.GetSheHe] wants it, [dragon_suzerain.GetSheHe] will have to come take it.;;;;;;;;;;;;;x
+EVTDESC_DRAGON.10;After the death of [FromFromFrom.GetBestName], [FromFromFrom.GetHerHis] heir, [From.GetBestName] has agreed to continue paying tribute.;;;;;;;;;;;;;x
+EVTOPTA_DRAGON.10;Good, that saves time.;;;;;;;;;;;;;x
+EVTDESC_DRAGON.11;After the death of [FromFromFrom.GetBestName], [FromFromFrom.GetHerHis] heir, [From.GetBestName] has offered a large sum of money to avoid paying future tribute.;;;;;;;;;;;;;x
+EVTOPTA_DRAGON.11;I'll leave [From.GetHerHim] be... for now.;;;;;;;;;;;;;x
+EVTTT_DRAGON.11;[From.GetBestName] stops paying tribute.;;;;;;;;;;;;;x
+EVTDESC_DRAGON.12;After the death of [FromFromFrom.GetBestName], [FromFromFrom.GetHerHis] heir, [From.GetBestName] has offered to become my vassal rather than paying tribute in gold.;;;;;;;;;;;;;x
+EVTOPTA_DRAGON.12;I still get what I want.;;;;;;;;;;;;;x
+EVTOPTB_DRAGON.12;No, you will keep paying me tribute;;;;;;;;;;;;;x
+EVTTT_DRAGON.12;[From.GetBestName] remains you tributary.;;;;;;;;;;;;;x
+EVTDESC_DRAGON.13;After the death of [FromFromFrom.GetBestName], [FromFromFrom.GetHerHis] heir, [From.GetBestName] has rallied [From.GetHerHis] armies to try and stop paying me.;;;;;;;;;;;;;x
+EVTOPTA_DRAGON.13;I'll put them in their place.;;;;;;;;;;;;;x
+EVTOPTB_DRAGON.13;Let them go - I have more important matters to deal with.;;;;;;;;;;;;;x
+EVTDESC_DRAGON.15;We will not stand idly by and allow the realm to fall our of draconic control.  Your human heir is a disgrace and will bring ruin upon us.  The has come for you to name a new heir in their place..  Submit peacefully to this demand or face the consequences\n\nSigned,\n[From.GetTitledName];;;;;;;;;;;;;x
+EVTDESC_DRAGON.16;Under the pressure from draconic hardliners, [From.GetTitledName] has agreed to make [FromFrom.GetBestName] [From.GetHerHis] heir.;;;;;;;;;;;;;x
+EVTDESC_DRAGON.17;Rather than risking civil war tearing the realm apart, I have decided to give in to your demand and name you my heir.  But this treacherous act of blackmail will not be forgotten...\n\nSigned,\n[From.GetTitledName];;;;;;;;;;;;;x
+EVTDESC_DRAGON.18;Rather than letting civil war tear the realm apart, [From.GetTitledName] has agreed to declare me [From.GetHerHis] heir. Your valuable support in this conflict will not be forgotten.\n\nSincerely,\n[FromFrom.GetTitledName];;;;;;;;;;;;;x
+EVTDESC_DRAGON.22;I've been receiving more and more reports from my vassals of peasants and merchants worried about their safety with the almost constant arrival of dragons performing heathen rituals in [upset_province.GetName].  They are demanding that I find some way to stop them for coming.;;;;;;;;;;;;;x
+EVTDESC_DRAGON.23;The [Root.Religion.GetPriestName]s from [upset_province.GetName] keep complaining to me about having a major heathen site right under their noses and demanding that I find a way to destroy it. It wouldn't be so bad if this “eternal flame” wasn't seemingly indestructable.;;;;;;;;;;;;;x
+EVTOPTA_DRAGON.23;Does it look like I haven't tried?;;;;;;;;;;;;;x
+EVTDESC_DRAGON.24;[upset_vassal.GetTitledFirstName] came up to me today and insisted that I wasn't doing everything I could to stop the heathen rituals in [upset_province.GetName], saying that I was sinful and impious.;;;;;;;;;;;;;x
+EVTOPTA_DRAGON.24;If [upset_vassal.GetSheHe] thinks [upset_vassal.GetSheHe] could do better, then [upset_vassal.GetSheHe] should do it!;;;;;;;;;;;;;x
+EVTDESC_DRAGON.25;I've been hearing rumours that, after a visit to [upset_province.GetName], my courtier [converted_courtier.GetFirstName], once a good [converted_courtier.Religion.GetName], has instead embraced the religion of the dragons.;;;;;;;;;;;;;x
+EVTOPTA_DRAGON.25;That can't be true, can it?;;;;;;;;;;;;;x
+EVTDESC_DRAGON.26;People have been talking about a popular draconic preacher who has shown up in [upset_province.GetName], leading people away from the true [Root.Religion.GetName] faith.;;;;;;;;;;;;;x
+EVTOPTA_DRAGON.26;He's too popular to do anything overt.;;;;;;;;;;;;;x
+EVTOPTB_DRAGON.26;Arrest him and execute him.;;;;;;;;;;;;;x
+EVTDESC_DRAGON.27;As the sickness spreads in [upset_province.GetName], rumors have run wild, claiming that the disease is caused by the profane rituals performed by the draconic pilgrims.  The locals are demanding that I destroy their ritual site to stop the illness.;;;;;;;;;;;;;x
+EVTOPTA_DRAGON.27;It's not that easy...;;;;;;;;;;;;;x
+EVTDESC_DRAGON.28;Vicious rumors have begun to take root throughout the realm – people throughout my court are claiming that the reason I haven't destroyed the heathen ritual site in [upset_province.GetName] is that I'm secretly leading their unholy rites.;;;;;;;;;;;;;x
+EVTOPTA_DRAGON.28;That's preposterous!;;;;;;;;;;;;;x
+EVTDESC_DRAGON.29;Several of the [Root.Religion.GetPriestName]s have been complaining of constant conflicts between the local [upset_province.Religion.GetName]s an the draconic pilgrims and are demanding that I do something about it.;;;;;;;;;;;;;x
+EVTOPTA_DRAGON.29;Easy. The locals will need to convert, or they die.;;;;;;;;;;;;;x
+EVTOPTB_DRAGON.29;If the [Root.Religion.GetPriestName]s have a problem, the [Root.Religion.GetPriestName]s can fix it.;;;;;;;;;;;;;x
+EVTOPTC_DRAGON.29;We'll drive out the pilgrims, then.;;;;;;;;;;;;;x
+EVTOPTD_DRAGON.29;I'll deliver a speech and smooth things over.;;;;;;;;;;;;;x
+EVTDESC_DRAGON.30;Rumors have begun to spread throughout [upset_province.GetName] that I am working to try and destroy the heathen's holy site, known as the “eternal flame” present there.  Guards have found peasants stockpiling arms and local preachers speak out against me.;;;;;;;;;;;;;x
+EVTOPTA_DRAGON.30;They better not try anything.;;;;;;;;;;;;;x
+EVTDESC_DRAGON.31;I've gathered my council together to try and find a way to destroy this infernal flame the heathens keep worshiping and put a stop to the strife it brings our lands.;;;;;;;;;;;;;x
+EVTOPTA_DRAGON.31;We won't stop until it's destroyed;;;;;;;;;;;;;x
+EVTDESC_DRAGON.32;Since I no longer directly control the county of [destroy_flame.GetName], the destruction of the flame there is no longer under my control.;;;;;;;;;;;;;x
+EVTOPTA_DRAGON.32;I can only hope others continue in my stead.;;;;;;;;;;;;;x
+EVTDESC_DRAGON.33;While I was working on a way to destroy the heathen fire in [destroy_flame.GetName], I found that another had beaten me to it – the flame is gone.;;;;;;;;;;;;;x
+EVTOPTA_DRAGON.33;My work is finished, then.;;;;;;;;;;;;;x
+EVTDESC_DRAGON.35;After a lot of hard work and dedication, we have finally managed to destroy the site of these foul heathen rituals.  No longer shall they bring evil upon our lands.;;;;;;;;;;;;;x
+EVTOPTA_DRAGON.35;[Root.Religion.GetHighGodNameCap] be praised!;;;;;;;;;;;;;x
+EVTDESC_DRAGON.36;Despite the effort I've gone through, that evil flame still burns in [destroy_flame.GetName].;;;;;;;;;;;;;x
+EVTOPTA_DRAGON.36;We have to keep searching;;;;;;;;;;;;;x
+EVTOPTB_DRAGON.36;I need to focus my time and money elsewhere;;;;;;;;;;;;;x
+keep_searching_flame;Keep searching for a way to destroy it.;;;;;;;;;;;;;x
+stop_searching_flame;Stop searching.;;;;;;;;;;;;;x
+destroy_flame_success;You successfully destroy the flame;;;;;;;;;;;;;x
+destroy_flame_failure;You fail to destroy the flame;;;;;;;;;;;;;x
+alternate_plan;You search for an alternate plan;;;;;;;;;;;;;x
+EVTDESC_DRAGON.38;Together, we have decided that we should try to bury this heather flame.  If the ground does not smother it, this should at least make it inaccessible.;;;;;;;;;;;;;x
+EVTOPTA_DRAGON.38;Let's do it.;;;;;;;;;;;;;x
+EVTOPTB_DRAGON.38;We should hire extra workers for this.;;;;;;;;;;;;;x
+EVTOPTC_DRAGON.38;Spare no expense.;;;;;;;;;;;;;x
+EVTOPTD_DRAGON.38;Let's try and think of a better plan.;;;;;;;;;;;;;x
+EVTDESC_DRAGON.40;The best way to stop a magical flame is with more magic.  I will can use my own talents to try to counter the spelling protecting this “eternal flame,” though it may test the limits of my magic, potentially burning them out if I strain too hard.;;;;;;;;;;;;;x
+EVTOPTA_DRAGON.40;Let's give it a try.;;;;;;;;;;;;;x
+strenuous_casting_1;You will be unable to cast spells for 1 year;;;;;;;;;;;;;x
+EVTOPTB_DRAGON.40;I'll give this my all.;;;;;;;;;;;;;x
+strenuous_casting_3;You will be unable to cast spells for 3 years;;;;;;;;;;;;;x
+EVTOPTC_DRAGON.40;I'll succeed, no matter the cost!;;;;;;;;;;;;;x
+EVTOPTD_DRAGON.40;It's not worth the risk.;;;;;;;;;;;;;x
+EVTDESC_DRAGON.42;My [Root.GetLordSpiritualName] has suggested that stopping the flame may be beyond my power, but not beyond [Root.Religion.GetRandomGodName].  I should be spending my time in prayer and meditation.;;;;;;;;;;;;;x
+EVTOPTA_DRAGON.42;Prayer is the answer.;;;;;;;;;;;;;x
+EVTOPTB_DRAGON.42;More than that, I will take a vow of celibacy.;;;;;;;;;;;;;x
+EVTOPTC_DRAGON.42;Perhaps something more hands-on would be better.;;;;;;;;;;;;;x
+EVTOPTD_DRAGON.42;I will renounce wealth and take a vow of poverty.;;;;;;;;;;;;;x
+EVTDESC_DRAGON.44;My [Root.GetMarshalName] has proposed that we line up as much of our military force as possible and hit the heathen fire with a heavy seige bombardment until it's nothing but ruins.;;;;;;;;;;;;;x
+EVTOPTA_DRAGON.44;Use what you have.;;;;;;;;;;;;;x
+EVTOPTB_DRAGON.44;Dedicate some soldiers to it.;;;;;;;;;;;;;x
+EVTOPTC_DRAGON.44;Dedicate the army to it.;;;;;;;;;;;;;x
+EVTOPTD_DRAGON.44;There are better uses for our troops.;;;;;;;;;;;;;x
+EVTDESC_DRAGON.46;My [Root.GetTreasurerName] has suggested we try and flood the area that that profane flame occupies.  It may put out the flame, but it even it that fails, should cut off access to it.;;;;;;;;;;;;;x
+EVTOPTA_DRAGON.46;It's a good plan.;;;;;;;;;;;;;x
+EVTOPTB_DRAGON.46;Wall of the surrounding area to contain the water.;;;;;;;;;;;;;x
+EVTOPTC_DRAGON.46;Use all the resources you need.;;;;;;;;;;;;;x
+EVTOPTD_DRAGON.46;Sorry, I need that money elsewhere;;;;;;;;;;;;;x
+EVTDESC_DRAGON.48;In our search for the way to destroy this “eternal flame,” we have found an ancient ritual designed to extinguish them.  However, in order to complete it, I must sacrifice the life of someone closest to me.;;;;;;;;;;;;;x
+EVTOPTA_DRAGON.48;I'm not going to sacrifice them.;;;;;;;;;;;;;x
+EVTOPTB_DRAGON.48;I will sacrifice [child_sacrifice.GetFirstName].;;;;;;;;;;;;;x
+EVTOPTC_DRAGON.48;I will sacrifice [spouse_sacrifice.GetFirstName].;;;;;;;;;;;;;x
+EVTOPTD_DRAGON.48;I will sacrifice [lover_sacrifice.GetBestName].;;;;;;;;;;;;;x
+EVTOPTE_DRAGON.48;I will sacrifice [friend_sacrifice.GetBestName].;;;;;;;;;;;;;x
+EVTDESC_DRAGON.50;If the dragons' rites will bring ruin to my lands, then perhaps their blood will bring ruin to their precious flame.;;;;;;;;;;;;;x
+EVTOPTA_DRAGON.50;Round them up. Kill them all, and drown the flame in their blood.;;;;;;;;;;;;;x
+butchered_my_people;Butchered my people;;;;;;;;;;;;;x
+EVTOPTB_DRAGON.50;I think that's going a bit too far.;;;;;;;;;;;;;x
+EVTDESC_DRAGON.51;I now see how much of a fool I was to try and destroy the Eternal Flame.  I did not know how much I put the world at risk.;;;;;;;;;;;;;x
+EVTOPTA_DRAGON.51;I now protect it from others like I was.;;;;;;;;;;;;;x
+flame_sacrifice;Sacrifice yourself to restore the flame;;;;;;;;;;;;;x
+EVTDESC_DRAGON.52;Although creating one of the Eternal Flames if beyond the powers of mortals, there are ancient rituals to reignite one that has been struck from the world.  Unfortunately, the rituals require a willing, noble dragon to sacrifice themself to become the new flame.;;;;;;;;;;;;;x
+EVTOPTA_DRAGON.52;I will gladly sacrifice myself so the world may live.;;;;;;;;;;;;;x
+EVTOPTB_DRAGON.51;On second thought...;;;;;;;;;;;;;x
+EVTTITLE_DRAGON.53;A Flame Extinguished;;;;;;;;;;;;;x
+EVTDESC_DRAGON.53;Through the efforts of [From.GetBestName], the once mighty dragon's flame at [destroyed_flame.GetName] has been extinguished.  Once a pillar of faith to the pilgrims and pagan worshipers there, it burns no more.;;;;;;;;;;;;;x
+EVTOPTA_DRAGON.53;That [GetFromRootInsult] will burn for this!;;;;;;;;;;;;;x
+EVTOPTB_DRAGON.53;The old ways are gone.;;;;;;;;;;;;;x
+EVTOPTC_DRAGON.53;I guess that flame wasn't so eternal after all.;;;;;;;;;;;;;x
+EVTOPTD_DRAGON.53;Why should I care what one infidel does to another?;;;;;;;;;;;;;x
+EVTTITLE_DRAGON.54;The Flame Reborn;;;;;;;;;;;;;x
+EVTDESC_DRAGON.54;With a great sacrifice, the [GetRootFromCompliment] dragon, [From.GetBestName] has turned [From.GetHerselfHimself] into a new Eternal Flame in [relit_flame.GetName].;;;;;;;;;;;;;x
+EVTOPTA_DRAGON.54;Rejoice!;;;;;;;;;;;;;x
+EVTOPTB_DRAGON.54;They still cling to their heathen traditions.;;;;;;;;;;;;;x
+EVTDESC_DRAGON.60;I've been searching for an appropriate [Root.GetHusbandWifeOpp] for a while, and my thoughts keep turning towards [From.GetTitledFirstName].  We get along well enough, and I think [From.GetSheHe] might be my type.;;;;;;;;;;;;;x
+EVTOPTA_DRAGON.60;I will ask [From.GetHerHim] to marry me.;;;;;;;;;;;;;x
+EVTOPTB_DRAGON.60;No, I should keep looking.;;;;;;;;;;;;;x
+EVTOPTC_DRAGON.60;Perhaps something less permanent...;;;;;;;;;;;;;x
+EVTDESC_DRAGON.62;[From.GetTitledFirstName] has intended to become more pure, but has not done anything about [From.GetHerHis] human [From.GetHusbandWifeOpp].  Perhaps I should speak to [From.GetHerHim] about it.;;;;;;;;;;;;;x
+EVTOPTA_DRAGON.62;It's for [From.GetHerHis] own good.;;;;;;;;;;;;;x
+EVTOPTB_DRAGON.62;It's not my place.;;;;;;;;;;;;;x
+EVTDESC_DRAGON.63;[From.GetTitledFirstName] has been telling me that I need to divorce my human [Root.GetHusbandWifeOpp].  My purity has been on my mind, but haven't been sure if I should go through with it.;;;;;;;;;;;;;x
+EVTOPTA_DRAGON.63;Best get it over with quickly.;;;;;;;;;;;;;x
+EVTOPTB_DRAGON.63;[From.GetSheHe] should stay out of my affairs.;;;;;;;;;;;;;x
+EVTDESC_DRAGON.65;My [GetFromRelation], [From.GetTitledFirstName], wants to be pure, and planned to set aside [From.GetHerHis] human lovers, but still has not done so.;;;;;;;;;;;;;x
+EVTOPTA_DRAGON.65;I should talk to [From.GetHerHim].;;;;;;;;;;;;;x
+EVTOPTB_DRAGON.65;I don't want to get involved.;;;;;;;;;;;;;x
+EVTDESC_DRAGON.66;My [GetRootRelation], [From.GetTitledFirstName], confronted me about my tendency to lay with humans, claiming that it is corrupting my soul.;;;;;;;;;;;;;x
+EVTOPTA_DRAGON.66;[From.GetSheHe]'s right – I'll set them aside.;;;;;;;;;;;;;x
+EVTOPTB_DRAGON.66;But I like my [Root.GetMenWomenPreference] exotic.;;;;;;;;;;;;;x
+EVTDESC_DRAGON.69;If I were to grant some of my land to the Sapphire Flame, I could secure a very useful alliance and curry favor with the gods.;;;;;;;;;;;;;x
+offer_county_SF_alliance;Offer this county in exchange for an alliance;;;;;;;;;;;;;x
+EVTOPTA_DRAGON.69;I will offer [title_1.GetName].;;;;;;;;;;;;;x
+EVTOPTB_DRAGON.69;I will offer [title_2.GetName].;;;;;;;;;;;;;x
+EVTOPTC_DRAGON.69;I will offer [title_3.GetName].;;;;;;;;;;;;;x
+EVTOPTD_DRAGON.69;On second thought, I'd rather keep this land.;;;;;;;;;;;;;x
+EVTOPTE_DRAGON.69;I don't think I have any appropriate land.;;;;;;;;;;;;;x
+EVTDESC_DRAGON.70;[FromFrom.GetTitledName] has come forth with an interesting proposal.  [FromFrom.GetSheHeCap] could like to form an alliance with me in exchange for transferring me control of the county of [From.GetName].;;;;;;;;;;;;;x
+EVTOPTA_DRAGON.70;That's a good idea.;;;;;;;;;;;;;x
+EVTOPTB_DRAGON.70;No, it's not worth it.;;;;;;;;;;;;;x
+EVTDESC_DRAGON.71;My esteemed new ally,\nI am intrigued by your suggestion of trading land for an alliance, and have decided to accept your offer. Hopefully this will be a fruitful endeavor for all dragon kind.\n\n[From.GetTitledName];;;;;;;;;;;;;x
+EVTDESC_DRAGON.72;To the noble [Root.GetTitledName],\nWhile I am intrigued by your offer of trading land for an alliance, I do not believe it is in either of our best interests for the time being.\n\n[From.GetTitledName];;;;;;;;;;;;;x
+EVTDESCA_DRAGON.75;[Root.GetFOA] [Root.GetFullName],\nI would be honored if you would bestow your blessing upon me and intercede in my favor for the gods.  If you are so inclined, I am prepared to make a sizable donation of W¤[FromFrom.GetBlessingDonation]\n\nYour humble servant,\n[FromFrom.GetTitledName];;;;;;;;;;;;;x
+EVTDESCB_DRAGON.75;[Root.GetFOA] [Root.GetFullName],\nI would be honored if you would bestow your blessing upon my [GetFromVsFromFromRelation], [From.GetFullName].  If you are so inclined, I am prepared to make a sizable donation of W¤[FromFrom.GetBlessingDonation]\n\nYour humble servant,\n[FromFrom.GetTitledName];;;;;;;;;;;;;x
+EVTOPTA_DRAGON.75;The money's good.;;;;;;;;;;;;;x
+EVTOPTB_DRAGON.75;Not for you. Not for [From.GetHerHim].;;;;;;;;;;;;;x
+EVTDESC_DRAGON.76;May the peace of the gods keep your heart, mind, and soul pure, in this world and the next.\n\n[From.GetTitledName];;;;;;;;;;;;;x
+EVTOPTA_DRAGON.76;I've received an official blessing!;;;;;;;;;;;;;x
+EVTDESC_DRAGON.77;[Root.GetTitledName],\nI have given my blessing to [FromFrom.GetFullName].  Your generous donation will be put to good use.\n\n[From.GetTitledName];;;;;;;;;;;;;x
+EVTOPTA_DRAGON.77;It's just what [FromFrom.GetSheHe] needs.;;;;;;;;;;;;;x
+EVTDESC_DRAGON.78;To the [GetFromRootInsult] [Root.GetTitledFirstName],\nYou are unfit to ask any blessing of me for yourself or your kin.  Keep your filthy gold – we need it not.\n\n[From.GetTitledName];;;;;;;;;;;;;x
+EVTOPTA_DRAGON.78;That [GetRootFromInsult]!;;;;;;;;;;;;;x
+EVTDESC_DRAGON.79;[Root.GetFOA] [Root.GetFullName],\nThe vile [From.Holder.GetTitledName]'s impure soul has profaned our faith long enough.  I humbly request to be granted sanction to claim [From.Holder.GetHerHis] title of [From.GetName] for myself.\n\n[FromFrom.GetTitledName];;;;;;;;;;;;;x
+EVTOPTA_DRAGON.79;Yes, [From.Holder.GetSheHe] is not fit to rule [From.GetName].;;;;;;;;;;;;;x
+EVTOPTB_DRAGON.79;No, let's give [From.Holder.GetHerHim] time to turn around.;;;;;;;;;;;;;x
+EVTDESC_DRAGON.80;Righteous follower of the gods,\nI approve of your request to seize the title of [FromFrom.GetTitle] from the claws of the impure.  May [Root.Religion.GetHighGodName] guide your steps.\n\n[From.GetTitledName];;;;;;;;;;;;;x
+EVTOPTA_DRAGON.80;Excellent.;;;;;;;;;;;;;x
+EVTDESC_DRAGON.81;[From.GetTitledName],\nAt this time, I do not believe it would be best if you were to claim [FromFrom.GetTitle]. Instead, let us allow [FromFrom.Holder.GetTitledName] time to shape up and purify [FromFrom.Holder.GetHerselfHimself].\n\n[From.GetTitledName];;;;;;;;;;;;;x
+EVTOPTA_DRAGON.81;I'll have to find another way to take [FromFrom.GetName].;;;;;;;;;;;;;x
+EVTDESC_DRAGON.82;Your holiness,\n My [FromFrom.GetHusbandWifeOpp] is a vile [FromFrom.GetManWomanOpp] who has served only to drag my soul into the depths of impurity.  I beg you, please release me from my marriage to [FromFrom.GetHerHimOpp] in the sight of the gods, for the sake of my soul.\n\n[FromFrom.GetTitledName];;;;;;;;;;;;;x
+EVTOPTA_DRAGON.82;I concur – this marriage is no more.;;;;;;;;;;;;;x
+EVTOPTB_DRAGON.82;No, you will need to pay [FromFrom.GetHerHimOpp] for a normal divorce.;;;;;;;;;;;;;x
+EVTDESC_DRAGON.83;[Root.GetTitledName],\nI have pled before the gods, and you are no longer bound to the [Spouse.GetManWoman] [Spouse.GetDynName].  You are now free to seek a new [Root.GetHusbandWifeOpp].\n\n[From.GetTitledName];;;;;;;;;;;;;x
+EVTOPTA_DRAGON.83;Good riddance.;;;;;;;;;;;;;x
+EVTDESC_DRAGON.84;[Root.GetDynName],\nThe gods have seen that the marriage between you and [FromFromFrom.GetTitledName] is unfit, and granted lease for it to be terminated.  You are no longer the [Root.GetHusbandWife] of [FromFromFrom.GetDynName] and are free to seek a new [Root.GetHusbandWifeOpp].\n\n[From.GetTitledName];;;;;;;;;;;;;x
+EVTOPTA_DRAGON.84;How dare [FromFromFrom.GetSheHe]!;;;;;;;;;;;;;x
+EVTDESC_DRAGON.85;[Root.GetTitledName]\nThe gods do not see your present situation as fit grounds for divorce or annulment.  If you wish to break from your [Root.Spouse.GetHusbandWife], you must pay [Root.Spouse.GetHerHim] the divorce fee, as is custom.\n\n[From.GetTitledName];;;;;;;;;;;;;x
+EVTOPTA_DRAGON.85;What a waste of money.;;;;;;;;;;;;;x
+EVTDESC_DRAGON.86;[Root.GetTitledName],\nIt has come to pass that my heir is not one of dragon kind.  So that our lands may not fall out of draconic claws, grant me leave to disinherit [FromFrom.Heir.GetHerHim].\n\n[FromFrom.GetTitledName];;;;;;;;;;;;;x
+EVTOPTA_DRAGON.86;Yes, Dragons are meant to rule, and this human heir to serve.;;;;;;;;;;;;;x
+EVTOPTB_DRAGON.86;[FromFrom.GetHerHis] indiscretions are not [FromFrom.GetHerHis] child's fault.;;;;;;;;;;;;;x
+EVTDESC_DRAGON.87;[Root.GetTitledName],\nThe role of dragons is to rule, and the role of humans is to serve. Our lands must remain in our control, and so the gods grant your request – [Heir.GetFirstName] shall be stripped of all rights to your wealth and titles in inheritance.\n\n[From.GetTitledName].;;;;;;;;;;;;;x
+EVTOPTA_DRAGON.87;The realm is secure.;;;;;;;;;;;;;x
+EVTDESC_DRAGON.88;[Root.GetDynName],\nIn light of your birth, it would not be appropriate for you to rule over dragons.  As such, the gods have deemed that you shall receive no inheritance and rule shall pass to another.\n\n[From.GetTitledName];;;;;;;;;;;;;x
+EVTOPTA_DRAGON.88;This can't be happening!;;;;;;;;;;;;;x
+EVTOPTB_DRAGON.88;We'll see about that.;;;;;;;;;;;;;x
+EVTOPTC_DRAGON.88;[FromFromFrom.GetTitledFirstName] will pay for this!;;;;;;;;;;;;;x
+EVTOPTD_DRAGON.88;Everyone will pay for this!;;;;;;;;;;;;;x
+EVTDESC_DRAGON.89;[Root.GetTitledName],\nThough your child is not a dragon, the gods have not granted your request.  [Root.Heir.GetSheHeCap] should not be the one to suffer for your indiscretions with humans.\n\n[From.GetTitledName];;;;;;;;;;;;;x
+EVTOPTA_DRAGON.89;I will find a way.;;;;;;;;;;;;;x
+EVTDESC_DRAGON.90;[Root.GetTitledName],\nMy funds have run frighteningly low.  To avoid the disasters that could ensue for dragonkind, I humbly request to borrow a small sum of W¤[From.GoldAmt.GetValue].\n\n[FromFrom.GetTitledName];;;;;;;;;;;;;x
+EVTOPTA_DRAGON.90;I can afford it.;;;;;;;;;;;;;x
+EVTOPTB_DRAGON.90;I see no reason to pay your debts.;;;;;;;;;;;;;x
+EVTDESC_DRAGON.91;[Root.GetTitledName],\nYou shall have the funds you requested, but don't try to pretend this is anything more than you failing to manage your hoard.\n\n[From.GetTitledName];;;;;;;;;;;;;x
+EVTOPT_DRAGON.91;I've got my money.;;;;;;;;;;;;;x
+EVTDESC_DRAGON.92;[Root.GetTitledName],\nI have declined to send you the money you requested.  It's is important for a dragon to gain gold by their own tooth and claw.  You must rid yourself of your debt on your own.\n\n[From.GetTitledName];;;;;;;;;;;;;x
+EVTOPT_DRAGON.92;I'll have to get gold elsewhere.;;;;;;;;;;;;;x
+EVTDESC_DRAGON.94;I believe that [From.GetTitledName] has spare room in his land.  Perhaps I could pay to build a temple there to help serve the faithful.;;;;;;;;;;;;;x
+EVTOPTA_DRAGON.94;I should make the offer.;;;;;;;;;;;;;x
+EVTOPTB_DRAGON.94;I need to hold on to my money.;;;;;;;;;;;;;x
+EVTDESC_DRAGON.96;[Root.GetTitledName],\nThere appears to be a large plot of unused land in the county of [From.GetName].  With your permission, I would like to construct a new temple there to aid the faithful and honor the gods.  You will, of course, be compensated for the land required.\n\n[FromFrom.GetTitledName];;;;;;;;;;;;;x
+EVTOPTA_DRAGON.96;I could use the money.;;;;;;;;;;;;;x
+EVTOPTB_DRAGON.96;My land is my own.;;;;;;;;;;;;;x
+EVTDESC_DRAGON.97;[Root.GetTitledName],\nI accept your offer to build a new temple in [FromFrom.GetName].  I believe this deal will benefit us both, as well as the faithful.\n\n[From.GetTitledName];;;;;;;;;;;;;x
+EVTOPTA_DRAGON.97;[Root.Religion.GetRandomGodName] be praised!;;;;;;;;;;;;;x
+EVTDESC_DRAGON.98;[Root.GetTitledName],\nI'm afraid I already have plans for the land you requested and am unable to grant it to you.\n\n[From.GetTitledName];;;;;;;;;;;;;x
+EVTOPTA_DRAGON.98;A pity.;;;;;;;;;;;;;x
+EVTDESC_DRAGON.99;Many of the temples I control lie in lands outside of my control. Perhaps I could write to [county_holder.GetTitledName] bout purchasing the county of [targetted_county.GetName].;;;;;;;;;;;;;x
+EVTOPTA_DRAGON.99;It would be a solid investment.;;;;;;;;;;;;;x
+EVTOPTB_DRAGON.99;I don't think that land is worth the money.;;;;;;;;;;;;;x
+EVTDESC_DRAGON.100;[Root.GetTitledName],\nAs you are no doubt aware, I own a temple in the county of [targetted_county.GetName], though you control the surrounding lands.  I believe it would be to great benefit of the draconic faithful if their lands were fully in control of the church.  I am prepared to pay you a great sum of gold for the county, of course.\n\n[From.GetTitledFirstName].;;;;;;;;;;;;;x
+EVTOPTA_DRAGON.100;I do need the money...;;;;;;;;;;;;;x
+EVTOPTB_DRAGON.100;That's not nearly what [targetted_county.GetName] is worth to me.;;;;;;;;;;;;;x
+EVTOPTC_DRAGON.100;I will not cede an inch of [Root.Religion.GetName] land!;;;;;;;;;;;;;x
+EVTDESC_DRAGON.101;[From.GetTitledName],\nThough it pains me to part with such land, your gold is good and I have need of it.  I accept your offer.\n\n[From.GetTitledName].;;;;;;;;;;;;;x
+EVTOPTA_DRAGON.101;My realm grows.;;;;;;;;;;;;;x
+EVTDESC_DRAGON.102;[From.GetTitledName],\nYour offer falls a bit short.  That land is worth more to me than it appears you can afford.\n\n[From.GetTitledName];;;;;;;;;;;;;x
+EVTDESC_DRAGON.103;To the [GetFromRootInsult] [Root.GetTitledFirstName],\nI will not give of one inch of the soil of [From.Religion.GetHighGodName]'s chosen.  The only thing you will receive from me is the sword.\n\n[From.GetTitledName];;;;;;;;;;;;;x
+EVTOPTA_DRAGON.103;About what I expected.;;;;;;;;;;;;;x
+EVTDESC_DRAGON.107;When I came to [From.GetFirstName]'s hoard, I found the [GetRootFromInsult] asleep and [From.GetHerHis] treasure unguarded.;;;;;;;;;;;;;x
+EVTOPTA_DRAGON.107;I guess I don't need to fight after all.;;;;;;;;;;;;;x
+EVTDESC_DRAGON.108;After everything going on in the court, I felt it was time for a good nap.  But when I woke up, I found that a sizable chunk of my gold was missing!;;;;;;;;;;;;;x
+EVTOPTA_DRAGON.108;It must have been my rival, [From.GetTitledName]!;;;;;;;;;;;;;x
+EVTDESC_DRAGON.109;My rival, [FromFromFrom.GetTitledName], has announced [FromFromFrom.GetHerHis] intent to attack me and seize my gold!;;;;;;;;;;;;;x
+EVTOPTA_DRAGON.109;Perhaps if I were to owe [FromFromFrom.GetHerHim] a favor...;;;;;;;;;;;;;x
+EVTOPTB_DRAGON.109;I'll just give [FromFromFrom.GetHerHim] a smaller amount of gold to leave.;;;;;;;;;;;;;x
+EVTOPTC_DRAGON.109;Then [FromFromFrom.GetSheHe]'ll have a fight on [FromFromFrom.GetHerHis] claws!;;;;;;;;;;;;;x
+EVTDESC_DRAGON.110;That [GetFromRootInsult] [GetTitledFirstName] hopes keep me from attacking [From.GetHerHim] with promises of owing me a favor later.;;;;;;;;;;;;;x
+EVTOPTA_DRAGON.110;That sounds like a good deal.;;;;;;;;;;;;;x
+EVTOPTB_DRAGON.110;No, I'm here for gold.;;;;;;;;;;;;;x
+EVTDESC_DRAGON.111;[From.GetTitledFirstName] has decided to turn over some of their gold without a fight.;;;;;;;;;;;;;x
+EVTOPTA_DRAGON.111;I got what I came for;;;;;;;;;;;;;x
+EVTDESCA_DRAGON.118;It only took a moment before I was able to drive [challenged_party.GetBestName] down, battered and beaten.  With [challenged_party.GetHerHim] down, I was free to grab all the gold I could carry.;;;;;;;;;;;;;x
+EVTDESCB_DRAGON.118;After a brief fight, the cowardly [challenged_party.GetBestName] took off, leaving [challenged_party.GetHerHis] best treasures behind for me to take.;;;;;;;;;;;;;x
+EVTOPTA_DRAGON.118;To the victor go the spoils;;;;;;;;;;;;;x
+EVTDESCA_DRAGON.119;I thought I could beat [challenger.GetBestName], but the battle quickly turned against me as [challenger.GetSheHe] landed a crippling blow and relentlessly beat on my wounded body.;;;;;;;;;;;;;x
+EVTDESCB_DRAGON.119;Perhaps I was a fool to fight [challenger.GetBestName].  [challenger.GetHerHisCap] attacks drove me from my halls and left lasting wounds on my body.;;;;;;;;;;;;;x
+EVTOPTA_DRAGON.119;I will find a way to get revenge.;;;;;;;;;;;;;x
+EVTDESCA_DRAGON.120;[challenger.GetBestName] was a stronger opponent than I'd thought.  Although I fought will all I had, it wasn't long before my body was too battered to do anything besides watch [challenger.GetHerHim] drag my gold away.;;;;;;;;;;;;;x
+EVTDESCB_DRAGON.120;[challenger.GetBestName] was a ferocious opponent.  After a few swipes from [challenger.GetHerHis] claws, I fled, leaving my gold behind, but at least keeping my life.;;;;;;;;;;;;;x
+EVTOPTA_DRAGON.120;[challenger.GetSheHeCap] hasn't heard the last of me!;;;;;;;;;;;;;x
+EVTDESCA_DRAGON.121;[challenged_party.GetBestName] was a tough opponent, though I still came out of top.  A few of [challenged_party.GetHerHis] attacks managed to tear deeply into my flesh and I fear I may have some lasting injuries.;;;;;;;;;;;;;x
+EVTDESCB_DRAGON.121;I managed to drive [challenged_party.GetTitledName] off, though [challenged_party.GetSheHe] left me with a few parting gifts - some injuries that will probably stay with me for some time to come.;;;;;;;;;;;;;x
+EVTOPTA_DRAGON.121;At least I still got [challenged_party.GetHerHis] gold.;;;;;;;;;;;;;x
+EVTDESCA_DRAGON.122;Although [challenger.GetTitledName] came at me full of confidence, it wasn't long before I completely overpowered [challenger.GetHerHim].  Now it's just a question of what to do with [challenger.GetHerHim].;;;;;;;;;;;;;x
+EVTDESCB_DRAGON.122;Although [challenger.GetTitledName] came at me full of confidence, it wasn't long before I drove [challenger.GetHerHim] off.  I was able to chase [challenger.GetHerHim] down and now it's just a question of what to do with [challenger.GetHerHim].;;;;;;;;;;;;;x
+EVTOPTA_DRAGON.122;[challenger.GetSheHeCap] must pay reparations.;;;;;;;;;;;;;x
+EVTOPTB_DRAGON.122;I have something I'll need help with later.;;;;;;;;;;;;;x
+EVTOPTC_DRAGON.122;Break [challenger.GetHerHim] to teach [challenger.GetHerHim] a lesson.;;;;;;;;;;;;;x
+EVTOPTD_DRAGON.122;[challenger.GetSheHeCap] doesn't learn. [challenger.GetSheHeCap] must die.;;;;;;;;;;;;;x
+EVTOPTE_DRAGON.122;[challenger.GetSheHeCap] must give me [selected_ward.GetFirstName] as a ward.;;;;;;;;;;;;;x
+EVTDESCA_DRAGON.123;[challenged_party.GetBestName] was a a stronger opponent than I expected.  [challenged_party.GetSheHeCap] severely injured me and tore at me until I could no longer resist.  Now [challenged_party.GetSheHe] is forcing me to give up my gold in reparations.;;;;;;;;;;;;;x
+EVTDESCB_DRAGON.123;[challenged_party.GetBestName] was much tougher than I thought.  After a few wicked blows, I tried to run, but [challenged_party.GetSheHe] caught me and is forcing me to pay reparations for the attack.;;;;;;;;;;;;;x
+EVTDESCC_DRAGON.123;I thought I could easily beat [challenged_party.GetTitledName], but [challenged_party.GetSheHe] ground me into the dirt.  Now [challenged_party.GetSheHe] is making pay reparations for the attack.;;;;;;;;;;;;;x
+EVTDESCD_DRAGON.123;[challenged_party.GetTitledName] should have been an easy fight, but [challenged_party.GetSheHe] was stronger than I thought.  I tried to flee, but [challenged_party.GetSheHe] caught me and is demanding that I pay [challenged_party.GetHerHim] for the attacks.;;;;;;;;;;;;;x
+EVTOPTA_DRAGON.123;That could have gone better.;;;;;;;;;;;;;x
+EVTDESCA_DRAGON.124;[challenged_party.GetBestName] was a a stronger opponent than I expected.  [challenged_party.GetSheHeCap] severely injured me and tore at me until I could no longer resist.  [challenged_party.GetSheHeCap] is demanding my support in [challenged_party.GetHerHis] future political plans;;;;;;;;;;;;;x
+EVTDESCB_DRAGON.124;[challenged_party.GetBestName] was much tougher than I thought.  After a few wicked blows, I tried to run, but [challenged_party.GetSheHe] caught me and is demanding my aid in [challenged_party.GetHerHis] political plans.;;;;;;;;;;;;;x
+EVTDESCC_DRAGON.124;I thought I could easily beat [challenged_party.GetTitledName], but [challenged_party.GetSheHe] ground me into the dirt.  Now [challenged_party.GetSheHe] is demanding my political support in exchange for my life.;;;;;;;;;;;;;x
+EVTDESCD_DRAGON.124;[challenged_party.GetTitledName] should have been an easy fight, but [challenged_party.GetSheHe] was stronger than I thought.  I tried to flee, but [challenged_party.GetSheHe] caught me and is demanding that I aiid [challenged_party.GetHerHim] in some political schemes.;;;;;;;;;;;;;x
+EVTOPTA_DRAGON.124;That could have gone better.;;;;;;;;;;;;;x
+EVTDESCA_DRAGON.125;[challenged_party.GetBestName] was a a stronger opponent than I expected.  [challenged_party.GetSheHeCap] severely injured me and tore at me until I could no longer resist.  Now [challenged_party.GetSheHe] has decided to injure me even further as a “lesson.”;;;;;;;;;;;;;x
+EVTDESCB_DRAGON.125;[challenged_party.GetBestName] was much tougher than I thought.  After a few wicked blows, I tried to run, but [challenged_party.GetSheHe] caught me and deliberately injured me further to keep me from attacking again.;;;;;;;;;;;;;x
+EVTDESCC_DRAGON.125;I thought I could easily beat [challenged_party.GetTitledName], but [challenged_party.GetSheHe] ground me into the dirt and debilerately injured me to teach me a “lesson.”;;;;;;;;;;;;;x
+EVTDESCD_DRAGON.125;[challenged_party.GetTitledName] should have been an easy fight, but [challenged_party.GetSheHe] was stronger than I thought.  I tried to flee, but [challenged_party.GetSheHe] caught me and decided to teach me a lesson by deliberately maiming me.;;;;;;;;;;;;;x
+EVTOPTA_DRAGON.125;Ouch.;;;;;;;;;;;;;x
+EVTDESCA_DRAGON.126;[challenged_party.GetBestName] was a a stronger opponent than I expected.  [challenged_party.GetSheHeCap] severely injured me and tore at me until I could no longer resist.  As I lost conciousness, I could feel [challenged_party.GetHerHis] jaws closing around my throat...;;;;;;;;;;;;;x
+EVTDESCB_DRAGON.126;[challenged_party.GetBestName] was much tougher than I thought.  After a few wicked blows, I tried to run, but [challenged_party.GetSheHe] caught me and began to tear out my throat...;;;;;;;;;;;;;x
+EVTOPTA_DRAGON.126;This is it.;;;;;;;;;;;;;x
+EVTDESCA_DRAGON.127;[challenged_party.GetBestName] was a a stronger opponent than I expected.  [challenged_party.GetSheHeCap] severely injured me and tore at me until I could no longer resist.  Instead of taking my gold as I expected, [challenged_party.GetSheHe] is demanding that I hand over [selected_ward.GetFullName] to [challenged_party.GetHerHis] “care.”;;;;;;;;;;;;;x
+EVTDESCB_DRAGON.127;[challenged_party.GetBestName] was much tougher than I thought.  I tried to run, but no no avail. Now, instead of taking my gold as I expected, [challenged_party.GetSheHe] is demanding that I hand over [selected_ward.GetFullName] to [challenged_party.GetHerHis] “care.”;;;;;;;;;;;;;x
+EVTDESCC_DRAGON.127;I thought I could easily beat [challenged_party.GetTitledName], but [challenged_party.GetSheHe] ground me into the dirt and instead of taking my gold as I expected, [challenged_party.GetSheHe] is demanding that I hand over [selected_ward.GetFullName] to [challenged_party.GetHerHis] “care.”;;;;;;;;;;;;;x
+EVTDESCD_DRAGON.127;[challenged_party.GetTitledName] should have been an easy fight, but [challenged_party.GetSheHe] was stronger than I thought.  I tried to flee, but [challenged_party.GetSheHe] caught me and demanded that I hand over [selected_ward.GetFullName] to [challenged_party.GetHerHis] “care.”;;;;;;;;;;;;;x
+EVTOPTA_DRAGON.127;I guess I have no choice.;;;;;;;;;;;;;x
+EVTDESCA_DRAGON.128;Although [challenger.GetTitledName] came at me full of confidence, and while [challenger.GetSheHe] managed to injure me, I fought through the pain and won.  Now it's just a question of what to do with [challenger.GetHerHim].;;;;;;;;;;;;;x
+EVTDESCB_DRAGON.128;Although [challenger.GetTitledName] came at me full of confidence, it wasn't long before I drove [challenger.GetHerHim] off.  I was injured, but I was able to chase [challenger.GetHerHim] down and now it's just a question of what to do with [challenger.GetHerHim].;;;;;;;;;;;;;x
+EVTDESC_DRAGON.129;After a fierce battle, I stand victorious while [challenger.GetTitledName] lies dead at my feet.  Now, our rivalry has ended.;;;;;;;;;;;;;x
+EVTDESC_DRAGON.130;I fought as hard as I could, but it wasn't to be.  [From.GetTitledName] was too strong and landed blow after blow until one of them was fatal.;;;;;;;;;;;;;x
+EVTOPTA_DRAGON.130;This is the end.;;;;;;;;;;;;;x
+EVTDESC_DRAGON.131;After a fierce battle, I stand victorious while [challenged_party.GetTitledName] lies dead at my feet.  Now, our rivalry has ended.;;;;;;;;;;;;;x
+EVTDESC_DRAGON.133;Although [challenger.GetTitledName] came at me full of confidence, and while [challenger.GetSheHe] managed to injure me, I fought through the pain and won.  Now [challenger.GetSheHe] lies dead at my feet.;;;;;;;;;;;;;x
+EVTOPTA_DRAGON.133;What is mine stays mine.;;;;;;;;;;;;;x
+EVTDESC_DRAGON.134;Though [challenged_party.GetTitledName] fought fiercely and even managed to wound me, in the end I stood over [challenged_party.GetHerHis] beaten corpse.  My rival is dead and [challenged_party.GetHerHis] treasures are mine.;;;;;;;;;;;;;x
+EVTOPTA_DRAGON.134;It was worth the pain;;;;;;;;;;;;;x
+EVTDESC_DRAGON.135;While taking my rightful gold from [raid_loser.GetTitledName]'s hoard, I came across a [stolen_artifact.GetName] that suit my collection quite nicely.;;;;;;;;;;;;;x
+EVTOPTA_DRAGON.135;It was too good for [raid_loser.GetHerHim] anyway.;;;;;;;;;;;;;x
+EVTDESC_DRAGON.136;Not content with what [From.GetSheHe] has already taken from me, [From.GetTitledName] came across my [stolen_artifact.GetName] and felt the need to steal that as well!;;;;;;;;;;;;;x
+EVTOPTA_DRAGON.136;This is just further insult!;;;;;;;;;;;;;x
+EVTDESC_DRAGON.137;[From.GetTitledFirstName] has accepted my promise of political aid.  The fight has been avoided for now.;;;;;;;;;;;;;x
+EVTOPTA_DRAGON.137;I don't think I've heard the last of this.;;;;;;;;;;;;;x
+EVTDESC_DRAGON.138;[From.GetTitledFirstName] has rejected my offer of peace.  Now we will meet on the field of battle.;;;;;;;;;;;;;x
+EVTOPTA_DRAGON.138;[From.GetSheHeCap]'ll regret that decision.;;;;;;;;;;;;;x
+EVTDESC_DRAGON.139;As we both clashed and tore at each other, our injuries began to bare down on us.  Soon, we were both too weak to do anything more than lie and watch the other bleed out.;;;;;;;;;;;;;x
+EVTOPTA_DRAGON.139;Our rivalry has destroyed us both.;;;;;;;;;;;;;x
+EVTDESC_DRAGON.141;The coffers of the Sapphire Flame are full and the faithful are struggling against infidels and heathens. Perhaps we should provide some assistance.;;;;;;;;;;;;;x
+EVTOPTA_DRAGON.141;Send an envoy with funds;;;;;;;;;;;;;x
+EVTOPTB_DRAGON.141;Our purity depends on our gold.;;;;;;;;;;;;;x
+EVTDESC_DRAGON.142;Your righteous struggle against the impure foreigner has not gone unnoticed. I have dispatched an emissary with sufficient funds to assist you.;;;;;;;;;;;;;x
+EVTOPTA_DRAGON.142;Our pure souls shall prevail!;;;;;;;;;;;;;x
+EVTDESC_DRAGON.143;An emissary from [From.GetTitledFirstName] has reached us with a proposal. [From.GetTitle] will grant us absolution for our sins of kinslaying.;;;;;;;;;;;;;x
+EVTOPTA_DRAGON.143;The purity of gold for my reputation.;;;;;;;;;;;;;x
+EVTOPTB_DRAGON.143;That gold brings purity to my soul.;;;;;;;;;;;;;x
+EVTDESC_DRAGON.144;[From.GetTitledFirstName] has paid for [From.GetHerHis] grave sin of kinslaying. Absolution has been granted and the Sapphire Flame's hoard grows.;;;;;;;;;;;;;x
+EVTOPTA_DRAGON.144;Praise [Root.Religion.GetRandomGodName]!;;;;;;;;;;;;;x
+EVTDESC_DRAGON.145;[From.GetTitledFirstName] refuses to pay for [From.GetHerHis] grave sin of kinslaying.;;;;;;;;;;;;;x
+EVTOPTA_DRAGON.145;[From.GetSheHeCap] will find the world has little mercy for [From.GetHerHim].;;;;;;;;;;;;;x
+EVTDESC_DRAGON.146;There are rumors that one of the rulers of dragonkind is employing a heathen in their court, claiming a foreign god that grants paradise to the impure. This heathen must be removed for the sake of this ruler's soul.;;;;;;;;;;;;;x
+EVTOPTA_DRAGON.146;Demand adherence to the Eternal Flames!;;;;;;;;;;;;;x
+EVTOPTB_DRAGON.146;This is not our concern.;;;;;;;;;;;;;x
+EVTDESC_DRAGON.147;An emissary from [From.GetTitledFirstName] has arrived in our court. According to the emissary, the church are concerned about our employment of heathens as advisors.  The Sapphire Flame is asking of me to remove them from their position.;;;;;;;;;;;;;x
+EVTOPTB_DRAGON.147;Imprison the heathen!;;;;;;;;;;;;;x
+EVTOPTC_DRAGON.147;I rule in my realm!;;;;;;;;;;;;;x
+EVTDESC_DRAGON.148;An emissary has returned from [From.GetBestName] bearing glorious news. The emissary says that [From.GetTitledFirstName] has agreed to imprison a heathen that was in [From.GetHerHis] court.;;;;;;;;;;;;;x
+EVTOPTA_DRAGON.148;Glory to [Root.Religion.GetHighGodName]!;;;;;;;;;;;;;x
+EVTDESC_DRAGON.149;[From.GetBestName] toys with the sanctity of [From.GetHerHis] soul. An emissary from [From.GetHerHis] realm is stating that [From.GetSheHe] refuses to follow our demands.;;;;;;;;;;;;;x
+EVTOPTA_DRAGON.149;[From.GetSheHeCap] will be lead astray!;;;;;;;;;;;;;x
+EVTDESC_DRAGON.151;It seems that [From.GetTitledName] has grown envious of my wealth and power - and why shouldn't [From.GetSheHe] be?  This could cause problems if [From.GetSheHe] decides to do more than just brood about this.;;;;;;;;;;;;;x
+EVTOPTA_DRAGON.151;[From.GetSheHeCap] will regret it if [From.GetSheHe] crosses me.;;;;;;;;;;;;;x
+EVTDESCA_DRAGON.152;[From.GetBestName] has been flaunting [From.GetHerHis] wealth whenever [From.GetSheHe] is around me, trying to show me up.  I should put [From.GetHerHim] in [From.GetHerHis] place!;;;;;;;;;;;;;x
+EVTDESCB_DRAGON.152;I've heard tales that [From.GetTitledName] has a hoard than dwarfs even mine.  If this turns out to be true, the realm will look weak.  I cannot allow [From.GetHerHim] to overshadow me.;;;;;;;;;;;;;x
+EVTOPTA_DRAGON.152;I think I have a new rival.;;;;;;;;;;;;;x
+EVTDESC_DRAGON.153;One of [Root.Religion.GetHighGodName]'s favored children seems to have been accused of kinslaying. This is clearly unfortunate.  We could absolve them of this, in exchange for increasing our hoard.;;;;;;;;;;;;;x
+EVTOPTA_DRAGON.153;The Sapphire Flame will offer them absolution.;;;;;;;;;;;;;x
+EVTOPTB_DRAGON.153;They don't deserve absolution.;;;;;;;;;;;;;x
+EVTDESC_DRAGON.157;I've recently been interested in other dragons in history, and I've found that we've had a rich and unique culture.  I don't understand why we don't follow these old traditions.;;;;;;;;;;;;;x
+EVTOPTA_DRAGON.157;I should ask my [GetFromRelation] about this.;;;;;;;;;;;;;x
+EVTOPTB_DRAGON.157;No, being [Root.Culture.GetName] is good.;;;;;;;;;;;;;x
+EVTDESC_DRAGON.158;[From.GetTitledName] has been asking about [From.GetHerHis] draconic heritage. Perhaps I should help instruct [From.GetHerHim] in old draconic traditions.;;;;;;;;;;;;;x
+EVTOPTA_DRAGON.158;[From.GetSheHeCap] should embrace [From.GetHerHis] heritage.;;;;;;;;;;;;;x
+EVTOPTB_DRAGON.158;No, [From.GetSheHe] should be raised in the proper [From.Culture.GetAdjective] way.;;;;;;;;;;;;;x
+EVTDESC_DRAGON.159;[From.GetFirstName] had agreed to teach me about old draconic traditions.;;;;;;;;;;;;;x
+EVTOPTA_DRAGON.159;This will be fun!;;;;;;;;;;;;;x
+EVTDESC_DRAGON.160;[From.GetFirstName] won't help me learn about old dragon traditions.;;;;;;;;;;;;;x
+EVTOPTA_DRAGON.160;Too bad.;;;;;;;;;;;;;x
+EVTDESC_DRAGON.163;I've spent a lot of time reading about dragons and their gods like Tiamat, Nidhogg, and Zirnita.  They seem so powerful and interesting.;;;;;;;;;;;;;x
+EVTOPTA_DRAGON.163;I wonder why they aren't worshiped any more.;;;;;;;;;;;;;x
+EVTOPTB_DRAGON.163;They're just stories.;;;;;;;;;;;;;x
+EVTDESC_DRAGON.164;Young [From.GetTitledName] has been reading legends of the old draconic gods and begun to question [From.GetHerHis] faith in [From.Religion.GetHighGodName].;;;;;;;;;;;;;x
+EVTOPTA_DRAGON.164;It's natural for a dragon to wish to worship the gods of their ancestors.;;;;;;;;;;;;;x
+EVTOPTB_DRAGON.164;I cannot allow [From.GetHerHim] to be tempted by [Root.Religion.GetRandomEvilGodName].;;;;;;;;;;;;;x
+EVTDESC_DRAGON.165;[From.GetTitledFirstName] told me that there are still some who worship the dragon gods and has begun to show me their rites and rituals.;;;;;;;;;;;;;x
+EVTOPTA_DRAGON.165;This is what I hoped for.;;;;;;;;;;;;;x
+EVTDESC_DRAGON.166;[From.GetTitledFirstName] heard about my interest in the draconic legends and has taken to lecturing me at length about sin and heathenism.;;;;;;;;;;;;;x
+EVTOPTA_DRAGON.166;Perhaps I shouldn't read those anymore if this is the result.;;;;;;;;;;;;;x
+EVTDESC_DRAGON.167;[Root.GetTitledFirstName], \nWhile it pleases me that you wish to serve under me, you will serve me better as a tribute than you would as my vassal. Your predecessor's arrangement will continue.\n\n[From.GetTitledFirstName];;;;;;;;;;;;;x
+EVTOPTA_DRAGON.167;That's disappointing.;;;;;;;;;;;;;x
+EVTDESC_DRAGON.168;[Root.GetTitledFirstName], \nI have more important matters to attend to than crushing your weak revolt.  Consider yourself free from your obligations to me for now.\n\n[From.GetTitledFirstName];;;;;;;;;;;;;x
+EVTOPTA_DRAGON.168;That was easier than I expected.;;;;;;;;;;;;;x
+tt_request_sf_loan;Request a loan of [Root.GoldAmt]¤ from the Sapphire Flame, paying back one quarter of your yearly income each your for 10 years;;;;;;;;;;;;;x
+EVTDESC_DRAGON.171;Though my request is only for a small sum of [From.GoldAmt]¤, it appears that the coffers of the Sapphire Flame cannot afford it at this time.;;;;;;;;;;;;;x
+EVTDESC_DRAGON.174;After ten long years, I have finally paid off my loan to the Sapphire Flame.;;;;;;;;;;;;;x
+EVTDESCDragonPilgrimage.1;It's expected that every dragon will eventually lend their breath to the Eternal Flames.  Now seems like a good time.;;;;;;;;;;;;;x
+EVTOPTDragonPilgrimage.1;I'll make travel plans.;;;;;;;;;;;;;x
+EVTOPTBDragonPilgrimage.1;I will visit the temple.;;;;;;;;;;;;;x
+EVTDESCDragonPilgrimage.2;There are two eternal flames in the isles.;;;;;;;;;;;;;x
+EVTDESCBDragonPilgrimage.2;With the continental Eternal Flames destroyed by the humans, I will need to travel to the western isles to visit the flames there.;;;;;;;;;;;;;x
+EVTOPTADragonPilgrimage.2;I will visit the flame in Galloway;;;;;;;;;;;;;x
+EVTOPTBDragonPilgrimage.2;I will aid the flame in Kent;;;;;;;;;;;;;x
+CHRONICLE_PILGRIMAGE_TO_GALLOWAY;[Root.GetTitledName] took a pious pilgrimage to strengthen the Eternal Flame in Galloway.;;;;;;;;;;;;;x
+CHRONICLE_PILGRIMAGE_TO_KENT;[Root.GetTitledName] took a pious pilgrimage to strengthen the Eternal Flame in Kent.;;;;;;;;;;;;;x
+EVTDESCDragonPilgrimage.3;There are three flames I can reach by land.;;;;;;;;;;;;;x
+EVTDESCBDragonPilgrimage.3;With the Flames on the isles destroyed by the humans, I will need to sail across the channel to seek one of the flames on the mainland.;;;;;;;;;;;;;x
+EVTOPTADragonPilgrimage.3;I will renew the flame in Sjaelland.;;;;;;;;;;;;;x
+EVTOPTBDragonPilgrimage.3;I will travel to Uppland.;;;;;;;;;;;;;x
+EVTOPTCDragonPilgrimage.3;I will see the southern flame in Plock.;;;;;;;;;;;;;x
+CHRONICLE_PILGRIMAGE_TO_SJAELLAND;[Root.GetTitledName] took a pious pilgrimage to strengthen the Eternal Flame in Sjaelland.;;;;;;;;;;;;;x
+CHRONICLE_PILGRIMAGE_TO_UPPLAND;[Root.GetTitledName] took a pious pilgrimage to strengthen the Eternal Flame in Uppland.;;;;;;;;;;;;;x
+CHRONICLE_PILGRIMAGE_TO_PLOCK;[Root.GetTitledName] took a pious pilgrimage to strengthen the Eternal Flame in Plock.;;;;;;;;;;;;;x
+EVTDESCDragonPilgrimage.4;My things are packed, everything is in order. Soon, I shall see fair Galloway and its Eternal Flame.;;;;;;;;;;;;;x
+OPT_JOURNEY;My journey begins!;;;;;;;;;;;;;x
+EVTDESCDragonPilgrimage.5;I have my traveling supplies ready.  I shall strike out to strengthen the Eternal Flame in Kent, where dragons first landed on the isles.;;;;;;;;;;;;;x
+EVTDESCDragonPilgrimage.6;My things are packed, everything is in order. Soon, I shall lend my strength to the central flame in Sjaelland;;;;;;;;;;;;;x
+EVTDESCDragonPilgrimage.7;I already live only a short distance from one of the Eternal Flames. I will present myself to the temple and prepare to aid it.;;;;;;;;;;;;;x
+EVTOPTADragonPilgrimage.7;I shall stay here, then.;;;;;;;;;;;;;x
+EVTDESCDragonPilgrimage.8;Everything is packed.  It's time to go to [Root.GetLandvaettirKampe]'s eternal flame in Uppland.;;;;;;;;;;;;;x
+EVTDESCDragonPilgrimage.9;I have my traveling supplies ready.  I shall strike out to strengthen [Root.GetWawelDelphyne]'s Eternal Flame in Plock;;;;;;;;;;;;;x
+EVTNAMEDragonPilgrimage.10;Galloway;;;;;;;;;;;;;x
+EVTDESCDragonPilgrimage.10;We have finally arrived in Galloway.  We will pay a visit to the temple at Whithorn, then head north to visit the Eternal Flame at Torhouse.  Legends say that this flame was created by the god [Root.GetDewiSybaris] to protect and support the dragons furthest in the west.  The flame burns without fuel or tinder above three stones at the center of a stone circle.;;;;;;;;;;;;;x
+EVTOPTADragonPilgrimage.10;A green and pleasant land!;;;;;;;;;;;;;x
+EVTDESCDragonPilgrimage.11;The rain has been pouring down for days.  It's been impossible to make and progress on the flooded roads, and traveling through plains or woods in this weather is slow and miserable.;;;;;;;;;;;;;x
+EVTOPTADragonPilgrimage.11;This is a test of my faith and dedication.;;;;;;;;;;;;;x
+EVTOPTBDragonPilgrimage.11;This is a waste of time.  I should have stayed home.;;;;;;;;;;;;;x
+EVTDESCDragonPilgrimage.12;You look out across the beautiful valley stretching out before you. It would be a wonderful moment, if not for the fact that there should be no valley here. You are a pilgrim in an unfamiliar land and you have no idea where you are.;;;;;;;;;;;;;x
+EVTOPTADragonPilgrimage.12;If only I hadn't listened to those useless humans that gave me directions.;;;;;;;;;;;;;x
+EVTOPTBDragonPilgrimage.12;If only I'd listened more to those humans that gave me directions.;;;;;;;;;;;;;x
+EVTDESCDragonPilgrimage.13;Much of the trip has been through the outskirts of land, on roads not protected by any chief or king.  This has become all too apparent as we came across a group of brigands demanding a 'toll' in exchange for safe passage.;;;;;;;;;;;;;x
+EVTOPTADragonPilgrimage.13;Pay up.;;;;;;;;;;;;;x
+EVTOPTBDragonPilgrimage.13;I'll pay with claw and sword!;;;;;;;;;;;;;x
+EVTDESCDragonPilgrimage.14;The old wooden bridge has carried many pilgrims in its day. It creaks suspiciously as you step on it.;;;;;;;;;;;;;x
+EVTOPTADragonPilgrimage.14;No time to stop. I'm sure it will hold.;;;;;;;;;;;;;x
+EVTOPTBDragonPilgrimage.14;Stop and repair it.;;;;;;;;;;;;;x
+EVTOPTCDragonPilgrimage.14;These people deserve a stone bridge.  I will pay for its construction.;;;;;;;;;;;;;x
+EVTDESCDragonPilgrimage.15;As winter sets in, the weather beings to turn.  A blizzard has set in and the road in becoming increasingly difficult.;;;;;;;;;;;;;x
+EVTOPTADragonPilgrimage.15;We need to push on;;;;;;;;;;;;;x
+EVTOPTBDragonPilgrimage.15;We will stay a few days at the next inn we come across.;;;;;;;;;;;;;x
+EVTDESCDragonPilgrimage.16;You lie awake at night, pondering the purpose of your journey.  Every dragon is supposed to lend their breath to the Eternal Flames, but so few do.  What would happen if they went out? Could they not just be reignited? And while they protected the dragons of old, do they still server some higher purpose?;;;;;;;;;;;;;x
+EVTOPTADragonPilgrimage.16;I will trust the gods and heed their commands.;;;;;;;;;;;;;x
+EVTOPTBDragonPilgrimage.16;I already started the journey, so I may as well finish it.  That's reason enough.;;;;;;;;;;;;;x
+EVTDESCDragonPilgrimage.17;I my journey, I met a human along the road.  When I told [curious_human.GetHerHim] why I was traveling, they were curious about my faith.  I explained our history and beliefs about dragons' souls when [curious_human.GetSheHe] asked where humans fit in.;;;;;;;;;;;;;x
+EVTOPTADragonPilgrimage.17;Human souls are strengthened through hard work.;;;;;;;;;;;;;x
+EVTOPTBDragonPilgrimage.17;I don't know... I should look in to that for you.;;;;;;;;;;;;;x
+EVTOPTCDragonPilgrimage.17;Humans don't matter.;;;;;;;;;;;;;x
+EVTNAMEDragonPilgrimage.18;The Flood;;;;;;;;;;;;;x
 EVTDESCDragonPilgrimage.18;There have been heavy rains in the area and the road you've been following has been cut off by a wide and swift river.  You can just fly over it, but a number of local farmers have been cut off and need help getting across.;un grand classique !;;;;;;;;;;;;
-EVTOPTADragonPilgrimage.18;I'll take the people, but their carts are livestock aren't worth the effort;;;;;;;;;;;;;
-EVTOPTBDragonPilgrimage.18;It will be a lot of work, but I can handle it.;;;;;;;;;;;;;
-EVTOPTCDragonPilgrimage.18;Well, good luck with that.;;;;;;;;;;;;;
-EVTTITLEDragonPilgrimage.18;The Flood;;;;;;;;;;;;;
-EVTDESCDragonPilgrimage.19;There have been strong rains in the area lately, and the valley that you need to cross has been transformed into a sizeable lake. The water is still rising, so you start to build a large raft in order to cross. When you're almost finished building it, a group of farmers show up and explain that they also need to cross the valley in order to get back to their homes. They bring with them a number of animals that they've rescued from the flood.;;;;;;;;;;;;;
-EVTOPTADragonPilgrimage.19;None of these humans are setting their filthy feet on my raft.;;;;;;;;;;;;;
-EVTOPTBDragonPilgrimage.19;Bring the farmers with all their animals.;;;;;;;;;;;;;
-EVTOPTCDragonPilgrimage.19;Only let them bring the cats and dogs.;;;;;;;;;;;;;
-EVTDESCPilgrimage.20;On the road, I ended up meeting another dragon on his way to the Eternal Flame.  We chatted a long the way, and it made the whole trip seem much shorter;;;;;;;;;;;;;
-EVTOPTADragonPilgrimage.20;I had a great time!;;;;;;;;;;;;;
-EVTDESCDragonPilgrimage.21;On the road, I met a traveling merchant heading back from his own trip to the Eternal Flame.  He claimed he was selling holy relics to pilgrims and promised great prices;;;;;;;;;;;;;
-EVTOPTADragonPilgrimage.21;One of the skulls of the Lernaean Hydra;;;;;;;;;;;;;
-EVTOPTBDragonPilgrimage.21;A torch with fire from the Eternal Flame;;;;;;;;;;;;;
-EVTOPTCDragonPilgrimage.21;A coin from Fafnir the Great's hoard;;;;;;;;;;;;;
-EVTOPTDDragonPilgrimage.21;Undoubtedly all fakes;;;;;;;;;;;;;
-EVTOPTEDragonPilgrimage.21;Great prices? I can't afford any of this.;;;;;;;;;;;;;
-EVTDESCDragonPilgrimage.22;You have spent the last fews days of your journey on water. The vessel you are travelling on rocks gently in the breeze, as the sailors go about their business. Being on board ship is quite unlike being on land – so much is different, so many strange words for all the things here. Starboard? Abaft? Aground? What does it all mean?;;;;;;;;;;;;;
-EVTOPTADragonPilgrimage.22;This is an excellent opportunity to learn some new skills.;;;;;;;;;;;;;
-EVTOPTBDragonPilgrimage.22;When will I need to sail a boat? I will spend my time in prayer.;;;;;;;;;;;;;
-EVTDESCDragonPilgrimage.23;As you stop to make camp near a river crossing along with other pilgrims, you observe a group of builders working on a new bridge just upstream. You walk up to them and see that the arches of the bridge are already half completed. The master builder notices your interest and walks up to you and offers to tell you about the construction techniques they are using.;;;;;;;;;;;;;
-EVTOPTADragonPilgrimage.23;Yes, tell me more about it.;;;;;;;;;;;;;
-EVTOPTBDragonPilgrimage.23;Nobles build castles. This is for peasants.;;;;;;;;;;;;;
-EVTOPTCDragonPilgrimage.23;Bridges are for those who can't just fly over.;;;;;;;;;;;;;
-EVTDESCDragonPilgrimage.24;The journey has been long and hard and your entire body aches.  Far from the castle kitchens the food is barely edible, and on top of that you seem to feel cold all the time.  Perhaps you were not quite cut out for this pilgrimage thing.;;;;;;;;;;;;;
-EVTOPTADragonPilgrimage.24;It's the Flame that matters. My body can wait.;;;;;;;;;;;;;
-EVTOPTBDragonPilgrimage.24;Maybe this was a bad idea.  I should rest for a while.;;;;;;;;;;;;;
-EVTDESCDragonPilgrimage.25;As I was heading along the trail, I came across a village in rather poor condition.  It turns out that a blight wiped out their crops and they are having trouble making ends meet.;;;;;;;;;;;;;
-EVTOPTADragonPilgrimage.25;I can spare some money to help them.;;;;;;;;;;;;;
-EVTOPTBDragonPilgrimage.25;It takes more than a sob story to get my money.;;;;;;;;;;;;;
-EVTDESCDragonPilgrimage.26;As I laid down to sleep, I began to think about my parents, their behavior, and the example they've set for me.;;;;;;;;;;;;;
-EVTOPTADragonPilgrimage.26;They weren't the best role models.;;;;;;;;;;;;;
-EVTOPTBDragonPilgrimage.26;They raised me right.;;;;;;;;;;;;;
-EVTDESCDragonPilgrimage.27;Every night, there has been a single, bright start in the sky that has caught my attention.  It outshines those around it and has remained in a constant position over my destination.;;;;;;;;;;;;;
-EVTOPTADragonPilgrimage.27;[Root.Religion.GetRandomGodName] is guiding and protecting me.;;;;;;;;;;;;;
-EVTOPTBDragonPilgrimage.27;It's a star. So what?;;;;;;;;;;;;;
-EVTOPTCDragonPilgrimage.27;It's an ill omen.;;;;;;;;;;;;;
-EVTNAMEDragonPilgrimage.28;Riders approach...;;;;;;;;;;;;;
-EVTDESCADragonPilgrimage.28;Thundering hooves are heard down the road. The pilgrims look with apprehension at the rising dust cloud. As the riders close, steel armour and steel-tipped lances reflect the bright sunlight. The tension rises, but then a collective sigh of relief is heard as the banner of the holy knights is seen flying above the mass of armored men. The knights halt before the pilgrims and graciously offer to accompany you on the road.;;;;;;;;;;;;;
-EVTDESCBDragonPilgrimage.28;Thundering hooves are heard down the road. The pilgrims look with apprehension at the rising dust cloud. As the riders close, steel armour and steel-tipped lances reflect the bright sunlight. The tension rises, but then a collective sigh of relief is heard as they dismount and bow before me, recognizing me as the Sapphire Flame.  They are an order of holy knights here to escort me on my visit.;;;;;;;;;;;;;
-EVTOPTADragonPilgrimage.28;Praised be [Root.Religion.GetRandomGodName]! A most welcome escort!;;;;;;;;;;;;;
-EVTOPTBDragonPilgrimage.28;Never trust armed men who appear out of nowhere.;;;;;;;;;;;;;
-EVTDESCDragonPilgrimage.29;As the evening approaches after a long day on the road, you come upon several campfires. Around the fires you find a group of holy knights, resting after a long day's ride. They invite you to share their meal and trade stories.;;;;;;;;;;;;;
-EVTOPTADragonPilgrimage.29;Discuss theology with the knights.;;;;;;;;;;;;;
-EVTOPTBDragonPilgrimage.29;Trade stories of war.;;;;;;;;;;;;;
-EVTDESCDragonPilgrimage.30;During the last couple of days, you have made company on the road with a holy knight on his way to the same destination. You have lively and interesting conversations, and you find that you have many things in common,;;;;;;;;;;;;;
-EVTOPTADragonPilgrimage.30;How unexpected, to make a new friend this far from home.;;;;;;;;;;;;;
-EVTOPTBDragonPilgrimage.30;I have no need for friends.;;;;;;;;;;;;;
-EVTNAMEDragonPilgrimage.31;Kent;;;;;;;;;;;;;
-EVTDESCDragonPilgrimage.31;You have arrived in Kent.  When the dragons first arrived here, [Root.GetZirnitraEchidna] created one of the Eternal Flames in an underground chamber to protect the early dragons.  Though the Christians have built one of their temples over it, there are still secret ways for worshippers to get to the flame.;;;;;;;;;;;;;
-EVTOPTADragonPilgrimage.31;The long road is over.;;;;;;;;;;;;;
-EVTNAMEDragonPilgrimage.32;Sjaelland;;;;;;;;;;;;;
-EVTDESCDragonPilgrimage.32;After the powerful yet impatient dragon Sigurd was cursed to become human for trying to slay Fafnir, in his rage he attempted to extinguish the Eternal Flame in Sjaelland.  Banding together, the dragons were able to drive him off, but at the cost of many lives.  When strengthening Sjaelland's flame, we not only fulfill our duty, but honor those who died to protect it.;;;;;;;;;;;;;
-EVTOPTADragonPilgrimage.32;Their sacrifice will not be forgotten.;;;;;;;;;;;;;
-EVTNAMEDragonPilgrimage.33;The Eternal Flame;;;;;;;;;;;;;
-EVTDESCDragonPilgrimage.33;The Eternal Flames were lit by the gods as we fled west to escape the constant attacks by the numerous humans jealous of our power and birthright.  The flames would protect our settlements from the elements, and in exchange, we would lend our breath to keep them burning.;;;;;;;;;;;;;
-EVTDESCADragonPilgrimage.33;The Eternal Flames were lit by the gods as we fled west to escape the constant attacks by the numerous humans jealous of our power and birthright.  The flames would protect our settlements from the elements and heat the world-egg to keep the next world alive until it can hatch.  In exchange for the Flames' protection, every dragon is charges with lending their breath to keep the Flames active.;;;;;;;;;;;;;
-EVTOPTADragonPilgrimage.33;I will fulfill my duty.;;;;;;;;;;;;;
-EVTNAMEDragonPilgrimage.34;Uppland;;;;;;;;;;;;;
-EVTDESCDragonPilgrimage.34;You have made it up Uppland, home of the Eternal Flame birthed by [Root.GetLandvaettirKampe] to protect us as we fled from our old homes in Asaland and Sumeria.  Our old settlements grew in the light and protection of the flame until we were once again driven out by the growing human threat.;;;;;;;;;;;;;
-EVTOPTADragonPilgrimage.34;We will reclaim our heritage.;;;;;;;;;;;;;
-EVTNAMEDragonPilgrimage.35;Plock;;;;;;;;;;;;;
-EVTDESCDragonPilgrimage.35;The oldest of the Eternal Flames, the Flame at Plock was created by [Root.GetWawelDelphyne] to protect our first settlements as we fled from attacks in the east.  Legends say that humans could once breathe fire, but gre jealous of the strength of dragonfire and tried to consume this Flame to take the power for themselves. Instead it burned their mouths and they lost what fire they had and survived only by being taught to make file from sticks and stone.;;;;;;;;;;;;;
-EVTOPTADragonPilgrimage.35;I should see the ancient sites while I am here.;;;;;;;;;;;;;
-EVTDESCDragonPilgrimage.40;As you walk around on this holy ground, you ponder the secrets and the essences of the gods.  The teachings of the priest and seers have never seemed as real to you as they do now.  Imagine the knowledge contained in the scriptures and writing here.;;;;;;;;;;;;;
-EVTOPTADragonPilgrimage.40;I will learn much from the draconic histories.;;;;;;;;;;;;;
-EVTOPTBDragonPilgrimage.40;Study does not strengthen the soul.;;;;;;;;;;;;;
-EVTDESCDragonPilgrimage.41;The presence of the Eternal Flame is overwhelming! I realize that all my life up to this point has merely been preparation for this journey.  How wondrous it is for the light of the Eternal Flames to finally shine on me!  From now on, I shall dedicate my life to the teachings of the gods.;;;;;;;;;;;;;
-EVTOPTADragonPilgrimage.41;Praise [Root.Religion.GetRandomGodName]!;;;;;;;;;;;;;
-EVTDESCDragonPilgrimage.42;Traveling all this way to see the Eternal Flame, you had expected more than this. It's pretty much just a bonfire, which you've seen plenty of.  This isn't anything special;;;;;;;;;;;;;
-EVTOPTADragonPilgrimage.42;That's it?;;;;;;;;;;;;;
-EVTDESCDragonPilgrimage.43;The bustling mass as pilgrims is impressive, as are the many languages and the color and style of clothes, horns, and clothes among the dragons visiting.  You're standing at a place where the roads meet, and that is a natural place for both dragons and dragonborn to gather.;;;;;;;;;;;;;
-EVTOPTADragonPilgrimage.43;Take the opportunity to observe different languages and customs.;;;;;;;;;;;;;
-EVTOPTBDragonPilgrimage.43;Take the opportunity to meet new people.;;;;;;;;;;;;;
-EVTDESCDragonPilgrimage.44;The stories of other pilgrims all spoke of how impressive this place is. Now that you can see it with your own eyes, you can only join in their praise. You are glad that you came here, to one of the holiest places among dragon-kind.;;;;;;;;;;;;;
-EVTOPTADragonPilgrimage.44;It was well worth the journey!;;;;;;;;;;;;;
-EVTDESCDragonPilgrimage.45;As you approach the holy temple, you overhear a theological discussion between several priests. You stop and eagerly engage them in conversation, expanding upon several of your favorite topics. They are very impressed by your knowledge and invite you to hold a lecture for a group of assembled religious scholars.;;;;;;;;;;;;;
-EVTOPTADragonPilgrimage.45;I will be most pleased the share my knowledge.;;;;;;;;;;;;;
-EVTDESCDragonPIlgrimage.46;As soon as I entered the temple, the priest recognized me as the Sapphire Flame.  He was very eager for me to deliver a sermon today.  I didn't have anything prepared, but I agreed anyway.  Now I just need to determine the topic;;;;;;;;;;;;;
-EVTOPTADragonPilgrimage.46;Something simple – the importance of hording gold.;;;;;;;;;;;;;
-EVTOPTBDragonPilgrimage.46;I will teach how dragonkind needs to expand.;;;;;;;;;;;;;
-EVTOPTCDragonPilgrimage.46;Our enemies are everywhere – I will stress vigilance.;;;;;;;;;;;;;
-EVTOPTDDragonPilgrimage.46;I will talk about the Eternal Flames – that's why I'm here.;;;;;;;;;;;;;
-EVTDESCDragonPilgrimage.47;When I first looked into the Eternal Flame, I same move than simply fire – I saw images moving through the flame.  I've heard of people seeing visions in the fire, and now I find myself seeing them as well.;;;;;;;;;;;;;
-EVTOPTADragonPilgrimage.47;I see wealth and prosperity.;;;;;;;;;;;;;
-EVTOPTBDragonPilgrimage.47;I see visions of the gods.;;;;;;;;;;;;;
-EVTOPTCDragonPilgrimage.47;I see images of peace and tranquility.;;;;;;;;;;;;;
-EVTOPTDDragonPilgrimage.47;I see realms bowing before me.;;;;;;;;;;;;;
-EVTOPTEDragonPilgrimage.47;I... I can't understand these images.;;;;;;;;;;;;;
-EVTDESCDragonPilgrimage.48;So far from home, all alone, and so many lovely people in the same situation as me. It's a great opportunity for some fun, isn't it?;;;;;;;;;;;;;
-EVTOPTADragonPilgrimage.48;I'm sure I can find someone to keep me company.;;;;;;;;;;;;;
-EVTOPTBDragonPilgrimage.48;That's not what I'm here for;;;;;;;;;;;;;
-EVTDESCDragonPilgrimage.49;This holy place is bustling with pilgrims from all over the world, and a myriad of accents and languages mingle in the parks and plazas. In this great cultural melting pot, should there not also be room for me to express who I really am?;;;;;;;;;;;;;
-EVTOPTADragonPilgrimage.49;The folks at home will never know;;;;;;;;;;;;;
-EVTOPTBDragonPilgrimage.49;I'm here with a purpose, and that isn't it.;;;;;;;;;;;;;
-EVTDESCDragonPilgrimage.50;All these magnificent temples built in your honor! Oh the glory! And all these pilgrims - finally you may revel in their adulation. Perhaps you should reveal yourself to the masses who have come to worship you?;;;;;;;;;;;;;
-EVTOPTADragonPilgrimage.50;Speak to them!;;;;;;;;;;;;;
-EVTOPTBDragonPilgrimage.50;No, I shall enjoy this glorious time in silence.;;;;;;;;;;;;;
-EVTDESCDragonPilgrimage.51;I came her to attend to the Flame and show my devotions, but with so many luxuries and taverns here, surely I can take some time for fun beforehand.;;;;;;;;;;;;;
-EVTOPTADragonPilgrimage.51;To the tavern!;;;;;;;;;;;;;
-EVTOPTBDragonPilgrimage.51;The Flame comes first.  I have to control myself.;;;;;;;;;;;;;
-EVTDESCDragonPilgrimage.53;I find a secluded area outside of town to go through the ritual cleanings expected of all pilgrims before lending their breath to the Eternal Flame.;;;;;;;;;;;;;
-EVTOPTADragonPilgrimage.53;A clean body reflects a clean soul.;;;;;;;;;;;;;
-EVTOPTBDragonPilgrimage.53;Is all this pageantry really necessary?;;;;;;;;;;;;;
-EVTDESCDragonPilgrimage.54;You arrive and the temple to the Eternal Flame and speak to the priest.  Due to the crowds of pilgrims, there is a wait before you can perform your duties and he arranges a time for your visit.;;;;;;;;;;;;;
-EVTOPTADragonPilgrimage.54;Don't worry, I know how to pass the time;;;;;;;;;;;;;
-Tooltip_Hedonist;This option is available due to you having the Hedonist trait.;;;;;;;;;;;;;
-Tooltip_Lustful;This option is available due to you having the Lustful trait.;;;;;;;;;;;;;
-Tooltip_Drunkard;This option is available due to you having the Drunkard trait.;;;;;;;;;;;;;
-EVTOPTBDragonPilgrimage.54;I will wait until my turn arrives;;;;;;;;;;;;;
-EVTOPTCDragonPilgrimage.54;I have to wait?;;;;;;;;;;;;;
-EVTDESCDragonPilgrimage.55;As you wait for your turn, you come across a dragonborn gathering ritual ingredients  Because dragonborn cannot breathe fire on their own, they need to develop a special potion in order to lend their breath to the flame.;;;;;;;;;;;;;
-EVTOPTADragonPilgrimage.55;Help him out;;;;;;;;;;;;;
-EVTOPTBDragonPilgrimage.55;Keep him company;;;;;;;;;;;;;
-EVTOPTCDragonPilgrimage.55;Leave him be;;;;;;;;;;;;;
-EVTDESCDragonPilgrimage.56;With there still being time before I could lend my breath to the Flame, you checked by the temple to see if you could help the priest with any of his duties.;;;;;;;;;;;;;
-EVTOPTADragonPilgrimage.56;I will perform the blessings at local shrines;;;;;;;;;;;;;
-EVTOPTBDragonPilgrimage.56;I'm not above helping clean the temple;;;;;;;;;;;;;
-EVTOPTCDragonPilgrimage.56;I can help the priest with all the paperwork he has piled up.;;;;;;;;;;;;;
-EVTOPTDDragonPilgrimage.56;On second thought, I'll just rest for a bit;;;;;;;;;;;;;
-EVTDESCDragonPilgrimage.57;I as walked through the temple, I noticed that the priest seemed to be out, but the temple valuables were still there...;;;;;;;;;;;;;
-EVTOPTADragonPilgrimage.57;No one checked the reliquary.;;;;;;;;;;;;;
-EVTOPTBDragonPilgrimage.57;I'll just take a little from the coffers.;;;;;;;;;;;;;
-EVTOPTCDragonPilgrimage.57;I'm not going to steal from the temple!;;;;;;;;;;;;;
-EVTDESCDragonPilgrimage.58;While I was trying to get my way into the temple valuables, the priest walked in and caught you red handed.  There was little you could do as he threw you out of the temple.  While he'll still have to let you in for your pilgrimage, it's clear he'll be keeping a very close eye on you.;;;;;;;;;;;;;
-EVTOPTADragonPilgrimage.58;Perhaps I shouldn't rob someone who talks to the gods.;;;;;;;;;;;;;
-EVTDESCDragonPilgrimage.59;Without any trouble you broke in to the reliquary, grabbed the first box you saw, and got out, and it seems no one is the wiser.;;;;;;;;;;;;;
-EVTOPTADragonPilgrimage.59;I wonder what I got;;;;;;;;;;;;;
-EVTDESCDragonPilgrimage.60;It's interesting to see all the variety of pilgrims that visit the city with different languages and cultures.  As you think about it, it seems like a great opportunity for a bit of fun.;;;;;;;;;;;;;
-EVTOPTADragonPilgrimage.60;I'm sure someone needs a bit of company.;;;;;;;;;;;;;
-EVTOPTBDragonPilgrimage.60;I need to control myself.;;;;;;;;;;;;;
-EVTDESCDragonPilgrimage.61;As a dragonborn, you are not able to breathe fire yourself, but are still expected to tend to the Eternal Flame.  To do this, there is a ritual potion that you will need to make instead, but it will need some expensive ingredients and a bit of your blood;;;;;;;;;;;;;
-EVTOPTADragonPilgrimage.61;But I need my blood...;;;;;;;;;;;;;
-EVTDESCDragonPilgrimage.62;It is time for you to lend your breath to the Eternal Flame.  You are brought to an enshrined area before a flame that consumes no fuel and has an odd blue hue.  This flame was created by the gods and maintained by the dragons that came before you, and now it is time for you to lend your fire to the flame as well.;;;;;;;;;;;;;
-EVTOPTADragonPilgrimage.62;Praise [Root.Religion.GetRandomGodName]!;;;;;;;;;;;;;
-EVTDESCDragonPilgrimage.63;This pilgrimage has turned your thoughts towards your soul and the next world.  You've been taught that a dragon's soul is that of gold and that getting more will strengthen it to prepare you for the next world, but still wonder just how prepared it is.;;;;;;;;;;;;;
-EVTOPTADragonPilgrimage.63;My soul is secure.;;;;;;;;;;;;;
-tooltip_from_gold;This option is available due to the amount of gold you have.;;;;;;;;;;;;;
-EVTOPTBDragonPilgrimage.63;I should get more gold...;;;;;;;;;;;;;
-EVTOPTCDragonPilgrimage.63;My hoard is NOT small!;;;;;;;;;;;;;
-EVTDESCDragonPilgrimage.66;Blasphemous fools! Do they not know their Lord? How dare they throw you out of your own temple?;;;;;;;;;;;;;
-EVTOPTADragonPilgrimage.66;I shall have my vengeance.;;;;;;;;;;;;;
-EVTDESCDragonPilgrimage.67;You have made friends with [From.GetTitledName].;;;;;;;;;;;;;
-EVTOPTADragonPilgrimage.67;Great!;;;;;;;;;;;;;
-EVTDESCDragonPilgrimage.68;It is time for you to strengthen the Eternal Flame.  You are brought to an enshrined area before a flame that consumes no fuel and has an odd blue hue.  This flame was created by the gods and maintained by the dragons that came before you, and when you pour in the potion, will will have done the same.;;;;;;;;;;;;;
-EVTOPTADragonPilgrimage.68;Praise [Root.Religion.GetRandomGodName]!;;;;;;;;;;;;;
-EVTDESCDragonPilgrimage.69;You have finally returned from your pilgrimage. It was a rewarding and interesting journey, and you'd do it all again if you could. Still, it's good to be back home.;;;;;;;;;;;;;
-EVTOPTADragonPilgrimage.69;A great experience!;;;;;;;;;;;;;
-EVTDESCDragonPilgrimage.70;You have finally returned from your pilgrimage. It didn't turn out quite as expected, and perhaps you shouldn't have gone there in the first place. But there's no changing it now, at least you're home again and can start forgetting about it.;;;;;;;;;;;;;
-EVTOPTADragonPilgrimage.70;I won't tell my family what really happened out there;;;;;;;;;;;;;
-EVTDESCDragonPilgrimage.71;You have finally made it back from your pilgrimage, and it was one of the worst experiences of your life.  At least your home now, any practially anything that happens here will be an improvement.;;;;;;;;;;;;;
-EVTOPTADragonPilgrimage.71;At least I'll never have to do that again.;;;;;;;;;;;;;
-EVTDESCDragonPilgrimage.72;You have finally returned from your pilgrimage. Though the insolent rats did not recognize you or pay you proper homage, it was still an enlightening experience. Now there is plenty of time to prepare the day of reckoning.;;;;;;;;;;;;;
-EVTOPTADragonPilgrimage.72;They will taste divine vengeance!;;;;;;;;;;;;;
-EVTDESCDragonPilgrimage.74;Soon I will embark on my journey. I just need to decide where.;;;;;;;;;;;;;
-EVTOPTADragonPilgrimage.74;To the Flame in [k_draconic_pagan_reformed.draconic_holy_site_1.GetName].;;;;;;;;;;;;;
-EVTOPTBDragonPilgrimage.74;I will make for [k_draconic_pagan_reformed.draconic_holy_site_2.GetName].;;;;;;;;;;;;;
-EVTOPTCDragonPilgrimage.74;I will head to [k_draconic_pagan_reformed.draconic_holy_site_3.GetName].;;;;;;;;;;;;;
-EVTOPTDDragonPilgrimage.74;I shall go to [k_draconic_pagan_reformed.draconic_holy_site_4.GetName].;;;;;;;;;;;;;
-EVTOPTEDragonPilgrimage.74;I will visit [k_draconic_pagan_reformed.draconic_holy_site_5.GetName].;;;;;;;;;;;;;
-EVTDESCADragonPilgrimage.75;My things are packed, everything is in order. Soon, I shall see fair [k_draconic_pagan_reformed.draconic_holy_site_1.GetName] and its Eternal Flame.;;;;;;;;;;;;;
-EVTDESCBDragonPilgrimage.75;My things are packed, everything is in order. Soon, I shall see fair [k_draconic_pagan_reformed.draconic_holy_site_2.GetName] and its Eternal Flame.;;;;;;;;;;;;;
-EVTDESCCDragonPilgrimage.75;My things are packed, everything is in order. Soon, I shall see fair [k_draconic_pagan_reformed.draconic_holy_site_3.GetName] and its Eternal Flame.;;;;;;;;;;;;;
-EVTDESCDDragonPilgrimage.75;My things are packed, everything is in order. Soon, I shall see fair [k_draconic_pagan_reformed.draconic_holy_site_4.GetName] and its Eternal Flame.;;;;;;;;;;;;;
-EVTDESCEDragonPilgrimage.75;My things are packed, everything is in order. Soon, I shall see fair [k_draconic_pagan_reformed.draconic_holy_site_5.GetName] and its Eternal Flame.;;;;;;;;;;;;;
-EVTNAMEDragonPilgrimage.76;Pilgrimage;;;;;;;;;;;;;
-EVTDESCADragonPilgrimage.76;We have finally arrived in [k_draconic_pagan_reformed.draconic_holy_site_1.GetName].  We will pay a visit to the temple and then head out to visit the flame and perform the rituals.;;;;;;;;;;;;;
-EVTDESCBDragonPilgrimage.76;We have finally arrived in [k_draconic_pagan_reformed.draconic_holy_site_2.GetName].  We will pay a visit to the temple and then head out to visit the flame and perform the rituals.;;;;;;;;;;;;;
-EVTDESCCDragonPilgrimage.76;We have finally arrived in [k_draconic_pagan_reformed.draconic_holy_site_3.GetName].  We will pay a visit to the temple and then head out to visit the flame and perform the rituals.;;;;;;;;;;;;;
-EVTDESCDDragonPilgrimage.76;We have finally arrived in [k_draconic_pagan_reformed.draconic_holy_site_4.GetName].  We will pay a visit to the temple and then head out to visit the flame and perform the rituals.;;;;;;;;;;;;;
-EVTDESCEDragonPilgrimage.76;We have finally arrived in [k_draconic_pagan_reformed.draconic_holy_site_5.GetName].  We will pay a visit to the temple and then head out to visit the flame and perform the rituals.;;;;;;;;;;;;;
-attempt_to_steal_artifact;Attempt to steal the artifact.;;;;;;;;;;;;;
-caught_stealing;Your attempted theft is caught.;;;;;;;;;;;;;
+EVTOPTADragonPilgrimage.18;I'll take the people, but their carts are livestock aren't worth the effort;;;;;;;;;;;;;x
+EVTOPTBDragonPilgrimage.18;It will be a lot of work, but I can handle it.;;;;;;;;;;;;;x
+EVTOPTCDragonPilgrimage.18;Well, good luck with that.;;;;;;;;;;;;;x
+EVTTITLEDragonPilgrimage.18;The Flood;;;;;;;;;;;;;x
+EVTDESCDragonPilgrimage.19;There have been strong rains in the area lately, and the valley that you need to cross has been transformed into a sizeable lake. The water is still rising, so you start to build a large raft in order to cross. When you're almost finished building it, a group of farmers show up and explain that they also need to cross the valley in order to get back to their homes. They bring with them a number of animals that they've rescued from the flood.;;;;;;;;;;;;;x
+EVTOPTADragonPilgrimage.19;None of these humans are setting their filthy feet on my raft.;;;;;;;;;;;;;x
+EVTOPTBDragonPilgrimage.19;Bring the farmers with all their animals.;;;;;;;;;;;;;x
+EVTOPTCDragonPilgrimage.19;Only let them bring the cats and dogs.;;;;;;;;;;;;;x
+EVTDESCPilgrimage.20;On the road, I ended up meeting another dragon on his way to the Eternal Flame.  We chatted a long the way, and it made the whole trip seem much shorter;;;;;;;;;;;;;x
+EVTOPTADragonPilgrimage.20;I had a great time!;;;;;;;;;;;;;x
+EVTDESCDragonPilgrimage.21;On the road, I met a traveling merchant heading back from his own trip to the Eternal Flame.  He claimed he was selling holy relics to pilgrims and promised great prices;;;;;;;;;;;;;x
+EVTOPTADragonPilgrimage.21;One of the skulls of the Lernaean Hydra;;;;;;;;;;;;;x
+EVTOPTBDragonPilgrimage.21;A torch with fire from the Eternal Flame;;;;;;;;;;;;;x
+EVTOPTCDragonPilgrimage.21;A coin from Fafnir the Great's hoard;;;;;;;;;;;;;x
+EVTOPTDDragonPilgrimage.21;Undoubtedly all fakes;;;;;;;;;;;;;x
+EVTOPTEDragonPilgrimage.21;Great prices? I can't afford any of this.;;;;;;;;;;;;;x
+EVTDESCDragonPilgrimage.22;You have spent the last fews days of your journey on water. The vessel you are travelling on rocks gently in the breeze, as the sailors go about their business. Being on board ship is quite unlike being on land – so much is different, so many strange words for all the things here. Starboard? Abaft? Aground? What does it all mean?;;;;;;;;;;;;;x
+EVTOPTADragonPilgrimage.22;This is an excellent opportunity to learn some new skills.;;;;;;;;;;;;;x
+EVTOPTBDragonPilgrimage.22;When will I need to sail a boat? I will spend my time in prayer.;;;;;;;;;;;;;x
+EVTDESCDragonPilgrimage.23;As you stop to make camp near a river crossing along with other pilgrims, you observe a group of builders working on a new bridge just upstream. You walk up to them and see that the arches of the bridge are already half completed. The master builder notices your interest and walks up to you and offers to tell you about the construction techniques they are using.;;;;;;;;;;;;;x
+EVTOPTADragonPilgrimage.23;Yes, tell me more about it.;;;;;;;;;;;;;x
+EVTOPTBDragonPilgrimage.23;Nobles build castles. This is for peasants.;;;;;;;;;;;;;x
+EVTOPTCDragonPilgrimage.23;Bridges are for those who can't just fly over.;;;;;;;;;;;;;x
+EVTDESCDragonPilgrimage.24;The journey has been long and hard and your entire body aches.  Far from the castle kitchens the food is barely edible, and on top of that you seem to feel cold all the time.  Perhaps you were not quite cut out for this pilgrimage thing.;;;;;;;;;;;;;x
+EVTOPTADragonPilgrimage.24;It's the Flame that matters. My body can wait.;;;;;;;;;;;;;x
+EVTOPTBDragonPilgrimage.24;Maybe this was a bad idea.  I should rest for a while.;;;;;;;;;;;;;x
+EVTDESCDragonPilgrimage.25;As I was heading along the trail, I came across a village in rather poor condition.  It turns out that a blight wiped out their crops and they are having trouble making ends meet.;;;;;;;;;;;;;x
+EVTOPTADragonPilgrimage.25;I can spare some money to help them.;;;;;;;;;;;;;x
+EVTOPTBDragonPilgrimage.25;It takes more than a sob story to get my money.;;;;;;;;;;;;;x
+EVTDESCDragonPilgrimage.26;As I laid down to sleep, I began to think about my parents, their behavior, and the example they've set for me.;;;;;;;;;;;;;x
+EVTOPTADragonPilgrimage.26;They weren't the best role models.;;;;;;;;;;;;;x
+EVTOPTBDragonPilgrimage.26;They raised me right.;;;;;;;;;;;;;x
+EVTDESCDragonPilgrimage.27;Every night, there has been a single, bright start in the sky that has caught my attention.  It outshines those around it and has remained in a constant position over my destination.;;;;;;;;;;;;;x
+EVTOPTADragonPilgrimage.27;[Root.Religion.GetRandomGodName] is guiding and protecting me.;;;;;;;;;;;;;x
+EVTOPTBDragonPilgrimage.27;It's a star. So what?;;;;;;;;;;;;;x
+EVTOPTCDragonPilgrimage.27;It's an ill omen.;;;;;;;;;;;;;x
+EVTNAMEDragonPilgrimage.28;Riders approach...;;;;;;;;;;;;;x
+EVTDESCADragonPilgrimage.28;Thundering hooves are heard down the road. The pilgrims look with apprehension at the rising dust cloud. As the riders close, steel armour and steel-tipped lances reflect the bright sunlight. The tension rises, but then a collective sigh of relief is heard as the banner of the holy knights is seen flying above the mass of armored men. The knights halt before the pilgrims and graciously offer to accompany you on the road.;;;;;;;;;;;;;x
+EVTDESCBDragonPilgrimage.28;Thundering hooves are heard down the road. The pilgrims look with apprehension at the rising dust cloud. As the riders close, steel armour and steel-tipped lances reflect the bright sunlight. The tension rises, but then a collective sigh of relief is heard as they dismount and bow before me, recognizing me as the Sapphire Flame.  They are an order of holy knights here to escort me on my visit.;;;;;;;;;;;;;x
+EVTOPTADragonPilgrimage.28;Praised be [Root.Religion.GetRandomGodName]! A most welcome escort!;;;;;;;;;;;;;x
+EVTOPTBDragonPilgrimage.28;Never trust armed men who appear out of nowhere.;;;;;;;;;;;;;x
+EVTDESCDragonPilgrimage.29;As the evening approaches after a long day on the road, you come upon several campfires. Around the fires you find a group of holy knights, resting after a long day's ride. They invite you to share their meal and trade stories.;;;;;;;;;;;;;x
+EVTOPTADragonPilgrimage.29;Discuss theology with the knights.;;;;;;;;;;;;;x
+EVTOPTBDragonPilgrimage.29;Trade stories of war.;;;;;;;;;;;;;x
+EVTDESCDragonPilgrimage.30;During the last couple of days, you have made company on the road with a holy knight on his way to the same destination. You have lively and interesting conversations, and you find that you have many things in common,;;;;;;;;;;;;;x
+EVTOPTADragonPilgrimage.30;How unexpected, to make a new friend this far from home.;;;;;;;;;;;;;x
+EVTOPTBDragonPilgrimage.30;I have no need for friends.;;;;;;;;;;;;;x
+EVTNAMEDragonPilgrimage.31;Kent;;;;;;;;;;;;;x
+EVTDESCDragonPilgrimage.31;You have arrived in Kent.  When the dragons first arrived here, [Root.GetZirnitraEchidna] created one of the Eternal Flames in an underground chamber to protect the early dragons.  Though the Christians have built one of their temples over it, there are still secret ways for worshippers to get to the flame.;;;;;;;;;;;;;x
+EVTOPTADragonPilgrimage.31;The long road is over.;;;;;;;;;;;;;x
+EVTNAMEDragonPilgrimage.32;Sjaelland;;;;;;;;;;;;;x
+EVTDESCDragonPilgrimage.32;After the powerful yet impatient dragon Sigurd was cursed to become human for trying to slay Fafnir, in his rage he attempted to extinguish the Eternal Flame in Sjaelland.  Banding together, the dragons were able to drive him off, but at the cost of many lives.  When strengthening Sjaelland's flame, we not only fulfill our duty, but honor those who died to protect it.;;;;;;;;;;;;;x
+EVTOPTADragonPilgrimage.32;Their sacrifice will not be forgotten.;;;;;;;;;;;;;x
+EVTNAMEDragonPilgrimage.33;The Eternal Flame;;;;;;;;;;;;;x
+EVTDESCDragonPilgrimage.33;The Eternal Flames were lit by the gods as we fled west to escape the constant attacks by the numerous humans jealous of our power and birthright.  The flames would protect our settlements from the elements, and in exchange, we would lend our breath to keep them burning.;;;;;;;;;;;;;x
+EVTDESCADragonPilgrimage.33;The Eternal Flames were lit by the gods as we fled west to escape the constant attacks by the numerous humans jealous of our power and birthright.  The flames would protect our settlements from the elements and heat the world-egg to keep the next world alive until it can hatch.  In exchange for the Flames' protection, every dragon is charges with lending their breath to keep the Flames active.;;;;;;;;;;;;;x
+EVTOPTADragonPilgrimage.33;I will fulfill my duty.;;;;;;;;;;;;;x
+EVTNAMEDragonPilgrimage.34;Uppland;;;;;;;;;;;;;x
+EVTDESCDragonPilgrimage.34;You have made it up Uppland, home of the Eternal Flame birthed by [Root.GetLandvaettirKampe] to protect us as we fled from our old homes in Asaland and Sumeria.  Our old settlements grew in the light and protection of the flame until we were once again driven out by the growing human threat.;;;;;;;;;;;;;x
+EVTOPTADragonPilgrimage.34;We will reclaim our heritage.;;;;;;;;;;;;;x
+EVTNAMEDragonPilgrimage.35;Plock;;;;;;;;;;;;;x
+EVTDESCDragonPilgrimage.35;The oldest of the Eternal Flames, the Flame at Plock was created by [Root.GetWawelDelphyne] to protect our first settlements as we fled from attacks in the east.  Legends say that humans could once breathe fire, but gre jealous of the strength of dragonfire and tried to consume this Flame to take the power for themselves. Instead it burned their mouths and they lost what fire they had and survived only by being taught to make file from sticks and stone.;;;;;;;;;;;;;x
+EVTOPTADragonPilgrimage.35;I should see the ancient sites while I am here.;;;;;;;;;;;;;x
+EVTDESCDragonPilgrimage.40;As you walk around on this holy ground, you ponder the secrets and the essences of the gods.  The teachings of the priest and seers have never seemed as real to you as they do now.  Imagine the knowledge contained in the scriptures and writing here.;;;;;;;;;;;;;x
+EVTOPTADragonPilgrimage.40;I will learn much from the draconic histories.;;;;;;;;;;;;;x
+EVTOPTBDragonPilgrimage.40;Study does not strengthen the soul.;;;;;;;;;;;;;x
+EVTDESCDragonPilgrimage.41;The presence of the Eternal Flame is overwhelming! I realize that all my life up to this point has merely been preparation for this journey.  How wondrous it is for the light of the Eternal Flames to finally shine on me!  From now on, I shall dedicate my life to the teachings of the gods.;;;;;;;;;;;;;x
+EVTOPTADragonPilgrimage.41;Praise [Root.Religion.GetRandomGodName]!;;;;;;;;;;;;;x
+EVTDESCDragonPilgrimage.42;Traveling all this way to see the Eternal Flame, you had expected more than this. It's pretty much just a bonfire, which you've seen plenty of.  This isn't anything special;;;;;;;;;;;;;x
+EVTOPTADragonPilgrimage.42;That's it?;;;;;;;;;;;;;x
+EVTDESCDragonPilgrimage.43;The bustling mass as pilgrims is impressive, as are the many languages and the color and style of clothes, horns, and clothes among the dragons visiting.  You're standing at a place where the roads meet, and that is a natural place for both dragons and dragonborn to gather.;;;;;;;;;;;;;x
+EVTOPTADragonPilgrimage.43;Take the opportunity to observe different languages and customs.;;;;;;;;;;;;;x
+EVTOPTBDragonPilgrimage.43;Take the opportunity to meet new people.;;;;;;;;;;;;;x
+EVTDESCDragonPilgrimage.44;The stories of other pilgrims all spoke of how impressive this place is. Now that you can see it with your own eyes, you can only join in their praise. You are glad that you came here, to one of the holiest places among dragon-kind.;;;;;;;;;;;;;x
+EVTOPTADragonPilgrimage.44;It was well worth the journey!;;;;;;;;;;;;;x
+EVTDESCDragonPilgrimage.45;As you approach the holy temple, you overhear a theological discussion between several priests. You stop and eagerly engage them in conversation, expanding upon several of your favorite topics. They are very impressed by your knowledge and invite you to hold a lecture for a group of assembled religious scholars.;;;;;;;;;;;;;x
+EVTOPTADragonPilgrimage.45;I will be most pleased the share my knowledge.;;;;;;;;;;;;;x
+EVTDESCDragonPIlgrimage.46;As soon as I entered the temple, the priest recognized me as the Sapphire Flame.  He was very eager for me to deliver a sermon today.  I didn't have anything prepared, but I agreed anyway.  Now I just need to determine the topic;;;;;;;;;;;;;x
+EVTOPTADragonPilgrimage.46;Something simple – the importance of hording gold.;;;;;;;;;;;;;x
+EVTOPTBDragonPilgrimage.46;I will teach how dragonkind needs to expand.;;;;;;;;;;;;;x
+EVTOPTCDragonPilgrimage.46;Our enemies are everywhere – I will stress vigilance.;;;;;;;;;;;;;x
+EVTOPTDDragonPilgrimage.46;I will talk about the Eternal Flames – that's why I'm here.;;;;;;;;;;;;;x
+EVTDESCDragonPilgrimage.47;When I first looked into the Eternal Flame, I same move than simply fire – I saw images moving through the flame.  I've heard of people seeing visions in the fire, and now I find myself seeing them as well.;;;;;;;;;;;;;x
+EVTOPTADragonPilgrimage.47;I see wealth and prosperity.;;;;;;;;;;;;;x
+EVTOPTBDragonPilgrimage.47;I see visions of the gods.;;;;;;;;;;;;;x
+EVTOPTCDragonPilgrimage.47;I see images of peace and tranquility.;;;;;;;;;;;;;x
+EVTOPTDDragonPilgrimage.47;I see realms bowing before me.;;;;;;;;;;;;;x
+EVTOPTEDragonPilgrimage.47;I... I can't understand these images.;;;;;;;;;;;;;x
+EVTDESCDragonPilgrimage.48;So far from home, all alone, and so many lovely people in the same situation as me. It's a great opportunity for some fun, isn't it?;;;;;;;;;;;;;x
+EVTOPTADragonPilgrimage.48;I'm sure I can find someone to keep me company.;;;;;;;;;;;;;x
+EVTOPTBDragonPilgrimage.48;That's not what I'm here for;;;;;;;;;;;;;x
+EVTDESCDragonPilgrimage.49;This holy place is bustling with pilgrims from all over the world, and a myriad of accents and languages mingle in the parks and plazas. In this great cultural melting pot, should there not also be room for me to express who I really am?;;;;;;;;;;;;;x
+EVTOPTADragonPilgrimage.49;The folks at home will never know;;;;;;;;;;;;;x
+EVTOPTBDragonPilgrimage.49;I'm here with a purpose, and that isn't it.;;;;;;;;;;;;;x
+EVTDESCDragonPilgrimage.50;All these magnificent temples built in your honor! Oh the glory! And all these pilgrims - finally you may revel in their adulation. Perhaps you should reveal yourself to the masses who have come to worship you?;;;;;;;;;;;;;x
+EVTOPTADragonPilgrimage.50;Speak to them!;;;;;;;;;;;;;x
+EVTOPTBDragonPilgrimage.50;No, I shall enjoy this glorious time in silence.;;;;;;;;;;;;;x
+EVTDESCDragonPilgrimage.51;I came her to attend to the Flame and show my devotions, but with so many luxuries and taverns here, surely I can take some time for fun beforehand.;;;;;;;;;;;;;x
+EVTOPTADragonPilgrimage.51;To the tavern!;;;;;;;;;;;;;x
+EVTOPTBDragonPilgrimage.51;The Flame comes first.  I have to control myself.;;;;;;;;;;;;;x
+EVTDESCDragonPilgrimage.53;I find a secluded area outside of town to go through the ritual cleanings expected of all pilgrims before lending their breath to the Eternal Flame.;;;;;;;;;;;;;x
+EVTOPTADragonPilgrimage.53;A clean body reflects a clean soul.;;;;;;;;;;;;;x
+EVTOPTBDragonPilgrimage.53;Is all this pageantry really necessary?;;;;;;;;;;;;;x
+EVTDESCDragonPilgrimage.54;You arrive and the temple to the Eternal Flame and speak to the priest.  Due to the crowds of pilgrims, there is a wait before you can perform your duties and he arranges a time for your visit.;;;;;;;;;;;;;x
+EVTOPTADragonPilgrimage.54;Don't worry, I know how to pass the time;;;;;;;;;;;;;x
+Tooltip_Hedonist;This option is available due to you having the Hedonist trait.;;;;;;;;;;;;;x
+Tooltip_Lustful;This option is available due to you having the Lustful trait.;;;;;;;;;;;;;x
+Tooltip_Drunkard;This option is available due to you having the Drunkard trait.;;;;;;;;;;;;;x
+EVTOPTBDragonPilgrimage.54;I will wait until my turn arrives;;;;;;;;;;;;;x
+EVTOPTCDragonPilgrimage.54;I have to wait?;;;;;;;;;;;;;x
+EVTDESCDragonPilgrimage.55;As you wait for your turn, you come across a dragonborn gathering ritual ingredients  Because dragonborn cannot breathe fire on their own, they need to develop a special potion in order to lend their breath to the flame.;;;;;;;;;;;;;x
+EVTOPTADragonPilgrimage.55;Help him out;;;;;;;;;;;;;x
+EVTOPTBDragonPilgrimage.55;Keep him company;;;;;;;;;;;;;x
+EVTOPTCDragonPilgrimage.55;Leave him be;;;;;;;;;;;;;x
+EVTDESCDragonPilgrimage.56;With there still being time before I could lend my breath to the Flame, you checked by the temple to see if you could help the priest with any of his duties.;;;;;;;;;;;;;x
+EVTOPTADragonPilgrimage.56;I will perform the blessings at local shrines;;;;;;;;;;;;;x
+EVTOPTBDragonPilgrimage.56;I'm not above helping clean the temple;;;;;;;;;;;;;x
+EVTOPTCDragonPilgrimage.56;I can help the priest with all the paperwork he has piled up.;;;;;;;;;;;;;x
+EVTOPTDDragonPilgrimage.56;On second thought, I'll just rest for a bit;;;;;;;;;;;;;x
+EVTDESCDragonPilgrimage.57;I as walked through the temple, I noticed that the priest seemed to be out, but the temple valuables were still there...;;;;;;;;;;;;;x
+EVTOPTADragonPilgrimage.57;No one checked the reliquary.;;;;;;;;;;;;;x
+EVTOPTBDragonPilgrimage.57;I'll just take a little from the coffers.;;;;;;;;;;;;;x
+EVTOPTCDragonPilgrimage.57;I'm not going to steal from the temple!;;;;;;;;;;;;;x
+EVTDESCDragonPilgrimage.58;While I was trying to get my way into the temple valuables, the priest walked in and caught you red handed.  There was little you could do as he threw you out of the temple.  While he'll still have to let you in for your pilgrimage, it's clear he'll be keeping a very close eye on you.;;;;;;;;;;;;;x
+EVTOPTADragonPilgrimage.58;Perhaps I shouldn't rob someone who talks to the gods.;;;;;;;;;;;;;x
+EVTDESCDragonPilgrimage.59;Without any trouble you broke in to the reliquary, grabbed the first box you saw, and got out, and it seems no one is the wiser.;;;;;;;;;;;;;x
+EVTOPTADragonPilgrimage.59;I wonder what I got;;;;;;;;;;;;;x
+EVTDESCDragonPilgrimage.60;It's interesting to see all the variety of pilgrims that visit the city with different languages and cultures.  As you think about it, it seems like a great opportunity for a bit of fun.;;;;;;;;;;;;;x
+EVTOPTADragonPilgrimage.60;I'm sure someone needs a bit of company.;;;;;;;;;;;;;x
+EVTOPTBDragonPilgrimage.60;I need to control myself.;;;;;;;;;;;;;x
+EVTDESCDragonPilgrimage.61;As a dragonborn, you are not able to breathe fire yourself, but are still expected to tend to the Eternal Flame.  To do this, there is a ritual potion that you will need to make instead, but it will need some expensive ingredients and a bit of your blood;;;;;;;;;;;;;x
+EVTOPTADragonPilgrimage.61;But I need my blood...;;;;;;;;;;;;;x
+EVTDESCDragonPilgrimage.62;It is time for you to lend your breath to the Eternal Flame.  You are brought to an enshrined area before a flame that consumes no fuel and has an odd blue hue.  This flame was created by the gods and maintained by the dragons that came before you, and now it is time for you to lend your fire to the flame as well.;;;;;;;;;;;;;x
+EVTOPTADragonPilgrimage.62;Praise [Root.Religion.GetRandomGodName]!;;;;;;;;;;;;;x
+EVTDESCDragonPilgrimage.63;This pilgrimage has turned your thoughts towards your soul and the next world.  You've been taught that a dragon's soul is that of gold and that getting more will strengthen it to prepare you for the next world, but still wonder just how prepared it is.;;;;;;;;;;;;;x
+EVTOPTADragonPilgrimage.63;My soul is secure.;;;;;;;;;;;;;x
+tooltip_from_gold;This option is available due to the amount of gold you have.;;;;;;;;;;;;;x
+EVTOPTBDragonPilgrimage.63;I should get more gold...;;;;;;;;;;;;;x
+EVTOPTCDragonPilgrimage.63;My hoard is NOT small!;;;;;;;;;;;;;x
+EVTDESCDragonPilgrimage.66;Blasphemous fools! Do they not know their Lord? How dare they throw you out of your own temple?;;;;;;;;;;;;;x
+EVTOPTADragonPilgrimage.66;I shall have my vengeance.;;;;;;;;;;;;;x
+EVTDESCDragonPilgrimage.67;You have made friends with [From.GetTitledName].;;;;;;;;;;;;;x
+EVTOPTADragonPilgrimage.67;Great!;;;;;;;;;;;;;x
+EVTDESCDragonPilgrimage.68;It is time for you to strengthen the Eternal Flame.  You are brought to an enshrined area before a flame that consumes no fuel and has an odd blue hue.  This flame was created by the gods and maintained by the dragons that came before you, and when you pour in the potion, will will have done the same.;;;;;;;;;;;;;x
+EVTOPTADragonPilgrimage.68;Praise [Root.Religion.GetRandomGodName]!;;;;;;;;;;;;;x
+EVTDESCDragonPilgrimage.69;You have finally returned from your pilgrimage. It was a rewarding and interesting journey, and you'd do it all again if you could. Still, it's good to be back home.;;;;;;;;;;;;;x
+EVTOPTADragonPilgrimage.69;A great experience!;;;;;;;;;;;;;x
+EVTDESCDragonPilgrimage.70;You have finally returned from your pilgrimage. It didn't turn out quite as expected, and perhaps you shouldn't have gone there in the first place. But there's no changing it now, at least you're home again and can start forgetting about it.;;;;;;;;;;;;;x
+EVTOPTADragonPilgrimage.70;I won't tell my family what really happened out there;;;;;;;;;;;;;x
+EVTDESCDragonPilgrimage.71;You have finally made it back from your pilgrimage, and it was one of the worst experiences of your life.  At least your home now, any practially anything that happens here will be an improvement.;;;;;;;;;;;;;x
+EVTOPTADragonPilgrimage.71;At least I'll never have to do that again.;;;;;;;;;;;;;x
+EVTDESCDragonPilgrimage.72;You have finally returned from your pilgrimage. Though the insolent rats did not recognize you or pay you proper homage, it was still an enlightening experience. Now there is plenty of time to prepare the day of reckoning.;;;;;;;;;;;;;x
+EVTOPTADragonPilgrimage.72;They will taste divine vengeance!;;;;;;;;;;;;;x
+EVTDESCDragonPilgrimage.74;Soon I will embark on my journey. I just need to decide where.;;;;;;;;;;;;;x
+EVTOPTADragonPilgrimage.74;To the Flame in [k_draconic_pagan_reformed.draconic_holy_site_1.GetName].;;;;;;;;;;;;;x
+EVTOPTBDragonPilgrimage.74;I will make for [k_draconic_pagan_reformed.draconic_holy_site_2.GetName].;;;;;;;;;;;;;x
+EVTOPTCDragonPilgrimage.74;I will head to [k_draconic_pagan_reformed.draconic_holy_site_3.GetName].;;;;;;;;;;;;;x
+EVTOPTDDragonPilgrimage.74;I shall go to [k_draconic_pagan_reformed.draconic_holy_site_4.GetName].;;;;;;;;;;;;;x
+EVTOPTEDragonPilgrimage.74;I will visit [k_draconic_pagan_reformed.draconic_holy_site_5.GetName].;;;;;;;;;;;;;x
+EVTDESCADragonPilgrimage.75;My things are packed, everything is in order. Soon, I shall see fair [k_draconic_pagan_reformed.draconic_holy_site_1.GetName] and its Eternal Flame.;;;;;;;;;;;;;x
+EVTDESCBDragonPilgrimage.75;My things are packed, everything is in order. Soon, I shall see fair [k_draconic_pagan_reformed.draconic_holy_site_2.GetName] and its Eternal Flame.;;;;;;;;;;;;;x
+EVTDESCCDragonPilgrimage.75;My things are packed, everything is in order. Soon, I shall see fair [k_draconic_pagan_reformed.draconic_holy_site_3.GetName] and its Eternal Flame.;;;;;;;;;;;;;x
+EVTDESCDDragonPilgrimage.75;My things are packed, everything is in order. Soon, I shall see fair [k_draconic_pagan_reformed.draconic_holy_site_4.GetName] and its Eternal Flame.;;;;;;;;;;;;;x
+EVTDESCEDragonPilgrimage.75;My things are packed, everything is in order. Soon, I shall see fair [k_draconic_pagan_reformed.draconic_holy_site_5.GetName] and its Eternal Flame.;;;;;;;;;;;;;x
+EVTNAMEDragonPilgrimage.76;Pilgrimage;;;;;;;;;;;;;x
+EVTDESCADragonPilgrimage.76;We have finally arrived in [k_draconic_pagan_reformed.draconic_holy_site_1.GetName].  We will pay a visit to the temple and then head out to visit the flame and perform the rituals.;;;;;;;;;;;;;x
+EVTDESCBDragonPilgrimage.76;We have finally arrived in [k_draconic_pagan_reformed.draconic_holy_site_2.GetName].  We will pay a visit to the temple and then head out to visit the flame and perform the rituals.;;;;;;;;;;;;;x
+EVTDESCCDragonPilgrimage.76;We have finally arrived in [k_draconic_pagan_reformed.draconic_holy_site_3.GetName].  We will pay a visit to the temple and then head out to visit the flame and perform the rituals.;;;;;;;;;;;;;x
+EVTDESCDDragonPilgrimage.76;We have finally arrived in [k_draconic_pagan_reformed.draconic_holy_site_4.GetName].  We will pay a visit to the temple and then head out to visit the flame and perform the rituals.;;;;;;;;;;;;;x
+EVTDESCEDragonPilgrimage.76;We have finally arrived in [k_draconic_pagan_reformed.draconic_holy_site_5.GetName].  We will pay a visit to the temple and then head out to visit the flame and perform the rituals.;;;;;;;;;;;;;x
+attempt_to_steal_artifact;Attempt to steal the artifact.;;;;;;;;;;;;;x
+caught_stealing;Your attempted theft is caught.;;;;;;;;;;;;;x

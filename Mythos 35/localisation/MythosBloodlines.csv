@@ -1,280 +1,280 @@
 #;ENGLISH;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
-bloodline_inheritance_genetic;Follows genetic inheritance;;;;;;;;;;;;;
-bloodline_inheritance_vampiric;Follows vampiric inheritance;;;;;;;;;;;;;
-bloodline_inheritance_high_vampiric;Follows high vampiric inheritance;;;;;;;;;;;;;
+bloodline_inheritance_genetic;Follows genetic inheritance;;;;;;;;;;;;;;x
+bloodline_inheritance_vampiric;Follows vampiric inheritance;;;;;;;;;;;;;;x
+bloodline_inheritance_high_vampiric;Follows high vampiric inheritance;;;;;;;;;;;;;;x
 BL_blood_of_the_gods_generic;Blood of the Gods;Sang de les dieux;;;;;;;;;;;;x
-BL_blood_of_the_gods_generic_desc;Divine blood flows through this character's veins.;;;;;;;;;;;;;x
-BL_blood_of_asgard;Blood of Asgard;Sang d'Asgard;;;;;;;;;;;;x
-BL_blood_of_asgard_desc;The gods of the Norse, the Æsir and the Vanir, have reigned since time immemorial. With the rise of the monotheistic religions in the south, their authority now stands challenged.;;;;;;;;;;;;;x
-BL_blood_of_olympus;Blood of Olympus;;;;;;;;;;;;x;
-BL_blood_of_olympus;While the gods of the greeks have long since fallen out of favor, displaced by the Christians and Muslims, their blood still flows in the veins of some.;;;;;;;;;;;;x;
-BL_blood_of_odin;Blood of [GetName_Odin];;;;;;;;;;;;x;
-BL_blood_of_odin_desc;[GetName_Odin], the All-Father, chief among the germanic gods, was associated with wisdom, healing, knowledge, battle, and magic.;;;;;;;;;;;;x;
-BL_blood_of_thor;Blood of [GetName_Thor];;;;;;;;;;;;x;
-BL_blood_of_thor_desc;[GetName_Thor], the red-haired god of thunder, is among the most revered of the germanic gods as a slayer of giants and protector of men.;;;;;;;;;;;;x;
-BL_blood_of_loki;Blood of [GetName_Loki];;;;;;;;;;;;x;
-BL_blood_of_loki;[GetName_Loki], the trickster and father of monsters, is well renowed for his cunning, though his frequent malice left him more feared than revered.  He is known to have fathered, and even mothered, many strange creatures who bear his blood.;;;;;;;;;;;;x;
-BL_blood_of_heimdal;Blood of [GetName_Heimdal];;;;;;;;;;;;x;
-BL_blood_of_heimdal_desc;[GetName_Heimdal], the keen-eyed guardian of Bifrost, is held by worshippers as the creator of mankind's social order.;;;;;;;;;;;;x;
-BL_blood_of_tyr;Blood of [GetName_Tyr];;;;;;;;;;;;x;
-BL_blood_of_tyr_desc;[GetName_Tyr], the one-handed god, is said by worshippers to have offered his own hand to stay the wolf Fenrir, who ate [GetName_Tyr]'s hand whilst being bound by the gods.;;;;;;;;;;;;x;
-BL_blood_of_njorthr;Blood of [GetName_Njorthr];;;;;;;;;;;;x;
-BL_blood_of_njorthr_desc;The germanic sea-god [GetName_Njorthr] is mostly known for his twin children, [GetName_Freyr] and [GetName_Freyja], who bear his blood.;;;;;;;;;;;;x;
-BL_blood_of_sif;Blood of [GetName_Sif];;;;;;;;;;;;x;
-BL_blood_of_sif_desc;[GetName_Sif], the germanic goddess of earth, family, and fertility, wife of [GetName_Thor], wears a golden headpiece made by [GetName_Loki] as forced penance for shearing her hair.;;;;;;;;;;;;x;
-BL_blood_of_aphrodite;Blood of [GetAphroditeVenusName];;;;;;;;;;;;x;
-BL_blood_of_aphrodite_desc;[GetAphroditeVenusName], born of the castration of [GetCaelusUranusName], is the [GetHellenicPagan_Greek_Roman] goddess of love, beauty, and pleasure. Fond of many lovers, her blood if oft found in mortal veins.;;;;;;;;;;;;x;
-BL_blood_of_zeus;Blood of [GetZeusJupiterName];;;;;;;;;;;;x;
-BL_blood_of_zeus_desc;Born of [GetKronosSaturnName], [GetZeusJupiterName] freed his brothers and sisters from his father's belly, and was given domain over the sky and air and the gift of lightning;;;;;;;;;;;;x;
-BL_blood_of_poseidon;Blood of [GetPoseidonNeptuneName];;;;;;;;;;;;x;
-BL_blood_of_poseidon_desc;[GetPoseidonNeptuneName], second son of [GetKronosSaturnName], was given domain over the sea after the fall of his father.;;;;;;;;;;;;x;
-BL_blood_of_hestia;Blood of [GetHestiaVestaName];;;;;;;;;;;;x;
-BL_blood_of_hestia_desc;[GetHestiaVestaName], eldest daughter of [GetKronosSaturnName] and [GetHellenicPagan_Greek_Roman] goddess of the hearth and agriculture, is due the first offering at every household sacrifice.;;;;;;;;;;;;x;
-BL_blood_of_hades;Blood of [GetHadesPlutoName];;;;;;;;;;;;x;
-BL_blood_of_hades_desc;[GetHadesPlutoName], eldest son of [GetKronosSaturnName] and [GetHellenicPagan_Greek_Roman] god of the underworld, hold domains over the [GetHellenicPagan_Greek_Roman] afterlife and the riches below the ground.;;;;;;;;;;;;x;
-BL_blood_of_demeter;Blood of [GetDemetraCeresName];;;;;;;;;;;;x;
-BL_blood_of_demeter_desc;[GetDemetraCeresName], [GetHellenicPagan_Greek_Roman] goddess of the harvest, sacred law, and the cycle of life and death, brought mankind its greatest gifts - agriculture and hope in the afterlife;;;;;;;;;;;;x;
-BL_blood_of_athena;Blood of [GetAthenaMinervaName];;;;;;;;;;;;x;
-BL_blood_of_athena_desc;[GetGreekPallas][GetAthenaMinervaName], goddess of both war and wisdom, was born fully formed from the wounded head of [GetZeusJupiterName].;;;;;;;;;;;;x;
-BL_blood_of_ares;Blood of [GetAresMarsName];;;;;;;;;;;;x;
-BL_blood_of_ares_desc;[GetAresMarsName], [GetHellenicPagan_Greek_Roman] god of war, represents the physical and violent aspects of war. In battle, before him ride is sons [GetPhobosTimorusName] and [GetDeimosFormidoName] - Fear and Dread.;;;;;;;;;;;;x;
-BL_blood_of_hermes;Blood of [GetHermesMercuryName];;;;;;;;;;;;x;
-BL_blood_of_hermes_desc;[GetHermesMercuryName] is the [GetHellenicPagan_Greek_Roman] messenger of the gods and son of [GetZeusJupiterName]. He is also the patron of thieves and a divine trickster, outwitting other gods for humanity or his own amusement.;;;;;;;;;;;;x;
-BL_blood_of_apollo;Blood of [GetApolloName];;;;;;;;;;;;x;
-BL_blood_of_apollo_desc;[GetApolloName], leader of the Muses, is the god of music, prophecy, healing, plague, light, and poetry, giver of laws, protector of the young, and patron of both doctors and herdsmen.;;;;;;;;;;;;x;
-BOTG_Sky;Blood of [GetCaelusUranusName];;;;;;;;;;;;x;
-BOTG_Sky_desc;[GetCaelusUranusName], primal god of the sky, hated the children born to him by [GetGaiaTerraName] and imprisoned them in Tartatus, where they brought pain to [GetGaiaTerraName] until he was castrated by his son, [GetKronosSaturnName].;;;;;;;;;;;;x;
-BOTG_Time;Blood of [GetKronosSaturnName];;;;;;;;;;;;x;
-BOTG_Time_desc;After castrating his father [GetCaelusUranusName], [GetKronosSaturnName] feared that he too would be overthrown by his offspring and ate them, save his youngest, [GetZeusJupiterName], who was hidden from him.;;;;;;;;;;;;x;
-bloodline_effect_strategist;Increased chance of commanders having the §GStrategist§! trait;;;;;;;;;;;;x;
-bloodline_effect_better_physicians;Improve more rapidly as a §GCourt Physician§! and recuit higher quality §GCourt Physicians§!;;;;;;;;;;;;x;
-TT_Blood_of_the_gods;Has trait §YBlood of the Gods§! of a §YDivine Bloodline§!;;;;;;;;;;;;x;
-String_blood_of_the_religion_gods;Blood of the [From.Religion.GetName] Gods;;;;;;;;;;;;x;
-bloodline_effect_no_menopause;Prevents infertility due to age;;;;;;;;;;;;x;
-bloodline_description_random;The blood of [Root.GetHighGodName] flows through this character's veins.;;;;;;;;;;;;;
-bloodline_name_random;Blood of [Root.GetHighGodName];;;;;;;;;;;;;
-BL_blood_of_random_1;The blood of [Root.GetHighGodName] flows through this character's veins.;;;;;;;;;;;;;
-BL_blood_of_random_1_desc;Blood of [Root.GetHighGodName];;;;;;;;;;;;;
-BL_blood_of_random_2;The blood of [Root.GetHighGodName] flows through this character's veins.;;;;;;;;;;;;;
-BL_blood_of_random_2_desc;Blood of [Root.GetHighGodName];;;;;;;;;;;;;
-BL_blood_of_random_3;The blood of [Root.GetHighGodName] flows through this character's veins.;;;;;;;;;;;;;
-BL_blood_of_random_3_desc;Blood of [Root.GetHighGodName];;;;;;;;;;;;;
-BL_blood_of_random_4;The blood of [Root.GetHighGodName] flows through this character's veins.;;;;;;;;;;;;;
-BL_blood_of_random_4_desc;Blood of [Root.GetHighGodName];;;;;;;;;;;;;
-BL_blood_of_random_5;The blood of [Root.GetHighGodName] flows through this character's veins.;;;;;;;;;;;;;
-BL_blood_of_random_5_desc;Blood of [Root.GetHighGodName];;;;;;;;;;;;;
-BL_blood_of_random_6;The blood of [Root.GetHighGodName] flows through this character's veins.;;;;;;;;;;;;;
-BL_blood_of_random_6_desc;Blood of [Root.GetHighGodName];;;;;;;;;;;;;
-BL_blood_of_random_7;The blood of [Root.GetHighGodName] flows through this character's veins.;;;;;;;;;;;;;
-BL_blood_of_random_7_desc;Blood of [Root.GetHighGodName];;;;;;;;;;;;;
-BL_blood_of_random_8;The blood of [Root.GetHighGodName] flows through this character's veins.;;;;;;;;;;;;;
-BL_blood_of_random_8_desc;Blood of [Root.GetHighGodName];;;;;;;;;;;;;
-BL_blood_of_random_9;The blood of [Root.GetHighGodName] flows through this character's veins.;;;;;;;;;;;;;
-BL_blood_of_random_9_desc;Blood of [Root.GetHighGodName];;;;;;;;;;;;;
-BL_of_utgardr_loki;Blood of Útgarða-Loki;;;;;;;;;;;;;
-BL_of_utgardr_loki_desc;A clever giant who tricked Þórr, Loki, and Þjálfi into challenges they were incapable of defeating even as Þórr lifted the world-serpent Jörmungandr.;;;;;;;;;;;;;
-BL_alchemist;Magical Blood of [This.GetTitledFirstName];;;;;;;;;;;;;
-BL_alchemist_desc;[This.GetTitledFirstName] became legendary for successfully creating the Philosopher's Stone, granting eternal life;;;;;;;;;;;;;
-BL_herbalist;Magical Blood of [This.GetTitledFirstName];;;;;;;;;;;;;
-BL_herbalist_desc;[This.GetSheHeCap] became famous for establishing a system of apothecaries to aid many cities through a devastating plague.;;;;;;;;;;;;;
-BL_enchanter;Magical Blood of [This.GetTitledFirstName];;;;;;;;;;;;;
-BL_enchanter_desc;[This.GetSheHeCap] became famous for creating one of the most beautiful cities in the world, the likes of which may never been seen again.;;;;;;;;;;;;;
-BL_summoner;Magical Blood of [This.GetTitledFirstName];;;;;;;;;;;;;
-BL_summoner_desc;[This.GetSheHeCap] perfected the art of conjuration, advised my many magical beings from beyond this world.;;;;;;;;;;;;;
-BL_necromancer;Dread Blood of [This.GetTitledFirstName];;;;;;;;;;;;;
-BL_necromancer_desc;[This.GetTitledFirstName] was famed as a ruler of the dead, calling forth armies of revenants to do [This.GetHerHis] bidding.;;;;;;;;;;;;;
-bloodline_effect_necromancer_study;Characters can study §YNecromancy§!;;;;;;;;;;;;;
-BL_magic_heritage;Magical Blood of [This.GetTitledFirstName];;;;;;;;;;;;;
-BL_magic_heritage_desc;[This.GetSheHeCap] was known not only as a powerful mage, but for this power continuing through [This.GetHerHis] family line.;;;;;;;;;;;;;
-bloodline_effect_magic_heritage;Children can always study §YMagic§!;;;;;;;;;;;;;
-bloodline_effect_magic_education;Children get better results from §YMagic Education§!;;;;;;;;;;;;;
-bloodline_effect_magic_tower;Can use any magic tower.;;;;;;;;;;;;;
-bloodline_effect_duel_advantage_monster;Gain an advantage in duels against §Ymonsters§!.;;;;;;;;;;;;;
-bloodline_effect_gain_monster_hunter;More likely to gain the §YMonster Hunter§! trait.;;;;;;;;;;;;;
-bloodline_effect_duel_advantage_werewolf_vampire;Gain an advantage in duels against §Ywerewolves§! and §Yvampires§!.;;;;;;;;;;;;;
-bloodline_effect_duel_advantage_dragon;Gain an advantage in duels against §Ydragons§!.;;;;;;;;;;;;;
-bloodline_effect_bank_interest;Gain interest on funds set aside for loans.;;;;;;;;;;;;;
-bloodline_effect_better_summons;Summons have stronger effects.;;;;;;;;;;;;;
-BL_monster_hunter;Monster Hunter Blood of [Root.GetFirstName];;;;;;;;;;;;;
-BL_monster_hunter_desc;[Root.GetMonster1]. [Root.GetMonster2]. [Root.GetRevenantTerm].  All these monsters seek to prey upon [Root.GetSpecies]kind, yet there are those who stand as a bulwark against them.  [Root.GetBestName] proved to be one of the greatest foes of the creatures of the night.;;;;;;;;;;;;;
-BL_helsing;Blood of Abraham Van Helsing;;;;;;;;;;;;;
-BL_helsing_desc;An accomplished doctor, Abraham Van Helsing found himself called upon to treat a girl of a strange illness. Discovering it to be the curse of vampirism, the doctor set his life to fighting these dark forces that assail humanity.;;;;;;;;;;;;;
-BL_blood_of_sigurd;Blood of [Root.GetDragonslayer];;;;;;;;;;;;;
-BL_blood_of_sigurd_desc;Having felled many a dragon, the people began to treat [Root.GetName] as a successor to the mighty [Root.GetDragonslayer], famed slayer of dragons.;;;;;;;;;;;;;
-BL_banking;Silver Blood of [Root.GetFirstName];;;;;;;;;;;;;
-BL_banking_desc;[Root.GetBestName] was said to have a midas touch - every business transaction [Root.GetSheHe] touched would turn to gold.  Soon, the vast wealth flowing through [Root.GetHerHis] coffers would see that [Root.GetHerHis] descendants would want for nothing.;;;;;;;;;;;;;
-BL_ramesis;Blood of Ramesses;;;;;;;;;;;;;
-BL_ramesis_desc;Ramesses II, the Strong Bull, Beloved of Ra, the Protector of Egypt who curbs foreign lands was one of the most famous Pharaohs of antiquity and a reknowned builder of monuments.;;;;;;;;;;;;;
-bloodline_inheritance_genetic;§YGenetic§! bloodline inheritance;;;;;;;;;;;;;
-bloodline_inheritance_vampiric;§YVampiric§! bloodline inheritance;;;;;;;;;;;;;
-bloodline_inheritance_high_vampiric;§YHigh Vampiric§! bloodline inheritance;;;;;;;;;;;;;
-bloodline_effect_vampiric_support;Characters gain more support in vampiric elections;;;;;;;;;;;;;
-bloodline_effect_known_sired_vampires;Sired vampires are automatically known;;;;;;;;;;;;;
-bloodline_effect_restricted_feeding;Cannot safely feed on §Yunlanded§! characters without §Ybloodlines§! or positive congenital traits;;;;;;;;;;;;;
-bloodline_effect_weaken_vampire_victim;Feeding weakens well-bred victims;;;;;;;;;;;;;
-bloodline_effect_known_sired_ugly_vampires;Sired vampires are automatically known and ugly;;;;;;;;;;;;;
-bloodline_effect_vampire_feed_genetic_bonus;Gain better attributes from feeding on well-bred characters;;;;;;;;;;;;;
-bloodline_effect_slow_disease_recovery;Slow to recover from §Ydiseases§!;;;;;;;;;;;;;
-bloodline_effect_disease_hunger;§YDiseases§! slow hunger gains;;;;;;;;;;;;;
-bloodline_effect_no_tainted_blood;Never gain §YTainted Blood§!;;;;;;;;;;;;;
-bloodline_effect_feed_on_anyone;Can feed on §Y[Root.GetRevenantTerm]s§!, §Ydemons§!, §Ywerewolves§!, and §Yvampires§!;;;;;;;;;;;;;
-bloodline_effect_attribute_treatment;Attribute bonuses only counteract diseases;;;;;;;;;;;;;
-bloodline_effect_werewolf_support;Characters gain more support in werewolf elections;;;;;;;;;;;;;
-bloodline_effect_werewolf_challenge_morale;Deal additional morale damage in §Ywerewolf challenges§!;;;;;;;;;;;;;
-bloodline_effect_child_werewolves;Children are more likely to become §Ywerewolves§!;;;;;;;;;;;;;
-BL_vampiric_highborn;Vampiric House of [Root.Dynasty.GetName];;;;;;;;;;;;;
-BL_vampiric_highborn_desc;The great house of [Root.Dynasty.GetName] has shown great vampiric power, passed on to those sired. With their great power, comes a discerning palate.;;;;;;;;;;;;;
-BL_blood_of_nosferatu;Blood of [Root.GetFirstName];;;;;;;;;;;;;
-BL_blood_of_nosferatu_desc;Cursed with a grotesque body, the vampire [Root.GetBestName] found [Root.GetHimselfHerself] host to a new strain of the vampiric curse, leaving the body strong but twisted, even for those [Root.GetSheHe] sired.;;;;;;;;;;;;;
-BL_vile_blood;Vile Blood of [Root.GetFirstName];;;;;;;;;;;;;
-BL_vile_blood_desc;Having a body wracked by disease and with no qualms on spreading them, [Root.GetBestName]'s vampiric curse soon adapted and gained strength from illness and developed a miasmic bite.;;;;;;;;;;;;;
-BL_werewolf_nobility;Wolfborn House of [Root.Dynasty.GetName];;;;;;;;;;;;;
-BL_werewolf_nobility_desc;The blood of the wolf runs strong in the descendants of [Root.GetBestName].;;;;;;;;;;;;;
-BL_blood_embers;Holy Blood of [Root.GetBestName];;;;;;;;;;;;;
-BL_blood_flame;Holy Blood of [Root.GetBestName];;;;;;;;;;;;;
-BL_blood_eternal_flame;Holy Blood of [Root.GetBestName];;;;;;;;;;;;;
-BL_blood_sacrifice;Holy Blood of [Root.GetBestName];;;;;;;;;;;;;
-BL_golden_blood;Golden Blood of [Root.GetBestName];;;;;;;;;;;;;
-BL_blood_reclaimer;Holy Blood of [Root.GetBestName];;;;;;;;;;;;;
-BL_everburning_blood;Everburning Blood of [Root.GetFirstName];;;;;;;;;;;;;
-draconic_saint_desc;On [Root.GetDeathDate], [Root.GetBestName] sacrificed [Root.GetHimselfHerself] to become the new Eternal Flame in [Root.death_location.GetName].;;;;;;;;;;;;;
-MBLOODLINE_EVTDESCA.1;With disease running rampant through my realm, I feel it falls to me and my herbal knowledge to find a treatment for this illness.  It will take truly focused effort, but I may be able to aid the populace.;;;;;;;;;;;;;
-MBLOODLINE_EVTOPTA.1;This will be my sole focus.;;;;;;;;;;;;;
-MBLOODLINE_EVTOPTB.1;As long as it doesn't interfere with my other work.;;;;;;;;;;;;;
-MBLOODLINE_EVTOPTC.1;I don't have the time to spare.;;;;;;;;;;;;;
-MBLOODLINE_EVTDESC.2;It's clear that any cure is not going to come quickly, and people are dying as they wait.  It's time to expand the hospitals, and quickly.;;;;;;;;;;;;;
-MBLOODLINE_EVTOPTA.2;We will rush out as many as we can.;;;;;;;;;;;;;
-MBLOODLINE_EVTOPTB.2;I need to help the capital.;;;;;;;;;;;;;
-MBLOODLINE_EVTOPTC.2;I can't afford this right now.;;;;;;;;;;;;;
-MBLOODLINE_EVTDESC.3;While I'm reasearching a cure, the hospitals are getting overloaded. The beds are doubled up and the stench of the patients' filth is surely making the miasma worse.;;;;;;;;;;;;;
-MBLOODLINE_EVTOPTA.3;The hospitals may put patients in some of my residences.;;;;;;;;;;;;;
-MBLOODLINE_EVTOPTB.3;We can put some of them in the palace.;;;;;;;;;;;;;
-MBLOODLINE_EVTOPTC.3;I'll just have to finish quickly.;;;;;;;;;;;;;
-MBLOODLINE_EVTDESC.4;While I have been researching, the clergy have been helping tend to the sick from their own resources, though it's an uphill battle;;;;;;;;;;;;;
-MBLOODLINE_EVTOPTA.4;Perhaps some more funding will help keep the illness in check.;;;;;;;;;;;;;
-MBLOODLINE_EVTOPTB.4;I can spare some time to assist personally.;;;;;;;;;;;;;
-MBLOODLINE_EVTOPTC.4;I can spare neither the time nor the money.;;;;;;;;;;;;;
-MBLOODLINE_EVTDESC.5;I've done it! I've at last found the right concoction of ingredients to create a potion to to cleanse the infected of the disease running through the land. The ingredients aren't cheap, and distribution will take a lot of people, but we now can be rid of this blight.;;;;;;;;;;;;;
-MBLOODLINE_EVTOPTA.5;I will have my troops distribute it in several provinces;;;;;;;;;;;;;
-MBLOODLINE_EVTOPTB.5;We need this in the capital;;;;;;;;;;;;;
-MBLOODLINE_EVTOPTC.5;People will be willing to pay quite a lot for this.;;;;;;;;;;;;;
-MBLOODLINE_EVTOPTD.5;It was an academic exercise, nothing more.;;;;;;;;;;;;;
-MBLOODLINE_EVTDESC.6;After all my hard work ridding the land of the disease plaguing it, word has begun spreading about my skill with herb lore.  My name will go down in history as being synonymous with my craft.;;;;;;;;;;;;;
-MBLOODLINE_EVTDESCA.7;While I may be a skilled enchanter, it is not skill which people remember, but rather what they do with it. To that end, I should turn [Root.Capital.GetName] into a shining utopia that the world will never forget.;;;;;;;;;;;;;
-MBLOODLINE_OPTA.7;My glory will go down in legend!;;;;;;;;;;;;;
-MBLOODLINE_OPTB.7;I doubt I could afford to do this.;;;;;;;;;;;;;
-MBLOODLINE_EVTDESC.8;The waters of the town are often of an unpleasant hue.  The should shine and shimmer in the sun and romantically reflect the light of the moon.  If I want [Root.Capital.GetName] to be a true place of beauty, this is where I should start.;;;;;;;;;;;;;
-MBLOODLINE_OPTA.8;I will pour every ounce of my magic into clearing up the water;;;;;;;;;;;;;
-MBLOODLINE_OPTB.8;Some purification enchantments upstream should be enough.;;;;;;;;;;;;;
-MBLOODLINE_OPTC.8;Just a slight glamour to trick the eye should fool people.;;;;;;;;;;;;;
-MBLOODLINE_OPTD.8;Water? I want a beautiful city not a beautiful fountain.;;;;;;;;;;;;;
-MBLOODLINE_EVTDESC.9;My builders have been going around repairing any worn or damaged buildings, but they still lack any real presence. They're far too drab for my vision of the area.;;;;;;;;;;;;;
-MBLOODLINE_OPTA.9;Perhaps I could magically fuse the walls with fine gems. A crystal castle would be a sight to behold.;;;;;;;;;;;;;
-MBLOODLINE_OPTB.9;The walls should be imbued with gold dust to make everything glitter;;;;;;;;;;;;;
-MBLOODLINE_OPTC.9;Every building must be decorated with exotic paints.;;;;;;;;;;;;;
-MBLOODLINE_OPTD.9;The repairs should work fine. No need to waste good money.;;;;;;;;;;;;;
-MBLOODLINE_EVTDESC.10;The people living in the towns seem worn down.  Enchanting everyone would be beyond even me, but ensuring everyone plentiful food should lighten their spirits.;;;;;;;;;;;;;
-MBLOODLINE_OPTA.10;Make the food duplicate itself. Everyone will feast every night!;;;;;;;;;;;;;
-MBLOODLINE_OPTB.10;Enchant the farms to grow larger crops that can feed more people for the same work.;;;;;;;;;;;;;
-MBLOODLINE_OPTC.10;I'll enchant the food against spoilage to make winters easier;;;;;;;;;;;;;
-MBLOODLINE_OPTD.10;Just make sure any visitors or scribes stay away from the lower classes.;;;;;;;;;;;;;
-MBLOODLINE_EVTDESC.11;Everything around here is too quiet.  If I can fill the town with gentile music, it should keep people calm and relaxed while giving the town a feeling of dignity.;;;;;;;;;;;;;
-MBLOODLINE_OPTA.11;I will enchant every part of the town to exude calming music.;;;;;;;;;;;;;
-tt_enchant_music_long;This task may take years to complete;;;;;;;;;;;;;
-MBLOODLINE_OPTB.11;I will enchant just key gathering places.;;;;;;;;;;;;;
-tt_enchant_music_medium;This task may take about a year to complete;;;;;;;;;;;;;
-MBLOODLINE_OPTC.11;It will be most noticeable at the entrances.;;;;;;;;;;;;;
-tt_enchant_music_short;This task may take months to complete;;;;;;;;;;;;;
-MBLOODLINE_OPTD.11;I doubt anyone would notice the music.;;;;;;;;;;;;;
-MBLOODLINE_EVTDESC.12;As I wonder the castle grounds, it strikes me that a key part of the image of an ideal landscape comes not from the landscape itself, but from the weather.  To truly give people the image of a grand city, the weather should be warm and calm.;;;;;;;;;;;;;
-MBLOODLINE_OPTA.12;Yes, today's weather should never pass.;;;;;;;;;;;;;
-MBLOODLINE_OPTB.12;I should be able to slow losing calm weather and hurry away bad weather.;;;;;;;;;;;;;
-MBLOODLINE_OPTC.12;I may be able to at least blunt the worst storms.;;;;;;;;;;;;;
-MBLOODLINE_OPTD.12;This is just a passing thought.;;;;;;;;;;;;;
-MBLOODLINE_EVTDESC.13;What I think I need now is guards designed to impress visitors with the cities majesty more than to fight.  The first thing they should see are guards in parade dress.;;;;;;;;;;;;;
-MBLOODLINE_OPTA.13;All the key points should have these guards;;;;;;;;;;;;;
-MBLOODLINE_OPTB.13;The main thoroughfares should have parade guards;;;;;;;;;;;;;
-MBLOODLINE_OPTC.13;These guards should be at the entrance;;;;;;;;;;;;;
-MBLOODLINE_OPTD.13;Such mundane things won't show off my magic.;;;;;;;;;;;;;
-MBLOODLINE_EVTDESCA.15;All of my hard work has paid off. Nobles from all over are making trips to see the beauty I have created.  Scribes from [Root.Religion.GetReligionTempleName]s came to write about it and painters travel for weeks to capture its glory.;;;;;;;;;;;;;
-MBLOODLINE_EVTDESCB.15;While my results never quite lived up to my vision, it seems that what I have accomplished was enough.  People come from all over to see the results and it seems my work will not be forgotten.;;;;;;;;;;;;;
-MBLOODLINE_EVTOPTA.15;My name will be remembered.;;;;;;;;;;;;;
-MBLOODLINE_EVTDESCA.15;Despite all my hard work and the sheer beauty of [Root.Capital.GetName], no one seems to care.  People go about their normal business and don't give a second glace at the beauty around them.;;;;;;;;;;;;;
-MBLOODLINE_EVTDESCB.15;Having been met by repeated failures along the way, I suppose it's not surprising that my results fell short of my vision. My capital is little better than it was before, and those changes will soon be forgotten.;;;;;;;;;;;;;
-MBLOODLINE_EVTOPTA.16;All that work for nothing.;;;;;;;;;;;;;
-MBLOODLINE_EVTDESC.17;Thanks to my magical skill, I am advised by the finest minds beyond the veil of this world and have armies brought down upon my foes at the snap of a finger. Still, I feel I could do something so much more. Something which legends will speak of for generations to come.;;;;;;;;;;;;;
-MBLOODLINE_EVTOPTA.17;There are still more powerful beings I can bind to my will.;;;;;;;;;;;;;
-MBLOODLINE_EVTOPTB.17;I'm not sure I could control something that powerful.;;;;;;;;;;;;;
-MBLOODLINE_DESCA.18;I have done my research and determined what will need to be done for the summoning.  The result will be quite tumultuous, so the ritual circle will need to be able to withstand the magical energies.;;;;;;;;;;;;;
-MBLOODLINE_EVTOPTA.18;A circle drawn in diamond dust should stand against the magical energy.;;;;;;;;;;;;;
-MBLOODLINE_EVTOPTB.18;If I engrave the circle into stone, that should prevent damage;;;;;;;;;;;;;
-MBLOODLINE_EVTOPTC.18;A normal drawing in chalk should be fine;;;;;;;;;;;;;
-MBLOODLINE_DESCA.19;Since I have many critical roles in the ritual, I will need an assistant to lead the other ritualists.  Their skills will influence the final creature that is summoned.;;;;;;;;;;;;;
-MBLOODLINE_EVTOPTA.19;[possible_ritual_leader_diplomacy.GetBestName] is good with people.;;;;;;;;;;;;;
-MBLOODLINE_EVTOPTB.19;[possible_ritual_leader_martial.GetBestName] knows how to lead.;;;;;;;;;;;;;
-MBLOODLINE_EVTOPTC.19;[possible_ritual_leader_stewardship.GetBestName] is good at organizing things.;;;;;;;;;;;;;
-MBLOODLINE_EVTOPTD.19;[possible_ritual_leader_intrigue.GetBestName] can handle secrets.;;;;;;;;;;;;;
-MBLOODLINE_EVTOPTE.19;[possible_ritual_leader_learning.GetBestName] should understand the ritual.;;;;;;;;;;;;;
-MBLOODLINE_EVTDESC.20;Now that I have someone to help lead the ritual, I need to determine who the other participants will be.;;;;;;;;;;;;;
-MBLOODLINE_EVTOPTA.20;I will select from skilled nobles.;;;;;;;;;;;;;
-MBLOODLINE_EVTOPTB.20;I can honor some of the tribe leaders.;;;;;;;;;;;;;
-MBLOODLINE_EVTOPTC.20;The church will be able to understand the ritual;;;;;;;;;;;;;
-MBLOODLINE_EVTOPTD.20;I can hire skilled scholars from the cities.;;;;;;;;;;;;;
-MBLOODLINE_EVTDESC.21;Now that everyone is prepared for the ritual, I need to prepare an appropriate sacrifice to act as a conduit for the summoning.;;;;;;;;;;;;;
-MBLOODLINE_EVTOPTA.21;I will have a solid gold statue made in the image of the being I'm summoning;;;;;;;;;;;;;
-MBLOODLINE_EVTOPTB.21;A marble figure should act as a nice conduit;;;;;;;;;;;;;
-MBLOODLINE_EVTOPTC.21;I can just use some of the gold from the treasury as a sacrifice;;;;;;;;;;;;;
-MBLOODLINE_EVTOPTD.21;Some farmers pay taxes in wheat and barley. I can use those as a burn offering.;;;;;;;;;;;;;
-MBLOODLINE_EVTOPTA.22;I will give my close family, [selected_family.GetFirstName].;;;;;;;;;;;;;
-MBLOODLINE_EVTOPTB.22;I will give my loyal servant, [selected_courtier.GetFirstName].;;;;;;;;;;;;;
-MBLOODLINE_EVTOPTC.22;The blood of the criminal [selected_prisoner.GetBestName] will serve.;;;;;;;;;;;;;
-MBLOODLINE_EVTDESC.23;[From.GetTitledName] lead me into a blood-stained room, surrounded by hooded figures.  At the end of the room was an altar, etched with runes, where [ritual_leader.GetBestName] stood with a knife.  I tried to break free, but my escorts held me down as the knife was plunged into my chest.;;;;;;;;;;;;;
-MBLOODLINE_EVTOPTA.23;Not like this...;;;;;;;;;;;;;
-MBLOODLINE_EVTDESC.25;All my work has paid off. Before me stands a titan of immense power, bound to my will, stronger than any being I've summoned yet.  This is truly the ultimate summoning.;;;;;;;;;;;;;
-MBLOODLINE_EVTOPTA.25;This event will never be forgotten;;;;;;;;;;;;;
-MBLOODLINE_EVTDESC.26;Despite all the hard work, nothing has come from the summoning.;;;;;;;;;;;;;
-MBLOODLINE_EVTOPTA.26;Was this all a waste of time?;;;;;;;;;;;;;
-MBLOODLINE_EVTDESC.27;My [Root.GetRevenantTerm]s have proven themselves on the field of battle, and I've proven I can conquer threatening rivals.  Perhaps I should show people my true power, and make realms tremble before me.;;;;;;;;;;;;;
-MBLOODLINE_EVTOPTA.27;Everyone should fear my power.;;;;;;;;;;;;;
-MBLOODLINE_EVTOPTB.27;It's better if I stay hidden.;;;;;;;;;;;;;
-MBLOODLINE_EVTDESC.28;It is time to show the world the power of the dead.  I will openly reveal my abilities to my vassals.  While the fear of my power may make them hate me, that fear will be part of my legacy.;;;;;;;;;;;;;
-MBLOODLINE_EVTOPTA.28;I will write them all a strongly worded letter, letting them know what I am capable of.;;;;;;;;;;;;;
-MBLOODLINE_EVTOPTB.28;I will march an army of the dead to their holds and let them see for themselves the power I wield;;;;;;;;;;;;;
-MBLOODLINE_EVTOPTC.28;I will ransack of the towns of the capital.  Let the survivors tell of my power while I take the wealth to prepare for what is to come.;;;;;;;;;;;;;
-MBLOODLINE_EVTOPTD.28;I will march the dead into the [Root.GetHouseOfWorship] during [Root.GetReligiousRite] and show them the power of the dead right before the holy altar.;;;;;;;;;;;;;
-MBLOODLINE_EVTDESC.29;I woke this morning to the thundering sound of a horde of bodied approaching my [Root.GetCapitalHolding].  When I look out, I saw a vast army of the dead, lead by [From.GetBestName]. [From.GetSheHeCap] announced [From.GetHerHis] plans of conquest with this new power, though it was clear the true threat behind this was directed at me.;;;;;;;;;;;;;
-MBLOODLINE_EVTOPTA.29;No good will come of this dark power.;;;;;;;;;;;;;
-MBLOODLINE_EVTDESC.30;In the middle of [From.GetReligiousRite], [From.GetTitledName] burst into the [From.GetHouseOfWorship] leading a horde of [Root.GetRevenantTerm], declaring [From.GetHerHis] intention to use foul rites for conquest.;;;;;;;;;;;;;
-MBLOODLINE_EVTOPTA.30;This is profane!;;;;;;;;;;;;;
-MBLOODLINE_EVTDESC.31;Word has reached me that my [GetFromRelation] has been leading an army of [Root.GetRevenantTerm]s pillaging and looting the cities of [From.Capital.GetName] to prepare for war.;;;;;;;;;;;;;
-MBLOODLINE_EVTOPTA.31;[From.GetSheHeCap] is a mad[From.GetManWoman].;;;;;;;;;;;;;
-MBLOODLINE_EVTDESC.32;[Root.GetTitledName],\n\nI have raised an army of the dead which the world will tremble to behold.  My might will bring kings and emperors to their knees.  My enemies will fall beneith waves of [From.GetRevenantTerm]s and then join their ranks. You would be advised not to cross me during my campaign.\n\n[From.GetTitledName];;;;;;;;;;;;;
-MBLOODLINE_EVTDESC.33;Soon, I will bring a great war to force everyone to see my power.  To prepare for this, I will need a grand undead army. Creating the army will be simple enough. What matters is how much will be sacrificed.;;;;;;;;;;;;;
-MBLOODLINE_EVTOPTA.33;Slaughter everyone.;;;;;;;;;;;;;
-MBLOODLINE_EVTOPTB.33;One member of each household must serve in death.;;;;;;;;;;;;;
-MBLOODLINE_EVTOPTC.33;Gather people in the capital.;;;;;;;;;;;;;
-MBLOODLINE_EVTOPTD.33;I already have the strength I need.;;;;;;;;;;;;;
-MBLOODLINE_EVTDESC.34;My army is prepared.  Now, I just need to use this to crush my neighbors and show the world the strength of the profile powers I wield.  I will cover their lands in corpses until they can't help but remember my name.;;;;;;;;;;;;;
-MBLOODLINE_EVTOPTA.34;It is time for war.;;;;;;;;;;;;;
-tt_gain_show_strength_necromancer_cb;Gain access to the §YShow Profane Strength§! casus belli.  Winning these wars may trigger additional events.;;;;;;;;;;;;;
-MBLOODLINE_EVTDESCA.35;Despite the weakness of my opponent, I still lose.  People now mock the grand claims I was making before the war.  If I want to show my power, I will not only need to win, but to do so against much stronger opponents.;;;;;;;;;;;;;
-MBLOODLINE_EVTDESCB.35;Despite the weakness of my opponent, I still lose.  People now mock the grand claims I was making before the war.  I wanted to be remembered, but not as a laughingstock.;;;;;;;;;;;;;
-MBLOODLINE_EVTOPTA.35;I need to try harder.;;;;;;;;;;;;;
-tt_lose_necromancy_progress;You are further from forging a new bloodline.;;;;;;;;;;;;;
-tt_gain_necromancy_progress;You are closer to forging a new bloodline.;;;;;;;;;;;;;
-MBLOODLINE_EVTOPTB.35;This is hopeless.;;;;;;;;;;;;;
-tt_lose_show_strength_necromancer_cb;Lose access to the §YShow Profane Strength§! casus belli.;;;;;;;;;;;;;
-MBLOODLINE_EVTDESC.37;I won the war, but no one seems to have made mention of it.  Perhaps I need to attack a stronger foe if I want people to fear my power.;;;;;;;;;;;;;
-MBLOODLINE_EVTOPTA.37;I need another war.;;;;;;;;;;;;;
-MBLOODLINE_EVTDESC.38;I won the war, and tales of carnage have begun to spread, but not as far as I would like.  I'm making progress, but my campaign must continue.;;;;;;;;;;;;;
-MBLOODLINE_EVTDESC.39;Now my work is done.  People speak my name in fearful tones and armies burn their dead to avoid them joining my growing legions.  When even I am finally lain to rest, that fear will live on for generations to come.;;;;;;;;;;;;;
-MBLOODLINE_EVTOPTA.39;This is what greatness looks like.;;;;;;;;;;;;;
-MBLOODLINE_EVTDESC.40;People have begun to remark on the magical talent possessed not only by myself, but by my children.  It seems that through hard work and good education, I'm well on my way to establishing a famous line of wizards.;;;;;;;;;;;;;
-MBLOODLINE_EVTOPTA.40;I'm glad my children have shown such talent.;;;;;;;;;;;;;
-MBLOODLINE_EVTOPTB.40;This isn't how I wish to be remembered.;;;;;;;;;;;;;
-MBLOODLINE_EVTDESC.43;As another monster breathes its dying breath, my destiny, and my role in this world, has become clear to people.  I am not some mere [Root.GetTitle], but a slayer of the monsters that hunt us in the night. Those witnessing the deed let out a cheer - it is time for those once-hunters to become the hunted.;;;;;;;;;;;;;
-MBLOODLINE_EVTOPTA.43;Now we fight back.;;;;;;;;;;;;;
-MBLOODLINE_EVTDESC.44;Yet another dragon's corpse lies before me.  What was once a terrifying foe is now almost mundane.  People have begun to compare me to [Root.GetDragonslayer].;;;;;;;;;;;;;
-MBLOODLINE_EVTOPTA.44;Now even dragons will fear me.;;;;;;;;;;;;;
-MBLOODLINE_EVTDESC.45;While feeding through my illness risks spreading infecting the humans on which we prey, I need to feed nevertheless.  As illness spreads from my body to theirs, I can feel myself adapting to it.  The diseases strengthen and sustain me.;;;;;;;;;;;;;
-MBLOODLINE_EVTOPTA.45;Who cares what the others think, I will feed as I like.;;;;;;;;;;;;;
+BL_blood_of_the_gods_generic_desc;Divine blood flows through this character's veins.;;;;;;;;;;;;;;x
+BL_blood_of_asgard;Blood of Asgard;Sang d'Asgard;;;;;;;;;;;;;x
+BL_blood_of_asgard_desc;The gods of the Norse, the Æsir and the Vanir, have reigned since time immemorial. With the rise of the monotheistic religions in the south, their authority now stands challenged.;;;;;;;;;;;;;;x
+BL_blood_of_olympus;Blood of Olympus;;;;;;;;;;;;;x
+BL_blood_of_olympus;While the gods of the greeks have long since fallen out of favor, displaced by the Christians and Muslims, their blood still flows in the veins of some.;;;;;;;;;;;;;x
+BL_blood_of_odin;Blood of [GetName_Odin];;;;;;;;;;;;;x
+BL_blood_of_odin_desc;[GetName_Odin], the All-Father, chief among the germanic gods, was associated with wisdom, healing, knowledge, battle, and magic.;;;;;;;;;;;;;x
+BL_blood_of_thor;Blood of [GetName_Thor];;;;;;;;;;;;;x
+BL_blood_of_thor_desc;[GetName_Thor], the red-haired god of thunder, is among the most revered of the germanic gods as a slayer of giants and protector of men.;;;;;;;;;;;;;x
+BL_blood_of_loki;Blood of [GetName_Loki];;;;;;;;;;;;;x
+BL_blood_of_loki;[GetName_Loki], the trickster and father of monsters, is well renowed for his cunning, though his frequent malice left him more feared than revered.  He is known to have fathered, and even mothered, many strange creatures who bear his blood.;;;;;;;;;;;;;x
+BL_blood_of_heimdal;Blood of [GetName_Heimdal];;;;;;;;;;;;;x
+BL_blood_of_heimdal_desc;[GetName_Heimdal], the keen-eyed guardian of Bifrost, is held by worshippers as the creator of mankind's social order.;;;;;;;;;;;;;x
+BL_blood_of_tyr;Blood of [GetName_Tyr];;;;;;;;;;;;;x
+BL_blood_of_tyr_desc;[GetName_Tyr], the one-handed god, is said by worshippers to have offered his own hand to stay the wolf Fenrir, who ate [GetName_Tyr]'s hand whilst being bound by the gods.;;;;;;;;;;;;;x
+BL_blood_of_njorthr;Blood of [GetName_Njorthr];;;;;;;;;;;;;x
+BL_blood_of_njorthr_desc;The germanic sea-god [GetName_Njorthr] is mostly known for his twin children, [GetName_Freyr] and [GetName_Freyja], who bear his blood.;;;;;;;;;;;;;x
+BL_blood_of_sif;Blood of [GetName_Sif];;;;;;;;;;;;;x
+BL_blood_of_sif_desc;[GetName_Sif], the germanic goddess of earth, family, and fertility, wife of [GetName_Thor], wears a golden headpiece made by [GetName_Loki] as forced penance for shearing her hair.;;;;;;;;;;;;;x
+BL_blood_of_aphrodite;Blood of [GetAphroditeVenusName];;;;;;;;;;;;;x
+BL_blood_of_aphrodite_desc;[GetAphroditeVenusName], born of the castration of [GetCaelusUranusName], is the [GetHellenicPagan_Greek_Roman] goddess of love, beauty, and pleasure. Fond of many lovers, her blood if oft found in mortal veins.;;;;;;;;;;;;;x
+BL_blood_of_zeus;Blood of [GetZeusJupiterName];;;;;;;;;;;;;x
+BL_blood_of_zeus_desc;Born of [GetKronosSaturnName], [GetZeusJupiterName] freed his brothers and sisters from his father's belly, and was given domain over the sky and air and the gift of lightning;;;;;;;;;;;;;x
+BL_blood_of_poseidon;Blood of [GetPoseidonNeptuneName];;;;;;;;;;;;;x
+BL_blood_of_poseidon_desc;[GetPoseidonNeptuneName], second son of [GetKronosSaturnName], was given domain over the sea after the fall of his father.;;;;;;;;;;;;;x
+BL_blood_of_hestia;Blood of [GetHestiaVestaName];;;;;;;;;;;;;x
+BL_blood_of_hestia_desc;[GetHestiaVestaName], eldest daughter of [GetKronosSaturnName] and [GetHellenicPagan_Greek_Roman] goddess of the hearth and agriculture, is due the first offering at every household sacrifice.;;;;;;;;;;;;;x
+BL_blood_of_hades;Blood of [GetHadesPlutoName];;;;;;;;;;;;;x
+BL_blood_of_hades_desc;[GetHadesPlutoName], eldest son of [GetKronosSaturnName] and [GetHellenicPagan_Greek_Roman] god of the underworld, hold domains over the [GetHellenicPagan_Greek_Roman] afterlife and the riches below the ground.;;;;;;;;;;;;;x
+BL_blood_of_demeter;Blood of [GetDemetraCeresName];;;;;;;;;;;;;x
+BL_blood_of_demeter_desc;[GetDemetraCeresName], [GetHellenicPagan_Greek_Roman] goddess of the harvest, sacred law, and the cycle of life and death, brought mankind its greatest gifts - agriculture and hope in the afterlife;;;;;;;;;;;;;x
+BL_blood_of_athena;Blood of [GetAthenaMinervaName];;;;;;;;;;;;;x
+BL_blood_of_athena_desc;[GetGreekPallas][GetAthenaMinervaName], goddess of both war and wisdom, was born fully formed from the wounded head of [GetZeusJupiterName].;;;;;;;;;;;;;x
+BL_blood_of_ares;Blood of [GetAresMarsName];;;;;;;;;;;;;x
+BL_blood_of_ares_desc;[GetAresMarsName], [GetHellenicPagan_Greek_Roman] god of war, represents the physical and violent aspects of war. In battle, before him ride is sons [GetPhobosTimorusName] and [GetDeimosFormidoName] - Fear and Dread.;;;;;;;;;;;;;x
+BL_blood_of_hermes;Blood of [GetHermesMercuryName];;;;;;;;;;;;;x
+BL_blood_of_hermes_desc;[GetHermesMercuryName] is the [GetHellenicPagan_Greek_Roman] messenger of the gods and son of [GetZeusJupiterName]. He is also the patron of thieves and a divine trickster, outwitting other gods for humanity or his own amusement.;;;;;;;;;;;;;x
+BL_blood_of_apollo;Blood of [GetApolloName];;;;;;;;;;;;;x
+BL_blood_of_apollo_desc;[GetApolloName], leader of the Muses, is the god of music, prophecy, healing, plague, light, and poetry, giver of laws, protector of the young, and patron of both doctors and herdsmen.;;;;;;;;;;;;;x
+BOTG_Sky;Blood of [GetCaelusUranusName];;;;;;;;;;;;;x
+BOTG_Sky_desc;[GetCaelusUranusName], primal god of the sky, hated the children born to him by [GetGaiaTerraName] and imprisoned them in Tartatus, where they brought pain to [GetGaiaTerraName] until he was castrated by his son, [GetKronosSaturnName].;;;;;;;;;;;;;x
+BOTG_Time;Blood of [GetKronosSaturnName];;;;;;;;;;;;;x
+BOTG_Time_desc;After castrating his father [GetCaelusUranusName], [GetKronosSaturnName] feared that he too would be overthrown by his offspring and ate them, save his youngest, [GetZeusJupiterName], who was hidden from him.;;;;;;;;;;;;;x
+bloodline_effect_strategist;Increased chance of commanders having the §GStrategist§! trait;;;;;;;;;;;;;x
+bloodline_effect_better_physicians;Improve more rapidly as a §GCourt Physician§! and recuit higher quality §GCourt Physicians§!;;;;;;;;;;;;;x
+TT_Blood_of_the_gods;Has trait §YBlood of the Gods§! of a §YDivine Bloodline§!;;;;;;;;;;;;;x
+String_blood_of_the_religion_gods;Blood of the [From.Religion.GetName] Gods;;;;;;;;;;;;;x
+bloodline_effect_no_menopause;Prevents infertility due to age;;;;;;;;;;;;;x
+bloodline_description_random;The blood of [Root.GetHighGodName] flows through this character's veins.;;;;;;;;;;;;;;x
+bloodline_name_random;Blood of [Root.GetHighGodName];;;;;;;;;;;;;;x
+BL_blood_of_random_1;The blood of [Root.GetHighGodName] flows through this character's veins.;;;;;;;;;;;;;;x
+BL_blood_of_random_1_desc;Blood of [Root.GetHighGodName];;;;;;;;;;;;;;x
+BL_blood_of_random_2;The blood of [Root.GetHighGodName] flows through this character's veins.;;;;;;;;;;;;;;x
+BL_blood_of_random_2_desc;Blood of [Root.GetHighGodName];;;;;;;;;;;;;;x
+BL_blood_of_random_3;The blood of [Root.GetHighGodName] flows through this character's veins.;;;;;;;;;;;;;;x
+BL_blood_of_random_3_desc;Blood of [Root.GetHighGodName];;;;;;;;;;;;;;x
+BL_blood_of_random_4;The blood of [Root.GetHighGodName] flows through this character's veins.;;;;;;;;;;;;;;x
+BL_blood_of_random_4_desc;Blood of [Root.GetHighGodName];;;;;;;;;;;;;;x
+BL_blood_of_random_5;The blood of [Root.GetHighGodName] flows through this character's veins.;;;;;;;;;;;;;;x
+BL_blood_of_random_5_desc;Blood of [Root.GetHighGodName];;;;;;;;;;;;;;x
+BL_blood_of_random_6;The blood of [Root.GetHighGodName] flows through this character's veins.;;;;;;;;;;;;;;x
+BL_blood_of_random_6_desc;Blood of [Root.GetHighGodName];;;;;;;;;;;;;;x
+BL_blood_of_random_7;The blood of [Root.GetHighGodName] flows through this character's veins.;;;;;;;;;;;;;;x
+BL_blood_of_random_7_desc;Blood of [Root.GetHighGodName];;;;;;;;;;;;;;x
+BL_blood_of_random_8;The blood of [Root.GetHighGodName] flows through this character's veins.;;;;;;;;;;;;;;x
+BL_blood_of_random_8_desc;Blood of [Root.GetHighGodName];;;;;;;;;;;;;;x
+BL_blood_of_random_9;The blood of [Root.GetHighGodName] flows through this character's veins.;;;;;;;;;;;;;;x
+BL_blood_of_random_9_desc;Blood of [Root.GetHighGodName];;;;;;;;;;;;;;x
+BL_of_utgardr_loki;Blood of Útgarða-Loki;;;;;;;;;;;;;;x
+BL_of_utgardr_loki_desc;A clever giant who tricked Þórr, Loki, and Þjálfi into challenges they were incapable of defeating even as Þórr lifted the world-serpent Jörmungandr.;;;;;;;;;;;;;;x
+BL_alchemist;Magical Blood of [This.GetTitledFirstName];;;;;;;;;;;;;;x
+BL_alchemist_desc;[This.GetTitledFirstName] became legendary for successfully creating the Philosopher's Stone, granting eternal life;;;;;;;;;;;;;;x
+BL_herbalist;Magical Blood of [This.GetTitledFirstName];;;;;;;;;;;;;;x
+BL_herbalist_desc;[This.GetSheHeCap] became famous for establishing a system of apothecaries to aid many cities through a devastating plague.;;;;;;;;;;;;;;x
+BL_enchanter;Magical Blood of [This.GetTitledFirstName];;;;;;;;;;;;;;x
+BL_enchanter_desc;[This.GetSheHeCap] became famous for creating one of the most beautiful cities in the world, the likes of which may never been seen again.;;;;;;;;;;;;;;x
+BL_summoner;Magical Blood of [This.GetTitledFirstName];;;;;;;;;;;;;;x
+BL_summoner_desc;[This.GetSheHeCap] perfected the art of conjuration, advised my many magical beings from beyond this world.;;;;;;;;;;;;;;x
+BL_necromancer;Dread Blood of [This.GetTitledFirstName];;;;;;;;;;;;;;x
+BL_necromancer_desc;[This.GetTitledFirstName] was famed as a ruler of the dead, calling forth armies of revenants to do [This.GetHerHis] bidding.;;;;;;;;;;;;;;x
+bloodline_effect_necromancer_study;Characters can study §YNecromancy§!;;;;;;;;;;;;;;x
+BL_magic_heritage;Magical Blood of [This.GetTitledFirstName];;;;;;;;;;;;;;x
+BL_magic_heritage_desc;[This.GetSheHeCap] was known not only as a powerful mage, but for this power continuing through [This.GetHerHis] family line.;;;;;;;;;;;;;;x
+bloodline_effect_magic_heritage;Children can always study §YMagic§!;;;;;;;;;;;;;;x
+bloodline_effect_magic_education;Children get better results from §YMagic Education§!;;;;;;;;;;;;;;x
+bloodline_effect_magic_tower;Can use any magic tower.;;;;;;;;;;;;;;x
+bloodline_effect_duel_advantage_monster;Gain an advantage in duels against §Ymonsters§!.;;;;;;;;;;;;;;x
+bloodline_effect_gain_monster_hunter;More likely to gain the §YMonster Hunter§! trait.;;;;;;;;;;;;;;x
+bloodline_effect_duel_advantage_werewolf_vampire;Gain an advantage in duels against §Ywerewolves§! and §Yvampires§!.;;;;;;;;;;;;;;x
+bloodline_effect_duel_advantage_dragon;Gain an advantage in duels against §Ydragons§!.;;;;;;;;;;;;;;x
+bloodline_effect_bank_interest;Gain interest on funds set aside for loans.;;;;;;;;;;;;;;x
+bloodline_effect_better_summons;Summons have stronger effects.;;;;;;;;;;;;;;x
+BL_monster_hunter;Monster Hunter Blood of [Root.GetFirstName];;;;;;;;;;;;;;x
+BL_monster_hunter_desc;[Root.GetMonster1]. [Root.GetMonster2]. [Root.GetRevenantTerm].  All these monsters seek to prey upon [Root.GetSpecies]kind, yet there are those who stand as a bulwark against them.  [Root.GetBestName] proved to be one of the greatest foes of the creatures of the night.;;;;;;;;;;;;;;x
+BL_helsing;Blood of Abraham Van Helsing;;;;;;;;;;;;;;x
+BL_helsing_desc;An accomplished doctor, Abraham Van Helsing found himself called upon to treat a girl of a strange illness. Discovering it to be the curse of vampirism, the doctor set his life to fighting these dark forces that assail humanity.;;;;;;;;;;;;;;x
+BL_blood_of_sigurd;Blood of [Root.GetDragonslayer];;;;;;;;;;;;;;x
+BL_blood_of_sigurd_desc;Having felled many a dragon, the people began to treat [Root.GetName] as a successor to the mighty [Root.GetDragonslayer], famed slayer of dragons.;;;;;;;;;;;;;;x
+BL_banking;Silver Blood of [Root.GetFirstName];;;;;;;;;;;;;;x
+BL_banking_desc;[Root.GetBestName] was said to have a midas touch - every business transaction [Root.GetSheHe] touched would turn to gold.  Soon, the vast wealth flowing through [Root.GetHerHis] coffers would see that [Root.GetHerHis] descendants would want for nothing.;;;;;;;;;;;;;;x
+BL_ramesis;Blood of Ramesses;;;;;;;;;;;;;;x
+BL_ramesis_desc;Ramesses II, the Strong Bull, Beloved of Ra, the Protector of Egypt who curbs foreign lands was one of the most famous Pharaohs of antiquity and a reknowned builder of monuments.;;;;;;;;;;;;;;x
+bloodline_inheritance_genetic;§YGenetic§! bloodline inheritance;;;;;;;;;;;;;;x
+bloodline_inheritance_vampiric;§YVampiric§! bloodline inheritance;;;;;;;;;;;;;;x
+bloodline_inheritance_high_vampiric;§YHigh Vampiric§! bloodline inheritance;;;;;;;;;;;;;;x
+bloodline_effect_vampiric_support;Characters gain more support in vampiric elections;;;;;;;;;;;;;;x
+bloodline_effect_known_sired_vampires;Sired vampires are automatically known;;;;;;;;;;;;;;x
+bloodline_effect_restricted_feeding;Cannot safely feed on §Yunlanded§! characters without §Ybloodlines§! or positive congenital traits;;;;;;;;;;;;;;x
+bloodline_effect_weaken_vampire_victim;Feeding weakens well-bred victims;;;;;;;;;;;;;;x
+bloodline_effect_known_sired_ugly_vampires;Sired vampires are automatically known and ugly;;;;;;;;;;;;;;x
+bloodline_effect_vampire_feed_genetic_bonus;Gain better attributes from feeding on well-bred characters;;;;;;;;;;;;;;x
+bloodline_effect_slow_disease_recovery;Slow to recover from §Ydiseases§!;;;;;;;;;;;;;;x
+bloodline_effect_disease_hunger;§YDiseases§! slow hunger gains;;;;;;;;;;;;;;x
+bloodline_effect_no_tainted_blood;Never gain §YTainted Blood§!;;;;;;;;;;;;;;x
+bloodline_effect_feed_on_anyone;Can feed on §Y[Root.GetRevenantTerm]s§!, §Ydemons§!, §Ywerewolves§!, and §Yvampires§!;;;;;;;;;;;;;;x
+bloodline_effect_attribute_treatment;Attribute bonuses only counteract diseases;;;;;;;;;;;;;;x
+bloodline_effect_werewolf_support;Characters gain more support in werewolf elections;;;;;;;;;;;;;;x
+bloodline_effect_werewolf_challenge_morale;Deal additional morale damage in §Ywerewolf challenges§!;;;;;;;;;;;;;;x
+bloodline_effect_child_werewolves;Children are more likely to become §Ywerewolves§!;;;;;;;;;;;;;;x
+BL_vampiric_highborn;Vampiric House of [Root.Dynasty.GetName];;;;;;;;;;;;;;x
+BL_vampiric_highborn_desc;The great house of [Root.Dynasty.GetName] has shown great vampiric power, passed on to those sired. With their great power, comes a discerning palate.;;;;;;;;;;;;;;x
+BL_blood_of_nosferatu;Blood of [Root.GetFirstName];;;;;;;;;;;;;;x
+BL_blood_of_nosferatu_desc;Cursed with a grotesque body, the vampire [Root.GetBestName] found [Root.GetHimselfHerself] host to a new strain of the vampiric curse, leaving the body strong but twisted, even for those [Root.GetSheHe] sired.;;;;;;;;;;;;;;x
+BL_vile_blood;Vile Blood of [Root.GetFirstName];;;;;;;;;;;;;;x
+BL_vile_blood_desc;Having a body wracked by disease and with no qualms on spreading them, [Root.GetBestName]'s vampiric curse soon adapted and gained strength from illness and developed a miasmic bite.;;;;;;;;;;;;;;x
+BL_werewolf_nobility;Wolfborn House of [Root.Dynasty.GetName];;;;;;;;;;;;;;x
+BL_werewolf_nobility_desc;The blood of the wolf runs strong in the descendants of [Root.GetBestName].;;;;;;;;;;;;;;x
+BL_blood_embers;Holy Blood of [Root.GetBestName];;;;;;;;;;;;;;x
+BL_blood_flame;Holy Blood of [Root.GetBestName];;;;;;;;;;;;;;x
+BL_blood_eternal_flame;Holy Blood of [Root.GetBestName];;;;;;;;;;;;;;x
+BL_blood_sacrifice;Holy Blood of [Root.GetBestName];;;;;;;;;;;;;;x
+BL_golden_blood;Golden Blood of [Root.GetBestName];;;;;;;;;;;;;;x
+BL_blood_reclaimer;Holy Blood of [Root.GetBestName];;;;;;;;;;;;;;x
+BL_everburning_blood;Everburning Blood of [Root.GetFirstName];;;;;;;;;;;;;;x
+draconic_saint_desc;On [Root.GetDeathDate], [Root.GetBestName] sacrificed [Root.GetHimselfHerself] to become the new Eternal Flame in [Root.death_location.GetName].;;;;;;;;;;;;;;x
+MBLOODLINE_EVTDESCA.1;With disease running rampant through my realm, I feel it falls to me and my herbal knowledge to find a treatment for this illness.  It will take truly focused effort, but I may be able to aid the populace.;;;;;;;;;;;;;;x
+MBLOODLINE_EVTOPTA.1;This will be my sole focus.;;;;;;;;;;;;;;x
+MBLOODLINE_EVTOPTB.1;As long as it doesn't interfere with my other work.;;;;;;;;;;;;;;x
+MBLOODLINE_EVTOPTC.1;I don't have the time to spare.;;;;;;;;;;;;;;x
+MBLOODLINE_EVTDESC.2;It's clear that any cure is not going to come quickly, and people are dying as they wait.  It's time to expand the hospitals, and quickly.;;;;;;;;;;;;;;x
+MBLOODLINE_EVTOPTA.2;We will rush out as many as we can.;;;;;;;;;;;;;;x
+MBLOODLINE_EVTOPTB.2;I need to help the capital.;;;;;;;;;;;;;;x
+MBLOODLINE_EVTOPTC.2;I can't afford this right now.;;;;;;;;;;;;;;x
+MBLOODLINE_EVTDESC.3;While I'm reasearching a cure, the hospitals are getting overloaded. The beds are doubled up and the stench of the patients' filth is surely making the miasma worse.;;;;;;;;;;;;;;x
+MBLOODLINE_EVTOPTA.3;The hospitals may put patients in some of my residences.;;;;;;;;;;;;;;x
+MBLOODLINE_EVTOPTB.3;We can put some of them in the palace.;;;;;;;;;;;;;;x
+MBLOODLINE_EVTOPTC.3;I'll just have to finish quickly.;;;;;;;;;;;;;;x
+MBLOODLINE_EVTDESC.4;While I have been researching, the clergy have been helping tend to the sick from their own resources, though it's an uphill battle;;;;;;;;;;;;;;x
+MBLOODLINE_EVTOPTA.4;Perhaps some more funding will help keep the illness in check.;;;;;;;;;;;;;;x
+MBLOODLINE_EVTOPTB.4;I can spare some time to assist personally.;;;;;;;;;;;;;;x
+MBLOODLINE_EVTOPTC.4;I can spare neither the time nor the money.;;;;;;;;;;;;;;x
+MBLOODLINE_EVTDESC.5;I've done it! I've at last found the right concoction of ingredients to create a potion to to cleanse the infected of the disease running through the land. The ingredients aren't cheap, and distribution will take a lot of people, but we now can be rid of this blight.;;;;;;;;;;;;;;x
+MBLOODLINE_EVTOPTA.5;I will have my troops distribute it in several provinces;;;;;;;;;;;;;;x
+MBLOODLINE_EVTOPTB.5;We need this in the capital;;;;;;;;;;;;;;x
+MBLOODLINE_EVTOPTC.5;People will be willing to pay quite a lot for this.;;;;;;;;;;;;;;x
+MBLOODLINE_EVTOPTD.5;It was an academic exercise, nothing more.;;;;;;;;;;;;;;x
+MBLOODLINE_EVTDESC.6;After all my hard work ridding the land of the disease plaguing it, word has begun spreading about my skill with herb lore.  My name will go down in history as being synonymous with my craft.;;;;;;;;;;;;;;x
+MBLOODLINE_EVTDESCA.7;While I may be a skilled enchanter, it is not skill which people remember, but rather what they do with it. To that end, I should turn [Root.Capital.GetName] into a shining utopia that the world will never forget.;;;;;;;;;;;;;;x
+MBLOODLINE_OPTA.7;My glory will go down in legend!;;;;;;;;;;;;;;x
+MBLOODLINE_OPTB.7;I doubt I could afford to do this.;;;;;;;;;;;;;;x
+MBLOODLINE_EVTDESC.8;The waters of the town are often of an unpleasant hue.  The should shine and shimmer in the sun and romantically reflect the light of the moon.  If I want [Root.Capital.GetName] to be a true place of beauty, this is where I should start.;;;;;;;;;;;;;;x
+MBLOODLINE_OPTA.8;I will pour every ounce of my magic into clearing up the water;;;;;;;;;;;;;;x
+MBLOODLINE_OPTB.8;Some purification enchantments upstream should be enough.;;;;;;;;;;;;;;x
+MBLOODLINE_OPTC.8;Just a slight glamour to trick the eye should fool people.;;;;;;;;;;;;;;x
+MBLOODLINE_OPTD.8;Water? I want a beautiful city not a beautiful fountain.;;;;;;;;;;;;;;x
+MBLOODLINE_EVTDESC.9;My builders have been going around repairing any worn or damaged buildings, but they still lack any real presence. They're far too drab for my vision of the area.;;;;;;;;;;;;;;x
+MBLOODLINE_OPTA.9;Perhaps I could magically fuse the walls with fine gems. A crystal castle would be a sight to behold.;;;;;;;;;;;;;;x
+MBLOODLINE_OPTB.9;The walls should be imbued with gold dust to make everything glitter;;;;;;;;;;;;;;x
+MBLOODLINE_OPTC.9;Every building must be decorated with exotic paints.;;;;;;;;;;;;;;x
+MBLOODLINE_OPTD.9;The repairs should work fine. No need to waste good money.;;;;;;;;;;;;;;x
+MBLOODLINE_EVTDESC.10;The people living in the towns seem worn down.  Enchanting everyone would be beyond even me, but ensuring everyone plentiful food should lighten their spirits.;;;;;;;;;;;;;;x
+MBLOODLINE_OPTA.10;Make the food duplicate itself. Everyone will feast every night!;;;;;;;;;;;;;;x
+MBLOODLINE_OPTB.10;Enchant the farms to grow larger crops that can feed more people for the same work.;;;;;;;;;;;;;;x
+MBLOODLINE_OPTC.10;I'll enchant the food against spoilage to make winters easier;;;;;;;;;;;;;;x
+MBLOODLINE_OPTD.10;Just make sure any visitors or scribes stay away from the lower classes.;;;;;;;;;;;;;;x
+MBLOODLINE_EVTDESC.11;Everything around here is too quiet.  If I can fill the town with gentile music, it should keep people calm and relaxed while giving the town a feeling of dignity.;;;;;;;;;;;;;;x
+MBLOODLINE_OPTA.11;I will enchant every part of the town to exude calming music.;;;;;;;;;;;;;;x
+tt_enchant_music_long;This task may take years to complete;;;;;;;;;;;;;;x
+MBLOODLINE_OPTB.11;I will enchant just key gathering places.;;;;;;;;;;;;;;x
+tt_enchant_music_medium;This task may take about a year to complete;;;;;;;;;;;;;;x
+MBLOODLINE_OPTC.11;It will be most noticeable at the entrances.;;;;;;;;;;;;;;x
+tt_enchant_music_short;This task may take months to complete;;;;;;;;;;;;;;x
+MBLOODLINE_OPTD.11;I doubt anyone would notice the music.;;;;;;;;;;;;;;x
+MBLOODLINE_EVTDESC.12;As I wonder the castle grounds, it strikes me that a key part of the image of an ideal landscape comes not from the landscape itself, but from the weather.  To truly give people the image of a grand city, the weather should be warm and calm.;;;;;;;;;;;;;;x
+MBLOODLINE_OPTA.12;Yes, today's weather should never pass.;;;;;;;;;;;;;;x
+MBLOODLINE_OPTB.12;I should be able to slow losing calm weather and hurry away bad weather.;;;;;;;;;;;;;;x
+MBLOODLINE_OPTC.12;I may be able to at least blunt the worst storms.;;;;;;;;;;;;;;x
+MBLOODLINE_OPTD.12;This is just a passing thought.;;;;;;;;;;;;;;x
+MBLOODLINE_EVTDESC.13;What I think I need now is guards designed to impress visitors with the cities majesty more than to fight.  The first thing they should see are guards in parade dress.;;;;;;;;;;;;;;x
+MBLOODLINE_OPTA.13;All the key points should have these guards;;;;;;;;;;;;;;x
+MBLOODLINE_OPTB.13;The main thoroughfares should have parade guards;;;;;;;;;;;;;;x
+MBLOODLINE_OPTC.13;These guards should be at the entrance;;;;;;;;;;;;;;x
+MBLOODLINE_OPTD.13;Such mundane things won't show off my magic.;;;;;;;;;;;;;;x
+MBLOODLINE_EVTDESCA.15;All of my hard work has paid off. Nobles from all over are making trips to see the beauty I have created.  Scribes from [Root.Religion.GetReligionTempleName]s came to write about it and painters travel for weeks to capture its glory.;;;;;;;;;;;;;;x
+MBLOODLINE_EVTDESCB.15;While my results never quite lived up to my vision, it seems that what I have accomplished was enough.  People come from all over to see the results and it seems my work will not be forgotten.;;;;;;;;;;;;;;x
+MBLOODLINE_EVTOPTA.15;My name will be remembered.;;;;;;;;;;;;;;x
+MBLOODLINE_EVTDESCA.15;Despite all my hard work and the sheer beauty of [Root.Capital.GetName], no one seems to care.  People go about their normal business and don't give a second glace at the beauty around them.;;;;;;;;;;;;;;x
+MBLOODLINE_EVTDESCB.15;Having been met by repeated failures along the way, I suppose it's not surprising that my results fell short of my vision. My capital is little better than it was before, and those changes will soon be forgotten.;;;;;;;;;;;;;;x
+MBLOODLINE_EVTOPTA.16;All that work for nothing.;;;;;;;;;;;;;;x
+MBLOODLINE_EVTDESC.17;Thanks to my magical skill, I am advised by the finest minds beyond the veil of this world and have armies brought down upon my foes at the snap of a finger. Still, I feel I could do something so much more. Something which legends will speak of for generations to come.;;;;;;;;;;;;;;x
+MBLOODLINE_EVTOPTA.17;There are still more powerful beings I can bind to my will.;;;;;;;;;;;;;;x
+MBLOODLINE_EVTOPTB.17;I'm not sure I could control something that powerful.;;;;;;;;;;;;;;x
+MBLOODLINE_DESCA.18;I have done my research and determined what will need to be done for the summoning.  The result will be quite tumultuous, so the ritual circle will need to be able to withstand the magical energies.;;;;;;;;;;;;;;x
+MBLOODLINE_EVTOPTA.18;A circle drawn in diamond dust should stand against the magical energy.;;;;;;;;;;;;;;x
+MBLOODLINE_EVTOPTB.18;If I engrave the circle into stone, that should prevent damage;;;;;;;;;;;;;;x
+MBLOODLINE_EVTOPTC.18;A normal drawing in chalk should be fine;;;;;;;;;;;;;;x
+MBLOODLINE_DESCA.19;Since I have many critical roles in the ritual, I will need an assistant to lead the other ritualists.  Their skills will influence the final creature that is summoned.;;;;;;;;;;;;;;x
+MBLOODLINE_EVTOPTA.19;[possible_ritual_leader_diplomacy.GetBestName] is good with people.;;;;;;;;;;;;;;x
+MBLOODLINE_EVTOPTB.19;[possible_ritual_leader_martial.GetBestName] knows how to lead.;;;;;;;;;;;;;;x
+MBLOODLINE_EVTOPTC.19;[possible_ritual_leader_stewardship.GetBestName] is good at organizing things.;;;;;;;;;;;;;;x
+MBLOODLINE_EVTOPTD.19;[possible_ritual_leader_intrigue.GetBestName] can handle secrets.;;;;;;;;;;;;;;x
+MBLOODLINE_EVTOPTE.19;[possible_ritual_leader_learning.GetBestName] should understand the ritual.;;;;;;;;;;;;;;x
+MBLOODLINE_EVTDESC.20;Now that I have someone to help lead the ritual, I need to determine who the other participants will be.;;;;;;;;;;;;;;x
+MBLOODLINE_EVTOPTA.20;I will select from skilled nobles.;;;;;;;;;;;;;;x
+MBLOODLINE_EVTOPTB.20;I can honor some of the tribe leaders.;;;;;;;;;;;;;;x
+MBLOODLINE_EVTOPTC.20;The church will be able to understand the ritual;;;;;;;;;;;;;;x
+MBLOODLINE_EVTOPTD.20;I can hire skilled scholars from the cities.;;;;;;;;;;;;;;x
+MBLOODLINE_EVTDESC.21;Now that everyone is prepared for the ritual, I need to prepare an appropriate sacrifice to act as a conduit for the summoning.;;;;;;;;;;;;;;x
+MBLOODLINE_EVTOPTA.21;I will have a solid gold statue made in the image of the being I'm summoning;;;;;;;;;;;;;;x
+MBLOODLINE_EVTOPTB.21;A marble figure should act as a nice conduit;;;;;;;;;;;;;;x
+MBLOODLINE_EVTOPTC.21;I can just use some of the gold from the treasury as a sacrifice;;;;;;;;;;;;;;x
+MBLOODLINE_EVTOPTD.21;Some farmers pay taxes in wheat and barley. I can use those as a burn offering.;;;;;;;;;;;;;;x
+MBLOODLINE_EVTOPTA.22;I will give my close family, [selected_family.GetFirstName].;;;;;;;;;;;;;;x
+MBLOODLINE_EVTOPTB.22;I will give my loyal servant, [selected_courtier.GetFirstName].;;;;;;;;;;;;;;x
+MBLOODLINE_EVTOPTC.22;The blood of the criminal [selected_prisoner.GetBestName] will serve.;;;;;;;;;;;;;;x
+MBLOODLINE_EVTDESC.23;[From.GetTitledName] lead me into a blood-stained room, surrounded by hooded figures.  At the end of the room was an altar, etched with runes, where [ritual_leader.GetBestName] stood with a knife.  I tried to break free, but my escorts held me down as the knife was plunged into my chest.;;;;;;;;;;;;;;x
+MBLOODLINE_EVTOPTA.23;Not like this...;;;;;;;;;;;;;;x
+MBLOODLINE_EVTDESC.25;All my work has paid off. Before me stands a titan of immense power, bound to my will, stronger than any being I've summoned yet.  This is truly the ultimate summoning.;;;;;;;;;;;;;;x
+MBLOODLINE_EVTOPTA.25;This event will never be forgotten;;;;;;;;;;;;;;x
+MBLOODLINE_EVTDESC.26;Despite all the hard work, nothing has come from the summoning.;;;;;;;;;;;;;;x
+MBLOODLINE_EVTOPTA.26;Was this all a waste of time?;;;;;;;;;;;;;;x
+MBLOODLINE_EVTDESC.27;My [Root.GetRevenantTerm]s have proven themselves on the field of battle, and I've proven I can conquer threatening rivals.  Perhaps I should show people my true power, and make realms tremble before me.;;;;;;;;;;;;;;x
+MBLOODLINE_EVTOPTA.27;Everyone should fear my power.;;;;;;;;;;;;;;x
+MBLOODLINE_EVTOPTB.27;It's better if I stay hidden.;;;;;;;;;;;;;;x
+MBLOODLINE_EVTDESC.28;It is time to show the world the power of the dead.  I will openly reveal my abilities to my vassals.  While the fear of my power may make them hate me, that fear will be part of my legacy.;;;;;;;;;;;;;;x
+MBLOODLINE_EVTOPTA.28;I will write them all a strongly worded letter, letting them know what I am capable of.;;;;;;;;;;;;;;x
+MBLOODLINE_EVTOPTB.28;I will march an army of the dead to their holds and let them see for themselves the power I wield;;;;;;;;;;;;;;x
+MBLOODLINE_EVTOPTC.28;I will ransack of the towns of the capital.  Let the survivors tell of my power while I take the wealth to prepare for what is to come.;;;;;;;;;;;;;;x
+MBLOODLINE_EVTOPTD.28;I will march the dead into the [Root.GetHouseOfWorship] during [Root.GetReligiousRite] and show them the power of the dead right before the holy altar.;;;;;;;;;;;;;;x
+MBLOODLINE_EVTDESC.29;I woke this morning to the thundering sound of a horde of bodied approaching my [Root.GetCapitalHolding].  When I look out, I saw a vast army of the dead, lead by [From.GetBestName]. [From.GetSheHeCap] announced [From.GetHerHis] plans of conquest with this new power, though it was clear the true threat behind this was directed at me.;;;;;;;;;;;;;;x
+MBLOODLINE_EVTOPTA.29;No good will come of this dark power.;;;;;;;;;;;;;;x
+MBLOODLINE_EVTDESC.30;In the middle of [From.GetReligiousRite], [From.GetTitledName] burst into the [From.GetHouseOfWorship] leading a horde of [Root.GetRevenantTerm], declaring [From.GetHerHis] intention to use foul rites for conquest.;;;;;;;;;;;;;;x
+MBLOODLINE_EVTOPTA.30;This is profane!;;;;;;;;;;;;;;x
+MBLOODLINE_EVTDESC.31;Word has reached me that my [GetFromRelation] has been leading an army of [Root.GetRevenantTerm]s pillaging and looting the cities of [From.Capital.GetName] to prepare for war.;;;;;;;;;;;;;;x
+MBLOODLINE_EVTOPTA.31;[From.GetSheHeCap] is a mad[From.GetManWoman].;;;;;;;;;;;;;;x
+MBLOODLINE_EVTDESC.32;[Root.GetTitledName],\n\nI have raised an army of the dead which the world will tremble to behold.  My might will bring kings and emperors to their knees.  My enemies will fall beneith waves of [From.GetRevenantTerm]s and then join their ranks. You would be advised not to cross me during my campaign.\n\n[From.GetTitledName];;;;;;;;;;;;;;x
+MBLOODLINE_EVTDESC.33;Soon, I will bring a great war to force everyone to see my power.  To prepare for this, I will need a grand undead army. Creating the army will be simple enough. What matters is how much will be sacrificed.;;;;;;;;;;;;;;x
+MBLOODLINE_EVTOPTA.33;Slaughter everyone.;;;;;;;;;;;;;;x
+MBLOODLINE_EVTOPTB.33;One member of each household must serve in death.;;;;;;;;;;;;;;x
+MBLOODLINE_EVTOPTC.33;Gather people in the capital.;;;;;;;;;;;;;;x
+MBLOODLINE_EVTOPTD.33;I already have the strength I need.;;;;;;;;;;;;;;x
+MBLOODLINE_EVTDESC.34;My army is prepared.  Now, I just need to use this to crush my neighbors and show the world the strength of the profile powers I wield.  I will cover their lands in corpses until they can't help but remember my name.;;;;;;;;;;;;;;x
+MBLOODLINE_EVTOPTA.34;It is time for war.;;;;;;;;;;;;;;x
+tt_gain_show_strength_necromancer_cb;Gain access to the §YShow Profane Strength§! casus belli.  Winning these wars may trigger additional events.;;;;;;;;;;;;;;x
+MBLOODLINE_EVTDESCA.35;Despite the weakness of my opponent, I still lose.  People now mock the grand claims I was making before the war.  If I want to show my power, I will not only need to win, but to do so against much stronger opponents.;;;;;;;;;;;;;;x
+MBLOODLINE_EVTDESCB.35;Despite the weakness of my opponent, I still lose.  People now mock the grand claims I was making before the war.  I wanted to be remembered, but not as a laughingstock.;;;;;;;;;;;;;;x
+MBLOODLINE_EVTOPTA.35;I need to try harder.;;;;;;;;;;;;;;x
+tt_lose_necromancy_progress;You are further from forging a new bloodline.;;;;;;;;;;;;;;x
+tt_gain_necromancy_progress;You are closer to forging a new bloodline.;;;;;;;;;;;;;;x
+MBLOODLINE_EVTOPTB.35;This is hopeless.;;;;;;;;;;;;;;x
+tt_lose_show_strength_necromancer_cb;Lose access to the §YShow Profane Strength§! casus belli.;;;;;;;;;;;;;;x
+MBLOODLINE_EVTDESC.37;I won the war, but no one seems to have made mention of it.  Perhaps I need to attack a stronger foe if I want people to fear my power.;;;;;;;;;;;;;;x
+MBLOODLINE_EVTOPTA.37;I need another war.;;;;;;;;;;;;;;x
+MBLOODLINE_EVTDESC.38;I won the war, and tales of carnage have begun to spread, but not as far as I would like.  I'm making progress, but my campaign must continue.;;;;;;;;;;;;;;x
+MBLOODLINE_EVTDESC.39;Now my work is done.  People speak my name in fearful tones and armies burn their dead to avoid them joining my growing legions.  When even I am finally lain to rest, that fear will live on for generations to come.;;;;;;;;;;;;;;x
+MBLOODLINE_EVTOPTA.39;This is what greatness looks like.;;;;;;;;;;;;;;x
+MBLOODLINE_EVTDESC.40;People have begun to remark on the magical talent possessed not only by myself, but by my children.  It seems that through hard work and good education, I'm well on my way to establishing a famous line of wizards.;;;;;;;;;;;;;;x
+MBLOODLINE_EVTOPTA.40;I'm glad my children have shown such talent.;;;;;;;;;;;;;;x
+MBLOODLINE_EVTOPTB.40;This isn't how I wish to be remembered.;;;;;;;;;;;;;;x
+MBLOODLINE_EVTDESC.43;As another monster breathes its dying breath, my destiny, and my role in this world, has become clear to people.  I am not some mere [Root.GetTitle], but a slayer of the monsters that hunt us in the night. Those witnessing the deed let out a cheer - it is time for those once-hunters to become the hunted.;;;;;;;;;;;;;;x
+MBLOODLINE_EVTOPTA.43;Now we fight back.;;;;;;;;;;;;;;x
+MBLOODLINE_EVTDESC.44;Yet another dragon's corpse lies before me.  What was once a terrifying foe is now almost mundane.  People have begun to compare me to [Root.GetDragonslayer].;;;;;;;;;;;;;;x
+MBLOODLINE_EVTOPTA.44;Now even dragons will fear me.;;;;;;;;;;;;;;x
+MBLOODLINE_EVTDESC.45;While feeding through my illness risks spreading infecting the humans on which we prey, I need to feed nevertheless.  As illness spreads from my body to theirs, I can feel myself adapting to it.  The diseases strengthen and sustain me.;;;;;;;;;;;;;;x
+MBLOODLINE_EVTOPTA.45;Who cares what the others think, I will feed as I like.;;;;;;;;;;;;;;x

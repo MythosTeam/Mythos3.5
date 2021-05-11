@@ -1,37 +1,37 @@
 #Traits
-refuses_imperium;Refuses Imperium;;;;;;;;x
-refuses_imperium_desc;This character has refused [Root.GetHerHis] right to be elected as Holy Roman [Root.GetEmperorEmpress]. This causes [Root.GetHerHis] children to become upset, as their chances of inheriting the Empire are greatly reduced, but religious authorities approve of faithful servants who do not strive after power.;;;;;;;;x
+refuses_imperium;Refuses Imperium;;;;;;;;;;;;;x
+refuses_imperium_desc;This character has refused [Root.GetHerHis] right to be elected as Holy Roman [Root.GetEmperorEmpress]. This causes [Root.GetHerHis] children to become upset, as their chances of inheriting the Empire are greatly reduced, but religious authorities approve of faithful servants who do not strive after power.;;;;;;;;;;;;;x
 
-refuses_imperium_byz;Refuses Imperium;;;;;;;;x
-refuses_imperium_byz_desc;This character has refused [Root.GetHerHis] right to be elected as [Root.GetEmperorEmpress] of the Romans. This causes [Root.GetHerHis] dynasty to become upset, since a position closer to the reigning Emperor or Empress often leads to power. However, the religious authorities approve of faithful servants who do not strive after power.;;;;;;;;x
+refuses_imperium_byz;Refuses Imperium;;;;;;;;;;;;;x
+refuses_imperium_byz_desc;This character has refused [Root.GetHerHis] right to be elected as [Root.GetEmperorEmpress] of the Romans. This causes [Root.GetHerHis] dynasty to become upset, since a position closer to the reigning Emperor or Empress often leads to power. However, the religious authorities approve of faithful servants who do not strive after power.;;;;;;;;;;;;;x
 
-refuses_the_crown;Refuses the Crown;;;;;;;;x
-refuses_the_crown_desc;This character refuses the [Root.Realm.GetImperialRoyal] Crown of the [Root.Realm.GetFullBaseName]. This reduces {Root.GetHerHis] children's opinion of him, but the religious authorities approve of a ruler who does not strive after power.;;;;;;;;x
+refuses_the_crown;Refuses the Crown;;;;;;;;;;;;;x
+refuses_the_crown_desc;This character refuses the [Root.Realm.GetImperialRoyal] Crown of the [Root.Realm.GetFullBaseName]. This reduces {Root.GetHerHis] children's opinion of him, but the religious authorities approve of a ruler who does not strive after power.;;;;;;;;;;;;;x
 #Decisions
-refuse_imperium;Refuse Imperium;;;;;;;;x
-refuse_imperium_desc;You declare to the Prince-Electors of the Holy Roman Empire that you will not accept being elected as [Root.GetEmperorEmpress];;;;;;;;x
+refuse_imperium;Refuse Imperium;;;;;;;;;;;;;x
+refuse_imperium_desc;You declare to the Prince-Electors of the Holy Roman Empire that you will not accept being elected as [Root.GetEmperorEmpress];;;;;;;;;;;;;x
 
-refuse_imperium_byz;Refuse Imperium;;;;;;;;x
-refuse_imperium_byz_desc;You declare to the Electors of the [GetRomanByzantine] Empire that you will not accept being elected as [Root.GetEmperorEmpress] of the Romans.;;;;;;;;x
+refuse_imperium_byz;Refuse Imperium;;;;;;;;;;;;;x
+refuse_imperium_byz_desc;You declare to the Electors of the [GetRomanByzantine] Empire that you will not accept being elected as [Root.GetEmperorEmpress] of the Romans.;;;;;;;;;;;;;x
 
-refuse_the_crown;Refuse the Crown;;;;;;;;x
-refuse_the_crown_desc;You decide to refuse to be elected for the crown, despite significant support.;;;;;;;;x
+refuse_the_crown;Refuse the Crown;;;;;;;;;;;;;x
+refuse_the_crown_desc;You decide to refuse to be elected for the crown, despite significant support.;;;;;;;;;;;;;x
 
-renounce_refusal;Renounce your refusal to Imperium;;;;;;;;x
-renounce_refusal_desc;You decide to renounce your refusal to accept Imperium, should the Prince-Electors wish to elect you as Holy Roman [Root.GetEmperorEmpress];;;;;;;;x
+renounce_refusal;Renounce your refusal to Imperium;;;;;;;;;;;;;x
+renounce_refusal_desc;You decide to renounce your refusal to accept Imperium, should the Prince-Electors wish to elect you as Holy Roman [Root.GetEmperorEmpress];;;;;;;;;;;;;x
 
-renounce_refusal_byz;Renounce your refusal to Imperium;;;;;;;;x
-renounce_refusal_byz_desc;You decide to renounce your refusal to accept Imperium, should the Electors wish to elect you as [Root.GetEmperorEmpress] of the Romans.;;;;;;;;x
+renounce_refusal_byz;Renounce your refusal to Imperium;;;;;;;;;;;;;x
+renounce_refusal_byz_desc;You decide to renounce your refusal to accept Imperium, should the Electors wish to elect you as [Root.GetEmperorEmpress] of the Romans.;;;;;;;;;;;;;x
 
-renounce_refusal_crown;Renounce your refusal to the Crown;;;;;;;;x
-renounce_refusal_crown_desc;You decide to renounce your refusal to accept the Crown, should the Electors wish to elect you once again.;;;;;;;;x
+renounce_refusal_crown;Renounce your refusal to the Crown;;;;;;;;;;;;;x
+renounce_refusal_crown_desc;You decide to renounce your refusal to accept the Crown, should the Electors wish to elect you once again.;;;;;;;;;;;;;x
 
-renounce_refusal_custom;Has been refusing Imperium for 5 years;;;;;;;;x
-renounce_refusal_custom_crown;Has been refusing the Crown for 5 years;;;;;;;;x
+renounce_refusal_custom;Has been refusing Imperium for 5 years;;;;;;;;;;;;;x
+renounce_refusal_custom_crown;Has been refusing the Crown for 5 years;;;;;;;;;;;;;x
 #Custom localisation
-EMPEROR;Emperor;;;;;;;;x
-EMPRESS;Empress;;;;;;;;x
-BASILEUS;Basileus;;;;;;;;x
-BASILEIA;Basileia;;;;;;;;x
-ROMAN;Roman;;;;;;;;x
-BYZANTINE;Byzantine;;;;;;;;x
+EMPEROR;Emperor;;;;;;;;;;;;;x
+EMPRESS;Empress;;;;;;;;;;;;;x
+BASILEUS;Basileus;;;;;;;;;;;;;x
+BASILEIA;Basileia;;;;;;;;;;;;;x
+ROMAN;Roman;;;;;;;;;;;;;x
+BYZANTINE;Byzantine;;;;;;;;;;;;;x
