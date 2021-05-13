@@ -2144,6 +2144,7 @@ character_event = {
 			add_trait = has_tuberculosis
 			clr_character_flag = developing_illness
 			clr_character_flag = got_tuberculosis
+			clr_character_flag = vf_sick_tuberculosis
 		}
 		if = {
 			limit = {
@@ -2153,6 +2154,7 @@ character_event = {
 			add_trait = has_typhoid_fever
 			clr_character_flag = developing_illness
 			clr_character_flag = got_typhoid_fever
+			clr_character_flag = vf_sick_typhoid_fever
 		}
 		if = {
 			limit = {
@@ -2162,6 +2164,7 @@ character_event = {
 			add_trait = has_typhus
 			clr_character_flag = developing_illness
 			clr_character_flag = got_typhus
+			clr_character_flag = vf_sick_typhus
 		}
 		if = {
 			limit = {
@@ -2171,6 +2174,7 @@ character_event = {
 			add_trait = has_bubonic_plague
 			clr_character_flag = developing_illness
 			clr_character_flag = got_bubonic_plague
+			clr_character_flag = vf_sick_bubonic_plague
 		}
 		if = {
 			limit = {
@@ -2180,6 +2184,7 @@ character_event = {
 			add_trait = has_measles
 			clr_character_flag = developing_illness
 			clr_character_flag = got_measles
+			clr_character_flag = vf_sick_measles
 		}
 		if = {
 			limit = {
@@ -2189,6 +2194,7 @@ character_event = {
 			add_trait = has_small_pox
 			clr_character_flag = developing_illness
 			clr_character_flag = got_smallpox
+			clr_character_flag = vf_sick_small_pox
 		}
 		if = {
 			limit = {
@@ -2198,6 +2204,7 @@ character_event = {
 			add_trait = has_aztec_disease
 			clr_character_flag = developing_illness
 			clr_character_flag = got_aztec_disease
+			clr_character_flag = vf_sick_aztec_disease
 		}
 		if = {
 			limit = {
@@ -2207,6 +2214,7 @@ character_event = {
 			add_trait = syphilitic
 			clr_character_flag = developing_illness
 			clr_character_flag = got_syphilis
+			clr_character_flag = vf_sick_syphilitic
 		}
 		if = {
 			limit = {
@@ -2216,6 +2224,7 @@ character_event = {
 			add_trait = flu
 			clr_character_flag = developing_illness
 			clr_character_flag = got_flu
+			clr_character_flag = vf_sick_flu
 		}
 		if = {
 			limit = {
@@ -2225,6 +2234,7 @@ character_event = {
 			add_trait = dysentery
 			clr_character_flag = developing_illness
 			clr_character_flag = got_dysentery
+			clr_character_flag = vf_sick_dysentery
 		}
 		if = {
 			limit = {
@@ -2234,6 +2244,7 @@ character_event = {
 			add_trait = gout
 			clr_character_flag = developing_illness
 			clr_character_flag = got_gout
+			clr_character_flag = vf_sick_gout
 		}
 		if = {
 			limit = {
@@ -2243,6 +2254,7 @@ character_event = {
 			add_trait = food_poisoning
 			clr_character_flag = developing_illness
 			clr_character_flag = got_food_poisoning
+			clr_character_flag = vf_sick_food_poisoning
 		}
 		if = {
 			limit = {
@@ -2252,6 +2264,7 @@ character_event = {
 			add_trait = rabies
 			clr_character_flag = developing_illness
 			clr_character_flag = got_rabies
+			clr_character_flag = vf_sick_rabies
 		}
 		if = {
 			limit = {
@@ -2261,6 +2274,7 @@ character_event = {
 			add_trait = cancer
 			clr_character_flag = developing_illness
 			clr_character_flag = got_cancer
+			clr_character_flag = vf_sick_cancer
 		}
 		if = {
 			limit = {
@@ -2270,6 +2284,7 @@ character_event = {
 			add_trait = pneumonic
 			clr_character_flag = developing_illness
 			clr_character_flag = got_pneumonia
+			clr_character_flag = vf_sick_pneumonic
 		}
 		if = {
 			limit = {
@@ -2279,6 +2294,7 @@ character_event = {
 			add_trait = dancing_plague
 			clr_character_flag = developing_illness
 			clr_character_flag = got_dancing_plague
+			clr_character_flag = vf_sick_dancing_plague
 		}
 		if = {
 			limit = {
@@ -2286,6 +2302,7 @@ character_event = {
 				NOT = { has_dlc = "Reapers" }
 			}
 			add_trait = ill
+			clr_character_flag = vf_sick_ill
 		}
 		if = {
 			limit = {
@@ -2293,6 +2310,7 @@ character_event = {
 				NOT = { has_dlc = "Reapers" }
 			}
 			add_trait = leper
+			clr_character_flag = vf_sick_leper
 		}
 		if = {
 			limit = {
@@ -2300,11 +2318,13 @@ character_event = {
 				NOT = { has_dlc = "Reapers" }
 			}
 			add_trait = lovers_pox
+			clr_character_flag = vf_sick_lovers_pox
 		}
 		
 		if = {
 			limit = { has_character_flag = vf_tainted_blood }
 			add_character_modifier = { name = tainted_blood duration = 180 }
+			clr_character_flag = vf_tainted_blood
 		}
 		
 		if = {
