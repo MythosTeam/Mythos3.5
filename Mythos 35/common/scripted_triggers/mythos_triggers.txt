@@ -3313,102 +3313,148 @@ is_non_theistic = {
 }
 
 can_challenge_infamy = {
-	OR = {
-		NOT = { prestige = 0 }
-		reverse_has_opinion_modifier = { who = ROOT modifier = opinion_tyrant }
-		reverse_has_opinion_modifier = { who = ROOT modifier = opinion_evil_tyrant }
-	}
-	NOR = {
-		has_law = werewolf_law_1
-		has_law = werewolf_law_2
-		has_law = werewolf_law_3
-		has_law = werewolf_law_4
+	custom_tooltip = {
+		text = can_challenge_infamy_tt
+		OR = {
+			NOT = { prestige = 0 }
+			reverse_has_opinion_modifier = { who = ROOT modifier = opinion_tyrant }
+			reverse_has_opinion_modifier = { who = ROOT modifier = opinion_evil_tyrant }
+		}
+		NOR = {
+			has_law = werewolf_law_1
+			has_law = werewolf_law_2
+			has_law = werewolf_law_3
+			has_law = werewolf_law_4
+		}
 	}
 }
 
 can_challenge_genetic = {
-	OR = {
-		trait = inbred
-		trait = clubfooted
-		trait = quailfooted
-		trait = hunchback
-		trait = twisted
-		trait = harelip
-		trait = cleft_lip
-		trait = dwarf
-	}
-	NOR = {
-		has_law = werewolf_law_3
-		has_law = werewolf_law_4
+	custom_tooltip = {
+		text = can_challenge_genetic_tt
+		OR = {
+			trait = inbred
+			trait = clubfooted
+			trait = quailfooted
+			trait = hunchback
+			trait = twisted
+			trait = harelip
+			trait = cleft_lip
+			trait = dwarf
+		}
+		NOR = {
+			has_law = werewolf_law_3
+			has_law = werewolf_law_4
+		}
 	}
 }
 can_challenge_weak = {
-	OR = {
-		trait = weak
-		trait = feeble
-	}
-	NOT = {
-		has_law = werewolf_law_4
+	custom_tooltip = {
+		text = can_challenge_weak_tt
+		OR = {
+			trait = weak
+			trait = feeble
+		}
+		NOT = {
+			has_law = werewolf_law_4
+		}
 	}
 }
 can_challenge_female = {
-	NOT = {
-		has_law = werewolf_law_4
-	}
-	OR = {
-		AND = {
-			has_dlc = "Zeus"
-			has_law = status_of_women_0
+	custom_tooltip = {
+		text = can_challenge_female_tt
+		NOT = {
+			has_law = werewolf_law_4
 		}
-		AND = {
-			NOT = { has_dlc = "Zeus" }
-			has_law = agnatic_succession
+		OR = {
+			AND = {
+				has_dlc = "Zeus"
+				has_law = status_of_women_0
+			}
+			AND = {
+				NOT = { has_dlc = "Zeus" }
+				has_law = agnatic_succession
+			}
+			has_religion_feature = religion_patriarchal
 		}
-		has_religion_feature = religion_patriarchal
+		NOR = {
+			has_religion_feature = religion_matriarchal
+			has_religion_feature = religion_equal
+			has_religion_feature = religion_feature_bon
+		}
+		is_female = yes
 	}
-	NOR = {
-		has_religion_feature = religion_matriarchal
-		has_religion_feature = religion_equal
-		has_religion_feature = religion_feature_bon
-	}
-	is_female = yes
 }
 
 can_challenge_male = {
-	NOT = {
-		has_law = werewolf_law_4
+	custom_tooltip = {
+		text = can_challenge_male_tt
+		NOT = {
+			has_law = werewolf_law_4
+		}
+		has_religion_feature = religion_matriarchal
+		is_female = no
 	}
-	has_religion_feature = religion_matriarchal
-	is_female = no
 }
 
 can_challenge_new_ruler = {
-	OR = {
-		AND = {
-			NOT = { ruled_years = 5 }
-			NOR = {
-				has_law = werewolf_law_2
-				has_law = werewolf_law_3
-				has_law = werewolf_law_4
+	custom_tooltip = {
+		text = can_challenge_new_ruler_tt
+		OR = {
+			AND = {
+				NOT = { ruled_years = 5 }
+				NOR = {
+					has_law = werewolf_law_2
+					has_law = werewolf_law_3
+					has_law = werewolf_law_4
+				}
 			}
-		}
-		AND = {
-			NOT = { ruled_years = 4 }
-			OR = {
-				has_law = werewolf_law_2
-				has_law = werewolf_law_3
+			AND = {
+				NOT = { ruled_years = 4 }
+				OR = {
+					has_law = werewolf_law_2
+					has_law = werewolf_law_3
+				}
 			}
+			NOT = { ruled_years = 3 }
 		}
-		NOT = { ruled_years = 3 }
 	}
 }
 
 can_challenge_child = {
-	NOT = { age = 16 }
-	NOR = {
-		has_law = werewolf_law_2
-		has_law = werewolf_law_3
-		has_law = werewolf_law_4
+	custom_tooltip = {
+		text = can_challenge_child_tt
+		NOT = { age = 16 }
+		NOR = {
+			has_law = werewolf_law_2
+			has_law = werewolf_law_3
+			has_law = werewolf_law_4
+		}
+	}
+}
+
+can_challenge_foreigner = {
+	custom_tooltip = {
+		text = can_challenge_foreigner_tt
+		trait = known_werewolf
+		NOT = { culture = werewolf_culture }
+	}
+}
+
+can_challenge_notwerewolf = {
+	custom_tooltip = {
+		text = can_challenge_notwerewolf_tt
+		NOT = { trait = known_werewolf }
+	}
+}
+
+can_challenge_high_combat = {
+	custom_tooltip = {
+		text = can_challenge_high_combat_tt
+		combat_rating_diff = {
+			character = ROOT
+			value <= 0
+		}
 	}
 }
 

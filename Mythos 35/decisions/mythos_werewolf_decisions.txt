@@ -26,9 +26,10 @@ decisions = {
 		}
 		allow = {
 			trait = known_werewolf
-			prestige = 1
+			prestige = 100
 			is_incapable = no
 			prisoner = no
+			war = no
 			# No ongoing challenge
 			custom_tooltip = {
 				text = TT_no_current_challenge
@@ -57,163 +58,18 @@ decisions = {
 						NOT = { has_character_modifier = recently_challenged }
 					}
 				}
-			}
-			# Can challenge underage
-			OR = {
-				liege = { age = 16 }
-				custom_tooltip = {
-					text = TT_challenge_child
-					hidden_tooltip = {
-						liege = {
-							NOR = {
-								has_law = werewolf_law_2
-								has_law = werewolf_law_3
-								has_law = werewolf_law_4
-							}
-						}
-					}
-				}
-			}
-			OR = {
-				AND = {
-					liege = { is_female = yes }
-					custom_tooltip = {
-						text = TT_challenge_female
-						hidden_tooltip = {
-							liege = {
-								AND = {
-									NOT = { has_law = werewolf_law_4 }
-									OR = {
-										AND = {
-											has_dlc = "Zeus"
-											has_law = status_of_women_0
-										}
-										AND = {
-											NOT = { has_dlc = "Zeus" }
-											has_law = agnatic_succession
-										}
-										has_religion_feature = religion_patriarchal
-									}
-									NOR = {
-										has_religion_feature = religion_matriarchal
-										has_religion_feature = religion_equal
-										has_religion_feature = religion_feature_bon
-									}
-								}
-							}
-						}
-					}
-				}
-				AND = {
-					liege = { is_female = no }
-					custom_tooltip = {
-						text = TT_challenge_male
-						hidden_tooltip = {
-							liege = {
-								AND = {
-									NOT = { has_law = werewolf_law_4 }
-									has_religion_feature = religion_matriarchal
-								}
-							}
-						}
-					}
-				}
-				AND = {
-					custom_tooltip = {
-						text = TT_infamous
-						hidden_tooltip = {
-							liege = { 
-								OR = {
-									NOT = { prestige = 0 }
-									reverse_has_opinion_modifier = { who = ROOT modifier = opinion_tyrant }
-									reverse_has_opinion_modifier = { who = ROOT modifier = opinion_evil_tyrant }
-								}
-							}
-						}
-					}
-					custom_tooltip = {
-						text = TT_challenge_infamy
-						hidden_tooltip = {
-							liege = { 
-								NOR = {
-									has_law = werewolf_law_1
-									has_law = werewolf_law_2
-									has_law = werewolf_law_3
-									has_law = werewolf_law_4
-								}
-							}
-						}
-					}
-				}
-				AND = {
-					liege = {
-						OR = {
-							trait = weak
-							trait = feeble
-						}
-					}
-					custom_tooltip = {
-						text = TT_challenge_weak
-						hidden_tooltip = {
-							liege = { NOT = { has_law = werewolf_law_4 } }
-						}
-					}
-				}
-				AND = {
-					custom_tooltip = {
-						text = TT_deformed
-						hidden_tooltip = {
-							liege = {
-								OR = {
-									trait = clubfooted
-									trait = harelip
-									trait = hunchback
-									trait = dwarf
-									trait = inbred
-								}
-							}
-						}
-					}
-					custom_tooltip = {
-						text = TT_challenge_deformed
-						hidden_tooltip = {
-							liege = {
-								NOR = {
-									has_law = werewolf_law_3
-									has_law = werewolf_law_4
-								}
-							}
-						}
-					}
-				}
-				custom_tooltip = {
-					text = TT_new_liege
-					hidden_tooltip = {
-						liege = {
-							OR = {
-								AND = {
-									NOT = { ruled_years = 5 }
-									NOR = {
-										has_law = werewolf_law_2
-										has_law = werewolf_law_3
-										has_law = werewolf_law_4
-									}
-								}
-								AND = {
-									NOT = { ruled_years = 4 }
-									OR = {
-										has_law = werewolf_law_2
-										has_law = werewolf_law_3
-									}
-								}
-								NOT = { ruled_years = 3 }
-							}
-						}
-					}
-				}
-				liege = { is_incapable = yes }
-				liege = { NOT = { culture = werewolf_culture } }
-				liege = { NOT = { trait = known_werewolf } }
+				OR = {
+					can_challenge_infamy = yes
+					can_challenge_genetic = yes
+					can_challenge_weak = yes
+					can_challenge_female = yes
+					can_challenge_male = yes
+					can_challenge_new = yes
+					can_challenge_child = yes
+					can_challenge_foreigner = yes
+					can_challenge_notwerewolf = yes
+				)
+				can_challenge_low_combat_tt = yes
 			}
 		}
 		effect = {

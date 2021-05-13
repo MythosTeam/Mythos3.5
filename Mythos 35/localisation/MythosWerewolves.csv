@@ -1,3 +1,14 @@
+can_challenge_infamy_tt;Has no prestige or is extremely infamous;;;;;;;;;;;;;x
+can_challenge_genetic_tt;Has a debilitating genetic disorder;;;;;;;;;;;;;x
+can_challenge_weak_tt;Is weak or feeble;;;;;;;;;;;;;x
+can_challenge_female_tt;Is a woman in a patriarchy;;;;;;;;;;;;;x
+can_challenge_male_tt;Is a man in a matriarchy;;;;;;;;;;;;;x
+can_challenge_new_ruler_tt;Is a new ruler;;;;;;;;;;;;;x
+can_challenge_child_tt;Is a child;;;;;;;;;;;;;x
+can_challenge_foreigner_tt;Does not embrace Lycan ways;;;;;;;;;;;;;x
+can_challenge_notwerewolf_tt;Is not a Lycan;;;;;;;;;;;;;x
+can_not_challenge_high_combat_tt;Must be weaker than challenger;;;;;;;;;;;;;x
+
 found_highborn_family_werewolf;Found Highborn Family;;;;;;;;;;;;;x
 found_highborn_family_werewolf_desc;Establish your family as highborn werewolves.;;;;;;;;;;;;;x
 EVTNAME_WEREWOLF.1;Tough Love;;;;;;;;;;;;;x
