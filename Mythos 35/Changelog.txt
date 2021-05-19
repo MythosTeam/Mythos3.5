@@ -1,3 +1,17 @@
+v3.5.1
+
+Enhancements:
+
+Removal of zombies, flavor governments, purity mechanic, and dragon wonder in preparation for rewrite.
+Removal of bookmarks except for 867 in preparation for rewrite.
+Cleanup of the Lycan challenge decision. Now requires 100 prestige to select, cannot be done in war, and tightened target restrictions.
+
+Bug Fixes:
+
+Fixed localisation file issues.
+Vampires who drink tainted blood will now correctly clear the appropriate disease flags.
+
+
 v3.5.0
 
 Enhancements:
