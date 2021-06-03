@@ -68,7 +68,7 @@ decisions = {
 					can_challenge_child = yes
 					can_challenge_foreigner = yes
 					can_challenge_notwerewolf = yes
-				)
+				}
 				can_challenge_low_combat_tt = yes
 			}
 		}
