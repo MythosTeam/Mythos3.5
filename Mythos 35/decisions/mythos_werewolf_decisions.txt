@@ -2,7 +2,7 @@ decisions = {
 	
 	werewolf_challenge = {
 		is_high_prio = yes
-		
+		ai_check_interval = 120 # Every 10 years
 		potential = {
 			trait = werewolf
 			culture = werewolf_culture
@@ -150,6 +150,10 @@ decisions = {
 		}
 		ai_will_do = {
 			factor = 1
+			modifier = { # Global slowdown
+				factor = 0.1
+				NOT = { has_global_flag = lycan_deez_nuts }
+			}
 			modifier = {
 				factor = 0
 				has_global_flag = ongoing_werewolf_challenge
@@ -237,9 +241,17 @@ decisions = {
 			is_playable = yes
 			trait = werewolf
 			is_adult = yes
+			ai = no
 			is_inaccessible_or_incapable_trigger = no
 			NOT = {
 				any_owned_bloodline = { has_bloodline_flag = werewolf_noble }
+			}
+			NOT = { # There can be only one bloodline
+				any_character = {
+					any_bloodline = {
+						bloodline = BL_werewolf_nobility
+					}
+				}
 			}
 		}
 		allow = {
@@ -284,6 +296,7 @@ decisions = {
 			higher_real_tier_than = DUKE
 			is_incapable = no
 			trait = werewolf
+			ruled_years = 10
 			NOT = { culture = werewolf_culture }
 			NOT = { capital_scope = { culture = werewolf_culture } }
 			NOT = { liege = { culture = werewolf_culture } }
@@ -409,6 +422,9 @@ targetted_decisions = {
 				trait = giant
 				trait = god
 				character = FROM
+				any_vassal = {
+					character = FROM
+				}
 			}
 			OR = { 
 				AND = {
@@ -455,6 +471,10 @@ targetted_decisions = {
 		
 		ai_will_do = {
 			factor = 1
+			modifier = { # Global slowdown
+				factor = 0.1
+				NOT = { has_global_flag = lycan_deez_nuts }
+			}
 			modifier = {
 				factor = 1.1
 				opinion = { who = FROM value = 100 }
