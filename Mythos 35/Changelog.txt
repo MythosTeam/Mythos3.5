@@ -1,3 +1,13 @@
+v3.5.2
+
+Enhancements:
+
+Added a global slowdown to the werewolf AI/player decisions.
+
+Bug Fixes:
+
+Fixed an errant brace in the werewolf decision file.
+
 v3.5.1
 
 Enhancements:
