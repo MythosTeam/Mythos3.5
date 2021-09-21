@@ -1,0 +1,154 @@
+theocracy_governments = {
+
+	draconic_theocracy_government = {
+		preferred_holdings = { TEMPLE }
+		allowed_holdings = {
+			TEMPLE
+			CASTLE
+			FORT
+			HOSPITAL
+		}
+		allowed_holdings_culture = { # Will not get the wrong government type penalty for tribes of the same culture
+			TRIBAL
+		}
+		free_revoke_on_governments_religion = { # Tribal vassals of other religions can have their titles revoked for free
+			tribal_government
+			draconic_tribal_government
+			theocracy_government
+		}
+		accepts_liege_governments = {
+			feudal_government
+			muslim_government
+			republic_government
+			merchant_republic_government
+			draconic_merchant_republic_government
+			draconic_governorship
+			draconic_theocracy_government
+			draconic_feudal_government
+			draconic_tribal_government
+			blood_court_government
+			theocratic_feudal_government
+			chinese_imperial_government
+		}
+		frame_suffix = "_theocracy"
+		title_prefix = "temple_"
+		potential = {
+			OR = {
+				religion = draconic_pagan
+				religion = draconic_pagan_reformed
+			}
+			OR = {
+				capital_holding = { title = b_lejre }
+				capital_holding = { title = b_canterbury }
+				capital_holding = { title = b_wyszogrod }
+				capital_holding = { title = b_whithorn }
+				capital_holding = { title = b_uppsala }
+				controls_religion = yes
+			}
+			OR = {
+				NOT = { trait = zombie }
+				liege = { government = draconic_theocracy_government }
+			}
+			holy_order = no
+			is_patrician = no
+			OR = {
+				is_female = no
+				religion_allows_female_temple_holders = yes
+			}
+			OR = {
+				is_female = yes
+				religion_allows_male_temple_holders = yes
+			}
+		}
+		
+		color = { 210 210 255 }
+		
+		have_gender_laws = no
+		can_be_granted_kingdoms_and_empires_by_other_government = no
+		uses_jizya_tax = yes # Remove if this taxes based off Muslim religion
+		uses_piety_for_law_change = yes
+		free_levies_in_offensive_war = yes
+		
+		can_build_tribal = no
+		can_build_castle = no
+		can_build_city = no
+		
+		capital_move_delay = 600
+	}
+	
+	theocracy_government = {
+		preferred_holdings = { TEMPLE }
+		allowed_holdings = {
+			TEMPLE
+			CASTLE
+			FORT
+			HOSPITAL
+		}
+		allowed_holdings_culture = { # Will not get the wrong government type penalty for tribes of the same culture
+			TRIBAL
+		}
+		free_revoke_on_governments_religion = { # Tribal vassals of other religions can have their titles revoked for free
+			tribal_government
+			draconic_tribal_government
+		}
+		accepts_liege_governments = {
+			feudal_government
+			muslim_government
+			republic_government
+			merchant_republic_government
+			draconic_merchant_republic_government
+			draconic_governorship
+			draconic_theocracy_government
+			draconic_feudal_government
+			draconic_tribal_government
+			blood_court_government
+			theocratic_feudal_government
+			chinese_imperial_government
+		}
+		frame_suffix = "_theocracy"
+		title_prefix = "temple_"
+		potential = {
+			NOT = {	religion_group = muslim	}
+			NAND = {
+				OR = {
+					religion = draconic_pagan
+					religion = draconic_pagan_reformed
+				}
+				OR = {
+					capital_holding = { title = b_lejre }
+					capital_holding = { title = b_canterbury }
+					capital_holding = { title = b_wyszogrod }
+					capital_holding = { title = b_whithorn }
+					capital_holding = { title = b_uppsala }
+					controls_religion = yes
+				}
+			}
+			holy_order = no
+			is_patrician = no
+			OR = {
+				is_female = no
+				religion_allows_female_temple_holders = yes
+			}
+			OR = {
+				is_female = yes
+				religion_allows_male_temple_holders = yes
+			}
+			OR = {
+				NOT = { trait = zombie }
+				liege = { government = draconic_theocracy_government }
+				liege = { government = theocracy_government }
+			}
+		}
+		
+		color = { 220 220 220 }
+		
+		can_create_kingdoms = no
+		have_gender_laws = no
+		can_be_granted_kingdoms_and_empires_by_other_government = no
+
+		can_build_tribal = no
+		
+		capital_move_delay = 600
+	}
+	
+}

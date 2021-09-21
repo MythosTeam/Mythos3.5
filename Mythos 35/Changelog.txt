@@ -1,3 +1,9 @@
+v3.5.2.1
+
+Enchancements:
+
+Restored the dragon governments, excluding the nomads.
+
 v3.5.2
 
 Enhancements:

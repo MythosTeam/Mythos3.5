@@ -663,10 +663,7 @@ religion_spread = {
 		factor = 0.1
 		religion = draconic_pagan
 		FROM = {
-			OR = {
-				government = marauding_dragon_government
-				government = nomadic_government
-			}
+			government = nomadic_government
 		}
 	}
 	# Jotnar religion should spread will with Jotnar culture
@@ -890,10 +887,7 @@ holy_site_spread = {
 		factor = 0.01
 		religion = draconic_pagan
 		FROM = {
-			OR = {
-				government = marauding_dragon_government
-				government = nomadic_government
-			}
+			government = nomadic_government
 		}
 	}
 	# Sharing some holy sites with parent religion is neat

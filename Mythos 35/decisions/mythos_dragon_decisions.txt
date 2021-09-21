@@ -2928,10 +2928,6 @@ settlement_decisions = {
 				factor = 1.2
 				FROM = { trait = wroth }
 			}
-			modifier = {
-				factor = 1.5
-				FROM = { government = marauding_dragon_government }
-			}
 			modifier = { 
 				factor = 0
 				owner = { top_liege = { character = FROM } }

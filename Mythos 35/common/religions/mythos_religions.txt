@@ -413,6 +413,8 @@ pagan_group = {
 		intermarry = atenist
 		intermarry = kemetic_pagan_reformed
 		
+		reformed = kemetic_pagan_reformed
+		
 		character_modifier = {
 			the_damned_opinion = -200
 		}
