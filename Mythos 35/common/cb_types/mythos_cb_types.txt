@@ -278,7 +278,9 @@ dragon_tribal_tribute_cb = {
 	
 	can_use = {
 		ROOT = {
-			government = draconic_tribal_government
+			government = tribal_government
+			trait = dragon
+			culture = draconic
 			mercenary = no
 			is_tributary = no
 			NOT = { is_vassal_or_below = FROM }

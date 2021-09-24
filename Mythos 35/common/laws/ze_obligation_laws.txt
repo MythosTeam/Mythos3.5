@@ -561,16 +561,6 @@ laws = {
 				holder_scope = { is_patrician = yes }
 			}
 			NOT = { holder_scope = { religion_group = muslim } }
-			NOT = { 
-				holder_scope = { 
-					OR = {
-						government = draconic_feudal_government 
-						government = draconic_tribal_government
-						government = draconic_governorship
-						government = draconic_merchant_republic_government
-					}
-				}
-			}
 		}
 		allow = {
 			OR = {
@@ -681,16 +671,6 @@ laws = {
 				holder_scope = { is_patrician = yes }
 			}
 			NOT = { holder_scope = { religion_group = muslim } }
-			NOT = { 
-				holder_scope = { 
-					OR = {
-						government = draconic_feudal_government 
-						government = draconic_tribal_government
-						government = draconic_governorship
-						government = draconic_merchant_republic_government
-					}
-				}
-			}
 		}
 		allow = {
 			OR = {
@@ -801,16 +781,6 @@ laws = {
 				holder_scope = { is_patrician = yes }
 			}
 			NOT = { holder_scope = { religion_group = muslim } }
-			NOT = { 
-				holder_scope = { 
-					OR = {
-						government = draconic_feudal_government 
-						government = draconic_tribal_government
-						government = draconic_governorship
-						government = draconic_merchant_republic_government
-					}
-				}
-			}
 		}
 		allow = {
 			OR = {
@@ -921,16 +891,6 @@ laws = {
 				holder_scope = { is_patrician = yes }
 			}
 			NOT = { holder_scope = { religion_group = muslim } }
-			NOT = { 
-				holder_scope = { 
-					OR = {
-						government = draconic_feudal_government 
-						government = draconic_tribal_government
-						government = draconic_governorship
-						government = draconic_merchant_republic_government
-					}
-				}
-			}
 		}
 		allow = {
 			has_law = tax_levy_law_feudal_7
@@ -2401,16 +2361,6 @@ laws = {
 				NOT = { tier = baron }
 				holder_scope = { is_patrician = yes }
 			}
-			NOT = { 
-				holder_scope = { 
-					OR = {
-						government = draconic_feudal_government 
-						government = draconic_tribal_government
-						government = draconic_governorship
-						government = draconic_merchant_republic_government
-					}
-				}
-			}
 		}
 		allow = {
 			OR = {
@@ -2519,16 +2469,6 @@ laws = {
 			OR = {
 				NOT = { tier = baron }
 				holder_scope = { is_patrician = yes }
-			}
-			NOT = { 
-				holder_scope = { 
-					OR = {
-						government = draconic_feudal_government 
-						government = draconic_tribal_government
-						government = draconic_governorship
-						government = draconic_merchant_republic_government
-					}
-				}
 			}
 		}
 		allow = {
@@ -2639,16 +2579,6 @@ laws = {
 				NOT = { tier = baron }
 				holder_scope = { is_patrician = yes }
 			}
-			NOT = { 
-				holder_scope = { 
-					OR = {
-						government = draconic_feudal_government 
-						government = draconic_tribal_government
-						government = draconic_governorship
-						government = draconic_merchant_republic_government
-					}
-				}
-			}
 		}
 		allow = {
 			OR = {
@@ -2757,16 +2687,6 @@ laws = {
 			OR = {
 				NOT = { tier = baron }
 				holder_scope = { is_patrician = yes }
-			}
-			NOT = { 
-				holder_scope = { 
-					OR = {
-						government = draconic_feudal_government 
-						government = draconic_tribal_government
-						government = draconic_governorship
-						government = draconic_merchant_republic_government
-					}
-				}
 			}
 		}
 		allow = {
@@ -3257,16 +3177,6 @@ laws = {
 				holder_scope = { is_patrician = yes }
 			}
 			NOT = { holder_scope = { religion_group = muslim } }
-			NOT = { 
-				holder_scope = { 
-					OR = {
-						government = draconic_feudal_government 
-						government = draconic_tribal_government
-						government = draconic_governorship
-						government = draconic_merchant_republic_government
-					}
-				}
-			}
 		}
 		allow = {
 			OR = {
@@ -3360,16 +3270,6 @@ laws = {
 				holder_scope = { is_patrician = yes }
 			}
 			NOT = { holder_scope = { religion_group = muslim } }
-			NOT = { 
-				holder_scope = { 
-					OR = {
-						government = draconic_feudal_government 
-						government = draconic_tribal_government
-						government = draconic_governorship
-						government = draconic_merchant_republic_government
-					}
-				}
-			}
 		}
 		allow = {
 			OR = {
@@ -3463,16 +3363,6 @@ laws = {
 				holder_scope = { is_patrician = yes }
 			}
 			NOT = { holder_scope = { religion_group = muslim } }
-			NOT = { 
-				holder_scope = { 
-					OR = {
-						government = draconic_feudal_government 
-						government = draconic_tribal_government
-						government = draconic_governorship
-						government = draconic_merchant_republic_government
-					}
-				}
-			}
 		}
 		allow = {
 			OR = {
@@ -3566,16 +3456,6 @@ laws = {
 				holder_scope = { is_patrician = yes }
 			}
 			NOT = { holder_scope = { religion_group = muslim } }
-			NOT = { 
-				holder_scope = { 
-					OR = {
-						government = draconic_feudal_government 
-						government = draconic_tribal_government
-						government = draconic_governorship
-						government = draconic_merchant_republic_government
-					}
-				}
-			}
 		}
 		allow = {
 			has_law = tax_levy_law_theocracy_7
@@ -4051,16 +3931,6 @@ laws = {
 				NOT = { tier = baron }
 				holder_scope = { is_patrician = yes }
 			}
-			NOT = { 
-				holder_scope = { 
-					OR = {
-						government = draconic_feudal_government 
-						government = draconic_tribal_government
-						government = draconic_governorship
-						government = draconic_merchant_republic_government
-					}
-				}
-			}
 		}
 		allow = {
 			OR = {
@@ -4152,16 +4022,6 @@ laws = {
 			OR = {
 				NOT = { tier = baron }
 				holder_scope = { is_patrician = yes }
-			}
-			NOT = { 
-				holder_scope = { 
-					OR = {
-						government = draconic_feudal_government 
-						government = draconic_tribal_government
-						government = draconic_governorship
-						government = draconic_merchant_republic_government
-					}
-				}
 			}
 		}
 		allow = {
@@ -4255,16 +4115,6 @@ laws = {
 				NOT = { tier = baron }
 				holder_scope = { is_patrician = yes }
 			}
-			NOT = { 
-				holder_scope = { 
-					OR = {
-						government = draconic_feudal_government 
-						government = draconic_tribal_government
-						government = draconic_governorship
-						government = draconic_merchant_republic_government
-					}
-				}
-			}
 		}
 		allow = {
 			OR = {
@@ -4356,16 +4206,6 @@ laws = {
 			OR = {
 				NOT = { tier = baron }
 				holder_scope = { is_patrician = yes }
-			}
-			NOT = { 
-				holder_scope = { 
-					OR = {
-						government = draconic_feudal_government 
-						government = draconic_tribal_government
-						government = draconic_governorship
-						government = draconic_merchant_republic_government
-					}
-				}
 			}
 		}
 		allow = {

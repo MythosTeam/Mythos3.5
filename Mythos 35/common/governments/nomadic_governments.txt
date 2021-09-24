@@ -14,13 +14,8 @@ nomadic_governments = {
 			muslim_government
 			theocracy_government
 			merchant_republic_government
-			draconic_merchant_republic_government
 			republic_government
 			tribal_government
-			draconic_governorship
-			draconic_theocracy_government
-			draconic_feudal_government
-			draconic_tribal_government
 			blood_court_government
 			theocratic_feudal_government
 			chinese_imperial_government

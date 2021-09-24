@@ -272,24 +272,12 @@ dragon_culture_group = {
 		color = { 0.9 0.3 0.3 }
 		
 		male_names = {
-			Medoth Celneth Keleth Mirsoth Rugarth Beroan Bessonth Kalinth Balor Beriel Alagor Relkor Malian Tavurth Erfolg Wruenele 
-			Kur Thevetat Grundle Rhindle Yorgle Kilgharrah Ormr Alklha Dahhak Ganj Kundrav Asdeev Rishtu Zigarun Imgig 
-			Ollipeist Sinach Cetus Ammut
-			Chrysophylax
-			Scatha Glorund Áttorsceaða Draca Eorðdraca Fýrdraca Lígdraca Lyftfloga Níðdraca Úhtfloga Gúþfloga Swilgeþ Wælgeuga
-			Blæst Brynewielm Heaðuwylm Sweoloþ Ádlég Byrne Brynewelm Wylm Lígbryne Teónlíg Bladesian Sweartfengtóþ Goldweard Goldwecg Seolfor
-			Beadurinc Beorn Beornwiga Cempa Cniht Cumbolwíga Dreng Dryhtguma Freca Gumrinc Gúðcyning Gúðfreca Gúðfremmend Gúðgelæca
-			Gúðmaga Gúðrinc Gúðwiga Heaðurinc Heoruwulf Ordwyga Óretmæcga Randhæbbend Cáfclifer Handspor Heofonflyht Áflyge Ánfloga Ícend Ícestre
-			Ánmédla Æsctír Éðelþrymm Héahþrymm Heofonþrymm Hréþ Tírfruma Þrymcyning Þrymwealdend Þrýþcyning Weorþmynd Weorþscipe Wuldor Blædgifa
-			Gefeá Gúþhréþ Árhwæt Hlísbæ Tírfæst
+			Bretrud Belshuth Granath Nudkon Grelshed Netrug Bazgakig Virphogoks Rainutgas Miabakin Srecshok Verzra Icshuph Zeoskez Orshiu Brotra Edkashux Sroleriag Zojercec Kuzitheogg Strunos Halshik Golen Tozax Riukond Murshig Melgeobiand Hiurshaesheos Edatre Krurordrun Binshen Kundiagg Borsha Rucreph Teodkric Trakri Treskora Druskulix Ashutruk Tisargo Sridgrec Trirzu Hesgoks Grioltoph Vacnog Iosun Kuthozu Srunskirag Srezethen Rusharphe Vucgeoth Zutriph Trorshog Raskaeks Makrae Endae Urelus Serceniks Brunadgre Rujocdug
+			Kindruna Miarontes Rilrirred Chenes Frivi Joighem Gezze Amriat Broze Iavror Dommysdess Atanurth Grithurrurth Grambot Indreg Frydror Qieseot Gyvror Gretus Deisyd Isareig Connontuss Frithesdainth Neotar Zyrvoirth Qylzro Chalbiss Arsanth Oghiss Kosug Qasusdayt Rurgyrirth Chydary Iateis Beovror Xuvriss Iandon Ilzryt Xaynod Qainnoir Jenirynth Qemmisdiss Kimbanom Neme Gruvim Cyddris Mondreonth Niarvos Gyrgo Jaram Jenirynth Gylrorron Kyzzirim Myrventid Methayrth Chiazyrth Jivranth Gronnei Chunar Aduss Ykad Ylzrudit Breiddryrranth Erserror Tygies Piddrais Iakyd Gindrot Rudrid Cozzis Baildrur
 		}
 		female_names = {
-			Telshir Cirnon Kela Mirsa Balash Berinil Alagash Verash Kelirth Tamenth Veron Dagahra Aithusa Hubar Omorka Tauthe Tehom 
-			Talatth Thamte Tiawath Tismet Tisalet Khubar Ayida
-			Gléd Líeg Swaðul Swol Wanfýr Wielm Bælblæse Bryneleóma Blase Lígýþ Blæcce Goldæht Goldléaf Réadgoldlæfer Smætegold Goldmáðum
-			Glengness Gebegylded Geágeolwed Fæted Goldbeorht Seolfor Cempestre Gúðcyst Fléotig Cáfictere Olifrung Clæwende Cláwende
-			Clyferfete Heofonbéacen Lyftwynn Ácennicge Byrðre Íecestre Módorlufu Sunucennicge Modoreynd Andetnes Andett Ellenmærðu
-			Godþrymnes Indryhtu Lof Mægenþrymnes Mægþblæd Mærþ Weorþmynt Íormærnes Ness Gemiclung Heáhþrymness Heahjjryrnrn Wuldrende
+			Phetheinhro Masuzhi Ungiele Idneni Urca Thunhih Ussesh Esgo Itrox Nilni Ranundi Carikthesh Easheli Rerphesaz Ozheish Rozeth Hiesgi Igru Nezhei Ilzosh Theshisges Azesnath Ugtraxa Akhemu Aktu Streitho Streidhri Einghea Talde Bhenush Rushodhe Iarekthe Udreisai Mosamiash Ishtea Garco Ogtrai Daesthoz Leitria Ainse
+			Mirviententh Framana Sozienel Biesoss Vade Baverth Cerra Illies Neirsoss Sondulth Niollanty Billyrrot Nyllyna Cayzzi Qandrith Tynno Bonnyt Shytith Lazael Mikar Zimrelylth Myrgedae Yrvionteith Pamri Fivnalth Letol Avnuss Challanth Gere Aivnul Cheonneino Cymrydelth Zemro Essarrirth Ierrionth Oavne Sisso Nazzit Yrvunth Omro Ryrgoro Ivorith Eivneiphes Peldriess Chumoth Fyvnio Itass Doaldrun Osarth Qaerli Pennyphul Herviphor Gyghurie Gassys Yndurth Qepet Rirgoss Qothy Chivnyr Ciku Lymarilth Taemrodat Illa Neroaderth Garves Haizzar Azen Dollot Zinniss Yldrynth
 		}
 		
 		#founder_named_dynasties = yes

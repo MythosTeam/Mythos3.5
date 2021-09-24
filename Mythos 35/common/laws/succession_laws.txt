@@ -229,10 +229,6 @@ succession_laws = {
 					}
 				}
 				NOT = { religion_group = muslim }
-				NOR = { 
-					government = draconic_feudal_government
-					government = draconic_tribal_government
-				}
 				is_merchant_republic = no
 				is_patrician = no
 				OR = {
@@ -366,10 +362,6 @@ succession_laws = {
 					religion_group = muslim 
 					has_religion_feature = religion_matriarchal
 					has_religion_feature = religion_patriarchal
-				}
-				NOR = { 
-					government = draconic_feudal_government
-					government = draconic_tribal_government
 				}
 				is_merchant_republic = no
 				is_patrician = no
@@ -665,9 +657,6 @@ succession_laws = {
 						is_vice_royalty = yes
 					}
 				}
-				holder_scope = { # Always allowed for draconic governerships
-					government = draconic_governorship
-				}
 				AND = {
 					holder_scope = {
 						OR = {
@@ -721,7 +710,6 @@ succession_laws = {
 						}
 					}
 					has_title_flag = flag_hereditary_pontif
-					holder_scope = { government = draconic_governorship }
 					AND = {
 						holder_scope = {
 							show_scope_change = no
@@ -749,7 +737,6 @@ succession_laws = {
 						}
 					}
 					has_title_flag = flag_hereditary_pontif
-					holder_scope = { government = draconic_governorship }
 					hidden_tooltip = {
 						has_crown_law_title = no
 					}
@@ -857,7 +844,6 @@ succession_laws = {
 				}
 				is_merchant_republic = no
 				is_patrician = no
-				NOT = { holder_scope = { government = draconic_governorship } }
 				
 				OR = {
 					NOT = { religion_group = pagan_group }

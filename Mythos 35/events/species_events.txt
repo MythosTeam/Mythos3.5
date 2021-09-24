@@ -1814,11 +1814,11 @@ character_event = {
 		if = {
 			limit = {
 				OR = {
-					government = draconic_feudal_government
-					government = draconic_tribal_government
-					government = draconic_governorship
-					government = draconic_merchant_republic_government
+					government = feudal_government
+					government = tribal_government
+					government = merchant_republic_government
 				}
+				trait = dragon
 			}
 			if = {
 				limit = {
@@ -1859,11 +1859,11 @@ character_event = {
 		if = {
 			limit = {
 				NOR = {
-					government = draconic_feudal_government
-					government = draconic_tribal_government
-					government = draconic_governorship
-					government = draconic_merchant_republic_government
+					government = feudal_government
+					government = tribal_government
+					government = merchant_republic_government
 				}
+				trait = dragon
 			}
 			remove_character_modifier = non_dragon_heir
 			remove_character_modifier = non_dragon_heir_lesser

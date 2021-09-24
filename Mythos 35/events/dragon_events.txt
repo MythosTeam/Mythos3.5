@@ -383,7 +383,9 @@ character_event = {
 	trigger = {
 		is_tributary = yes
 		suzerain = {
-			government = draconic_tribal_government
+			government = tribal_government
+			trait = dragon
+			culture = draconic
 		}
 	}
 	
@@ -788,23 +790,6 @@ character_event = {
 	
 	# Refuse
 	option = {
-		trigger = {
-			OR = {
-				ai = no
-				AND = {
-					is_decision_allowed = convert_draconic_merchant_republic
-					is_decision_potential = convert_draconic_merchant_republic
-				}
-				AND = {
-					is_decision_allowed = convert_draconic_feudalism
-					is_decision_potential = convert_draconic_feudalism
-				}
-				AND = {
-					is_decision_allowed = convert_draconic_feudalism_vassal
-					is_decision_potential = convert_draconic_feudalism_vassal
-				}
-			}
-		}
 		name = EVTOPTB_DRAGON.12
 		custom_tooltip = {
 			text = EVTTT_DRAGON.12

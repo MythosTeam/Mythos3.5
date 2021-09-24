@@ -102,7 +102,7 @@ bm_the_old_gods = {
 			properties = da00b000000
 			religion="draconic_pagan"
 			culture="draconic"
-			government = draconic_feudal_government
+			government = feudal_government
 			dynasty=1049007
 		}
 	}
@@ -121,7 +121,7 @@ bm_the_old_gods = {
 			properties = g0000000000000
 			religion = draconic_pagan
 			culture = draconic
-			government = draconic_tribal_government
+			government = tribal_government
 			dynasty = 1049011
 		}
 	}

@@ -3,7 +3,9 @@ government_flavor = {
 	graphics = GFX_evt_dragon_castle
 	priority = 1
 	trigger = {
-		government = draconic_feudal_government
+		government = feudal_government
+		trait = dragon
+		culture = draconic
 	}
 }
 
@@ -12,7 +14,9 @@ government_flavor = {
 	graphics = GFX_evt_dragon_spire
 	priority = 1
 	trigger = {
-		government = draconic_tribal_government
+		government = tribal_government
+		trait = dragon
+		culture = draconic
 	}
 }
 
@@ -21,7 +25,9 @@ government_flavor = {
 	graphics = GFX_evt_dragon_castle
 	priority = 1
 	trigger = {
-		government = draconic_governorship
+		government = governorship
+		trait = dragon
+		culture = draconic
 	}
 }
 
@@ -30,7 +36,9 @@ government_flavor = {
 	graphics = GFX_evt_dragon_horde
 	priority = 1
 	trigger = {
-		government = draconic_merchant_republic_government
+		government = merchant_republic_government
+		trait = dragon
+		culture = draconic
 	}
 }
 
@@ -39,7 +47,9 @@ government_flavor = {
 	graphics = GFX_evt_powerful_tower
 	priority = 1
 	trigger = {
-		government = draconic_theocracy_government
+		government = theocracy_government
+		trait = dragon
+		culture = draconic
 	}
 }
 

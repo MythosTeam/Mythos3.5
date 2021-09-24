@@ -192,10 +192,7 @@ decisions = {
 		only_playable = yes
 		ai_check_interval = 3
 		potential = {
-			OR = {
-				government = draconic_merchant_republic_government
-				government = merchant_republic_government
-			}
+			government = merchant_republic_government
 			NOR = {
 				trait = banker
 			}

@@ -1714,10 +1714,7 @@ character_event = {
 					}
 					modifier = {
 						factor = 0.75
-						OR = {
-							government = merchant_republic_government
-							government = draconic_merchant_republic_government
-						}
+						government = merchant_republic_government
 					}
 					set_character_flag = theology_option_greedy
 				}

@@ -1473,16 +1473,7 @@ laws = {
 				holder_scope = { is_patrician = yes }
 			}
 			NOT = { holder_scope = { religion_group = muslim } }
-			NOT = { 
-				holder_scope = { 
-					OR = {
-						government = draconic_feudal_government 
-						government = draconic_tribal_government
-						government = draconic_governorship
-						government = draconic_merchant_republic_government
-					}
-				}
-			}
+
 		}
 		ai_will_do = {
 			factor = 0
@@ -1510,16 +1501,6 @@ laws = {
 				holder_scope = { is_patrician = yes }
 			}
 			NOT = { holder_scope = { religion_group = muslim } }
-			NOT = { 
-				holder_scope = { 
-					OR = {
-						government = draconic_feudal_government 
-						government = draconic_tribal_government
-						government = draconic_governorship
-						government = draconic_merchant_republic_government
-					}
-				}
-			}
 		}
 		ai_will_do = {
 			factor = 0
@@ -1547,16 +1528,6 @@ laws = {
 				holder_scope = { is_patrician = yes }
 			}
 			NOT = { holder_scope = { religion_group = muslim } }
-			NOT = { 
-				holder_scope = { 
-					OR = {
-						government = draconic_feudal_government 
-						government = draconic_tribal_government
-						government = draconic_governorship
-						government = draconic_merchant_republic_government
-					}
-				}
-			}
 		}
 		ai_will_do = {
 			factor = 1
@@ -1584,16 +1555,6 @@ laws = {
 				holder_scope = { is_patrician = yes }
 			}
 			NOT = { holder_scope = { religion_group = muslim } }
-			NOT = { 
-				holder_scope = { 
-					OR = {
-						government = draconic_feudal_government 
-						government = draconic_tribal_government
-						government = draconic_governorship
-						government = draconic_merchant_republic_government
-					}
-				}
-			}
 		}
 		ai_will_do = {
 			factor = 0
@@ -1953,16 +1914,6 @@ laws = {
 				NOT = { tier = baron }
 				holder_scope = { is_patrician = yes }
 			}
-			NOT = { 
-				holder_scope = { 
-					OR = {
-						government = draconic_feudal_government 
-						government = draconic_tribal_government
-						government = draconic_governorship
-						government = draconic_merchant_republic_government
-					}
-				}
-			}
 		}
 		ai_will_do = {
 			factor = 0
@@ -1989,16 +1940,6 @@ laws = {
 				NOT = { tier = baron }
 				holder_scope = { is_patrician = yes }
 			}
-			NOT = { 
-				holder_scope = { 
-					OR = {
-						government = draconic_feudal_government 
-						government = draconic_tribal_government
-						government = draconic_governorship
-						government = draconic_merchant_republic_government
-					}
-				}
-			}
 		}
 		ai_will_do = {
 			factor = 1
@@ -2024,16 +1965,6 @@ laws = {
 				NOT = { tier = baron }
 				holder_scope = { is_patrician = yes }
 			}
-			NOT = { 
-				holder_scope = { 
-					OR = {
-						government = draconic_feudal_government 
-						government = draconic_tribal_government
-						government = draconic_governorship
-						government = draconic_merchant_republic_government
-					}
-				}
-			}
 		}
 		ai_will_do = {
 			factor = 0
@@ -2057,16 +1988,6 @@ laws = {
 			OR = {
 				NOT = { tier = baron }
 				holder_scope = { is_patrician = yes }
-			}
-			NOT = { 
-				holder_scope = { 
-					OR = {
-						government = draconic_feudal_government 
-						government = draconic_tribal_government
-						government = draconic_governorship
-						government = draconic_merchant_republic_government
-					}
-				}
 			}
 		}
 		ai_will_do = {
@@ -2209,16 +2130,6 @@ laws = {
 				NOT = { tier = baron }
 				holder_scope = { is_patrician = yes }
 			}
-			NOT = { 
-				holder_scope = { 
-					OR = {
-						government = draconic_feudal_government 
-						government = draconic_tribal_government
-						government = draconic_governorship
-						government = draconic_merchant_republic_government
-					}
-				}
-			}
 		}
 		ai_will_do = {
 			factor = 0
@@ -2247,16 +2158,6 @@ laws = {
 				NOT = { tier = baron }
 				holder_scope = { is_patrician = yes }
 			}
-			NOT = { 
-				holder_scope = { 
-					OR = {
-						government = draconic_feudal_government 
-						government = draconic_tribal_government
-						government = draconic_governorship
-						government = draconic_merchant_republic_government
-					}
-				}
-			}
 		}
 		ai_will_do = {
 			factor = 1
@@ -2281,16 +2182,6 @@ laws = {
 				NOT = { tier = baron }
 				holder_scope = { is_patrician = yes }
 			}
-			NOT = { 
-				holder_scope = { 
-					OR = {
-						government = draconic_feudal_government 
-						government = draconic_tribal_government
-						government = draconic_governorship
-						government = draconic_merchant_republic_government
-					}
-				}
-			}
 		}
 		ai_will_do = {
 			factor = 0
@@ -2314,16 +2205,6 @@ laws = {
 			OR = {
 				NOT = { tier = baron }
 				holder_scope = { is_patrician = yes }
-			}
-			NOT = { 
-				holder_scope = { 
-					OR = {
-						government = draconic_feudal_government 
-						government = draconic_tribal_government
-						government = draconic_governorship
-						government = draconic_merchant_republic_government
-					}
-				}
 			}
 		}
 		ai_will_do = {
@@ -2483,16 +2364,6 @@ laws = {
 					has_law = tribal_organization_4
 				}
 			}
-			NOT = { 
-				holder_scope = { 
-					OR = {
-						government = draconic_feudal_government 
-						government = draconic_tribal_government
-						government = draconic_governorship
-						government = draconic_merchant_republic_government
-					}
-				}
-			}
 		}
 		ai_will_do = {
 			factor = 0
@@ -2530,16 +2401,6 @@ laws = {
 					has_law = tribal_organization_4
 				}
 			}
-			NOT = { 
-				holder_scope = { 
-					OR = {
-						government = draconic_feudal_government 
-						government = draconic_tribal_government
-						government = draconic_governorship
-						government = draconic_merchant_republic_government
-					}
-				}
-			}
 		}
 		ai_will_do = {
 			factor = 1
@@ -2574,16 +2435,6 @@ laws = {
 					has_law = tribal_organization_4
 				}
 			}
-			NOT = { 
-				holder_scope = { 
-					OR = {
-						government = draconic_feudal_government 
-						government = draconic_tribal_government
-						government = draconic_governorship
-						government = draconic_merchant_republic_government
-					}
-				}
-			}
 		}
 		ai_will_do = {
 			factor = 0
@@ -2616,16 +2467,6 @@ laws = {
 				OR = {
 					has_law = tribal_organization_3
 					has_law = tribal_organization_4
-				}
-			}
-			NOT = { 
-				holder_scope = { 
-					OR = {
-						government = draconic_feudal_government 
-						government = draconic_tribal_government
-						government = draconic_governorship
-						government = draconic_merchant_republic_government
-					}
 				}
 			}
 		}

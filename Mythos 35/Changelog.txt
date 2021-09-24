@@ -1,3 +1,7 @@
+v3.5.3
+
+Removed the actual dragon governments and edited the government flavors to match. Actions that required a draconic government type now require the vanilla government type, the dragon trait, and draconic culture.
+
 v3.5.2.1
 
 Enhancements:
