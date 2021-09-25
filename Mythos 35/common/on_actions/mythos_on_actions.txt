@@ -33,6 +33,7 @@ on_yearly_pulse = {
 		DRAGON.169		# Recalculate draconic tribute succession effect
 		SPECIES.17		# Handle monthly events
 		SPECIES.19		# Lower health from Incapability
+		DRAGON.180		# Forces unimportant AI dragons into their culture
 	}
 	
 	random_events = {

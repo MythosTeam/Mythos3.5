@@ -5138,3 +5138,30 @@ character_event = {
 		}
 	}
 }
+
+# 180 - on_action event to force unimportant dragons into the draconic culture
+character_event = {
+	id = DRAGON.180
+	hide_window = yes
+	is_triggered_only = yes
+	ai = yes
+	min_age = 18
+	capable_only = yes
+	prisoner = no
+	in_command = no
+	trigger = {
+		ai = yes
+		OR = {
+			is_ruler = no
+			lower_tier_than = COUNT
+		}
+		any_liege = {
+			ai = yes
+		}
+		trait = dragon
+		NOT = { culture = draconic }
+	}
+	immediate = {
+		culture = draconic
+	}
+}
